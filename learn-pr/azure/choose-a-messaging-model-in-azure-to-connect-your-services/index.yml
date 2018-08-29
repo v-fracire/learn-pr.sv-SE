@@ -1,0 +1,31 @@
+### YamlMime:Module
+uid: learn.choose-messaging-model
+metadata:
+  title: Välja en meddelandemodell i Azure som löst koppla samman dina tjänster
+  description: När du har ett program som består av komponenter som körs på olika datorer, servrar och mobila enheter kan det vara svårt att göra kommunikationen mellan dessa komponenter tillförlitlig. Azure innehåller flera tekniker som du kan använda till att kommunicera mer tillförlitligt, som lagringsköer, händelsehubbar, Event Grid och Service Bus. I den här modulen får du se hur du väljer den teknik som passar bäst för din kommunikation.
+  ms.openlocfilehash: 65363cdb9a0f9db5158a780f0ac71e725727461e
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40448307"
+title: Välja en meddelandemodell i Azure som löst koppla samman dina tjänster
+summary: Välja rätt meddelandeteknik i Azure för att förbättra kommunikationen i ditt distribuerade program.
+abstract: När du har ett program som består av komponenter som körs på olika datorer, servrar och mobila enheter kan det vara svårt att göra kommunikationen mellan dessa komponenter tillförlitlig. Azure innehåller flera tekniker som du kan använda till att kommunicera mer tillförlitligt, som lagringsköer, händelsehubbar, Event Grid och Service Bus. I den här modulen får du se hur du väljer den teknik som passar bäst för din kommunikation.
+cardDescription: Välja rätt meddelandeteknik i Azure för att förbättra kommunikationen i ditt distribuerade program.
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- Azure
+units:
+- learn.choose-messaging-model.1-introduction
+- learn.choose-messaging-model.2-choose-whether-to-use-message-queues-or-events
+- learn.choose-messaging-model.3-knowledge-check
+- learn.choose-messaging-model.4-choose-azure-storage-queues
+- learn.choose-messaging-model.5-exercise-create-a-storage-queue
+- learn.choose-messaging-model.6-choose-event-grid
+- learn.choose-messaging-model.7-choose-azure-event-hubs
+achievement: learn.choose-messaging-model.badge

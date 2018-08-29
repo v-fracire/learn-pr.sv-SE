@@ -1,0 +1,25 @@
+### YamlMime:LearningPath
+uid: learn.architect-great-solutions-in-azure
+title: Skapa fantastiska lösningar med Azure
+summary: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
+cardDescription: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- solutions-architect
+products:
+- Azure
+prerequisites: Ingen
+metadata:
+  title: Skapa fantastiska lösningar med Azure
+  description: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
+  ms.openlocfilehash: 5f46bd87a3da8267bc0f494720e95a2b69578da4
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40448415"
+modules:
+- learn.sample-module-cloudshell
+achievement: learn.architect-great-solutions-in-azure.trophy

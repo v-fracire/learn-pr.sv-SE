@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.create-serverless-logic-with-functions.4-creating-and-executing-an-azure-function
+title: <span data-ttu-id="a7e90-101">Skapa och köra en Azure-funktion</span><span class="sxs-lookup"><span data-stu-id="a7e90-101">Creating and executing an Azure function</span></span>
+metadata:
+  title: <span data-ttu-id="a7e90-102">Skapa och köra en Azure-funktion</span><span class="sxs-lookup"><span data-stu-id="a7e90-102">Creating and executing an Azure function</span></span>
+  description: <span data-ttu-id="a7e90-103">Skapa och köra en Azure-funktion</span><span class="sxs-lookup"><span data-stu-id="a7e90-103">Creating and executing an Azure function</span></span>
+  ms.openlocfilehash: 5385d471331d087e0bb3e5aa0ef03badd9e0a602
+  ms.sourcegitcommit: 526b39347ae023619cc4c4add68eff971510e523
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "42939640"
+durationInMinutes: 10
+content: '[!include[](includes/4-creating-and-executing-an-azure-function.md)]'

@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.manage-vms-with-azure-cli-data.7-sizing-vms
+title: <span data-ttu-id="265c2-101">Välja rätt storlek på virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="265c2-101">Sizing VMs properly</span></span>
+metadata:
+  title: <span data-ttu-id="265c2-102">Välja rätt storlek på virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="265c2-102">Sizing VMs properly</span></span>
+  description: <span data-ttu-id="265c2-103">Lär dig att välja rätt storlek på virtuella datorer för den tilldelade arbetsbelastningen</span><span class="sxs-lookup"><span data-stu-id="265c2-103">Learn how to size the VM to the assigned workload</span></span>
+  ms.openlocfilehash: e035e2f7e10635f74de027f242db58db2af1c96a
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40446829"
+interactive: bash
+durationInMinutes: 4
+content: '[!include[](includes/7-sizing-vms.md)]'

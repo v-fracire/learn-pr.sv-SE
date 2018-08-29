@@ -1,0 +1,25 @@
+### YamlMime:LearningPath
+uid: learn.sample-path
+title: Exempelutbildningsväg
+summary: Det här är en sammanfattning av exempelutbildningsvägen
+cardDescription: Det här är en kortbeskrivning av exempelutbildningsvägen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- intermediate
+roles:
+- developer
+products:
+- Azure
+prerequisites: Det här är texten med förhandskrav för exempelutbildningsvägen
+metadata:
+  title: Sidrubrik för exempelutbildningsväg
+  description: Sidbeskrivning för exempelutbildningsväg
+  ms.openlocfilehash: 6107095cd1199017beee64d34b0c6470188acb1d
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40442635"
+modules:
+- learn.sample-module-cloudshell
+achievement: learn.sample-path.trophy

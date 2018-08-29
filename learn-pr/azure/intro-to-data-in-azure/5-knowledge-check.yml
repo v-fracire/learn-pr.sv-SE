@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-data-in-azure.5-knowledge-check
+metadata:
+  title: <span data-ttu-id="c7a21-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="c7a21-101">Knowledge check</span></span>
+  description: <span data-ttu-id="c7a21-102">Kunskapskontroll.</span><span class="sxs-lookup"><span data-stu-id="c7a21-102">Knowledge check.</span></span>
+  displayType: one-column
+  ms.openlocfilehash: 8e63c9e7886d767824571f78eda178b9bdfd65f3
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40447540"
+title: <span data-ttu-id="c7a21-103">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="c7a21-103">Knowledge check</span></span>
+durationInMinutes: 11
+content: <span data-ttu-id="c7a21-104">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="c7a21-104">Knowledge check</span></span>
+quiz:
+  title: <span data-ttu-id="c7a21-105">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="c7a21-105">Knowledge check</span></span>
+  questions:
+  - content: <span data-ttu-id="c7a21-106">Din onlineportal för utbildning måste ha en post för varje användares fysiska adress och e-postadress.</span><span class="sxs-lookup"><span data-stu-id="c7a21-106">Your online learning portal needs to keep a record of each user's physical address and their email address.</span></span> <span data-ttu-id="c7a21-107">Vilka funktioner i Azure kan du använda för att hantera den här informationen?</span><span class="sxs-lookup"><span data-stu-id="c7a21-107">Which Azure features will let you manage this information well?</span></span>
+    choices:
+    - content: <span data-ttu-id="c7a21-108">Azure Archive</span><span class="sxs-lookup"><span data-stu-id="c7a21-108">Azure Archive</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c7a21-109">Azure Archive är perfekt för lagring av äldre versioner av dina data så att du kan hämta dem om det krävs för granskning eller vid andra aktiviteter som inträffar mer sällan.</span><span class="sxs-lookup"><span data-stu-id="c7a21-109">Azure Archive is ideal to store older versions of your data so that you can retrieve it as and when required for auditing or other infrequent activities.</span></span>
+    - content: <span data-ttu-id="c7a21-110">Azure SQL</span><span class="sxs-lookup"><span data-stu-id="c7a21-110">Azure SQL</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="c7a21-111">Rätt!</span><span class="sxs-lookup"><span data-stu-id="c7a21-111">Correct!</span></span> <span data-ttu-id="c7a21-112">I Azure SQL kan du lagra relationsdata och snabbt hämta data med hjälp av frågor.</span><span class="sxs-lookup"><span data-stu-id="c7a21-112">Azure SQL helps store relational data and retrieves the data quickly with powerful queries.</span></span>
+    - content: <span data-ttu-id="c7a21-113">Azure Files</span><span class="sxs-lookup"><span data-stu-id="c7a21-113">Azure Files</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c7a21-114">Azure Files används för filresurser i molnet.</span><span class="sxs-lookup"><span data-stu-id="c7a21-114">Azure Files is used for file shares in the cloud.</span></span> <span data-ttu-id="c7a21-115">Det kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS.</span><span class="sxs-lookup"><span data-stu-id="c7a21-115">It can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.</span></span>
+  - content: <span data-ttu-id="c7a21-116">Simuleringsfilerna som används i säljutbildningsportalerna kan bli mycket stora.</span><span class="sxs-lookup"><span data-stu-id="c7a21-116">The simulation files used by the sales learning portals can grow to significantly large file size.</span></span> <span data-ttu-id="c7a21-117">Vad har Azure för stöd för sådana filer?</span><span class="sxs-lookup"><span data-stu-id="c7a21-117">How will Azure support these files?</span></span>
+    choices:
+    - content: <span data-ttu-id="c7a21-118">Azure Blob Storage har stöd för filer upp till 8 TB</span><span class="sxs-lookup"><span data-stu-id="c7a21-118">Azure Blob storage can support files up to 8TB in size</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="c7a21-119">Rätt!</span><span class="sxs-lookup"><span data-stu-id="c7a21-119">Correct!</span></span> <span data-ttu-id="c7a21-120">Med Azure Blob Storage kan du lagra och strömma stora video- och ljudfiler direkt till webbläsare var som helst i världen.</span><span class="sxs-lookup"><span data-stu-id="c7a21-120">Azure Blob storage provides the ability to store and stream large video or audio files directly to the browser from anywhere in the world.</span></span>
+    - content: <span data-ttu-id="c7a21-121">Azure Files har stöd för att lagra och strömma stora filer</span><span class="sxs-lookup"><span data-stu-id="c7a21-121">Azure Files can support storing and streaming large files</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c7a21-122">Azure Files används för filresurser i molnet.</span><span class="sxs-lookup"><span data-stu-id="c7a21-122">Azure Files is used for file shares in the cloud.</span></span> <span data-ttu-id="c7a21-123">Det kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS.</span><span class="sxs-lookup"><span data-stu-id="c7a21-123">It can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.</span></span>
+    - content: <span data-ttu-id="c7a21-124">Azure har inget stöd för att lagra och strömma stora filer</span><span class="sxs-lookup"><span data-stu-id="c7a21-124">Azure does not support storing and streaming large files</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c7a21-125">I Azure kan du lagra och strömma stora video- och ljudfiler direkt till webbläsare var som helst i världen.</span><span class="sxs-lookup"><span data-stu-id="c7a21-125">Azure does have the ability to store and stream large video and audio files directly to the browser from anywhere in the world.</span></span>
+  - content: <span data-ttu-id="c7a21-126">Vad har Azure för stöd när det gäller hållbarhet och tillförlitlighet för data?</span><span class="sxs-lookup"><span data-stu-id="c7a21-126">How does Azure support durability and reliability of data?</span></span>
+    choices:
+    - content: <span data-ttu-id="c7a21-127">Replikeringsfunktioner i Azure.</span><span class="sxs-lookup"><span data-stu-id="c7a21-127">Through Azure replication capabilities.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="c7a21-128">Rätt!</span><span class="sxs-lookup"><span data-stu-id="c7a21-128">Correct!</span></span> <span data-ttu-id="c7a21-129">Azure har replikeringsfunktioner som skyddar data mot naturkatastrofer och där du kan kryptera data som skydd mot skadliga attacker.</span><span class="sxs-lookup"><span data-stu-id="c7a21-129">Azure provides replication capabilities to protect the data against natural disasters and supports encryption to protect the data against malicious attacks.</span></span>
+    - content: <span data-ttu-id="c7a21-130">Du behöver ytterligare premiumfunktioner för att kryptera och dekryptera data och tillförlitlighet kan fås via säkerhetskopiering från tredje part</span><span class="sxs-lookup"><span data-stu-id="c7a21-130">You need additional premium support to encrypt and decrypt your data and reliability is supported by third-party backup features</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c7a21-131">Du behöver inte några extrafunktioner, Azure har funktioner som skyddar dina data mot oförutsedda risker och hot.</span><span class="sxs-lookup"><span data-stu-id="c7a21-131">You don't need any additional support; Azure has the capabilities to protect your data against any unforeseen risks and threats.</span></span>
+    - content: <span data-ttu-id="c7a21-132">Azure har inga inbyggda funktioner för redundans eller kryptering.</span><span class="sxs-lookup"><span data-stu-id="c7a21-132">Azure does not have in-built redundancy and encryption features.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c7a21-133">Azure har inbyggda funktioner som skyddar dina data mot risker och hot.</span><span class="sxs-lookup"><span data-stu-id="c7a21-133">Azure comes with in-built capabilities to protect your data against risks and threats.</span></span>

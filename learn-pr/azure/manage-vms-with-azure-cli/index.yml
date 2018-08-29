@@ -1,0 +1,41 @@
+### YamlMime:Module
+uid: learn.manage-vms-with-azure-cli
+metadata:
+  title: Hantera virtuella datorer med Azure CLI-verktyget
+  description: Lär dig att använda plattformsoberoende Azure CLI till att skapa, starta, stoppa och utföra andra administrativa uppgifter som är relaterade till virtuella datorer i Azure.
+  ms.openlocfilehash: c4c651aca73f36e32f2c849ed968f3eb8bdfb393
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40444236"
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+- administrator
+products:
+- Azure
+title: Hantera virtuella datorer med Azure CLI-verktyget
+summary: Lär dig att använda plattformsoberoende Azure CLI till att skapa, starta, stoppa och utföra andra administrativa uppgifter som är relaterade till virtuella datorer i Azure.
+cardDescription: Lär dig att använda plattformsoberoende Azure CLI till att skapa, starta, stoppa och utföra andra administrativa uppgifter som är relaterade till virtuella datorer i Azure.
+abstract: >
+  * Skapa en virtuell dator med Azure CLI
+
+  * Utföra grundläggande hanteringsåtgärder med Azure CLI
+
+  * Ansluta till en aktiv virtuell dator med SSH och Azure CLI
+units:
+- learn.manage-vms-with-azure-cli-data.1-what-is-the-cli
+- learn.manage-vms-with-azure-cli-data.2-logins-and-subscriptions
+- learn.manage-vms-with-azure-cli-data.3-create-a-resource-group
+- learn.manage-vms-with-azure-cli-data.4-create-a-vm
+- learn.manage-vms-with-azure-cli-data.5-testing-the-vm
+- learn.manage-vms-with-azure-cli-data.6-other-vm-images
+- learn.manage-vms-with-azure-cli-data.7-sizing-vms
+- learn.manage-vms-with-azure-cli-data.8-querying-vms
+- learn.manage-vms-with-azure-cli-data.9-managing-vms
+- learn.manage-vms-with-azure-cli-data.10-installing-software
+- learn.manage-vms-with-azure-cli-data.11-cleanup
+achievement: learn.manage-vms-with-azure-cli-data.badge
