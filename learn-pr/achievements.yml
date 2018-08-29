@@ -1,0 +1,254 @@
+### YamlMime:Achievements
+achievements:
+- uid: learn.sample-path.trophy
+  type: trophy
+  title: Pokal för exempelutbildningsväg
+  summary: Pokal för utbildningsvägen ”Pokal för exempelutbildningsväg”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.placeholder.trophy
+  type: trophy
+  iconUrl: http://via.placeholder.com/120x120
+  title: Platshållarpokal för utbildningsväg
+  summary: Översikt över Pokal för exempelutbildningsväg
+- uid: learn.placeholder.badge
+  type: badge
+  iconUrl: http://via.placeholder.com/120x120
+  title: Platshållarmärke för modul
+  summary: Översikt över Pokal för exempelmodul
+- uid: learn.sample-module-cloudshell.badge
+  type: badge
+  title: Märke för Exempelmodul med CloudShell
+  summary: Märke för modulen Exempelmodulen med CloudShell.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.build-a-serverless-web-app.badge
+  type: badge
+  title: Märke för Skapa en serverfri webbapp
+  summary: Märke för modulen ”Skapa en serverfri webbapp”.
+  iconUrl: /learn/azure/build-a-serverless-web-app/achievement/build-a-serverless-web-app.svg
+- uid: learn.cd-pipeline-github-to-azure-web-app.badge
+  type: badge
+  title: Märke för Skapa en pipeline för kontinuerlig distribution från GitHub till Azure Web App
+  summary: Översikt över Märke för Skapa en pipeline för kontinuerlig distribution från GitHub till Azure Web App
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.connect-app-to-azure-storage.badge
+  type: badge
+  title: Ansluta en app till Azure Storage
+  summary: Ansluta en app till Azure Storage
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-azure-storage-account.badge
+  type: badge
+  title: Märke för Skapa ett Azure Storage-konto
+  summary: Översikt över Märke för Skapa ett Azure Storage-konto
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-serverless-logic-with-functions.badge
+  type: badge
+  title: Skapa serverfri logik med Azure Functions
+  summary: Skapa serverfri logik med Azure Functions
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.host-web-app-with-azure-web-apps.badge
+  type: badge
+  title: Märke för Vara värd för ett webbprogram med Azure Web Apps
+  summary: Översikt över Märke för Vara värd för ett webbprogram med Azure Web Apps
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.publish-azure-web-app-with-visual-studio.badge
+  type: badge
+  title: Märke för Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
+  summary: Översikt över Märke för Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.administer-containers-in-azure.trophy
+  type: trophy
+  title: Pokal för Administrera containers i Azure
+  summary: Pokal för utbildningsvägen Administrera containers i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.cloud-fundamentals.trophy
+  type: trophy
+  title: Pokal för Grunderna för molnet
+  summary: Pokal för utbildningsvägen Grunderna för molnet.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.azure-architecture-foundations.trophy
+  type: trophy
+  title: Pokal för Grunderna i Azure-arkitektur
+  summary: Pokal för utbildningsvägen Grunderna i Azure-arkitektur.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.architect-great-solutions-in-azure.trophy
+  type: trophy
+  title: Pokal för Skapa fantastiska lösningar i Azure
+  summary: Pokal för utbildningsvägen Skapa fantastiska lösningar i Azure.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-backend-services-in-azure.trophy
+  type: trophy
+  title: Pokal för Skapa serverdelstjänster i Azure
+  summary: Pokal för utbildningsvägen Skapa serverdelstjänster i Azure.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.prepare-to-use-azure.trophy
+  type: trophy
+  title: Pokal för Förbereda användningen av Azure
+  summary: Pokal för utbildningsvägen Förbereda användningen av Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.deploy-a-website-to-azure-with-managed-hosting.trophy
+  type: trophy
+  title: Pokal för Distribuera en webbplats till Azure med hanterad värdmiljö
+  summary: Pokal för utbildningsvägen Distribuera en webbplats till Azure med hanterad värdmiljö.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.work-with-nosql-data-in-azure-cosmos-db.trophy
+  type: trophy
+  title: Pokal för Arbeta med NoSQL-data i Azure Cosmos DB
+  summary: Pokal för utbildningsvägen Arbeta med NoSQL-data i Azure Cosmos DB.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.work-with-relational-data-in-azure.trophy
+  type: trophy
+  title: Pokal för Arbeta med relationsdata i Azure
+  summary: Pokal för utbildningsvägen Arbeta med relationsdata i Azure.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.secure-your-web-data-in-azure.trophy
+  type: trophy
+  title: Pokal för Skydda dina webbdata i Azure
+  summary: Pokal för utbildningsvägen Skydda dina webbdata i Azure.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.store-data-in-azure.trophy
+  type: trophy
+  title: Pokal för Lagra data i Azure
+  summary: Pokal för utbildningsvägen Lagra data i Azure.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.automate-azure-tasks-with-powershell.badge
+  type: badge
+  title: Märke för Automatisera Azure-åtgärder med hjälp av PowerShell-skript
+  summary: Översikt över Automatisera Azure-åtgärder med hjälp av PowerShell-skript
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-azure-db-for-postgresql.badge
+  type: badge
+  title: Märke för Skapa en PostgreSQL DB-server via Azure CLI
+  summary: Översikt över Skapa en PostgreSQL DB-server via Azure CLI
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-linux-vm-in-azure.badge
+  type: badge
+  title: Märke för Skapa en virtuell Linux-dator i Azure
+  summary: Översikt över Skapa en virtuell Linux-dator i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.choose-messaging-model.badge
+  type: badge
+  title: Märke för Välja meddelandemodell
+  summary: Översikt över märket för Välja meddelandemodell
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.prepare-azure-dev-environment.badge
+  type: badge
+  title: Märke för Förbereda utvecklingsmiljön i Azure
+  summary: Översikt över märket för Förbereda utvecklingsmiljön i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.manage-resources-with-azure-portal.badge
+  type: badge
+  title: Märke för Hantera resurser med Azure Portal
+  summary: Översikt över märket för Hantera resurser med Azure Portal
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.explore-azure-services-for-web-devs.badge
+  type: badge
+  title: Märke för Utforska Azure-tjänster för webbutvecklare
+  summary: Översikt över märket för Utforska Azure-tjänster för webbutvecklare
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.control-azure-services-with-cli.badge
+  type: badge
+  title: Märke för Styr Azure-tjänster med CLI
+  summary: Översikt över märket för Styr Azure-tjänster med CLI
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.azure-services-features.badge
+  type: badge
+  title: Märke för Introduktion till tjänster och funktioner i Azure
+  summary: Översikt över Introduktion till tjänster och funktioner i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.migrate-sql-server-relational-data.badge
+  type: badge
+  title: Migrera relationsdata i SQL Server till Azure SQL
+  summary: Migrera relationsdata i SQL Server till Azure SQL
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.communicate-between-apps-with-storage-queues.badge
+  type: badge
+  title: Märke för Kommunicera mellan program med en Azure Storage-kö
+  summary: Översikt över Kommunicera mellan program med en Azure Storage-kö
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-a-windows-vm-in-azure.badge
+  type: badge
+  title: Skapa en virtuell Windows-dator i Azure
+  summary: Skapa en virtuell Windows-dator i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.choose-web-hosting.badge
+  type: badge
+  title: Välja ett webbvärdsalternativ i Azure
+  summary: Välja ett webbvärdsalternativ i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.interactive-iot-deployments.badge
+  type: badge
+  title: Arbeta med interaktiv IoT-distribution i Azure
+  summary: Arbeta med interaktiv IoT-distribution i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.iot-for-ops.badge
+  type: badge
+  title: IoT Suite för ops
+  summary: IoT Suite för ops
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.web-app-with-mean-on-linux-vm.badge
+  type: badge
+  title: Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure
+  summary: Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.optimize-web-app-with-redis.badge
+  type: badge
+  title: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+  summary: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.manage-secrets-with-azure-key-vault.badge
+  type: badge
+  title: Hantera hemligheter i dina webbappar med Azure Key Vault
+  summary: Hantera hemligheter i dina webbappar med Azure Key Vault
+  iconUrl: /learn/modules/manage-secrets-with-azure-key-vault/achievement/manage-secrets-with-azure-key-vault.svg
+- uid: learn.secure-azure-resources-with-rbac.badge
+  type: badge
+  title: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
+  summary: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.badge
+  type: badge
+  title: Märke för Skicka platsinformation via SMS från din telefon med Azure Functions och Twilio
+  summary: Märke för modulen Skicka platsinformation via SMS från din telefon med Azure Functions och Twilio
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.manage-vms-with-azure-cli-data.badge
+  type: badge
+  title: Hantera virtuella datorer med Azure CLI
+  summary: Hantera virtuella datorer med Azure CLI
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.deploy-a-website-to-azure-with-vm-hosting.trophy
+  type: trophy
+  title: Pokal för Distribuera en webbplats till Azure med den virtuella dator som är värd
+  summary: Pokal för utbildningsvägen Distribuera en webbplats till Azure med den virtuella dator som är värd.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.store-app-data-with-azure-blob-storage.badge
+  type: badge
+  title: Lagra data för webbappar med Azure Blob Storage
+  summary: Lagra data för webbappar med Azure Blob Storage
+  iconUrl: /learn/modules/store-app-data-with-azure-blob-storage/achievement/store-app-data-with-azure-blob-storage.svg
+- uid: learn.enable-reliable-messaging-for-big-data-applications-using-azure-event-hubs.badge
+  type: badge
+  title: Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs
+  summary: Modulen Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.intro-to-compute.badge
+  type: badge
+  title: Märke för Introduktion till databehandling
+  summary: Märke för modulen Introduktion till databehandling.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.intro-to-data-in-azure.badge
+  type: badge
+  title: Märke för Introduktion till data i Azure
+  summary: Märke för modulen Introduktion till data i Azure.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.cosmos-db-app-with-vscode.badge
+  type: badge
+  title: Skapa en Azure Cosmos DB-app i Visual Studio Code
+  summary: Pokal för modulen Skapa en Azure Cosmos DB-app i Visual Studio Code.
+  iconUrl: http://via.placeholder.com/120x120
+metadata:
+  ms.openlocfilehash: f7775c5f422578b4f98ef8b6fcf2c8213e5e9bb4
+  ms.sourcegitcommit: 0e0cc41b7669e7149541f34f3f24ba0e864ed07d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/23/2018
+  ms.locfileid: "42702346"

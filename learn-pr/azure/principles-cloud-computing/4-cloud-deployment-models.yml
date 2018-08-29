@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: principles-cloud-computing.4-cloud-deployment-models
+title: Distributionsmodeller för molnet
+metadata:
+  title: Distributionsmodeller för molnet
+  description: Distributionsmodeller för molnet
+  ms.openlocfilehash: e0c40bb9bee93e0db85b684a4ddf97126211ee59
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40446574"
+durationInMinutes: 5
+content: '[!include[](includes/4-cloud-deployment-models.md)]'

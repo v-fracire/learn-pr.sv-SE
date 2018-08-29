@@ -1,0 +1,40 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-compute.4-knowledge-check
+title: Kunskapskontroll
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll för modulen ”Introduktion till Azure-beräkning”.
+  ms.openlocfilehash: d7c3f166bab42dfd3ab34e11ce5f399e0375e6f7
+  ms.sourcegitcommit: 0e0cc41b7669e7149541f34f3f24ba0e864ed07d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/23/2018
+  ms.locfileid: "42702614"
+durationInMinutes: 7
+content: >
+  [!include[](includes/4-knowledge-check.md)]
+quiz:
+  title: Introduktion till Azure-beräkning, kunskapskontroll
+  questions:
+  - content: Anta att ditt astronomiteam är litet och att de – även om medlemmarna i teamet är de främsta astronomerna och datorprogrammerarna – endast har en elementär kunskap om server- och webbadministration. Vilket av följande alternativ ska du välja?
+    choices:
+    - content: Azure Kubernetes Service (AKS)
+      isCorrect: false
+      incorrectExplanation: Kubernetes kräver avancerade kunskaper om containerorkestrering.
+    - content: Service Fabric
+      isCorrect: false
+      incorrectExplanation: Astronomernas arbete behöver varken distribueras brett eller globalt.
+    - content: App Service
+      isCorrect: true
+      correctExplanation: Eftersom den är helt hanterad och skalar programmen kan teamet fokusera på att skriva sina specialprogram.
+  - content: Anta att ditt astronomiteam har kommit fram till vissa astronomiska beräkningar som tar timmar och till och med dagar att slutföra. Parallellkörning verkar inte vara till stor hjälp. Vilket av följande alternativ ska du välja?
+    choices:
+    - content: Cloud Services
+      isCorrect: false
+      incorrectExplanation: Det går inte att köra alla astronomiska beräkningar parallellt, så att distribuera fler virtuella datorer kommer bara att förbättra prestandan marginellt.
+    - content: Azure Batch
+      isCorrect: true
+      correctExplanation: Vissa astronomiska beräkningar kräver superdatorfunktioner.
+    - content: Container Instances
+      isCorrect: false
+      incorrectExplanation: Det kanske inte går att köra alla astronomiska beräkningar parallellt, så att distribuera fler containrar kommer bara att förbättra prestandan marginellt.

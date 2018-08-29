@@ -1,0 +1,1 @@
+Som hjälp för dig att komma ihåg vad du har lärt dig kan du läsa de två scenarierna om astronomiteamet och svara på tillhörande frågor.

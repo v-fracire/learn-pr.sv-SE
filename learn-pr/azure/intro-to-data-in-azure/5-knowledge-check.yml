@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-data-in-azure.5-knowledge-check
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll.
+  displayType: one-column
+  ms.openlocfilehash: 8e63c9e7886d767824571f78eda178b9bdfd65f3
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40447540"
+title: Kunskapskontroll
+durationInMinutes: 11
+content: Kunskapskontroll
+quiz:
+  title: Kunskapskontroll
+  questions:
+  - content: Din onlineportal för utbildning måste ha en post för varje användares fysiska adress och e-postadress. Vilka funktioner i Azure kan du använda för att hantera den här informationen?
+    choices:
+    - content: Azure Archive
+      isCorrect: false
+      incorrectExplanation: Azure Archive är perfekt för lagring av äldre versioner av dina data så att du kan hämta dem om det krävs för granskning eller vid andra aktiviteter som inträffar mer sällan.
+    - content: Azure SQL
+      isCorrect: true
+      correctExplanation: Rätt! I Azure SQL kan du lagra relationsdata och snabbt hämta data med hjälp av frågor.
+    - content: Azure Files
+      isCorrect: false
+      incorrectExplanation: Azure Files används för filresurser i molnet. Det kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS.
+  - content: Simuleringsfilerna som används i säljutbildningsportalerna kan bli mycket stora. Vad har Azure för stöd för sådana filer?
+    choices:
+    - content: Azure Blob Storage har stöd för filer upp till 8 TB
+      isCorrect: true
+      correctExplanation: Rätt! Med Azure Blob Storage kan du lagra och strömma stora video- och ljudfiler direkt till webbläsare var som helst i världen.
+    - content: Azure Files har stöd för att lagra och strömma stora filer
+      isCorrect: false
+      incorrectExplanation: Azure Files används för filresurser i molnet. Det kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS.
+    - content: Azure har inget stöd för att lagra och strömma stora filer
+      isCorrect: false
+      incorrectExplanation: I Azure kan du lagra och strömma stora video- och ljudfiler direkt till webbläsare var som helst i världen.
+  - content: Vad har Azure för stöd när det gäller hållbarhet och tillförlitlighet för data?
+    choices:
+    - content: Replikeringsfunktioner i Azure.
+      isCorrect: true
+      correctExplanation: Rätt! Azure har replikeringsfunktioner som skyddar data mot naturkatastrofer och där du kan kryptera data som skydd mot skadliga attacker.
+    - content: Du behöver ytterligare premiumfunktioner för att kryptera och dekryptera data och tillförlitlighet kan fås via säkerhetskopiering från tredje part
+      isCorrect: false
+      incorrectExplanation: Du behöver inte några extrafunktioner, Azure har funktioner som skyddar dina data mot oförutsedda risker och hot.
+    - content: Azure har inga inbyggda funktioner för redundans eller kryptering.
+      isCorrect: false
+      incorrectExplanation: Azure har inbyggda funktioner som skyddar dina data mot risker och hot.

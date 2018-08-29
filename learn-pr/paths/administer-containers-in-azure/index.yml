@@ -1,0 +1,25 @@
+### YamlMime:LearningPath
+uid: learn.administer-containers-in-azure
+title: Administrera containers i Azure
+summary: Azure Container Instances är det snabbaste och enklaste sättet att köra containers i Azure. I den här utbildningsvägen får du lära dig att skapa och hantera containers, och hur du kan använda ACI till elastisk skalning för Kubernetes.
+cardDescription: Azure Container Instances är det snabbaste och enklaste sättet att köra containers i Azure. I den här utbildningsvägen får du lära dig att skapa och hantera containers, och hur du kan använda ACI till elastisk skalning för Kubernetes.
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- Azure
+prerequisites: Ingen
+metadata:
+  title: Administrera containers i Azure
+  description: Azure Container Instances är det snabbaste och enklaste sättet att köra containers i Azure. I den här utbildningsvägen får du lära dig att skapa och hantera containers, och hur du kan använda ACI till elastisk skalning för Kubernetes.
+  ms.openlocfilehash: 753fe61e57393a51f6a7e0031ce251390c6ceef7
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40447373"
+modules:
+- learn.sample-module-cloudshell
+achievement: learn.administer-containers-in-azure.trophy
