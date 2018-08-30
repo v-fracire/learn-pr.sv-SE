@@ -3,12 +3,12 @@ uid: learn.intro-to-compute.5-summary
 title: Sammanfattning
 metadata:
   title: Sammanfattning
-  description: Sammanfattning för ”Introduktion till Azure Compute”-modulen.
-  ms.openlocfilehash: c547ff8b4a6318d1f20a1822637f1f2fbeaa0ae5
-  ms.sourcegitcommit: 0e0cc41b7669e7149541f34f3f24ba0e864ed07d
+  description: Sammanfattning för modulen ”Introduktion till Azure-beräkning”.
+  ms.openlocfilehash: a6861ecffafd194b4bfe450988341eecba09982a
+  ms.sourcegitcommit: bcd9fd78122da4fc1545c7923a5fc0cd0a8abe96
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/23/2018
-  ms.locfileid: "42702775"
-durationInMinutes: 5
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43152119"
+durationInMinutes: 2
 content: '[!include[](includes/5-summary.md)]'
