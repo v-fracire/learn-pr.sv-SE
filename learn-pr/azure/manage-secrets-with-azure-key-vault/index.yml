@@ -3,7 +3,7 @@ uid: learn.manage-secrets-with-azure-key-vault
 title: Hantera hemligheter i dina webbappar med Azure Key Vault
 summary: Ditt program behöver tjänstlösenord, anslutningssträngar och andra hemliga konfigurationsvärden för att kunna göra sitt jobb. Det är riskfyllt att lagra och hantera hemliga värden, och varje användning medför risk för läckage. Azure Key Vault, i kombination med funktionen Hanterad tjänstidentitet i Azure App Service, gör att din Azure-webbapp enkelt och säkert kan komma åt hemliga konfigurationsvärden utan att hemligheterna behöver lagras i din källkontroll eller konfiguration.
 cardDescription: Lagra säkert hemliga konfigurationsvärden i Azure Key Vault och kom åt dem på ett säkert sätt från din Azure-webbapp med Hanterad tjänstidentitet.
-iconUrl: /learn/modules/manage-secrets-with-azure-key-vault/achievement/manage-secrets-with-azure-key-vault.svg
+iconUrl: /learn/achievements/manage-secrets-with-azure-key-vault.svg
 achievement: learn.manage-secrets-with-azure-key-vault.badge
 levels:
 - beginner
@@ -14,12 +14,12 @@ products:
 metadata:
   title: Hantera hemligheter i dina webbappar med Azure Key Vault
   description: I den här modulen lär du dig hur du skapar ett nyckelvalv och hur du lagrar en hemlighet i det. Du lär dig hur du konfigurerar ett webbprogram att använda Hanterad tjänstidentitet för säker åtkomst till ditt valv utan någon konfiguration, och hur du implementerar ett ASP.NET Core-webbprogram som hämtar hemligheter från valvet.
-  ms.openlocfilehash: ba109c56ec8d43e40ac534c1b28317542dd5e938
-  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.openlocfilehash: 0780a6a23836c53ea0f01379ce712c7916075b6d
+  ms.sourcegitcommit: d51dceaa3772e8083b3f0b6460f8a616b3139d25
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/22/2018
-  ms.locfileid: "40442087"
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "43053957"
 abstract: >
   * Skapa ett Azure Key Vault och använd det för att lagra hemliga konfigurationsvärden.
 

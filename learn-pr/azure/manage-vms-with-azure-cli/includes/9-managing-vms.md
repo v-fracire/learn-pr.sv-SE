@@ -11,7 +11,7 @@ az vm stop -n SampleVM -g ExerciseResources
 Vi kan kontrollera att den har stoppats genom att försöka pinga den offentliga IP-adressen med `ssh`, eller med kommandot `vm get-instance-view`. Den sista metoden returnerar samma grundläggande data som `vm show`, men innehåller även information om själva instansen. Försök med att skriva följande kommando i Azure Cloud Shell för att se aktuell körningsstatus för den virtuella datorn:
 
 ```azurecli
-az vm get-instance-view -n SampleVM -g ExerciseResources --query "instanceView.statuses[?starts_with(code, 'PowerState/') == `true`].displayStatus" -o tsv
+az vm get-instance-view -n SampleVM -g ExerciseResources --query "instanceView.statuses[?starts_with(code, 'PowerState/')].displayStatus" -o tsv
 ```
 
 Det här kommandot ska returnera `VM stopped` som ett resultat.

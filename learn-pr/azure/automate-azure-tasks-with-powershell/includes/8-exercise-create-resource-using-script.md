@@ -44,7 +44,7 @@ Följ dessa steg för att skriva skriptet:
 7. Skapa därefter en virtuell dator med hjälp av variabeln `$vmName`:
 
    ```powershell
-   New-AzureRmVm -ResourceGroupName $resourceGroup -Name $vmName -Credential $adminCredential -Location "East US" 
+   New-AzureRmVm -ResourceGroupName $resourceGroup -Name $vmName -Credential $adminCredential -Location "East US" -Image UbuntuLTS
    ```
 
 8. Spara filen.
