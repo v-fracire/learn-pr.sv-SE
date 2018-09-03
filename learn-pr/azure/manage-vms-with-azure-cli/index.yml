@@ -3,12 +3,12 @@ uid: learn.manage-vms-with-azure-cli
 metadata:
   title: Hantera virtuella datorer med Azure CLI-verktyget
   description: Lär dig att använda plattformsoberoende Azure CLI till att skapa, starta, stoppa och utföra andra administrativa uppgifter som är relaterade till virtuella datorer i Azure.
-  ms.openlocfilehash: c4c651aca73f36e32f2c849ed968f3eb8bdfb393
-  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.openlocfilehash: 1564240b36b2fa28dd95f871553db0a7d9c137f9
+  ms.sourcegitcommit: a873d63b19d04cd5b6faa6380e562888dc4a6166
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/22/2018
-  ms.locfileid: "40444236"
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "43055411"
 iconUrl: http://via.placeholder.com/120x120
 levels:
 - beginner
@@ -16,11 +16,15 @@ roles:
 - developer
 - administrator
 products:
-- Azure
+- azure
+- azure cli 2.0
+- azure virtual machines
 title: Hantera virtuella datorer med Azure CLI-verktyget
 summary: Lär dig att använda plattformsoberoende Azure CLI till att skapa, starta, stoppa och utföra andra administrativa uppgifter som är relaterade till virtuella datorer i Azure.
 cardDescription: Lär dig att använda plattformsoberoende Azure CLI till att skapa, starta, stoppa och utföra andra administrativa uppgifter som är relaterade till virtuella datorer i Azure.
 abstract: >
+  I den här modulen kommer du att:
+
   * Skapa en virtuell dator med Azure CLI
 
   * Utföra grundläggande hanteringsåtgärder med Azure CLI
