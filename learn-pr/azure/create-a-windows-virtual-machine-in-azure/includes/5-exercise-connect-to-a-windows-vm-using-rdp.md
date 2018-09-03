@@ -1,11 +1,9 @@
-I den här övningen använder du RDP-klienten till att ansluta den virtuella Windows-dator du skapade i föregående utbildningsenhet. Du kan upprätta anslutningen genom att hämta och köra en RDP-fil från Azure Portal. Den här RDP-filen innehåller följande:
+Från vårt föregående scenario är du nu en student som vill lära dig om att lägga till roller och funktioner i en Windows Server-dator. Nätverksadministratören vill dock inte att du gör det här på en fysisk dator i nätverket, och universitetets datorer är inte tillräckligt kraftiga för att köra Windows Hyper-V. Azure har den perfekta lösningen – vi kan vara värd för dessa virtuella Windows-datorer i molnet och du kan komma åt dem med hjälp av Windows Remote Desktop Protocol (RDP). Nu ska vi använda fjärrskrivbordsklienten för att ansluta till den virtuella Windows-dator du skapade i föregående utbildningsenhet. Du kan upprätta anslutningen genom att hämta och köra en **.RDP**-fil från Azure Portal. 
+
+Den här RDP-filen innehåller följande:
 
 * den virtuella datorns offentliga IP-adress
 * portnumret.
-
-## <a name="motivation"></a>Motivering
-
-I vårt utbildningsexempel är du en student som vill lära dig om att lägga till roller och funktioner i en Windows Server-dator. Nätverksadministratören vill dock inte att du gör det här på en fysisk dator i nätverket, och universitetets datorer är inte tillräckligt kraftiga för att köra Windows Hyper-V. Azure är den perfekta lösningen.
 
 ## <a name="configure-network-and-public-ip-address-settings"></a>Konfigurera inställningar för nätverk och offentliga IP-adresser
 

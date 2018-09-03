@@ -24,7 +24,7 @@ Anta exempelvis att det skrivs om webbplatsen i en nyhetsartikel och att detta l
 
 ### <a name="cloud-computing-is-current"></a>Molntjänster är aktuella
 
-När du använder molnet kommer du att kunna fokusera på det viktigaste: Att skapa och distribuera program. Du behöver inte lägga tid på underhållsarbete med korrigering av programvara, maskinvaruinställningar, uppgraderingar och andra IT-hanteringsuppgifter. Allt detta är dolt och görs automatiskt för att du ska kunna använda det senaste och bästa verktyget till att driva verksamheten.
+När du använder molnet kommer du att kunna fokusera på det viktigaste: att skapa och distribuera program. Du behöver inte lägga tid på underhållsarbete med korrigering av programvara, maskinvaruinställningar, uppgraderingar och andra IT-hanteringsuppgifter. Allt detta är dolt och görs automatiskt för att du ska kunna använda det senaste och bästa verktyget till att driva verksamheten.
 
 ### <a name="cloud-computing-is-reliable"></a>Molntjänster är tillförlitliga
 

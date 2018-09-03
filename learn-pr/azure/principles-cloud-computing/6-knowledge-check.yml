@@ -4,32 +4,32 @@ metadata:
   title: Testa dina kunskaper
   description: Testa dina kunskaper
   displayType: one-column
-  ms.openlocfilehash: d578a28cd23b3be60038cabb5fb899c0344219ad
-  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.openlocfilehash: 1aaf806a4ddb9f81c850a1b3001be824403e29a7
+  ms.sourcegitcommit: 5b967802ae01d5e5985a3e6bcbdba1163ec2f6c9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/22/2018
-  ms.locfileid: "40442262"
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "42981311"
 title: Testa dina kunskaper
-durationInMinutes: 10
-content: Innehåll krävs
+durationInMinutes: 2
+content: Vi ska se om du kan identifiera fördelarna med molnbaserad databehandling!
 quiz:
-  title: Kunskapstest
+  title: Kunskapskontroll
   questions:
   - content: När du använder en offentlig molnleverantör som Azure måste du betala hela kostnaden för den fysiska maskinvaran i förväg. Sant eller falskt?
     choices:
-    - content: "True"
+    - content: Sant
       incorrectExplanation: Azure stöder en användningsbaserad prismodell. Det innebär att du hyr maskinvaran och endast betalar för de resurser du använder.
       isCorrect: false
-    - content: "False"
+    - content: Falskt
       correctExplanation: Azure stöder en användningsbaserad prismodell. Det innebär att du hyr maskinvaran och endast betalar för de resurser du använder.
       isCorrect: true
   - content: Anta att din webbplats hade en trafiktopp under natten. Med en offentlig molnleverantör som Azure är det möjligt att webbplatsen aldrig slutade fungera eftersom dess resurser skalades upp automatiskt.
     choices:
-    - content: "True"
+    - content: Sant
       correctExplanation: Molntjänster är elastiska. Det betyder att resurser kan allokeras eller frigöras automatiskt baserat på efterfrågan.
       isCorrect: true
-    - content: "False"
+    - content: Falskt
       incorrectExplanation: Molntjänster är elastiska. Det betyder att resurser kan allokeras eller frigöras automatiskt baserat på efterfrågan.
       isCorrect: false
   - content: Anta att du migrerar till molnet och att du vill ha hög skalbarhet och hyra maskinvaran, men att säkerheten inte utgör ett stort problem. Vilken molndistributionsmodell är bäst att använda?

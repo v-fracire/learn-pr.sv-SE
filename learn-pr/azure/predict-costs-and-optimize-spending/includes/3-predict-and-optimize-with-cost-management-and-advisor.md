@@ -13,24 +13,24 @@ Advisor ger kostnadsrekommendationer inom följande områden:
     Den här processen granskar din användning av virtuella datorer under de senaste 30 dagarna i syfte att se om du kan spara pengar i framtiden genom att köpa reserverade instanser. Advisor visar i vilka regioner och för vilka storlekar du potentiellt kan spara mest pengar, samt hur mycket du skulle kunna spara genom att köpa reserverade instanser.
     
 3. **Ange rätt storlek för eller stänga ner underutnyttjade virtuella datorer.** 
-    Den här processen övervakar din användning av virtuella datorer under 14 dagar och identifierar de datorer som används lite. Virtuella datorer vars genomsnittliga processoranvändning är 5 % eller mindre och vars nätverksanvändning är 7 MB eller mindre under minst fyra dagar anses vara virtuella datorer med låg användning. Tröskelvärdet för genomsnittlig processoranvändning kan justeras upp till 20 procent. När du har identifierat de här underutnyttjade virtuella datorerna kan du bestämma dig för att ändra storlek på dem vilket minskar dina kostnader.
+    Den här processen övervakar din användning av virtuella datorer under 14 dagar och identifierar de datorer som används lite. Virtuella datorer vars genomsnittliga processoranvändning är 5 % eller mindre och vars nätverksanvändning är 7 MB eller mindre under minst fyra dagar anses vara virtuella datorer med låg användning. Tröskelvärdet för genomsnittlig processoranvändning kan justeras upp till 20 procent. När du har identifierat de här virtuella datorerna kan du bestämma dig för att ändra storlek på dem vilket minskar dina kostnader.
 
-Nu ska vi se var du hittar Azure Advisor i portalen. Logga först in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). Klicka på **Alla tjänster**. I kategorin **Hanteringsverktyg** ser du **Advisor**. Du kan också skriva **Advisor** i filtreringsrutan så att du bara ser just den tjänsten. 
+Nu ska vi se var du hittar Azure Advisor i portalen. Logga först in på Azure Portal på [https://portal.azure.com](https://portal.azure.com?azure-portal=true). Klicka på **Alla tjänster**. I kategorin **Hanteringsverktyg** ser du **Advisor**. Du kan också skriva **Advisor** i filtreringsrutan så att du bara ser just den tjänsten. 
 
 Om du klickar på Advisor visas instrumentpanelen för Advisor-rekommendationer där du kan se alla rekommendationer för din prenumeration. Du ser en ruta för varje kategori med rekommendationer. 
 
 > [!NOTE]
 > Du kanske inte har några rekommendationer kring kostnader i Advisor. Det här kan bero på att utvärderingarna inte är färdiga ännu, eller helt enkelt på att Advisor inte har några rekommendationer att ge.
 
-![Advisor-rekommendationer](../images/advisor-recommendations.png)
+![Advisor-rekommendationer](../media-drafts/3-advisor-recommendations.png)
 
 När du klickar på **Kostnad** visas detaljerad information om rekommendationerna i Advisor.
 
-![Kostnadsrekommendationer i Advisor](../images/advisor-cost-recommendations.png)
+![Kostnadsrekommendationer i Advisor](../media-drafts/3-advisor-cost-recommendations.png)
 
 Om du klickar på en rekommendation visas detaljerad information om rekommendationen. Sedan kan du även utföra åtgärder som att minska dina kostnader genom att ändra storlek på virtuella datorer.
 
-![Storleksrekommendation för virtuell dator i Advisor](../images/advisor-resize-vm.png)
+![Storleksrekommendation för virtuell dator i Advisor](../media-drafts/3-advisor-resize-vm.png)
 
 De här rekommendationerna gäller områden där du kanske spenderar pengar ineffektivt. De är ett bra ställe att börja och komma tillbaka till när du letar efter sätt att minska dina kostnader. I vårt exempel kan vi spara ungefär 700 dollar per månad genom att följa rekommendationerna. Sådana besparingar blir betydande med tiden, så gör det till en vana att kontrollera rekommendationerna inom alla fyra områden regelbundet.
 
@@ -38,13 +38,13 @@ De här rekommendationerna gäller områden där du kanske spenderar pengar inef
 
 Azure Cost Management är ett annat kostnadsfritt verktyg i Azure som du kan använda till att få bättre insikt i vart dina pengar tar vägen i molnet. Du kan se historiska genomgångar av vilka tjänster du spenderar pengar på och hur utgifterna står sig mot de budgetar du har angett. Du kan ange budgetar, schemalägga rapporter och analysera kostnadsområden.
 
-![Cost Management](../images/cost-management.png)
+![Cost Management](../media-drafts/3-cost-management.png)
 
 ## <a name="cloudyn"></a>Cloudyn 
 
 Cloudyn är ett dotterbolag till Microsoft som låter dig spåra molnanvändning och utgifter för dina Azure-resurser, och för andra molnproviders som AWS och Google. Rapporterna på instrumentpanelen är enkla att förstå och hjälper dig med kostnadsallokering och motkontering. Cost Management hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa. Användningen för Azure är kostnadsfri, och det finns betalda alternativ för premiumsupport och visning av data från andra moln. 
 
-![Instrumentpanelen i Cloudyn](../images/cloudyn-mgt-dash.png)
+![Instrumentpanelen i Cloudyn](../media-drafts/3-cloudyn-mgt-dash.png)
 
 ## <a name="summary"></a>Sammanfattning
 

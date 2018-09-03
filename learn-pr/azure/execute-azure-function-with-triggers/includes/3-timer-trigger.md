@@ -1,16 +1,17 @@
-Det är vanligt att köra en del av logiken med ett angivet intervall. Anta att du har en blogg och du lägger märke till att dina prenumeranter inte har läst dina senaste inlägg. Du bestämmer dig för att den bästa åtgärden är att skicka ett e-postmeddelande till dem en gång i veckan för att påminna dem om att gå in på din blogg. Du implementerar den här logiken med hjälp av en Azure-funktion med en timerutlösare som anropar funktionen en gång i veckan.
-
-Här lär du dig att skapa en timerutlösare som ska köras med ett konsekvent intervall.
+Det är vanligt att köra en del av logiken med ett angivet intervall. Anta att du har en blogg och du lägger märke till att dina prenumeranter inte har läst dina senaste inlägg. Du bestämmer dig för att den bästa åtgärden är att skicka ett e-postmeddelande till dem en gång i veckan för att påminna dem om att gå in på din blogg. Du implementerar den här logiken med hjälp av en Azure-funktion med en _timerutlösare_ som anropar funktionen en gång i veckan.
 
 ## <a name="what-is-a-timer-trigger"></a>Vad är en timerutlösare?
 
-En timerutlösare är en utlösare som kör en funktion med ett konsekvent intervall. Om du vill skapa en timerutlösare måste du ange två typer av information. Det första kravet är ett *tidsstämpelparameternamn*, vilket helt enkelt är en identifierare som får åtkomst till utlösaren i koden. Det andra kravet är ett *schema*, vilket är ett *CRON-uttryck* som anger intervallet för timern.
+En timerutlösare är en utlösare som kör en funktion med ett konsekvent intervall. Om du vill skapa en timerutlösare måste du ange två typer av information. 
+
+1. Ett *tidsstämpelparameternamn*, vilket helt enkelt är en identifierare som får åtkomst till utlösaren i koden. 
+2. Ett *schema*, vilket är ett *CRON-uttryck* som anger intervallet för timern.
 
 ## <a name="what-is-a-cron-expression"></a>Vad är ett CRON-uttryck?
 
 Ett *CRON-uttryck* är en sträng som består av sex fält som motsvarar olika tider.
 
-Ordningen på de sex fälten i Azure är: {sekund} {minut} {timme} {dag} {månad} {veckodag}.
+Ordningen på de sex fälten i Azure är: `{second} {minute} {hour} {day} {month} {day of the week}`.
 
 Ett *CRON-uttryck* som skapar en utlösare som körs var femte minut ut ser exempelvis ut så här:
 
@@ -37,7 +38,7 @@ Vi ska gå nu tillbaka till det ursprungliga exemplet på CRON-uttryck. Vi kan f
 
 Det **första fältet** motsvarar sekunder. Det här fältet stöder värdena 0–59. Eftersom fältet innehåller en nolla, väljs det första möjliga värdet som är en sekund.
 
-Det **andra fältet** motsvarar minuter. Värdet ”*/5” innehåller två specialtecken. Till att börja med innebär asterisken (*) ”välj alla värden i fältet”. Eftersom det här fältet motsvarar minuter är 0–59 möjliga värden. Det andra specialtecknet är ett snedstreck (/) som motsvarar en ökning. När du kombinerar dessa tecken innebär det att var femte värde ska väljas för alla värden 0–59. Ett enklare sätt att säga det är helt enkelt ”var femte minut”.
+Det **andra fältet** motsvarar minuter. Värdet ”*/5” innehåller två specialtecken. Till att börja med innebär asterisken (\*) ”välj alla värden i fältet”. Eftersom det här fältet motsvarar minuter är 0–59 möjliga värden. Det andra specialtecknet är ett snedstreck (/) som motsvarar en ökning. När du kombinerar dessa tecken innebär det att var femte värde ska väljas för alla värden 0–59. Ett enklare sätt att säga det är helt enkelt ”var femte minut”.
 
 De **återstående fyra fälten** motsvarar timme, dag, månad och veckodag. En asterisk i dessa fält innebär att alla möjliga värden ska väljas. I det här exemplet väljer vi ”varje timme varje dag i varje månad”.
 

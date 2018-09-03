@@ -1,4 +1,4 @@
-I den här övningen ska du lära dig hur du navigerar i Azure-portalen. Du kommer att undersöka följande konfigurationsområden:
+Azure Portal har många tillgängliga funktioner och tjänster – vi ska titta på några av de vanligaste områdena som du troligtvis kommer att använda:
 
 * Tjänstbladet
 * Meddelandebladet
@@ -64,9 +64,9 @@ I den här övningen ska du lära dig hur du navigerar i Azure-portalen. Du komm
 
 7. Klicka på **Tillämpa** för att godkänna ändringarna.
 
-8. Under **Språk** väljer du **Espagnol** och sedan klickar du på knappen **Uppdatera**. Om dialogrutan **Översätt den här sidan** visas stänger du rutan. Observera att hela portalen nu är på spanska.
+8. Under **Språk** väljer du **Español‎** och sedan klickar du på knappen **Uppdatera**. Om dialogrutan **Översätt den här sidan** visas stänger du rutan. Observera att hela portalen nu är på spanska.
 
-9. Klicka på kugghjulsikonen i den översta menyraden och välj **Engelska** under **Språk**. Klicka på knappen **Actualizar**. Portalen återgår till engelska.
+9. Klicka på kugghjulsikonen i den översta menyraden och välj **English** under **Idioma** (språkmenyn). Klicka på knappen **Actualizar**. Portalen återgår till engelska.
 
 ## <a name="feedback-blade"></a>Feedbackblad
 
@@ -124,7 +124,7 @@ I den här övningen ska du lära dig hur du navigerar i Azure-portalen. Du komm
 
 ## <a name="profile-settings"></a>Profilinställningar
 
-1. Klicka på ditt namn i det övre högra hörnet av portalen. Alternativen är:
+1. Klicka på ditt namn i det övre högra hörnet av portalen. Alternativen omfattar:
 
     * Logga ut från Azure
     * Ändra lösenord

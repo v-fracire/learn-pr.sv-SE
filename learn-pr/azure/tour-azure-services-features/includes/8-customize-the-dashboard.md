@@ -1,14 +1,14 @@
-Här får du skapa och ändra instrumentpaneler med hjälp av portalens användargränssnitt och genom att redigera den underliggande JSON-filen direkt.
+Härnäst ska vi titta på hur du skapar och ändrar instrumentpaneler med hjälp av Azure Portal och genom att redigera den underliggande JSON-filen direkt.
 
 ## <a name="what-is-a-dashboard"></a>Vad är en instrumentpanel?
 
-En _instrumentpanel_ består av en anpassningsbar panelsamling i användargränssnittet i Azure-portalen. Du kan lägga till, ta bort och placera panelerna för att skapa den vy du vill ha och sedan spara vyn som en instrumentpanel. Det går att ha fler instrumentpaneler och du kan växla mellan dem efter behov. Du kan även dela instrumentpaneler med andra teammedlemmar.
+En _instrumentpanel_ består av en anpassningsbar panelsamling i användargränssnittet i Azure-portalen. Du kan lägga till, ta bort och placera panelerna för att skapa den vy du vill ha och sedan spara vyn som en instrumentpanel. Det går att ha flera instrumentpaneler och du kan växla mellan dem efter behov. Du kan även dela instrumentpaneler med andra teammedlemmar.
 
 Med hjälp av instrumentpaneler får du stor flexibilitet när du hanterar Azure. Du kan till exempel skapa instrumentpaneler för specifika roller i organisationen och sedan använda rollbaserad åtkomstkontroll (RBAC) för att kontrollera vem som kan komma åt instrumentpanelen. Din databasadministratör kan således ha en instrumentpanel som innehåller vyer för SQL-databastjänsten, medan Azure Active Directory-administratören har vyer för användare och grupper i Azure AD.
 
 Instrumentpaneler lagras som .JSON-filer (JavaScript Object Notation). Det innebär att de kan laddas upp och laddas ned till andra datorer eller delas med andra i Azure-katalogen. Azure lagrar instrumentpaneler i resursgrupper, precis som virtuella datorer eller lagringskonton som du kan hantera i portalen.
 
-Eftersom instrumentpaneler är .JSON-filer kan du även anpassa dem programmässigt, vilket gör dem till mycket kraftfulla administrativa verktyg. Dessutom kan vissa typer av paneler vara frågebaserade så att de uppdateras automatiskt när källdata ändras.
+Eftersom instrumentpaneler är JSON-filer kan du även anpassa dem programmässigt, vilket gör dem till mycket kraftfulla administrativa verktyg. Dessutom kan vissa typer av paneler vara frågebaserade så att de uppdateras automatiskt när källdata ändras.
 
 ## <a name="default-dashboard"></a>Standardinstrumentpanel
 
@@ -38,7 +38,7 @@ Observera att alla instrumentpaneler som du skapar först är privata. Det vill 
 
 ### <a name="create-a-new-dashboard"></a>Skapa en ny instrumentpanel
 
-Om du vill skapa en ny instrumentpanel klickar du helt enkelt på **Ny instrumentpanel**. Arbetsytan för instrumentpanel öppnas utan paneler. Här kan du lägga till paneler enligt beskrivningen under Redigera en instrumentpanel med användargränssnittet senare i den här modulen. När du är klar med att lägga till och justera paneler, och har ändrat instrumentpanelens namn, klickar du bara på **Anpassningen är klar** för att spara och växla till instrumentpanelen.
+Om du vill skapa en ny instrumentpanel klickar du på **Ny instrumentpanel**. Arbetsytan för instrumentpanel öppnas utan paneler. Du kan sedan lägga till, ta bort och justera paneler som du vill – vi ska titta mer på detta i en stund. När du är klar med att anpassa instrumentpanelen klickar du på **Anpassningen är klar** för att spara och växla till den instrumentpanelen.
 
 ### <a name="upload-and-download"></a>Ladda upp och ladda ned
 
@@ -96,13 +96,13 @@ Det går att redigera en instrumentpanel genom att ladda ned .JSON-filen, ändra
 
 ![Redigera instrumentpanel](../images/7-edit-dashboard.PNG)
 
-På vänster sida visas panelgalleriet med ett antal paneler nedanför. Du kan filtrera panelgalleriet med följande kriterier:
+På vänster sida visas panelgalleriet med flera tillgängliga paneler. Du kan filtrera panelgalleriet med följande kriterier:
 
 * Allmänt
 * Typ
-* Search
+* Sök
 * Resursgrupp
-* Tagga
+* Tagg
 
 ![Panelgalleri](../images/7-tile-gallery.png)
 
@@ -142,7 +142,7 @@ Du kan även redigera en instrumentpanel genom att ändra .JSON-filen. Med den h
 
 ![JSON-inställningar](../images/7-json-code.png)
 
-Följ exemplet ovan för att ändra storlek på panelen och redigera variablerna colSpan och rowSpan. Spara sedan filen och ladda upp den till Azure igen. Filen kan även distribueras till andra användare.
+Följ exemplet ovan för att ändra storlek på panelen och redigera variablerna **colSpan** och **rowSpan**. Spara sedan filen och ladda upp den till Azure igen. Filen kan även distribueras till andra användare.
 
 ## <a name="reset-a-dashboard"></a>Återställa en instrumentpanel
 

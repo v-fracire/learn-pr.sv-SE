@@ -88,9 +88,9 @@ Så här kan du ladda ned och redigera en instrumentpanelsfil:
 
 4. I din filredigerare letar du rätt på texten ”ClockPart”
 
-5. Vid den första förekomsten av ClockPart ändrar du det tidigare värdet för rowSpan till 1.
+5. Vid den första förekomsten av ClockPart ändrar du det tidigare värdet för **rowSpan** till 1.
 
-6. Vid den andra förekomsten av ClockPart ändrar du också det tidigare värdet för rowSpan till 1.
+6. Vid den andra förekomsten av ClockPart ändrar du också det tidigare värdet för **rowSpan** till 1.
 
 7. Vid den andra förekomsten av Clockpart ändrar du Y-värdet från 2 till 1.
 
@@ -178,4 +178,4 @@ Om du inte vill att en viss instrumentpanel ska vara tillgänglig för delning k
 
 ## <a name="summary"></a>Sammanfattning
 
-Nu har du skapat och redigerat instrumentpaneler, delat dem, ändrat dem som .JSON-filer, tagit bort delning och slutligen återställt dem till standard. Du har fått se vilka effektiva verktyg instrumentpaneler kan vara, och hur du kan använda dem för att skapa praktiska gränssnitt för olika roller i en organisation.
+Nu har du skapat och redigerat instrumentpaneler, delat dem, ändrat dem som **.JSON**-filer, tagit bort delning och slutligen återställt dem till standard. Du har fått se vilka effektiva verktyg instrumentpaneler kan vara, och hur du kan använda dem för att skapa praktiska gränssnitt för olika roller i en organisation.

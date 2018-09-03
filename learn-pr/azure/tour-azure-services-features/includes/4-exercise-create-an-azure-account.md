@@ -1,12 +1,14 @@
-I den här övningen får du skapa ett kostnadsfritt Azure-konto. Du behöver ett giltigt kreditkort för att genomföra övningen, men det används primärt till att verifiera ålder och identitet, och du debiteras ingenting.
+Om du vill använda Azure-tjänster behöver du förr eller senare ett konto. Om du redan har ett konto kan du hoppa över den här enheten och gå vidare till nästa där vi börjar utforska Azure Portal.
+
+Om du inte har ett konto ska vi nu gå igenom hur du skapar ett. Du behöver ett giltigt kreditkort som används för verifiering av ålder och identitet. Ditt kort debiteras inte förrän du faktiskt börjar använda några av de tjänster vi går igenom i den här modulen.
 
 ## <a name="sign-up-for-a-free-account"></a>Registrera ett kostnadsfritt konto
 
-Så här registrerar du ett kostnadsfritt konto:
+Så här registrerar du dig för ett kostnadsfritt Azure-konto:
 
-1. Öppna en webbläsare, gå till adressen [azure.microsoft.com](https://azure.microsoft.com) och klicka på knappen **Starta kostnadsfritt >**.
+1. Öppna en webbläsare, gå till adressen [azure.microsoft.com](https://azure.microsoft.com) och klicka på knappen **Börja kostnadsfritt >**.
 
-2. På sidan **Skapa ditt kostnadsfria Azure-konto i dag** klickar du på knappen **Starta kostnadsfritt >**.
+2. På sidan **Skapa ditt kostnadsfria Azure-konto i dag** klickar du på knappen **Börja kostnadsfritt >**.
 
 3. På sidan **Om dig** väljer du rätt land eller region och anger uppgifter som för- och efternamn samt e-postadress och telefonnummer. Beroende på vilket land du anger kan du se ytterligare fält, till exempel för momsregistreringsnummer. Klicka på **Nästa** för att fortsätta.
 

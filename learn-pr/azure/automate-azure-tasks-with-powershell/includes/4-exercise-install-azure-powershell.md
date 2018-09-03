@@ -51,7 +51,7 @@ Installera därefter **PowerShell Core** på macOS med Homebrew-pakethanteraren.
 1. Installera PowerShell Core:
 
     ```bash
-    brew cask install powershell
+    brew cask installs powershell
     ```
 
 1. Starta PowerShell Core för att verifiera att det har installerats ordentligt:
@@ -84,7 +84,7 @@ Installera Azure PowerShell på Windows med `Install-Module` PowerShell-kommando
 5. Om du blir tillfrågad om du litar på moduler från PSGallery svarar du **Ja** eller **Ja till alla**.
 
 > [!NOTE]
-> Om du får ett felmeddelande som anger att en version av Azure Powershell-modulen redan är installerad kan du uppdatera till den _senaste_ versionen genom att köra kommandot:
+> Om du får ett felmeddelande som anger att en version av Azure PowerShell-modulen redan är installerad kan du uppdatera till den _senaste_ versionen genom att köra kommandot:
 > 
 > `Update-Module -Name AzureRM`
 > 
@@ -108,4 +108,4 @@ Vi använder samma grundläggande process för att installera Azure PowerShell p
 1. Om du blir tillfrågad om du litar på moduler från **PSGallery** svarar du **Ja** eller **Ja till alla**.
 
 ## <a name="summary"></a>Sammanfattning
-Du konfigurerar dina lokala datorer för att administrera Azure-resurser med Azure PowerShell. Du kan nu använda Azure PowerShell lokalt för att ange kommandon eller köra skript. Azure PowerShell vidarebefordrar dina kommandon till Azure-datacenter där de körs i din Azure-prenumeration.
+Du har konfigurerat dina lokala datorer för att administrera Azure-resurser med Azure PowerShell. Du kan nu använda Azure PowerShell lokalt för att ange kommandon eller köra skript. Azure PowerShell vidarebefordrar dina kommandon till Azure-datacenter där de körs i din Azure-prenumeration.

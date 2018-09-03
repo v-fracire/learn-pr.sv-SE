@@ -7,7 +7,8 @@ Du letar efter en lagringslösning som är säker, beständig, skalbar och enkel
 Azure Storage har funktioner som täcker alla de här behoven.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
-> [!div class="checklist"]
-> * Lär dig om fördelarna med Azure Storage
-> * Lär dig hur Azure Storage kan uppfylla dina affärsbehov
-> * Jämför Azure Storage med lokal lagring
+I den här modulen kommer du att göra följande:
+
+- Utforska fördelarna med Azure Storage.
+- Lära dig hur Azure Storage kan uppfylla dina affärsbehov.
+- Jämföra Azure Storage med lokal lagring.

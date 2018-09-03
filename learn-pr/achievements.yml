@@ -1,15 +1,5 @@
 ### YamlMime:Achievements
 achievements:
-- uid: learn.sample-path.trophy
-  type: trophy
-  title: Pokal för exempelutbildningsväg
-  summary: Pokal för utbildningsvägen ”Pokal för exempelutbildningsväg”.
-  iconUrl: http://via.placeholder.com/120x120
-- uid: learn.placeholder.trophy
-  type: trophy
-  iconUrl: http://via.placeholder.com/120x120
-  title: Platshållarpokal för utbildningsväg
-  summary: Översikt över Pokal för exempelutbildningsväg
 - uid: learn.placeholder.badge
   type: badge
   iconUrl: http://via.placeholder.com/120x120
@@ -45,50 +35,55 @@ achievements:
   title: Skapa serverfri logik med Azure Functions
   summary: Skapa serverfri logik med Azure Functions
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.host-web-app-with-azure-web-apps.badge
+- uid: learn.host-a-web-application-with-azure-web-apps.badge
   type: badge
   title: Märke för Vara värd för ett webbprogram med Azure Web Apps
   summary: Översikt över Märke för Vara värd för ett webbprogram med Azure Web Apps
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.publish-azure-web-app-with-visual-studio.badge
   type: badge
-  title: Märke för Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
-  summary: Översikt över Märke för Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
+  title: Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
+  summary: Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.administer-containers-in-azure.trophy
   type: trophy
-  title: Pokal för Administrera containers i Azure
-  summary: Pokal för utbildningsvägen Administrera containers i Azure
+  title: Pokal för Administrera containrar i Azure
+  summary: Pokal för utbildningsvägen Administrera containrar i Azure
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.cloud-fundamentals.trophy
+- uid: learn.create-serverless-applications.trophy
   type: trophy
-  title: Pokal för Grunderna för molnet
-  summary: Pokal för utbildningsvägen Grunderna för molnet.
+  title: Pokal för Skapa serverlösa program
+  summary: Pokal för utbildningsvägen Skapa serverlösa program
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.azure-architecture-foundations.trophy
+- uid: learn.administer-infrastructure-resources-in-azure.trophy
   type: trophy
-  title: Pokal för Grunderna i Azure-arkitektur
-  summary: Pokal för utbildningsvägen Grunderna i Azure-arkitektur.
+  title: Pokal för Administrera infrastrukturresurser i Azure
+  summary: Pokal för utbildningsvägen Administrera infrastrukturresurser i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.cloud-foundations.trophy
+  type: trophy
+  title: Pokal för Grunderna om molnet
+  summary: Pokal för utbildningsvägen Grunderna om molnet.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.connect-your-services-together.trophy
+  type: trophy
+  title: Pokal för Koppla samman dina tjänster
+  summary: Pokal för utbildningsvägen Koppla samman dina tjänster.
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.architect-great-solutions-in-azure.trophy
   type: trophy
   title: Pokal för Skapa fantastiska lösningar i Azure
   summary: Pokal för utbildningsvägen Skapa fantastiska lösningar i Azure.
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.create-backend-services-in-azure.trophy
+- uid: learn.prepare-to-develop-apps-on-azure.trophy
   type: trophy
-  title: Pokal för Skapa serverdelstjänster i Azure
-  summary: Pokal för utbildningsvägen Skapa serverdelstjänster i Azure.
+  title: Pokal för Förbereda för att utveckla appar i Azure
+  summary: Pokal för utbildningsvägen Förbereda för att utveckla appar i Azure
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.prepare-to-use-azure.trophy
+- uid: learn.deploy-a-website-with-azure-app-service.trophy
   type: trophy
-  title: Pokal för Förbereda användningen av Azure
-  summary: Pokal för utbildningsvägen Förbereda användningen av Azure
-  iconUrl: http://via.placeholder.com/120x120
-- uid: learn.deploy-a-website-to-azure-with-managed-hosting.trophy
-  type: trophy
-  title: Pokal för Distribuera en webbplats till Azure med hanterad värdmiljö
-  summary: Pokal för utbildningsvägen Distribuera en webbplats till Azure med hanterad värdmiljö.
+  title: Pokal för Distribuera en webbplats med Azure App Service
+  summary: Pokal för utbildningsvägen Distribuera en webbplats med Azure App Service.
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.work-with-nosql-data-in-azure-cosmos-db.trophy
   type: trophy
@@ -100,10 +95,10 @@ achievements:
   title: Pokal för Arbeta med relationsdata i Azure
   summary: Pokal för utbildningsvägen Arbeta med relationsdata i Azure.
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.secure-your-web-data-in-azure.trophy
+- uid: learn.secure-your-cloud-data.trophy
   type: trophy
-  title: Pokal för Skydda dina webbdata i Azure
-  summary: Pokal för utbildningsvägen Skydda dina webbdata i Azure.
+  title: Pokal för Skydda dina molndata
+  summary: Pokal för utbildningsvägen Skydda dina molndata.
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.store-data-in-azure.trophy
   type: trophy
@@ -129,6 +124,11 @@ achievements:
   type: badge
   title: Märke för Välja meddelandemodell
   summary: Översikt över märket för Välja meddelandemodell
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.badge
+  type: badge
+  title: Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure
+  summary: Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.prepare-azure-dev-environment.badge
   type: badge
@@ -160,10 +160,10 @@ achievements:
   title: Migrera relationsdata i SQL Server till Azure SQL
   summary: Migrera relationsdata i SQL Server till Azure SQL
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.communicate-between-apps-with-storage-queues.badge
+- uid: learn.communicate-between-applications-with-azure-queue-storage.badge
   type: badge
-  title: Märke för Kommunicera mellan program med en Azure Storage-kö
-  summary: Översikt över Kommunicera mellan program med en Azure Storage-kö
+  title: Kommunicera mellan program med Azure Queue Storage
+  summary: Kommunicera mellan program med Azure Queue Storage
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.create-a-windows-vm-in-azure.badge
   type: badge
@@ -199,7 +199,7 @@ achievements:
   type: badge
   title: Hantera hemligheter i dina webbappar med Azure Key Vault
   summary: Hantera hemligheter i dina webbappar med Azure Key Vault
-  iconUrl: /learn/modules/manage-secrets-with-azure-key-vault/achievement/manage-secrets-with-azure-key-vault.svg
+  iconUrl: /learn/achievements/manage-secrets-with-azure-key-vault.svg
 - uid: learn.secure-azure-resources-with-rbac.badge
   type: badge
   title: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
@@ -215,10 +215,10 @@ achievements:
   title: Hantera virtuella datorer med Azure CLI
   summary: Hantera virtuella datorer med Azure CLI
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.deploy-a-website-to-azure-with-vm-hosting.trophy
+- uid: learn.deploy-a-website-with-azure-virtual-machines.trophy
   type: trophy
-  title: Pokal för Distribuera en webbplats till Azure med den virtuella dator som är värd
-  summary: Pokal för utbildningsvägen Distribuera en webbplats till Azure med den virtuella dator som är värd.
+  title: Pokal för Distribuera en webbplats med Azure Virtual Machines
+  summary: Pokal för utbildningsvägen Distribuera en webbplats med Azure Virtual Machines.
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.store-app-data-with-azure-blob-storage.badge
   type: badge
@@ -245,10 +245,15 @@ achievements:
   title: Skapa en Azure Cosmos DB-app i Visual Studio Code
   summary: Pokal för modulen Skapa en Azure Cosmos DB-app i Visual Studio Code.
   iconUrl: http://via.placeholder.com/120x120
+- uid: learn.manage-resources-in-azure.trophy
+  type: trophy
+  title: Pokal för Hantera resurser i Azure
+  summary: Pokal för utbildningsvägen Hantera resurser i Azure.
+  iconUrl: http://via.placeholder.com/120x120
 metadata:
-  ms.openlocfilehash: f7775c5f422578b4f98ef8b6fcf2c8213e5e9bb4
-  ms.sourcegitcommit: 0e0cc41b7669e7149541f34f3f24ba0e864ed07d
+  ms.openlocfilehash: 4dc465d762264757b61a4000ad999e39ee339d64
+  ms.sourcegitcommit: d51dceaa3772e8083b3f0b6460f8a616b3139d25
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/23/2018
-  ms.locfileid: "42702346"
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "43053938"

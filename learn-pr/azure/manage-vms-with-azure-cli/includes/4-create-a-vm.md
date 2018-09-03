@@ -69,3 +69,5 @@ När den virtuella datorn har skapats får du ett JSON-svar som innehåller den 
 }
 ```
 
+> [!NOTE]
+> Observera att den virtuella datorn har skapats på platsen **usaöstra**. Som standard skapas den virtuella datorn på den plats som identifieras av den ägande regionen. Ibland kan det emellertid vara bra att associera den virtuella datorn med en befintlig region, men låta den starta någon annanstans i världen. Det kan du göra genom att ange parametern `--location` som en del av kommandot `az vm create`.

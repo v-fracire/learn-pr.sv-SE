@@ -20,9 +20,9 @@ En auktorisationsnivå för HTTP-utlösare är en flagga som anger om en inkomma
 
 Det finns tre auktorisationsnivåer:
 
-- Funktion
-- Anonym
-- Admin
+1. Funktion
+2. Anonym
+3. Admin
 
 Nivåerna **Funktion** och **Admin** är ”nyckelbaserade”. Du måste ange en nyckel för autentisering för att skicka en HTTP-begäran. Det finns två typer av nycklar: *funktion* och *värd*. Skillnaden mellan dessa två nycklar är dess skala. *Funktionsnycklar* är specifika för en funktion. *Värdnycklar* gäller för alla funktioner i hela Azure Functions-programmet. Om din auktorisationsnivå är inställd på **funktion** kan du använda antingen en *funktionsnyckel* eller en *värdnyckel*. Om din auktorisationsnivå är inställd på **Admin** måste du använda en *värdnyckel*.
 
@@ -38,7 +38,7 @@ En inställning som är viktig att förstå är **Parameternamn för förfrågan
 
 Om du vill anropa en HTTP-utlösare skickar du en HTTP-begäran till webbadressen för din funktion. Gå till sidan med koden för din funktion och välj länken **Hämta funktionswebbadress** för att hämta den här webbadressen.
 
-![Leta reda på webbadressen för funktionen](../media/5-function-url.png)
+![Leta reda på webbadressen för funktionen](../media-drafts/5-function-url.png)
 
 När du har webbadressen för funktionen kan du skicka HTTP-begäranden. Kom ihåg att du antingen kan använda frågesträngsparametrar eller ange data via begärandetexten om funktionen tar emot data.
 

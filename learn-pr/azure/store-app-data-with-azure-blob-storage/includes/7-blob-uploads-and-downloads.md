@@ -2,17 +2,17 @@ När vi har en referens till en blob kan vi överföra och hämta data. `ICloudB
 
 ## <a name="creating-new-blobs"></a>Skapa nya blobbar
 
-Om du vill skapa en ny blob anropar du en av `Upload`-metoderna för en blob som inte finns. Två saker händer: Blobben skapas och data överförs. 
+Om du vill skapa en ny blob anropar du en av `Upload`-metoderna för en referens till en blob som inte finns i lagring. Två saker händer: Blobben skapas i lagring och data laddas upp.
 
 ## <a name="moving-data-to-and-from-blobs"></a>Flytta data till och från blobbar
 
-Att flytta data till och från en blob är en nätverksåtgärd som tar tid. I Azure Storage SDK för .NET Core kommer alla metoder som kräver nätverksaktivitet att returnera `Task`, så se till att dina kontrollantmetoder är `async` med relevanta värden och att du använder `await` för metodanrop i stället för `Wait`.
+Att flytta data till och från en blob är en nätverksåtgärd som tar tid. I Azure Storage SDK för .NET Core kommer alla metoder som kräver nätverksaktivitet att returnera `Task`, så se till att du använder `await` i dina kontrollantmetoder på rätt sätt.
 
 En vanlig rekommendation när du arbetar med stora dataobjekt är att använda strömmar i stället för minnesinterna strukturer som t.ex. bytematriser eller strängar. Detta förhindrar att hela innehållet buffras i minnet innan det skickas till målet. ASP.NET Core har stöd för läsning och skrivning av strömmar från begäranden och svar.
 
 ## <a name="concurrent-access"></a>Samtidig åtkomst
 
-Det kan hända att andra processer kan lägga till, ändra eller ta bort blobbar samtidigt som din app använder dem. Använd alltid kod på ett defensivt sätt och förutsäg problem som kan orsakas av samtidighet, t.ex att blobbar tas bort samtidigt som du försöker ladda ned från dem eller blobbar vars innehåll ändras när du inte förväntar dig det. Se avsnittet Ytterligare resurser i slutet av den här modulen för information om hur du använder AccessConditions och blobblån för att hantera samtidig blobbåtkomst.
+Andra processer kan lägga till, ändra eller ta bort blobbar samtidigt som din app använder dem. Använd alltid kod på ett defensivt sätt och förutsäg problem som kan orsakas av samtidighet, t.ex att blobbar tas bort samtidigt som du försöker ladda ned från dem eller blobbar vars innehåll ändras när du inte förväntar dig det. Se avsnittet Ytterligare läsning i slutet av den här modulen för information om hur du använder AccessConditions och blobblån för att hantera samtidig blobbåtkomst.
 
 ## <a name="exercise"></a>Övning
 
@@ -20,9 +20,9 @@ Nu ska vi slutföra vår app genom att lägga till uppladdnings- och nedladdning
 
 ### <a name="upload"></a>Ladda upp
 
-Vi laddar upp en blob genom att implementera metoden `BlobStorage.Save` med hjälp av `GetBlockBlobReference` för att få en `CloudBlockBlob` från behållaren. `FilesController.Upload` skickar filströmmen till `Save`, så att vi kan använda `UploadFromStreamAsync` till att genomföra överföringen för maximal effektivitet.
+Vi laddar upp en blob genom att implementera metoden `BlobStorage.Save` med hjälp av `GetBlockBlobReference` för att få en `CloudBlockBlob` från behållaren. `FilesController.Upload` skickar filströmmen till `Save`, så att vi kan använda `UploadFromStreamAsync` till att genomföra uppladdningen för maximal effektivitet.
 
-Öppna `BlobStorage.cs` i redigeringsprogrammet och fyll i `Save`-implementeringen med följande kod:
+Öppna `BlobStorage.cs` i redigeraren och ersätt `Save` med följande kod:
 
 ```csharp
 public Task Save(Stream fileStream, string name)
@@ -36,13 +36,13 @@ public Task Save(Stream fileStream, string name)
 ```
 
 > [!NOTE]
-> Den strömbaserade uppladdningskod som visas här är effektivare än att läsa filen till en bytematris innan den skickas till Azures blobblagring. Men den `IFormFile`-teknik som vi använder för att hämta filen från klienten är inte en verklig strömmande implementering från slutpunkt till slutpunkt och passar bara till att hantera uppladdningar av små filer. Se avsnittet Ytterligare resurser i slutet av den här modulen för mer information om helt strömmade filöverföringar.
+> Den strömbaserade uppladdningskod som visas här är effektivare än att läsa filen till en bytematris innan den skickas till Azures blobblagring. Men den ASP.NET Core `IFormFile`-teknik som vi använder för att hämta filen från klienten är inte en verklig strömmande implementering från slutpunkt till slutpunkt och passar bara till att hantera uppladdningar av små filer. Se avsnittet Ytterligare läsning i slutet av den här modulen för mer information om helt strömmade filuppladdningar.
 
 ### <a name="download"></a>Ladda ned
 
 `BlobStorage.Load` returnerar en `Stream`, vilket innebär att vår kod inte behöver flytta byte fysiskt från blobblagringen alls &mdash; vi behöver bara returnera en referens till blobbströmmen. Vi kan göra det med `OpenReadAsync`. ASP.NET Core hanterar läsningen och stänger dataströmmen när den skapar klientsvaret.
 
-Fyll i `Load` med den här koden:
+Ersätt `Load` med den här koden och spara ditt arbete:
 
 ```csharp
 public Task<Stream> Load(string name)
@@ -54,20 +54,37 @@ public Task<Stream> Load(string name)
 }
 ```
 
-### <a name="deploy-and-run-in-azure"></a>Publicera och köra i Azure
+### <a name="deploy-and-run-in-azure"></a>Distribuera och köra i Azure
 
-Vår app är klar &mdash; nu ska vi distribuera den och se hur den fungerar. Kör följande kod i Azure Cloud Shell-terminalen för att skapa koden och distribuera den till en ny App Service-instans. Vi ska också lägga till lagringskontots anslutningssträng till konfigurationen.
+Vår app är klar &mdash; nu ska vi distribuera den och se hur den fungerar. Skapa en App Service-app och konfigurera den med programinställningar för vårt lagringskontos anslutningssträng och containernamn. Hämta lagringskontots anslutningssträng med `az storage account show-connection-string` och ange `files` som namn på containern.
 
-```console
+Appnamnet måste vara globalt unikt, så du måste välja ett eget namn att fylla i `<your-unique-app-name>`.
 
+```azurecli
+az appservice plan create --name blob-exercise-plan --resource-group blob-exercise-group
+az webapp create --name <your-unique-app-name> --plan blob-exercise-plan --resource-group blob-exercise-group
+CONNECTIONSTRING=$(az storage account show-connection-string --name <your-unique-storage-account-name> --output tsv)
+az webapp config appsettings set --name <your-unique-app-name> --resource-group blob-exercise-group --settings AzureStorageConfig:ConnectionString=$CONNECTIONSTRING AzureStorageConfig:FileContainerName=files
 ```
 
-...
+Nu ska vi distribuera appen. Nedanstående kommandon publicerar webbplatsen till mappen `pub`, zippar upp den till `site.zip` och distribuerar zip-filen till App Service.
 
-Överför och hämta några filer om du vill testa appen och kör sedan följande i gränssnittet för att se vilka blobbar som har överförts:
+> [!NOTE]
+> Kontrollera att gränssnittet finns i katalogen `FileUploader` för följande kommandon.
 
-```console
-
+```azurecli
+dotnet publish -o pub
+cd pub
+zip -r ../site.zip *
+az webapp deployment source config-zip --src ../site.zip --name <your-unique-app-name> --resource-group blob-exercise-group
 ```
 
-**TODO-bild från portalen**
+Öppna `https://<your-unique-app-name>.azurewebsites.net` i en webbläsare om du vill se appen som körs. Det bör se ut som på bilden nedan.
+
+![Skärmbild av webbappen FileUploader](../media-drafts/fileuploader-empty.PNG)
+
+Prova att ladda upp och ladda ned några filer om du vill testa appen. När du har laddat upp några filer kör du följande i gränssnittet för att se vilka blobbar som har laddats upp till containern:
+
+```console
+az storage blob list --account-name <your-unique-storage-account-name> --container-name files --query [].{Name:name} --output table
+```

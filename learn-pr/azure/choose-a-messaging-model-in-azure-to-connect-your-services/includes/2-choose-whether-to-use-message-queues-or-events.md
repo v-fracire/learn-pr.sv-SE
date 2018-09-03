@@ -2,10 +2,9 @@ Anta att du planerar arkitekturen till ett distribuerat program för delning av 
 
 Innan du kan välja rätt Azure-teknik, måste du förstå varje enskild kommunikation som komponenterna i programmet utbyter. Du kan välja olika Azure-tekniker för olika sorters kommunikation.
 
-Det första du ska ta reda på är om en kommunikation skickar meddelanden eller händelser. Vissa Azure-tekniker skickar händelser och andra skickar meddelanden, så detta är ett viktigt val.
+Det första du ska ta reda på är om en kommunikation skickar **meddelanden** eller **händelser**. Det här är ett grundläggande val som hjälper dig att välja rätt Azure-tjänst att använda.
 
 ## <a name="what-is-a-message"></a>Vad är ett meddelande?
-
 I terminologin för distribuerade program har **meddelanden** följande egenskaper:
 
 - Meddelandet innehåller rådata som genereras av en komponent och som ska användas av en annan komponent.
@@ -18,7 +17,7 @@ Anta exempelvis att en användare laddar upp en ny låt med hjälp av mobilappen
 
 **Händelser** är enklare än meddelanden och används oftast för sändningskommunikation. De komponenter som skickar händelsen kallas för **utgivare** och mottagare kallas för **prenumeranter**.
 
-Med händelser avgör mottagande komponenter i allmänhet vilken kommunikation man är intresserad av och därefter ”prenumererar” man på den. Prenumerationen hanteras vanligtvis av en mellanhand som Azure Event Grid eller Azure Event Hub. När utgivaren skickar en händelse kommer mellanhanden att dirigera händelsen till intresserade prenumeranter. Detta kallas för en ”publicera/prenumerera-arkitektur”. Det är inte det enda sättet att hantera händelser på, men det är det vanligaste.
+Med händelser avgör mottagande komponenter i allmänhet vilken kommunikation man är intresserad av och därefter ”prenumererar” man på den. Prenumerationen hanteras vanligtvis av en mellanhand, till exempel Azure Event Grid eller Azure Event Hubs. När utgivaren skickar en händelse kommer mellanhanden att dirigera händelsen till intresserade prenumeranter. Det kallas en ”publicera/prenumerera-arkitektur”. Det är inte det enda sättet att hantera händelser, men det är det vanligaste.
 
 Händelser har följande egenskaper:
 
@@ -29,7 +28,7 @@ Händelser har följande egenskaper:
 - Vissa händelser är diskreta enheter som inte är relaterade till andra händelser. 
 - Vissa händelser är en del av en relaterad och ordnad serie.  
 
-Anta exempelvis att filöverföringen av musik har slutförts och att en ny låt har lagts till i databasen. För att kunna informera användarna om den nya filen måste webb-API:n meddela webbklientdelen och mobilappanvändarna om detta. Användarna kan välja om de vill lyssna på den nya låten. Därför innehåller den första aviseringen inte musikfilen, utan meddelar bara användarna om att låten finns. Avsändaren har inte någon specifik förväntan på att händelsemottagarna ska göra något särskilt som svar på mottagandet av händelsen.
+Anta exempelvis att filuppladdningen av musik har slutförts och att en ny låt har lagts till i databasen. För att kunna informera användarna om den nya filen måste webb-API:n meddela webbklientdelen och mobilappanvändarna om detta. Användarna kan välja om de vill lyssna på den nya låten. Därför innehåller den första aviseringen inte musikfilen, utan meddelar bara användarna om att låten finns. Avsändaren har inte någon specifik förväntan på att händelsemottagarna ska göra något särskilt som svar på mottagandet av händelsen.
 
 Detta är ett exempel på en diskret händelse.
 
@@ -39,12 +38,8 @@ Ett program använder troligen händelser för vissa syften och meddelanden för
 
 Händelser används troligen för sändningar och är ofta tillfälliga, vilket innebär att ett meddelande kanske inte hanteras av någon mottagare om ingen prenumererar för närvarande. Det är sannolikt att meddelanden används där det distribuerade programmet kräver en garanti för att kommunikationen kommer att bearbetas.
 
-För varje typ av kommunikation bör du ställa dig frågan: Förväntar den sändande komponenten att kommunikationen ska bearbetas på ett visst sätt av målkomponenten?
+För varje typ av kommunikation bör du ställa dig följande fråga: **Förväntar den sändande komponenten att kommunikationen ska bearbetas på ett visst sätt av målkomponenten?**
 
-Om svaret är Ja bör du välja att använda ett meddelande. Om svaret är Nej kan du använda händelser.
+Om svaret är _Ja_ bör du välja att använda ett meddelande. Om svaret är _Nej_ kan du kanske använda händelser.
 
-## <a name="summary"></a>Sammanfattning
-
-Komponenterna i ett distribuerat program kommunicerar med varandra i många olika syften. För vart och ett av dessa syften måste du välja om du vill använda händelser eller meddelanden, för att du ska kunna använda en Azure-teknik som har utformats för ändamålet. 
-
-När du har förstått varför dina komponenter kommunicerar och om de använder händelser eller meddelanden, kan du fortsätta med att välja mellan Azure Storage-köer, Event Hubs, Event Grid eller Service Bus för att utbyta informationen.
+Att förstå hur komponenterna behöver kommunicera hjälper dig att välja hur komponenterna ska kommunicera. Vi börjar med meddelanden.

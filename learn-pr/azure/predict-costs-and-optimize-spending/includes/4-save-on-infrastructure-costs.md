@@ -2,17 +2,17 @@ Vi har gått igenom hur du skapar kostnadsuppskattningar för miljöer du vill s
 
 ## <a name="use-reserved-instances"></a>Använda reserverade instanser
 
-Om du har VM-arbetsbelastningar som är statiska och förutsägbara till sin natur, särskilt om de körs dygnet runt hela året, kan du spara upp till 70 procent genom att använda reserverade instanser beroende på de virtuella datorernas storlek.
+Om du har VM-arbetsbelastningar som är statiska och förutsägbara till sin natur, särskilt om de körs dygnet runt hela året, kan du spara upp till 70–80 procent genom att använda reserverade instanser beroende på de virtuella datorernas storlek.
 
-![Besparingar med reserverade instanser](../images/savings-coins.png)
+![Besparingar med reserverade instanser](../media-drafts/4-savings-coins.png)
 
 Reserverade instanser köps under ett eller tre år, och du betalar för hela perioden i förskott. Efter köpet matchar Microsoft reservationen mot de instanser som körs och minskar antalet timmar i reservationen. Du kan köpa reservationer via Azure Portal. Eftersom reserverade instanser utgör en rabatt på databehandlingen är de tillgängliga för både Windows- och Linux-datorer.
 
 ## <a name="right-size-underutilized-virtual-machines"></a>Ange rätt storlek för underutnyttjade virtuella datorer
 
-Tidigare tog vi upp att Azure Cost Management och Azure Advisor kan rekommendera att du ändrar storlek på eller stänger av virtuella datorer. Det här handlar om att dina virtuella datorer ska ha rätt storlek för uppgiften. Låt oss anta att du har en server som körs som en domänkontrollant och har storleken **Standard_D4sv3**, men den virtuella datorn är inaktiv 90 procent av tiden. Genom att ändra storlek på den virtuella datorn till **Standard_D2s_v3** kan du minska kostnaden för databehandlingen med 50 procent. Kostnaderna är linjära och fördubblas för varje större storlek i samma serie. I det här fallet kan du kanske även spara ännu mer genom att byta till en enklare serie virtuella datorer.
+Tidigare tog vi upp att Azure Cost Management och Azure Advisor kan rekommendera att du ändrar storlek på eller stänger av virtuella datorer. Det här handlar om att dina virtuella datorer ska ha rätt storlek för uppgiften. Låt oss anta att du har en server som körs som en domänkontrollant och har storleken **Standard_D4sv3**, men den virtuella datorn är inaktiv 90 procent av tiden. Genom att ändra storlek på den virtuella datorn till **Standard_D2sv3** kan du minska kostnaden för databehandlingen med 50 procent. Kostnaderna är linjära och fördubblas för varje större storlek i samma serie. I det här fallet kan du kanske även spara ännu mer genom att byta till en enklare serie virtuella datorer.
 
-![Ändra storlek på din virtuella dator](../images/vm-resize.png)
+![Ändra storlek på din virtuella dator](../media-drafts/4-vm-resize.png)
 
 För stora virtuella datorer är en onödig utgift i Azure som är både vanligt förekommande och enkel att rätta till. Du kan ändra storleken på en virtuell dator via Azure Portal, Azure PowerShell eller Azure CLI.
 
@@ -27,7 +27,7 @@ Den här metoden passar utmärkt för utvecklingsmiljöer. Utveckling sker ofta 
 
 Du kan också använda funktionen för automatisk avstängning om du vill schemalägga avstängningen av en virtuell dator.
 
-![Automatisk avstängning](../images/vm-auto-shutdown.png)
+![Automatisk avstängning](../media-drafts/4-vm-auto-shutdown.png)
 
 ## <a name="delete-unused-virtual-machines"></a>Ta bort virtuella datorer som inte används 
 

@@ -7,12 +7,13 @@ Du måste ansluta till användargränssnittet för att administrera kodningsprog
 I den här modulen får du lära dig hur du skapar en virtuell Windows-dator och ansluter till den med Remote Desktop Protocol (RDP).
 
 ## <a name="learning-objectives"></a>Utbildningsmål
-> [!div class="checklist"]
-> * Skapa en virtuell Windows-dator med Azure Portal.
-> * Förstå de tillgängliga alternativen för virtuella datorer i Azure.
-> * Anslut till en aktiv virtuell Windows-dator med hjälp av Windows fjärrskrivbordsanslutning.
+I den här modulen kommer du att göra följande:
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+- Skapa en virtuell Windows-dator med Azure Portal.
+- Förstå de tillgängliga alternativen för virtuella datorer i Azure.
+- Anslut till en aktiv virtuell Windows-dator med hjälp av Windows fjärrskrivbordsanslutning.
+
+## <a name="prerequisites"></a>Krav
 
 - Ha kunskap om Azure Cloud Services-miljön.
 - Vara bekant med virtuella datorer.

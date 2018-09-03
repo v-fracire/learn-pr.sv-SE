@@ -18,7 +18,7 @@ När du har lagt till tjänsterna är nästa steg att prissätta dem. Om du rull
 
 I vårt ursprungliga scenario kan vi anta att systemet ska köras på två virtuella datorer i Azure och ansluta till en instans av Azure SQL Database. Vi vill också ha en layer 7-brandvägg som ger oss följande utökade funktioner för belastningsutjämning:
 
-![Diagram över systemarkitekturen](../images/estimate-costs-architecture.png)
+![Diagram över systemarkitekturen](../media-drafts/2-estimate-costs-architecture.png)
 
 Vi kan använda priskalkylatorn i Azure till att se vad lösningen kommer att kosta och sedan exportera vår uppskattning för att dela den med teamet.
 
@@ -27,11 +27,11 @@ Vi kan använda priskalkylatorn i Azure till att se vad lösningen kommer att ko
 
 Lägg till följande tjänster på fliken **Produkter** i Azures priskalkylator genom att klicka på dem:
 
-- Virtuella datorer
-- Azure SQL Database
-- Application Gateway
+- Virtuella datorer i kategorin Databearbetning
+- Azure SQL-databas i kategorin Databaser
+- Application Gateway i kategorin Nätverk
 
-Vi kan konfigurera detaljer för varje tjänst på fliken **Uppskattningar** så att vi får en tydlig bild över kostnaderna. Använd regionen **USA, västra** för alla resurser.
+Vi kan konfigurera detaljer för varje tjänst på fliken **Beräkningar** så att vi får en tydlig bild över kostnaderna. Använd regionen **USA, västra** för alla resurser.
 
 * **Virtuella datorer.** Det här är en ASP.NET-app, så vi måste använda en virtuell dator med **Windows som operativsystem**. Appen behöver inga stora mängder beräkningskraft, så välj instansstorleken **D2v3**. Vi behöver två virtuella datorer och de kommer att köras kontinuerligt (730 timmar/månad). Vi ka använder SSD-lagring för de virtuella datorerna och behöver bara en disk per virtuell dator med storleken **E10**, vilket totalt ger två diskar. 
 

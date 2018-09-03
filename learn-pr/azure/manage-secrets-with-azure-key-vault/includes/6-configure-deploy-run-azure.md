@@ -17,7 +17,7 @@ az webapp create --name <your-unique-app-name> --plan keyvault-exercise-plan --r
 
 ### <a name="add-configuration-to-the-app"></a>Lägga till konfigurationen i appen
 
-När vi distribuerar till Azure följer vi rekommenderade metoder för App Service och placerar konfigurationen i programinställningarna i stället för i en konfigurationsfil.
+När vi distribuerar till Azure följer vi rekommenderade metoder för App Service och placerar VaultName-konfigurationen i programinställningarna i stället för i en konfigurationsfil.
 
 ```azurecli
 az webapp config appsettings set --name <your-unique-app-name> --resource-group keyvault-exercise-group --settings VaultName=<your-unique-vault-name>
@@ -48,7 +48,7 @@ Din konfiguration är klar och du är redo att distribuera! Nedanstående komman
 > [!NOTE]
 > Du måste `cd` tillbaka till katalogen KeyVaultDemoApp om du inte redan har gjort det.
 
-```console
+```azurecli
 dotnet publish -o pub
 zip -j site.zip pub/*
 az webapp deployment source config-zip --src site.zip --name <your-unique-app-name> --resource-group keyvault-exercise-group

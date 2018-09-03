@@ -8,14 +8,14 @@ Microsoft Azure tillhandahåller en mängd olika molnbaserade tjänster, och fun
 
 Vi tar en närmare titt på några av de vanligaste funktionerna: 
 
-- Compute
+- Databearbetning
 - Nätverk 
 - Storage
-- Mobil 
+- Mobilt 
 - Databaser 
 - Webb
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Databearbetning
 
 Compute Services är en av de främsta orsakerna till varför företag flyttar till Azure-plattformen. Azure tillhandahåller flera olika värdalternativ för program och tjänster, bland annat:
 
@@ -44,7 +44,7 @@ Azure-nätverksresurser har följande funktioner:
 |  Tjänstnamn             | Tjänstfunktion                                                                      |
 | -------------             | -------------                                                                         |
 | Virtual Network           | Anslut virtuella datorer till inkommande VPN-anslutningar (virtuellt privat nätverk)                     |
-| Lastbalanserare             | Balansera inkommande och utgående anslutningar till program och tjänstslutpunkter         |
+| Load Balancer             | Balansera inkommande och utgående anslutningar till program och tjänstslutpunkter         |
 | Application Gateway       | Optimera appservergruppens leverans samtidigt som programsäkerheten ökar               |
 | VPN Gateway               | Anslut till Azure Virtual Networks via högpresterande VPN-gatewayer                   |
 | Azure DNS                 | Tillhandahåll ultrasnabba DNS-svar och ultrahög domäntillgänglighet                   |
@@ -73,7 +73,7 @@ Alla dessa tjänster har gemensamma egenskaper, som är följande:
 - Hanterad, tar hand om underhåll och kritiska problem åt dig.
 - Åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst.
 
-### <a name="mobile"></a>Mobil
+### <a name="mobile"></a>Mobilt
 
 Med Azure kan utvecklare skapa engagerande iOS-, Android- och Windows-appar snabbt och enkelt på en mängd olika språk med den utvecklingsmiljö de väljer. Funktioner som tidigare tog tid och ökade risken för projektet, till exempel att lägga till företagsinloggning och sedan ansluta till lokala resurser som SAP, Oracle, SQL Server och SharePoint, är nu enkla att lägga till.
 

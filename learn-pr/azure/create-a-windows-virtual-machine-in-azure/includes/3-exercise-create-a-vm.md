@@ -1,14 +1,10 @@
-I den här övningen får du skapa en virtuell Windows-dator i Azure.
-
-## <a name="motivation"></a>Motivering
-
-I den här övningen ska vi titta på en annan typ av situation. Här är din organisation en skola som använder virtuella Windows-datorer till att starta testmiljöer där studenterna kan installera webbappar, konfigurera domäner och utforska tjänster och funktioner i Windows utan att skolans datorer påverkas. Lärarna ansluter till de här virtuella datorerna via RDP när de ska kontrollera hur det går för studenterna.
+Ni ska titta på en annan typ av situation. Din organisation kanske är en skola som använder virtuella Windows-datorer till att starta testmiljöer där studenterna kan installera webbappar, konfigurera domäner och utforska tjänster och funktioner i Windows utan att skolans datorer påverkas. Lärarna kan sedan ansluta till de här virtuella datorerna via RDP när de ska kontrollera hur det går för studenterna. Vi ska utforska hur du kan skapa något som liknar detta med Azure.
 
 ## <a name="create-a-windows-vm"></a>Skapa en virtuell Windows-dator
 
 Så här skapar du en virtuell Windows-dator:
 
-1. Logga in på Azure via [Azure Portal](https://portal.azure.com).
+1. Logga in på Azure via [Azure Portal](https://portal.azure.com?azure-portal=true).
 
 1. Klicka på **Skapa en resurs** uppe till vänster i Azure Portal.
 

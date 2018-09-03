@@ -8,13 +8,17 @@ För användaren är informationen om tjänsterna abstrakt. Du kan snabbt etable
 
 Det finns tre distributionsmodeller för molntjänster: offentliga moln, privata moln och hybridmoln.
 
-![Distributionsmodeller för molnet](../media/2-cloud-deployment.png)
+![Distributionsmodeller för molnet](../media-draft/2-cloud-deployment.png)
+
+!!! Video TC-008 platshållare !!! 
+
+> [!VIDEO https://channel9.msdn.com/Series/History/The-History-of-Microsoft-1995/player]
 
 ## <a name="public-cloud"></a>Offentligt moln
 
 Offentliga moln är det vanligaste sättet att distribuera molntjänster på. Tjänsterna erbjuds via offentligt Internet och är tillgängliga för alla som vill köpa dem. Molnresurser, till exempel servrar och lagring, ägs och drivs av en extern molntjänstleverantör och tillhandahålls via Internet. Tjänster kan erbjudas utan kostnad eller mot en avgift på begäran, vilket innebär att kunderna betalar per användning för de CPU-cykler, det lagringsutrymme eller den bandbredd de nyttjar. Microsoft Azure är ett exempel på ett offentligt moln. 
 
-Låt oss anta att din arbetsplats behöver en registreringswebbplats. Webbplatsen behöver kunna skalas och vara dynamisk när registreringen når höga nivåer vid olika tidpunkter under året. Dina kunder får åtkomst till webbplatsen från globala platser. Du kan använda det offentliga molnet för att automatiskt skala upp när du behöver möta efterfrågan vid registreringstoppar. När trafiken är låg kan du skala ned webbplatsen för att spara kostnader. Webbplatsen är dynamisk vid höga nivåer och du betalar bara för fler resurser när de behövs. Du kan också distribuera din webbplats i olika geografiska områden för att förbättra tillförlitligheten och svarstiderna.
+Låt oss anta att din arbetsplats behöver en registreringswebbplats. Webbplatsen behöver kunna skalas och vara dynamisk när registreringen når höga nivåer vid olika tidpunkter under året. Dina kunder får åtkomst till webbplatsen från globala platser. Du kan använda det offentliga molnet för att automatiskt skala upp när du behöver möta efterfrågan vid registreringstoppar. När trafiken är låg kan webbplatsen skalas ned för att spara kostnader. Webbplatsen är dynamisk vid höga nivåer och du betalar bara för fler resurser när de behövs. Du kan också distribuera din webbplats i olika geografiska områden för att förbättra tillförlitligheten och svarstiderna.
 
 Under utvecklingen av din webbplats vill utvecklarna skapa flera utvecklingsmiljöer för att påskynda utvecklingsprocessen. Utvecklarna kan använda det offentliga molnet för att snabbt etablera virtuella datorer i begränsade miljöer för att utveckla en lösning. När utvecklarna inte behöver miljön längre kan de ta bort den.
 
@@ -51,7 +55,7 @@ Exempel på varför du bör använda ett privat moln:
 
 Ett hybridmoln är en beräkningsmiljö som kombinerar ett offentligt moln och ett privat moln genom att data och program kan delas. När beräknings- och databehandlingsefterfrågan varierar ger hybridmolntjänsterna företaget möjlighet att enkelt skala sina lokala infrastruktur till det offentliga molnet – utan att datacentra från tredje part får tillgång till samtliga data. Företagen får flexibilitet och beräkningskraft från det offentliga molnet för grundläggande och icke-känsliga beräkningsuppgifter, samtidigt som verksamhetskritiska program och data finns kvar lokalt bakom företagets brandvägg.
 
-Med ett hybridmoln kan man eliminera behovet av att göra direkta investeringar i maskinvara för att hantera tillfälliga trafiktoppar. Man får även flexibilitet att hantera vilka resurser som ska vara lokala och vilka resurser som ska finnas i molnet. Företagen betalar bara för resurser som de använder i stället för att behöva köpa in, programmera och underhålla extraresurser och utrustning som kanske inte ens används under långa tidsperioder. Integrering sker vanligtvis via en säker VPN mellan molnleverantörer som Azure och ett lokalt datacenter.
+Med ett hybridmoln kan man eliminera behovet av att göra direkta investeringar i maskinvara för att hantera tillfälliga trafiktoppar. Man får även flexibilitet att hantera vilka resurser som ska vara lokala och vilka resurser som ska finnas i molnet. Företagen betalar bara för resurser som de använder i stället för att behöva köpa in, programmera och underhålla extraresurser och utrustning som kanske inte ens används under långa tidsperioder. Integrering sker vanligtvis via en säker VPN mellan molnleverantörer som Azure och lokala datacentra.
 
 Anta att du arbetar på sjuk- och hälsovårdsföretaget och du har ett program där kunderna kan få åtkomst till sin hälsoinformation. Det finns ett regelverk som kräver att datan ska finnas på en fysisk plats. Kundwebbplatsen måste kunna vara dynamisk för de olika globala användarna.  En lösning kan därför vara att databasen hanteras på ett lokalt datacenter och webbplatsen finns i det offentliga molnet. En VPN-anslutning används mellan det lokala datacentrat och det offentliga molnet. Det här scenariot kan anses vara ett hybridmoln.
 
@@ -62,6 +66,6 @@ Med hybridmoln kan din organisation styra och underhålla en privat infrastruktu
 Exempel på varför du bör använda hybridmoln:
 
 - **Befintlig maskinvaruinvestering:** Verksamheten kräver att du använder en befintlig driftsmiljö och maskinvara.
-- **Juridiska krav:** Regelverk kräver att datan ska finnas på en fysisk plats.
-- **Unik driftsmiljö:** Det offentliga molnet kan inte replikera äldre driftsmiljö.
+- **Juridiska krav:** Regelverk kräver att data ska finnas på en fysisk plats.
+- **Unik driftsmiljö:** Det offentliga molnet kan inte replikera en äldre driftsmiljö.
 - **Migrering:**: Flytta arbetsbelastningar till molnet över tid.

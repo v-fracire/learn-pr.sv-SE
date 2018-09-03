@@ -1,14 +1,14 @@
-Anta att du är en fotograf och att du har en webbplats där du visar upp dina bilder. Eftersom du är upptagen kan du har inte ett konsekvent uppladdningsschema, men du vill meddela dina följare när du laddar upp en ny bild. Du vill skapa en Azure-funktion för att automatiskt skicka en tweet när du laddar upp en bild till din Azure Storage blob-behållare.
+Anta att du är en fotograf och att du har en webbplats där du visar upp dina bilder. Eftersom du är upptagen kan du har inte ett konsekvent uppladdningsschema, men du vill meddela dina följare när du laddar upp en ny bild. Du vill skapa en Azure-funktion för att automatiskt skicka en tweet när du laddar upp en bild till din Azure Storage blob-container.
 
-Här får du lära dig hur du skapar en blob-utlösare och instruerar den att övervaka en specifik plats i din Azure Storage blob-behållare.
+Här får du lära dig hur du skapar en blob-utlösare och instruerar den att övervaka en specifik plats i din Azure Storage blob-container.
 
 ## <a name="what-is-azure-storage"></a>Vad är Azure Storage?
 
 Azure Storage är Microsofts molnlagringslösning som har stöd för alla typer av data, inklusive: blobar, köer och NoSQL. Målet med Azure Storage är att tillhandahålla lagring av data som kännetecknas av:
 
 - Högt tillgänglighet
-- Skydda
-- Skalbar
+- Säkerhet
+- Skalbarhet
 - Hanterad
 
 Vi kommer inte att fokusera på Azure Storage för mycket. I stället använder vi den för att skapa blobar som ska utlösa vår funktion.
@@ -36,9 +36,9 @@ Precis som de andra utlösarna vi har sett hittills skapar vi en blob-utlösare 
 
 En inställning som du bör titta på är **Sökväg**. **Sökvägen** informerar blob-utlösaren om vad den ska övervaka för att se om en blob laddas upp eller uppdateras. Som standard är värdet för **Sökväg**: 
 
-> samples-workitems/{namn}
+> samples-workitems/{name}
 
-Vi kan dela upp det här begreppet i två delar: *samples-workitems* och *{name}*. Den första delen, *samples-workitems*, representerar den blobbehållare som utlösaren övervakar. Den andra delen *{name}*, innebär att alla filtyper får utlösaren att anropa funktionen. Funktionen anropas eftersom det inte finns något filter. Jag skulle till exempel kunna göra så att utlösaren endast anropar funktionen när en PNG-fil läggs till med hjälp av en syntax som:
+Vi kan dela upp det här begreppet i två delar: *samples-workitems* och *{name}*. Den första delen, *samples-workitems*, representerar den blobcontainer som utlösaren övervakar. Den andra delen *{name}, innebär att alla filtyper får utlösaren att anropa funktionen. Funktionen anropas eftersom det inte finns något filter. Jag skulle till exempel kunna göra så att utlösaren endast anropar funktionen när en PNG-fil läggs till med hjälp av en syntax som:
 
 > samples-workitems/{name}.png
 

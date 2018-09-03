@@ -11,8 +11,9 @@ Steve hade glömt att flera instanser av appen kördes på olika servrar. Han ha
 Att läcka en databasanslutningssträng, API-nyckel eller tjänstlösenord kan resultera i en katastrof. Stulna eller borttagna data, finansiell skada, stilleståndstid och oåterkallelig skada för företagets tillgångar och rykte är alla möjliga resultat. Tyvärr behöver hemliga värden ofta distribueras på flera platser samtidigt och ändras ibland. Och *någonstans* måste du lagra dem! Nu ska vi se hur vi kan göra allt detta med Azure KeyVault.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
-> [!div class="checklist"]
-> * Förstå vilka typer av information som kan lagras i Azure KeyVault
-> * Skapa ett Azure KeyVault-lager
-> * Autentisera med Azure Keyvault
-> * Få tillgång till hemligheter i Azure KeyVault
+I den här modulen kommer du att göra följande:
+
+- Förstå vilka typer av information som kan lagras i Azure Key Vault.
+- Skapa ett Azure Key Vault-lager.
+- Autentisera med Azure Key Vault.
+- Få tillgång till hemligheter i ett Azure Key Vault.

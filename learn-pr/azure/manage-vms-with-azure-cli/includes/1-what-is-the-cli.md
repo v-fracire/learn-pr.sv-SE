@@ -13,13 +13,14 @@ Du kanske precis som Jim är ute efter ett verktyg som hjälper till att automat
 Azure CLI är Microsofts plattformsoberoende kommandoradsverktyg för att hantera Azure-resurser. Det finns för macOS, Linux och Windows eller i webbläsaren med [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!IMPORTANT]
-> Idag finns det två tillgängliga versioner av verktyget Azure CLI: Azure CLI 1.0 och Azure CLI 2.0. Vi använder Azure CLI 2.0, som är den senaste versionen och rekommenderas om du inte kör äldre skript som har skrivit för 1.0. Azure CLI 1.0 startas med kommandot `azure`, och Azure CLI 2.0 startas med kommandot `az`. 
+> I dag finns det två tillgängliga versioner av verktyget Azure CLI: Azure CLI 1.0 och Azure CLI 2.0. Vi använder Azure CLI 2.0, som är den senaste versionen och rekommenderas om du inte kör äldre skript. Azure CLI 1.0 startas med kommandot `azure`, och Azure CLI 2.0 startas med kommandot `az`. 
 
 Med Azure CLI kan du hantera Azure-resurser som virtuella datorer och diskar från kommandoraden eller i skript. Vi sätter igång och ser vad vi kan göra.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
-> [!div class="checklist"]
-> * Skapa en virtuell dator med Azure CLI
-> * Ändra storlek på virtuella datorer med CLI
-> * Hantera och skicka fråga till en virtuell dator från kommandoraden
-> * Installera programvara på en virtuell dator
+I den här modulen kommer du att:
+
+- Skapa en virtuell Azure-dator med CLI.
+- Ändra storlek på virtuella datorer med CLI.
+- Hantera och skicka fråga till en virtuell dator från kommandoraden.
+- Installera programvara på en virtuell dator.

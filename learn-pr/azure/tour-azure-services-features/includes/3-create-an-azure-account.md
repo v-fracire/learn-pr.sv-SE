@@ -1,6 +1,6 @@
 ## <a name="what-is-an-azure-account"></a>Vad är ett Azure-konto?
 
-Ett _Azure-konto_ är en behållare som innehåller information om din organisation och de Azure-resurser som du har etablerat. Mer specifikt lagrar den:
+Ett _Azure-konto_ är en container som innehåller information om din organisation och de Azure-resurser som du har etablerat. Mer specifikt lagrar den:
 
 - identitetsinformation som namn och inställningar för kontaktinformation
 - faktureringsinformation, till exempel ett kreditkort
@@ -8,7 +8,7 @@ Ett _Azure-konto_ är en behållare som innehåller information om din organisat
 
 ## <a name="azure-account-types"></a>Typer av Azure-konton
 
-Azure har ett antal olika kontotyper för olika typer av kunder. De vanligaste kontona är:
+Azure har flera olika kontotyper för olika typer av kunder. De vanligaste kontona är:
 
 - Kostnadsfri
 - Betala per användning

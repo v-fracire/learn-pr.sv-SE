@@ -23,7 +23,7 @@ Du kan använda den här förmånen även om Azure-resursen är aktiv, men det r
 
 ### <a name="azure-sql-database-vcore-based-options"></a>Alternativ för virtuella kärnor i Azure SQL Database
 
-![Inbyte av SQL Server-licenser](../images/sql-tradein-value.jpg)
+![Inbyte av SQL Server-licenser](../media-drafts/5-sql-tradein-value.jpg)
 
 Azure Hybrid-förmånen fungerar så här för Azure SQL Database:
 
@@ -47,7 +47,7 @@ Nedan kan du läsa fullständig information om respektive erbjudande. Om du är 
 
 Om du är en kund med ett Enterprise-avtal och redan har investerat i SQL Server-licenser, som sedan har frigjorts när du flyttat resurser till Azure, kan du etablera **BYOL-avbildningar** (använd din egen licens) från Azure Marketplace. Då får du användning för dina licenser och minskar kostnaden för dina virtuella Azure-datorer. Du har alltid kunnat göra det här genom att etablera en virtuell Windows-dator och installera SQL Server manuellt, men när du använder certifierade avbildningar från Microsoft blir processen enklare. Sök efter **BYOL** på Marketplace om du vill hitta de här avbildningarna.
 
-![BYOL för SQL Server i Azure](../images/byol-sql-server.png)
+![BYOL för SQL Server i Azure](../media-drafts/5-byol-sql-server.png)
 
 > [!IMPORTANT]
 > Du behöver en Enterprise Agreement-prenumeration för att använda de här certifierade BYOL-avbildningarna.

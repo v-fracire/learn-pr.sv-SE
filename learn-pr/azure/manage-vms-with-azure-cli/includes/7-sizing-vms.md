@@ -1,4 +1,4 @@
-Virtuella datorer måste ha lämplig storlek för förväntat arbete. En virtuell dator utan rätt mängd minne eller CPU misslyckas under inläsningen, eller körs för långsamt för att vara effektiv. 
+Virtuella datorer måste ha lämplig storlek för förväntat arbete. En virtuell dator utan rätt mängd minne eller CPU misslyckas under belastning, eller körs för långsamt för att vara effektiv. 
 
 När du skapar en virtuell dator kan du ange ett _VM-storleksvärde_ som bestämmer mängden beräkningsresurser som kommer att ägnas åt den virtuella datorn. Det inbegriper processor, GPU och minne som är gjorda tillgängliga för den virtuella datorn från Azure.
 
@@ -46,13 +46,16 @@ Här är ett förkortat svar för `eastus`:
                 64       3891200  Standard_M128m                      128           1047552                16384000
 ```
 
-Vi angav ingen storlek när vi skapade vår virtuella dator – så Azure valde en allmän standardstorlek på `Standard_DS1_v2`. Men vi kan ange storleken som en del av kommandot `vm create` med parametern `--size`.
+Vi angav ingen storlek när vi skapade vår virtuella dator – så Azure valde en allmän standardstorlek på `Standard_DS1_v2`. Men vi kan ange storleken som en del av kommandot `vm create` med parametern `--size`. Du kan exempelvis använda följande kommando för att skapa en 16-kärnig virtuell dator:
 
 ```azurecli
 az vm create --resource-group ExerciseResources --name SampleVM \
   --image Debian --admin-username aldis --generate-ssh-keys --verbose \
   --size "Standard_DS5_v2"
 ```
+
+> [!WARNING]
+> Din prenumerationsnivå [tillämpar begränsningar](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) på hur många resurser du kan skapa, samt den totala storleken på de resurserna. Du begränsas exempelvis till **20 virtuella processorer** med betala per användning-prenumerationen och bara **4 virtuella processorer** för en kostnadsfri nivå. Azure CLI meddelar dig när du överskrider detta med felmeddelandet **Kvoten har överskridits**. Om du stöter på det här felet när du skapar arkitekturen kan du begära att höja gränserna som är associerade med din betalda prenumeration (upp till 10 000 virtuella processorer!) via en [kostnadsfri onlinebegäran](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quota-errors). 
 
 ## <a name="resizing-an-existing-vm"></a>Ändra storlek på en befintlig virtuell dator
 Vi kan även ändra storlek för en befintlig virtuell dator om arbetsbelastningen ändras, eller om det blev fel storlek när den skapades. Innan en storleksändring begärs måste vi kontrollera om den önskade storleken är tillgänglig i klustret som vår virtuella dator ingår i. Det kan vi göra med kommandot `vm list-vm-resize-options`:

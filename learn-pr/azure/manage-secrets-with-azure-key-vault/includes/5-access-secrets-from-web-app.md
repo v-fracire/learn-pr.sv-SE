@@ -7,7 +7,7 @@ API:n för Azure Key Vault är en REST API som sköter all hantering och använd
 Det officiella Key Vault-klientbiblioteket för .NET Core är `KeyVaultClient`-klassen i Microsoft.Azure.KeyVault NuGet-paketet. Du behöver inte använda det direkt, men &mdash; med ASP.NET Cores `AddAzureKeyVault`-metod kan du läsa in alla hemligheter från ett valv till konfigurations-API:n vid start. Med den här tekniken får du åtkomst till alla dina hemligheter med samma `IConfiguration`-gränssnitt som du använder i resten av din konfiguration. Appar som använder `AddAzureKeyVault` kräver både behörigheten **Hämta** och **Lista** för valvet.
 
 > [!TIP]
-> Oavsett vilket ramverk och språk du använder när du skapar din app, måste du läsa in hemligheterna i minnet en gång vid appstarten – om du inte har en särskild anledning att låta bli. Det är onödigt långsamt och dyrt att läsa dem direkt från valvet varje gång du behöver dem.
+> Oavsett vilket ramverk och språk du använder när du skapar din app, ska du cachelagra hemliga värden lokalt eller läsa in dem i minnet vid appstarten – om du inte har en särskild anledning att låta bli. Det är onödigt långsamt och dyrt att läsa dem direkt från valvet varje gång du behöver dem.
 
 `AddAzureKeyVault` kräver endast valvnamnet som indata, vilket vi får från våra lokala appkonfiguration. Den hanterar också automatiskt MSI-autentisering &mdash; när den används i en app som distribueras till Azure App Service med MSI aktiverat, identifierar den MSI-tokentjänsten och använder den vid autentiseringen. Det är ett bra alternativ för de flesta scenarier så vi kommer att använda det i övningen för denna enhet.
 

@@ -1,9 +1,9 @@
 ## <a name="creating-key-vaults-for-your-applications"></a>Skapa nyckelvalv för dina program
 
-Det är bra att ge varje program ett separat valv för varje distributionsmiljö som du använder, till exempel utveckling, testning och produktion. Det kan vara praktiskt att dela hemligheter mellan appar, men risken för en angripare som får läsåtkomst till ett valv ökar med antalet hemligheter i valvet.
+Det är bra att ge skapa ett separat valv för varje distributionsmiljö för varje program, till exempel utveckling, testning och produktion. Det är möjligt att använda valv för att dela hemligheter mellan flera appar, men risken för en angripare som får läsåtkomst till ett valv ökar med antalet hemligheter i valvet.
 
 > [!TIP]
-> Om du använder samma namn för hemligheter i olika miljöer, kommer den enda miljöspecifika konfiguration som behöver ändras i din app vara valvets URL.
+> Om du använder samma namn för hemligheter i olika miljöer för ett program, kommer den enda miljöspecifika konfiguration som behöver ändras i din app vara valvets URL.
 
 Det krävs ingen inledande konfiguration för att skapa ett valv. Din användaridentitet beviljas automatiskt en full uppsättning med behörigheter för hemlighetshantering och du kan börja lägga till hemligheter omedelbart. När du har ett valv kan du lägga till och hantera hemligheter från alla Azure-administrationsgränssnitt, inklusive Azure-portalen, Azure CLI och Azure PowerShell. När du konfigurerar programmet till att använda valvet måste du tilldela korrekt behörighet, vilket vi tittar närmare på i nästa enhet.
 
@@ -51,7 +51,7 @@ När det är klart visas JSON-utdata med en beskrivning av det nya valvet.
 Lägg nu till hemligheten: Vår hemlighet får namnet **SecretPassword** med värdet **reindeer_flotilla**.
 
 ```azurecli
-az keyvault secret set --name SecretPassword --value open_sesame --vault-name <your-unique-vault-name>
+az keyvault secret set --name SecretPassword --value reindeer_flotilla --vault-name <your-unique-vault-name>
 ```
 
 Anteckna valvnamnet &mdash; du kommer att behöva det senare.

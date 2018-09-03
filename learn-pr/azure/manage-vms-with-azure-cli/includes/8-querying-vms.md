@@ -15,7 +15,7 @@ Observera att standardsvarstypen för alla kommandon som vi har gått igenom hit
 az vm list --output table
 ```
 
-Tillsammans med `table` kan du ange `json` (standard), `jsonc` (färglagd JSON) eller `tsv` (tabellavgränsade värden). Prova några varianter med kommandot ovan för att se skillnaden.
+Tillsammans med `table` kan du ange `json` (standard), `jsonc` (färglagd JSON) eller `tsv` (tabellavgränsade värden). Prova några varianter med kommandot ovan så ser du skillnaden.
 
 ## <a name="getting-the-ip-address"></a>Hämta IP-adressen
 
@@ -80,7 +80,7 @@ Vi kan använda frågan `people` för att returnera matrisen med värden för `p
 }
 ```
 
-Vi kan också lägga till specifika kvalificerare som bara returnerar objekten `Fred` och `Wilma`. 
+Vi kan också lägga till specifika kvalificerare som returnerar en delmängd av objekten baserat på vissa kriterier. Till exempel returneras följande om kvalificeraren `people[?age > '25']` läggs till:
 
 ```json
 [

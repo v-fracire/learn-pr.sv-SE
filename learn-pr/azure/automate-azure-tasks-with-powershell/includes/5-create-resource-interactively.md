@@ -23,7 +23,7 @@ Get-Help <cmdlet-name> -detailed
 ## <a name="how-to-create-a-resource-group"></a>Så skapar du en resursgrupp
 I nästa del kommer vi att skapa en resursgrupp med en lokal installation av Azure PowerShell. 
 
-Den består av fyra steg: 
+Det görs i fyra steg: 
 1. Importera Azure-cmdletarna.
 1. Ansluta till Azure-prenumerationen.
 1. Skapa resursgruppen.
@@ -45,7 +45,7 @@ Import-Module <module-name>
 > [!TIP]
 > Om du märker att du jobbar med Azure PowerShell ofta finns det två sätt att automatisera modulinläsningen. Du kan lägga till en post i din PowerShell-profil för import av Azure-moduler vid starten, eller så kan du använda den senaste versionen av PowerShell som läser in tillhörande modul automatiskt när du använder en cmdlet.
 
-### <a name="connect"></a>Anslut
+### <a name="connect"></a>Ansluta
 Eftersom du arbetar med en lokal installation av Azure PowerShell måste du autentisera dig innan du kan köra Azure-kommandon. Cmdleten **Connect-AzureRmAccount** frågar efter dina Azure-autentiseringsuppgifter och ansluter sedan till din Azure-prenumeration. Den har många valfria parametrar, men om du bara behöver en interaktiv prompt behövs inga parametrar:
 
 ```powershell
