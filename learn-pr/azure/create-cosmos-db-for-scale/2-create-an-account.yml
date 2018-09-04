@@ -1,24 +1,23 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-cosmos-db-for-scale.2-create-an-account
 metadata:
-  title: <span data-ttu-id="1f109-101">Skapa ett Azure Cosmos DB-konto</span><span class="sxs-lookup"><span data-stu-id="1f109-101">Create an Azure Cosmos DB account</span></span>
-  description: <span data-ttu-id="1f109-102">Lär dig hur du skapar ett Azure Cosmos DB-konto i Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="1f109-102">Learn how to create an Azure Cosmos DB account in the Azure portal.</span></span>
+  title: <span data-ttu-id="01935-101">Skapa ett Azure Cosmos DB-konto</span><span class="sxs-lookup"><span data-stu-id="01935-101">Create an Azure Cosmos DB account</span></span>
+  description: <span data-ttu-id="01935-102">Lär dig hur du skapar ett Azure Cosmos DB-konto i Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="01935-102">Learn how to create an Azure Cosmos DB account in the Azure portal.</span></span>
   displayType: one-column
-  interactive: azureportal
-  ms.openlocfilehash: 315014a8de593b0f09ac2cca3737cdf6819e72bc
-  ms.sourcegitcommit: 92580185df76595daa4cf68a5311019c85fe7bf3
+  ms.openlocfilehash: 68852307738c2f4a6bf35a21f5e4e9e6f24a8ee0
+  ms.sourcegitcommit: 81cb0c300be030565fb0b7c5b57413c4a2aa5410
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/24/2018
-  ms.locfileid: "42873271"
-title: <span data-ttu-id="1f109-103">Skapa ett Azure Cosmos DB-konto i portalen</span><span class="sxs-lookup"><span data-stu-id="1f109-103">Create an Azure Cosmos DB account in the portal</span></span>
+  ms.lasthandoff: 08/28/2018
+  ms.locfileid: "43141236"
+title: <span data-ttu-id="01935-103">Skapa ett Azure Cosmos DB-konto i portalen</span><span class="sxs-lookup"><span data-stu-id="01935-103">Create an Azure Cosmos DB account in the portal</span></span>
 durationInMinutes: 10
 content: >
   [!include[](includes/2-create-an-account.md)]
 tasks:
 - action: exists
   environment: azure
-  hint: <span data-ttu-id="1f109-104">Kontrollera att du har gett Azure Cosmos DB-kontot ett unikt namn.</span><span class="sxs-lookup"><span data-stu-id="1f109-104">Please make sure that you have given the Azure Cosmos DB account a unique name.</span></span>
+  hint: <span data-ttu-id="01935-104">Kontrollera att du har gett Azure Cosmos DB-kontot ett unikt namn.</span><span class="sxs-lookup"><span data-stu-id="01935-104">Please make sure that you have given the Azure Cosmos DB account a unique name.</span></span>
   azure:
     location: eastus
 - action: exists
