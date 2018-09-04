@@ -24,7 +24,7 @@ Containrar är en virtualiseringsmiljö, men till skillnad från virtuella dator
 
 Här är ett diagram som jämför program som körs direkt på en virtuell dator jämfört med att köras som containrar.
 
-![Jämföra appar som körs direkt på en virtuell dator jämfört med containrar](../images/vm-versus-containers.png)
+![Jämföra appar som körs direkt på en virtuell dator jämfört med containrar](../media/vm-versus-containers.png)
 
 Containrar innehåller normalt ett program som du skriver och som innehåller de bibliotek som krävs för att programmet ska kunna köras på värdmiljöns kernel. 
 

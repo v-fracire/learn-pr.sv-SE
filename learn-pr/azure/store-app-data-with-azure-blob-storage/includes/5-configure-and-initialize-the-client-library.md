@@ -1,7 +1,9 @@
 Här följer det vanliga arbetsflödet för appar som använder Azure Blob Storage:
 
 1. **Hämta konfigurationen**: Läs in konfigurationen för lagringskontot vid start. Detta är vanligtvis en anslutningssträng för lagringskontot.
+
 1. **Initiera klienten**: Använd anslutningssträngen för att initiera Azure Storage-klientbiblioteket. Det skapar de objekt som appen kommer att använda med Blob Storages API.
+
 1. **Använd**: Utför API-anrop med klientbiblioteket för att arbeta med containrar och blobar.
 
 ## <a name="configure-your-connection-string"></a>Konfigurera anslutningssträngen
@@ -18,8 +20,11 @@ Lagringskontons anslutningssträngar innehåller kontonyckeln. Kontonyckeln anse
 I Azure Storage SDK för .NET Core består standardmönstret för att använda Blob Storage av följande steg:
 
 1. Anropa `CloudStorageAccount.Parse` (eller `TryParse`) med anslutningssträngen för att hämta en `CloudStorageAccount`.
+
 1. Anropa `CreateCloudBlobClient` på `CloudStorageAccount` för att hämta en `CloudBlobClient`.
+
 1. Anropa `GetContainerReference` på `CloudBlobClient` för att hämta en `CloudBlobContainer`.
+
 1. Använd metoder för att containern ska hämta en lista över blobar och/eller hämta referenser till enskilda blobar och ladda upp och ned data.
 
 I kod ser steg 1&ndash;3 ut så här:
@@ -56,9 +61,9 @@ code .
 
 Den här styrenheten implementerar ett API med tre åtgärder:
 
-* **Index** (GET-/api/Files) returnerar en lista med webbadresser, en för varje fil som har laddats upp. Appens front end anropar den här metoden för att skapa en lista med hyperlänkar till de uppladdade filerna.
-* **Upload** (POST /api/Files) tar emot en uppladdad fil och sparar den.
-* **Download** (GET /api/Files/{filnamn}) laddar ned en enskild fil efter dess namn.
+- **Index** (GET-/api/Files) returnerar en lista med webbadresser, en för varje fil som har laddats upp. Appens front end anropar den här metoden för att skapa en lista med hyperlänkar till de uppladdade filerna.
+- **Upload** (POST /api/Files) tar emot en uppladdad fil och sparar den.
+- **Download** (GET /api/Files/{filnamn}) laddar ned en enskild fil efter dess namn.
 
 Varje metod använder en `IStorage`-instans som heter `storage` för att utföra sin funktion. Det finns en ofullständig implementering av `IStorage` i `Models/BlobStorage.cs` som vi ska fylla i.
 

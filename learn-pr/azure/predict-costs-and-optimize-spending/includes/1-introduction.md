@@ -9,6 +9,7 @@ Vi måste kunna få tydliga svar på flera frågor:
 I den här modulen går vi igenom de verktyg du kan använda för att få svar på de här frågorna.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att göra följande:
 
 - Uppskatta kostnader med priskalkylatorn i Azure.
@@ -17,4 +18,5 @@ I den här modulen kommer du att göra följande:
 - Metodtips för att sänka dina licenskostnader.
 
 ## <a name="prerequisite"></a>Krav 
+
 - En förståelse för olika alternativ för infrastrukturkomponenter i Azure. 

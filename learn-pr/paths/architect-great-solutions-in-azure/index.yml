@@ -7,18 +7,18 @@ iconUrl: http://via.placeholder.com/120x120
 levels:
 - beginner
 roles:
-- solutions-architect
+- solution-architect
 products:
 - azure
 metadata:
   title: Skapa fantastiska lösningar med Azure
   description: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
-  ms.openlocfilehash: fa52506c710451958693c478575c7cab90194d9f
-  ms.sourcegitcommit: cac22638c8487b2a9e567262aee73616ff0035e9
+  ms.openlocfilehash: b61fdd63984e4877edf1f9616fa9ca995eec27bf
+  ms.sourcegitcommit: 89dccddf7de169aecda3c1657e4354906389ed25
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/24/2018
-  ms.locfileid: "42910295"
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43324617"
 modules:
 - learn.sample-module-cloudshell
 achievement: learn.architect-great-solutions-in-azure.trophy

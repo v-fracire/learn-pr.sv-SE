@@ -7,6 +7,7 @@ Det bästa vore om du kunde etablera de resurser du behöver för att göra jobb
 Det är precis vad vi gör i Azure. Vi kan skapa beräkningsresurser, konfigurera dem för att göra det arbete vi behöver och endast betala för det vi använder.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att göra följande:
 
 - Identifiera beräkningsalternativ i Azure.
