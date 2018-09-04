@@ -4,9 +4,10 @@ Forskningsteamet behöver utföra beräkningsintensiv databehandling och har int
 Azure Compute är en databehandlingstjänst på begäran för molnbaserade program. Den innehåller resurser som processorer med flera kärnor och superdatorer som du får tillgång till via virtuella datorer och containrar. Dessutom finns serverfri databehandling så att du kan köra appar utan att behöva installera eller konfigurera någon infrastruktur. Resurserna är tillgängliga på begäran och kan vanligtvis skapas på bara några minuter eller till och med sekunder. Du betalar bara för de resurser du använder och endast så länge du använder dem.
 
 Det finns tre vanliga tekniker för databehandling i Azure:
-1. Virtuella datorer
-1. Containrar
-1. Serverfri databehandling
+
+- Virtuella datorer
+- Containrar
+- Serverfri databehandling
 
 ## <a name="what-are-virtual-machines"></a>Vad är virtuella datorer?
 
@@ -44,5 +45,5 @@ Du ansvarar inte för infrastrukturen. Skalning och prestanda hanteras automatis
 
 Azure har två implementeringar av beräkning utan server: 
 
-1. **Azure Functions** som kan köra kod på nästan alla moderna språk
-2. **Azure Logic Apps** som är utformade i en webbaserad designer och kan köra logik som utlöses av Azure-tjänster utan att behöva skriva någon kod.
+- **Azure Functions** som kan köra kod på nästan alla moderna språk
+- **Azure Logic Apps** som är utformade i en webbaserad designer och kan köra logik som utlöses av Azure-tjänster utan att behöva skriva någon kod.
