@@ -1,0 +1,25 @@
+### YamlMime:LearningPath
+uid: learn.deploy-a-website-with-azure-app-service
+title: Distribuera en webbplats till Azure med Azure App Service
+summary: Med webbappar i Azure kan du publicera och hantera din webbplats på ett enkelt sätt, utan att behöva arbeta med underliggande servrar, lagring och nätverksresurser. Du kan i stället fokusera på dina webbplatsfunktioner och förlita dig på att den robusta Azure-plattformen ger säker åtkomst till din webbplats.
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+metadata:
+  title: Distribuera en webbplats till Azure med Azure App Service
+  description: Med webbappar i Azure kan du publicera och hantera din webbplats på ett enkelt sätt, utan att behöva arbeta med underliggande servrar, lagring och nätverksresurser. Du kan i stället fokusera på dina webbplatsfunktioner och förlita dig på att den robusta Azure-plattformen ger säker åtkomst till din webbplats.
+  ms.openlocfilehash: c9b351e417b0b74bc2bc95644f23de28e149b9b1
+  ms.sourcegitcommit: cac22638c8487b2a9e567262aee73616ff0035e9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42910826"
+modules:
+- learn.host-a-web-application-with-azure-web-apps
+- learn.publish-azure-web-app-with-visual-studio
+achievement: learn.deploy-a-website-with-azure-app-service.trophy

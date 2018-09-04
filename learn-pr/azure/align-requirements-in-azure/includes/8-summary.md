@@ -1,0 +1,10 @@
+
+<span data-ttu-id="3a929-101">I den här modulen utforskade du begrepp inom molntjänster.</span><span class="sxs-lookup"><span data-stu-id="3a929-101">In this module, you explored the concepts of cloud computing.</span></span> <span data-ttu-id="3a929-102">Molntjänster innebär att tjänster och program etableras på begäran via Internet.</span><span class="sxs-lookup"><span data-stu-id="3a929-102">Cloud computing is the provisioning of services and applications on demand over the internet.</span></span> <span data-ttu-id="3a929-103">Servrar, program, data och andra resurser tillhandahålls som en tjänst.</span><span class="sxs-lookup"><span data-stu-id="3a929-103">Servers, applications, data, and other resources are provided as a service.</span></span> 
+
+<span data-ttu-id="3a929-104">Databearbetningsresurser i molnet levereras som tre olika tjänstmodeller:</span><span class="sxs-lookup"><span data-stu-id="3a929-104">Cloud computing resources are delivered using three different service models:</span></span>
+
+1. <span data-ttu-id="3a929-105">Med infrastruktur som en tjänst (IaaS) får du en infrastruktur för omedelbar databearbetning som du kan etablera och hantera via Internet.</span><span class="sxs-lookup"><span data-stu-id="3a929-105">Infrastructure-as-a-service (IaaS) provides instant computing infrastructure that you can provision and managed over the Internet.</span></span>
+
+2. <span data-ttu-id="3a929-106">Med plattform som en tjänst (PaaS) får du färdiga utvecklings- och distributionsmiljöer som du kan använda till att leverera dina egna molntjänster.</span><span class="sxs-lookup"><span data-stu-id="3a929-106">Platform as a service (PaaS) provides ready-made development and deployment environments that you can use to deliver your own cloud services.</span></span>
+
+3. <span data-ttu-id="3a929-107">Programvara som en tjänst (SaaS) levererar program över Internet som en webbaserad tjänst.</span><span class="sxs-lookup"><span data-stu-id="3a929-107">Software as a service (or SaaS) delivers applications over the Internet as a web-based service.</span></span>

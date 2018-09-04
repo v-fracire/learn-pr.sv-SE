@@ -1,0 +1,29 @@
+### YamlMime:Module
+uid: learn.optimize-web-app-with-redis
+metadata:
+  title: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+  description: I den här modulen går du igenom grunderna för cachelagring, identifierar hur Redis-cachelagring i Azure kan minska belastningen på databaser samt diskuterar olika cachelagringsarkitekturer för att stödja större belastningar i distribuerade miljöer och miljöer med hög volym. Du kommer att tillhandahålla en Redis-cache och ansluta en app till cachen.
+  ms.openlocfilehash: 310230614148947b3e60db15086a033c35af903b
+  ms.sourcegitcommit: 92580185df76595daa4cf68a5311019c85fe7bf3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42873607"
+title: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+summary: I den här modulen upptäcker du hur Redis-cache kan förbättra dataprestanda.
+abstract: I den här modulen går du igenom grunderna för cachelagring, identifierar hur Redis-cachelagring i Azure kan minska belastningen på databaser samt diskuterar olika cachelagringsarkitekturer för att stödja större belastningar i distribuerade miljöer och miljöer med hög volym. Du kommer att tillhandahålla en Redis-cache och ansluta en app till cachen.
+cardDescription: I den här modulen upptäcker du hur Redis-cache kan förbättra dataprestanda.
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- Azure
+units:
+- learn.optimize-web-app-with-redis.1-introduction
+- learn.optimize-web-app-with-redis.2-decide-if-you-want-use-redis-in-azure
+- learn.optimize-web-app-with-redis.3-configure-redis-cache
+- learn.optimize-web-app-with-redis.4-exercise-connect-an-app-to-the-cache
+- learn.optimize-web-app-with-redis.5-summary
+achievement: learn.optimize-web-app-with-redis.badge
