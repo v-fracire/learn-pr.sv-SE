@@ -4,12 +4,72 @@ title: Sammanfattning
 metadata:
   title: Sammanfattning
   description: Sammanfattning
-  ms.openlocfilehash: 7935dd04917c12ed682d8d8925a7f8ccb310afb1
-  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.openlocfilehash: 3c989a4b492bdb421a2153ba85a2a339cd311dc7
+  ms.sourcegitcommit: 92580185df76595daa4cf68a5311019c85fe7bf3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/22/2018
-  ms.locfileid: "40446754"
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42873492"
 durationInMinutes: 2
 interactive: bash
-content: '[!include[](includes/7-summary.md)]'
+content: >
+  [!include[](includes/7-summary.md)]
+quiz:
+  title: 'Kunskapskontroll: Azure Key Vault'
+  questions:
+  - content: Vilket av följande är **inte** en viktig fördel med Azure Key Vault?
+    choices:
+    - content: Säker lagring av privat användarinformation.
+      isCorrect: true
+      correctExplanation: Key Vault är avsett för att lagra programhemligheter, inte användarhemligheter.
+    - content: Synkronisering av programhemligheter mellan flera instanser av ett program.
+      isCorrect: false
+      incorrectExplanation: Key Vault gör att flera instanser av program kan komma åt samma hemligheter genom att lagra dem centralt.
+    - content: Minskat behov för programutvecklare att direkt hantera programhemligheter.
+      isCorrect: false
+      incorrectExplanation: Minskad manuell interaktion med hemligheter är en viktig fördel med Key Vault som ökar säkerheten.
+    - content: Kontrollera åtkomst till programhemligheter med tilldelningsbara behörigheter.
+      isCorrect: false
+      incorrectExplanation: Key Vaults principer för åtkomstkontroll ökar hemlighetssäkerheten genom att begränsa åtkomst till hemligheter.
+  - content: Vilket av de här uttrycken beskriver autentiserings och auktoriseringsprocessen i Key Vault på bästa sätt?
+    choices:
+    - content: Program autentiserar till ett valv med användarnamnet och lösenordet för huvudutvecklaren och har fullständig åtkomst till alla hemligheter i valvet.
+      isCorrect: false
+      incorrectExplanation: Key Vault-autentisering använder inte användarnamn och lösenord, och program ska autentisera med sina egna identiteter, inte identiteten för en person.
+    - content: Program och användare autentiserar till ett valv med ett Microsoft-konto och har behörighet att komma åt specifika hemligheter.
+      isCorrect: false
+      incorrectExplanation: Key Vault-autentisering använder Microsoft-konton, och åtkomstprinciper ger inte kontroll över enskilda hemligheter i ett valv.
+    - content: Program och användare autentiserar till ett valv med sina Azure Active Directory-identiteter och har behörighet att utföra olika åtgärder på alla hemligheter i valvet.
+      isCorrect: true
+      correctExplanation: All autentisering till Key Vault använder Azure Active Directory-identiteter, och åtkomstprinciper baseras på åtgärder som gäller för alla hemligheter i valvet.
+    - content: Program autentiserar till ett valv med hjälp av användarnamnen och lösenorden för de användare som loggar in till webbappen, och beviljas åtkomst till hemligheter som ägs av dessa användare.
+      isCorrect: false
+      incorrectExplanation: Användare av en app ska inte ha åtkomst till ett programs Key Vault, och valv ska inte användas för att lagra användarhemligheter.
+  - content: Vad är den största fördelen med att använda hanterad tjänstidentitet (MSI) i en webbapp som använder Key Vault?
+    choices:
+    - content: Bevilja programbehörigheter till ett valv automatiskt.
+      isCorrect: false
+      incorrectExplanation: De enda behörigheter som beviljas till ett valv automatiskt är för den användare som skapar det.
+    - content: Ge utvecklarna möjlighet att komma åt valvet på programmets räkning för att hantera hemligheter.
+      isCorrect: false
+      incorrectExplanation: Program och användare använder sina egna identiteter för att komma åt valv
+    - content: Ge autentiserade användare möjlighet att automatiskt autentisera till valvet för att hämta hemligheter.
+      isCorrect: false
+      incorrectExplanation: Key Vault är inte avsett att användas av användare av en app. MSI skapar automatiskt en identitet för programmet som ska användas för att komma åt valvet.
+    - content: Aktivera säker autentisering till Key Vault utan att behöva hantera en hemlighet utanför valvet.
+      isCorrect: true
+      correctExplanation: MSI gör att ett program kan autentisera till ett valv med sin egen identitet utan att behöva lagra en hemlighet i konfigurationen.
+  - content: Hur hjälper Key Vault till att skydda dina hemligheter när de har lästs in av din app?
+    choices:
+    - content: Key Vault genererar automatiskt nya hemliga värden varje gång du läser in en hemlighet så att de aldrig kan återanvändas.
+      isCorrect: false
+      incorrectExplanation: Key Vault genererar inte automatiskt nya hemliga värden.
+    - content: Key Vault-klientbiblioteket skyddar områden i minnet som används av ditt program för att förhindra oavsiktlig exponering av hemligheter.
+      isCorrect: false
+      incorrectExplanation: Detta är inte en funktion i Key Vault-klientbiblioteket.
+    - content: Key Vault dubbelkrypterar hemligheter, vilket kräver att din app dekrypterar dem lokalt varje gång de används.
+      isCorrect: false
+      incorrectExplanation: Hemliga värden som returneras till din app från ett valv krypteras inte.
+    - content: Det sker inte – hemligheter är oskyddade när de har lästs in av ditt program.
+      isCorrect: true
+      correctExplanation: När hemligheter har lästs in av en app är de oskyddade. Se till att inte logga, lagra eller returnera dem i klientsvar i programkoden.

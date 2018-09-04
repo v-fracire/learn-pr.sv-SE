@@ -1,0 +1,32 @@
+### YamlMime:Module
+uid: learn.publish-azure-web-app-with-visual-studio
+metadata:
+  title: Publicera en Azure-webbapp med hjälp av Visual Studio för Windows eller Mac
+  description: Med Azure App-tjänsten kan du snabbt publicera och uppdatera webbappar direkt från Visual Studio. Här får du lära dig att installera nödvändiga verktyg, skapa ett nytt ASP.NET-baserat webbprogram och publicera det på Azure. Slutligen lär du dig att göra ändringar i appen och upptäcker hur enkelt det är att publicera ändringarna till Azure.
+  ms.openlocfilehash: 7856302f46bf168299ea868838d777f3508b9c40
+  ms.sourcegitcommit: a8497a897faccb27bfeaf5812a5887ac15f97625
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42820878"
+title: Publicera en Azure-webbapp med hjälp av Visual Studio för Windows eller Mac
+summary: Använd publiceringsfunktionerna i Visual Studio 2017 för PC eller Mac för att distribuera och hantera ett ASP.NET-baserat webbprogram som drivs på Azure.
+abstract: Med Azure App-tjänsten kan du snabbt publicera och uppdatera webbappar direkt från Visual Studio. Här får du lära dig att installera nödvändiga verktyg, skapa ett nytt ASP.NET-baserat webbprogram och publicera det på Azure. Slutligen lär du dig att göra ändringar i appen och upptäcker hur enkelt det är att publicera ändringarna till Azure.
+cardDescription: Använd publiceringsfunktionerna i Visual Studio 2017 för PC eller Mac för att distribuera och hantera ett ASP.NET-baserat webbprogram som drivs på Azure.
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- Azure
+units:
+- learn.publish-azure-web-app-with-visual-studio.1-introduction
+- learn.publish-azure-web-app-with-visual-studio.2-install-the-necessary-workloads
+- learn.publish-azure-web-app-with-visual-studio.3-exercise-create-a-new-aspnet-app
+- learn.publish-azure-web-app-with-visual-studio.4-publish-an-aspnet-app-from-visual-studio
+- learn.publish-azure-web-app-with-visual-studio.5-exercise-publish-an-asp.net-app-from-visual-studio
+- learn.publish-azure-web-app-with-visual-studio.6-update-your-app
+- learn.publish-azure-web-app-with-visual-studio.7-exercise-publish-an-update-to-your-site
+- learn.publish-azure-web-app-with-visual-studio.8-summary
+achievement: learn.publish-azure-web-app-with-visual-studio.badge

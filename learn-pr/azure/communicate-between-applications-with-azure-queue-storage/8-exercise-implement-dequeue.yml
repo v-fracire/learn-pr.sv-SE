@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.communicate-between-applications-with-azure-queue-storage.8-exercise-implement-dequeue
+title: Övning – implementera borttagning ur kö
+metadata:
+  title: Övning – implementera borttagning ur kö
+  description: Övning – implementera borttagning ur kö
+  ms.openlocfilehash: b5252b5d5bc80f587a97d9110f0638faeed07ad2
+  ms.sourcegitcommit: 16445658b8c25e5f5cbcfc7b1d8a36222f4e902c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42906863"
+durationInMinutes: 10
+content: '[!include[](includes/8-exercise-implement-dequeue.md)]'

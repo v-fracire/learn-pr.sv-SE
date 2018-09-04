@@ -1,0 +1,1 @@
+I den här modulen förberedde du din utvecklingsmiljö genom att installera en lämplig IDE för dina behov. Du har också installerat Azure-verktyg i den IDE:n för att effektivisera publicering av innehåll direkt till de olika Azure-tjänsterna.

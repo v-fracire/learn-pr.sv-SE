@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.build-a-serverless-web-app.5-add-captions-with-computer-vision
+title: Lägga till bildtexter med API för visuellt innehåll
+metadata:
+  title: Lägga till bildtexter med API för visuellt innehåll
+  description: Lägga till bildtexter med API för visuellt innehåll
+  ms.openlocfilehash: 8583d2ebe8a554946fa81c007da5bf1c7b47b840
+  ms.sourcegitcommit: 1697ef50de6fbaf39175872148e70d87d7d9bd13
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42890484"
+durationInMinutes: 9
+interactive: bash-editor
+content: '[!include[](includes/5-add-captions-with-computer-vision.md)]'

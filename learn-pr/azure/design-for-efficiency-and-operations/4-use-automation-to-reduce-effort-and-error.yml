@@ -1,0 +1,34 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-efficiency-and-operations.4-use-automation-to-reduce-effort-and-error
+title: Använda automatisering för att minska insatser och fel
+metadata:
+  title: Använda automatisering för att minska insatser och fel
+  description: I det här avsnittet kommer vi att se hur du kan använda automatisering för att minska insatser och fel
+  ms.openlocfilehash: ebfb54cac13067dd47edb5957eaa694b9419dcaa
+  ms.sourcegitcommit: 7b28a1a9a27c714147d15a002099f774a59e07f3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "43113334"
+durationInMinutes: 5
+content: >
+  [!include[](includes/4-use-automation-to-reduce-effort-and-error.md)]
+quiz:
+  title: Kunskapskontroll – Använda automatisering för att minska insatser och fel
+  questions:
+  - content: Vilket av följande kan inte användas till att automatisera distributionen av infrastruktur?
+    choices:
+    - content: Azure PowerShell
+      isCorrect: false
+    - content: Azure CLI
+      isCorrect: false
+    - content: Azure Resource Manager-mallar
+      isCorrect: false
+    - content: Azure Storage Explorer
+      isCorrect: true
+  - content: Resource Manager-mallar kan användas till att automatisera start/stopp av virtuella datorer när de inte används.
+    choices:
+    - content: "True"
+      isCorrect: false
+    - content: "False"
+      isCorrect: true

@@ -1,0 +1,32 @@
+### YamlMime:Module
+uid: learn.host-a-web-application-with-azure-web-apps
+metadata:
+  title: Vara värd för ett webbprogram med Azure Web Apps
+  description: I den här modulen diskuterar vi hur du skapar en webbplats via plattformen för värdbaserade webbappar i Azure. Vi tittar på de plattformar som stöds, granskar konfigurationen och grunderna för att skicka din kod till Azure.
+  ms.openlocfilehash: eed863a5bce69d6e3c5a99e480f26f6c7f65b12d
+  ms.sourcegitcommit: cac22638c8487b2a9e567262aee73616ff0035e9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42910276"
+title: Vara värd för ett webbprogram med Azure Web Apps
+summary: I den här modulen diskuterar vi hur du skapar en webbplats via plattformen för värdbaserade webbappar i Azure. Vi tittar på de plattformar som stöds, granskar konfigurationen och grunderna för att skicka din kod till Azure.
+abstract: I den här modulen diskuterar vi hur du skapar en webbplats via plattformen för värdbaserade webbappar i Azure. Vi tittar på de plattformar som stöds, granskar konfigurationen och grunderna för att skicka din kod till Azure.
+cardDescription: I den här modulen diskuterar vi hur du skapar en webbplats via plattformen för värdbaserade webbappar i Azure. Vi tittar på de plattformar som stöds, granskar konfigurationen och grunderna för att skicka din kod till Azure.
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- Azure
+units:
+- learn.host-a-web-application-with-azure-web-apps.1-introduction
+- learn.host-a-web-application-with-azure-web-apps.2-create-a-web-app-in-the-azure-portal-content
+- learn.host-a-web-application-with-azure-web-apps.3-exercise-create-a-web-app-in-the-azure-portal
+- learn.host-a-web-application-with-azure-web-apps.4-create-an-asp.net-core-web-application-on-linux-content
+- learn.host-a-web-application-with-azure-web-apps.5-exercise-create-an-asp.net-core-web-application-on-linux
+- learn.host-a-web-application-with-azure-web-apps.6-upload-your-code-to-azure-content
+- learn.host-a-web-application-with-azure-web-apps.7-exercise-upload-your-code-to-azure
+- learn.host-a-web-application-with-azure-web-apps.8-summary
+achievement: learn.host-a-web-application-with-azure-web-apps.badge

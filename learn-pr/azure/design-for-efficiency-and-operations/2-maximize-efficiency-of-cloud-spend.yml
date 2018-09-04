@@ -1,0 +1,34 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-efficiency-and-operations.2-maximize-efficiency-of-cloud-spend
+title: Maximera effektiviteten för molnutgifter
+metadata:
+  title: Maximera effektiviteten för molnutgifter
+  description: I det här avsnittet kommer vi att diskutera hur du maximerar effektiviteten för dina molnutgifter
+  ms.openlocfilehash: 67213924b96e4573f0216a3c7cbbc4c3aeb961bb
+  ms.sourcegitcommit: 7b28a1a9a27c714147d15a002099f774a59e07f3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "43113521"
+durationInMinutes: 5
+content: >
+  [!include[](includes/2-maximize-efficiency-of-cloud-spend.md)]
+quiz:
+  title: Kunskapskontroll – Maximera effektiviteten för molnutgifter
+  questions:
+  - content: Vilket av följande är det bästa alternativet för en reserverad instans?
+    choices:
+    - content: En webbapp som distribueras i Azure App Service.
+      isCorrect: false
+    - content: En virtuell dator för icke-produktion som stängs av automatiskt när den inte används.
+      isCorrect: false
+    - content: En Azure SQL Database-instans.
+      isCorrect: true
+    - content: En databasserver för ett HR-system i ett globalt företag.
+      isCorrect: false
+  - content: 'Beräkna kostnader i samband med att en virtuell dator stängs av när:'
+    choices:
+    - content: Du stänger av den virtuella datorn inifrån operativsystemet.
+      isCorrect: false
+    - content: Du klickar på stoppknappen i Azure Portal.
+      isCorrect: true
