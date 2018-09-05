@@ -1,17 +1,9 @@
----
-zone_pivot_groups: platform
-ms.openlocfilehash: 5e0a236b9cf0c3c0b23beb1324f35a34dade2e92
-ms.sourcegitcommit: 926510a198d738c5726081f6d7994fe9b6fc6edb
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43179836"
----
 Nu ska vi installera Azure CLI på din lokala dator och därefter köra ett enkelt kommando för att verifiera installationen. Vilken metod du använder för att installera Azure CLI beror på datorns operativsystem. Välj anvisningarna för ditt operativsystem.
 
 ::: zone pivot="linux"
 
 ### <a name="linux"></a>Linux
+
 Här ska du installera Azure CLI på **Ubuntu Linux** med (**APT**) och Bash-kommandoraden.
 
 > [!WARNING]
@@ -43,6 +35,7 @@ Här ska du installera Azure CLI på **Ubuntu Linux** med (**APT**) och Bash-kom
 ::: zone pivot="macos"
 
 ### <a name="macos"></a>macOS
+
 Här installerar du Azure CLI på macOS med Homebrew-pakethanteraren.
 
 > [!IMPORTANT]
@@ -65,6 +58,7 @@ Här installerar du Azure CLI på macOS med Homebrew-pakethanteraren.
 ::: zone pivot="windows"
 
 ### <a name="windows"></a>Windows
+
 Här installerar du Azure CLI på Windows med hjälp av MSI-installationsprogrammet.
 
 1. Gå till [https://aka.ms/installazurecliwindows](https://aka.ms/installazurecliwindows), och i webbläsarens dialogruta för säkerhet klickar du på **Kör**.
@@ -74,6 +68,7 @@ Här installerar du Azure CLI på Windows med hjälp av MSI-installationsprogram
 ::: zone-end
 
 ## <a name="running-the-azure-cli"></a>Köra Azure CLI
+
 Du kör Azure CLI genom att öppna ett bash-gränssnitt (Linux och macOS), eller från kommandotolken eller PowerShell (Windows).
 
 1. Starta Azure CLI och verifiera installationen genom att köra versionskontrollen.
@@ -84,10 +79,11 @@ Du kör Azure CLI genom att öppna ett bash-gränssnitt (Linux och macOS), eller
 
 ::: zone pivot="windows"
 
-> [!NOTE]
+> [!TIP]
 > Det finns några fördelar med att köra Azure CLI från PowerShell jämfört med köra Azure CLI från Kommandotolken för Windows. PowerShell ger ytterligare funktioner än de som är tillgängliga från Kommandotolken. 
 
 ::: zone-end
 
 ## <a name="summary"></a>Sammanfattning
+
 Du konfigurerar dina lokala datorer för att administrera Azure-resurser med Azure CLI. Du kan nu använda Azure CLI lokalt för att ange kommandon eller köra skript. Azure CLI vidarebefordrar dina kommandon till Azure-datacenter där de körs i din Azure-prenumeration.
