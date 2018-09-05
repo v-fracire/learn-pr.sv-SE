@@ -3,6 +3,7 @@ I den här övningen ska du använda Azure Portal för att kontrollera att din h
 ## <a name="view-event-hub-activity"></a>Visa aktivitet på händelsehubb
 
 1. Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true).
+
 1. Leta upp din händelsehubb med hjälp av sökfältet och öppna den.
 
 1. Kontrollera antalet meddelanden på sidan Översikt.
@@ -27,6 +28,7 @@ Följ stegen nedan för att se vad som händer när ett program skickar meddelan
 1. Tryck på Retur när du ser **Överföringen är klar**.
 
 1. Klicka på **Event Hubs-instans** > **INSTÄLLNINGAR** > **Egenskaper** på Azure Portal.
+
 1. Klicka på **Inaktiverad** under Event Hub state (Event Hub-tillstånd).
 
     ![Inaktivera händelsehubb](../media-draft/7-disable-event-hub.png)
@@ -34,6 +36,7 @@ Följ stegen nedan för att se vad som händer när ett program skickar meddelan
 Vänta minst fem minuter.
 
 1. Klicka på **Aktiv** under Event Hub state (Event Hub-tillstånd) för att återaktivera händelsehubben och spara dina ändringar.
+
 1. Kör programmet EventProcessorSample igen för att ta emot meddelanden. Använd följande kommando.
 
     ```azurecli
@@ -52,8 +55,11 @@ Vänta minst fem minuter.
     ![Använda Event Hub-mått](../media-draft/7-event-hub-metrics.png)
 
 1. Välj **Inkommande meddelanden** i listan **Mått** och klicka på **Lägg till mått**.
+
 1. Välj **Utgående meddelanden** i listan **Mått** och klicka på **Lägg till mått**.
+
 1. Klicka på **Senaste 24 timmarna (automatiskt)** överst i diagrammet och ändra tidsperioden till **Senaste 30 minuterna**.
+
 1. Klicka på **Använd**.
 
 Du ser att även om meddelandena skickades innan händelsehubben tillfälligt kopplades från, så överfördes alla 100 meddelanden korrekt.
