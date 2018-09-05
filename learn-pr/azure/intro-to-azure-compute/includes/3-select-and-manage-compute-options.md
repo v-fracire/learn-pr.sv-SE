@@ -14,9 +14,9 @@ Anta att du kör en webbplats som är värd för en nätbutik. Om du duplicerade
 
 Det finns även avancerade tjänster för virtuella datorer i Azure:
 
-* Om du vill ha ständigt tillgängliga instanser av samma app eller uppsättningar av appar på virtuella datorer som är likartat konfigurerade, använder du alternativet **Virtual Machine Scale Sets**. Det genererar automatiskt tusentals identiska virtuella datorer som lästs in med ditt program på några minuter, så användarna behöver aldrig vänta. Och eftersom du inte behöver etablera virtuella datorer i förväg räcker det med att använda de dataresurser som programmet behöver vid ett givet tillfälle.
+- Om du vill ha ständigt tillgängliga instanser av samma app eller uppsättningar av appar på virtuella datorer som är likartat konfigurerade, använder du alternativet **Virtual Machine Scale Sets**. Det genererar automatiskt tusentals identiska virtuella datorer som lästs in med ditt program på några minuter, så användarna behöver aldrig vänta. Och eftersom du inte behöver etablera virtuella datorer i förväg räcker det med att använda de dataresurser som programmet behöver vid ett givet tillfälle.
 
-* Det kan finnas situationer där du behöver rå datorkraft, eller datorkraft på superdatornivå. I alternativet **Batch** finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer. Du kan till och med ange virtuella datorer med superdatorfunktioner.
+- Det kan finnas situationer där du behöver rå datorkraft, eller datorkraft på superdatornivå. I alternativet **Batch** finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer. Du kan till och med ange virtuella datorer med superdatorfunktioner.
 
 ## <a name="azure-containers"></a>Azure-behållare
 

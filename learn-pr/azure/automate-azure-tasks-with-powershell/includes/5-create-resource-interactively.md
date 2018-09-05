@@ -29,7 +29,7 @@ Det görs i fyra steg:
 1. Skapa resursgruppen.
 1. Kontrollera att resursgruppen skapades korrekt (se nedan).
 
-![Steg för att skapa en resurs i Azure med Azure PowerShell](../media-drafts/5-create-resource-overview.png)
+![Steg för att skapa en resurs i Azure med Azure PowerShell](../media/5-create-resource-overview.png)
 
 Varje steg motsvarar en specifik cmdlet.
 

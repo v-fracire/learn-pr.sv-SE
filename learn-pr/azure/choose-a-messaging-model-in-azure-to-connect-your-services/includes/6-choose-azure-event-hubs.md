@@ -30,7 +30,8 @@ Eftersom vi har flera partitioner och varje motor endast skickar sina data till 
 ## <a name="which-service-should-i-choose"></a>Vilken tjänst ska jag välja?
 Precis som med våra köalternativ kan det verka svårt att välja mellan dessa två händelseleveranstjänster till att börja med. Båda har stöd för *At Least Once*-semantik.
 
-#### <a name="choose-event-hubs-if"></a>Välj Event Hubs om:
+#### <a name="choose-event-hubs-if"></a>Välj Event Hubs om:  
+
 - Du behöver kunna autentisera ett stort antal utgivare.
 - Du behöver kunna spara en händelseström i Data Lake eller i blobblagringen.
 - Du behöver kunna aggregera eller analysera din händelseström.

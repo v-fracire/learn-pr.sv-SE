@@ -24,7 +24,8 @@ För utgivare som skickar data ofta har AMQP bättre prestanda. Men det innebär
 
 För mer återkommande publicering är HTTPS det bästa alternativet. HTTPS kräver ytterligare SSL-omkostnader för varje begäran men här finns inga kostnader för sessionsinitiering.
 
-[!NOTE] Befintliga Kafka-baserade appar som använder Apache Kafka 1.0 och nyare klientversioner kan också fungera som Event Hubs-utgivare.
+> [!NOTE] 
+> Befintliga Kafka-baserade appar som använder Apache Kafka 1.0 och nyare klientversioner kan också fungera som Event Hubs-utgivare.
 
 Händelseprenumeranter är appar som använder någon av två programmetoder för att ta emot och bearbeta händelser från en händelsehubb.
 
@@ -52,8 +53,11 @@ Att skapa en Event Hubs-namnrymd innebär normalt följande:
 1. Definiera inställningar på namnrymdsnivå. Vissa inställningar, som namnrymdskapacitet (konfigureras med **dataflödesenheter**), prisnivå och prestandamått definieras på namnrymdsnivå. Detta gäller för alla händelsehubbar i den namnrymden. Om du inte definierar dessa inställningar används ett standardvärde: *1* för kapacitet och *Standard* för prisnivå.
 
     Du kan inte ändra dataflödesenheten när du angett den. Du måste balansera konfigurationen mot dina Azure-budgetförväntningar. Du kan överväga att konfigurera olika händelsehubbar för olika dataflödeskrav. Om du till exempel har en app för försäljningsdata och du planerar att ha två händelsehubbar, en för insamling med högt dataflöde av telemetri för försäljningsdata i realtid och en för sällan förekommande händelselogginsamling, skulle det vara en bra idé att använda en separat namnrymd för varje hubb. På så sätt behöver du bara konfigurera (och betala för) kapacitet för högt dataflöde på telemetrihubben.
+
 1. Välj ett unikt namn för namnrymden. Du kommer åt namnrymd via följande URL: *_namnrymd_.servicebus.windows.net*
+
 1. Definiera följande valfria egenskaper:
+
     - Aktivera Kafka. Det här aktiverar Kafka-apparna att publicera händelser på händelsehubben.
     - Gör den här namnrymdszonen redundant. Zonredundans replikerar data i olika datacenter med egen oberoende infrastruktur för ström, nätverk och kylning.
     - Aktivera automatisk ökning och Öka automatiskt högst antal dataflödesenheter. Automatisk ökning ger ett automatiskt uppskalningsalternativ genom att öka antalet dataflödesenheter upp till ett maxvärde. Det är användbart för att undvika begränsning i situationer när inkommande eller utgående datahastigheter överskrider det angivna antalet dataflödesenheter.
@@ -68,13 +72,13 @@ Använd följande kommandon för att skapa en Event Hubs-namnrymd:
     az group create --name <resource group name> --location <location>
     ```
 
-2. Skapa Event Hubs-namnrymden, med samma resursgrupp och plats som i föregående steg.
+1. Skapa Event Hubs-namnrymden, med samma resursgrupp och plats som i föregående steg.
 
     ```azurecli
     az eventhubs namespace create --name <Event Hubs namespace name> --resource-group <resource group name> -l <location>
     ```
 
-3. Alla händelsehubbar inom samma Event Hubs-namnrymd delar samma autentiseringsuppgifter för anslutning. Du behöver dessa autentiseringsuppgifter när du konfigurerar appar för att skicka och ta emot meddelanden med händelsehubben. Använd följande kommando för att returnera anslutningssträngen för Event Hubs-namnrymden, med samma resursgrupp och Event Hubs-namnrymdsnamn som tidigare.
+1. Alla händelsehubbar inom samma Event Hubs-namnrymd delar samma autentiseringsuppgifter för anslutning. Du behöver dessa autentiseringsuppgifter när du konfigurerar appar för att skicka och ta emot meddelanden med händelsehubben. Använd följande kommando för att returnera anslutningssträngen för Event Hubs-namnrymden, med samma resursgrupp och Event Hubs-namnrymdsnamn som tidigare.
 
     ```azurecli
     az eventhubs namespace authorization-rule keys list --resource-group <resource group name> --namespace-name <EventHub namespace name> --name RootManageSharedAccessKey
@@ -105,7 +109,7 @@ Om du vill skapa en ny händelsehubb använder du följande kommandon:
     az eventhubs eventhub create --name <event hub name> --resource-group <Resource Group name> --namespace-name <Event Hubs namespace name>
     ```
 
-2. Visa informationen för händelsehubben i namnrymden, med samma resursgrupp och händelsehubbnamn och namnrymdsnamn som tidigare.
+1. Visa informationen för händelsehubben i namnrymden, med samma resursgrupp och händelsehubbnamn och namnrymdsnamn som tidigare.
 
     ```azurecli
     az eventhubs eventhub show --resource-group <Resource Group name> --namespace-name <Event Hubs namespace name> --name <event hub name>

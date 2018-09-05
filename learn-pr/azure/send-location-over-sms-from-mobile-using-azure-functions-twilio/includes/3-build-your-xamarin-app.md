@@ -2,9 +2,9 @@ Mobilappen är nu en enkel ”Hello World”-app. Här kommer du att lägga till
 
 Appens användargränssnittet kommer att bestå av följande:
 
-* en textinmatningskontroll där du skriver in telefonnummer
-* en knapp för att skicka din plats till numren via en Azure-funktion
-* en etikett som visar aktuell status för användaren, som att platsen skickas eller att sändningen är färdig.
+- en textinmatningskontroll där du skriver in telefonnummer
+- en knapp för att skicka din plats till numren via en Azure-funktion
+- en etikett som visar aktuell status för användaren, som att platsen skickas eller att sändningen är färdig.
 
 Xamarin.Forms har stöd för ett designmönster som kallas Model-View-ViewModel (MVVM). Du kan läsa mer om MVVM i [dokumentationen om Xamarin MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/enterprise-application-patterns/mvvm), men i grunden går den ut på att varje sida (View) har en ViewModel som exponerar egenskaper och beteende.
 
@@ -18,15 +18,15 @@ ViewModel-objekt implementerar gränssnittet `INotifyPropertyChanged`. Det här 
 
 1. Skapa en ny klass i .NET-standardprojektet `ImHere` med namnet `BaseViewModel` genom att högerklicka på projektet och sedan välja *Lägg till -> Klass*. Ge den nya klassen namnet ”BaseViewModel” och klicka på **Lägg till**.
 
-2. Gör klassen `public` och härled från `INotifyPropertyChanged`. Du måste lägga till ett användningsdirektiv för `System.ComponentModel`.
+1. Gör klassen `public` och härled från `INotifyPropertyChanged`. Du måste lägga till ett användningsdirektiv för `System.ComponentModel`.
 
-3. Implementera gränssnittet `INotifyPropertyChanged` genom att lägga till händelsen `PropertyChanged`:
+1. Implementera gränssnittet `INotifyPropertyChanged` genom att lägga till händelsen `PropertyChanged`:
 
     ```cs
     public event PropertyChangedEventHandler PropertyChanged;
     ```
 
-4. Det vanliga mönstret för ViewModel-egenskaper är att ha en offentlig egenskap med ett privat stödfält. I set-metoden för egenskapen kontrolleras stödfältet mot det nya värdet. Om det nya värdet skiljer sig från stödfältet uppdateras stödfältet och händelsen `PropertyChanged` genereras. Den här logiken är enkel att lägga ut i en metod, så lägg till metoden `Set`. Du måste lägga till ett användningsdirektiv för namnområdet `System.Runtime.CompilerServices`.
+1. Det vanliga mönstret för ViewModel-egenskaper är att ha en offentlig egenskap med ett privat stödfält. I set-metoden för egenskapen kontrolleras stödfältet mot det nya värdet. Om det nya värdet skiljer sig från stödfältet uppdateras stödfältet och händelsen `PropertyChanged` genereras. Den här logiken är enkel att lägga ut i en metod, så lägg till metoden `Set`. Du måste lägga till ett användningsdirektiv för namnområdet `System.Runtime.CompilerServices`.
 
     ```cs
     protected void Set<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
@@ -67,9 +67,9 @@ namespace ImHere
 
 1. Skapa en klassen med namnet `MainViewModel` i .NET-standardprojektet `ImHere`.
 
-2. Gör den här klassen public och härled från `BaseViewModel`.
+1. Gör den här klassen public och härled från `BaseViewModel`.
 
-3. Lägg till två `string`-egenskaper, `PhoneNumbers` och `Message`, och låt dem ha var sitt stödfält. I set-metoden för egenskaperna använder du basklassens `Set`-metod till att uppdatera värdet och generera händelsen `PropertyChanged`.
+1. Lägg till två `string`-egenskaper, `PhoneNumbers` och `Message`, och låt dem ha var sitt stödfält. I set-metoden för egenskaperna använder du basklassens `Set`-metod till att uppdatera värdet och generera händelsen `PropertyChanged`.
 
    ```cs
     string message = "";
@@ -87,13 +87,13 @@ namespace ImHere
     }
    ```
 
-4. Lägg till en skrivskyddad kommandoegenskap med namnet `SendLocationCommand`. Det här kommandot har typen `ICommand` från namnområdet `System.Windows.Input`.
+1. Lägg till en skrivskyddad kommandoegenskap med namnet `SendLocationCommand`. Det här kommandot har typen `ICommand` från namnområdet `System.Windows.Input`.
 
     ```cs
     public ICommand SendLocationCommand { get; }
     ```
 
-5. Lägg till en konstruktor i klassen, och initiera `SendLocationCommand` som nytt `Command` från namnområdet `Xamarin.Forms` i konstruktorn. Konstruktorn för kommandot tar som indata en `Action` som ska köras när kommandot anropas, så skapa en `async`-metod med namnet `SendLocation` och skicka en lambdafunktion med `await`-kod för anropet till konstruktorn. Innehållet i metoden `SendLocation` implementeras i senare övningar i den här modulen. Du måste lägga till ett användningsdirektiv för namnområdet `System.Threading.Tasks` så att du kan returnera en `Task`.
+1. Lägg till en konstruktor i klassen, och initiera `SendLocationCommand` som nytt `Command` från namnområdet `Xamarin.Forms` i konstruktorn. Konstruktorn för kommandot tar som indata en `Action` som ska köras när kommandot anropas, så skapa en `async`-metod med namnet `SendLocation` och skicka en lambdafunktion med `await`-kod för anropet till konstruktorn. Innehållet i metoden `SendLocation` implementeras i senare övningar i den här modulen. Du måste lägga till ett användningsdirektiv för namnområdet `System.Threading.Tasks` så att du kan returnera en `Task`.
 
     ```cs
     public MainViewModel()
@@ -153,7 +153,7 @@ Du kan skapa Xamarin.Forms-gränssnitt med XAML.
 
     Obs! Projektet `ImHere.UWP` innehåller också en fil med namnet `MainPage.xaml`. Se till att du redigerar filen i .NET-standardbiblioteket.
 
-2. Innan du kan binda kontroller till egenskaperna i en ViewModel måste du ange en ViewModel-instans bindningskontext för sidan. Lägg till följande XAML i `ContentPage` på översta nivån.
+1. Innan du kan binda kontroller till egenskaperna i en ViewModel måste du ange en ViewModel-instans bindningskontext för sidan. Lägg till följande XAML i `ContentPage` på översta nivån.
 
     ```xml
     <ContentPage.BindingContext>
@@ -161,14 +161,14 @@ Du kan skapa Xamarin.Forms-gränssnitt med XAML.
     </ContentPage.BindingContext>
     ```
 
-3. Ta bort innehållet i `StackLayout` och lägg till lite utfyllnad så att gränssnittet blir snyggare.
+1. Ta bort innehållet i `StackLayout` och lägg till lite utfyllnad så att gränssnittet blir snyggare.
 
     ```xml
     <StackLayout Padding="20">
     </StackLayout>
     ```
 
-4. Lägg till en `Editor`-kontroll där användaren kan lägga till telefonnummer i `StackLayout`, med en `Label` ovanför som beskriver vad kontrollen används till. Kontrollerna i `StackLayout` ordnas antingen vågrätt eller lodrätt i den ordning som kontrollerna läggs till, så om du lägger till `Label` först hamnar den ovanför `Editor`. `Editor`-kontroller har flera rader så att användaren kan ange flera telefonnummer, ett per rad.
+1. Lägg till en `Editor`-kontroll där användaren kan lägga till telefonnummer i `StackLayout`, med en `Label` ovanför som beskriver vad kontrollen används till. Kontrollerna i `StackLayout` ordnas antingen vågrätt eller lodrätt i den ordning som kontrollerna läggs till, så om du lägger till `Label` först hamnar den ovanför `Editor`. `Editor`-kontroller har flera rader så att användaren kan ange flera telefonnummer, ett per rad.
 
     ```xml
     <StackLayout Padding="20">
@@ -179,7 +179,7 @@ Du kan skapa Xamarin.Forms-gränssnitt med XAML.
 
     Egenskapen `Text` för `Editor` är bunden till egenskapen `PhoneNumbers` för `MainViewModel`. Syntaxen för bindningen är att sätta egenskapsvärdet till `"{Binding <property name>}"`. Klamrarna anger för XAML-kompilatorn att det här värdet är speciellt och ska behandlas annorlunda än ett vanligt `string`-värde.
 
-5. Lägg till en `Button` som skickar användarens plats under `Editor`-kontrollen.
+1. Lägg till en `Button` som skickar användarens plats under `Editor`-kontrollen.
 
     ```xml
     <Button Text="Send Location" BackgroundColor="Blue" TextColor="White"
@@ -188,7 +188,7 @@ Du kan skapa Xamarin.Forms-gränssnitt med XAML.
 
     Egenskapen `Command` är bunden till kommandot `SendLocationCommand` i ViewModel-objektet. När du trycker på knappen körs kommandot.
 
-6. Lägg till en `Label` som visar statusmeddelanden under din `Button`.
+1. Lägg till en `Label` som visar statusmeddelanden under din `Button`.
 
     ```xml
     <Label Text="{Binding Message}"

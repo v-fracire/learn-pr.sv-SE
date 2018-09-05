@@ -13,27 +13,32 @@ Java-mottagarappen, som du konfigurerar i den här enheten, lagrar meddelanden i
     ```azurecli
     az storage account create --name <storage account name> --resource-group <resource group name>  --location <location> --sku Standard_RAGRS --encryption blob
     ```
+
     |Parameter      |Beskrivning|
     |---------------|-----------|
     |--name (krävs)  |Ange ett namn för lagringskontot.|
     |--resource-group (krävs)  |Ange resursgruppen som du skapade i föregående enhet.|
     |--location (valfritt)    |Ange den plats som du använde för att skapa resursgruppen i den föregående enheten.|
+
 1. Lista över alla åtkomstnycklar som är associerade med ditt lagringskonto med följande kommando:
 
     ```azurecli
     az storage account keys list --account-name <storage account name> --resource-group <resource group name>
     ```
+
     |Parameter      |Beskrivning|
     |---------------|-----------|
     |--account-name (krävs)  |Ange namnet på lagringskontot.|
     |--resource-group (krävs)  |Ange resursgruppen som du skapade i föregående enhet.|
 
      Åtkomstnycklar som är associerade med lagringskontot listas. Kopiera och spara värdet för **key** för framtida användning. Du behöver den här nyckeln för att få åtkomst till ditt lagringskonto.
+
 1. Visa anslutningssträngen för ditt lagringskonto med följande kommando:
 
     ```azurecli
     az storage account show-connection-string -n <storage account name> -g <resource group name>
     ```
+
     |Parameter      |Beskrivning|
     |---------------|-----------|
     |-n (krävs)  |Ange namnet på lagringskontot.|
@@ -78,6 +83,7 @@ Använd **nano**-redigeraren till att redigera SimpleSend-appen och lägg till E
     ```
 
 1. Leta upp och ersätt följande strängar i nano-redigeraren:
+
     - `"Your Event Hubs namespace name"` med namnet på händelsehubbens namnrymd.
     - `"Your event hub"` med namnet på händelsehubben.
     - `"Your primary SAS key"` med värdet för nyckeln **primaryKey** för händelsehubbens namnrymd som du sparade tidigare.
@@ -105,6 +111,7 @@ Nu ska du bygga Java-appen med kommandot **mvn**.
     cd ~
     cd azure-event-hubs/samples/Java/Basic/SimpleSend
     ```
+
 1. Bygg Java SimpleSend-appen med följande kommando. Det här ser till att appen använder anslutningsinformationen för händelsehubben:
 
     ```azurecli
@@ -136,6 +143,7 @@ I den här enheten använder du metoden EventProcessorHost. Du använder återig
     nano EventProcessorSample.java
     ```
 1. Leta upp och ersätt följande strängar i nano-redigeraren:
+
     - `----ServiceBusNamespaceName----` med namnet på Event Hubs-namnrymden.
     - `----EventHubName----` med namnet på händelsehubben.
     - `----SharedAccessSignatureKeyName----` med **Välj RootManageSharedAccessKey**.

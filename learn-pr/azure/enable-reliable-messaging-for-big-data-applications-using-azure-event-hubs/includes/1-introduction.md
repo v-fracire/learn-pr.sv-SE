@@ -8,6 +8,7 @@ Azure Event Hubs kan ta emot och bearbeta en stor mängd transaktioner. Det kan 
 I den här modulen lär du dig att ansluta händelsehubbar till din app och bearbeta stora transaktionsvolymer med hög tillförlitlighet.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att:
 
 - Skapa en händelsehubb med hjälp av Azure CLI.

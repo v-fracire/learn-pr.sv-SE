@@ -7,13 +7,16 @@ Som en del av testningen vill du jämföra appens prestanda vid olika datakällo
 I den här modulen visar vi hur du hanterar Azure-resurser med Azure CLI. 
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att göra följande:
 
 - Installera Azure CLI på Linux, macOS och/eller Windows.
 - Ansluta till en Azure-prenumeration med hjälp av Azure CLI.
 - Skapa Azure-resurser med Azure CLI.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Nödvändiga komponenter  
+
 - Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
 - Kunskaper om grundläggande Azure-begrepp, som exempelvis resursgrupper
 - Erfarenhet av att administrera Azure-resurser med hjälp av Azure-portalen
+- 

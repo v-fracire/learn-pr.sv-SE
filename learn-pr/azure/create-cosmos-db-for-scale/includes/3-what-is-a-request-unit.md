@@ -2,7 +2,7 @@ Nästa steg är att se över dataflödet i vår databas. Det här är viktigt s�
 
 ## <a name="what-is-database-throughput"></a>Vad är dataflöden i databaser? 
 
-Dataflödet är antalet läsningar och skrivningar som databasen kan utföra under en sekund. 
+Dataflödet är antalet läsningar och skrivningar som databasen kan utföra under en sekund.
 
 Om du vill skala ut dataflödet strategiskt måste du uppskatta behovet genom att uppskatta hur många läsningar och skrivningar som kommer att utföras vid olika tidpunkter och för olika dokumentstorlekar. Med en riktig uppskattning håller du användarna nöjda även när efterfrågan är som störst. Med en felaktig uppskattning kan förfrågningar nedgraderas, åtgärder kan behöva vänta och göras om och svarstiderna kan öka vilket ger missnöjda kunder.
 

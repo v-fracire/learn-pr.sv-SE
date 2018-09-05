@@ -33,7 +33,7 @@ VirtualMachine    PublicIPAddresses    PrivateIPAddresses
 SampleVM          168.61.54.62         10.0.0.4
 ```
 
-> [!NOTE]
+> [!TIP]
 > Observera att vi använder en förkortad syntax för `--output`-flaggan som `-o`. De flesta Azure CLI-kommandoparametrar kan förkortas till bara ett streck och en bokstav. `--name` kan exempelvis förkortas till `-n` och `--resource-group` till `-g`. Detta är praktiskt när du skriver, men vi rekommenderar att du använder det fullständiga alternativnamnet i skript för tydlighetens skull. Dokumentationen innehåller detaljerad information om varje kommando.
 
 ## <a name="getting-vm-details"></a>Hämta information om en virtuell dator
