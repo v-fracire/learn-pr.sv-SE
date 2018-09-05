@@ -1,14 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.prepare-azure-dev-environment.5-exercise-set-up-visual-studio
-title: <span data-ttu-id="aa06e-101">Övning – Konfigurera Visual Studio på Windows eller macOS</span><span class="sxs-lookup"><span data-stu-id="aa06e-101">Exercise - Set up Visual Studio on Windows or macOS</span></span>
+title: <span data-ttu-id="4604a-101">Konfigurera Visual Studio på Windows eller macOS</span><span class="sxs-lookup"><span data-stu-id="4604a-101">Set up Visual Studio on Windows or macOS</span></span>
 metadata:
-  title: <span data-ttu-id="aa06e-102">Övning – Konfigurera Visual Studio på Windows eller macOS</span><span class="sxs-lookup"><span data-stu-id="aa06e-102">Exercise - Set up Visual Studio on Windows or macOS</span></span>
-  description: <span data-ttu-id="aa06e-103">Övning – Konfigurera Visual Studio på Windows eller macOS</span><span class="sxs-lookup"><span data-stu-id="aa06e-103">Exercise - Set up Visual Studio on Windows or macOS</span></span>
-  ms.openlocfilehash: 100a43127f060e95c708a6bb9e31a7f5b80088e5
-  ms.sourcegitcommit: e364b61d89b547c49e271e6d168801011f7f4733
+  title: <span data-ttu-id="4604a-102">Konfigurera Visual Studio på Windows eller macOS</span><span class="sxs-lookup"><span data-stu-id="4604a-102">Set up Visual Studio on Windows or macOS</span></span>
+  description: <span data-ttu-id="4604a-103">Konfigurera Visual Studio på Windows eller macOS</span><span class="sxs-lookup"><span data-stu-id="4604a-103">Set up Visual Studio on Windows or macOS</span></span>
+  ms.openlocfilehash: de7ead090fa19acd4577b4bf3345237e28db4cc0
+  ms.sourcegitcommit: d6a4ffb95924e4af3bd445aaf263f34253735861
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/26/2018
-  ms.locfileid: "42938598"
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43458765"
 durationInMinutes: 15
 content: '[!include[](includes/5-exercise-set-up-visual-studio.md)]'

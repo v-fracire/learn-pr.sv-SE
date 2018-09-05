@@ -13,12 +13,15 @@ products:
 metadata:
   title: Administrera containrar i Azure
   description: Administrera infrastrukturresurser i Azure
-  ms.openlocfilehash: 9b01ba0b7764ed1b3722a2c03e11f387851441da
-  ms.sourcegitcommit: cac22638c8487b2a9e567262aee73616ff0035e9
+  ms.openlocfilehash: 05f5f15db78ff64ae0cd781ba46d22048119748e
+  ms.sourcegitcommit: 1aec476e479e92851bc3b5b7795f1200740bc1e5
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/24/2018
-  ms.locfileid: "42911396"
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43497957"
 modules:
+- learn.introduction-to-azure-virtual-machines
+- learn.create-linux-vm-in-azure
+- learn.create-a-windows-vm-in-azure
 - learn.manage-vms-with-azure-cli
 achievement: learn.administer-infrastructure-resources-in-azure.trophy
