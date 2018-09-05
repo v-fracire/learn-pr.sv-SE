@@ -32,19 +32,24 @@ Om du har en mottagarapp som lagrar meddelanden i Azure Blob Storage måste du o
     ```azurecli
     az storage account create --name <storage account name> --resource-group <resource group name> --location <location> --sku Standard_RAGRS --encryption blob
     ```
-2. För att komma åt den här lagringen behöver du en åtkomstnyckel för lagringskontot. Visa åtkomstnycklarna som är associerade med lagringskontot.
+
+1. För att komma åt den här lagringen behöver du en åtkomstnyckel för lagringskontot. Visa åtkomstnycklarna som är associerade med lagringskontot.
 
     ```azurecli
     az storage account keys list --account-name <storage account name> --resource-group <resource group name>
     ```
-3. Spara värdet som är associerat med **key1**.
-4. Du behöver även anslutningsinformationen för lagringskontot. Visa anslutningssträngen för lagringskontot.
+
+1. Spara värdet som är associerat med **key1**.
+
+1. Du behöver även anslutningsinformationen för lagringskontot. Visa anslutningssträngen för lagringskontot.
 
     ```azurecli
     az storage account show-connection-string -n <storage account name> -g <resource group name>
     ```
-5. Spara värdet som är associerat med **connectionString**.
-6. Meddelanden lagras i en container på ditt lagringskonto. Skapa en container på ditt lagringskonto med hjälp av `<connection string>` med anslutningssträngen från föregående steg.
+
+1. Spara värdet som är associerat med **connectionString**.
+
+1. Meddelanden lagras i en container på ditt lagringskonto. Skapa en container på ditt lagringskonto med hjälp av `<connection string>` med anslutningssträngen från föregående steg.
 
     ```azurecli
     az storage container create -n <container> --connection-string "<connection string>"
