@@ -1,0 +1,34 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.4-optimize-storage-performance
+title: Optimera lagringsprestanda
+metadata:
+  title: Optimera lagringsprestanda
+  description: I den här utbildningsenheten går vi igenom hur du kan optimera lagringsprestanda för din arkitektur
+  ms.openlocfilehash: 9b7e1d9ea0e90b95045f26845875a81211f83ea4
+  ms.sourcegitcommit: 926510a198d738c5726081f6d7994fe9b6fc6edb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43180614"
+durationInMinutes: 5
+content: >
+  [!include[](includes/4-optimize-storage-performance.md)]
+quiz:
+  title: Kunskapskontroll – Optimera lagringsprestanda
+  questions:
+  - content: Vad är flerspråkig persistens?
+    choices:
+    - content: Att använda Azure SQL Database till att lagra alla dina data
+      isCorrect: false
+    - content: Ett sätt att hålla anslutningar igång för dataöverföring
+      isCorrect: false
+    - content: Att använda olika lagringstekniker till olika syften i en app
+      isCorrect: true
+    - content: En metod för att hantera fel i tillfälliga data
+      isCorrect: false
+  - content: Du kan använda Redis Cache till att förbättra appens prestanda genom att du lagrar en ögonblicksbild av data i minnet.
+    choices:
+    - content: Sant
+      isCorrect: true
+    - content: Falskt
+      isCorrect: false

@@ -4,11 +4,43 @@ title: Utforma en strategi för lagringsorganisation
 metadata:
   title: Utforma en strategi för lagringsorganisation
   description: Utforma en strategi för lagringsorganisation
-  ms.openlocfilehash: 945f645a8711b5c1985a6b2269f5ab2dd0d32a8c
-  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.openlocfilehash: 966865b137aaedc45906682cc58fc8a67e68a30c
+  ms.sourcegitcommit: 107578417899e44b5611917dec7bcc21d4c1582e
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/22/2018
-  ms.locfileid: "40443012"
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43225718"
 durationInMinutes: 7
-content: '[!include[](includes/3-design-organization-strategy.md)]'
+content: >
+  [!include[](includes/3-design-organization-strategy.md)]
+quiz:
+  title: 'Kunskapskontroll: Blob Storage'
+  questions:
+  - content: Vilken typ av blob är bäst i de flesta lagringsscenarier?
+    choices:
+    - content: Byteblobar
+      isCorrect: false
+      incorrectExplanation: ”Byteblobar” är inte en typ av blob.
+    - content: Sidblobar
+      isCorrect: false
+      incorrectExplanation: Sidblobar är utformade för stora volymer läsningar och skrivningar via direktåtkomst, som när en virtuell Azure-dator lagrar en virtuell hårddisk.
+    - content: Blockblobar
+      isCorrect: true
+      correctExplanation: Blockblobar är vanligtvis det bästa valet för allmänna lagringsbehov.
+    - content: Tilläggsblobar
+      isCorrect: false
+      incorrectExplanation: I tilläggsblobar kan du bara lägga till nya data, inte uppdatera eller ta bort befintliga data.
+  - content: Blobar används för *ostrukturerad* datalagring. Vad innebär *ostrukturerad*?
+    choices:
+    - content: Blobar kan inte organiseras eller namnges, de är bara bytesamlingar.
+      isCorrect: false
+      incorrectExplanation: ”Ostrukturerad” syftar på typen av data *i* blobarna, inte på hur blobarna organiseras i ett lagringskonto.
+    - content: Det finns inga begränsningar för vilka data du kan lagra i blobar.
+      isCorrect: true
+      correctExplanation: Blobar inför inte någon typ av datastruktur, så dina appar kan lagra alla slags data i blobar.
+    - content: Blobar kan inte innehålla strukturerade data som JSON eller XML.
+      isCorrect: false
+      incorrectExplanation: Blobar *kan* innehålla strukturerade data, men Blob Storage interagerar inte med dem på något sätt. Det är appens ansvar att känna igen blobinnehållets struktur och hantera data på rätt sätt.
+    - content: Data som laddas ned från blobar organiseras slumpmässigt, och du behöver ett särskilt klientbibliotek för att tolka dem.
+      isCorrect: false
+      incorrectExplanation: All blobmanipulering, som att ladda ned blobinnehåll, kan göras direkt via REST-API:t utan något klientbibliotek. Data som laddas ned från blobar organiseras inte slumpmässigt.

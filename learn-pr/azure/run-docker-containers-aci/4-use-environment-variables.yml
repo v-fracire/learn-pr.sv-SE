@@ -1,0 +1,16 @@
+### YamlMime:ModuleUnit
+uid: learn.run-docker-containers-aci.4-use-environment-variables
+interactive: bash
+metadata:
+  title: Ange miljövariabler
+  description: Ange miljövariabler i containerinstanser.
+  displayType: one-column
+  ms.openlocfilehash: 1911822589f7120ed0cddd9a1c807a76c045f75c
+  ms.sourcegitcommit: 926510a198d738c5726081f6d7994fe9b6fc6edb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43180955"
+title: Ange miljövariabler
+durationInMinutes: 10
+content: '[!include[](includes/4-use-environment-variables.md)]'

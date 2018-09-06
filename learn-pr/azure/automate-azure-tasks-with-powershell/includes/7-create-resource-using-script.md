@@ -14,9 +14,11 @@ Ett PowerShell-skript är en textfil som innehåller kommandon och styrelement. 
 PowerShell-skriptfiler har filtillägget **.ps1**. Du kan skapa och spara de här filerna i valfri textredigerare. 
 
 > [!TIP]
-> Om du skriver PowerShell-skript i Windows kan du använda Windows integrerade skriptmiljö för PowerShell (ISE). Den här redigeraren innehåller funktioner som syntaxfärgning och en lista med tillgängliga cmdletar.
+> Om du skriver PowerShell-skript i Windows kan du använda Windows integrerade skriptmiljö för PowerShell (ISE). Den här redigeraren har funktioner som syntaxfärgning och en lista med tillgängliga cmdletar.
 >
->![Windows PowerShell ISE](../media-drafts/7-windows-powershell-ise-screenshot.png)
+I följande bild visas Windows PowerShell Integrated Scripting Environment (ISE) med ett exempelskript som ansluter till Azure och skapar en virtuell dator.
+
+>![Skärmbild av Windows PowerShell Integrated Scripting Environment med ett skript som skapar en virtuell dator i redigeringsfönstret.](../media/7-windows-powershell-ise-screenshot.png)
 
 När du har skrivit skriptet kör du det från PowerShell-kommandoraden genom att skriva en punkt och ett bakstreck följt av namnet på filen:
 
