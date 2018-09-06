@@ -6,9 +6,10 @@ Här följer tre vanliga kategorier av molntjänster:
 - Plattform som en tjänst (PaaS)
 - Programvara som en tjänst (SaaS)
 
-En sak att tänka på är att kategorierna är lager som ligger ovanpå varandra. Till exempel lägger PaaS till ett lager över IaaS genom att tillhandahålla en abstraktionsnivå. Abstraktionerna har fördelen att dölja informationen du inte bryr dig om, så att du snabbare kommer till kodningen. Men priset du får betala är att du får mindre kontroll över den underliggande maskinvaran.
+En sak att tänka på är att kategorierna är lager som ligger ovanpå varandra. Till exempel lägger PaaS till ett lager över IaaS genom att tillhandahålla en abstraktionsnivå. Abstraktionerna har fördelen att dölja informationen du inte bryr dig om, så att du snabbare kommer till kodningen. Men priset du får betala är att du får mindre kontroll över den underliggande maskinvaran. På bilden nedan finns en lista över alla resurser som du hanterar och som din tjänsteleverantör hanterar i varje molntjänstkategori.
 
-![Lagerdiagram](../media-drafts/5-layer-diagram.jpg) GET THIS IMAGE REDRAWN^^
+![En bild som visar abstraktionsnivån för varje molntjänstkategori.](../media/5-layer-diagram.png)
+
 
 ### <a name="infrastructure-as-a-service-iaas"></a>IaaS (Infrastructure as a Service)
 

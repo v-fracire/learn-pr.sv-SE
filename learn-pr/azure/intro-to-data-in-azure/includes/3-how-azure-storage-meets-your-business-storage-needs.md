@@ -1,84 +1,84 @@
-När du tittar på fördelarna med Azure Storage kommer du att se att Azure erbjuder de bästa alternativen för lagring av din utbildningsportal. Nu ska vi utforska fördelarna och alternativen som är tillgängliga med Azure Storage mer i detalj för att se hur Azure kan uppfylla dina affärsbehov.
+När du tittar på fördelarna med Azure Storage kommer du se att Azure har de bästa alternativen för lagring av din utbildningsportal. Nu ska vi utforska fördelarna och alternativen som är tillgängliga med Azure Storage närmare för att se hur Azure kan uppfylla dina affärsbehov.
 
-## <a name="how-azure-storage-can-meet-your-business-storage-needs"></a>Så här kan Azure Storage uppfylla lagringsbehoven på ditt företag
+## <a name="how-azure-storage-can-meet-your-business-storage-needs"></a>Så kan Azure-lagring uppfylla lagringsbehoven på ditt företag
 
-Azure Storage tillhandahåller flera alternativ som är anpassade efter de specifika typerna av datalagring.
+Azure Storage har flera alternativ som är anpassade för olika typer av datalagring.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
-**Azure SQL Database** är en robust helt hanterad molnbaserad relationsdatabas som lagrar alla dina data. Du kan använda den här funktionen för att lagra data som du ofta använder och uppdaterar, till exempel personlig och utbildningsrelaterad information om din personal. Du kan också migrera dina befintliga SQL Server-databaser utan att ändra dina program.
+**Azure SQL Database** är en robust, helt hanterad och molnbaserad relationsdatabas som lagrar alla dina data. Du kan använda den här funktionen till att lagra data som du använder och uppdaterar ofta, till exempel personlig och utbildningsrelaterad information om din personal. Du kan också migrera befintliga SQL Server-databaser utan att ändra dina program.
 
-![AzureSQL](../images/Azure_SQL.png)
+![AzureSQL](../media-draft/Azure_SQL.png)
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Den prisbelönta Azure-funktionen Azure Cosmos DB är en globalt distribuerad databastjänst. Funktionen stöder schemalösa data för utveckling av dynamiska program som *alltid är aktiva*, vilket ger stöd för data som ändras kontinuerligt. Du kan använda den här funktionen för att lagra data som uppdateras och underhålls baserat på indata från användare i hela världen.
+Azure Cosmos DB är en globalt distribuerad databastjänst. Funktionen har stöd för data utan schema så att du kan utveckla dynamiska program som *alltid är aktiva*, vilket ger stöd för data som ändras kontinuerligt. Du kan använda den här funktionen för att lagra data som uppdateras och underhålls baserat på indata från användare i hela världen.
 
-![CosmosDB](../images/Azure_cosmos_db.png)
+![CosmosDB](../media-draft/Azure_cosmos_db.png)
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Med Azure Blob Storage kan du strömma stora video- eller ljudfiler direkt till användarens webbläsare var som helst i världen. Blob Storage används också för att lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering. Azure Blob Storage kan lagra upp till 8 TB data för fillagring för virtuella datorer.
+Med Azure Blob Storage kan du strömma stora video- eller ljudfiler direkt till användarens webbläsare var som helst i världen. Blob Storage används också till att lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering. Azure Blob Storage kan lagra upp till 8 TB data för virtuella datorer.
 
-![AzureBlob](../images/Azure_blob.png)
+![AzureBlob](../media-draft/Azure_blob.png)
 
 ### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Med funktionen Data Lake i Azure Storage kan du analysera dataanvändningen och skapa rapporter baserat på resultatet. En datasjö är en stor databas som lagrar både strukturerade och ostrukturerade data.
+Med funktionen Data Lake i Azure Storage kan du analysera dataanvändningen och skapa rapporter baserat på resultatet. Data Lake är en stor databas för både strukturerade och ostrukturerade data.
 
-**Azure Data Lake Storage Gen2** kombinerar skalbarheten och kostnadsfördelarna med objektlagring med tillförlitligheten och prestanda hos funktionerna i Big Data-filsystem.
+**Azure Data Lake Storage Gen2** kombinerar objektlagringens skalbarhet och kostnadsfördelar med Big Data-filsystemens tillförlitlighet och prestanda.
 
-![Data_lake_Store_concept](../images/Data_lake_store_concept.png)
+![Data_Lake_Store_concept](../media-draft/Data_lake_store_concept.png)
 
 ### <a name="azure-files"></a>Azure Files
 
-Azure Files erbjuder fullständigt hanterade filresurser i molnet. Program som körs i Azure kan enkelt dela filer mellan virtuella datorer. Du kan använda Azure-filresurser på samma gång för molnet eller lokala distributioner av Windows, Linux och macOS.
+Med Azure Files får du helt hanterade filresurser i molnet. Program som körs i Azure kan enkelt dela filer mellan virtuella datorer. Du kan använda Azure-filresurser på samma gång för molnet eller lokala distributioner av Windows, Linux och macOS.
 
-![Azure_Files](../images/Azure_Files.png)
+![Azure_Files](../media-draft/Azure_Files.png)
 
 ### <a name="azure-queue"></a>Azure Queue
 
 Azure Queue Storage är en tjänst för lagring av stora mängder meddelanden som kan nås var som helst i världen. Ett enskilt kömeddelande har en storlek på upp till 64 kB och en kö kan innehålla flera miljoner meddelanden.
 
-Kön används främst:
+Queue Storage används främst för följande:
 
 - För att skapa en lista med kvarvarande arbetsuppgifter och för att skicka meddelanden mellan olika Azure-webbservrar.
 - För att belastningsutjämna mellan olika webbservrar/infrastrukturer och hantera trafiktoppar.
-- För att säkerställa återhämtning efter komponentfel när flera användare kommer åt dina data samtidigt.
+- För att säkerställa återhämtning efter komponentfel när flera personer använder dina data samtidigt.
 
-![Azure_Queue](../images/Azure_Queue.png)
+![Azure_Queue](../media-draft/Azure_Queue.png)
 
 ### <a name="azure-standard-storage"></a>Azure Standard Storage
 
-Virtuella datorer i Azure använder diskar för att lagra ett operativsystem, program och data. Azure Standard Storage tillhandahåller tillförlitligt, billigt diskstöd för virtuella datorer som kör arbetsbelastningar som inte är verksamhetskritiska. Med Standard Storage lagras data på hårddiskar (HDD).
+Virtuella datorer i Azure använder diskar till att lagra operativsystem, program och data. Azure Standard Storage ger ett tillförlitligt och kostnadseffektivt diskstöd för virtuella datorer som kör arbetsbelastningar som inte är verksamhetskritiska. Med Standard Storage lagras data på hårddiskar (HDD).
 
 När du arbetar med virtuella datorer kan du använda SSD-standarddiskar och HDD-standarddiskar för mindre kritiska arbetsbelastningar, och SSD-premiumdiskar för verksamhetskritiska produktionsprogram. Azures diskar har konsekvent levererat tillförlitlighet i företagsklass, med en branschledande årlig felfrekvens på 0 %.
 
-![Azure_disk](../images/Azure_disks.png)
+![Azure_disk](../media-draft/Azure_disks.png)
 
 ### <a name="storage-tiers"></a>Lagringsnivåer
 
-Azure Storage erbjuder tre lagringsnivåer för lagring av blobbobjekt:
+Azure Storage har tre lagringsnivåer för lagring av blobobjekt:
 
 1. **Frekvent lagringsnivå** – Azures frekventa lagringsnivå är optimerad för att lagra data som används ofta. 
 1. **Lågfrekvent lagringsnivå** – Azures lågfrekventa lagringsnivå är optimerad för att lagra data som inte används ofta och som lagras i minst 30 dagar.
-1. **Arkivlagringsnivå** – Arkivlagringsnivån i Azure är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav. Arkivlagring i Azure är perfekt för lagring av äldre versioner av dina data så att du kan hämta dem om det krävs för granskning eller vid andra aktiviteter som inträffar mer sällan.
+1. **Arkivlagringsnivå** – arkivlagringsnivån i Azure är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav. Arkivlagring i Azure är perfekt för lagring av äldre versioner av dina data så att du kan hämta dem om det krävs för granskning eller vid andra aktiviteter som inträffar mer sällan.
 
-![Archive_Tier](../images/Archive_Storage_Tier.png)
+![Archive_Tier](../media-draft/Archive_Storage_Tier.png)
 
 ### <a name="azure-storage-encryptionreplication"></a>Kryptering/replikering i Azure Storage
 
-Azure Storage tillhandahåller säkerhet och hög tillgänglighet för dina data via krypterings- och replikeringsfunktioner.
+Azure Storage har funktioner för kryptering och replikering som ger hög säkerhet och tillgänglighet för dina data.
 
 #### <a name="encryption-for-storage-services"></a>Kryptering för lagringstjänster
 
 Följande typer av kryptering är tillgängliga för dina resurser:
 
-1. **Azure Storage Service Encryption (SSE)** tillhandahåller kryptering i vila och hjälper dig att skydda dina data på ett sätt som uppfyller din organisations säkerhet och regelefterlevnad. Azure SSE krypterar data innan de lagras och dekrypterar data innan de hämtas. Krypteringen och dekrypteringen är transparent för användaren.
-1. **Kryptering på klientsidan**, där data redan har krypterats av klientbiblioteken. Azure lagrar data i krypterat tillstånd i vila, vilka sedan dekrypteras när de hämtas.
+1. **Azure Storage Service Encryption (SSE)** för data i vila hjälper dig att skydda dina data på ett sätt som uppfyller organisationens krav på säkerhet och regelefterlevnad. Azure SSE krypterar data innan de lagras och dekrypterar data innan de hämtas. Krypteringen och dekrypteringen är transparent för användaren.
+1. **Kryptering på klientsidan** är när data redan har krypterats av klientbiblioteken. Azure lagrar data i krypterat tillstånd i vila och dekrypterar sedan när data hämtas.
 
-    Den här krypteringsfunktionen säkerställer att dina data uppfyller globala skyddsstandarder. Det är lämpligt att lagra känslig information som till exempel privata och finansiella data.
+    Den här krypteringsfunktionen gör att dina data uppfyller globala skyddsstandarder. Den passar bra för lagring av känslig information som personuppgifter och finansiella data.
 
-#### <a name="replication-for-storage-availability"></a>Replikering för lagringstillgänglighet
+#### <a name="replication-for-storage-availability"></a>Replikering för tillgänglighet
 
-Replikeringstypen ställs in när du skapar ett lagringskonto. Replikeringsfunktionen garanterar att dina data alltid är tillgängliga. Azure Storage tillhandahåller regionala och geografiska replikeringar för att skydda data mot naturkatastrofer och andra lokala katastrofer som bränder eller översvämningar.
+Replikeringstypen ställs in när du skapar ett lagringskonto. Replikeringsfunktionen garanterar att dina data alltid är tillgängliga. Azure Storage har regionbaserad och geografisk replikering som skyddar dina data mot naturkatastrofer och andra lokala katastrofer som bränder eller översvämningar.

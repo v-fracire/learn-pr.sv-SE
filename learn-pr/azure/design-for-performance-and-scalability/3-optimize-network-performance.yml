@@ -1,0 +1,38 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.3-optimize-network-performance
+title: Optimera nätverksprestanda
+metadata:
+  title: Optimera nätverksprestanda
+  description: I den här utbildningsenheten kommer vi att diskutera hur du kan optimera nätverkets prestanda för din arkitektur
+  ms.openlocfilehash: fde10ef434eb849903ccc67bcc78b0d278c99950
+  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43251320"
+durationInMinutes: 5
+content: >
+  [!include[](includes/3-optimize-network-performance.md)]
+quiz:
+  title: Kunskapskontroll – Optimera nätverksprestanda
+  questions:
+  - content: Nätverkets svarstid är
+    choices:
+    - content: Mängden brus i nätverket
+      isCorrect: false
+    - content: Hur lång tid det tar för information att skickas från källa till mål
+      isCorrect: true
+    - content: TTL-värdet för en tillgång i mitt nätverk för innehållsleverans
+      isCorrect: false
+    - content: En privat anslutning mellan ett lokalt nätverk och Azure
+      isCorrect: false
+  - content: Vår webbapp körs i regionen USA, östra. Vad av följande kan du göra för att optimera svarstiden i nätverket för användare runt om i världen?
+    choices:
+    - content: Distribuera ExpressRoute till alla användare
+      isCorrect: false
+    - content: Använda ett nätverk för innehållsleverans så att du kan placera tillgångar och innehåll närmare användarna
+      isCorrect: true
+    - content: Använda läget för prestandaroutning i Traffic Manager
+      isCorrect: false
+    - content: Distribuera fler instanser i regionen USA, östra för att hantera belastningen
+      isCorrect: false
