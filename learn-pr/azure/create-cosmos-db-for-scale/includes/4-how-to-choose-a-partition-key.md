@@ -22,8 +22,6 @@ Varje partitionsnyckel har ett maximalt lagringsutrymme på 10 GB, vilket är st
 
 När du försöker bestämma rätt sammansatt nyckel och lösningen inte är uppenbar får du här några tips på vad du kan tänka på.
 
-* Var inte rädd för att ha för många partitionsnycklar. Ju fler partitionsnycklar du har, desto mer skalbarhet får du.
-
-* För att bestämma vilken partitionsnyckel som är bäst för en arbetsbelastning som är mer inriktad på läsning tar du en titt på de tre till fem översta frågorna du tänker använda. Värdet som oftast ingår i WHERE-satsen är en stark kandidat för partitionsnyckeln.
-
-* För arbetsbelastningar som är mer inriktade på skrivning måste du förstå arbetsbelastningens transaktionsbehov, eftersom partitionsnyckeln omfattar transaktioner för flera dokument.
+- Var inte rädd för att ha för många partitionsnycklar. Ju fler partitionsnycklar du har, desto mer skalbarhet får du.
+- För att bestämma vilken partitionsnyckel som är bäst för en arbetsbelastning som är mer inriktad på läsning tar du en titt på de tre till fem översta frågorna du tänker använda. Värdet som oftast ingår i WHERE-satsen är en stark kandidat för partitionsnyckeln.
+- För arbetsbelastningar som är mer inriktade på skrivning måste du förstå arbetsbelastningens transaktionsbehov, eftersom partitionsnyckeln omfattar transaktioner för flera dokument.

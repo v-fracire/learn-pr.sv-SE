@@ -13,6 +13,3 @@ Här kan du läsa mer om det du har lärt dig i dag:
 - [Dokumentation om Azure-fakturering](https://docs.microsoft.com/azure/billing/)
 - [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
 - [Azure-budgetar](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
-
-
-
