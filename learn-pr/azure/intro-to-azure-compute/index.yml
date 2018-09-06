@@ -13,14 +13,20 @@ products:
 - Azure
 metadata:
   title: Introduktion till Azure-beräkning
-  description: Azure-beräkning tillhandahåller beräkningsresurser som kan användas av en användare till att bearbeta stora mängder data för uppgifter som modellering av medicineffekter på molekylär nivå, utvinna marknadsföringsdata, rendera avancerad video och analysera astronomiska data som samlas in från teleskop. Syftet med den här modulen är att ge en översiktlig beskrivning av Azure-beräkningstjänsten, dess alternativ och förslag på hur de kan användas för att lösa problem studenter kan stöta på i sitt dagliga arbete.
-  ms.openlocfilehash: 1f8987e808eaa7f2d906147faf17fe2a8edf76e4
-  ms.sourcegitcommit: 0e0cc41b7669e7149541f34f3f24ba0e864ed07d
+  description: Azure-beräkningen innehåller beräkningsresurser som kan användas på ett flexibelt sätt av användarna till att bearbeta stora mängder data vid exempelvis modellering av medicineffekter på molekylär nivå, utvinning av marknadsföringsdata, rendering av avancerad video och analys av astronomiska data som samlas in från teleskop. Syftet med den här modulen är att ge en översiktlig beskrivning av Azure-beräkningstjänsten, dess alternativ och förslag på hur de kan användas för att lösa problem som studenter kan stöta på i sitt dagliga arbete.
+  ms.date: 09/24/2018
+  ms.openlocfilehash: 691a9c92ac9192efabc3c045a9c89a5f1c68e6ad
+  ms.sourcegitcommit: bcd9fd78122da4fc1545c7923a5fc0cd0a8abe96
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/23/2018
-  ms.locfileid: "42702511"
-abstract: 'När du har slutfört den här modulen kan studenter: – Identifiera alternativ i Azure Compute – Välja en eller flera Compute-alternativ som är lämpliga för att lösa deras affärsproblem'
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43152085"
+abstract: >
+  I den här modulen kommer du att göra följande:
+
+  - Identifiera alternativ i Azure Compute
+
+  - Välja ett eller flera beräkningsalternativ som är lämpliga för att lösa deras affärsproblem.
 units:
 - learn.intro-to-compute.1-introduction
 - learn.intro-to-compute.2-essential-azure-compute-concepts

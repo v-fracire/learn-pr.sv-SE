@@ -1,0 +1,34 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.5-identify-performance-bottlenecks-in-your-application
+title: <span data-ttu-id="10761-101">Identifiera flaskhalsar i appars prestanda</span><span class="sxs-lookup"><span data-stu-id="10761-101">Identify performance bottlenecks in your application</span></span>
+metadata:
+  title: <span data-ttu-id="10761-102">Identifiera flaskhalsar i appars prestanda</span><span class="sxs-lookup"><span data-stu-id="10761-102">Identify performance bottlenecks in your application</span></span>
+  description: <span data-ttu-id="10761-103">I den här utbildningsenheten går vi igenom hur du kan identifiera flaskhalsar i appars prestanda</span><span class="sxs-lookup"><span data-stu-id="10761-103">In this unit we'll discuss how to identify performance bottlenecks in your application</span></span>
+  ms.openlocfilehash: 0b5ab3a983a4b3dfc3a76c914b6a565f3ee7ed2c
+  ms.sourcegitcommit: 926510a198d738c5726081f6d7994fe9b6fc6edb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43180657"
+durationInMinutes: 5
+content: >
+  [!include[](includes/5-identify-performance-bottlenecks-in-your-application.md)]
+quiz:
+  title: <span data-ttu-id="10761-104">Kunskapskontroll – Identifiera flaskhalsar i appars prestanda</span><span class="sxs-lookup"><span data-stu-id="10761-104">Knowledge Check - Identify performance bottlenecks in your application</span></span>
+  questions:
+  - content: <span data-ttu-id="10761-105">Vilket av följande alternativ beskriver bäst Application Insights?</span><span class="sxs-lookup"><span data-stu-id="10761-105">Which of the following best describes Application Insights?</span></span>
+    choices:
+    - content: <span data-ttu-id="10761-106">En enda fönsterruta för alla våra övervakningsbehov i Azure</span><span class="sxs-lookup"><span data-stu-id="10761-106">A single pane of glass for our monitoring needs in Azure</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="10761-107">En implementering av mönstret Health Endpoint Monitoring (slutpunktsövervakning av tillstånd)</span><span class="sxs-lookup"><span data-stu-id="10761-107">An implementation of the health endpoint monitoring pattern</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="10761-108">En arbetsyta där du kan samla loggar från olika appar och delar av infrastrukturen</span><span class="sxs-lookup"><span data-stu-id="10761-108">A workspace to enable collection of logs across infrastructure and applications</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="10761-109">En tjänst för att övervaka webbappars tillgänglighet, prestanda och användning</span><span class="sxs-lookup"><span data-stu-id="10761-109">A service to monitor availability, performance, and usage of web applications</span></span>
+      isCorrect: true
+  - content: <span data-ttu-id="10761-110">Du kan använda Log Analytics till att spåra anpassade loggar och mått.</span><span class="sxs-lookup"><span data-stu-id="10761-110">You can use Log Analytics to track custom logs and metrics.</span></span>
+    choices:
+    - content: <span data-ttu-id="10761-111">Sant</span><span class="sxs-lookup"><span data-stu-id="10761-111">True</span></span>
+      isCorrect: true
+    - content: <span data-ttu-id="10761-112">Falskt</span><span class="sxs-lookup"><span data-stu-id="10761-112">False</span></span>
+      isCorrect: false
