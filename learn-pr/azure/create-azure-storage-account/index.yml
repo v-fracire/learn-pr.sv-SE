@@ -1,0 +1,36 @@
+### YamlMime:Module
+uid: learn.create-azure-storage-account
+metadata:
+  title: Skapa ett Azure Storage-konto
+  description: Azure Storage-konton ger dig ett kraftfullt sätt att ordna data i molnet. Du skapar logiska grupper med relaterade data och tillämpar en enda princip på fakturering, åtkomst, lagringsplats med mera för alla objekt i gruppen. Här använder du Azure Storage-konton för att gruppera och hantera dina Azure-blobar, -filer, -köer och -tabeller.
+  ms.openlocfilehash: ece1fe0d086ff505c8022224469a8b7cdb0d2c87
+  ms.sourcegitcommit: c07e11980180ae35cb3485548f81e16152d77781
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43471790"
+title: Skapa ett Azure Storage-konto
+summary: Skapa ett Azure Storage-konto med rätt alternativ för dina affärsbehov.
+abstract: "I den här modulen kommer du att göra följande:\n- Bestäm hur många lagringskonton du behöver för projektet\n- Fastställ lämpliga inställningar för varje lagringskonto\n- Skapa ett lagringskonto med Azure Portal\n  \n"
+prerequisites: >
+  - Azure-prenumeration
+
+  - Erfarenhet av Azure-portalen
+
+  - Kännedom om blobar, filer, köer och tabeller i Azure-datatjänster
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+units:
+- learn.create-azure-storage-account.1-introduction
+- learn.create-azure-storage-account.2-decide-how-many-storage-accounts-you-need
+- learn.create-azure-storage-account.3-choose-your-account-settings
+- learn.create-azure-storage-account.4-choose-an-account-creation-tool
+- learn.create-azure-storage-account.5-exercise-create-a-storage-account
+- learn.create-azure-storage-account.6-knowledge-check
+- learn.create-azure-storage-account.7-summary
+achievement: learn.create-azure-storage-account.badge

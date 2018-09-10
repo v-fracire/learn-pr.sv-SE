@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.access-data-with-cosmos-db-and-sql-api.4-run-queries
+metadata:
+  title: <span data-ttu-id="c4b61-101">Köra frågor i Azure Portal</span><span class="sxs-lookup"><span data-stu-id="c4b61-101">Run queries in the Azure portal</span></span>
+  description: <span data-ttu-id="c4b61-102">Lär dig hur du kör frågor på data i Azure Cosmos DB med hjälp av Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="c4b61-102">Learn how to run queries on the data in Azure Cosmos DB by using the Azure portal.</span></span>
+  displayType: one-column
+  ms.openlocfilehash: 74c03032e7c8f31c1d8f5847cf2d4d343b19017b
+  ms.sourcegitcommit: b85a83cbc1a0ae3e2681c4859e999a8296eb4e61
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2018
+  ms.locfileid: "43531321"
+title: <span data-ttu-id="c4b61-103">Köra frågor i Azure Portal</span><span class="sxs-lookup"><span data-stu-id="c4b61-103">Run queries in the Azure portal</span></span>
+durationInMinutes: 10
+content: '[!include[](includes/4-run-queries.md)]'

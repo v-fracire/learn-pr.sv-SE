@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.azure-container-registry.image-replication
+interactive: bash
+metadata:
+  title: <span data-ttu-id="918e8-101">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="918e8-101">Replicate a container image to different Azure regions</span></span>
+  description: <span data-ttu-id="918e8-102">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="918e8-102">Replicate a container image to different Azure regions</span></span>
+  ms.openlocfilehash: 06a331d77c25d0b458edba0f59d554a37c8027a2
+  ms.sourcegitcommit: a29274a7a22a1b88016cd49c067921557992c945
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43317825"
+title: <span data-ttu-id="918e8-103">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="918e8-103">Replicate a container image to different Azure regions</span></span>
+durationInMinutes: 5
+content: '[!include[](includes/5-image-replication.md)]'
