@@ -4,11 +4,11 @@ title: Övning – Migrera databasen
 metadata:
   title: Övning – Migrera databasen
   description: Övning – Migrera databasen
-  ms.openlocfilehash: 6a34040558aadb0723fbc5420356a115acef6993
-  ms.sourcegitcommit: d6a4ffb95924e4af3bd445aaf263f34253735861
+  ms.openlocfilehash: bbfa04c754851d0e078a04c0f7dc3dea0cfd2db9
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/02/2018
-  ms.locfileid: "43460812"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43791414"
 durationInMinutes: 10
 content: '[!include[](includes/5-exercise-migrate-the-database.md)]'

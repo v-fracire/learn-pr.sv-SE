@@ -3,14 +3,12 @@ uid: learn.access-data-with-cosmos-db-and-sql-api.2-add-data
 metadata:
   title: Lägga till data genom att använda portalen
   description: Lär dig hur du lägger till data i Azure Cosmos DB med hjälp av Azure Portal
-  displayType: one-column
-  interactive: azureportal
-  ms.openlocfilehash: a8a64768d77e7955643e844005dbbcbe95cf75e5
-  ms.sourcegitcommit: b85a83cbc1a0ae3e2681c4859e999a8296eb4e61
+  ms.openlocfilehash: 17ddbf2f16e1b31c6481f12c1646699d5615c9dd
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2018
-  ms.locfileid: "43531239"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43727877"
 title: Lägga till data genom att använda portalen
 durationInMinutes: 10
 content: >

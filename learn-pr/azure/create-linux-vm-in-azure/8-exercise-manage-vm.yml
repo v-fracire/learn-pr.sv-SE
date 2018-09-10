@@ -4,11 +4,11 @@ title: Övning – Konfigurera nätverksinställningar
 metadata:
   title: Övning – Konfigurera nätverksinställningar
   description: Övning – Konfigurera nätverksinställningar
-  ms.openlocfilehash: f6d763f86131bb8ce71381ca03a62d1129d1e3f0
-  ms.sourcegitcommit: 1aec476e479e92851bc3b5b7795f1200740bc1e5
+  ms.openlocfilehash: d0e9cf41364cf1cb6bfdd3a2d707f1ff25068e4e
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43498023"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43790343"
 durationInMinutes: 10
 content: '[!include[](includes/8-exercise-manage-vm.md)]'

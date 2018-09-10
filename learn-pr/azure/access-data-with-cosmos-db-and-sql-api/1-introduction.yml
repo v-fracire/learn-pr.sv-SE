@@ -3,13 +3,12 @@ uid: learn.access-data-with-cosmos-db-and-sql-api.1-introduction
 metadata:
   title: Introduktion
   description: Lär dig hur du skapar, lagrar och frågar efter data i Azure Cosmos DB.
-  displayType: one-column
-  ms.openlocfilehash: 1599e03059aacf611136dc56ddcd9234d67b87e8
-  ms.sourcegitcommit: b85a83cbc1a0ae3e2681c4859e999a8296eb4e61
+  ms.openlocfilehash: 4420270b0f35ee22a695dd14fa3fca6f987db798
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2018
-  ms.locfileid: "43530914"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43728659"
 title: Introduktion
 durationInMinutes: 10
 content: '[!include[](includes/1-introduction.md)]'
