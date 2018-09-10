@@ -34,7 +34,7 @@ Detta är ett exempel på en diskret händelse.
 
 ## <a name="how-to-choose-messages-or-events"></a>Att välja meddelanden eller händelser
 
-Ett program använder troligen händelser för vissa syften och meddelanden för andra. Innan du väljer måste du analysera din programarkitektur och dess användning för att identifiera de olika syften som dess komponenter har för att kommunicera med varandra. 
+Ett program använder troligen händelser för vissa syften och meddelanden för andra. Innan du väljer måste du analysera din programarkitektur och dess användning för att identifiera de olika syften som dess komponenter har för att kommunicera med varandra.
 
 Händelser används troligen för sändningar och är ofta tillfälliga, vilket innebär att ett meddelande kanske inte hanteras av någon mottagare om ingen prenumererar för närvarande. Det är sannolikt att meddelanden används där det distribuerade programmet kräver en garanti för att kommunikationen kommer att bearbetas.
 

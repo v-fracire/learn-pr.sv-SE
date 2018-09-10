@@ -4,9 +4,9 @@ Du kan få en `ICloudBlob` genom att begära den med blobens namn eller välja d
 
 ## <a name="getting-blobs-by-name"></a>Hämta blobar efter namn
 
-Anropa en av metoderna `GetXXXReference` på en `CloudBlobContainer` för att hämta en `ICloudBlob` efter namn. Om du vet vilken typ av blob som du hämtar kan du använda en av de specifika metoderna (`GetBlockBlobReference`, `GetAppendBlobReference` eller `GetPageBlobReference`) för att hämta ett objekt som innehåller metoder och egenskaper som är skräddarsydda för den blob-typen.
+Anropa en av metoderna `GetXXXReference` på en `CloudBlobContainer` för att hämta en `ICloudBlob` efter namn. Om du vet vilken typ av blob som du hämtar kan du använda en av de specifika metoderna (`GetBlockBlobReference`, `GetAppendBlobReference` eller `GetPageBlobReference`) för att hämta ett objekt som innehåller metoder och egenskaper som är skräddarsydda för den blobtypen.
 
-Ingen av dessa metoder utför ett nätverksanrop och de bekräftar inte heller huruvida bloben finns eller ej. En annan metod `GetBlobReferenceFromServerAsync`, anropar API:et för Blob Storage och genererar ett undantagsfel om bloben inte finns.
+Ingen av dessa metoder utför nätverksanrop och de bekräftar inte heller huruvida målbloben finns eller ej. De skapar bara ett blobreferensobjekt lokalt, som sedan kan användas för att anropa metoder som *fungerar* via nätverket och interagerar med blobar i Storage. En annan metod, `GetBlobReferenceFromServerAsync`, anropar API:et för Blob Storage och genererar ett undantagsfel om bloben inte finns.
 
 ## <a name="listing-blobs-in-a-container"></a>Visa blobar i en container
 

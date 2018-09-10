@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.create-azure-storage-account.3-choose-your-account-settings
+title: Välj kontoinställningar
+metadata:
+  title: Välj kontoinställningar
+  description: Välj kontoinställningar
+  ms.openlocfilehash: 2b4b0b6fa5cf2ea927065e28f0e634d4719a5c8b
+  ms.sourcegitcommit: c07e11980180ae35cb3485548f81e16152d77781
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43471471"
+durationInMinutes: 7
+content: '[!include[](includes/3-choose-your-account-settings.md)]'

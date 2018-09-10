@@ -5,9 +5,10 @@ Anta att du arbetar för ett näthandelsföretag och databasen behöver skalas f
 Databasen ska skalas automatiskt vid nya produkter och användare, samt ha högt dataflöde och låg fördröjning för att hålla jämna steg med kundernas förväntningar.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att göra följande:
 
-- Skapa en NoSQL-databas med Azure Cosmos DB.
-- Ange inledande dataflödesvolym för din databas med enheter för programbegäran.
-- Välja en partitionsnyckel.
-- Skapa en databas och en samling i Azure Cosmos DB.
+- Skapa en NoSQL-databas med Azure Cosmos DB
+- Ange inledande dataflödesvolym för din databas med enheter för programbegäran
+- Välja en partitionsnyckel
+- Skapa en databas och en samling i Azure Cosmos DB

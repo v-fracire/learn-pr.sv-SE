@@ -16,9 +16,9 @@ När du har lagt till tjänsterna är nästa steg att prissätta dem. Om du rull
 
 ## <a name="estimate-a-solution"></a>Uppskatta kostnaden för en lösning
 
-I vårt ursprungliga scenario kan vi anta att systemet ska köras på två virtuella datorer i Azure och ansluta till en instans av Azure SQL Database. Vi vill också ha en layer 7-brandvägg som ger oss följande utökade funktioner för belastningsutjämning:
+I vårt ursprungliga scenario kan vi anta att systemet ska köras på två virtuella datorer i Azure och ansluta till en instans av Azure SQL Database. Vi vill också ha en layer 7-brandvägg som ger oss följande utökade funktioner för belastningsutjämning. Följande illustration visar en programgateway som är ansluten till två virtuella datorer som är anslutna till en enda Azure SQL Database-instans.
 
-![Diagram över systemarkitekturen](../media-drafts/2-estimate-costs-architecture.png)
+![En illustration av en exempelarkitektur som används som exempel för att demonstrera uppskattning av kostnader.](../media-drafts/2-estimate-costs-architecture.png)
 
 Vi kan använda priskalkylatorn i Azure till att se vad lösningen kommer att kosta och sedan exportera vår uppskattning för att dela den med teamet.
 

@@ -28,7 +28,7 @@ När du klickar på **Kostnad** visas detaljerad information om rekommendationer
 
 ![Kostnadsrekommendationer i Advisor](../media-drafts/3-advisor-cost-recommendations.png)
 
-Om du klickar på en rekommendation visas detaljerad information om rekommendationen. Sedan kan du även utföra åtgärder som att minska dina kostnader genom att ändra storlek på virtuella datorer.
+Om du klickar på en rekommendation visas detaljerad information om rekommendationen. Sedan kan du utföra en specifik åtgärd, till exempel minska dina kostnader genom att ändra storlek på virtuella datorer.
 
 ![Storleksrekommendation för virtuell dator i Advisor](../media-drafts/3-advisor-resize-vm.png)
 
@@ -42,7 +42,7 @@ Azure Cost Management är ett annat kostnadsfritt verktyg i Azure som du kan anv
 
 ## <a name="cloudyn"></a>Cloudyn 
 
-Cloudyn är ett dotterbolag till Microsoft som låter dig spåra molnanvändning och utgifter för dina Azure-resurser, och för andra molnproviders som AWS och Google. Rapporterna på instrumentpanelen är enkla att förstå och hjälper dig med kostnadsallokering och motkontering. Cost Management hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa. Användningen för Azure är kostnadsfri, och det finns betalda alternativ för premiumsupport och visning av data från andra moln. 
+Cloudyn är ett dotterbolag till Microsoft som låter dig spåra molnanvändning och utgifter för dina Azure-resurser, och för andra molnproviders som Amazon Web Services och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och återbetalningar. Cost Management hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa. Användningen för Azure är kostnadsfri, och det finns betalda alternativ för premiumsupport och visning av data från andra moln. 
 
 ![Instrumentpanelen i Cloudyn](../media-drafts/3-cloudyn-mgt-dash.png)
 

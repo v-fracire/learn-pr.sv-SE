@@ -1,0 +1,32 @@
+### YamlMime:ModuleUnit
+uid: learn.migrate-sql-server-relational-data.6-knowledge-check-deploy-fixes-and-migrate-the-database
+metadata:
+  title: Kunskapstest – Distribuera korrigeringar och migrera databasen
+  description: Kunskapstest – Distribuera korrigeringar och migrera databasen
+  displayType: one-column
+  ms.openlocfilehash: a4e9347a50eb3bf219f5cdcbddbf190a7f09c4c9
+  ms.sourcegitcommit: d6a4ffb95924e4af3bd445aaf263f34253735861
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43460479"
+title: Kunskapstest – Distribuera korrigeringar och migrera databasen
+durationInMinutes: 5
+content: Kunskapstest – Distribuera korrigeringar och migrera databasen
+quiz:
+  title: Kunskapstest – Distribuera korrigeringar och migrera databasen
+  questions:
+  - content: Vilken av följande migreringsmetoder är mest lämplig om du behöver använda databasen under migreringen?
+    choices:
+    - content: Säkerhetskopiera den lokala databasen och återställ den till Azure.
+      isCorrect: false
+      incorrectExplanation: Med den här metoden migreras inte de senaste ändringarna som gjordes efter att du säkerhetskopierade den lokala databasen.
+    - content: Använd Data Migration Assistant.
+      isCorrect: false
+      incorrectExplanation: Data Migration Assistant kräver att databasen kopplas från, vilket inte är möjligt i det här scenariot.
+    - content: Använd replikering.
+      isCorrect: true
+      correctExplanation: Rätt! Om du behöver använda databasen under migreringen måste du använda transaktionsreplikeringsmetoden.
+    - content: Kör ett skript med databasen i Transact SQL och kör det mot Azure SQL-databasen.
+      isCorrect: false
+      incorrectExplanation: Det är fel! Försök igen.

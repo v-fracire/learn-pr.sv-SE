@@ -1,0 +1,36 @@
+### YamlMime:ModuleUnit
+uid: learn.introduction-to-azure-virtual-machines.7-knowledge-check
+title: Kunskapskontroll
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.openlocfilehash: 2a983a8e134e15a3ca89277e162750362d34c2b7
+  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43477200"
+durationInMinutes: 3
+quiz:
+  title: Virtuell Azure-dator
+  questions:
+  - content: Anta att du vill köra en nätverksenhet på en virtuell dator. Vilket arbetsbelastningsalternativ väljer du?
+    choices:
+    - content: Generell användning
+      isCorrect: false
+    - content: Beräkningsoptimerad
+      isCorrect: true
+    - content: Minnesoptimerad
+      isCorrect: false
+    - content: Lagringsoptimerad
+      isCorrect: false
+  - content: Anta att du vill distribuera en kopia av en befintlig virtuell Azure-dator. Vilket alternativ väljer du för att slutföra jobbet?
+    choices:
+    - content: PowerShell
+      isCorrect: false
+    - content: Resource Manager-mallar
+      isCorrect: true
+    - content: Azure CLI
+      isCorrect: false
+    - content: Azure Client SDK
+      isCorrect: false

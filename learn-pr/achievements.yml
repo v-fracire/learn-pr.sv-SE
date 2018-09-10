@@ -243,17 +243,32 @@ achievements:
 - uid: learn.cosmos-db-app-with-vscode.badge
   type: badge
   title: Skapa en Azure Cosmos DB-app i Visual Studio Code
-  summary: Pokal för modulen Skapa en Azure Cosmos DB-app i Visual Studio Code.
+  summary: Märke för modulen Skapa en Azure Cosmos DB-app i Visual Studio Code.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-cosmos-db-for-scale.badge
+  type: badge
+  title: Skapa en Azure Cosmos DB-databas som kan skalas
+  summary: Märke för modulen Skapa en Azure Cosmos DB-databas som kan skalas.
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.manage-resources-in-azure.trophy
   type: trophy
   title: Pokal för Hantera resurser i Azure
   summary: Pokal för utbildningsvägen Hantera resurser i Azure.
   iconUrl: http://via.placeholder.com/120x120
+- uid: learn.align-requirements-in-azure.badge
+  type: badge
+  title: Märke för Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
+  summary: Märke för modulen Hitta rätt molntyper och tjänstmodeller i Azure för olika behov.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.choose-storage-approach-in-azure.badge
+  type: badge
+  title: Märke för Välja metod för lagring i Azure
+  summary: Märke för modulen Välja metod för lagring i Azure.
+  iconUrl: http://via.placeholder.com/120x120
 metadata:
-  ms.openlocfilehash: 4dc465d762264757b61a4000ad999e39ee339d64
-  ms.sourcegitcommit: d51dceaa3772e8083b3f0b6460f8a616b3139d25
+  ms.openlocfilehash: 693a03cb55f823b85d8daa4246a9cdf16fdab8ce
+  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/27/2018
-  ms.locfileid: "43053938"
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43252137"

@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.introduction-to-azure-virtual-machines.3-create-a-vm
+title: Skapa en virtuell dator på Azure Portal
+metadata:
+  title: Skapa en virtuell dator på Azure Portal
+  description: Skapa en virtuell dator på Azure Portal
+  ms.openlocfilehash: 28766106574393435b2834af522654ebd3cd351d
+  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43477132"
+durationInMinutes: 15
+content: '[!include[](includes/3-create-a-vm.md)]'

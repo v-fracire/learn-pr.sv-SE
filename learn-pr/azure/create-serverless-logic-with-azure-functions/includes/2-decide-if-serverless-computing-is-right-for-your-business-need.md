@@ -1,20 +1,20 @@
-För att avgöra om serverlös databehandling passar för din lösning ska vi först lära oss vad serverlös handlar om.
+För att avgöra om serverlös databehandling passar för dig ska vi först lära oss vad serverlös handlar om.
 
 ## <a name="what-is-serverless-compute"></a>Vad är serverlös beräkning?
 
 Serverlös beräkning kan betraktas som en funktion som en tjänst (FaaS) eller en mikrotjänst som finns på en molnplattform. Din affärslogik körs som funktioner och du behöver inte etablera eller skala infrastruktur manuellt. Molnleverantören hanterar infrastrukturen. Din app skalas automatiskt ut eller ned beroende på belastningen. Azure har flera sätt att skapa den här typen av arkitektur. De två vanligaste metoderna är Azure Logic Apps och Azure Functions som vi fokuserar på i den här modulen.
 
-## <a name="what-are-azure-functions"></a>Vad är Azure Functions?
+## <a name="what-is-azure-functions"></a>Vad är Azure Functions?
 
 Azure Functions är en serverlös programplattform. Den gör det möjligt för utvecklare att lagra kod för affärslogik som kan köras utan att etablera infrastruktur. Functions har inbyggda funktioner för skalbarhet och du debiteras bara för de resurser som används. Du kan skriva funktionskoden på det språk du föredrar, bland annat C#, F# och JavaScript. Stöd för NuGet och NPM ingår också, så du kan använda populära bibliotek i din affärslogik.
 
 ## <a name="benefits-of-a-serverless-compute-solution"></a>Fördelar med en serverlös beräkningslösning
 
-Serverlös beräkning är ett bra alternativ för att lagra kod för affärslogik i molnet. Med serverlösa erbjudanden, till exempel Azure Functions, kan du skriva affärslogiken på det språk du föredrar. Du får automatisk skalning, inga servrar att hantera och du debiteras baserat på vad som används och inte under reserverad tid. Serverlösa plattformar gör att utvecklare kan välja bland flera olika programmeringsspråk för implementering. Här följer några ytterligare kännetecken för en serverlös lösning att ta hänsyn till.
+Serverlös beräkning är ett bra alternativ för att lagra kod för affärslogik i molnet. Med serverlösa erbjudanden, till exempel Azure Functions, kan du skriva affärslogiken på det språk du föredrar. Du får automatisk skalning, du har inga servrar att hantera och du debiteras baserat på vad som används – inte på reserverad tid. Här följer några ytterligare kännetecken för en serverlös lösning att ta hänsyn till.
 
 ### <a name="avoids-over-allocation-of-infrastructure"></a>Undviker överallokering av infrastruktur
 
-Anta att du har etablerat VM-servrar och konfigurerat dem med tillräckliga resurser för att hantera dina högsta belastningstider. När belastningen är lätt kan du eventuellt behöva betala för infrastruktur som du inte använder. Serverlös beräkning löser överallokeringsproblem genom att skala upp eller ned automatiskt och du faktureras bara när funktionen körs.
+Anta att du har etablerat VM-servrar och konfigurerat dem med tillräckliga resurser för att hantera dina högsta belastningstider. När belastningen är lätt betalar du eventuellt för infrastruktur som du inte använder. Serverlös databehandling löser allokeringsproblem genom att skala upp eller ned automatiskt och du debiteras bara när funktionen bearbetar arbete.
 
 ### <a name="stateless-logic"></a>Tillståndslös logik
 
@@ -22,11 +22,11 @@ Tillståndslösa funktioner är bra kandidater för serverlös beräkning. funkt
 
 ### <a name="event-driven"></a>Händelsebaserad
 
-Funktioner är _händelsebaserade_. Det innebär att de endast körs som svar på en händelse (kallas en ”utlösare”), till exempel för att ta emot en HTTP-begäran eller när ett meddelande läggs till i en kö. Du konfigurerar en utlösare som en del av funktionsdefinitionen. Den här metoden förenklar din kod genom att låta dig deklarera var data kommer från (utlösare/indatabindning) och var den ska (utdatabindning). Du behöver inte skriva kod för att se köer, blobar, hubbar osv. Du behöver bara fokusera på affärslogiken.
+Funktioner är _händelsebaserade_. Det innebär att de endast körs som svar på en händelse (kallas en ”utlösare”), till exempel för att ta emot en HTTP-begäran eller när ett meddelande läggs till i en kö. Du konfigurerar en utlösare som en del av funktionsdefinitionen. Den här metoden förenklar din kod genom att låta dig deklarera var data kommer från (utlösare/indatabindning) och var de ska (utdatabindning). Du behöver inte skriva kod för att se köer, blobar, hubbar osv. Du kan fokusera enbart på affärslogiken.
 
 ### <a name="functions-can-be-used-in-traditional-compute-environments"></a>Funktioner kan användas i traditionella beräkningsmiljöer
 
-Funktioner är en viktig del av serverlös databehandling, men de är också en allmän beräkningsplattform för att köra alla typer av kod. Om behoven för din app ändras kan du ta samma Azure Functions-projekt och distribuera det i en icke-serverlös miljö som ger dig flexibiliteten att hantera skalning, köra i virtuella nätverk och även helt isolera dina funktioner.
+Funktioner är en viktig del av serverlös databehandling, men de är också en allmän beräkningsplattform för att köra alla typer av kod. Om behoven för din app ändras kan du ta projektet och distribuera det i en icke-serverlös miljö som ger dig flexibiliteten att hantera skalning, köra i virtuella nätverk och även helt isolera dina funktioner.
 
 ## <a name="drawbacks-of-a-serverless-compute-solution"></a>Nackdelar med en serverlös beräkningslösning
 

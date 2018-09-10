@@ -41,8 +41,8 @@ En vanlig metod för att ordna och navigera i komplexa blobdata är att använda
 
 Det finns tre olika typer av blobar som du kan lagra data i:
 
-- **Blockblobar** består av block i olika storlekar som kan laddas upp och ned separat och parallellt. Att skriva till en blockblob innebär att överföra data till block och skicka dem till bloben &mdash; klientbiblioteken hanterar detta åt dig.
-- **Bilageblobar** är specialiserade blockblobar som endast har stöd för att lägga till nya data (inte uppdatera eller radera befintliga data), men de är mycket effektiva. Att lägga till bloblagring är perfekt vid scenarier som att lagra loggar eller strömma data. 
+- **Blockblobar** består av block i olika storlekar som kan laddas upp separat och parallellt. Att skriva till en blockblob innebär att ladda upp data till block och genomföra dem på bloben.
+- **Bilageblobar** är specialiserade blockblobar som endast har stöd för att lägga till nya data (inte uppdatera eller radera befintliga data), men de är mycket effektiva. Att lägga till bloblagring är perfekt vid scenarier som att lagra loggar eller strömma data.
 - **Sidblobar** är utformade för scenarier som innefattar läsning och skrivning med direktåtkomst. Sidblobar används för att lagra VHD-filer som används av Azures virtuella datorer, men de är också bra för alla scenarier som inbegriper direktåtkomst.
 
-Blockblobar är det bästa valet för de flesta scenarier som inte anropar specifikt för bilage- eller sidblobar.
+Blockblobar är det bästa valet för de flesta scenarier som inte specifikt kräver bilage- eller sidblobar. Deras blockbaserade struktur stöder mycket snabba uppladdningar och nedladdningar och effektiv åtkomst till enskilda delar av en blob. Processen med att hantera och genomföra block hanteras automatiskt av de flesta klientbibliotek, och vissa hanterar också parallella uppladdningar och nedladdningar för att maximera prestanda.

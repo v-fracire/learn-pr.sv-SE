@@ -17,14 +17,14 @@ Vi kommer inte att fokusera på Azure Storage för mycket. I stället använder 
 
 Azure Blob Storage en lagringslösning för objekt som är utformad för att lagra stora mängder ostrukturerade data. 
 
-Azure Blob Storage är till exempel bra för att göra saker som:
+Azure Blob Storage är till exempel bra för att göra saker som att:
 
-- Lagra filer.
-- Tillhandahålla filer.
-- Direktuppspelning av video och ljud.
-- Inloggningsdata.
+- Lagra filer
+- Tillhandahålla filer
+- Direktuppspela video och ljud
+- Logga data
 
-Det finns tre typer av blobar – **blockblobar**, **tilläggsblobar** och **sidblobar**. Blockblobar är de vanligaste. De gör det möjligt att lagra text eller binära data på ett effektivt sätt. Tilläggsblobar är som blockblobar, men de är mer utformade för tilläggsåtgärder som att skapa en loggfil som uppdateras kontinuerligt. Slutligen består sidblobar av sidor och är utformade för frekventa icke-sekventiella läs- och skrivåtgärder.
+Det finns tre typer av blobbar: **Blockblobbar**, **bilageblobbar** och **sidblobbar**. Blockblobar är de vanligaste. De gör det möjligt att lagra text eller binära data på ett effektivt sätt. Tilläggsblobar är som blockblobar, men de är mer utformade för tilläggsåtgärder som att skapa en loggfil som uppdateras kontinuerligt. Slutligen består sidblobar av sidor och är utformade för frekventa icke-sekventiella läs- och skrivåtgärder.
 
 ## <a name="what-is-a-blob-trigger"></a>Vad är en blob-utlösare?
 

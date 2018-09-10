@@ -5,9 +5,9 @@ Du behöver något som är enkelt för administratörer att lära sig, men som �
 ## <a name="what-tools-are-available"></a>Vilka verktyg är tillgängliga?
 Azure tillhandahåller tre administrationsverktyg som du kan välja mellan: 
 
-1. Azure-portalen 
-2. Azure CLI
-3. Azure PowerShell
+- Azure-portalen 
+- Azure CLI
+- Azure PowerShell
 
 Alla erbjuder ungefär samma mängd kontroll. Alla aktiviteter som du kan göra med ett av verktygen kan du förmodligen även göra med de andra två. Alla tre verktyg är plattformsoberoende och kan köras på Windows, macOS och Linux. De skiljer sig åt i syntax, konfigurationskrav och om de stöder automatisering eller ej.
 

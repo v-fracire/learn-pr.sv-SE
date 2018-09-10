@@ -1,0 +1,41 @@
+### YamlMime:ModuleUnit
+uid: learn.create-azure-storage-account.6-knowledge-check
+title: 'Kunskapskontroll: Skapa ett lagringskonto'
+durationInMinutes: 3
+metadata:
+  title: 'Kunskapskontroll: Skapa ett lagringskonto'
+  description: Frågor om lagringskontons egenskaper och hur de skapas.
+  ms.openlocfilehash: ab689dd2ef9802ce036ec683909b291c3b342370
+  ms.sourcegitcommit: c07e11980180ae35cb3485548f81e16152d77781
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43471751"
+quiz:
+  title: 'Kunskapskontroll: Skapa ett lagringskonto'
+  questions:
+  - content: 'Anta att du har två videofiler som lagrats som blobar. Den ena videon är affärskritisk och kräver en replikeringsprincip som skapar flera kopior i geografiskt spridda datacenter. Den andra videon är icke-kritisk och det räcker med en lokal replikeringsprincip. Sant eller falskt: För att uppfylla de här begränsningarna måste de två blobarna finnas på separata lagringskonton.'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Replikeringsprincip är en egenskap för ett lagringskonto. Alla medlemmar i lagringskontot måste använda samma princip. Om vissa data måste använda strategin för geo-replikering och andra data måste använda strategin för lokal replikering behöver du två lagringskonton.
+    - content: Falskt
+      isCorrect: false
+  - content: 'Namnet på ett lagringskonto måste vara:'
+    choices:
+    - content: Unikt inom resursgruppen som innehåller det.
+      isCorrect: false
+    - content: Unikt inom din Azure-prenumeration.
+      isCorrect: false
+    - content: Globalt unikt
+      isCorrect: true
+      correctExplanation: Lagringskontots namn används som en del av URI:n för API-åtkomst, så det måste vara globalt unikt.
+  - content: När skulle du skapa lagringskonton i ett typiskt projekt?
+    choices:
+    - content: I början, under projektkonfigurationen.
+      isCorrect: true
+      correctExplanation: Lagringskonton är vanligtvis stabila under ett projekts livslängd. Det är vanligt att skapa dem i början av ett projekt.
+    - content: Efter distributionen, när projektet är igång.
+      isCorrect: false
+    - content: I slutet, vid rensning av resurser.
+      isCorrect: false

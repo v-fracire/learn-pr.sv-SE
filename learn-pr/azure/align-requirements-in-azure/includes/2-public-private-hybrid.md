@@ -4,11 +4,11 @@ Anta att du arbetar på ett hälso- och sjukvårdsföretag. Du har äldre system
 
 Molntjänster innebär etableringen av tjänster och program på begäran via Internet. Servrar, program, data och andra resurser tillhandahålls som en tjänst. 
 
-För användaren är informationen om tjänsterna abstrakt. Du kan snabbt etablera beräkningsresurser och använda tjänsten med minimal hantering. Det är fel att tro att molntjänster är ett datacenter som är tillgängligt via Internet. Molntjänster använder virtualisering, maskinvara och automatiserade processer för att kunna erbjuda en självbetjäningsupplevelse till kunder som liknar ett offentligt verktyg. 
+För användaren är informationen om tjänsterna abstrakt. Du kan snabbt etablera beräkningsresurser och använda tjänsten med minimal hantering. Det är fel att tro att molntjänster är ett datacenter som är tillgängligt via Internet. Molntjänster använder virtualisering, maskinvara och automatiserade processer för att kunna erbjuda en självbetjäningsupplevelse till kunder som liknar ett offentligt verktyg.
 
-Det finns tre distributionsmodeller för molntjänster: offentliga moln, privata moln och hybridmoln.
+Det finns tre distributionsmodeller för molntjänster: offentliga moln, privata moln och hybridmoln. Följande illustration visar en översikt över de här distributionsmodellerna.
 
-![Distributionsmodeller för molnet](../media-draft/2-cloud-deployment.png)
+![En illustration som visar en övergripande översikt över molndistributionsmodeller.](../media/2-cloud-deployment.png)
 
 !!! Video TC-008 platshållare !!! 
 

@@ -6,9 +6,9 @@ Många kunder har investerat i Windows Server-licenser och vill kunna dra nytta 
 
 För att få tillgång till den här förmånen måste dina Windows-licenser omfattas av Software Assurance. Följande riktlinjer gäller också:
 
-- Varje licens för två processorer eller varje uppsättning licenser för 16 kärnor är berättigade till två instanser med upp till 8 kärnor eller en instans med upp till 16 kärnor. 
+- Varje licens för två processorer eller varje uppsättning licenser för 16 kärnor är berättigade till två instanser med upp till 8 kärnor eller en instans med upp till 16 kärnor.
 - Standard Edition-licenser kan bara användas en gång, antingen lokalt eller i Azure. Det innebär att du inte kan använda samma licens för en virtuell Azure-dator och en lokal dator.
-- Datacenter Edition-förmånen innebär att du kan använda licenser både lokalt och i Azure samtidigt, så licensen täcker två aktiva Windows-datorer. 
+- Datacenter Edition-förmånen innebär att du kan använda licenser både lokalt och i Azure samtidigt, så licensen täcker två aktiva Windows-datorer.
 
 > [!NOTE]
 > De flesta av våra kunder använder licenser per kärna, så använd den modellen i dina beräkningar. Om du har frågor om vilka licenser du har kan du kontakta din återförsäljare för licenser eller ditt kontoteam hos Microsoft.
@@ -23,13 +23,15 @@ Du kan använda den här förmånen även om Azure-resursen är aktiv, men det r
 
 ### <a name="azure-sql-database-vcore-based-options"></a>Alternativ för virtuella kärnor i Azure SQL Database
 
-![Inbyte av SQL Server-licenser](../media-drafts/5-sql-tradein-value.jpg)
-
 Azure Hybrid-förmånen fungerar så här för Azure SQL Database:
 
 - Om du har Standard Edition-licenser per kärna med aktiv Software Assurance kan du få en virtuell kärna på servicenivån General Purpose för varje licenskärna du äger lokalt.
 - Om du har Enterprise Edition-licenser per kärna med aktiv Software Assurance kan du få en virtuell kärna på servicenivån Business Critical för varje licenskärna du äger lokalt. Observera att Azure Hybrid-förmånen för SQL Server på servicenivån Business Critical bara är tillgänglig för kunder som har Enterprise Edition-licenser.
 - Om du har starkt virtualiserade Enterprise Edition-licenser per kärna med aktiv Software Assurance kan du få fyra virtuella kärnor på servicenivån General Purpose för varje licenskärna du äger lokalt. Det här är en unik virtualiseringsförmån som endast är tillgänglig för Azure SQL Database.
+
+Följande illustration visar de alternativ för virtuella kärnor som är tillgängliga på varje tjänstnivå med Azure Hybrid-förmånen för SQL Server-licenser.
+
+![En illustration som visar ett exempel på hur du kan maximera värdet av din befintliga SQL Server-licens med hjälp av Azure Hybrid-förmånen.](../media-drafts/5-sql-tradein-value.png)
 
 För SQL Server i Azure Virtual Machines fungerar Azure Hybrid-förmånen så här:
 

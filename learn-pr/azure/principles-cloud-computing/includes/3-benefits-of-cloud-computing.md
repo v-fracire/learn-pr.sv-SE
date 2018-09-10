@@ -18,13 +18,17 @@ Molntjänster stöder både _lodrät_ och _vågrät_ skalning, beroende på dina
 
 ### <a name="cloud-computing-is-elastic"></a>Molntjänster är elastiska
 
-Om arbetsbelastningen ändras på grund av en tillfällig ökning eller minskning av efterfrågan, kan molntjänsten automatiskt lägga till eller ta bort resurser för att kompensera för detta.
+Om arbetsbelastningen ändras på grund av en ökning eller minskning av trafiken, kan molntjänsten automatiskt lägga till eller ta bort resurser för att kompensera för detta.
 
-Anta exempelvis att det skrivs om webbplatsen i en nyhetsartikel och att detta leder till en topp i trafiken över en natt. Eftersom molnet är elastiskt kan det automatiskt allokera fler beräkningsresurser för att hantera den ökade trafiken. När sedan trafiken börjar lugna ner sig och molnet märker att det har för många allokerade resurser, tar det bort dem så att du inte behöver slösa pengar i onödan.
+Anta exempelvis att det skrivs om webbplatsen i en nyhetsartikel och att detta leder till en kraftigt ökad trafik över en natt. Eftersom molnet är elastiskt kan det automatiskt allokera fler beräkningsresurser för att hantera den ökade trafiken. När trafiken börjar återgå till normal, tar molnet automatiskt bort de extra resurser som lagts till så att du inte slösar pengar.
+
+Ett annat exempel är om du kör ett program som används av dina anställda. Du kan då låta molnet lägga till resurser automatiskt under de kärntimmar då de flesta har åtkomst till programmet och sedan ta bort resurser i slutet av arbetsdagen.  
 
 ### <a name="cloud-computing-is-current"></a>Molntjänster är aktuella
 
 När du använder molnet kommer du att kunna fokusera på det viktigaste: att skapa och distribuera program. Du behöver inte lägga tid på underhållsarbete med korrigering av programvara, maskinvaruinställningar, uppgraderingar och andra IT-hanteringsuppgifter. Allt detta är dolt och görs automatiskt för att du ska kunna använda det senaste och bästa verktyget till att driva verksamheten.
+
+Dessutom underhålls datorns maskinvara och uppgraderas av molnprovidern. Om till exempel en disk går sönder kommer den att ersättas. Om ny maskinvara lanseras behöver du inte gå igenom processen att ersätta din maskinvara. Du behöver inte heller ta kostnaderna för att alltid ha uppdaterad maskinvara.
 
 ### <a name="cloud-computing-is-reliable"></a>Molntjänster är tillförlitliga
 
@@ -32,7 +36,4 @@ När du driver ett företag måste du vara säker på att dina data alltid finns
 
 ## <a name="summary"></a>Sammanfattning
 
-Med molntjänster är det enklare att driva företag. Molntjänster är kostnadseffektiva, skalbara, elastiska, aktuella och tillförlitliga. Detta innebär att du kan lägga mer tid på sådant som är viktigt och mindre tid på att hantera de bakomliggande detaljerna.
-
-
-
+Med molntjänster är det enklare att driva företag. De är kostnadseffektiva, skalbara, elastiska, aktuella och tillförlitliga. Du ägnar mindre tid åt att hantera information om din datorinfrastruktur, så du kan i stället lägga mer tid på att fokusera på din verksamhet.
