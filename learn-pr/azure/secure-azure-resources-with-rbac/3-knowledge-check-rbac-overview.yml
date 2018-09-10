@@ -1,54 +1,52 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-azure-resources-with-rbac.3-knowledge-check-rbac-overview
 metadata:
-  title: <span data-ttu-id="3ebb4-101">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="3ebb4-101">Knowledge check - What is RBAC?</span></span>
-  description: <span data-ttu-id="3ebb4-102">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="3ebb4-102">Knowledge check - What is RBAC?</span></span>
-  displayType: one-column
-  ms.openlocfilehash: 973a839a37cfc03f3078519642d2216d4983ef15
-  ms.sourcegitcommit: 850ce909966600e7a8d6f89d8bdebbb621416838
+  title: <span data-ttu-id="286a2-101">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="286a2-101">Knowledge check - What is RBAC?</span></span>
+  description: <span data-ttu-id="286a2-102">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="286a2-102">Knowledge check - What is RBAC?</span></span>
+  ms.openlocfilehash: c69c3c43a35a6328801f2fbae15efc809ccdacd5
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43478885"
-title: <span data-ttu-id="3ebb4-103">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="3ebb4-103">Knowledge check - What is RBAC?</span></span>
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43727775"
+title: <span data-ttu-id="286a2-103">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="286a2-103">Knowledge check - What is RBAC?</span></span>
 durationInMinutes: 3
-content: <span data-ttu-id="3ebb4-104">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="3ebb4-104">Knowledge check - What is RBAC?</span></span>
 quiz:
-  title: <span data-ttu-id="3ebb4-105">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="3ebb4-105">Knowledge check - What is RBAC?</span></span>
+  title: <span data-ttu-id="286a2-104">Kunskapskontroll – Vad är RBAC?</span><span class="sxs-lookup"><span data-stu-id="286a2-104">Knowledge check - What is RBAC?</span></span>
   questions:
-  - content: <span data-ttu-id="3ebb4-106">En roll i Azure är en samling av behörigheter.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-106">A role in Azure is a collection of permissions.</span></span>
+  - content: <span data-ttu-id="286a2-105">En roll i Azure är en samling av behörigheter.</span><span class="sxs-lookup"><span data-stu-id="286a2-105">A role in Azure is a collection of permissions.</span></span>
     choices:
-    - content: <span data-ttu-id="3ebb4-107">Sant</span><span class="sxs-lookup"><span data-stu-id="3ebb4-107">True</span></span>
+    - content: <span data-ttu-id="286a2-106">Sant</span><span class="sxs-lookup"><span data-stu-id="286a2-106">True</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="3ebb4-108">Rätt!</span><span class="sxs-lookup"><span data-stu-id="3ebb4-108">Correct!</span></span> <span data-ttu-id="3ebb4-109">En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-109">A role in Azure is a collection of permissions with a name that you can assign to a user, group, or application.</span></span>
-    - content: <span data-ttu-id="3ebb4-110">Falskt</span><span class="sxs-lookup"><span data-stu-id="3ebb4-110">False</span></span>
+      correctExplanation: <span data-ttu-id="286a2-107">Rätt!</span><span class="sxs-lookup"><span data-stu-id="286a2-107">Correct!</span></span> <span data-ttu-id="286a2-108">En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.</span><span class="sxs-lookup"><span data-stu-id="286a2-108">A role in Azure is a collection of permissions with a name that you can assign to a user, group, or application.</span></span>
+    - content: <span data-ttu-id="286a2-109">Falskt</span><span class="sxs-lookup"><span data-stu-id="286a2-109">False</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="3ebb4-111">En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-111">A role in Azure is a collection of permissions with a name that you can assign to a user, group, or application.</span></span>
-  - content: <span data-ttu-id="3ebb4-112">Vilka är de tre element som utgör en rolltilldelning?</span><span class="sxs-lookup"><span data-stu-id="3ebb4-112">What are the three elements that make up a role assignment?</span></span>
+      incorrectExplanation: <span data-ttu-id="286a2-110">En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.</span><span class="sxs-lookup"><span data-stu-id="286a2-110">A role in Azure is a collection of permissions with a name that you can assign to a user, group, or application.</span></span>
+  - content: <span data-ttu-id="286a2-111">Vilka är de tre element som utgör en rolltilldelning?</span><span class="sxs-lookup"><span data-stu-id="286a2-111">What are the three elements that make up a role assignment?</span></span>
     choices:
-    - content: <span data-ttu-id="3ebb4-113">Användare, grupp och program</span><span class="sxs-lookup"><span data-stu-id="3ebb4-113">User, group, and application</span></span>
+    - content: <span data-ttu-id="286a2-112">Användare, grupp och program</span><span class="sxs-lookup"><span data-stu-id="286a2-112">User, group, and application</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="3ebb4-114">Användare, grupp och program är säkerhetsobjekt.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-114">User, group, and application are security principals.</span></span>
-    - content: <span data-ttu-id="3ebb4-115">Säkerhetsobjekt, roll och omfång</span><span class="sxs-lookup"><span data-stu-id="3ebb4-115">Security principal, role, and scope</span></span>
+      correctExplanation: <span data-ttu-id="286a2-113">Användare, grupp och program är säkerhetsobjekt.</span><span class="sxs-lookup"><span data-stu-id="286a2-113">User, group, and application are security principals.</span></span>
+    - content: <span data-ttu-id="286a2-114">Säkerhetsobjekt, roll och omfång</span><span class="sxs-lookup"><span data-stu-id="286a2-114">Security principal, role, and scope</span></span>
       isCorrect: true
-      incorrectExplanation: <span data-ttu-id="3ebb4-116">Rätt!</span><span class="sxs-lookup"><span data-stu-id="3ebb4-116">Correct!</span></span> <span data-ttu-id="3ebb4-117">En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt i ett visst omfång i syfte att bevilja åtkomst.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-117">A role assignment is the process of binding a role to a security principal at a particular scope for the purpose of granting access.</span></span>
-    - content: <span data-ttu-id="3ebb4-118">Hanteringsgrupp, prenumeration och resursgrupp</span><span class="sxs-lookup"><span data-stu-id="3ebb4-118">Management group, subscription, and resource group</span></span>
+      incorrectExplanation: <span data-ttu-id="286a2-115">Rätt!</span><span class="sxs-lookup"><span data-stu-id="286a2-115">Correct!</span></span> <span data-ttu-id="286a2-116">En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt i ett visst omfång i syfte att bevilja åtkomst.</span><span class="sxs-lookup"><span data-stu-id="286a2-116">A role assignment is the process of binding a role to a security principal at a particular scope for the purpose of granting access.</span></span>
+    - content: <span data-ttu-id="286a2-117">Hanteringsgrupp, prenumeration och resursgrupp</span><span class="sxs-lookup"><span data-stu-id="286a2-117">Management group, subscription, and resource group</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="3ebb4-119">Hanteringsgrupp, prenumeration och resursgrupp är metoder för att ordna dina Azure-resurser och de representerar omfång.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-119">Management group, subscription, and resource group are ways to organize your Azure resources and represent scopes.</span></span>
-    - content: <span data-ttu-id="3ebb4-120">Ägare, Deltagare och Läsare</span><span class="sxs-lookup"><span data-stu-id="3ebb4-120">Owner, Contributor, and Reader</span></span>
+      correctExplanation: <span data-ttu-id="286a2-118">Hanteringsgrupp, prenumeration och resursgrupp är metoder för att ordna dina Azure-resurser och de representerar omfång.</span><span class="sxs-lookup"><span data-stu-id="286a2-118">Management group, subscription, and resource group are ways to organize your Azure resources and represent scopes.</span></span>
+    - content: <span data-ttu-id="286a2-119">Ägare, Deltagare och Läsare</span><span class="sxs-lookup"><span data-stu-id="286a2-119">Owner, Contributor, and Reader</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="3ebb4-121">Ägare, Deltagare och Läsare är inbyggda roller i Azure.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-121">Owner, Contributor, and Reader are built-in roles in Azure.</span></span>
-  - content: <span data-ttu-id="3ebb4-122">Vilken är arvsordningen för omfång i Azure?</span><span class="sxs-lookup"><span data-stu-id="3ebb4-122">What is the inheritance order for scope in Azure?</span></span>
+      correctExplanation: <span data-ttu-id="286a2-120">Ägare, Deltagare och Läsare är inbyggda roller i Azure.</span><span class="sxs-lookup"><span data-stu-id="286a2-120">Owner, Contributor, and Reader are built-in roles in Azure.</span></span>
+  - content: <span data-ttu-id="286a2-121">Vilken är arvsordningen för omfång i Azure?</span><span class="sxs-lookup"><span data-stu-id="286a2-121">What is the inheritance order for scope in Azure?</span></span>
     choices:
-    - content: <span data-ttu-id="3ebb4-123">Hanteringsgrupp, resursgrupp, prenumeration och resurs</span><span class="sxs-lookup"><span data-stu-id="3ebb4-123">Management group, resource group, subscription, resource</span></span>
+    - content: <span data-ttu-id="286a2-122">Hanteringsgrupp, resursgrupp, prenumeration och resurs</span><span class="sxs-lookup"><span data-stu-id="286a2-122">Management group, resource group, subscription, resource</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="3ebb4-124">Detta är inte rätt ordning.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-124">This is not the correct order.</span></span>
-    - content: <span data-ttu-id="3ebb4-125">Hanteringsgrupp, prenumeration, resursgrupp och resurs</span><span class="sxs-lookup"><span data-stu-id="3ebb4-125">Management group, subscription, resource group, resource</span></span>
+      correctExplanation: <span data-ttu-id="286a2-123">Detta är inte rätt ordning.</span><span class="sxs-lookup"><span data-stu-id="286a2-123">This is not the correct order.</span></span>
+    - content: <span data-ttu-id="286a2-124">Hanteringsgrupp, prenumeration, resursgrupp och resurs</span><span class="sxs-lookup"><span data-stu-id="286a2-124">Management group, subscription, resource group, resource</span></span>
       isCorrect: true
-      incorrectExplanation: <span data-ttu-id="3ebb4-126">Rätt!</span><span class="sxs-lookup"><span data-stu-id="3ebb4-126">Correct!</span></span>
-    - content: <span data-ttu-id="3ebb4-127">Prenumeration, hanteringsgrupp, resursgrupp och resurs</span><span class="sxs-lookup"><span data-stu-id="3ebb4-127">Subscription, management group, resource group, resource</span></span>
+      incorrectExplanation: <span data-ttu-id="286a2-125">Rätt!</span><span class="sxs-lookup"><span data-stu-id="286a2-125">Correct!</span></span>
+    - content: <span data-ttu-id="286a2-126">Prenumeration, hanteringsgrupp, resursgrupp och resurs</span><span class="sxs-lookup"><span data-stu-id="286a2-126">Subscription, management group, resource group, resource</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="3ebb4-128">Detta är inte rätt ordning.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-128">This is not the correct order.</span></span>
-    - content: <span data-ttu-id="3ebb4-129">Prenumeration, resursgrupp, hanteringsgrupp och resurs</span><span class="sxs-lookup"><span data-stu-id="3ebb4-129">Subscription, resource group, management group, resource</span></span>
+      correctExplanation: <span data-ttu-id="286a2-127">Detta är inte rätt ordning.</span><span class="sxs-lookup"><span data-stu-id="286a2-127">This is not the correct order.</span></span>
+    - content: <span data-ttu-id="286a2-128">Prenumeration, resursgrupp, hanteringsgrupp och resurs</span><span class="sxs-lookup"><span data-stu-id="286a2-128">Subscription, resource group, management group, resource</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="3ebb4-130">Detta är inte rätt ordning.</span><span class="sxs-lookup"><span data-stu-id="3ebb4-130">This is not the correct order.</span></span>
+      correctExplanation: <span data-ttu-id="286a2-129">Detta är inte rätt ordning.</span><span class="sxs-lookup"><span data-stu-id="286a2-129">This is not the correct order.</span></span>

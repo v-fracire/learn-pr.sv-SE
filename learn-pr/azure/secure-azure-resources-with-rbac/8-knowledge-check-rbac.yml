@@ -1,68 +1,66 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-azure-resources-with-rbac.8-knowledge-check-rbac
 metadata:
-  title: <span data-ttu-id="45b0c-101">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="45b0c-101">Knowledge check - Using RBAC</span></span>
-  description: <span data-ttu-id="45b0c-102">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="45b0c-102">Knowledge check - Using RBAC</span></span>
-  displayType: one-column
-  ms.openlocfilehash: 6888c6b1d676f0bc3066cce4c92d0202984c2b52
-  ms.sourcegitcommit: 850ce909966600e7a8d6f89d8bdebbb621416838
+  title: <span data-ttu-id="f703b-101">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="f703b-101">Knowledge check - Using RBAC</span></span>
+  description: <span data-ttu-id="f703b-102">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="f703b-102">Knowledge check - Using RBAC</span></span>
+  ms.openlocfilehash: 5563b4cca784e5e93ce2ce0611a4bd4fd4d67ac7
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43479208"
-title: <span data-ttu-id="45b0c-103">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="45b0c-103">Knowledge check - Using RBAC</span></span>
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43728183"
+title: <span data-ttu-id="f703b-103">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="f703b-103">Knowledge check - Using RBAC</span></span>
 durationInMinutes: 5
-content: <span data-ttu-id="45b0c-104">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="45b0c-104">Knowledge check - Using RBAC</span></span>
 quiz:
-  title: <span data-ttu-id="45b0c-105">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="45b0c-105">Knowledge check - Using RBAC</span></span>
+  title: <span data-ttu-id="f703b-104">Kunskapstest – Använda RBAC</span><span class="sxs-lookup"><span data-stu-id="f703b-104">Knowledge check - Using RBAC</span></span>
   questions:
-  - content: <span data-ttu-id="45b0c-106">Vad är heter bladet på Azure Portal där du beviljar åtkomst?</span><span class="sxs-lookup"><span data-stu-id="45b0c-106">What is the name of the blade in the Azure portal where you grant access?</span></span>
+  - content: <span data-ttu-id="f703b-105">Vad är heter bladet på Azure Portal där du beviljar åtkomst?</span><span class="sxs-lookup"><span data-stu-id="f703b-105">What is the name of the blade in the Azure portal where you grant access?</span></span>
     choices:
-    - content: <span data-ttu-id="45b0c-107">Azure-resurser</span><span class="sxs-lookup"><span data-stu-id="45b0c-107">Azure resources</span></span>
+    - content: <span data-ttu-id="f703b-106">Azure-resurser</span><span class="sxs-lookup"><span data-stu-id="f703b-106">Azure resources</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="45b0c-108">Du kan inte tilldela roller på bladet Azure-resurser, men du kan se vilka roller som du eller den valda användaren har tilldelats.</span><span class="sxs-lookup"><span data-stu-id="45b0c-108">You can't assign roles on the Azure resources blade, but you can see what roles are assigned to yourself or the selected user.</span></span>
-    - content: <span data-ttu-id="45b0c-109">Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="45b0c-109">Azure Active Directory</span></span>
+      correctExplanation: <span data-ttu-id="f703b-107">Du kan inte tilldela roller på bladet Azure-resurser, men du kan se vilka roller som du eller den valda användaren har tilldelats.</span><span class="sxs-lookup"><span data-stu-id="f703b-107">You can't assign roles on the Azure resources blade, but you can see what roles are assigned to yourself or the selected user.</span></span>
+    - content: <span data-ttu-id="f703b-108">Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="f703b-108">Azure Active Directory</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="45b0c-110">Du kan inte tilldela roller på bladet Azure Active Directory, men du kan komma åt Azure Active Directory-funktionerna på det här bladet.</span><span class="sxs-lookup"><span data-stu-id="45b0c-110">You can't assign roles on the Azure Active Directory blade, but you can access the Azure Active Directory features on this blade.</span></span>
-    - content: <span data-ttu-id="45b0c-111">Alla användare</span><span class="sxs-lookup"><span data-stu-id="45b0c-111">All users</span></span>
+      incorrectExplanation: <span data-ttu-id="f703b-109">Du kan inte tilldela roller på bladet Azure Active Directory, men du kan komma åt Azure Active Directory-funktionerna på det här bladet.</span><span class="sxs-lookup"><span data-stu-id="f703b-109">You can't assign roles on the Azure Active Directory blade, but you can access the Azure Active Directory features on this blade.</span></span>
+    - content: <span data-ttu-id="f703b-110">Alla användare</span><span class="sxs-lookup"><span data-stu-id="f703b-110">All users</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="45b0c-112">Du kan inte tilldela roller på bladet Alla användare.</span><span class="sxs-lookup"><span data-stu-id="45b0c-112">You can't assign roles on the All users blade.</span></span> <span data-ttu-id="45b0c-113">Det här bladet visar en lista över alla användare för den valda katalogen.</span><span class="sxs-lookup"><span data-stu-id="45b0c-113">This blade lists all the users for the selected directory.</span></span>
-    - content: <span data-ttu-id="45b0c-114">Åtkomstkontroll (IAM)</span><span class="sxs-lookup"><span data-stu-id="45b0c-114">Access control (IAM)</span></span>
+      correctExplanation: <span data-ttu-id="f703b-111">Du kan inte tilldela roller på bladet Alla användare.</span><span class="sxs-lookup"><span data-stu-id="f703b-111">You can't assign roles on the All users blade.</span></span> <span data-ttu-id="f703b-112">Det här bladet visar en lista över alla användare för den valda katalogen.</span><span class="sxs-lookup"><span data-stu-id="f703b-112">This blade lists all the users for the selected directory.</span></span>
+    - content: <span data-ttu-id="f703b-113">Åtkomstkontroll (IAM)</span><span class="sxs-lookup"><span data-stu-id="f703b-113">Access control (IAM)</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="45b0c-115">Rätt!</span><span class="sxs-lookup"><span data-stu-id="45b0c-115">Correct!</span></span> <span data-ttu-id="45b0c-116">Du tilldelar roller på bladet Åtkomstkontroll (IAM).</span><span class="sxs-lookup"><span data-stu-id="45b0c-116">You assign roles on the Access control (IAM) blade.</span></span> <span data-ttu-id="45b0c-117">Det här bladet visas på flera ställen på portalen.</span><span class="sxs-lookup"><span data-stu-id="45b0c-117">This blade appears in several areas in the portal.</span></span>
-  - content: <span data-ttu-id="45b0c-118">Om du vill ge en användare åtkomst till Azure-resurser skapar du en rolltilldelning.</span><span class="sxs-lookup"><span data-stu-id="45b0c-118">To grant a user access to Azure resources, you create a role assignment.</span></span>
+      correctExplanation: <span data-ttu-id="f703b-114">Rätt!</span><span class="sxs-lookup"><span data-stu-id="f703b-114">Correct!</span></span> <span data-ttu-id="f703b-115">Du tilldelar roller på bladet Åtkomstkontroll (IAM).</span><span class="sxs-lookup"><span data-stu-id="f703b-115">You assign roles on the Access control (IAM) blade.</span></span> <span data-ttu-id="f703b-116">Det här bladet visas på flera ställen på portalen.</span><span class="sxs-lookup"><span data-stu-id="f703b-116">This blade appears in several areas in the portal.</span></span>
+  - content: <span data-ttu-id="f703b-117">Om du vill ge en användare åtkomst till Azure-resurser skapar du en rolltilldelning.</span><span class="sxs-lookup"><span data-stu-id="f703b-117">To grant a user access to Azure resources, you create a role assignment.</span></span>
     choices:
-    - content: <span data-ttu-id="45b0c-119">Sant</span><span class="sxs-lookup"><span data-stu-id="45b0c-119">True</span></span>
+    - content: <span data-ttu-id="f703b-118">Sant</span><span class="sxs-lookup"><span data-stu-id="f703b-118">True</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="45b0c-120">Rätt!</span><span class="sxs-lookup"><span data-stu-id="45b0c-120">Correct!</span></span> <span data-ttu-id="45b0c-121">En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt för ett visst omfång i syfte att bevilja åtkomst.</span><span class="sxs-lookup"><span data-stu-id="45b0c-121">A role assignment is the process of binding a role to a security principal at a particular scope for the purpose of granting access.</span></span>
-    - content: <span data-ttu-id="45b0c-122">Falskt</span><span class="sxs-lookup"><span data-stu-id="45b0c-122">False</span></span>
+      correctExplanation: <span data-ttu-id="f703b-119">Rätt!</span><span class="sxs-lookup"><span data-stu-id="f703b-119">Correct!</span></span> <span data-ttu-id="f703b-120">En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt för ett visst omfång i syfte att bevilja åtkomst.</span><span class="sxs-lookup"><span data-stu-id="f703b-120">A role assignment is the process of binding a role to a security principal at a particular scope for the purpose of granting access.</span></span>
+    - content: <span data-ttu-id="f703b-121">Falskt</span><span class="sxs-lookup"><span data-stu-id="f703b-121">False</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="45b0c-123">En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt för ett visst omfång i syfte att bevilja åtkomst.</span><span class="sxs-lookup"><span data-stu-id="45b0c-123">A role assignment is the process of binding a role to a security principal at a particular scope for the purpose of granting access.</span></span>
-  - content: <span data-ttu-id="45b0c-124">Vilken roll krävs för att bevilja åtkomst till andra?</span><span class="sxs-lookup"><span data-stu-id="45b0c-124">What role enables you to grant access to others?</span></span>
+      incorrectExplanation: <span data-ttu-id="f703b-122">En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt för ett visst omfång i syfte att bevilja åtkomst.</span><span class="sxs-lookup"><span data-stu-id="f703b-122">A role assignment is the process of binding a role to a security principal at a particular scope for the purpose of granting access.</span></span>
+  - content: <span data-ttu-id="f703b-123">Vilken roll krävs för att bevilja åtkomst till andra?</span><span class="sxs-lookup"><span data-stu-id="f703b-123">What role enables you to grant access to others?</span></span>
     choices:
-    - content: <span data-ttu-id="45b0c-125">Virtuell datordeltagare</span><span class="sxs-lookup"><span data-stu-id="45b0c-125">Virtual Machine Contributor</span></span>
+    - content: <span data-ttu-id="f703b-124">Virtuell datordeltagare</span><span class="sxs-lookup"><span data-stu-id="f703b-124">Virtual Machine Contributor</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="45b0c-126">Med rollen Virtuell datordeltagare kan du hantera virtuella datorer, men du kan inte bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="45b0c-126">The Virtual Machine Contributor role allows you to manage virtual machines, but you can't grant access to others.</span></span>
-    - content: <span data-ttu-id="45b0c-127">Administratör för användaråtkomst</span><span class="sxs-lookup"><span data-stu-id="45b0c-127">User Access Administrator</span></span>
+      correctExplanation: <span data-ttu-id="f703b-125">Med rollen Virtuell datordeltagare kan du hantera virtuella datorer, men du kan inte bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="f703b-125">The Virtual Machine Contributor role allows you to manage virtual machines, but you can't grant access to others.</span></span>
+    - content: <span data-ttu-id="f703b-126">Administratör för användaråtkomst</span><span class="sxs-lookup"><span data-stu-id="f703b-126">User Access Administrator</span></span>
       isCorrect: true
-      incorrectExplanation: <span data-ttu-id="45b0c-128">Rätt!</span><span class="sxs-lookup"><span data-stu-id="45b0c-128">Correct!</span></span> <span data-ttu-id="45b0c-129">Med rollen Administratör för användaråtkomst, och med rollen Ägare, kan du bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="45b0c-129">The User Access Administrator role and also the Owner role allow you to grant access to others.</span></span>
-    - content: <span data-ttu-id="45b0c-130">Deltagare</span><span class="sxs-lookup"><span data-stu-id="45b0c-130">Contributor</span></span>
+      incorrectExplanation: <span data-ttu-id="f703b-127">Rätt!</span><span class="sxs-lookup"><span data-stu-id="f703b-127">Correct!</span></span> <span data-ttu-id="f703b-128">Med rollen Administratör för användaråtkomst, och med rollen Ägare, kan du bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="f703b-128">The User Access Administrator role and also the Owner role allow you to grant access to others.</span></span>
+    - content: <span data-ttu-id="f703b-129">Deltagare</span><span class="sxs-lookup"><span data-stu-id="f703b-129">Contributor</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="45b0c-131">Med rollen Deltagare kan du hantera alla resurser, men du kan inte bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="45b0c-131">The Contributor role allows you to manage all resources, but you can't grant access to others.</span></span>
-    - content: <span data-ttu-id="45b0c-132">Läsare</span><span class="sxs-lookup"><span data-stu-id="45b0c-132">Reader</span></span>
+      correctExplanation: <span data-ttu-id="f703b-130">Med rollen Deltagare kan du hantera alla resurser, men du kan inte bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="f703b-130">The Contributor role allows you to manage all resources, but you can't grant access to others.</span></span>
+    - content: <span data-ttu-id="f703b-131">Läsare</span><span class="sxs-lookup"><span data-stu-id="f703b-131">Reader</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="45b0c-133">Med rollen Läsare kan du läsa alla resurser, men du kan inte bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="45b0c-133">The Reader role allows you to read all resources, but you can't grant access to others.</span></span>
-  - content: <span data-ttu-id="45b0c-134">En utvecklare behöver fullständig åtkomst till en resursgrupp.</span><span class="sxs-lookup"><span data-stu-id="45b0c-134">A developer needs full access to a resource group.</span></span> <span data-ttu-id="45b0c-135">Vilket omfång bör du välja om du följer principen om lägsta behörighet?</span><span class="sxs-lookup"><span data-stu-id="45b0c-135">If you are following least-privilege best practices, what scope should you specify?</span></span>
+      correctExplanation: <span data-ttu-id="f703b-132">Med rollen Läsare kan du läsa alla resurser, men du kan inte bevilja åtkomst till andra.</span><span class="sxs-lookup"><span data-stu-id="f703b-132">The Reader role allows you to read all resources, but you can't grant access to others.</span></span>
+  - content: <span data-ttu-id="f703b-133">En utvecklare behöver fullständig åtkomst till en resursgrupp.</span><span class="sxs-lookup"><span data-stu-id="f703b-133">A developer needs full access to a resource group.</span></span> <span data-ttu-id="f703b-134">Vilket omfång bör du välja om du följer principen om lägsta behörighet?</span><span class="sxs-lookup"><span data-stu-id="f703b-134">If you are following least-privilege best practices, what scope should you specify?</span></span>
     choices:
-    - content: <span data-ttu-id="45b0c-136">Resursgrupp</span><span class="sxs-lookup"><span data-stu-id="45b0c-136">Resource group</span></span>
+    - content: <span data-ttu-id="f703b-135">Resursgrupp</span><span class="sxs-lookup"><span data-stu-id="f703b-135">Resource group</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="45b0c-137">Rätt!</span><span class="sxs-lookup"><span data-stu-id="45b0c-137">Correct!</span></span> <span data-ttu-id="45b0c-138">Om du följer principen om lägsta behörighet beviljar du den lägsta åtkomst som användaren behöver för att utföra sitt arbete.</span><span class="sxs-lookup"><span data-stu-id="45b0c-138">Following least-privilege best practices, you just grant the access the user needs to do their job.</span></span> <span data-ttu-id="45b0c-139">I det här fallet bör du ange omfånget till bara resursgruppen.</span><span class="sxs-lookup"><span data-stu-id="45b0c-139">In this case, you should set the scope to just the resource group.</span></span>
-    - content: <span data-ttu-id="45b0c-140">Prenumeration</span><span class="sxs-lookup"><span data-stu-id="45b0c-140">Subscription</span></span>
+      correctExplanation: <span data-ttu-id="f703b-136">Rätt!</span><span class="sxs-lookup"><span data-stu-id="f703b-136">Correct!</span></span> <span data-ttu-id="f703b-137">Om du följer principen om lägsta behörighet beviljar du den lägsta åtkomst som användaren behöver för att utföra sitt arbete.</span><span class="sxs-lookup"><span data-stu-id="f703b-137">Following least-privilege best practices, you just grant the access the user needs to do their job.</span></span> <span data-ttu-id="f703b-138">I det här fallet bör du ange omfånget till bara resursgruppen.</span><span class="sxs-lookup"><span data-stu-id="f703b-138">In this case, you should set the scope to just the resource group.</span></span>
+    - content: <span data-ttu-id="f703b-139">Prenumeration</span><span class="sxs-lookup"><span data-stu-id="f703b-139">Subscription</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="45b0c-141">Ett prenumerationsomfång skulle ge utvecklaren åtkomst, men åtkomsten skulle vara mer omfattande än nödvändigt.</span><span class="sxs-lookup"><span data-stu-id="45b0c-141">A subscription scope would grant the developer access, but it would be broader than what they need.</span></span>
-    - content: <span data-ttu-id="45b0c-142">Resurs</span><span class="sxs-lookup"><span data-stu-id="45b0c-142">Resource</span></span>
+      incorrectExplanation: <span data-ttu-id="f703b-140">Ett prenumerationsomfång skulle ge utvecklaren åtkomst, men åtkomsten skulle vara mer omfattande än nödvändigt.</span><span class="sxs-lookup"><span data-stu-id="f703b-140">A subscription scope would grant the developer access, but it would be broader than what they need.</span></span>
+    - content: <span data-ttu-id="f703b-141">Resurs</span><span class="sxs-lookup"><span data-stu-id="f703b-141">Resource</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="45b0c-143">Ett resursomfång skulle inte ge utvecklaren nödvändig åtkomst.</span><span class="sxs-lookup"><span data-stu-id="45b0c-143">A resource scope would not grant the developer the access they require.</span></span>
-    - content: <span data-ttu-id="45b0c-144">Användare</span><span class="sxs-lookup"><span data-stu-id="45b0c-144">User</span></span>
+      correctExplanation: <span data-ttu-id="f703b-142">Ett resursomfång skulle inte ge utvecklaren nödvändig åtkomst.</span><span class="sxs-lookup"><span data-stu-id="f703b-142">A resource scope would not grant the developer the access they require.</span></span>
+    - content: <span data-ttu-id="f703b-143">Användare</span><span class="sxs-lookup"><span data-stu-id="f703b-143">User</span></span>
       isCorrect: false
-      correctExplanation: <span data-ttu-id="45b0c-145">Användare är inte ett omfång.</span><span class="sxs-lookup"><span data-stu-id="45b0c-145">User is not a scope.</span></span>
+      correctExplanation: <span data-ttu-id="f703b-144">Användare är inte ett omfång.</span><span class="sxs-lookup"><span data-stu-id="f703b-144">User is not a scope.</span></span>

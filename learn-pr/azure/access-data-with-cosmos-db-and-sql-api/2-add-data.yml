@@ -1,24 +1,22 @@
 ### YamlMime:ModuleUnit
 uid: learn.access-data-with-cosmos-db-and-sql-api.2-add-data
 metadata:
-  title: <span data-ttu-id="ff96c-101">Lägga till data genom att använda portalen</span><span class="sxs-lookup"><span data-stu-id="ff96c-101">Add data by using the portal</span></span>
-  description: <span data-ttu-id="ff96c-102">Lär dig hur du lägger till data i Azure Cosmos DB med hjälp av Azure Portal</span><span class="sxs-lookup"><span data-stu-id="ff96c-102">Learn how to add data to Azure Cosmos DB by using the Azure portal</span></span>
-  displayType: one-column
-  interactive: azureportal
-  ms.openlocfilehash: a8a64768d77e7955643e844005dbbcbe95cf75e5
-  ms.sourcegitcommit: b85a83cbc1a0ae3e2681c4859e999a8296eb4e61
+  title: <span data-ttu-id="8e580-101">Lägga till data genom att använda portalen</span><span class="sxs-lookup"><span data-stu-id="8e580-101">Add data by using the portal</span></span>
+  description: <span data-ttu-id="8e580-102">Lär dig hur du lägger till data i Azure Cosmos DB med hjälp av Azure Portal</span><span class="sxs-lookup"><span data-stu-id="8e580-102">Learn how to add data to Azure Cosmos DB by using the Azure portal</span></span>
+  ms.openlocfilehash: 17ddbf2f16e1b31c6481f12c1646699d5615c9dd
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2018
-  ms.locfileid: "43531239"
-title: <span data-ttu-id="ff96c-103">Lägga till data genom att använda portalen</span><span class="sxs-lookup"><span data-stu-id="ff96c-103">Add data by using the portal</span></span>
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43727877"
+title: <span data-ttu-id="8e580-103">Lägga till data genom att använda portalen</span><span class="sxs-lookup"><span data-stu-id="8e580-103">Add data by using the portal</span></span>
 durationInMinutes: 10
 content: >
   [!include[](includes/2-add-data.md)]
 tasks:
 - action: exists
   environment: azure
-  hint: <span data-ttu-id="ff96c-104">Se till att du har skapat två dokument i Azure Cosmos DB-databasen</span><span class="sxs-lookup"><span data-stu-id="ff96c-104">Please make sure that you have created two documents in the Azure Cosmos DB database</span></span>
+  hint: <span data-ttu-id="8e580-104">Se till att du har skapat två dokument i Azure Cosmos DB-databasen</span><span class="sxs-lookup"><span data-stu-id="8e580-104">Please make sure that you have created two documents in the Azure Cosmos DB database</span></span>
   azure:
     location: eastus
 - action: exists
