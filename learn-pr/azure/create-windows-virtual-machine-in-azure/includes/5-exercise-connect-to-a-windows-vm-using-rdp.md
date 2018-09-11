@@ -1,100 +1,100 @@
-We have our Windows VM deployed and running, but it's not configured to do any work.
+Vår virtuella Windows-dator har distribuerats och körs men den har inte konfigurerats att utföra arbete.
 
-Recall our scenario is a video processing system. Our platform receives files through FTP. The traffic cameras upload video clips to a known URL which is mapped to a folder on the server. The custom software on each Windows VM runs as a service and watches the folder and processes each uploaded clip. It then passes the normalized video to our algorithms running on other Azure services.
+Som du kanske minns är vårt scenario ett videobearbetningssystem. Vår plattform tar emot filer via FTP. Trafikkamerorna överför videoklipp till en känd URL som mappas till en mapp på servern. Den anpassade programvaran på varje virtuell Windows-dator körs som en tjänst och bevakar mappen och bearbetar varje överfört klipp. Den skickar sedan den normaliserade videon till våra algoritmer som körs på andra Azure-tjänster.
 
-There are a few things we would need to configure to support this scenario:
+Det finns några saker som vi behöver konfigurera för att det här scenariot ska fungera:
 
-- Install FTP and open the ports it needs to communicate.
-- Install the proprietary video codec unique to the city's camera system.
-- Install our transcoding service that processes uploaded videos.
+- Installera FTP och öppna de portar som behövs för att kommunicera.
+- Installera den tillverkarspecifika video-codecen som är unik för den stad kamerasystem.
+- Installera transkodningstjänsten som bearbetar överförda videor.
 
-Many of these are typical administrative tasks we won't actually cover here, and we don't have software to install. Instead, we will walk through the steps and show you how you _could_ install custom or 3rd party software using Remote Desktop. Let's start by getting the connection information.
+Många av dessa är vanliga administrativa uppgifter som vi inte går igenom här, och vi har ingen programvara att installera. I stället går vi igenom stegen och visar dig hur du _kan_ installera anpassad programvara eller programvara från tredje part med hjälp av fjärrskrivbord. Vi börjar med att hämta anslutningsinformationen.
 
-## Connect to the VM with Remote Desktop Protocol
+## <a name="connect-to-the-vm-with-remote-desktop-protocol"></a>Ansluta till den virtuella datorn med Remote Desktop Protocol
 
-To connect to an Azure VM with an RDP client, you will need:
+För att ansluta till en virtuell Azure-dator med en RDP-klient behöver du:
 
-- The public IP address of the VM (or private if the VM is configured to connect to your network).
-- The port number.
+- Den offentliga IP-adressen för den virtuella datorn (eller privat om den virtuella datorn är konfigurerad för att ansluta till nätverket).
+- Portnumret.
 
-You can enter this information into the RDP client, or download a pre-configured **RDP** file.
+Du kan ange den här informationen i RDP-klienten eller hämta en förkonfigurerad **RDP**-fil.
 
-### Download the RDP file
+### <a name="download-the-rdp-file"></a>Ladda ned RDP-filen
 
-1. In the [Azure portal](https://portal.azure.com?azure-portal=true), ensure the **Overview** panel for the virtual machine that you created earlier is open. You can find the VM under **All Resources** if you need to open it. The overview panel has a lot of information about the VM.
+1. Se till att [översiktspanelen](https://portal.azure.com?azure-portal=true) för den virtuella dator du skapade tidigare är öppen i **Azure Portal**. Du hittar den virtuella datorn under **Alla resurser** om du behöver öppna den. Översiktspanelen har mycket information om den virtuella datorn.
 
-    - You can see whether the VM is running.
-    - Stop or restart it.
-    - Get the public IP address to connect to the VM.
-    - See the activity of the CPU, disk, and network.
+    - Du kan se om den virtuella datorn körs.
+    - Stoppa eller starta om den.
+    - Hämta den offentliga IP-adressen för att ansluta till den virtuella datorn.
+    - Visa aktiviteten för CPU, disk och nätverk.
 
-1. Click the **Connect** button at the top of the pane.
+1. Klicka på knappen **Anslut** högst upp i fönstret.
 
-1. In the **Connect to virtual machine** blade, note the **IP address** and **Port number** settings, then click **Download RDP File** and save it to your computer.
+1. På bladet **Anslut till virtuell dator** ska du notera inställningarna för **IP-adress** och **Portnummer**. Klicka sedan på **Ladda ned RDP-fil** och spara filen på datorn.
 
-1. Before we connect, let's adjust a few settings. On Windows, find the file using Explorer, right-click and select **Edit**. On MacOS you will need to open the file first with the RDP client and then right-click on the item in the displayed list and select **Edit**.
+1. Innan vi ansluter ska vi justera några inställningar. I Windows letar du upp filen med Explorer, högerklickar och väljer **Redigera**. I MacOS måste du först öppna filen med RDP-klienten och sedan högerklicka på objektet i listan som visas och välja **Redigera**.
 
-1. You can adjust a variety of settings to control the experience in connecting to the Azure VM. The settings you will want to examine are:
+1. Du kan justera flera inställningar för anslutningen till den virtuella Azure-datorn. De inställningar som är intressanta här är:
 
-    - **Display**: By default, it will be full screen. You can change this to a lower resolution, or use all your monitors if you have more than one.
-    - **Local Resources**: You can share local drives with the VM - allowing you to copy files from your PC to the VM. Click the **More** button under **Local devices and resources** to select what is shared.
-    - **Experience**: Adjust the visual experience based on your network quality.
+    - **Visa**: Standardinställningen är hela skärmen. Du kan ändra detta till en lägre upplösning eller använda alla övervakare om du har fler än en.
+    - **Lokala resurser**: Du kan dela lokala enheter med den virtuella datorn, så att du kan kopiera filer från din dator till den virtuella datorn. Klicka på knappen **Mer** under **Lokala enheter och resurser** för att välja vad som ska delas.
+    - **Experience** (Upplevelse): Justera den visuella upplevelsen baserat på din nätverkskvalitet.
 
-1. Share your Local C: drive so it will be visible to the VM.
+1. Dela din lokala C:-enhet så att det är synlig för den virtuella datorn.
 
-1. Switch back to the **General** tab and click **Save** to save the changes. You can always come back and edit this file later to try other settings.
+1. Gå tillbaka till fliken **Allmänt** och klicka på **Spara** för att spara ändringarna. Du kan alltid gå tillbaka och redigera den här filen senare om du vill prova andra inställningar.
 
-### Connect to the Windows VM
+### <a name="connect-to-the-windows-vm"></a>Ansluta till den virtuella Windows-datorn
 
-1. Click the **Connect** button to start the connection to the VM.
+1. Klicka på knappen **Anslut** för att ansluta till den virtuella datorn.
 
-1. In the **Remote Desktop Connection** dialog box, note the security warning and the remote computer IP address, then click **Connect**.
+1. I dialogrutan **Anslutning till fjärrskrivbord** noterar du säkerhetsvarningen och fjärrdatorns IP-adress och klickar sedan på **Anslut**.
 
-1. In the **Windows Security** dialog box, enter your username and password that you used in steps 6 and 7.
+1. I dialogrutan **Windows-säkerhet** anger du samma användarnamn och lösenord som i steg 6 och 7.
     
     > [!NOTE]
-    > If you are using a Windows client to connect to the VM, it will default to known identities on your machine. You can click the **More choices** option and select "Use a different account" to let you enter a different username/password combination.
+    > Om du använder en Windows-klient för att ansluta till den virtuella datorn ställs standardinställningen in på kända identiteter på datorn. Du kan klicka på alternativet **Fler alternativ** och välja ”Använd ett annat konto” om du vill ange en annan kombination av användarnamn och lösenord.
     
-1. In the second **Remote Desktop Connection** dialog box, note the certificate errors, then click **Yes**.
+1. I den andra dialogrutan **Anslutning till fjärrskrivbord** noterar du certifikatfelen och klickar sedan på **Ja**.
 
-### Install worker roles
+### <a name="install-worker-roles"></a>Installera arbetsroller
 
-The first time you connect to a Windows server VM, it will launch Server Manager. This allows you to assign a worker role for common web or data tasks. You can also launch the Server Manager through the Start Menu.
+Första gången du ansluter till en virtuell Windows-server startas Serverhanteraren. Det gör att du kan tilldela en arbetsroll för vanliga webb- eller datauppgifter. Du kan också starta Serverhanteraren via Start-menyn.
 
-This is where we would add the Web Server role to the server. This will install IIS and as part of the configuration you would turn off HTTP requests and enable the FTP server. Or, we could ignore IIS and install a 3rd party FTP server. We'd then configure the FTP server to allow access to a folder on our big data drive we added to the VM.
+Det är här som vi normalt lägger till webbserverrollen på servern. När du gör det installeras IIS, och som en del av konfigurationen inaktiverar du HTTP-begäranden och aktiverar FTP-servern. Du kan också välja att ignorera IIS och installera en FTP-server från en tredje part. Därefter konfigurerar du FTP-servern att tillåta åtkomst till en mapp på Big Data-enheten som du har lagt till på den virtuella datorn.
 
-Since we aren't going to actually configure that here, just close Server Manager.
+Eftersom vi inte ska konfigurera detta här kan du stänga Serverhanteraren.
 
-## Install custom software
+## <a name="install-custom-software"></a>Installera anpassad programvara
 
-We have two approaches we can use to install software. First, this VM is connected to the Internet. If the software you need has a downloadable installer, you can open a web browser in the RDP session, download the software, and install it. Second, if your software is custom - like our custom service, you can copy it from your local machine over to the VM to install it. Let's look at this latter approach.
+Vi kan använda någon av två metoder för att installera programvara. Den här virtuella datorn är ansluten till Internet. Om programvaran som du behöver har ett nedladdningsbart installationsprogram kan du öppna en webbläsare i RDP-sessionen, ladda ned programvaran och installera den. Om programvaran är anpassad, som vår anpassade tjänst, kan du kopiera den från din lokala dator till den virtuella datorn för att installera den. Låt oss titta närmare på den sista metoden.
 
-1. Open File Explorer. Click on **This PC** in the sidebar. You should see several drives:
+1. Öppna Utforskaren. Klicka på **Den här datorn** på sidopanelen. Du bör se flera enheter:
 
-    - Windows (C:) drive representing the OS.
-    - Temporary Storage (D:) drive.
-    - Your local C: drive (it will have a different name than shown below).
+    - Windows-enheten (C:) som representerar operativsystemet.
+    - Enheten för temporär lagring (D:).
+    - Din lokala C:-enhet (den har ett annat namn än det som visas nedan).
 
-    ![Local drive shared with Azure](../media-drafts/6-drive-list.png)
+    ![Lokal enhet som delas med Azure](../media-drafts/6-drive-list.png)
 
-With access to your local drive, you can copy the files for the custom software onto the VM and install the software. We won't actually do that since it's just a simulated scenario, but you can imagine how it would work.
+Om du har åtkomst till din lokala enhet kan du kopiera dessa filer för den anpassade programvaran till den virtuella datorn och installera programvaran. Vi ska inte gör det här eftersom detta bara är ett simulerat scenario, men du kan föreställa dig hur det skulle fungera.
 
-The more interesting thing to observe in the list of drives is what is _missing_. Notice that our **Data** drive is not present. Azure added a VHD but didn't initialize it.
+Mer intressant att observera i listan över enheter är vad som _saknas_. Observera att **dataenhet** inte visas. Azure har lagt till en VHD men har inte initierat den.
 
-## Initialize data disks
+## <a name="initialize-data-disks"></a>Initiera datadiskar
 
-Any additional drives you create from scratch will need to be initialized and formatted. The process for doing this is identical to a physical drive.
+Alla ytterligare enheter du skapar från början måste initieras och formateras. Processen för att gör detta är identisk med en fysisk enhet.
 
-1. Launch the **Disk Management** tool from the Start Menu.
+1. Starta verktyget **Diskhantering** från Start-menyn.
 
-1. It will display a warning that it has detected an uninitialized disk.
+1. En varning visas som anger att en oinitierad disk har identifierats.
 
-    ![Initialize the data disk in the VM](../media-drafts/6-disk-management.png)
+    ![Initiera datadisken på den virtuella datorn](../media-drafts/6-disk-management.png)
 
-1. Click **OK** to initialize the disk. It will then show up in the list of volumes where you can format it and assign a drive letter.
+1. Klicka på **OK** för att initiera disken. Då visas disken i listan med volymer där du kan formatera den och tilldela en enhetsbeteckning.
 
-1. Open File Explorer and you should now see your data drive.
+1. Öppna Utforskaren så ser du din dataenhet.
 
-1. Go ahead and close the RDP client to sign out of the VM. The server will continue to run.
+1. Gå vidare och stäng RDP-klienten för att logga ut från den virtuella datorn. Servern fortsätter att köras.
 
-RDP allows you to work with the Azure VM just like a local computer. With Desktop UI access, you can administer this VM as you would any Windows computer: installing software, configuring roles, adjusting features and other common tasks. However, it's a manual process - if we always need to install some software, you might consider automating the process using scripting.
+Med RDP kan du arbeta med den virtuella Azure-datorn på samma sätt som en lokal dator. Med åtkomst till skrivbordsgränssnittet kan du administrera den här virtuella datorn på samma sätt som en vanlig Windows-dator och till exempel installera programvara, konfigurera roller, justera funktioner och utföra andra vanliga aktiviteter. Men det är en manuell process. Om vissa program alltid behöver installeras kan du automatisera processen med hjälp av skript.

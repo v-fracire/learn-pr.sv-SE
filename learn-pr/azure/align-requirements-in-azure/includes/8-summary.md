@@ -1,10 +1,10 @@
 
-In this module, you explored the concepts of cloud computing. Cloud computing is the provisioning of services and applications on demand over the internet. Servers, applications, data, and other resources are provided as a service. 
+I den här modulen utforskade du begrepp inom molntjänster. Molntjänster innebär att tjänster och program etableras på begäran via Internet. Servrar, program, data och andra resurser tillhandahålls som en tjänst. 
 
-Cloud computing resources are delivered using three different service models:
+Databearbetningsresurser i molnet levereras som tre olika tjänstmodeller:
 
-1. Infrastructure-as-a-service (IaaS) provides instant computing infrastructure that you can provision and manage over the Internet.
+1. Med infrastruktur som en tjänst (IaaS) får du en infrastruktur för omedelbar databearbetning som du kan etablera och hantera via internet.
 
-2. Platform as a service (PaaS) provides ready-made development and deployment environments that you can use to deliver your own cloud services.
+2. Med plattform som en tjänst (PaaS) får du färdiga utvecklings- och distributionsmiljöer som du kan använda till att leverera dina egna molntjänster.
 
-3. Software as a service (or SaaS) delivers applications over the Internet as a web-based service.
+3. Programvara som en tjänst (SaaS) levererar program över Internet som en webbaserad tjänst.

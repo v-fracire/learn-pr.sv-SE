@@ -28,9 +28,9 @@ Till att börja med måste du skapa ett valv och lagra en hemlighet.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med namnet `keyvault-exercise-group` för alla resurser i den här övningen. I slutet av den här modulen tar vi bort resursgruppen för att kunna rensa allt på samma gång. Vi använder `eastus` som plats för allt innehåll i den här övningen.
+Skapa en resursgrupp med namnet `keyvault-exercise-group` för alla resurser i den här kursdelen. I slutet av den här modulen tar vi bort resursgruppen för att kunna rensa allt på samma gång. Vi använder `eastus` som plats för allt innehåll i den här kursdelen.
 
-Använd Azure Cloud Shell-terminalen till höger för att köra följande Azure CLI-kommando. Detta skapar resursgruppen i din prenumeration.
+Använd Azure Cloud Shell-terminalen till höger och kör följande Azure CLI-kommando. Detta skapar resursgruppen i din prenumeration.
 
 ```azurecli
 az group create --name keyvault-exercise-group --location eastus

@@ -1,24 +1,26 @@
-You have decided to move your SQL Server databases to Azure SQL Database to benefit from Azure's scalability and availability. However, you want to validate that Azure SQL Server provides all of the functionality that you currently use in your on-premises SQL Server.
+Du har bestämt dig för att flytta SQL Server-databaserna till Azure SQL Database eftersom du vill utnyttja skalbarheten och tillgängligheten som fås med Azure. Du vill ändå verifiera att Azure SQL Server har samma funktioner som du för närvarande använder med din lokala SQL Server.
 
-You'll use a tool called the **Data Migration Assistant** to help you to assess your existing database for compatibility with Azure SQL Server.
+Du använder dig av ett verktyg som heter Data Migration Assistant och som hjälper dig att bedöma kompatibiliteten mellan din nuvarande databas och Azure SQL Server.
 
-## What is the Data Migration Assistant (DMA)?
+## <a name="what-is-the-data-migration-assistant-dma"></a>Vad är Data Migration Assistant (DMA)?
 
-The Data Migration Assistant tool is specifically designed to analyze on-premises SQL Server instances. It will detect and report common issues that can impede SQL database migrations to Azure SQL Server.
+Verktyget Data Migration Assistant är speciellt utformat för att analysera lokala SQL Server-instanser. Det identifierar och rapporterar vanliga problem som kan hindra migreringen av SQL-databaserna till Azure SQL Server.
 
-It will detect compatibility issues that can block migration as well as recognize features used in your on-premises server that are either partially supported or unsupported.
+Utöver att identifiera problem som kan hindra migrering kan verktyget också identifiera funktioner i dina lokala servrar som delvis stöds eller inte stöds alls.
 
-It will also provide comprehensive recommendations to perform on your on-premises server before migration.
+Du får också detaljerade rekommendationer över vad som behöver utföras på de lokala servrarna före migreringen.
 
-### Why do you need the Data Migration Assistant?
+### <a name="why-do-you-need-data-migration-assistant"></a>Varför behöver du Data Migration Assistant?
 
-Azure SQL Database shares a common code base with SQL Server. However, not all features are present in the cloud. The Data Migration Assistant can help to identify features you are using in your on-premise SQL Server that are not available in Azure SQL Server. You can refer to the [Azure SQL Database feature list](https://docs.microsoft.com/azure/sql-database/sql-database-features) for an up-to-date list of what is different between the two products.
+Azure SQL Database utvecklas hela tiden och har för närvarande inte stöd för alla funktioner i en SQL Server.
 
-## How to assess your database using the Data Migration Assistant?
+Mer information finns i den uppdaterade [listan över funktioner i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-features).
 
-Assessing your database using the Data Migration Assistant typically involves the following steps:
+## <a name="how-to-assess-your-database-using-data-migration-assistant"></a>Hur utvärderar du databasen med hjälp av Data Migration Assistant?
 
-1. **Install the Data Migration Assistant** – Download and install Data Migration Assistant from https://www.microsoft.com/download/details.aspx?id=53595. Azure SQL Database is regularly updated; Data Migration Assistant is also updated to reflect any new capabilities. It is recommended to run the installer to ensure you have the latest version installed.
-2. **Create an assessment** – You create a new assessment that defines your on-premises database and the target database. You can also assess another target of SQL Server on Azure Virtual Machines to allow you to compare alternative migrations.
-3. **Select options for assessment and database sources** – You select your options, for example, whether you want to check compatibility or feature parity among the two databases. Then, choose your source database. You can select multiple sources.
-4. **Review results** - The detailed results allows you to review errors and take corrective action. The results show unsupported features with cross-database references and SQL Server Agent. It also gives a list of partially supported features, with full-text search and auditing. The result provides possible errors and advice on how to rectify those errors. You can export the Data Migration Assistant results as a .json file.
+Du utvärderar vanligtvis databasen med hjälp av Data Migration Assistant genom att utföra följande steg:
+
+- **Installera Data Migration Assistant** – Ladda ned och installera Data Migration Assistant från https://www.microsoft.com/download/details.aspx?id=53595. Azure SQL Database uppdateras regelbundet, och även Data Migration Assistant uppdateras för att återspegla nya funktioner. Vi rekommenderar att du kör installationsprogrammet för att kontrollera att du har installerat den senaste versionen.
+- **Skapa en utvärdering** – Du skapar en ny utvärdering som definierar din lokala databas och måldatabasen. Du kan också utvärdera ett annat mål för SQL Server på Azure Virtual Machines och på det sättet jämföra alternativa migreringar.
+- **Välja alternativ för utvärdering och databaskällor** – Du väljer dina alternativ, till exempel om du vill kontrollera kompatibilitet eller funktionsparitet mellan de två databaserna. Välj sedan källdatabas. Du kan välja flera källor.
+- **Granska resultaten** – Du får detaljerade resultat, kan granska fel och vidta åtgärder. I resultaten visas funktioner som inte stöds med referenser över flera databaser och SQL Server Agent. Du får också en lista över funktioner som delvis stöds, med fulltextsökning och granskning. I resultaten visas möjliga fel och råd för hur du åtgärder felen. Du kan exportera resultaten från Data Migration Assistant som en .json-fil.

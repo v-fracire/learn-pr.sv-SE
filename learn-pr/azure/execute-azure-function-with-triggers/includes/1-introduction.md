@@ -3,6 +3,7 @@ Föreställ dig ett scenario där en hektisk hårsalong har ett återkommande pr
 Som Azure-utvecklare bestämmer du dig för att lösa problemet med hjälp av en Azure-funktion. Du vet redan hur du implementerar logik för att skicka ett SMS. Nu ska du lära dig hur du skickar meddelandet vid en viss tidpunkt. Som tur är har Azure-funktioner stöd för en funktion som kallas _utlösare_. Utlösare används för att bestämma hur en Azure-funktion ska utföras.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att göra följande:
 
 - Avgöra vilken utlösare som fungerar bäst för dina affärsbehov.

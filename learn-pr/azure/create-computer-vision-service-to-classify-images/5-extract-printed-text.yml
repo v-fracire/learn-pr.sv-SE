@@ -1,17 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-computer-vision-service.5-extract-printed-text
-title: Extracting printed text from images
+interactive: bash
+title: Extrahera tryckt text från bilder
 metadata:
-  title: Extracting printed text from images
-  description: Extracting printed text from images
+  title: Extrahera tryckt text från bilder
+  description: Extrahera tryckt text från bilder
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: f373e925bcb1231c883fb129817876528febef3b
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44245264"
 durationInMinutes: 10
-interactive: bash
-azureSandbox: true
-content: |
-  [!include[](includes/5-extract-printed-text.md)]
+content: '[!include[](includes/5-extract-printed-text.md)]'

@@ -10,17 +10,17 @@ När du har arbetat klart med programmet Azure Functions kan du ta bort alla res
 
 3. Utöka prenumerationen som du använde när du skapade resursgruppen. Högerklicka på resursgruppen ”ImHere” och välj *Open in Portal* (Öppna i portal).
 
-    ![Öppna resursgruppen i portalen från Cloud Explorer-fönstret](../media/9-open-resource-group-in-portal.png)
+    ![Öppna resursgruppen i portalen från Cloud Explorer-fönstret](../media-drafts/9-open-resource-group-in-portal.png)
 
 4. Logga in på Azure-portalen i webbläsaren om det behövs.
 
 5. Portalen öppnas i resursgruppen ”ImHere”. Klicka på knappen **Ta bort resursgrupp**.
 
-    ![Ta bort resursgruppen](../media/9-delete-resource-group.png)
+    ![Ta bort resursgruppen](../media-drafts/9-delete-resource-group.png)
 
 6. Ange namnet på resursgruppen och klicka på **Ta bort** för att bekräfta.
 
-    ![Ange resursgruppens namn för att bekräfta borttagningen](../media/9-confirm-delete-resource-group.png)
+    ![Ange resursgruppens namn för att bekräfta borttagningen](../media-drafts/9-confirm-delete-resource-group.png)
 
 ## <a name="summary"></a>Sammanfattning
 

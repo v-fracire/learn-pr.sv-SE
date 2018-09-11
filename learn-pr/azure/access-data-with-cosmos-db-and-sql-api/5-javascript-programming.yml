@@ -3,14 +3,12 @@ uid: learn.access-data-with-cosmos-db-and-sql-api.5-javascript-programming
 metadata:
   title: Köra komplexa åtgärder på dina data
   description: Lär dig hur du utför komplexa åtgärder genom att använda lagrade procedurer och användardefinierade funktioner (UDF) i Azure Portal.
-  displayType: one-column
-  interactive: azureportal
-  ms.openlocfilehash: 0bf9d367fcf066968e0740e6195987a4aff201dc
-  ms.sourcegitcommit: b85a83cbc1a0ae3e2681c4859e999a8296eb4e61
+  ms.openlocfilehash: 78ae511bda4b59934d13d9a23fc7eec56a6b3311
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2018
-  ms.locfileid: "43531411"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43728795"
 title: Köra komplexa åtgärder på dina data
 durationInMinutes: 10
 content: >

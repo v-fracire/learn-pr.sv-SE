@@ -1,86 +1,86 @@
-After you have created and configured your event hub, you'll need to configure applications to send and receive event data streams.
+När du har skapat och konfigurerat din händelsehubb måste du konfigurera appar att skicka och ta emot händelsedataströmmar.
 
-For example, a payment processing solution will use some form of sender application to collect customer's credit card data and a receiver application to verify that the credit card is valid.
+Till exempel använder en lösning för bearbetning av betalningar någon form av avsändarapp för att samla in data för kundens kreditkort och en mottagarapp för att verifiera att det registrerade kreditkortet är giltigt.
 
-Although there are differences in how a Java application is configured, compared to a .NET application, there are general principles for enabling applications to connect to an event hub, and to successfully send or receive messages. So, although the process of editing Java configuration text files is different to preparing a .NET application using Visual Studio, the principles are the same.
+Det finns skillnader i hur en Java-app konfigureras, jämfört med en .NET-app, men det finns allmänna principer för att aktivera appar för att ansluta till en händelsehubb, och för att skicka eller ta emot meddelanden. Så även om processen för att redigera Java-textfiler för konfiguration skiljer sig från att förbereda en .NET-app med Visual Studio så är principerna är desamma.
 
-## What are the minimum Event Hub application requirements?
+## <a name="what-are-the-minimum-event-hub-application-requirements"></a>Vad är minimikraven för händelsehubbappar?
 
-To configure an application to send messages to an event hub, you must provide the following information, so that the application can create connection credentials:
+Om du vill konfigurera en app att skicka meddelanden till en händelsehubb måste du ange följande information, så att appen kan skapa autentiseringsuppgifter för anslutning:
 
-- Event hub namespace name
-- Event hub name
-- Shared access policy name
-- Primary shared access key
+- Namnrymdsnamn på händelsehubb
+- Namn på händelsehubb
+- Namn på princip för delad åtkomst
+- Primär delad åtkomstnyckel
 
-To configure an application to receive messages from an event hub, provide the following information, so that the application can create connection credentials:
+Om du vill konfigurera en app att ta emot meddelanden från en händelsehubb anger du följande information, så att appen kan skapa autentiseringsuppgifter för anslutning:
 
-- Event hub namespace name
-- Event hub name
-- Shared access policy name
-- Primary shared access key
-- Storage account name
-- Storage account connection string
-- Storage account container name
+- Namnrymdsnamn på händelsehubb
+- Namn på händelsehubb
+- Namn på princip för delad åtkomst
+- Primär delad åtkomstnyckel
+- Namn på lagringskonto
+- Anslutningssträng för lagringskonto
+- Namn på lagringskontocontainer
 
-If you have a receiver application that stores messages in Azure Blob Storage, you'll also need to first configure a storage account.
+Om du har en mottagarapp som lagrar meddelanden i Azure Blob Storage måste du också konfigurera ett lagringskonto.
 
-## The Azure CLI commands for creating a general-purpose standard storage account
+## <a name="the-azure-cli-commands-for-creating-a-general-purpose-standard-storage-account"></a>Azure CLI-kommandon för att skapa ett allmänt standardlagringskonto
 
-1. Create a general-purpose V2 Storage account in your resource group, and the same Azure datacenter location that you used when creating the resource group.
+1. Skapa lagringskontot (generell användning V2) i din resursgrupp och på samma Azure-datacenterplats som du använde när du skapade resursgruppen.
 
     ```azurecli
     az storage account create --name <storage account name> --resource-group <resource group name> --location <location> --sku Standard_RAGRS --encryption blob
     ```
 
-1. To access this storage, you'll need a storage account access key. View the access keys that are associated with the storage account.
+1. För att komma åt den här lagringen behöver du en åtkomstnyckel för lagringskontot. Visa åtkomstnycklarna som är associerade med lagringskontot.
 
     ```azurecli
     az storage account keys list --account-name <storage account name> --resource-group <resource group name>
     ```
 
-1. Save the value associated with **key1**.
+1. Spara värdet som är associerat med **key1**.
 
-1. You will also need the connection details for the storage account. View the connection string for the storage account.
+1. Du behöver även anslutningsinformationen för lagringskontot. Visa anslutningssträngen för lagringskontot.
 
     ```azurecli
     az storage account show-connection-string -n <storage account name> -g <resource group name>
     ```
 
-1. Save the value associated with the **connectionString**.
+1. Spara värdet som är associerat med **connectionString**.
 
-1. Messages will be stored in a container within your storage account. Create a container in your storage account, using `<connection string>` with the connection string from the previous step.
+1. Meddelanden lagras i en container på ditt lagringskonto. Skapa en container på ditt lagringskonto med hjälp av `<connection string>` med anslutningssträngen från föregående steg.
 
     ```azurecli
     az storage container create -n <container> --connection-string "<connection string>"
     ```
 
-## Shell command for cloning an application GitHub repository
+## <a name="shell-command-for-cloning-an-application-github-repository"></a>Shell-kommando för att klona GitHub-lagringsplatsen för en app
 
-Git is a collaboration tool that uses a distributed version control model, and is designed for collaborative working on software and documentation projects. Git clients are available for multiple platforms, including Windows, and the Git command line is included in the Azure Bash cloud shell. GitHub is a web-based hosting service for Git repositories. 
+Git är ett samarbetsverktyg som använder en kontrollmodell för distribuerad version, och har utformats för samarbete i programvaru- och dokumentationsprojekt. Git-klienter finns för flera plattformar, bland annat Windows, och Git-kommandoraden ingår i Azure Bash Cloud Shell. GitHub är en webbaserad värdtjänst för Git-lagringsplatser. 
 
-If you have an application that is hosted as a project in GitHub, you can make a local copy of the project, by cloning its repository using the **git clone** command.
+Om du har en app som är värdbaserad som ett projekt i GitHub kan du skapa en lokal kopia av projektet genom att klona dess lagringsplats med kommandot **git clone**.
 
-1. Clone a repository to your home directory.
+1. Klona ett datalager i hemkatalogen.
 
     ```azurecli
       git clone https://github.com/<project repository>
     ```
 
-## Shell commands for preparing an application
+## <a name="shell-commands-for-preparing-an-application"></a>Shell-kommandon för att förbereda en app
 
-1. You can now use an editor, such as **nano** to edit the application and add your event hub namespace, event hub name, shared access policy name, and primary key. Nano is a simple text editor available for Linux and other Unix-like operating systems; it is also available in the Azure Bash cloud shell. For example, use this command to open a Java application file in the **nano** editor.
+1. Nu kan du använda ett redigeringsprogram, till exempel **nano**, till att redigera appen och lägga till händelsehubbens namnrymd, händelsehubbens namn, namnet på principen för delad åtkomst och primärnyckel. Nano är en enkelt textredigeringsprogram som är tillgängligt för Linux och andra Unix-lika operativsystem. Det är även tillgängligt i Azure Bash Cloud Shell. Du kan till exempel använda kommandot till att öppna en Java-programfil i **nano**-redigeraren.
 
     ```azurecli
     nano <application>.java
     ```
 
-1. Depending on how your applications are developed, you may need to compile or build the application after you've added the event hub configuration information. For example, the Java applications used in the next unit need to be built using a tool such as Apache **Maven**. Maven compiles .java files into .class files or packages them into .jar files. Maven is available from the Bash cloud shell; to build the Java application, you use **mvn** commands. Use this mvn command to build a Java  application.
+1. Beroende på hur dina appar har utvecklats kan du behöva kompilera eller skapa appen när du har lagt till händelsehubbens konfigurationsinformation. Till exempel måste Java-apparna som används i nästa enhet skapas med ett verktyg som Apache **Maven**. Maven kompilerar .java-filer i .class-filer eller paketerar dem i .jar-filer. Maven är tillgängligt via Bash Cloud Shell. Om du vill skapa Java-appen använder du **mvn**-kommandon. Använd det här mvn-kommandot till att skapa en Java-app.
 
     ```azurecli
     mvn clean package -DskipTests
     ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Sender and receiver applications must be configured with specific information about the event hub environment. You create a storage account if your receiver application stores messages in Blob Storage. If your application is hosted on GitHub, you have to clone it to your local directory. Text editors, such as **nano** is used to  add your namespace to the application.
+Avsändar- och mottagarappar måste konfigureras med specifik information om händelsehubbmiljön. Du skapar ett lagringskonto om mottagarappen lagrar meddelanden i Blob Storage. Om appen finns på GitHub måste du klona den i din lokala katalog. Textredigerare, som **nano**, används till att lägga till namnrymden i appen.

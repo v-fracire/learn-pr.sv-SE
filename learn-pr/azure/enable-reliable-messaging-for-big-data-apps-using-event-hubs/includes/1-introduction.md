@@ -1,22 +1,22 @@
-Big data applications should have the ability to process increased throughput by scaling out to meet increased transaction volumes.
+Stordataprogram bör ha möjlighet att bearbeta ökat genomflöde genom att skala ut för att möta ökade transaktionsvolymer.
 
-Suppose you work in the credit card department of a bank. You're part of a team that manages the system responsible for fraud testing to determine whether to approve or decline each transaction. Your system receives a stream of transactions and needs to process them in real time.
+Anta att du jobbar med kreditkort på en bank. Du är en del av ett team som hanterar systemet som ansvarar för bedrägeritestning för att avgöra om varje transaktion ska godkännas eller nekas. Systemet tar emot en dataström med transaktioner och måste bearbeta dem i realtid.
 
-The load on your system can spike during weekends and holidays. It should be able to handle increased throughput efficiently and accurately. Given the sensitive nature of the transactions, even the slightest error can have a huge impact.
+Belastningen på systemet är som högst under helger och helgdagar. Det ska kunna hantera ökat genomflöde effektivt och korrekt. Transaktionerna är känsliga, så även det minsta felet kan ha stor inverkan.
 
-Azure Event Hubs can receive and process large number of transactions. It can also be configured to scale dynamically, when required, to handle increased throughput.
-In this module, you’ll learn how to connect Event Hubs to your application and reliably process huge transaction volumes.
+Azure Event Hubs kan ta emot och bearbeta en stor mängd transaktioner. Det kan också konfigureras att skala dynamiskt när det behövs, för att hantera ökat genomflöde.
+I den här modulen lär du dig att ansluta händelsehubbar till din app och bearbeta stora transaktionsvolymer med hög tillförlitlighet.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att:
 
-- Create an event hub using the Azure CLI.
-- Configure applications to send or receive messages through an event hub.
-- Evaluate event hub performance using the Azure portal.
+- Skapa en händelsehubb med hjälp av Azure CLI.
+- Konfigurera appar för att skicka eller ta emot meddelanden via en händelsehubb.
+- Utvärdera händelsehubbens prestanda med hjälp av Azure Portal.
 
-## Prerequisites
+## <a name="prerequisites"></a>Krav
 
-- Experience creating and managing resources using the Azure portal.
-- Experience with using Azure CLI 2.0 to sign into Azure, and to create resources.
-- Knowledge of basic big data concepts such as streaming and event processing.
+- Erfarenhet av att skapa och hantera resurser med hjälp av Azure Portal.
+- Erfarenhet av att använda Azure CLI 2.0 för att logga in på Azure och för att skapa resurser.
+- Kunskaper om grundläggande stordatabegrepp som strömning och händelsebearbetning.

@@ -1,4 +1,4 @@
-Vi har gått igenom priskalkylatorn för Azure och hur du kan använda den för att beräkna dina kostnader för Azure och jämföra priser mellan olika tjänster. Vi har tittat på hur du kan spara och dela uppskattningar, samt de verktyg i Azure som kan hjälpa dig att hålla molnutgifterna under kontroll. 
+Vi har gått igenom priskalkylatorn för Azure och hur du kan använda den för att beräkna dina kostnader för Azure och jämföra priser mellan olika tjänster. Vi har tittat på besparingsalternativ, hur du kan exportera prisuppskattningar och på de olika verktyg i Azure som kan hjälpa dig att hålla molnutgifterna under kontroll.
 
 - I Azure Advisor får du rekommendationer kring flera olika områden, inklusive kostnader.
 - I Azure Cost Management får du rapporter och faktureringsinformation så att du ser var utgifterna kommer ifrån. 

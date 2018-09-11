@@ -1,36 +1,34 @@
-You've successfully created a cross-platform mobile app using Xamarin and an Azure function with a Twilio binding.
+Du skapat har en mobilapp för flera plattformar med Xamarin och en Azure-funktion med en Twilio-bindning.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up-resources"></a>Rensa resurser
 
-When you're done working with this Azure Functions application, you can delete all resources created during the tutorial from the Azure portal.
+När du har arbetat klart med programmet Azure Functions kan du ta bort alla resurser som skapades under självstudien från Azure-portalen.
 
-1. From Visual Studio, select *View->Cloud Explorer*.
+1. Från Visual Studio väljer du *Visa->Cloud Explorer*.
 
-1. From the drop-down at the top of this panel, select *Resource Groups*.
+1. I listrutan överst i den här panelen väljer du *Resursgrupper*.
 
-1. Expand the subscription that you used to create the resource group. Right-click on the "ImHere" resource group and select *Open in Portal*.
+1. Utöka prenumerationen som du använde när du skapade resursgruppen. Högerklicka på resursgruppen ”ImHere” och välj *Open in Portal* (Öppna i portal).
 
-    ![Open the resource group in the portal from the cloud explorer window](../media-drafts/9-open-resource-group-in-portal.png)
+    ![Öppna resursgruppen i portalen från Cloud Explorer-fönstret](../media-drafts/9-open-resource-group-in-portal.png)
 
-1. Log into the Azure portal in your browser, if necessary.
+1. Logga in på Azure-portalen i webbläsaren om det behövs.
 
-1. The portal will open on the "ImHere" resource group. Click the **Delete Resource Group** button.
+1. Portalen öppnas i resursgruppen ”ImHere”. Klicka på knappen **Ta bort resursgrupp**.
 
-    ![Delete the resource group](../media-drafts/9-delete-resource-group.png)
+    ![Ta bort resursgruppen](../media-drafts/9-delete-resource-group.png)
 
-1. Enter the name of the resource group to confirm the deletion and click **Delete**.
+1. Ange namnet på resursgruppen och klicka på **Ta bort** för att bekräfta.
 
-    ![Enter the resource group name to confirm the deletion](../media-drafts/9-confirm-delete-resource-group.png)
+    ![Ange resursgruppens namn för att bekräfta borttagningen](../media-drafts/9-confirm-delete-resource-group.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this module, you learned how to:
-
-- Create a cross-platform Xamarin.Forms app that uses Xamarin.Essentials.
-- Create a cross-platform UI using XAML with application logic in a ViewModel, as well as bind properties in a ViewModel to the UI.
-- Detect the user's location.
-- Create an Azure Function with an HTTP trigger and run it locally.
-- Call an Azure Function from a mobile app, passing data as JSON.
-- Bind an Azure Function to Twilio to send an SMS message.
-- Publish an Azure Function to Azure.
+I den här modulen har du lärt dig att:
+- Skapa en Xamarin.Forms-app för flera plattformar som använder Xamarin.Essentials.
+- Skapa ett plattformsoberoende gränssnitt med XAML med programlogik i en ViewModel och bind egenskaper i en ViewModel till användargränssnittet.
+- Identifiera användarens plats.
+- Skapa en Azure-funktion med en HTTP-utlösare och kör den lokalt.
+- Anropa en Azure-funktion från en mobilapp och skicka data som JSON.
+- Bind en Azure-funktion till Twilio för att skicka ett SMS.
+- Publicera en Azure-funktion till Azure.

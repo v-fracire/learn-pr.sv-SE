@@ -1,26 +1,31 @@
 ### YamlMime:ModuleUnit
 uid: learn.choose-messaging-model.2-choose-whether-to-use-message-queues-or-events
-title: Choose whether to use messages or events
+title: Välj om du vill använda meddelanden eller händelser
 metadata:
-  title: Choose whether to use messages or events
-  description: Choose whether to use messages or events
+  title: Välj om du vill använda meddelanden eller händelser
+  description: Välj om du vill använda meddelanden eller händelser
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 00474301121987cab2098cdfa80cb15e98a4a36f
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44245978"
 durationInMinutes: 10
-content: |
+content: >
   [!include[](includes/2-choose-whether-to-use-message-queues-or-events.md)]
 quiz:
-  title: "Messaging models"
+  title: Meddelandemodeller
   questions:
-  - content: "In your distributed application you have a web service that authenticates users. When a user logs on, the web service must communicate with a desktop application that runs on all users' computers to display the status of that user as \"Online\". True or false: This is an example of a message in a distributed application."
+  - content: 'I ditt distribuerade program används en webbtjänst till att autentisera användare. När en användare loggar in måste webbtjänsten kommunicera med ett program som körs på alla användares datorer och visar användarens status som ”Online”. Sant eller falskt: det här är ett exempel på ett meddelande i ett distribuerat program.'
     choices:
-    - content: "True"
-      incorrectExplanation: "Sorry, this is an example of an event in a distributed application. The communication is routed to all subscribers and the publisher has no knowledge or preference on how the communication is handled by a subscriber, nor even any knowledge of how many subscribers there are, if any."
+    - content: Sant
+      incorrectExplanation: Det här är ett exempel på en händelse i ett distribuerat program. Kommunikationen dirigeras till alla prenumeranter och utgivaren har ingen kunskap om hur kommunikationen hanteras av en prenumerant, och vet inte ens hur många prenumeranter det finns.
       isCorrect: false
-    - content: "False"
-      correctExplanation: "Correct! This would be an event notification which would trigger an action. This is a perfect case of using an event."
+    - content: Falskt
+      correctExplanation: Rätt! Det är en händelseavisering som utlöser en åtgärd. Det här är ett perfekt fall för att använda en händelse.
       isCorrect: true

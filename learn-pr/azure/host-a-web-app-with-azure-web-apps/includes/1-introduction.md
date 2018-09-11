@@ -1,13 +1,13 @@
-﻿Imagine you're building a website for a new business, or you're running an existing web app on an aging on-premises server. Setting up a new server can be challenging. You need appropriate hardware, likely a server-level operating system, and a web hosting stack.
+Anta att du skapar en webbplats för ett nytt företag, eller så kör du en befintlig webbapp på en föråldrad lokal server. Det kan vara svårt att konfigurera en ny server. Du behöver rätt maskinvara, förmodligen ett operativsystem på servernivå och en webbvärdstack.
 
-And once it's running, you need to maintain the server. And what happens if your website traffic increases? You may need to invest in additional hardware.
+Och när den sedan körs måste du underhålla servern. Och vad händer när webbplatstrafiken ökar? Du kan behöva investera i ytterligare maskinvara.
 
-Hosting your web application using the Web Apps feature of Azure App Service makes deploying and managing a web app much easier when compared to managing a physical server. In this module, we'll deploy a .NET Core web app to Web Apps in Azure.
+Om du värdbaserar webbappen med webbappfunktionen i Azure App Service blir det enklare att distribuera och hantera en webbapp jämfört med att hantera en fysisk server. I den här modulen ska vi distribuera en .NET Core-webbapp till Azure Web Apps.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Use the Azure portal to create your Web App
-- Create an ASP.NET Core web app using Linux
-- Upload your code to Azure App Service using Git
+- Använda Azure Portal för att skapa din webbapp
+- Skapa en ASP.NET Core-webbapp med Linux
+- Ladda upp din kod till Azure App Service med Git

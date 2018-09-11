@@ -1,27 +1,27 @@
-The last thing we want to try on our VM is to install a web server. One of the easiest packages to install is `nginx`.
+Det sista vi ska prova i vår virtuella dator är att installera en webbserver. En av de enklaste paketen att installera är `nginx`.
 
-1. Locate the public IP address of your Linux virtual machine. Remember you can use the `vm list-ip-addresses` command to look it up.
+1. Leta reda på den offentliga IP-adressen till din virtuella Linux-dator. Kom ihåg att du kan använda kommandot `vm list-ip-addresses` till att leta upp den.
 
-1. Next, open an `ssh` connection to the machine like you did when we tested it. Remember you will need to pass in the admin name ("**aldis**").
+1. Därefter öppnar du en `ssh`-anslutning till datorn, precis som du gjorde när vi testade den. Kom ihåg att du måste kunna ange administratörsnamnet (”**aldis**”).
 
-1. In the presented shell, execute the following command to install the `nginx` web server.
+1. I gränssnittet som visas kör du följande kommando för att installera `nginx`-webbservern.
 
 ```azurecli
 sudo apt-get -y update && sudo apt-get -y install nginx
 ```
 
-1. In Azure Cloud Shell, use `curl` to read the default page from your Linux web server. Alternatively, you can open a new browser tab and browse to the public IP address.
+1. I Azure Cloud Shell använder du `curl` till att läsa standardsidan från din Linux-webbserver. Du kan också öppna en ny webbläsarflik och bläddra till den offentliga IP-adressen.
 
 ```azurecli
 curl 168.61.54.62
 ```
 
-It will fail because the Linux virtual machine doesn't expose port 80 (`http`) through the built-in firewall. Luckily, the Azure CLI has a command for that: `vm open-port`. 
+Detta kommer att misslyckas eftersom den virtuella Linux-datorn inte visar port 80 (`http`) genom den inbyggda brandväggen. Som tur är har Azure CLI ett kommando för detta: `vm open-port`. 
 
-1. Type the following into Cloud Shell to open port 80:
+1. Skriv följande i Cloud Shell för att öppna port 80:
 
 ```
 az vm open-port --port 80 --resource-group ExerciseResources --name SampleVM
 ```
 
-Finally, try `curl` again. This time it should return data. You can see the page in a browser as well.
+Försök slutligen med `curl` igen. Den här gången bör den returnera data. Du kan se sidan i en webbläsare också.

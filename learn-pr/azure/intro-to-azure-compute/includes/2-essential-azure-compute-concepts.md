@@ -22,6 +22,10 @@ Att välja avbildning är ett av de viktigaste besluten när du skapar en virtue
 
 Containrar är en virtualiseringsmiljö, men till skillnad från virtuella datorer har de inget operativsystem. I stället refererar de till operativsystemet i den värdmiljö som kör containern. Om fem containrar till exempel körs på en server med en specifik Linux-kernel så körs alla fem containrar på samma kernel. 
 
+Här är ett diagram som jämför program som körs direkt på en virtuell dator jämfört med att köras som containrar.
+
+![Jämföra appar som körs direkt på en virtuell dator jämfört med containrar](../images/vm-versus-containers.png)
+
 Containrar innehåller normalt ett program som du skriver och som innehåller de bibliotek som krävs för att programmet ska kunna köras på värdmiljöns kernel. 
 
 Containrar är menade att vara enkla och utformade för att kunna skapas, skalas ut och stoppas dynamiskt när miljön och behoven ändras.
@@ -34,8 +38,11 @@ Azure har stöd för Docker-containrar och flera olika sätt att hantera dessa c
 
 Serverfri databehandling är en molnbaserad körningsmiljö som kör din kod men där den underliggande värdmiljön är helt abstrakt. Du skapar en instans av tjänsten och lägger till din kod, men du behöver inte, och kan inte, konfigurera eller underhålla någon infrastruktur.
 
-Du konfigurerar dina serverfria appar för att svara på händelser. Det kan gälla en REST-slutpunkt, en timer eller ett meddelande som tas emot från en annan Azure-tjänst. Den serverfria appen körs bara när den utlöses av en händelse. 
+Du konfigurerar dina serverfria appar för att svara på _händelser_. Det kan gälla en REST-slutpunkt, en periodisk timer eller till och med ett meddelande som tas emot från en annan Azure-tjänst. Den serverfria appen körs bara när den utlöses av en händelse.
 
 Du ansvarar inte för infrastrukturen. Skalning och prestanda hanteras automatiskt och du debiteras endast för de resurser du använder. Du behöver inte ens reservera kapacitet.
 
-Azure har två implementeringar av serverfri databehandling: **Azure Functions** som kan köra kod på nästan alla moderna språk, och **Azure Logic Apps** där du kan köra logik som utlöses av Azure-tjänster utan att du behöver skriva någon kod.
+Azure har två implementeringar av beräkning utan server: 
+
+1. **Azure Functions** som kan köra kod på nästan alla moderna språk
+2. **Azure Logic Apps** som är utformade i en webbaserad designer och kan köra logik som utlöses av Azure-tjänster utan att behöva skriva någon kod.

@@ -96,7 +96,7 @@ async Task SendLocation()
 
 2. Ange appen UWP som startapp och kör den. Klicka på knappen **Send Location**. Du ser utdata från funktionen som anropas i konsolfönstret för Functions och loggar med den genererade webbadressen.
 
-    ![Utdata från funktionen som anropas](../media/6-function-called.png)
+    ![Utdata från funktionen som anropas](../media-drafts/6-function-called.png)
 
 3. Du kan testa adressgenereringen genom att klistra in adressen från konsolen i en webbläsare. Du bör se din aktuella plats.
 

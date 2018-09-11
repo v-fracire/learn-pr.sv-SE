@@ -1,25 +1,25 @@
-Virtual machines must be sized appropriately for the expected work. A VM without the correct amount of memory or CPU will fail under load or run too slowly to be effective. 
+Virtuella datorer måste ha lämplig storlek för förväntat arbete. En virtuell dator utan rätt mängd minne eller CPU misslyckas under belastning, eller körs för långsamt för att vara effektiv. 
 
-When you create a virtual machine, you can supply a _VM size_ value that will determine the amount of compute resources that will be devoted to the VM. This includes CPU, GPU, and memory that are made available to the virtual machine from Azure.
+När du skapar en virtuell dator kan du ange ett _VM-storleksvärde_ som bestämmer mängden beräkningsresurser som kommer att ägnas åt den virtuella datorn. Det inbegriper processor, GPU och minne som är gjorda tillgängliga för den virtuella datorn från Azure.
 
-Azure defines a set of [pre-defined VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) for Linux and Windows to choose from based on the expected usage. 
+Azure definierar en uppsättning [fördefinierade VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) för Linux och Windows du kan välja bland, baserat på förväntad användning. 
 
-| Type | Sizes | Description |
+| Typ | Storlekar | Beskrivning |
 |------|-------|-------------|
-| General purpose   | Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7 | Balanced CPU-to-memory. Ideal for dev/test and small to medium applications and data solutions. |
-| Compute optimized | Fs, F | High CPU-to-memory. Good for medium-traffic applications, network appliances, and batch processes. |
-| Memory optimized  | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics. |
-| Storage optimized | Ls | High disk throughput and IO. Ideal for big data, SQL, and NoSQL databases. |
-| GPU optimized | NV, NC | Specialized VMs targeted for heavy graphic rendering and video editing. |
-| High performance | H, A8-11 | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). | 
+| Generellt syfte   | Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7 | Balanserat förhållande mellan processor och minne. Perfekt för utveckling/test samt små till medelstora lösningar för program och data. |
+| Beräkningsoptimerad | Fs, F | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser. |
+| Minnesoptimerad  | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser. |
+| Lagringsoptimerad | Ls | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser. |
+| GPU-optimerad | NV, NC | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering. |
+| Höga prestanda | H, A8-11 | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). | 
 
-The available sizes change based on the region you're creating the VM in. You can get a list of the available sizes using the `vm list-sizes` command. Try typing this into Azure Cloud Shell:
+Tillgängliga storlekar varierar beroende på vilken region du skapar den virtuella datorn i. Du kan hämta en lista över tillgängliga storlekar med kommandot `vm list-sizes`. Försök att skriva det här i Azure Cloud Shell:
 
 ```azurecli
 az vm list-sizes --location eastus --output table
 ```
 
-Here's an abbreviated response for `eastus`:
+Här är ett förkortat svar för `eastus`:
 
 ```
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
@@ -46,7 +46,7 @@ Here's an abbreviated response for `eastus`:
                 64       3891200  Standard_M128m                      128           1047552                16384000
 ```
 
-We didn't specify a size when we created our VM - so Azure selected a default general-purpose size for us of `Standard_DS1_v2`. However, we can specify the size as part of the `vm create` command using the `--size` parameter. For example, you could use the following command to create a 16-core virtual machine:
+Vi angav ingen storlek när vi skapade vår virtuella dator – så Azure valde en allmän standardstorlek på `Standard_DS1_v2`. Men vi kan ange storleken som en del av kommandot `vm create` med parametern `--size`. Du kan exempelvis använda följande kommando för att skapa en 16-kärnig virtuell dator:
 
 ```azurecli
 az vm create --resource-group ExerciseResources --name SampleVM \
@@ -55,21 +55,21 @@ az vm create --resource-group ExerciseResources --name SampleVM \
 ```
 
 > [!WARNING]
-> Your subscription tier [enforces limits](https://docs.microsoft.com/azure/azure-subscription-service-limits) on how many resources you can create, as well as the total size of those resources. For example, you are capped to **20 virtual CPUs** with the pay-as-you-go subscription, and only **4 vCPUs** for a free tier. The Azure CLI will let you know when you exceed this with a **Quota Exceeded** error. If you hit this error when creating your architecture, you can request to raise the limits associated with your paid subscription (up to 10,000 vCPUs!) through a [free online request](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors). 
+> Din prenumerationsnivå [tillämpar begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits) på hur många resurser du kan skapa, samt den totala storleken på de resurserna. Du begränsas exempelvis till **20 virtuella processorer** med betala per användning-prenumerationen och bara **4 virtuella processorer** för en kostnadsfri nivå. Azure CLI meddelar dig när du överskrider detta med felmeddelandet **Kvoten har överskridits**. Om du stöter på det här felet när du skapar arkitekturen kan du begära att höja gränserna som är associerade med din betalda prenumeration (upp till 10 000 virtuella processorer!) via en [kostnadsfri onlinebegäran](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors). 
 
-## Resizing an existing VM
-We can also resize an existing VM if the workload changes, or if it was incorrectly sized at creation. Before a resize is requested, we must check to see if the desired size is available in the cluster our VM is part of. We can do this with the `vm list-vm-resize-options` command:
+## <a name="resizing-an-existing-vm"></a>Ändra storlek på en befintlig virtuell dator
+Vi kan även ändra storlek för en befintlig virtuell dator om arbetsbelastningen ändras, eller om det blev fel storlek när den skapades. Innan en storleksändring begärs måste vi kontrollera om den önskade storleken är tillgänglig i klustret som vår virtuella dator ingår i. Det kan vi göra med kommandot `vm list-vm-resize-options`:
 
 ```azurecli
 az vm list-vm-resize-options --resource-group ExerciseResources --name SampleVM --output table
 ```
 
-This will return a list of all the possible size configurations available in the resource group. If the size we want isn't available in our cluster, but _is_ available in the region, we can [deallocate the VM](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate). This command will stop the running VM and remove it from the current cluster without losing any resources. Then we can resize it, which will re-create the VM in a new cluster where the size configuration is available.
+Det returnerar en lista över alla möjliga storlekskonfigurationer i resursgruppen. Om storleken vi vill ha inte är tillgängliga i vårt kluster, men _är_ tillgängliga i regionen, kan vi [frigöra den virtuella datorn](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate). Det här kommandot stoppar den virtuella datorn som körs och tar bort den från det aktuella klustret utan att förlora några resurser. Därefter kan vi ändra storlek, vilket återskapar den virtuella datorn i ett nytt kluster där storlekskonfigurationen är tillgänglig.
 
-To resize a VM, we use the `vm resize` command. For example, let's reduce our current VM resources to the bare minimum: 2G of memory, 1 CPU core, and 4G of disk space. Type this command in Cloud Shell:
+När vi ska ändra storleken på en virtuella dator använder vi kommandot `vm resize`. Exempelvis kan vi minska våra aktuella VM-resurser till minimum: 2 G minne, 1 processorkärna och 4G med diskutrymme. Ange följande kommando i Cloud Shell:
 
 ```azurecli
 az vm resize --resource-group ExerciseResources --name SampleVM --size "Standard_B1ms"
 ```
 
-This command will take a few minutes to reduce the resources of the VM, and once it's done, it will return a new JSON configuration.
+Det tar några minuter för det här kommandot att minska den virtuella datorns resurser, och när det är gjort returneras en ny JSON-konfiguration.

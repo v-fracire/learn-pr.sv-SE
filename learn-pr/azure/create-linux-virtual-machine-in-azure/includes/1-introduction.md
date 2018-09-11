@@ -1,12 +1,12 @@
-You have been hired by a global auto racing company to modernize their entire monitoring and web platform. They have decided to replace existing Linux servers with a variety of cloud-based infrastructure that leverages the latest in architectural trends. Part of the system will run on the Azure serverless platform using Azure Functions to process real-time race data, pushing statistics, race data, and other relevant bits of analyzed information into clusters of databases. They want to keep their existing website, which was just rewritten last year, but have it connect into this modern data stream.
+Du har anställts av ett global bilracingföretag för att modernisera hela deras webbplattform. De har bestämt sig för att ersätta sina befintliga Linux-servrar med olika typer av molnbaserad infrastruktur som utnyttjar det senaste i arkitekturtrender. En del av systemet ska köras på Azures serverlösa plattform med Azure Functions för att bearbeta realtidsdata för racing, där statistik, racingdata och andra relevanta delar av analyserad information överförs till kluster av databaser. Företaget vill behålla sin befintliga webbplats, som skrevs om förra året, men ansluta den till den här moderna dataströmmen.
 
-The website is running on Apache with Linux, and since it's already up and running, you decide to move it directly into Azure by leveraging an Azure virtual machine. That will give it access to the data with a minimal amount of work on your part.
+Webbplatsen körs på Apache med Linux och eftersom den redan är igång bestämmer du dig för att flytta den direkt till Azure genom att använda en virtuell Azure-dator. Då får den åtkomst till data med en minimal mängd arbete från din sida.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Understand the options that are available for virtual machines in Azure.
-- Create a Linux virtual machine using the Azure portal.
-- Connect to a running Linux virtual machine using SSH.
-- Install software and change the network configuration on a VM using the Azure portal.
+- Förstå de tillgängliga alternativen för virtuella datorer i Azure.
+- Skapa en virtuell Linux-dator med Azure Portal.
+- Anslut en virtuell Linux-dator med SSH.
+- Installera programvara och ändra nätverkskonfigurationen på en virtuell dator med Azure Portal.

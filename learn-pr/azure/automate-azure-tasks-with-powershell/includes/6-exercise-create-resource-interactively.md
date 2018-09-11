@@ -29,6 +29,7 @@ Du håller de här virtuella datorerna åtskilda från företagets egna virtuell
     ```powershell
     Get-AzureRmResource | Format-Table
     ```
+
 Du kan också kontrollera att resursgruppen har skapats i Azure Portal. Det gör du genom att logga in på portalen och gå till avsnittet **Resursgrupper** (se nedan). Den nya resursgruppen ska visas i listan.
 
 I den här bilden ser du kategorin Resursgrupper i Azure-portalen.

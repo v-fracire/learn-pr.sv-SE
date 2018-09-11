@@ -1,37 +1,36 @@
-The first step in getting your new site ready is to prepare your development environment. Creating and deploying ASP.NET web applications requires that you have the necessary tools installed on your local machine. Here, we will cover the tools you need and how to install them.
+Det första steget för att komma igång med din nya webbplats är att förbereda utvecklingsmiljön. För att skapa och distribuera ASP.NET-webbprogram krävs det att du har de nödvändiga verktygen installerade på den lokala datorn. Här går vi igenom de verktyg du behöver och hur du installerar dem.
 
-## Prepare your development environment
+## <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
 
-Visual Studio 2017 has two workloads that you need to create, publish, and deploy your website to Azure. These workloads include all of the templates for your ASP.NET site and provide the ability to connect and deploy your site to Azure.
+Visual Studio 2017 har två arbetsbelastningar som du behöver för att skapa, publicera och distribuera din webbplats till Azure. De här arbetsbelastningarna innehåller alla mallar för din ASP.NET-webbplats och ger möjlighet att ansluta och distribuera din webbplats till Azure.
 
-You need to make sure you have the following workloads installed:
+Du behöver se till att du har följande arbetsbelastningar installerade:
 
-- ASP.NET and web development
+- ASP.NET och webbutveckling
 
-The web development workload in Visual Studio 2017 is designed to maximize your productivity in developing web applications using ASP.NET and standards-based technologies like HTML and JavaScript.
+Arbetsbelastningen för webbutveckling i Visual Studio 2017 är utformad för att maximera din produktivitet för utveckling av webbprogram med hjälp av ASP.NET och standardbaserade tekniker som HTML och JavaScript.
 
-- Azure development
+- Azure development (Azure-utveckling)
 
-The Azure development workload in Visual Studio 2017 installs the latest Azure SDK for .NET and tools for Visual Studio. Once these items are installed, you can view resources in Cloud Explorer, create resources using Azure Resource Manager tools, build applications for Azure web and Cloud Services, and perform big data operations using Azure Data Lake tools.
+Arbetsbelastningen Azure development (Azure-utveckling) i Visual Studio 2017 installerar den senaste Azure SDK:n för .NET och verktyg för Visual Studio. När de har installerats kan du visa resurser i Cloud Explorer, skapa resurser med hjälp av Azure Resource Manager-verktyg, skapa program för Azure Web och Cloud Services samt utföra åtgärder för stordata med hjälp av Azure Data Lake-verktyg.
 
-## How to install the required workloads
+## <a name="how-to-install-the-required-workloads"></a>Så installerar du de nödvändiga arbetsbelastningarna
 
-You will use the Visual Studio Installer to modify the components installed as part of Visual Studio.
+Du kommer att använda installationsprogrammet för Visual Studio för att ändra de komponenter som installerats som en del av Visual Studio.
 
-- To launch the Installer, from your Windows Start menu, scroll down to **V**, and then click **Visual Studio Installer**. Alternatively, while the Start menu is open, you can just type ```Visual Studio Installer``` to find the Installer link. Then select **Enter.**
+- Starta installationsprogrammet från Start-menyn i Windows genom att rulla ned till **V** och sedan klicka på **Visual Studio Installer** (installationsprogrammet). Alternativt kan du skriva ```Visual Studio Installer``` medan Start-menyn är öppen för att få fram länken till installationsprogrammet. Tryck sedan på **Retur**.
 
-- The Visual Studio Installer window appears. Click the **Modify** button. If that is not visible, you can select **Modify** under the **More** drop-down menu.
+- Fönstret för Visual Studio-installationsprogrammet visas. Klicka på knappen **Ändra**. Om den inte syns väljer du **Ändra** under listrutan **Mer**.
 
-    ![Modify Visual Studio](../media-draft/3-visual-studio-installer-modify.PNG)
+    ![Ändra Visual Studio](../media-draft/3-visual-studio-installer-modify.PNG)
 
-- Ensure the **ASP.NET and web development** and **Azure development** workloads are selected under the **Web & Cloud** section of the **Workloads** tab.
-    ![Install Workloads](../media-draft/2-select-workloads.png)
+- Se till att arbetsbelastningarna **ASP.NET and web development** (ASP.NET och webbutveckling) och **Azure development** (Azure-utveckling) är markerade under avsnittet **Web & Cloud** (Webb och moln) på fliken **Workloads** (Arbetsbelastningar).   ![Installera arbetsbelastningar](../media-draft/2-select-workloads.png)
 
-Next, click the **Modify** button on the bottom right of the Installer. The Visual Studio Installer will download and install the necessary components. You are now ready to create an ASP.NET web app and upload it to Microsoft Azure.
+Klicka sedan på knappen **Ändra** längst ned till höger i installationsprogrammet. Visual Studio-installationsprogrammet laddar ned och installerar de nödvändiga komponenterna. Du är nu redo att skapa en ASP.NET-webbapp och ladda upp den till Microsoft Azure.
 
 > [!IMPORTANT]
-> Visual Studio for Mac _should_ have the necessary workloads preinstalled. If you need to reinstall, you will have to download [Visual Studio for Mac](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio-mac/?sku=communitymac&rel=15_), which will run the Installer. From there, you will be able to choose the workloads you want to add.
+> Visual Studio för Mac _bör_ ha de nödvändiga arbetsbelastningarna förinstallerade. Om du måste installera om dem behöver du ladda ned [Visual Studio för Mac](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio-mac/?sku=communitymac&rel=15_), vilket kör installationsprogrammet. Därifrån kan du välja de arbetsbelastningar som du vill lägga till.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-You can create, manage, and publish an ASP.NET website from Visual Studio 2017 with the **ASP.NET and web development** and **Azure development** workloads.
+Du kan skapa, hantera och publicera en ASP.NET-webbplats från Visual Studio 2017 med arbetsbelastningarna **ASP.NET and web development** och **Azure development**

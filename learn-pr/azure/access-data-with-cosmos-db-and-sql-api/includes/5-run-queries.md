@@ -1,16 +1,16 @@
-Now that you've learned about what kinds of queries you can create, let's use the Data Explorer in the Azure portal to retrieve and filter your product data.
+Nu när du har lärt dig om vilka typer av frågor du kan skapa ska vi använda Datautforskaren i Azure Portal för att hämta och filtrera dina produktdata.
 
-In your Data Explorer window, note that by default, the query on the **Document** tab is set to `SELECT * FROM c`. This default query retrieves and displays all documents in the collection.
+Observera i fönstret för Datautforskaren att frågan på fliken **Dokument** som standard är inställd på `SELECT * FROM c`. Den här standardfrågan hämtar och visar alla dokument i samlingen.
 
-![Default query in Data Explorer is SELECT * FROM c](../media/5-azure-cosmosdb-data-explorer-query.png)
+![Standardfrågan i Datautforskaren är SELECT * FROM c](../media-draft/5-azure-cosmosdb-data-explorer-query.png)
 
-## Create a new query
+## <a name="create-a-new-query"></a>Skapa en ny fråga
 
-1. In Data Explorer, click the **New SQL Query** tab. Note that the default query on the new  **Query 1** tab is `SELECT * from c`, and then click **Execute Query**. This query returns all results in the database.
+1. I Datautforskaren klickar du på fliken **Ny SQL-fråga**. Observera att standardfrågan på den nya fliken **Fråga 1** är `SELECT * from c`, och klicka sedan på **Kör fråga**. Frågan returnerar alla resultat i databasen.
 
-    ![Change the default query by adding ORDER BY c._ts DESC and clicking Apply Filter](../media/5-azure-cosmosdb-data-explorer-edit-query.png)
+    ![Ändra standardfrågan genom att lägga till ORDER BY c._ts DESC och klicka på Tillämpa filter](../media-draft/5-azure-cosmosdb-data-explorer-edit-query.png)
 
-2. Now, let's run some of the queries discussed in the previous unit. On the query tab, delete `SELECT * from c`, copy and paste the following query, and then click **Execute Query**:
+2. Nu ska vi köra några av frågorna som diskuterades i föregående kursdel. Ta bort `SELECT * from c` på frågefliken, kopiera och klistra in följande fråga och klicka sedan på **Kör fråga**:
 
     ```
     SELECT *
@@ -18,11 +18,11 @@ In your Data Explorer window, note that by default, the query on the **Document*
     WHERE p.id ="1"
     ```
 
-    The results return the product whose `productId` is 1.
+    Resultaten returnerar produkten vars `productId` är 1.
 
-    ![Change the default query by adding ORDER BY c._ts DESC and clicking Apply Filter](../media/5-azure-cosmosdb-data-explorer-query-by-id.png)
+    ![Ändra standardfrågan genom att lägga till ORDER BY c._ts DESC och klicka på Tillämpa filter](../media-draft/5-azure-cosmosdb-data-explorer-query-by-id.png)
 
-3. Delete the previous query, copy and paste the following query, and click **Execute Query**. This query returns the price, description, and product ID for all products, ordered by price, in ascending order.
+3. Ta bort den föregående frågan, kopiera och klistra in följande fråga, och klicka på **Kör fråga**. Den här frågan returnerar pris, beskrivning och produkt-ID för alla produkter, ordnade efter pris i stigande ordning.
  
     ```
     SELECT p.price, p.description, p.productId
@@ -30,6 +30,6 @@ In your Data Explorer window, note that by default, the query on the **Document*
     ORDER BY p.price ASC
     ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-You have now completed some basic queries on your data in Azure Cosmos DB. 
+Nu har du slutfört några grundläggande frågor på dina data i Azure Cosmos DB. 

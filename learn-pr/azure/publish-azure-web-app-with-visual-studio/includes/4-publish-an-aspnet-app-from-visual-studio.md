@@ -1,93 +1,93 @@
-You created a site and you want to deploy it to Azure. Now we need to consider which Azure services to leverage to best support our needs. Web Apps provides a highly scalable, self-patching web hosting service for your applications.
+Du har skapat en webbplats och vill distribuera den till Azure. Nu behöver vi överväga vilka Azure-tjänster som bäst passar våra behov. Med Web Apps får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst för dina program.
 
-Here, we look at how to use Visual Studio to publish your ASP.NET Core web application to an Azure App Service plan.
+Här tittar vi på hur du använder Visual Studio för att publicera ditt ASP.NET Core-webbprogram till en Azure App Service-plan.
 
-## Azure subscription
+## <a name="azure-subscription"></a>Azure-prenumeration
 
-To publish to Azure, you need to have an Azure subscription. You can use an [Azure Free Subscription](https://azure.microsoft.com/free/) for testing the Azure App Service features.
+Du behöver en Azure-prenumeration för att publicera till Azure. Du kan använda en [kostnadsfri Azure-prenumeration](https://azure.microsoft.com/free/) om du vill testa Azure App Service-funktionerna.
 
-## What is Web Apps?
+## <a name="what-is-web-apps"></a>Vad är Web Apps?
 
-The Web Apps feature of Azure App Service is a service for hosting web applications, REST APIs, and mobile backends. Web Apps host code is written in a variety of languages, such as .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Web Apps is ideal for most websites, particularly if you don't need a lot of control over the hosting infrastructure.
+Funktionen Web Apps i Azure App Service är en tjänst som kan användas som värd för webbprogram, REST API:er och mobila serverdelar. Web Apps är värd för kod som är skrivet i många olika språk, till exempel .NET, .NET Core, Java, Ruby, Node.js, PHP och Python. Web Apps är utmärkt för de flesta webbplatser, särskilt om du inte behöver stor kontroll över den värdbaserade infrastrukturen.
 
-## What is the App Service plan?
+## <a name="what-is-the-app-service-plan"></a>Vad är App Service-planen?
 
-The App Service plan defines the compute resources your app will consume, where those resources are located, how many additional resources the plan can consume, and the type of service plan in use. These compute resources are analogous to the server farm in conventional web hosting. One or more apps can be configured to run on the same App Service plan.
+App Service-planen definierar de beräkningsresurser som din app kommer att använda, var de resurserna finns, hur många ytterligare resurser som planen kan använda samt typen av serviceplan som används. Dessa beräkningsresurser motsvarar servergruppen i konventionella webbvärdtjänster. En eller flera appar kan konfigureras för att köras på samma App Service-plan.
 
-When you deploy your apps, you can create a new App Service plan or you can continue to add apps to an existing plan.  However, apps in the same App Service plan all share the same compute resources. To determine whether the new app has the necessary resources, you need to understand the capacity of the existing App Service plan, and the expected load for the new app. Overloading an App Service plan can potentially cause downtime for your new and existing apps.
+När du distribuerar apparna kan du skapa en ny App Service-plan, eller så kan du fortsätta att lägga till appar i en befintlig plan.  Men alla appar i samma App Service-plan delar samma beräkningsresurser. För att avgöra om den nya appen har de resurser som krävs måste du känna till kapaciteten för den befintliga App Service-planen och den förväntade belastningen för den nya appen. Om en App Service-plan överbelastas kan det eventuellt medföra stilleståndstid för dina nya och befintliga appar.
 
-You can define an App Service plan in advance in the Azure portal with PowerShell or the Azure CLI, or set one up as you publish your application in Visual Studio.
+Du kan definiera en App Service-plan i förväg i Azure-portalen med PowerShell eller Azure CLI, eller konfigurera en när du publicerar ditt program i Visual Studio.
 
-Each App Service plan defines:
+Varje App Service-plan definierar:
 
-- Region (West US, East US, and so on)
-- Number of VM instances
-- Size of VM instances (small, medium, large)
-- Pricing tier (Free, Shared, Basic, Standard, Premium, Premium V2, Isolated, Consumption)
+- Region (USA, västra, USA, östra och så vidare)
+- Antal VM-instanser
+- Storleken på VM-instanser (liten, medel, stor)
+- Prisnivå (Kostnadsfri, Delad, Basic, Standard, Premium, Premium V2, Isolerad, Förbrukning)
 
-## Specify the region
+## <a name="specify-the-region"></a>Ange regionen
 
-When creating an App Service plan, you have to define a region or location where that plan will be hosted. Typically, you would choose a region geographically close to your expected customers.
+När du skapar en App Service-plan måste du definiera en region eller en plats där planen kommer att finnas. Vanligtvis väljer du en region som är geografiskt nära dina förväntade kunder.
 
-## What are the pricing and reliability levels?
+## <a name="what-are-the-pricing-and-reliability-levels"></a>Vilka är pris- och tillförlitlighetsnivåerna?
 
-A key factor when deploying apps to Azure App Service is choosing the right service plan. Your App Service plan can be scaled up and down at any time. You can choose a lower pricing tier at first and scale up later when you need more App Service features.
+En viktig faktor när du distribuerar appar till Azure App Service är att välja rätt serviceplan. App Service-planen kan skalas upp eller ned när som helst. Du kan välja en lägre prisnivå först och skala upp senare när du behöver fler App Service-funktioner.
 
-There are a few categories of pricing tiers:
+Det finns ett antal kategorier för prisnivåer:
 
-**Shared compute**: **Free** and **Shared**, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out.
+**Delad beräkning**: **Kostnadsfri** och **Delad**, de två grundläggande nivåerna, kör en app på samma virtuella Azure-dator som andra App Service-appar, inklusive appar för andra kunder. Dessa nivåer allokerar CPU-kvoter till varje app som körs på de delade resurserna, och de resurserna kan inte skala ut.
 
-Free and Shared plans are best for small-scale personal projects with very limited traffic demands, with a set limit of 165 MB of outbound data every 24 hours.
+Planerna Kostnadsfri och Delad passar bäst för små personliga projekt med mycket begränsade trafikkrav. De har en fastställd gräns på 165 MB utgående data var 24:e timme.
 
-**Dedicated compute**: The **Basic, Standard, Premium, and Premium V2** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances are available to you for scale out.
+**Dedikerad beräkning**: Nivåerna **Basic, Standard, Premium och Premium V2** kör appar på dedikerade virtuella Azure-datorer. Det är bara appar i samma App Service-plan som delar samma beräkningsresurser. Ju högre nivå, desto fler VM-instanser blir tillgängliga som du kan skala ut.
 
-The Standard service plan is best suited for live production workloads, where you are publishing commercial applications to customers.
-The Premium service plans support high-capacity web apps where you do not want the additional costs of a dedicated (isolated) plan.
+Serviceplanen Standard är bäst lämpad för arbetsbelastningar som är liveproduktioner, då du publicerar kommersiella program till kunder.
+Premium-serviceplanerna har stöd för webbappar med hög kapacitet då du vill undvika de ytterligare kostnaderna för en dedikerad (isolerad) plan.
 
-**Isolated**: This tier runs dedicated Azure VMs on dedicated Azure virtual networks, which provide network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities. You would only select an Isolated service plan when you have a specific requirement for the highest levels of security and performance.
+**Isolerad**: Den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk, vilket utöver beräkningsisolering även ger nätverksisolering för dina appar. Den ger maximalt med utskalningsfunktioner. Du väljer bara serviceplanen Isolerad om du har specifika krav på högsta möjliga säkerhet och prestanda.
 
-Isolate your app into a new App Service plan when:
+Isolera din app till en ny App Service-plan när:
 
-- The app is resource-intensive
-- You want to scale the app independently from the other apps in the existing plan
-- The app needs resources in a different geographical region
+- Appen är resurskrävande
+- Du vill skala appen oberoende av de andra apparna i den befintliga planen
+- Appen behöver resurser i en annan geografisk region
 
-**Consumption**: This tier is only available to function apps. It scales the functions dynamically depending on workload. For more information, see the Azure Functions hosting plans comparison.
+**Förbrukning**: den här nivån är endast tillgänglig för funktionsappar. Den skalar funktionerna dynamiskt beroende på arbetsbelastningen. Mer information finns i jämförelsen av Azure Functions-värdplaner.
 
-## Specify the resource group
+## <a name="specify-the-resource-group"></a>Ange resursgruppen
 
-As with most Azure resources, you will need to specify the resource group you want to use. You can use an existing resource group or create a new one directly from Visual Studio. A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. It is a useful mechanism for keeping associated resources together.
+Som med de flesta Azure-resurser behöver du ange den resursgrupp som du vill använda. Du kan använda en befintlig resursgrupp eller skapa en ny direkt från Visual Studio. En resursgrupp är en logisk container som Azure-resurser (t.ex. webbappar, databaser och lagringskonton) distribueras och hanteras i. Det är en användbar mekanism för att hålla associerade resurser tillsammans.
 
-## Deploy your web app from Visual Studio
+## <a name="deploy-your-web-app-from-visual-studio"></a>Distribuera webbappen från Visual Studio
 
-It's a short process to publish your app to Azure from Visual Studio.
+Processen för att publicera appen till Azure från Visual Studio är kort.
 
-### Select the project
+### <a name="select-the-project"></a>Välj projektet
 
-1. Right-click the project in Solution Explorer.
+1. Högerklicka på projektet i Solution Explorer.
 
-1. Select **Publish > Publish to Azure**.
+1. Välj **Publicera > Publicera till Azure**.
 
-### Configure the App Service plan in Windows
+### <a name="configure-the-app-service-plan-in-windows"></a>Konfigurera App Service-planen i Windows
 
-1. Configure the App Service plan
+1. Konfigurera App Service-planen
 
-    - Hosting: You will configure your App Service plan in this tab. It specifies the location, size, and features of the web server that hosts your app. You can select an existing hosting plan or create a new one. Windows will automatically generate globally unique names which you can change during setup.
-    - Services: You can configure a SQL database for your site here.
+    - Värd: du konfigurerar App Service-planen på den här fliken. Den anger plats, storlek och funktioner för den webbserver som är värd för din app. Du kan välja en befintlig värdplan eller skapa en ny. Windows genererar automatiskt globalt unika namn som du kan ändra under konfigurationen.
+    - Tjänster: du kan konfigurera en SQL-databas för webbplatsen här.
 
         > [!NOTE]
-        > Although you can connect and manage a SQL database in Azure from Visual Studio, that is beyond the scope of this module.
+        > Du kan ansluta och hantera en SQL-databas i Azure från Visual Studio, men det ligger utanför omfånget för den här modulen.
 
-1. Click **Create** to deploy the app. Once this is done, Visual Studio will launch the web page where your site is hosted.
+1. Klicka på **Skapa**, så distribueras appen. När det är klart startar Visual Studio den webbsida som är värd för din webbplats.
 
-### Configure the App Service plan for Mac
+### <a name="configure-the-app-service-plan-for-mac"></a>Konfigurera App Service-planen för Mac
 
-1. You can select an existing App Service plan if you have one set up in Azure, or you can create a new one.
+1. Du kan välja en befintlig App Service-plan om du har en som är färdigt konfigurerad i Azure, eller skapa en ny.
 
-1. Configure your  App Service plan in this tab. It specifies the location, size, and features of the web server that hosts your app. You can select an existing hosting plan or create a new one. Remember that Azure requires the name of your website and all resources to be globally unique.
+1. Konfigurera App Service-planen på den här fliken. Den anger plats, storlek och funktioner för den webbserver som är värd för din app. Du kan välja en befintlig värdplan eller skapa en ny. Kom ihåg att Azure kräver att namnen på din webbplats och alla resurser är globalt unika.
 
-1. Click **Create** to deploy the app. Once this is done, Visual Studio will launch the web page where your site is hosted.
+1. Klicka på **Skapa**, så distribueras appen. När det är klart startar Visual Studio den webbsida som är värd för din webbplats.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-ASP.NET Core web applications and Azure App Services provide a flexible, scalable solution for hosting your ASP.NET web app. As with all Azure services, you will need to provide a resource group and select the pricing tier which best fulfills your needs.
+ASP.NET Core-webbprogram och Azure App Services ger en flexibel och skalbar lösning som värd för din ASP.NET-webbapp. Som med alla Azure-tjänster behöver du ange en resursgrupp och välja den prisnivå som bäst uppfyller dina behov.

@@ -81,14 +81,14 @@ namespace KeyVaultDemoApp
 }
 ```
 
-> [!NOTE]
+> [!TIP]
 > Spara filerna med `Ctrl+S` när du är klar med redigeringen.
 
 Den enda ändringen i startkoden är att vi lägger till `ConfigureAppConfiguration`. Nu läser vi in valvnamnet från konfigurationen och anropar `AddAzureKeyVault` med den.
 
 Därefter kommer vi till kontrollanten: Skapa en ny fil i mappen `Controllers` med namnet `SecretTestController.cs` och klistra in följande kod i den.
 
-> [!NOTE]
+> [!TIP]
 > Du kan skapa en ny fil med kommandot `touch` i gränssnittet. I det här fallet använder du `touch Controllers/SecretTestController.cs`. Du måste klicka på knappen Uppdatera i rutan Filer i redigeringsprogrammet för att se det.
 
 ```csharp

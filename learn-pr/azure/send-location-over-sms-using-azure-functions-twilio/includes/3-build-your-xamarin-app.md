@@ -1,32 +1,32 @@
-At this point, the mobile app is a simple "Hello World" app. In this unit, you add the UI and some basic application logic.
+Mobilappen är nu en enkel ”Hello World”-app. Här kommer du att lägga till ett användargränssnitt och lite grundläggande programlogik.
 
-The UI for the app will consist of:
+Appens användargränssnittet kommer att bestå av följande:
 
-- A text-entry control to enter some phone numbers.
-- A button to send your location to those numbers using an Azure function.
-- A label that will show a message to the user of the current status, such as the location being sent and location sent successfully.
+- en textinmatningskontroll där du skriver in telefonnummer
+- en knapp för att skicka din plats till numren via en Azure-funktion
+- en etikett som visar aktuell status för användaren, som att platsen skickas eller att sändningen är färdig.
 
-Xamarin.Forms supports a design pattern called Model-View-ViewModel (MVVM). You can read more about MVVM in the [Xamarin MVVM docs](https://docs.microsoft.com/xamarin/xamarin-forms/enterprise-application-patterns/mvvm), but the essence of it is, each page (View) has a ViewModel that exposes properties and behavior.
+Xamarin.Forms har stöd för ett designmönster som kallas Model-View-ViewModel (MVVM). Du kan läsa mer om MVVM i [dokumentationen om Xamarin MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/enterprise-application-patterns/mvvm), men i grunden går den ut på att varje sida (View) har en ViewModel som exponerar egenskaper och beteende.
 
-ViewModel properties are 'bound' to components on the UI by name, and this binding synchronizes data between the View and ViewModel. For example, a `string` property on a ViewModel called `Name` could be bound to the `Text` property of a text-entry control on the UI. The text-entry control shows the value in the `Name` property and, when the user changes the text in the UI, the `Name` property is updated. If the value of the `Name` property is changed in the ViewModel, an event is raised to tell the UI to update.
+ViewModel-egenskaperna är ”kopplade” till komponenter i användargränssnittet via namnen, och den här bindningen synkroniserar data mellan View och ViewModel. Egenskapen `string` för en ViewModel med namn `Name` kan till exempel vara bunden till egenskapen `Text` för ett textinmatningsfält i användargränssnittet. Värdet för egenskapen `Name` visas i textinmatningskontrollen, och när användaren ändrar texten i gränssnittet uppdateras egenskapen `Name`. Om värdet för egenskapen `Name` ändras i ViewModel-objektet genereras en händelse som informerar användargränssnittet om uppdateringen.
 
-ViewModel behavior is exposed as command properties, a command being an object that wraps an action that is executed when the command is invoked. These commands are bound by name to controls like buttons, and tapping a button will invoke the command.
+ViewModel-beteendet exponeras i form av kommandoegenskaper, där ett kommando är ett objekt som omsluter en åtgärd som körs när kommandot anropas. Dessa kommandon är bundna via namn till kontroller som knappar, och när du trycker på knappen så anropas kommandot.
 
-## Create a base ViewModel
+## <a name="create-a-base-viewmodel"></a>Skapa en grundläggande ViewModel
 
-ViewModels all implement the `INotifyPropertyChanged` interface. This interface has a single event, `PropertyChanged`, which is used to notify the UI of any updates. This event has event args that contain the name of the property that has changed. It's common practice to create a base ViewModel class implementing this interface and providing some helper methods.
+ViewModel-objekt implementerar gränssnittet `INotifyPropertyChanged`. Det här gränssnittet har en enda händelse, `PropertyChanged`, som används till att informera användargränssnittet om uppdateringar. Den här händelsen har händelseargument som innehåller namnet på den egenskap som ändrats. Det är vanligt att skapa en ViewModel-basklass som implementerar det här gränssnittet och tillhandahåller några hjälpmetoder.
 
-1. Create a new class in the `ImHere` .NET standard project called `BaseViewModel` by right-clicking on the project, and then selecting *Add->Class...*. Name the new class "BaseViewModel" and click **Add**.
+1. Skapa en ny klass i .NET-standardprojektet `ImHere` med namnet `BaseViewModel` genom att högerklicka på projektet och sedan välja *Lägg till -> Klass*. Ge den nya klassen namnet ”BaseViewModel” och klicka på **Lägg till**.
 
-1. Make the class `public` and derive from `INotifyPropertyChanged`. You'll need to add a using directive for `System.ComponentModel`.
+1. Gör klassen `public` och härled från `INotifyPropertyChanged`. Du måste lägga till ett användningsdirektiv för `System.ComponentModel`.
 
-1. Implement the `INotifyPropertyChanged` interface by adding the `PropertyChanged` event:
+1. Implementera gränssnittet `INotifyPropertyChanged` genom att lägga till händelsen `PropertyChanged`:
 
     ```cs
     public event PropertyChangedEventHandler PropertyChanged;
     ```
 
-1. The common pattern for ViewModel properties is to have a public property with a private backing field. In the property setter, the backing field is checked against the new value. If the new value is different to the backing field, the backing field is updated and the `PropertyChanged` event is raised. This logic is easy to factor out into a method, so add the `Set` method. You'll need to add a using directive for the `System.Runtime.CompilerServices` namespace.
+1. Det vanliga mönstret för ViewModel-egenskaper är att ha en offentlig egenskap med ett privat stödfält. I set-metoden för egenskapen kontrolleras stödfältet mot det nya värdet. Om det nya värdet skiljer sig från stödfältet uppdateras stödfältet och händelsen `PropertyChanged` genereras. Den här logiken är enkel att lägga ut i en metod, så lägg till metoden `Set`. Du måste lägga till ett användningsdirektiv för namnområdet `System.Runtime.CompilerServices`.
 
     ```cs
     protected void Set<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
@@ -37,9 +37,9 @@ ViewModels all implement the `INotifyPropertyChanged` interface. This interface 
     }
     ```
 
-    This method takes a reference to the backing field, the new value, and the property name. If the field hasn't changed, the method returns, otherwise, the field is updated and the `PropertyChanged` event is raised. The `propertyName` parameter on the `Set` method is a default parameter and is marked with the `CallerMemberName` attribute. When this method is called from a property setter, this parameter is normally left as the default value. The compiler will then automatically set the parameter value to be the name of the calling property.
+    Den här metoden tar en referens till stödfältet, det nya värdet och egenskapsnamnet som indata. Om fältet inte har ändrats returnerar metoden, annars uppdateras fältet och händelsen `PropertyChanged` genereras. Parametern `propertyName` i metoden `Set` är en standardparameter och markeras med attributet `CallerMemberName`. När den här metoden anropas från set-metoden för en egenskap lämnas parametern normalt som standardvärde. Kompilatorn sätter då automatiskt värdet på parametern till den anropande egenskapens namn.
 
-The full code for this class is below.
+Nedan ser du klassens fullständiga kod.
 
 ```cs
 using System.ComponentModel;
@@ -61,15 +61,15 @@ namespace ImHere
 }
 ```
 
-## Create a ViewModel for the page
+## <a name="create-a-viewmodel-for-the-page"></a>Skapa en ViewModel för sidan
 
-The `MainPage` will have a text-entry control for phone numbers and a label to display a message. These controls will be bound to properties on a ViewModel.
+`MainPage` har en textinmatningskontroll för telefonnummer och en etikett för att visa ett meddelande. De här kontrollerna binds till egenskaper för en ViewModel.
 
-1. Create a class called `MainViewModel` in the `ImHere` .NET standard project.
+1. Skapa en klassen med namnet `MainViewModel` i .NET-standardprojektet `ImHere`.
 
-1. Make this class public and derive from `BaseViewModel`.
+1. Gör den här klassen public och härled från `BaseViewModel`.
 
-1. Add two `string` properties, `PhoneNumbers` and `Message`, each with a backing field. In the property setter, use the base class `Set` method to update the value and raise the `PropertyChanged` event.
+1. Lägg till två `string`-egenskaper, `PhoneNumbers` och `Message`, och låt dem ha var sitt stödfält. I set-metoden för egenskaperna använder du basklassens `Set`-metod till att uppdatera värdet och generera händelsen `PropertyChanged`.
 
    ```cs
     string message = "";
@@ -87,13 +87,13 @@ The `MainPage` will have a text-entry control for phone numbers and a label to d
     }
    ```
 
-1. Add a read-only command property called `SendLocationCommand`. This command will have a type of `ICommand` from the `System.Windows.Input` namespace.
+1. Lägg till en skrivskyddad kommandoegenskap med namnet `SendLocationCommand`. Det här kommandot har typen `ICommand` från namnområdet `System.Windows.Input`.
 
     ```cs
     public ICommand SendLocationCommand { get; }
     ```
 
-1. Add a constructor to the class, and in this constructor, initialize the `SendLocationCommand` as a new `Command` from the `Xamarin.Forms` namespace. The constructor for this command takes an `Action` to run when the command is invoked, so create an `async` method called `SendLocation` and pass a lambda function that `await`s this call to the constructor. The body of the `SendLocation` method will be implemented in later units in this module. You'll need to add a using directive for the `System.Threading.Tasks` namespace to be able to return a `Task`.
+1. Lägg till en konstruktor i klassen, och initiera `SendLocationCommand` som nytt `Command` från namnområdet `Xamarin.Forms` i konstruktorn. Konstruktorn för kommandot tar som indata en `Action` som ska köras när kommandot anropas, så skapa en `async`-metod med namnet `SendLocation` och skicka en lambdafunktion med `await`-kod för anropet till konstruktorn. Innehållet i metoden `SendLocation` implementeras i senare övningar i den här modulen. Du måste lägga till ett användningsdirektiv för namnområdet `System.Threading.Tasks` så att du kan returnera en `Task`.
 
     ```cs
     public MainViewModel()
@@ -106,7 +106,7 @@ The `MainPage` will have a text-entry control for phone numbers and a label to d
     }
     ```
 
-The code for this class is shown below.
+Nedan ser du klassens kod.
 
 ```cs
 using System.Threading.Tasks;
@@ -145,15 +145,15 @@ namespace ImHere
 }
 ```
 
-## Create the user interface
+## <a name="create-the-user-interface"></a>Skapa användargränssnittet
 
-Xamarin.Forms UIs can be built using XAML.
+Du kan skapa Xamarin.Forms-gränssnitt med XAML.
 
-1. Open the `MainPage.xaml` file from the `ImHere` project. The page will open in the XAML editor.
+1. Öppna filen `MainPage.xaml` från projektet `ImHere`. Sidan öppnas i XAML-redigeraren.
 
-    NOTE - The `ImHere.UWP` project also contains a file called `MainPage.xaml`. Make sure you're editing the one in the .NET standard library.
+    Obs! Projektet `ImHere.UWP` innehåller också en fil med namnet `MainPage.xaml`. Se till att du redigerar filen i .NET-standardbiblioteket.
 
-1. Before you can bind controls to properties on a ViewModel, you have to set an instance of the ViewModel as the binding context of the page. Add the following XAML inside the top-level `ContentPage`.
+1. Innan du kan binda kontroller till egenskaperna i en ViewModel måste du ange en ViewModel-instans bindningskontext för sidan. Lägg till följande XAML i `ContentPage` på översta nivån.
 
     ```xml
     <ContentPage.BindingContext>
@@ -161,14 +161,14 @@ Xamarin.Forms UIs can be built using XAML.
     </ContentPage.BindingContext>
     ```
 
-1. Delete the contents of the `StackLayout` and add some padding inside it to help make the UI look better.
+1. Ta bort innehållet i `StackLayout` och lägg till lite utfyllnad så att gränssnittet blir snyggare.
 
     ```xml
     <StackLayout Padding="20">
     </StackLayout>
     ```
 
-1. Add an `Editor` control that the user can use to add phone numbers to the `StackLayout`, with a `Label` above to describe what the entry control is for. `StackLayout`'s stack child controls either horizontally or vertically in the order in which the controls are added, so adding the `Label` first will put it above the `Editor`. `Editor` controls are multi-line entry controls, allowing the user to enter multiple phone numbers, one per line.
+1. Lägg till en `Editor`-kontroll där användaren kan lägga till telefonnummer i `StackLayout`, med en `Label` ovanför som beskriver vad kontrollen används till. Kontrollerna i `StackLayout` ordnas antingen vågrätt eller lodrätt i den ordning som kontrollerna läggs till, så om du lägger till `Label` först hamnar den ovanför `Editor`. `Editor`-kontroller har flera rader så att användaren kan ange flera telefonnummer, ett per rad.
 
     ```xml
     <StackLayout Padding="20">
@@ -177,25 +177,25 @@ Xamarin.Forms UIs can be built using XAML.
     </StackLayout>
     ```
 
-    The `Text` property on the `Editor` is bound to the `PhoneNumbers` property on the `MainViewModel`. The syntax for binding is to set the property value to `"{Binding <property name>}"`. The curly braces will tell the XAML compiler that this value is special and should be treated differently from a simple `string`.
+    Egenskapen `Text` för `Editor` är bunden till egenskapen `PhoneNumbers` för `MainViewModel`. Syntaxen för bindningen är att sätta egenskapsvärdet till `"{Binding <property name>}"`. Klamrarna anger för XAML-kompilatorn att det här värdet är speciellt och ska behandlas annorlunda än ett vanligt `string`-värde.
 
-1. Add a `Button` to send the user's location below the `Editor`.
+1. Lägg till en `Button` som skickar användarens plats under `Editor`-kontrollen.
 
     ```xml
     <Button Text="Send Location" BackgroundColor="Blue" TextColor="White"
             Command="{Binding SendLocationCommand}" />
     ```
 
-    The `Command` property is bound to the `SendLocationCommand` command on the ViewModel. When the button is tapped, the command will be executed.
+    Egenskapen `Command` är bunden till kommandot `SendLocationCommand` i ViewModel-objektet. När du trycker på knappen körs kommandot.
 
-1. Add a `Label` to show the status message below the `Button`.
+1. Lägg till en `Label` som visar statusmeddelanden under din `Button`.
 
     ```xml
     <Label Text="{Binding Message}"
            HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
     ```
 
-The full code for this page is below.
+Nedan ser du hela koden för sidan.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -217,10 +217,10 @@ The full code for this page is below.
 </ContentPage>
 ```
 
-Run the app to see the new UI. If you want to validate the bindings at this point, you can do so by adding breakpoints to the properties or the `SendLocation` method.
+Kör appen så att du ser det nya användargränssnittet. Om du vill kontrollera bindningarna kan du göra det genom att lägga till brytpunkter i egenskaperna eller i metoden `SendLocation`.
 
-![The new app UI](../media-drafts/3-new-ui.png)
+![Appens nya gränssnitt](../media-drafts/3-new-ui.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to create the UI for the app using XAML, along with a ViewModel to handle the applications logic. You also learned how to bind the ViewModel to the UI. In the next unit, you add location lookup to the ViewModel.
+Nu har du lärt dig hur du skapar ett användargränssnitt för appen med XAML, tillsammans med en ViewModel som hanterar appens logik. Du har också fått lära dig att binda ViewModel-objektet till gränssnittet. I nästa del kommer du att lägga till platssökning i din ViewModel.

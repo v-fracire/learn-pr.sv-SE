@@ -1,13 +1,16 @@
-Azure är en molnplattform som tillhandahåller de resurser för databehandling, lagring och nätverk som behövs när du ska skapa molnbaserade program. Som ny användare kommer du förmodligen primärt att interagera med Azure via Azure Portal. I Azure Portal kan du skapa och hantera alla dina Azure-resurser. Du kan till exempel konfigurera en ny databas, öka beräkningskraften i dina virtuella datorer och hålla koll på din månadskostnad. Den är också ett bra inlärningsverktyg eftersom du kan se alla tillgängliga resurser använda guider för att skapa de resurser du behöver.
+Azure är en molnplattform som tillhandahåller de resurser för databehandling, lagring och nätverk som behövs när du ska skapa molnbaserade program. Som ny användare kommer du förmodligen primärt att interagera med Azure via Azure Portal. I Azure Portal kan du skapa och hantera alla dina Azure-resurser. Du kan till exempel konfigurera en ny databas, öka beräkningskraften i dina virtuella datorer och hålla koll på din månadskostnad. Den är också ett bra inlärningsverktyg eftersom du kan se alla tillgängliga resurser och använda guider för att skapa de resurser du behöver.
 
-Du ska skapa ett kostnadsfritt Azure-konto, logga in på Azure Portal och navigera i webbgränssnittet. Avslutningsvis ska du att anpassa instrumentpanelen så att du enkelt kan hitta och övervaka dina viktigaste tjänster.
+Här får du lära dig att skapa ett Azure-konto, logga in på portalen och navigera i gränssnittet. Du kommer att anpassa instrumentpanelen så att du enkelt kan hitta och övervaka de viktigaste tjänsterna.
+
+Du kommer att skapa ett kostnadsfritt Azure-konto, logga in på Azure Portal och navigera i gränssnittet. Du kommer att anpassa instrumentpanelen så att du enkelt kan hitta och övervaka de viktigaste tjänsterna.
+
 
 ## <a name="learning-objectives"></a>Utbildningsmål
 I den här modulen kommer du att göra följande:
 
-- Skapa ett kostnadsfritt Azure-konto.
-- Lära dig att navigera på Azure Portal.
-- Lära dig hur du anpassar Azure-instrumentpanelen.
+- Skapa ett Azure-konto
+- Navigera på Azure Portal
+- Anpassa instrumentpanelen
 
 ## <a name="prerequisites"></a>Krav
 

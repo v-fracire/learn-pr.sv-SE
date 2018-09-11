@@ -4,11 +4,11 @@ title: Anpassa instrumentpanelen
 metadata:
   title: Anpassa instrumentpanelen
   description: Anpassa instrumentpanelen
-  ms.openlocfilehash: 46cdd61ce9e48c5b0bf9c7f191ef2958bf03da6e
-  ms.sourcegitcommit: d6a4ffb95924e4af3bd445aaf263f34253735861
+  ms.openlocfilehash: 77f072d1694caa37f8246b61110c636186907d17
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/02/2018
-  ms.locfileid: "43458834"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43792791"
 durationInMinutes: 10
 content: '[!include[](includes/9-exercise-customize-the-dashboard.md)]'

@@ -1,0 +1,26 @@
+### YamlMime:ModuleUnit
+uid: learn.sample-module-cloudshell.3-unit-knowledge-check-only
+metadata:
+  title: Exempeldel 3 – endast kunskapskontroll
+  description: Det här är ett exempel på en kursdel som bara innehåller en kunskapskontroll.
+  ms.date: 09/04/2018
+  ms.openlocfilehash: 5a112df167d8656605dda8110cc85b86a5fc3c46
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43730370"
+title: Exempeldel 3 – endast kunskapskontroll
+durationInMinutes: 11
+content: Innehåll är valfritt (ta bort innehållet om du inte behöver det här)
+quiz:
+  title: Testrubrik
+  questions:
+  - content: 'Vad den här markdown-filen handlar om:'
+    choices:
+    - content: Brainstorming om markdown-filformat för test.
+      correctExplanation: Anledningen till att det här svaret stämmer
+      incorrectExplanation: Anledningen till att det här svaret inte stämmer
+      isCorrect: true
+    - content: Brainstorming om markdown-filformat för test. Del 2
+      isCorrect: false

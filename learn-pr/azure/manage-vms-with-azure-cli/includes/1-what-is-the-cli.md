@@ -18,9 +18,10 @@ Azure CLI är Microsofts plattformsoberoende kommandoradsverktyg för att hanter
 Med Azure CLI kan du hantera Azure-resurser som virtuella datorer och diskar från kommandoraden eller i skript. Vi sätter igång och ser vad vi kan göra.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
-I den här modulen kommer du att:
 
-- Skapa en virtuell Azure-dator med CLI.
-- Ändra storlek på virtuella datorer med CLI.
-- Hantera och skicka fråga till en virtuell dator från kommandoraden.
-- Installera programvara på en virtuell dator.
+I den här modulen kommer du att göra följande:
+
+- Skapa en virtuell dator med Azure CLI
+- Ändra storlek på virtuella datorer med Azure CLI.
+- Utföra grundläggande hanteringsåtgärder med Azure CLI.
+- Ansluta till en aktiv virtuell dator med SSH och Azure CLI.

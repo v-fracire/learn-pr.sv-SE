@@ -1,31 +1,31 @@
-Now that a virtual machine has been created, we can get information about it through other commands.
+Nu när en virtuell dator har skapats kan vi få information om den med hjälp av andra kommandon.
 
-Let's start with `vm list`.
+Låt oss börja med `vm list`.
 
 ```azurecli
 az vm list
 ```
 
-This command will return _all_ virtual machines defined in this subscription. The output can be filtered to a specific resource group through the `--resource-group` parameter. 
+Det här kommandot returnerar _alla_ virtuella datorer som definierats i den här prenumerationen. Utdata kan filtreras till en specifik resursgrupp med hjälp av parametern `--resource-group`. 
 
-## Output types
-Notice that the default response type for all the commands we've done so far is JSON. This is great for scripting - but most people find it harder to read. You can change the output style for any response through the `--output` flag. For example, try the following command in Azure Cloud Shell to see the different output style.
+## <a name="output-types"></a>Utdatatyper
+Observera att standardsvarstypen för alla kommandon som vi har gått igenom hittills är JSON. Det passar bra för skript, men många tycker att det är svårare att läsa. Du kan ändra utdataformatet för svar med hjälp av flaggan `--output`. Prova till exempel följande kommando i Azure Cloud Shell för att se ett annat utdataformat.
 
 ```azurecli
 az vm list --output table
 ```
 
-Along with `table`, you can specify `json` (the default), `jsonc` (colorized JSON), or `tsv` (Table-Separated Values). Try a few variations with the above command to see the difference.
+Tillsammans med `table` kan du ange `json` (standard), `jsonc` (färglagd JSON) eller `tsv` (tabellavgränsade värden). Prova några varianter med kommandot ovan så ser du skillnaden.
 
-## Getting the IP address
+## <a name="getting-the-ip-address"></a>Hämta IP-adressen
 
-Another useful command is `vm list-ip-addresses`, which will list the public and private IP addresses for a VM. If they change, or you didn't capture them during creation, you can retrieve them at any time.
+Ett annat användbart kommando är `vm list-ip-addresses`, som visar en lista över de offentliga och privata IP-adresserna för en virtuell dator. Om de ändras, eller om du inte hämtade dem när de skapades, kan du hämta dem när som helst.
 
 ```azurecli
 az vm list-ip-addresses -n SampleVM -o table
 ```
 
-This returns:
+Detta returnerar:
 
 ```
 VirtualMachine    PublicIPAddresses    PrivateIPAddresses
@@ -34,23 +34,23 @@ SampleVM          168.61.54.62         10.0.0.4
 ```
 
 > [!TIP]
-> Notice that we are using a shorthand syntax for the `--output` flag as `-o`. Most parameters to Azure CLI commands can be shortened to a single dash and letter. For example, `--name` can be shortened to `-n` and `--resource-group` to `-g`. This is handy for typing, but we recommend using the full option name in scripts for clarity. Check the documentation for details on each command.
+> Observera att vi använder en förkortad syntax för `--output`-flaggan som `-o`. De flesta Azure CLI-kommandoparametrar kan förkortas till bara ett streck och en bokstav. `--name` kan exempelvis förkortas till `-n` och `--resource-group` till `-g`. Detta är praktiskt när du skriver, men vi rekommenderar att du använder det fullständiga alternativnamnet i skript för tydlighetens skull. Dokumentationen innehåller detaljerad information om varje kommando.
 
-## Getting VM details
+## <a name="getting-vm-details"></a>Hämta information om en virtuell dator
 
-We can get more detailed information about a specific virtual machine by name or ID using the `vm show` command.
+Vi kan få mer detaljerad information om en specifik virtuell dator baserat på namn eller ID med hjälp av kommandot `vm show`.
 
 ```azurecli
 az vm show --resource-group ExerciseResources --name SampleVM
 ```
 
-This will return a fairly large JSON block with all sorts of information about the VM, including attached storage devices, network interfaces, and all of the object IDs for resources that the VM is connected to. Again, we could change to a table format, but that omits almost all of the interesting data. Instead, we can turn to a built-in query language for JSON called [JMESPath](http://jmespath.org/).
+Detta returnerar ett ganska stort JSON-block med många olika typer av information om den virtuella datorn, inklusive anslutna lagringsenheter, nätverksgränssnitt och alla objekt-ID:n för resurser som den virtuella datorn är ansluten till. Även nu kan vi ändra till ett tabellformat, men om vi gör det utelämnas nästan alla intressanta data. I stället kan vi använda ett inbyggt frågespråk för JSON kallat [JMESPath](http://jmespath.org/).
 
-## Adding filters to queries with JMESPath
+## <a name="adding-filters-to-queries-with-jmespath"></a>Lägga till filter till frågor med JMESPath
 
-JMESPath is an industry-standard query language built around JSON objects. The simplest query is to specify an _identifier_ that selects a key in the JSON object.
+JMESPath är ett branschstandardiserat frågespråk som är uppbyggt kring JSON-objekt. Den enklaste frågan är att ange en _identifierare_ som väljer en nyckel i JSON-objektet.
 
-For example, given the object:
+Anta att vi till exempel har objektet:
 
 ```json
 {
@@ -71,7 +71,7 @@ For example, given the object:
 }
 ```
 
-We can use the query `people` to return the array of values for the `people` array. If we just want _one_ of the people, we can use an indexer. For example, `people[1]` would return:
+Vi kan använda frågan `people` för att returnera matrisen med värden för `people`-matrisen. Om vi bara är intresserade av _en_ av personerna kan vi använda en indexerare. `people[1]` returnerar exempelvis:
 
 ```json
 {
@@ -80,7 +80,7 @@ We can use the query `people` to return the array of values for the `people` arr
 }
 ```
 
-We can also add specific qualifiers that would return a subset of the objects based on some criteria. For example, adding the qualifier `people[?age > '25']` would return:
+Vi kan också lägga till specifika kvalificerare som returnerar en delmängd av objekten baserat på vissa kriterier. Till exempel returneras följande om kvalificeraren `people[?age > '25']` läggs till:
 
 ```json
 [
@@ -95,7 +95,7 @@ We can also add specific qualifiers that would return a subset of the objects ba
 ]
 ```
 
-Finally, we can constrain the results by adding a select: `people[?age > '25'].[name]` that returns just the names:
+Slutligen kan vi begränsa resultaten genom att lägga till en ”select”: `people[?age > '25'].[name]` som bara returnerar namnen:
 
 ```json
 [
@@ -108,34 +108,34 @@ Finally, we can constrain the results by adding a select: `people[?age > '25'].[
 ]
 ```
 
-JMESQuery has several other interesting query features. When you have time, check out the [online tutorial](http://jmespath.org/tutorial.html) available on the [JMESPath.org](http://jmespath.org/) site.
+JMESQuery har flera andra intressanta frågefunktioner. När du har tid rekommenderar vi att du går [onlinesjälvstudien](http://jmespath.org/tutorial.html) som är tillgänglig på webbplatsen [JMESPath.org](http://jmespath.org/).
 
-## Filtering our Azure CLI queries
+## <a name="filtering-our-azure-cli-queries"></a>Filtrera Azure CLI-frågorna
 
-With a basic understanding of JMES queries, we can add filers to the data being returned by queries like the `vm show` command. For example, we can retrieve the admin user name:
+När vi har en grundläggande förståelse för hur JMES-frågor fungerar kan vi lägga till filter till de data som returneras av frågor som till exempel `vm show`-kommandot. Vi kan till exempel hämta administratörens användarnamn:
 
 ```azurecli
 az vm show --resource-group ExerciseResources --name SampleVM --query "osProfile.adminUsername"
 ```
 
-We can get the size assigned to our VM:
+Vi kan hämta storleken som tilldelats till vår virtuella dator:
 
 ```azurecli
 az vm show --resource-group ExerciseResources --name SampleVM --query hardwareProfile.vmSize
 ```
 
-Or to retrieve all the IDs for your network interfaces, you can use the query:
+Och om du vill hämta alla ID:n för dina nätverksgränssnitt kan du använda frågan:
 
 ```azurecli
 az vm show --resource-group ExerciseResources --name SampleVM --query "networkProfile.networkInterfaces[].id"
 ```
 
-This query technique will work with any Azure CLI command and can be used to pull specific bits of data out on the command line. It is useful for scripting as well - for example, you can pull a value out of your Azure account and store it in an environment or script variable. If you decide to use it this way, a useful flag to add is the `--output tsv` parameter (which can be shortened to `-o tsv`). This will return the results in tab-separated values that only include the actual data values with tab separators.
+Den här frågetekniken fungerar med alla Azure CLI-kommandon och kan användas för att hämta specifika delar av data till kommandoraden. Tekniken kan även användas för skript – du kan till exempel hämta ett värde från ditt Azure-konto och lagra det i en miljö- eller skriptvariabel. Om du vill använda den på det här sättet är `--output tsv`-parametern en användbar flagga som du kan lägga till (som kan förkortas till `-o tsv`). När du gör det returneras resultaten som tabbavgränsade värden som endast innehåller själva datavärdena med tabbavgränsare.
 
-As an example,
+Exempelvis returnerar
 
 ```azurecli
 az vm show --resource-group ExerciseResources --name SampleVM --query "networkProfile.networkInterfaces[].id" -o tsv
 ```
 
-returns the text: `/subscriptions/abc13b0c-d2c4-64b2-9ac5-2f4cb819b752/resourceGroups/ExerciseResources/providers/Microsoft.Network/networkInterfaces/SampleVMVMNic`
+texten: `/subscriptions/abc13b0c-d2c4-64b2-9ac5-2f4cb819b752/resourceGroups/ExerciseResources/providers/Microsoft.Network/networkInterfaces/SampleVMVMNic`

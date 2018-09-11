@@ -81,7 +81,7 @@ az webapp deployment source config-zip --src ../site.zip --name <your-unique-app
 
 Öppna `https://<your-unique-app-name>.azurewebsites.net` i en webbläsare om du vill se appen som körs. Det bör se ut som på bilden nedan.
 
-![Skärmbild av webbappen FileUploader](../media-drafts/fileuploader-empty.PNG)
+![Skärmbild av webbappen FileUploader](../media/7-fileuploader-empty.PNG)
 
 Prova att ladda upp och ladda ned några filer om du vill testa appen. När du har laddat upp några filer kör du följande i gränssnittet för att se vilka blobbar som har laddats upp till containern:
 

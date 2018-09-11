@@ -1,60 +1,60 @@
-﻿Now, let's see how we can stage our content and deploy with little or no downtime.
+Nu undersöker vi hur vi kan mellanlagra vårt innehåll och distribuera med kort eller ingen avbrottstid.
 
-## What is a deployment slot?
+## <a name="what-is-a-deployment-slot"></a>Vad är ett distributionsfack?
 
-A deployment slot is an **independent** Web App with its own content, configuration, and even a unique host name. Therefore, it functions like any other Web App.
+Ett distributionsfack är en **oberoende** webbapp med sitt eget innehåll, sin egen konfiguration och även ett unikt värdnamn. Därför fungerar den som andra webbappar.
 
-> Azure doesn't charge you extra for using deployment slots!
+> Azure debiterar dig inte extra för användning av distributionsfack!
 
-Each deployment slot is accessible from its unique URL. For instance, let's say I've added a **staging** deployment slot with the name `BESTBIKE`. The URLs for the application and deployment slot are:
+Varje distributionsfack är tillgängligt från dess unika URL. Låt oss anta att jag har lagt till ett distributionsfack för **mellanlagring** med namnet `BESTBIKE`. URL:erna för programmet och distributionsfacket är:
 
 - https://BESTBIKE.azurewebsites.net/
 - https://BESTBIKE-staging.azurewebsites.net/
 
-## Why are deployment slots useful?
+## <a name="why-are-deployment-slots-useful"></a>Varför är distributionsfack användbara?
 
-Deploying your Web App in the traditional way, whether it be via FTP, Web Deploy, Git, or another way, has some weaknesses:
+När du distribuerar din webbapp på det traditionella sättet, oavsett om det är via FTP, WebDeploy, Git eller något annat sätt, förekommer vissa svagheter:
 
-- After the deployment completes, the Web App might restart, causing a **cold start** for the application. The first request to the application will be slower.
+- När distributionen är klar startar webbappen kanske om, vilket orsakar en **kallstart** för programmet. Den första begäran till programmet blir långsammare.
 
-- Potentially, you are deploying a *bad* version of your Web App, and you should test it (in production) before releasing it to your client.
+- Potentiellt distribuerar du en *felaktig* version av webbappen, och du bör testa den (i produktion) innan du lanserar den till din klient.
 
-This is where deployment slots come into play. You can make changes to your Web App to a **staging** deployment slot and test the changes without impacting users who are accessing the **production** deployment slot. When you are ready to move the new features into production, you can just **swap** the staging and production slots with **no downtime**.
+Det är här som distributionsfack har betydelse. Du kan göra ändringar av din webbapp till ett distributionsfack för **mellanlagring** och testa ändringarna utan att påverka användare som använder distributionsfacket för **produktion**. När du är redo att flytta de nya funktionerna till produktion behöver du bara **växla** fack för mellanlagring och produktion **utan avbrottstid**.
 
-Another benefit of using deployment slots is that you can **warm up** your application in a staging slot before swapping it into the production slot. You will avoid the delays of a **cold start** and the lengthy initialization code.
+En annan fördel med distributionsfack är att du kan **värma upp** ditt program i en mellanlagringsplats innan du växlar det till produktionsplatsen. Du undviker fördröjningarna från en **kallstart** och den långa initieringskoden.
 
-Finally, you can **swap back** to the previous deployment slot if you realize that the new version of your application is not working as you expected.
+Slutligen kan du **växla tillbaka** till föregående distributionsfack om du upptäcker att den nya versionen av programmet inte fungerar som väntat.
 
-## What is automated deployment?
+## <a name="what-is-automated-deployment"></a>Vad är automatiserad distribution?
 
-Automated deployment, or continuous integration, is a process used to push out new features and bug fixes in a fast and repetitive pattern with minimal impact on end users.
+Automatiserad distribution, eller kontinuerlig integrering, är en process som används för att skicka ut nya funktioner och felkorrigeringar i ett snabbt och upprepat mönster med minimal inverkan på slutanvändarna.
 
-Azure supports automated deployment directly from several sources. The following options are available:
+Azure har stöd för automatiserad distribution direkt från flera källor. Följande alternativ är tillgänglig:
 
-- **Visual Studio Team Services (VSTS)**: You can push your code to VSTS, build your code in the cloud, run the tests, generate a release from the code, and finally, push your code to an Azure Web App.
+- **Visual Studio Team Services (VSTS)**: du kan skicka koden till VSTS, bygga koden i molnet, köra testerna, generera en version utifrån koden och slutligen skicka koden till den Azure-webbapp.
 
-- **GitHub**: Azure supports automated deployment directly from GitHub. When you connect your GitHub repository to Azure for automated deployment, any changes you push to your production branch on GitHub will be automatically deployed for you.
+- **GitHub**: Azure har stöd för automatiserad distribution direkt från GitHub. När du ansluter din GitHub-lagringsplats till Azure för automatiserad distribution distribueras eventuella ändringar som du har skickat till din produktionsgren på GitHub automatiskt åt dig.
 
-- **Bitbucket**: With its similarities to GitHub, you can configure an automated deployment with Bitbucket.
+- **Bitbucket**: tack vare likheterna med GitHub kan du konfigurera en automatiserad distribution med Bitbucket.
 
-- **OneDrive**: You can connect your OneDrive account with Web Apps so that when you change any file on your OneDrive account, Azure will automatically detect it and pull back any changes on the web app files. This is a great option for static websites. It will give you the feeling that you are dealing with a local file system that reflects any changes on Azure, smoothly and instantly.
+- **OneDrive**: du kan ansluta ditt OneDrive-konto till Web Apps så att när du ändrar en fil på OneDrive-konto identifierar Azure den automatiskt och hämtar alla ändringar av webbappfilerna. Det här är ett utmärkt alternativ för statiska webbplatser. Du kommer att få känslan av att arbeta med ett lokalt filsystem som visar alla eventuella ändringar på Azure smidigt och omedelbart.
 
-- **Dropbox**: Similar to OneDrive, you can host your web app files in a Dropbox account and have them automatically push and be deployed over an Azure Web App.
+- **Dropbox**: på ett sätt som liknar OneDrive kan du lagra dina webappfiler på ett Dropbox-konto och göra så att de automatiskt skickas och distribueras via en Azure-webbapp.
 
-- **External repository**: You can configure automated deployment with any external Git repository.
+- **Extern lagringsplats**: du kan konfigurera automatiserad distribution med valfri extern Git-lagringsplats.
 
-### Non-automated deployment to Azure
+### <a name="non-automated-deployment-to-azure"></a>Icke-automatiserad distribution till Azure
 
-There are a few options that you can use to manually push your code to Azure:
+Det finns några alternativ som du kan använda för att manuellt skicka din kod till Azure:
 
-- **FTP/S**: FTP or FTPS is a traditional way of pushing your code to any hosting environment. Despite the fact that it is not recommended anymore, you can still make use of it.
+- **FTP/S**: FTP eller FTPS är ett traditionellt sätt att skicka koden till valfri värdmiljö. Även om det inte rekommenderas längre kan du fortfarande använda det.
 
-- **Web Deploy/IDE**: You can use the Visual Studio IDE to publish your web app to Azure. The Visual Studio publishing mechanism can make use of Web Deploy technology to push your code to Azure.
+- **WebDeploy/IDE**: du kan använda Visual Studio IDE för att publicera din webbapp till Azure. Visual Studio-publiceringsmekanismen kan utnyttja WebDeploy-teknik för att skicka din kod till Azure.
 
-- **Git**: Azure maintains a **local Git repository** for your application. You can **commit** your code directly to it.
+- **Git**: Azure har en **lokal Git-lagringsplats** för ditt program. Du kan **checka in** din kod till den direkt.
 
-> In this module, we are going to perform a non-automated deployment using Git.
+> I den här modulen utför vi en icke-automatiserad distribution med hjälp av Git.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Azure provides multiple ways to upload your code to help it better fit in with your current workflow. You can also use deployment slots to help prevent downtime for your users.
+Azure tillhandahåller flera olika sätt att ladda upp din kod för att bättre passa in med ditt aktuella arbetsflöde. Du kan även använda distributionsplatser för att förhindra driftstopp för dina användare.

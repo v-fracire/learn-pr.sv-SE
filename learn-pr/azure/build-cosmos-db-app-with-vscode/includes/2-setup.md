@@ -1,61 +1,60 @@
-In this module you will create a simple console app using the integrated terminal, install NuGet packages, and use the Azure Cosmos DB extension to see databases and collections created in the previous module. You'll retrieve your Azure Cosmos DB connection string from the extension, and then start configuring the connection to Azure Cosmos DB to create your User database.
+I den här modulen kommer du att skapa en enkel konsolapp med hjälp av den integrerade terminalen, installera NuGet-paket samt använda Azure Cosmos DB-tillägget för att se databaser och samlingar som skapades i den föregående modulen. Du hämtar Azure Cosmos DB-anslutningssträngen från tillägget och konfigurerar sedan anslutningen till Azure Cosmos DB i syfte att skapa en egen användardatabas.
 
-## Create a console app
+## <a name="create-a-console-app"></a>Skapa en konsolapp
 
-1. Create a folder where you will be working.
+1. Skapa en mapp där du tänker arbeta.
 
-1. Open a command prompt and navigate into the folder.
+1. Öppna en kommandotolk och navigera till mappen.
 
-1. Create a new .NET Core console application
+1. Skapa ett nytt .NET Core-konsolprogram
 
 ```bash
 dotnet new console 
 ```
 
-1. Open Visual Studio Code, and then select **File** > **Open Folder**.
+1. Öppna Visual Studio Code och välj **Arkiv** > **Öppna mapp**.
 
-1. Create a new folder where you want your new C# project to be, and then click **Select Folder**.
+1. Skapa en ny mapp där det nya C#-projektet ska sparas. Klicka sedan på **Välj mapp**.
 
-1. Ensure that file auto save is enabled by clicking on the File menu and checking Auto Save if it is blank.
+1. Se till att filer sparas automatiskt genom att klicka på Arkiv-menyn och kontrollera att Spara Automatisk är aktiverat och inte är tomt.
 
-1. Open the integrated terminal from Visual Studio Code by selecting **View** > **Integrated Terminal** from the main menu.
+1. Öppna den integrerade terminalen från Visual Studio Code genom att välja **Visa** > **Integrated Terminal** (Integrerad terminal) på huvudmenyn.
 
-1. In the terminal window, type **dotnet new console**.
+1. Ange **dotnet new console** i terminalfönstret.
 
-    This command creates a **Program.cs** file in your folder with a simple "Hello World" program already written, along with a C# project file named **learning-module.csproj**.
+    Med det här kommandot skapas en **Program.cs**-fil i mappen med ett enkelt ”Hello World”-program som redan har skrivits, samt en C#-projektfil med namnet **learning module.csproj**.
 
-1. In the terminal window, type the following command to run the "Hello World" program. 
+1. Ange följande kommando i terminalfönstret för att köra ”Hello World”-programmet. 
 
     ```
     dotnet run
     ```
 
-    The terminal window displays "Hello world!" as output.
+    ”Hello world!” visas i terminalfönstret som resultat.
 
-## Connect the app to Azure Cosmos DB
+## <a name="connect-the-app-to-azure-cosmos-db"></a>Ansluta appen till Azure Cosmos DB
 
-1. Sign in to Azure by clicking **View** > **Command Palette** and typing **Azure: Sign In**.
+1. Logga in på Azure genom att klicka på **Visa** > **Kommandopalett** och ange **Azure: Logga in**.
 
-    Follow the prompts to copy and paste the code provided in the web browser, which authenticates your Visual Studio Code session.
+    Följ anvisningarna för att kopiera och klistra in koden i webbläsaren. Därmed autentiseras din Visual Studio Code-session.
 
-1. Click the ![Explorer icon](../media/2-setup/visual-studio-code-explorer-icon.png) **Explorer** icon on the left menu, and then expand **Azure Cosmos DB**.
+1. Klicka på ikonen ![Utforskaren](../media/2-setup/visual-studio-code-explorer-icon.png) **Utforskar**-ikonen på menyn till vänster och expandera sedan **Azure Cosmos DB**.
 
-1. Expand your Azure subscription > Azure Cosmos DB account. If you created the **Products** database and **Clothing** collection in the previous modules, the extension displays them.
+1. Expandera Azure-prenumerationen > Azure Cosmos DB-kontot. Om du har skapat databasen **Produkter** och samlingen **Kläder** i de föregående modulerna visas de i tillägget.
 
-   ![Azure Cosmos DB Visual Studio Code extension](../media/2-setup/azure-cosmos-db-vs-code-extension.png) 
+   ![Visual Studio Code-tillägg för Azure Cosmos DB](../media/2-setup/azure-cosmos-db-vs-code-extension.png) 
 
-1. Now let's create a new database and collection for your customers.
+1. Nu skapar du en ny databas och samling för dina kunder.
 
-    In the Explorer window, right-click your account, and then click **Create Database**. 
+    Högerklicka på ditt konto i Utforskaren och klicka sedan på **Skapa databas**. 
     
-    In the text box at the top of the screen, type **Users** for the database name > **Enter** > **WebCustomers** for the collection name > **Enter** > **userId** for the partition key > **Enter** > **1000** for the initial throughput capacity > **Enter**.
+    I textrutan högst upp på skärmen anger du **Användare** som databasnamn > **retur** > **Webbkunder** som namn på samlingen > **retur** > **userId** som partitionsnyckel > **retur** > **1000** som inledande genomflödeskapacitet > **retur**.
 
-    ![Azure Cosmos DB Visual Studio Code extension](../media/2-setup/vs-code-azure-cosmos-db-extension.gif) 
-    <!--Retake on fresh machine without the other subscriptions showing-->
+    ![Visual Studio Code-tillägg för Azure Cosmos DB](../media/2-setup/vs-code-azure-cosmos-db-extension.gif) <!--Retake on fresh machine without the other subscriptions showing-->
 
-    The new Users database and WebCustomers collection are displayed in the Explorer window.
+    Den nya databasen Användare och samlingen Webbkunder visas i Utforskaren.
 
-1. In the integrated terminal, run each of the following commands at a new prompt to install the required NuGet packages.
+1. Kör följande kommandon i en ny prompt i den integrerade terminalen för att installera de nödvändiga NuGet-paketen.
 
     ```
     dotnet add package System.Net.Http
@@ -69,9 +68,9 @@ dotnet new console
     dotnet restore
     ```
 
-1. At the top of the Explorer pane, click **Program.cs** to open the file.
+1. Klicka på **Program.cs** högst upp i Utforskaren för att öppna filen.
 
-1. Add the following using statements after `using System;`.
+1. Lägg till följande using-uttryck efter `using System;`.
 
     ```csharp
     using System.Configuration;
@@ -83,7 +82,7 @@ dotnet new console
     using Newtonsoft.Json;
     ```
 
-1. Create a new file named App.config in the learning-module folder, and add the following code.
+1. Skapa en ny fil med namnet App.config i mappen learning-module och lägg till följande kod.
   
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -95,27 +94,27 @@ dotnet new console
     </configuration>
     ```
 
-1. Copy your connection string from the Azure Cosmos DB extension by right-clicking the learning-module account, and clicking **Copy Connection String**.
+1. Kopiera anslutningssträngen från Azure Cosmos DB-tillägget genom att högerklicka på learning-module-kontot och klicka på **Copy Connection String** (Kopiera anslutningssträng).
 
-    ![Azure Cosmos DB Visual Studio Code extension](../media/2-setup/vs-code-copy-connection-string.gif) 
+    ![Visual Studio Code-tillägg för Azure Cosmos DB](../media/2-setup/vs-code-copy-connection-string.gif) 
 
-1. Paste the connection string into a text file, and then copy the **AccountEndpoint** portion from the text file into the **accountEndpoint** in App.config.
+1. Klistra in anslutningssträngen i en textfil, kopiera sedan **AccountEndpoint**-delen från textfilen och klistra in den i **accountEndpoint** i App.config.
 
-    The accountEndpoint should look like the following code:
+    accountEndpoint ska se ut som följande kod:
 
     ```xml
     <add key="accountEndpoint" value="https://<account-name>.documents.azure.com:443/" />
     ```
 
-1. Now copy the **AccountKey** value from the text value into the **accountKey** value in App.config.
+1. Kopiera sedan **AccountKey**-värdet från textvärdet och klistra in det i **accountKey**-värdet i App.config.
 
-1. In the integrated terminal, type the following command to run the program to ensure it runs.
+1. Ange följande kommando för att köra programmet i den integrerade terminalen och kontrollera att det körs.
 
     ```csharp
     dotnet run
     ```
 
-1. Add a new asynchronous task to create a new client, and check whether the Users database exists by adding the following method after the main method.
+1. Lägg till en ny asynkron uppgift för att skapa en ny klient och kontrollera om databasen Användare finns genom att lägga till följande metod efter huvudmetoden.
     
     ```csharp
     private async Task BasicOperations()
@@ -128,13 +127,13 @@ dotnet new console
     }
     ```
 
-1. In the integrated terminal, again, type the following command to run the program to ensure it runs.
+1. Återigen, ange följande kommando i den integrerade terminalen för att köra programmet och kontrollera att det körs.
 
     ```csharp
     dotnet run
     ```
 
-1. Copy and paste the following code into the **Main** method, overwriting the current `Console.WriteLine("Hello World!");` line.
+1. Kopiera och klistra in följande kod i **huvudmetoden** så att den befintliga raden `Console.WriteLine("Hello World!");` överskrivs.
 
     ```csharp
     try
@@ -159,19 +158,19 @@ dotnet new console
             }
     ```
 
-1. In the integrated terminal, again, type the following command to run the program to ensure it runs.
+1. Återigen, ange följande kommando i den integrerade terminalen för att köra programmet och kontrollera att det körs.
 
     ```csharp
     dotnet run
     ```
 
-    The console displays the following output.
+    Konsolen visar följande resultat.
     
     ```
     Database and collection validation complete
     End of demo, press any key to exit.
     ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you set up the groundwork for your Azure Cosmos DB application. You set up your development environment in Visual Studio Code, created a simple HelloWorld project, connected the project to the Azure Cosmos DB endpoint, and ensured your database and collection exist.
+I den här kursdelen har du skapat grunden till ditt Azure Cosmos DB-program. Du har konfigurerat din utvecklingsmiljö i Visual Studio Code, skapat ett enkelt HelloWorld-projekt, anslutit projektet till Azure Cosmos DB-slutpunkten och kontrollerat att din databas och samling finns.

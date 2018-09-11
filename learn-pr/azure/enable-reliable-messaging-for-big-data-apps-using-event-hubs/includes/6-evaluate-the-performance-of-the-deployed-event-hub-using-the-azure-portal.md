@@ -1,29 +1,29 @@
-When using Event Hubs, it's crucial for you to monitor your hub to ensure that it's working and performing as expected.
+När du använder Event Hubs är det viktigt att du övervakar din hubb för att säkerställa att den fungerar och presterar som förväntat.
 
-Continuing with the banking example, suppose that you've deployed Azure Event Hubs and configured sender and receiver applications. Your applications are ready for testing the payment processing solution. The sender application collects customer's credit card data and the receiver application verifies that the credit card is valid. Due to the sensitive nature of your employer's business, it's essential that your payment processing is robust and reliable, even when it's temporarily unavailable.
+Som en fortsättning på bankexemplet: låt oss anta att du har distribuerat Azure Event Hubs och konfigurerat avsändar- och mottagarprogrammen. Dina program är redo att testa lösningen för betalningsbearbetning. Avsändarprogrammet samlar in data om kundens kreditkort och mottagarprogrammet kontrollerar att det registrerade kreditkortet är giltigt. Eftersom din arbetsgivares organisation är känslig, är det viktigt att betalningsbearbetningen är robust och tillförlitlig, även om den inte är tillgänglig för tillfället.
 
-You must evaluate your event hub by testing that your event hub is processing data as expected. The metrics available in the Event Hubs allow you to ensure that it's working fine.
+Du måste utvärdera din händelsehubb genom att testa att den bearbetar data som förväntat. Med måtten som är tillgängliga i Event Hubs kan du kontrollera att den fungerar som den ska.
 
-## How do you use the Azure portal to view your event hub activity?
+## <a name="how-do-you-use-the-azure-portal-to-view-your-event-hub-activity"></a>Hur kan du använda Azure-portalen för att visa aktiviteter på din händelsehubb?
 
-The Azure portal > Overview page for your event hub shows message counts. These message counts represent the data (events) received and sent by the event hub. You can choose the timescale for viewing these events.
+Azure-portalen > översiktssidan för din händelsehubb visar antalet meddelanden. Detta värde representerar data (händelser) som tas emot och skickas av händelsehubben. Du kan välja tidsram för att visa dessa händelser.
 
-![View Event Hub messages](../media-draft/6-view-messages.png)
+![Visa meddelanden från händelsehubben](../media-draft/6-view-messages.png)
 
-## How can you test Event Hub resilience?
+## <a name="how-can-you-test-event-hub-resilience"></a>Hur kan man testa händelsehubbens återhämtningsförmåga?
 
-Azure Event Hubs keeps receiving messages from the sender application even when it's unavailable. The messages received during this period are transmitted successfully as soon as the hub becomes available.
+Azure Event Hubs tar emot meddelanden från avsändarprogrammet även om den inte är tillgänglig. Meddelandena som tagits emot under denna period överförs så fort hubben blir tillgänglig.
 
-To test this functionality, you can use the Azure portal to disable your event hub.
+Du kan använda Azure-portalen för att inaktivera din händelsehubb för att testa den här funktionen.
 
-When you re-enable your event hub, you can rerun your receiver application and use Event Hubs metrics for your namespace to check whether all sender messages have been successfully transmitted and received.
+När du återaktiverar händelsehubben kör du mottagarprogrammet och använder måtten i händelsehubben för din namnrymd för att kontrollera att alla meddelanden som avsändaren har skickat har överförts och tagits emot.
 
-Other useful metrics available in the Event Hubs include:
+Andra användbara mått som finns tillgängliga i händelsehubben är:
 
-- Throttled Requests: The number of requests that were throttled because the throughput unit usage was exceeded.
-- ActiveConnections: The number of active connections on a namespace or event hub.
-- Incoming/Outgoing Bytes: The number of bytes sent to/received from the Event Hubs service over a specified period.
+- Arbetsbelastningsstyrning av begäranden: Antalet begäranden som har begränsats på grund av användning av dataflödesenheten överskreds.
+- ActiveConnections: Antalet aktiva anslutningar på en namnrymd eller händelsehubb.
+- Inkommande/utgående byte: Antalet byte som skickats till/tagits emot från händelsehubben under en angiven period.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-The Azure portal provides message counts and other metrics that you can use as a health check for your Event Hubs.
+Azure-portalen visar antalet meddelanden och andra mått som du kan använda som en hälsokontroll för händelsehubben.

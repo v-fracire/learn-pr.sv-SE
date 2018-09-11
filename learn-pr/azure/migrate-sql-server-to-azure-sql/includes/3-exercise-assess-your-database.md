@@ -1,68 +1,70 @@
-In this unit, you'll assess an existing database using the Data Migration Assistant and review any features used in the local SQL Server instance that aren't currently supported by Azure SQL Database.
+I den här kursdelen utvärderar du en befintlig databas med hjälp av Data Migration Assistant och granskar funktioner som används i den lokala SQL Server-instansen som för närvarande inte stöds av Azure SQL Database.
 
-## Setup
+## <a name="setup"></a>Konfiguration
 
-1. [Install the **Data Migration Assistant**](https://www.microsoft.com/download/details.aspx?id=53595) if you haven't done so already.
+1. [Installera **Data Migration Assistant**](https://www.microsoft.com/download/details.aspx?id=53595) om du inte redan har gjort det.
 
-1. You'll need a SQL Server instance running, ensure you have connection details available.
+1. Du behöver en SQL Server-instans som körs. Kontrollera att du har anslutningsinformationen tillgänglig.
 
-<!-- TODO: replace with an LOD VM -->
+<!-- 1. [**** likely replace with an LOD VM *****] TODO: -->
 
-1. Open a browser and navigate to https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017.
+1. Öppna en webbläsare och navigera till https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017.
 
-1. In **OLTP downloads**, click **AdventureWorks2008R2.bak** and save it to your local machine.
+1. I **OLTP downloads** (OLTP-nedladdningar) klickar du på **AdventureWorks2008R2.bak** och sparar den till den lokala datorn.
 
-1. In Management Studio, restore *AdventureWorks 2008R2* to your default instance.
+1. I Management Studio återställer du *AdventureWorks 2008R2* till din standardinstans.
 
-## Create an assessment
+## <a name="create-an-assessment"></a>Skapa en utvärdering
 
-1. Start the **Microsoft Data Migration Assistant**.
+1. Starta **Microsoft Data Migration Assistant**.
 
-1. In the app's left-hand navigation, click __+__ to create a new Data Migration Assistant project.
+1. I appens vänstra navigeringsfönstret klickar du på __+__ för att skapa ett nytt Data Migration Assistant-projekt.
 
-1. Specify the following options:
+1. Ange följande alternativ:
 
-    - **Project type** - Select *Assessment*
-    - **Project name** - Enter a name for your project - for example, "Bicycle DB Assessment"
-    - **Source server type** - Select *SQL Server*
-    - **Target server type** - Select *Azure SQL Database*
+    - **Projekttyp** – välj *Utvärdering*
+    - **Projektnamn** – ange ett namn för ditt projekt, till exempel ”Bicycle DB Assessment”
+    - **Typ av källserver** – välj *SQL Server*
+    - **Typ av målserver** – välj *Azure SQL Database*
 
-1. Click **Create**.
-    ![Screenshot showing the described configuration in the Data Migration Assistant for your AdventureWorks SQL Server data.](../media-draft/3-create-assessment.png)
+1. Klicka på **Skapa**.
+    ![Skärmbild som visar den konfiguration som beskrivs i Data Migration Assistant för dina AdventureWorks SQL Server-data.](../media-draft/3-create-assessment.png)
 
-1. Select the assessment report type - check both:
-    - Check database compatibility
-    - Check feature parity
+1. Välj typ av utvärderingsrapport – markera båda:
+    - Kontrollera databaskompatibilitet
+    - Kontrollera funktionsparitet
 
-1. Click **Next**.
+1. Klicka på **Nästa**.
 
-## Add databases to assess
+## <a name="add-databases-to-assess"></a>Lägg till databaser att utvärdera
 
-1. If **Connect to a Server** is not showing on the right-hand side, click **Add Sources** to open the connection menu.
+1. Klicka på **Lägg till källor** för att öppna anslutningsmenyn.
 
-1. Do the following:
-    - Enter your existing SQL server instance name
-    - Select the **Authentication** type
-    - Specify the connection properties for your server
+1. Gör följande:
 
-1. Click **Connect**.
+    - Ange ditt befintliga SQL-serverinstansnamn
+    - Välj **Autentiseringstyp**
+    - Ange anslutningsegenskaper för servern
 
-1. In **Add sources**, select the databases to assess. For this exercise, select **AdventureWorks2008R2**.
+1. Klicka på **Anslut**.
 
-1. Click **Add**.
+1. I **Lägg till källor** väljer du de databaser som ska utvärderas. För den här övningen väljer du **AdventureWorks2008R2**.
+
+1. Klicka på **Lägg till**.
     > [!NOTE]
-    > To add databases from multiple SQL Server instances, use the **Add Sources** button. To remove multiple databases, hold the SHIFT+CTRL keys to select the databases you want to remove, then click **Remove Sources**.
+    > Om du vill lägga till databaser från flera SQL Server-instanser använder du knappen **Lägg till källor**. Du kan ta bort flera databaser genom att hålla ned tangenterna SKIFT + CTRL, markera de databaser som ska tas bort och sedan klicka på **Ta bort källor**.
 
-1. Click **Start Assessment**.
+1. Klicka på **Starta utvärderingen**.
 
-## View results
+## <a name="view-results"></a>Visa resultat
 
-If there are multiple databases, the results for each database appears as soon as it is available. You don't need to wait for all database assessments to complete.
+Om det finns flera databaser visas resultaten för varje databas när de blir tillgängliga. Du behöver inte vänta tills alla databasutvärderingar är klara.
 
-1. Once the assessment for **AdventureWorks** is complete, click** Compatibility issues** and **SQL Server feature parity** radio buttons to view the results.
-    - The SQL Server feature parity category lists features that might not be fully supported and steps to remedy these issues. Feature parity issues will not stop a migration.
-    - The Compatibility issues category lists features that would block a migration and steps to remedy these issues.
+1. När utvärderingen för **AdventureWorks** är klar klickar du på **Kompatibilitetsproblem** och **Funktionsrekommendationer** för att visa resultatet.
 
-## Summary
+    - Kategorin för SQL Server-funktionsparitet visar en lista över funktioner som kanske inte stöds fullständigt samt åtgärder för att lösa dessa problem. Problem med funktionsparitet stoppar inte en migrering.
+    - Kategorin för kompatibilitetsproblem visar en lista över funktioner som skulle blockera en migrering samt åtgärder för att lösa dessa problem.
 
-In this unit, you assessed a locally installed SQL Server database to verify if any features would be unavailable when you migrate the database to Azure SQL Database.
+## <a name="summary"></a>Sammanfattning
+
+I den här kursdelen utvärderade en lokalt installerad SQL Server-databas för att kontrollera om några funktioner skulle bli tillgängliga när du migrerar databasen till Azure SQL Database.

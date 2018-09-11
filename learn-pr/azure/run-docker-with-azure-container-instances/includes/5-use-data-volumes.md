@@ -1,10 +1,10 @@
-By default, Azure Container Instances is stateless. If the container crashes or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store.
+Som standard är Azure-containerinstanser tillståndslösa. Om containern kraschar eller stoppas förloras hela tillståndet. Om du vill bevara tillståndet längre än containern måste du montera en volym från en extern lagring.
 
-In this unit, you will mount an Azure file share to an Azure container instance for data storage and retrieval.
+I den här utbildningsenheten monterar du en Azure-filresurs vid en Azure-containerinstans för lagring och hämtning av data.
 
-## Create an Azure file share
+## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
-Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account. The storage account name must be globally unique, so the script adds a random value to the base string:
+Innan du kan använda en Azure-filresurs med Azure Container Instances måste du skapa den. Kör följande skript för att skapa ett lagringskonto. Namnet på lagringskontot måste vara globalt unikt, så skriptet lägger till ett slumpmässigt värde i bassträngen:
 
 ```azurecli
 ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
@@ -12,39 +12,39 @@ ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 az storage account create --resource-group myResourceGroup --name $ACI_PERS_STORAGE_ACCOUNT_NAME --location eastus --sku Standard_LRS
 ```
 
-Run the following command to place the storage account connection string into an environment variable named *AZURE_STORAGE_CONNECTION_STRING*. This environment variable is understood by the Azure CLI and can be used in storage-related operations:
+Kör följande kommando för att placera lagringskontots anslutningssträng i miljövariabeln *AZURE_STORAGE_CONNECTION_STRING*. Miljövariabeln kan tolkas i Azure CLI och kan användas i lagringsrelaterade åtgärder:
 
 ```azurecli
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group myResourceGroup --name $ACI_PERS_STORAGE_ACCOUNT_NAME --output tsv`
 ```
 
-Create the file share by running the `az storage share create` command. The following example creates a share with the name *aci-share-demo*:
+Skapa filresursen genom att köra kommandot `az storage share create`. I följande exempel skapas en resurs med namnet *aci-share-demo*:
 
 ```azurecli
 az storage share create --name aci-share-demo
 ```
 
-## Get storage credentials
+## <a name="get-storage-credentials"></a>Hämta autentiseringsuppgifter för lagringen
 
-To mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key.
+När du ska montera en Azure-filresurs som en volym i Azure Container Instances behöver du tre värden: namnet på lagringskontot, resursnamnet och åtkomstnyckeln för lagringen.
 
-If you used the script above, the storage account name was created with a random value at the end. To query the final string (including the random portion), use the following commands:
+Om du använde skriptet ovan skapades namnet på lagringskontonamnet med ett slumpmässigt värde i slutet. Du kan hämta den faktiska strängen (inklusive den slumpmässiga delen) med följande kommandon:
 
 ```azurecli
 STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" --output tsv)
 echo $STORAGE_ACCOUNT
 ```
 
-The share name is already known (aci-share-demo), so all that remains is the storage account key, which can be found using the following command:
+Resursnamnet är redan känt (aci-share-demo), så allt som återstår är nyckeln för lagringskontot, som du kan hämta med följande kommando:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" --output tsv)
 echo $STORAGE_KEY
 ```
 
-## Deploy container and mount volume
+## <a name="deploy-container-and-mount-volume"></a>Distribuera containern och montera volymen
 
-To mount an Azure file share as a volume in a container, specify the share and volume mount point when you create the container:
+När du ska montera en Azure-filresurs som en volym i en container anger du resursens och volymens monteringspunkt när du skapar containern:
 
 ```azurecli
 az container create \
@@ -59,25 +59,25 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-Once the container has been created, get the public IP address:
+När du har skapat containern hämtar du den offentliga IP-adressen:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-demo-files --query ipAddress.ip -o tsv
 ```
 
-Open a browser and navigate to the container's IP address. You will be presented with a simple form. Enter some text and click **Submit**. This action will create a file in the Azure Files share with the text entered here as the file body.
+Öppna en webbläsare och navigera till containerns IP-adress. Du kommer att se ett enkelt formulär. Ange lite text och klicka på **Skicka**. Den här åtgärden skapar en fil i Azure-filresursen med den angivna texten som filinnehåll.
 
-![Azure Container Instances file share demo](../media-draft/files-ui.png)
+![Demo av filresurs i Azure Container Instances](../media-draft/files-ui.png)
 
-To validate, you can navigate to the file share in the Azure portal and download the file.
+Du kan kontrollera processen genom att öppna filresursen i Azure-portalen och ladda ned filen.
 
-![Sample text file with contents demo application](../media-draft/sample-text.png)
+![Demo av exempelfil med innehåll](../media-draft/sample-text.png)
 
-If the files and data stored in the Azure Files share were of any value, this share could be remounted on a new container instance to provide stateful data.
+Om de filer och data som lagras i Azure-filresursen var värdefulla skulle resursen återmonteras vid en ny containerinstans för att tillhandahålla tillståndskänsliga data.
 
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you have created an Azure Files share and a container, and have mounted the file share to that container. This share was then used to store application data.
+I den här utbildningsenheten har du skapat en Azure-filresurs och en container, och monterat filresursen vid containern. Resursen användes sedan till att lagra appdata.
 
-In the next unit, you will work through some common Container Instances troubleshooting operations.
+I nästa utbildningsenhet går du igenom felsökning av några vanliga problem med containerinstanser.

@@ -14,7 +14,7 @@ För appar som förlitar sig på en känd uppsättning av containrar med hårdko
 
 Vi kommer att färdigställa en oavslutat ASP.NET Core-app genom att lägga till kod för att använda Azure Blob Storage. Den här övningen handlar mer om att utforska API för Blob-lagring än om att utforma en organisations- och namngivningsschema, men här är en snabb överblick över appen och hur den lagrar data.
 
-![Skärmbild av webbappen FileUploader](../media-drafts/fileuploader-with-files.PNG)
+![Skärmbild av webbappen FileUploader](../media/4-fileuploader-with-files.PNG)
 
 Vår app fungerar som en delad mapp som tar emot filuppladdningar och gör dem tillgängliga för nedladdning. Den använder inte en databas för att organisera blobar &mdash; i stället sanerar den namnen på de uppladdade filerna och använder dem som blobnamn direkt. Alla uppladdade filer lagras i en enskild container.
 
@@ -24,7 +24,7 @@ Vi kan ställa in lagringsinfrastrukturen för vår app.
 
 ### <a name="resource-group-and-storage-account"></a>Resursgrupp och lagringskonto
 
-Först skapar vi en resursgrupp som ska innehålla alla resurser i den här övningen. På slutet kommer vi att ta bort den för att rensa bort allt vi skapat. Vi ska även skapa lagringskontot vår app ska använda för att lagra blobar.
+Först skapar vi en resursgrupp som ska innehålla alla resurser i den här kursdelen. På slutet kommer vi att ta bort den för att rensa bort allt vi skapat. Vi ska även skapa lagringskontot vår app ska använda för att lagra blobar.
 
 Använd Azure Cloud Shell-terminalen för att skapa resursgruppen och lagringskontot genom att köra följande Azure CLI-kommandon. Du måste ange ett unikt namn för lagringskontot &mdash;. Gör en anteckning om det till senare. Valet av `eastus` för platsen är godtycklig.
 

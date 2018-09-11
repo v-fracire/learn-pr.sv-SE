@@ -1,50 +1,52 @@
-Making adjustments to server configuration is commonly performed with equipment in your on-premises environment. In this sense, you can consider Azure VMs to be an extension of that environment. You can alter configuration, manage networks, open or block traffic, and more through the Azure portal, the Azure CLI, or Azure PowerShell tools.
+Justeringar i serverkonfigurationen utförs ofta med utrustning i din lokala miljö. I det avseendet kan du se virtuella Azure-datorer som en förlängning av den här miljön. Du kan ändra konfiguration, hantera nätverk, öppna eller blockera trafik med mera via Azure Portal, Azure CLI eller Azure PowerShell-verktyg.
 
-We've got our server running, and Apache is installed and serving up pages. Our security team mandates that we lock down all our servers, and we've not done anything to this VM yet. We didn't do anything, and it let Apache listen on port 80. Let's explore the Azure network configuration to see how to use the built-in security support to harden our server.
+Vår server körs och Apache har installerats och används av sidor. Vårt säkerhetsteam uppmanar oss att låsa alla servrar och vi har inte gjort något åt den här virtuella datorn än. Vi har inte gjort något och Apache lyssnar på port 80. Låt oss utforska Azure-nätverkskonfigurationen för att se hur säkerhetssupport kan användas för att förstärka servern.
 
-## Opening ports in Azure VMs
+## <a name="opening-ports-in-azure-vms"></a>Öppna portar i virtuella Azure-datorer
 
-<!-- TODO: The Azure portal is inconsistent here in applying the NSG. By default, new VMs are locked down. 
+<!-- TODO: Azure portal is inconsistent here in applying the NSG.
+By default, new VMs are locked down. 
 
-Apps can make outgoing requests, but the only inbound traffic allowed is from the virtual network (e.g., other resources on the same local network) and from Azure Load Balancer (probe checks). -->
+Apps can make outgoing requests, but the only inbound traffic allowed is from the virtual network (e.g., other resources on the same local network), and from Azure's Load Balancer (probe checks). -->
 
-There are two steps to adjusting the configuration to support different protocols on the network. When you create a new VM, you have an opportunity to open a few common ports (RDP, HTTP, HTTPS, and SSH). However, if you require other changes to the firewall, you will need to adjust them manually.
+Det finns två steg för att justera konfigurationen för att stödja olika protokoll i nätverket. När du skapar en ny virtuell dator har du möjlighet att öppna några vanliga portar (RDP, HTTP, HTTPS och SSH). Men om du behöver andra ändringar av brandväggen måste du justera dem manuellt.
 
-The process for this involves two steps:
+Processen för det här omfattar två steg:
 
-1. Create a network security group.
-2. Create an inbound rule allowing traffic on the ports you need.
+1. Skapa en nätverkssäkerhetsgrupp
 
-### What is a network security group?
+1. Skapa en inkommande regel som tillåter trafik på portarna som du behöver
 
-Virtual networks (VNets) are the foundation of the Azure networking model and provide isolation and protection. Network security groups (NSGs) are the primary tool you use to enforce and control network traffic rules at the networking level. NSGs are an optional security layer that provides a software firewall by filtering inbound and outbound traffic on the VNet. 
+### <a name="what-is-a-network-security-group"></a>Vad är en nätverkssäkerhetsgrupp?
 
-Security groups can be associated to a network interface (for per host rules), a subnet in the virtual network (to apply to multiple resources), or both levels. 
+Virtuella nätverk är grunden för Azure-nätverksmodellen och ger isolering och skydd. Nätverkssäkerhetsgrupper (NSG) är det primära verktyget för att tillämpa och styra regler för nätverkstrafik på nätverksnivå. NSG:er är ett valfritt säkerhetslager som tillhandahåller en programvarubrandvägg genom att filtrera inkommande och utgående trafik på det virtuella nätverket. 
 
-#### Security group rules
+Säkerhetsgrupper kan kopplas till ett nätverksgränssnitt (för regler per värd), ett undernät i det virtuella nätverket (om du vill tillämpa på flera resurser) eller båda nivåerna. 
 
-NGSs use _rules_ to allow or deny traffic moving through the network. Each rule identifies the source and destination address (or range), protocol, port (or range), direction (inbound or outbound), a numeric priority, and whether to allow or deny the traffic that matches the rule.
+#### <a name="security-group-rules"></a>Regler för säkerhetsgrupper
 
-![An illustration showing the architecture of network security groups in two different subnets. In one subnet, there are two virtual machines, each with their own network interface rules.  The subnet itself has a set of rules that applies to both the virtual machines. ](../media/7-nsg-rules.png)
+NGS:er använder _regler_ för att tillåta eller neka trafik genom nätverket. Varje regel identifierar käll- och måladress (eller intervall), protokoll, port (eller intervall), riktning (inkommande eller utgående), en numerisk prioritet och om trafiken som matchar regeln ska tillåtas eller nekas. Följande bild visar NSG-regler som tillämpas på nivåerna för undernät och gränssnitt.
 
-Each security group has a set of default security rules to apply the default network rules described above. These default rules cannot be modified but _can_ be overridden.
+![En bild som visar nätverkssäkerhetsgrupper arkitektur i två olika undernät. Det finns två virtuella datorer i ett undernät, var och en med sina egna regler för gränssnittet.  Själva undernätet har en uppsättning regler som gäller för båda de virtuella datorerna. ](../media-drafts/7-nsg-rules.png)
 
-#### How Azure uses network rules
+Varje säkerhetsgrupp har en uppsättning standardsäkerhetsregler för att tillämpa standardnätverksregler som beskrivs ovan. Dessa standardregler kan inte ändras men de _kan_ åsidosättas.
 
-For inbound traffic, Azure processes the security group associated to the subnet and then the security group applied to the network interface. Outbound traffic is handled in the opposite order (the network interface first, followed by the subnet).
+#### <a name="how-azure-uses-network-rules"></a>Så använder Azure nätverksregler
 
-> [!WARNING]  
-> Keep in mind that security groups are optional at both levels. If no security group is applied, then **all traffic is allowed** by Azure. If the VM has a public IP, this could be a serious risk, particularly if the OS doesn't provide a built-in firewall.
+För inkommande trafik bearbetar Azure den säkerhetsgrupp som kopplas till undernätet och sedan den säkerhetsgrupp som tillämpas på nätverksgränssnittet. Utgående trafik hanteras i omvänd ordning (nätverksgränssnittet först, sedan undernätet).
 
-The rules are evaluated in _priority order_, starting with the **lowest priority** rule. Deny rules always **stop** the evaluation. For example, if a network interface rule blocks an outbound request, any rules applied to the subnet will not be checked. For traffic to be allowed through the security group, it must pass through _all_ applied groups.
+> [!WARNING]
+> Tänk på att säkerhetsgrupper är valfria på båda nivåerna. Om ingen säkerhetsgrupp tillämpas **tillåts all trafik** av Azure. Om den virtuella datorn har en offentlig IP-adress kan det vara en allvarlig risk, särskilt om operativsystemet inte har en inbyggd brandvägg.
 
-The last rule is always a **Deny All** rule. This is a default rule added to every security group for both inbound and outbound traffic with a priority of 65500. That means to have traffic pass through the security group, _you must have an allow rule_, or the final default rule will block it.
+Reglerna utvärderas i _prioritetsordning_, från regeln med **lägst prioritet**. Neka-regler **stoppar** alltid utvärderingen. Exempel: Om en regel för nätverksgränssnittet blockerar en utgående begäran kontrolleras inte några regler som tillämpas på undernätet. För att trafik ska tillåtas via säkerhetsgruppen måste den passera genom _alla_ tillämpade grupper.
 
-> [!NOTE]  
-> SMTP (port 25) is a special case. Depending on your subscription level and when your account was created, outbound SMTP traffic may be blocked. You can request to remove this restriction with business justification.
+Den sista regeln är alltid **Neka alla**. Det här är en standardregel som läggs till i varje säkerhetsgrupp för både inkommande och utgående trafik med prioriteten 65500. Det innebär att för att trafik ska passera genom säkerhetsgruppen _måste du ha en Tillåt-regel_. Annars blockeras den av den sista standardregeln.
 
-Since we didn't create a security group for this VM, let's do that and apply it.
+> [!NOTE]
+> SMTP (port 25) är ett specialfall – beroende på din prenumerationsnivå och när ditt konto har skapats kan utgående SMTP-trafik blockeras. Du kan begära att ta bort begränsningen med affärsrelaterad motivering.
 
-## Creating network security groups
+Eftersom vi inte har skapat en säkerhetsgrupp för den här virtuella datorn ska vi göra det och tillämpa den.
 
-Security groups are managed resources like most everything in Azure; you can create them in the Azure portal or through command-line scripting tools. The challenge is in defining the rules. Let's look at defining a new rule to allow HTTP access and block everything else.
+## <a name="creating-network-security-groups"></a>Skapa nätverkssäkerhetsgrupper
+
+Säkerhetsgrupper är hanterade resurser som det mesta i Azure. Du kan skapa dem i Azure Portal eller via kommandoradsverktyg för skript. Utmaningen är att definiera reglerna. Låt oss titta på att definierar en ny regel för att tillåta HTTP-åtkomst och blockera allt annat.

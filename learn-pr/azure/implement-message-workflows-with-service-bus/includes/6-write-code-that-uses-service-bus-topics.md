@@ -1,65 +1,65 @@
-In a distributed application, some messages need to be sent to a single recipient component. Other messages need to reach more than one destination.
+I ett distribuerat program måste meddelanden läggas på en enda mottagarkomponent. Andra meddelanden måste nå fler än ett mål.
 
-Let's discuss what happens when a user cancels a pizza order. This is a little different than placing the initial order. In that case, we wanted to wait until the order cleared payment processing before sending the order on to other steps (like having it prepared and cooked at the local storefront). But for the cancel operation, we are going to notify both the storefront *and* the payment processor at the same time. This approach minimizes the chances that we waste ingredients or delivery driver time.
+Nu ska vi diskutera vad som händer när en användare avbokar en pizzabeställning. Det är lite annorlunda än att göra den inledande beställningen. I det fallet ville vi vänta tills betalningsbearbetningen har slutförts för beställningen innan den skickas vidare till andra steg (som att förbereda och laga den i restaurangen). Men för avbokningen meddelar vi restaurangen och *och* betalningshanteraren samtidigt. På så sätt minimeras risken att ingredienser går till spillo eller att leveranstiden förlängs.
 
-To allow multiple components to receive the same message, we'll use an Azure Service Bus topic.
+För att flera komponenter ska få samma meddelande använder vi ett Azure Service Bus-ämne.
 
-## How code that uses topics differs from queues
+## <a name="how-code-that-uses-topics-differs-from-queues"></a>Hur kod som använder ämnen skiljer sig från köer
 
-If you want every message sent to the topic to be delivered to all subscribing components, you'll use topics. Writing code that uses topics is a way to replace queues. You use the same **Microsoft.Azure.ServiceBus** NuGet package, configure connection strings, and use asynchronous programming patterns.
+Om du vill att alla meddelanden som skickats till ämnet ska levereras till alla prenumererande komponenter använder du ämnen. Att skriva kod som använder ämnen är en väg till köer. Du använder samma **Microsoft.Azure.ServiceBus** NuGet-paket konfigurerar du anslutningssträngar och använder asynkrona programmeringsmönster.
 
-However, you use the `TopicClient` class instead of the `QueueClient` class to send messages and the `SubscriptionClient` class to receive messages.
+Men du använder klassen `TopicClient` i stället för klassen `QueueClient` till att skicka meddelanden och klassen `SubscriptionClient` för att ta emot meddelanden.
 
-## Setting filters on subscriptions
+## <a name="setting-filters-on-subscriptions"></a>Ange filter för prenumerationer
 
-If you want to control which messages sent to the topic are delivered to which subscriptions, you can place filters on each subscription in the topic. In the pizza application, for instance, our storefronts are running Universal Windows Platform (UWP) applications. Each store can subscribe to the "OrderCancellation" topic but filter for its own StoreId. We save internet bandwidth because we are not sending unnecessary messages to distant store locations. Meanwhile, the payment processing component subscribes to all our cancellation messages.
+Om du vill kontrollera vilka meddelanden som skickats till ämnet levereras till vilka prenumerationer kan du placera filter på varje prenumeration i ämnet. I pizzaprogrammet kör, till exempel, våra restauranger UWP-program. Varje restaurang kan prenumerera på ämnet ”OrderCancellation” (Avboka beställning) men filtrera efter eget StoreId. Vi sparar internetbandbredd eftersom vi inte skickar onödiga meddelanden till avlägsna försäljningsställen. Samtidigt prenumererar komponenten för betalningshantering på alla våra avbokningsmeddelanden.
 
-Filters can be one of three types:
+Filter kan vara någon av följande tre typer:
 
-- **Boolean Filters.** The `TrueFilter` ensures that all messages sent to the topic are delivered to the current subscription. The `FalseFilter` ensures that none of the messages are delivered to the current subscription. (This effectively blocks or switches off the subscription.)
-- **SQL Filters.** A SQL filter specifies a condition by using the same syntax as a `WHERE` clause in a SQL query. Only messages that return `True` when evaluated against this subscription will be delivered to the subscribers.
-- **Correlation Filters.** A correlation filter holds a set of conditions that are matched against the properties of each message. If the property in the filter and the property on the message have the same value, it is considered a match.
+- **Booleska filter.** `TrueFilter` ser till att alla meddelanden som skickats till ämnen levereras till den aktuella prenumerationen. `FalseFilter` ser till att inget meddelande levereras till den aktuella prenumerationen (detta blockerar eller stänger av prenumerationen).
+- **SQL-filter.** Ett SQL-filter anger ett villkor genom att använda samma syntax som en `WHERE`-sats i en SQL-fråga. Bara meddelanden som returnerar `True`, vid utvärdering mot prenumerationen, levereras till prenumeranterna.
+- **Korrelationsfilter.** Ett korrelationsfilter innehåller en uppsättning villkor som matchas mot egenskaperna för varje meddelande. Om egenskapen i filtret och egenskaperna för meddelandet har samma värde betraktas den som en matchning.
 
-For our StoreId filter, we *could* use a SQL filter. Those filters are the most flexible, but they're also the most computationally expensive and could slow down our Service Bus throughput. In this case, we choose a correlation filter instead. 
+För vårt StoreId-filter *kan* vi använda ett SQL-filter. De är de mest flexibla men också de databehandlingsmässigt dyra och kan göra Service Bus-dataflödet långsammare. I det här fallet väljer vi i stället ett korrelationsfilter. 
 
-## TopicClient example
+## <a name="topicclient-example"></a>TopicClient-exampel
 
-In any sending or receiving component, you should add the following `using` statements to any code file that calls a Service Bus topic:
+I alla skickande och mottagande komponenter bör du lägga till följande using-uttryck till alla kodfiler som anropar ett Service Bus-ämne:
 
-```C#
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Azure.ServiceBus;
-```
+    ```C#
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.ServiceBus;
+    ```
 
-To send a message, start by creating a new `TopicClient` object and pass it the connection string and the name of the topic:
+Om du vill skicka ett meddelande börjar du med att skapa ett `TopicClient`-objekt och skicka anslutningssträngen och namnet på ämnet till objektet:
 
-```C#
-topicClient = new TopicClient(TextAppConnectionString, "GroupMessageTopic");
-```
+    ```C#
+    topicClient = new TopicClient(TextAppConnectionString, "GroupMessageTopic");
+    ```
 
-You can send a message to the topic by calling the `TopicClient.SendAsync()` method and passing the message. As with queues, the message must be in the form of a UTF-8 encoded string:
+Du kan skicka ett meddelande till ämnet, genom att anropa metoden `TopicClient.SendAsync()` och skicka meddelande. Som för köer måste meddelandet ha formatet UTF8-kodad sträng:
 
-```C#
-string message = "Cancel! I can't believe you use canned mushrooms!";
-var encodedMessage = new Message(Encoding.UTF8.GetBytes(message));
-await topicClient.SendAsync(encodedMessage);
-```
+    ```C#
+    string message = "Cancel! I can't believe you use canned mushrooms!";
+    var encodedMessage = new Message(Encoding.UTF8.GetBytes(message));
+    await topicClient.SendAsync(encodedMessage);
+    ```
 
-To receive messages, you must create a `SubscriptionClient` object, not a `TopicClient` object, and pass it the connection string, the name of the topic, **and** the name of the subscription:
+Om du vill ta emot meddelanden måste du skapa ett `SubscriptionClient`-objekt, inte ett `TopicClient`-objekt, och skicka anslutningssträngen, namnet på ämnet **och** namnet på prenumerationen:
 
-```C#
-subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, "GroupMessageTopic", "NorthAmerica");
-```
+    ```C#
+    subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, "GroupMessageTopic", "NorthAmerica");
+    ```
 
-Then register a message handler - this is the asynchronous method in your code that processes the retrieved message.
+Registrera sedan en meddelandehanterare – det här är den asynkrona metoden i koden som bearbetar det hämtade meddelandet.
 
-```C#
-subscriptionClient.RegisterMessageHandler(MessageHandler, messageHandlerOptions);
-```
+    ```C#
+    subscriptionClient.RegisterMessageHandler(MessageHandler, messageHandlerOptions);
+    ```
 
-Within the message handler, call the `SubscriptionClient.CompleteAsync()` method to remove the message from the queue:
+Anropa `SubscriptionClient.CompleteAsync()`-metoden i meddelandehanteraren, så tas meddelandet bort från kön:
 
-```C#
-await subscriptionClient.CompleteAsync(message.SystemProperties.LockToken);
-```
+    ```C#
+    await subscriptionClient.CompleteAsync(message.SystemProperties.LockToken);
+    ```

@@ -1,26 +1,27 @@
-Our goal is to create a new Azure virtual machine. We'll need to supply several pieces of information to identify the resource location, OS to use, and the hardware configuration needed for the VM. Let's start with the **resource group**.
+Vårt mål är att skapa en ny virtuell Azure-dator. Vi behöver ange flera uppgifter för att identifiera resursplats, operativsystem som ska användas och maskinvarukonfiguration som behövs för den virtuella datorn. Vi börjar med **resursgruppen**.
 
-## Create a resource group
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Azure uses _resource groups_ to group related resources such as virtual machines and databases together. The resource group also identifies a specific location (called a "region") which will decide what data center the resource is placed into.
+Azure använder _resursgrupper_ till att gruppera relaterade resurser, till exempel virtuella datorer och databaser. Resursgruppen identifierar även en specifik plats (s.k. ”region”) som avgör vilket datacenter resursen placeras i.
 
-> [!NOTE]
-> The Azure sandbox provides a pre-created resource group named <rgn>[Sandbox resource group name]</rgn>. You do not need to execute these steps. However, when you are creating your _own_ resources for real projects, these will be the commands you will need to perform. The Azure sandbox does not allow you to create resource groups directly.
+Eftersom vi experimenterar börjar vi med att skapa en ny resursgrupp med namnet `ExerciseResources` och vi placerar den i regionen `eastus`.
 
-As an example, you could type the following Azure CLI command in Azure Cloud Shell to create a resource group in the **East US** region. You would replace **[resource-group]** with a valid name that is unique within the active subscription.
+<!-- TODO: replace with free ed-tier -->
+
+Skriv följande Azure CLI-kommando i Azure Cloud Shell för att skapa resursgruppen i din prenumeration.
 
 ```azurecli
-az group create --name [resource-group] --location eastus
+az group create --name ExerciseResources --location eastus
 ```
 
-This would return a JSON block indicating the resource group has been created.
+Detta returnerar ett JSON-block som visar att resursgruppen har skapats. Det bör se ut ungefär så här:
 
 ```json
 {
-  "id": "/subscriptions/abc13b0c-d2c4-64b2-9ac5-2f4cb819b752/resourceGroups/<resourcegroup>",
+  "id": "/subscriptions/abc13b0c-d2c4-64b2-9ac5-2f4cb819b752/resourceGroups/ExerciseResources",
   "location": "eastus",
   "managedBy": null,
-  "name": "<resourcegroup>",
+  "name": "ExerciseResources",
   "properties": {
     "provisioningState": "Succeeded"
   },
@@ -28,6 +29,6 @@ This would return a JSON block indicating the resource group has been created.
 }
 ```
 
-Notice that it returns the subscription unique identifier, location, and name as part of the response. You can use these to verify it got created in the proper subscription and location.
+Observera att det även returnerar den unika identifieraren för prenumerationen, platsen och namnet som en del av svaret. Du kan använda dem för att kontrollera att den skapades i rätt prenumeration och på rätt plats.
 
-Now that we know how to create a resource group, let's create a new virtual machine.
+Nu när vi har en resursgrupp ska vi skapa en ny virtuell dator.

@@ -1,8 +1,8 @@
 Nu när du har lärt dig om vilka typer av frågor du kan skapa ska vi använda Datautforskaren i Azure Portal till att hämta och filtrera dina produktdata.
 
-Observera i fönstret för Datautforskaren att frågan som standard är inställd på `SELECT * FROM c` på fliken Dokument. Den här standardfrågan hämtar och visar alla dokument i samlingen.
+Observera i fönstret för Datautforskaren att frågan på fliken **Dokument** som standard är inställd på `SELECT * FROM c`. Den här standardfrågan hämtar och visar alla dokument i samlingen.
 
-![Standardfrågan i Datautforskaren är ”SELECT * FROM c”](../media-draft/4-run-queries/azure-cosmosdb-data-explorer-query.png)
+![Standardfrågan i Datautforskaren är SELECT * FROM c](../media-draft/4-run-queries/azure-cosmosdb-data-explorer-query.png)
 
 ## <a name="create-a-new-query"></a>Skapa en ny fråga
 
@@ -10,7 +10,7 @@ Observera i fönstret för Datautforskaren att frågan som standard är inställ
 
     ![Ändra standardfrågan genom att lägga till ORDER BY c._ts DESC och klicka på Tillämpa filter](../media-draft/4-run-queries/azure-cosmosdb-data-explorer-edit-query.png)
 
-2. Nu ska vi köra några av de frågor som diskuterades i föregående del. Ta bort `SELECT * from c` på frågefliken, kopiera och klistra in följande fråga och klicka sedan på **Kör fråga**.
+2. Nu ska vi köra några av frågorna som diskuterades i föregående del. Ta bort `SELECT * from c` på frågefliken, kopiera och klistra in följande fråga och klicka sedan på **Kör fråga**:
 
     ```
     SELECT *

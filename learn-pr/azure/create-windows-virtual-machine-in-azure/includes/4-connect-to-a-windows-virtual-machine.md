@@ -1,52 +1,52 @@
-Now that we have a Windows VM in Azure, the next thing you’ll do is put your applications and data on those VMs to process our traffic videos. 
+Nu när vi har en virtuell Windows-dator i Azure ska du placera dina program och data på dessa virtuella datorer för att bearbeta våra trafikvideor. 
 
-However, unless you’ve set up a site-to-site VPN to Azure, your Azure VMs won’t be accessible from your local network. If you’re just getting started with Azure, it’s unlikely that you have a working site-to-site VPN. So how can you transfer files to Azure VMs? One easy way is to use Azure’s Remote Desktop Connections feature to share your local drives with your new Azure VMs.
+Men om du inte har konfigurerat plats-till-plats-VPN-anslutning till Azure kan dina virtuella datorer i Azure inte nås från det lokala nätverket. Om du precis har kommit igång med Azure har du troligen inte en fungerande plats-till-plats-VPN-anslutning. Så hur överför du filer till virtuella Azure-datorer? Ett enkelt sätt är att använda funktionen Anslutning till fjärrskrivbord i Azure för att dela dina lokala enheter med dina nya virtuella Azure-datorer.
 
-Now that we have a new Windows virtual machine, we need to install our custom software on to it. There are two ways we can use:
+Nu när vi har en ny virtuell Windows-dator måste vi installera vår egna programvara på den. Det finns två sätt som vi kan använda:
 
 - Remote Desktop Protocol (RDP)
-- Custom scripts
-- Custom VM images (with the software preinstalled)
+- Anpassade skript
+- Anpassade avbildningar av virtuella datorer (med förinstallerad programvara)
 
-Let's look at the simplest approach for Windows VMs: Remote Desktop.
+Låt oss titta på den enklaste metoden för Windows-datorer: Fjärrskrivbord.
 
-## What is the Remote Desktop Protocol?
+## <a name="what-is-the-remote-desktop-protocol"></a>Vad är Remote Desktop Protocol?
 
-Remote Desktop (RDP) provides remote connectivity to the UI of Windows-based computers. RDP enables you to sign in to a remote physical or virtual Windows computer and control that computer as if you were seated at the console. An RDP connection enables you to carry out the vast majority of operations that you can do from the console of a physical computer, with the exception of some power and hardware-related functions.
+Med Remote Desktop Protocol (RDP) kan du fjärransluta till användargränssnittet i Windows-baserade datorer. Du kan logga in på en fjärransluten fysisk eller virtuell Windows-dator och styra datorn, precis som när du sitter vid den. Med en RDP-anslutning kan du utföra merparten av de åtgärder som du kan göra från konsolen på en fysisk dator, med undantag för vissa ström- och maskinvarurelaterade funktioner.
 
-An RDP connection requires an RDP client. Microsoft provides RDP clients for the following operating systems:
+En RDP-anslutning kräver en RDP-klient. Microsoft tillhandahåller RDP-klienter för följande operativsystem:
 
-- Windows (built-in)
+- Windows (inbyggt)
 - MacOS
 - iOS
 - Android
 
-The following screenshot displays the Remote Desktop Protocol client in Windows 10.
+Följande skärmbild visar Remote Desktop Protocol-klienten i Windows 10.
 
-![Screenshot of the user interface of the Remote Desktop Protocol client.](../media/4-rdp-client.png)
+![Skärmbild av användargränssnittet för Remote Desktop Protocol-klienten.](../media/4-rdp-client.png)
 
-There are also open source Linux clients, such as Remmina that enable you to connect to a Windows PC from an Ubuntu distribution.
+Det finns även Linux-klienter med öppen källkod, till exempel Remmina som gör det möjligt att ansluta till en Windows-dator från en Ubuntu-distribution.
 
-## Connecting to an Azure VM
+## <a name="connecting-to-an-azure-vm"></a>Ansluta till en virtuell Azure-dator
 
-As we saw a moment ago, Azure VMs communicate on a virtual network. They can also have an optional public IP address assigned to them. With a public IP, we can communicate with the VM over the Internet. Alternatively, we can setup a virtual private network (VPN) that connects our on-premises network to Azure - letting us securely connect to the VM without exposing a public IP. This approach is covered in another module and is fully documented if you are interested in exploring that option.
+Som vi såg alldeles nyss kommunicerar virtuella Azure-datorer i ett virtuellt nätverk. De kan också ha en valfri offentlig IP-adress som har tilldelats. Med en offentlig IP-adress kan vi kommunicera med den virtuella datorn via Internet. Vi kan också konfigurera ett virtuellt privat nätverk (VPN) som ansluter det lokala nätverket till Azure. Då kan vi på ett säkert sätt ansluta till den virtuella datorn utan att exponera en offentlig IP-adress. Den här metoden beskrivs i en annan modul och är fullständigt dokumenterad om du vill utforska det alternativet.
 
-One thing to be aware of with public IP addresses in Azure is they are often dynamically allocated. That means the IP address can change over time - for VMs this happens when the VM is restarted. You can pay more to assign static addresses if you want to connect directly to an IP address instead of a name and need to ensure that the IP address will not change.
+En sak att tänka på med offentliga IP-adresser i Azure är att de ofta tilldelas dynamiskt. Det innebär att IP-adressen kan ändras över tid – för virtuella datorer sker det när den virtuella datorn startas om. Du kan betala mer för att tilldela statiska adresser om du vill ansluta direkt till en IP-adress i stället för ett namn och se till att IP-adressen inte ändras.
 
-### How do you connect to a VM in Azure using RDP?
+### <a name="how-do-you-connect-to-a-vm-in-azure-using-rdp"></a>Hur ansluter du till en virtuell dator i Azure med RDP?
 
-Connecting to a VM in Azure using RDP is a simple process. In the Azure portal, you go to the properties of your VM, and at the top, click **Connect**. This will show you the IP addresses assigned to the VM and give you the option to download a preconfigured **.rdp** file that Windows then opens in the RDP client. You can choose to connect over the public IP address of the VM in the RDP file. Alternatively, if you're connecting over VPN or ExpressRoute, you can select the internal IP address. You can also select the port number for the connection.
+Det är enkelt att ansluta till en virtuell dator i Azure med RDP. Gå till egenskaperna för din virtuella dator i Azure-portalen och klicka på **Anslut** högst upp. Det här visar dig de IP-adresser som tilldelats till den virtuella datorn och ger dig möjlighet att ladda ned en förkonfigurerad **.rdp** -fil som Windows sedan öppnar i RDP-klienten. Du kan välja att ansluta via den offentliga IP-adressen till den virtuella datorn i RDP-filen. Om du ansluter via VPN eller ExpressRoute kan du välja den interna IP-adressen. Du kan också välja portnumret för anslutningen.
 
-If you're using a static public IP address for the VM, you can save the **.rdp** file to your desktop. If you're using dynamic IP addressing, the **.rdp** file only remains valid while the VM is running. If you stop and restart the VM, you must download another **.rdp** file.
+Om du använder en statisk offentlig IP-adress för den virtuella datorn kan du spara **.rdp**-filen på skrivbordet. Om du använder dynamisk IP-adresshantering är .rdp-filen endast giltig när den virtuella datorn körs. Om du stoppar och startar om den virtuella datorn måste du hämta en annan .rdp-fil.
 
 > [!TIP]
-> You can also enter the public IP address of the VM into the Windows RDP client and click **Connect**.
+> Du kan också ange den offentliga IP-adressen till den virtuella datorn i Windows rdp-klient och klicka på **Anslut**.
 
-When you connect, you will typically receive two warnings. These are:
+När du ansluter får du troligtvis två varningar. Dessa är:
 
--**Publisher warning** - caused by the **.rdp** file not being publicly signed.
-- **Certificate warning** - caused by the machine certificate not being trusted.
+-**Utgivarvarning** – **.rdp**-filen har inte signerats offentligt.
+- **Certifikatvarning** – datorcertifikatet är inte betrott.
 
-In test environments, these warnings can be ignored. In production environments, the **.rdp** file can be signed using **RDPSIGN.EXE** and the machine certificate placed in the client's **Trusted Root Certification Authorities** store.
+Dessa varningar kan ignoreras i testmiljö. I produktionsmiljö kan **.rdp**-filen signeras med hjälp av **RDPSIGN. EXE** och datorcertifikatet kan placeras i klientens arkiv för **betrodda rotcertifikatutfärdare**.
 
-Let's try using RDP to connect to our VM.
+Nu ska vi prova med RDP för att ansluta till vår virtuella dator.

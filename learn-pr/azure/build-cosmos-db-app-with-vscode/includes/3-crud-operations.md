@@ -1,27 +1,27 @@
 <!--TODO: explain Etag in knowledge needed-->
 
-Once the connection to Azure Cosmos DB has been made, the next step is to create, read, replace, and delete the documents that are stored in the database. In this unit, you will create User documents in your WebCustomer collection, then you'll retrieve them by ID, replace them, and delete them.
+När anslutningen till Azure Cosmos DB väl har upprättats är nästa steg att skapa, läsa, ersätta och ta bort dokument som lagras i databasen. I den här kursdelen ska du skapa användardokument i din WebCustomer-samling och sedan hämta dem med hjälp av ID:n, ersätta dem och ta bort dem.
 
-## Working with documents programmatically
+## <a name="working-with-documents-programmatically"></a>Arbeta programmatiskt med dokument
 
-Data is stored in JSON documents in Azure Cosmos DB. [Documents](https://docs.microsoft.com/azure/cosmos-db/sql-api-resources#documents) can be created, retrieved, replaced, or deleted in the portal, as shown in the previous module, or programmatically, as described in this module. Azure Cosmos DB provides client-side SDKs for .NET, .NET Core, Java, Node.js, and Python, each of which supports these operations. In this module we'll be using the .NET Core SDK to perform CRUD (create, retrieve, update, and delete) operations. 
+Data lagras i JSON-dokument i Azure Cosmos DB. [Dokument](https://docs.microsoft.com/azure/cosmos-db/sql-api-resources#documents) kan skapas, hämtas, ersättas och tas bort i portalen, som du såg i föregående modul. I den här modulen beskrivs hur du gör det programmässigt. Azure Cosmos DB har SDK:er på klientsidan för .NET, .NET Core, Java, Node.js och Python. De har alla stöd för de här åtgärderna. I den här modulen kommer vi att använda SDK:n för .NET Core till att skapa, hämta, uppdatera och ta bort objekt. 
 
-The main operations for Azure Cosmos DB documents are part of the [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) class:
+De viktigaste åtgärderna för Azure Cosmos DB-dokument ingår i klassen [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet):
 * [CreateDocumentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync?view=azure-dotnet)
 * [ReadDocumentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentasync?view=azure-dotnet)
 * [ReplaceDocumentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentasync?view=azure-dotnet)
-* [UpsertDocumentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.upsertdocumentasync?view=azure-dotnet). Upsert performs a create or replace operation depending on whether the document already exists.
+* [UpsertDocumentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.upsertdocumentasync?view=azure-dotnet). Upsert skapar eller byter ut beroende på om dokumentet redan finns.
 * [DeleteDocumentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentasync?view=azure-dotnet)
 
-To perform any of these operations, you need to create a class that represents the object stored in the database. Because we're working with a database of users, you'll want to create a **User** class to store primary data such as their first name, last name, and user id (which is required, as that's the partition key to enable horizontal scaling) and subclasses for shipping preferences and order history.
+Om du vill utföra någon av de här åtgärderna måste du skapa en klass som representerar objektet som lagras i databasen. Eftersom vi arbetar med en databas med användare kan du skapa klassen **User** (Användare) för att lagra viktiga data som förnamn, efternamn och användar-ID (obligatoriskt eftersom det är partitionsnyckeln som möjliggör horisontell skalning) och underklasser för leveransinställningar och orderhistorik.
 
-Once you have those classes created to represent your users, you'll create new user documents for each instance, and then we'll perform some simple CRUD operations on the documents.
+När du har skapat de här klasserna för dina användare skapar du nya användardokument för varje instans. Sedan ska vi utföra några enkla åtgärder på dokumenten.
 
-## Create documents
+## <a name="create-documents"></a>Skapa dokument
 
-1. First, create a **User** class that represents the objects to store in Azure Cosmos DB. We will also create **OrderHistory** and **ShippingPreference** subclasses that are used within **User**. Note that documents must have an **Id** property serialized as **id** in JSON.
+1. Skapa först en **User**-klass som representerar objekten som ska lagras i Azure Cosmos DB. Vi skapar också underklasserna **OrderHistory** och **ShippingPreference** som används i klassen **User**. Observera att dokument måste ha en **id**-egenskap serialiserad som **id** i JSON.
 
-    To create these classes, copy and paste the following **User**, **OrderHistory**, and **ShippingPreference** classes underneath the **BasicOperations** method.
+    Du kan skapa dem genom att kopiera och klistra in koden för **användaren**, **OrderHistory** och **ShippingPreference** under metoden **BasicOperations**.
 
     ```csharp
     public class User
@@ -82,13 +82,13 @@ Once you have those classes created to represent your users, you'll create new u
     }
     ```
 
-1. In the integrated terminal, type the following command to run the program to ensure it runs.
+1. Ange följande kommando för att köra programmet i den integrerade terminalen och kontrollera att det körs.
 
     ```csharp
     dotnet run
     ```
 
-1. Now copy and paste the **CreateUserDocumentIfNotExists** task under the **ShippingPreference** class.
+1. Kopiera nu och klistra in uppgiften **CreateUserDocumentIfNotExists** under klassen **ShippingPreference**.
 
     ```csharp
     private async Task CreateUserDocumentIfNotExists(string databaseName, string collectionName, User user)
@@ -113,7 +113,7 @@ Once you have those classes created to represent your users, you'll create new u
         }
     ```
 
-1. Then add the following to the **BasicOperations** method.
+1. Lägg sedan till följande i metoden **BasicOperations**.
 
     ```csharp
      User yanhe = new User
@@ -192,13 +192,13 @@ Once you have those classes created to represent your users, you'll create new u
                 await this.CreateUserDocumentIfNotExists("Users", "WebCustomers", nelapin);
     ```
 
-1. In the integrated terminal, again, type the following command to run the program to ensure it runs.
+1. Ange återigen följande kommando i den integrerade terminalen för att köra programmet och kontrollera att det körs.
 
     ```csharp
     dotnet run
     ```
 
-    The terminal displays the following output, indicating that both user records were successfully created.
+    Du ser följande utdata i terminalen om att båda användarposterna har skapats.
 
     ```
     Database and collection validation complete
@@ -209,9 +209,9 @@ Once you have those classes created to represent your users, you'll create new u
     End of demo, press any key to exit.
     ```
 
-## Read documents
+## <a name="read-documents"></a>Läsa dokument
 
-1. To read documents from the database, copy in the following code and place it at the end of the Program.cs file.
+1. Om du vill läsa dokument från databasen kopierar du följande kod och placerar den i slutet av filen Program.cs.
     
     ```csharp
     private async Task ReadUserDocument(string databaseName, string collectionName, User user)
@@ -235,18 +235,18 @@ Once you have those classes created to represent your users, you'll create new u
     }
     ```
 
-1.  Copy and paste the following code to the end of the **BasicOperations** method, after the `await this.CreateUserDocumentIfNotExists("Users", "WebCustomers", nelapin);` line.
+1.  Kopiera och klistra in följande kod i slutet av metoden **BasicOperations**, efter raden `await this.CreateUserDocumentIfNotExists("Users", "WebCustomers", nelapin);`.
 
     ```csharp
     await this.ReadUserDocument("Users", "WebCustomers", yanhe);
     ```
 
-1. Save the Program.cs file and then, in the integrated terminal, run the following command.
+1. Spara filen Program.cs och kör följande kommando i den integrerade terminalen.
 
     ```
     dotnet run
     ```
-    The terminal displays the following output, where the output "Read user 1" indicates the document was retrieved.
+    Du ser följande utdata i terminalen, och ”Read user 1” innebär att dokumentet hämtades.
 
     ```
     Database and collection validation complete
@@ -259,11 +259,11 @@ Once you have those classes created to represent your users, you'll create new u
     End of demo, press any key to exit.
     ```
 
-## Replace documents
+## <a name="replace-documents"></a>Ersätta dokument
 
-Azure Cosmos DB supports replacing JSON documents. In this case, we'll update a user record to account for a change to their last name.
+Azure Cosmos DB har stöd för ersättning av JSON-dokument. I det här fallet ska vi uppdatera en användarpost eftersom efternamnet har ändrats.
 
-1. Copy and paste the **ReplaceFamilyDocument** method at the end of the Program.cs file.
+1. Kopiera och klistra in metoden **ReplaceFamilyDocument** i slutet av filen Program.cs.
 
     ```csharp
     private async Task ReplaceUserDocument(string databaseName, string collectionName, User updatedUser)
@@ -287,19 +287,19 @@ Azure Cosmos DB supports replacing JSON documents. In this case, we'll update a 
     }
     ```
 
-1. Copy and paste the following code to the end of the **BasicOperations** method, after the `await this.CreateUserDocumentIfNotExists("Users", "WebCustomers", nelapin);` line.
+1. Kopiera och klistra in följande kod i slutet av metoden **BasicOperations**, efter raden `await this.CreateUserDocumentIfNotExists("Users", "WebCustomers", nelapin);`.
 
     ```csharp
     yanhe.LastName = "Suh";
     await this.ReplaceUserDocument("Users", "WebCustomers", yanhe);
     ```
 
-1. Save the Program.cs file and then, in the integrated terminal, run the following command.
+1. Spara filen Program.cs och kör följande kommando i den integrerade terminalen.
 
     ```
     dotnet run
     ```
-    The terminal displays the following output, where the output "Replaced last name for Suh" indicates the document was replaced.
+    Du ser följande utdata i terminalen, och ”Replaced last name for Suh” innebär att dokumentet ersattes.
 
     ```
     Database and collection validation complete
@@ -314,9 +314,9 @@ Azure Cosmos DB supports replacing JSON documents. In this case, we'll update a 
     End of demo, press any key to exit.
     ```
 
-## Delete documents
+## <a name="delete-documents"></a>Ta bort dokument
 
-1. Copy and paste the **DeleteUserDocument** method underneath your **ReplaceUserDocument** method.
+1. Kopiera och klistra in metoden **DeleteUserDocument** under metoden **ReplaceUserDocument**.
     
     ```csharp
     private async Task DeleteUserDocument(string databaseName, string collectionName, User deletedUser)
@@ -340,19 +340,19 @@ Azure Cosmos DB supports replacing JSON documents. In this case, we'll update a 
     }
     ```
 
-1. Copy and paste the following code to your **BasicOperations** method underneath the second query execution.
+1. Kopiera och klistra in följande kod i metoden **BasicOperations** under den andra frågekörningen.
 
     ```csharp
     await this.DeleteUserDocument("Users", "WebCustomers", yanhe);
     ```
 
-1. In the integrated terminal, run the following command.
+1. Kör följande kommando i den integrerade terminalen.
 
     ```
     dotnet run
     ```
 
-    The terminal displays the following output, where the output "Deleted user 1" indicates the document was deleted.
+    Du ser följande utdata i terminalen, och ”Deleted user 1” innebär att dokumentet togs bort.
 
     ```
     Database and collection validation complete
@@ -368,6 +368,6 @@ Azure Cosmos DB supports replacing JSON documents. In this case, we'll update a 
     End of demo, press any key to exit.
     ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit you created, replaced, and deleted documents in your Azure Cosmos DB database.
+I den här utbildningsenheten har du skapat, ersatt och tagit bort dokument i din Azure Cosmos DB-databas.

@@ -1,64 +1,64 @@
-Now that you've got your app up and running on your local machine, it's time to get it published to Azure. 
+Nu när du har kört igång appen på din lokala dator är det dags att publicera den till Azure. 
 
-In this unit, you will create, build, and run a new ASP.NET web application on your local machine.
+I den här delen skapar, bygger och kör du ett nytt ASP.NET-webbprogram på den lokala datorn.
 
-## Create a new project
+## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-### Visual Studio for Windows
+### <a name="visual-studio-for-windows"></a>Visual Studio för Windows
 
-The first step is to start Visual Studio and create a local ASP.NET Core web application.
+Det första steget är att starta Visual Studio och skapa ett lokalt ASP.NET Core-webbprogram.
 
-1. On the Visual Studio start page, select **File**, then click **New**, and then click **Project..**.
+1. På startsidan för Visual Studio väljer du **Arkiv** och klickar sedan på **Nytt** följt av **Projekt...**.
 
-1. In the **New Project** dialog box, on the left-hand pane, select **Web**.
+1. I dialogrutan **Nytt projekt** går du till fönsterrutan till vänster och väljer **Webb**.
 
-1. In the center pane, click **ASP.NET Core Web Application**.
+1. I den mittersta fönsterrutan klickar du på **ASP.NET Core-webbprogram**.
 
-1. At the bottom of the dialog box, in the **Name** field, enter **Alpine Ski House**.
+1. Längst ned i dialogrutan går du till fältet **Namn** och anger **Alpine Ski House**.
 
-1. Select a **Location** for your new solution.
+1. Välj en **plats** för den nya lösningen.
 
-1. Click the **OK** button to create your project.
+1. Klicka på knappen **OK** för att skapa projektet.
 
-1. In the **New ASP.NET Core Web Application** dialog box, you will see a selection of starting templates. For this exercise, select **Web Application**, and then click **OK** to create your project.
+1. I dialogrutan **Nytt ASP.NET Core-webbprogram** visas ett urval av startmallar. För den här övningen väljer du **Webbprogram** och klickar sedan på **OK** för att skapa projektet.
 
-    ![New Project Dialog](../media-draft/3-aspnet-templates.png)
+    ![Dialogrutan Nytt projekt](../media-draft/3-aspnet-templates.png)
 
     > [!NOTE]
-    > You can also select different starting templates in this dialog box depending on your web development requirements. At the top of the dialog box, you are also able to select the version of ASP.NET Core. You should select ASP.NET Core 2.0 or later.
+    > Du kan även välja olika startmallar i den här dialogrutan beroende på dina behov för utveckling av webbprogram. Längst upp i dialogrutan kan du även välja version av ASP.NET Core. Du bör välja ASP.NET Core 2.0 eller senare.
 
-1. You should now have your new ASP.NET Core web application solution.
+1. Du bör nu ha din nya lösning för ASP.NET Core-program.
 
-    ![New Project Dialog](../media-draft/3-new-solution.png)
+    ![Dialogrutan Nytt projekt](../media-draft/3-new-solution.png)
 
-### Visual Studio Mac
+### <a name="visual-studio-mac"></a>Visual Studio Mac
 
-1. On the Visual Studio start page, select **File**, then click **New**, and then click **Project..**.
+1. På startsidan för Visual Studio väljer du **Arkiv** och klickar sedan på **Nytt** följt av **Projekt...**.
 
-1. Under .**NET Core**, select an **ASP.NET Core Web App**, and then click **Next**.
+1. Under. **NET Core** väljer du en **ASP.NET Core-webbapp** och klickar sedan på **Nästa**.
 
-1. For the **Project Name**, type **AlpineSkiHouse**. This should also auto-populate the solution name.
+1. Som **projektnamn** skriver du **AlpineSkiHouse**. Det bör även fylla i lösningens namn automatiskt.
 
-1. Select a **location** on your local machine for the project.
+1. Välj en **plats** på den lokala datorn för projektet.
 
-1. Click **Create**.
+1. Klicka på **Skapa**.
 
-## Build and test on your local machine
+## <a name="build-and-test-on-your-local-machine"></a>Bygga och testa på din lokala dator
 
-Now, let's build and test your new project on your local machine to ensure it builds and deploys locally before deploying to Azure.
+Nu ska vi bygga och testa det nya projektet på din lokala dator för att se till att det byggs och distribueras lokalt innan du distribuerar till Azure.
 
-1. Press **F5** to run the app in debug mode or **Ctrl-F5** to run without attaching the debugger.
+1. Tryck på **F5** för att köra appen i felsökningsläge eller på **Ctrl-F5** för att köra utan att koppla felsökaren.
 
-    ![New Project Dialog](../media-draft/3-webapp-launch.png)
+    ![Dialogrutan Nytt projekt](../media-draft/3-webapp-launch.png)
 
-Visual Studio starts IIS Express and runs the app. When Visual Studio creates a web project, a random port is used for the web server. In the preceding image, the port number is 44381. When you run the app, you'll likely see a different port number.
+Visual Studio startar IIS Express och kör appen. När Visual Studio skapar ett webbprojekt används en slumpmässig port för webbservern. I den föregående bilden är portnumret 44381. När du kör appen visas sannolikt ett annat portnummer.
 
 > [!TIP]
-> Launching the app with **Ctrl+F5** (non-debug mode) allows you to make code changes, save the file, refresh the browser, and see the code changes. Many developers prefer to use non-debug mode to quickly launch the app and view changes.
+> Om du startar appen med **Ctrl+F5** (icke-felsökningsläge) kan du göra kodändringar, spara filen, uppdatera webbläsaren och se kodändringarna. Många utvecklare föredrar att använda icke-felsökningsläge för att snabbt starta appen och visa ändringar.
 
 > [!IMPORTANT]
-> You might notice the section at the top of the web page that provides a place for your privacy and cookie use policy. Select **Accept** to consent to tracking. This app doesn't track personal information. The template-generated code includes assets to help meet General Data Protection Regulation (GDPR).
+> Du lägger kanske märker till avsnittet längst upp på webbplatsen som är till för din policy om sekretess och användning av cookies. Välj **Godkänn** för att ge samtycke till spårning. Den här appen spårar inte personlig information. Koden som genereras av mallen innehåller resurser som hjälper till att uppfylla dataskyddsförordningen (GDPR).
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-The first step to getting your ASP.NET site up and running is to create it and run it locally. Now that your site is created, you are ready to deploy it to Azure.
+Det första steget för att köra igång ASP.NET-webbplats är att skapa och köra den lokalt. Nu när webbplatsen har skapats är du redo att distribuera den till Azure.

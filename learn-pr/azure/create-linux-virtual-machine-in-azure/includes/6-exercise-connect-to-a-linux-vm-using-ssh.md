@@ -1,76 +1,78 @@
-We have our Linux VM deployed and running, but it's not configured to do any work. Let's connect to it with SSH and configure Apache, so we have a running web server.
+Vår virtuella Linux-dator har distribuerats och körs men den har inte konfigurerats att utföra arbete. Nu ska vi ansluta till den med SSH och konfigurera Apache, så att vi har en aktiv server.
 
-## Connect to the VM with SSH
+## <a name="connect-to-the-vm-with-ssh"></a>Ansluta till den virtuella datorn med SSH
 
-To connect to an Azure VM with an SSH client, you will need:
+Om du vill ansluta till en virtuell Azure-dator med en SSH-klient behöver du:
 
-- SSH client software (present on most modern operating systems)
-- The public IP address of the VM (or private if the VM is configured to connect to your network)
+- SSH-klientprogramvaran (finns på de flesta moderna operativsystem)
+- Den offentliga IP-adressen för den virtuella datorn (eller privat om den virtuella datorn är konfigurerad för att ansluta till nätverket)
 
-### Get the public IP address
+### <a name="get-the-public-ip-address"></a>Hämta den offentliga IP-adressen
 
-1. In the [Azure portal](https://portal.azure.com?azure-portal=true), ensure the **Overview** panel for the virtual machine that you created earlier is open. You can find the VM under **All Resources** if you need to open it. The overview panel has a lot of information about the VM.
+1. Se till att [översiktspanelen](https://portal.azure.com?azure-portal=true) för den virtuella dator du skapade tidigare är öppen i **Azure Portal**. Du hittar den virtuella datorn under **Alla resurser** om du behöver öppna den. Översiktspanelen har mycket information om den virtuella datorn.
 
-    - You can see whether the VM is running
-    - Stop or restart it
-    - Get the public IP address to connect to the VM
-    - See the activity of the CPU, disk, and network
+    - Du kan se om den virtuella datorn körs
+    - Stoppa eller starta om den
+    - Hämta den offentliga IP-adressen för att ansluta till den virtuella datorn
+    - Visa aktiviteten för CPU, disk och nätverk
 
-1. Click the **Connect** button at the top of the pane.
+1. Klicka på knappen **Anslut** högst upp i fönstret.
 
-1. In the **Connect to virtual machine** blade, note the **IP address** and **Port number** settings. On the **SSH** tab, you will also find the command you need to execute locally to connect to the VM. Copy this to the clipboard.
+1. På bladet **Anslut till virtuell dator** noterar du inställningarna för **IP-adress** och **portnummer**. På fliken **SSH** fliken finns också kommandot som du behöver köra lokalt för att ansluta till den virtuella datorn. Kopiera detta till Urklipp.
 
-<!-- TODO: This will be necessary if we ever have inline portal integration. 
+<!-- TODO: this will be necessary if we ever have inline portal integration 
 
-### Open Azure Cloud Shell
+### Open the Azure Cloud Shell
 
-Let's use Cloud Shell in the Azure portal. If you generated the SSH key locally, you need to use your local session since the private key won't be in your storage account:
+Let's use the Cloud Shell in the Azure Portal. If you generated the SSH key locally, you need to use your local session since the private key won't be in your storage account.
 
-1. Switch back to the **Dashboard** by clicking the **Dashboard** button in the Azure sidebar.
+1. Switch back to the **Dashboard** by clicking the Dashboard button in the Azure sidebar.
 
-1. Open Cloud Shell by clicking the **shell** button in the top toolbar.
+1. Open the Cloud Shell by clicking the shell button in the top toolbar.
 
-    ![Screenshot of the Azure portal top navigation bar with the Azure Cloud Shell button highlighted.](../media/6-cloud-shell.png)
+    ![Open the Azure Cloud Shell](../media-drafts/6-cloud-shell.png)
 
 1. Select **Bash** as the shell type. PowerShell is also available if you are a Windows administrator.
 
+    ![Select bash shell in the portal](../media-drafts/6-use-bash-shell.png)
+
 -->
 
-## Connect with SSH
+## <a name="connect-with-ssh"></a>Ansluta med SSH
 
-1. Paste the command line you got from the SSH tab into Azure Cloud Shell. It should look something like this; however, it will have a different IP address (and perhaps a different username if you didn't use **jim**!):
+1. Klistra in den kommandorad som du fick från SSH-fliken i Cloud Shell. Det bör se ut ungefär så här. Men den har en annan IP-adress (och kanske ett annat användarnamn om du inte använde **jim**!)
 
     ```bash
     ssh jim@137.117.101.249
     ```
 
-1. This command will open a Secure Shell connection and place you at a traditional shell command prompt for Linux.
+1. Det här kommandot öppnar en SSH-anslutning och placerar dig i en traditionell skalkommandotolk för Linux.
 
-1. Try executing a few Linux commands
-    - `ls -la /` to show the root of the disk
-    - `ps -l` to show all the running processes
-    - `dmesg` to list all the kernel messages
-    - `lsblk` to list all the block devices - here you will see your drives
+1. Prova att utföra några Linux-kommandon
+    - `ls -la /` för att visa diskens rot
+    - `ps -l` för att visa alla processer som körs
+    - `dmesg` för att lista alla kernelmeddelanden
+    - `lsblk` för att lista alla blockenheter – här ser du dina enheter
 
-The more interesting thing to observe in the list of drives is what is _missing_. Notice that our **Data** drive (`sdc`) is present but not mounted into the file system. Azure added a VHD but didn't initialize it.
+Mer intressant att observera i listan över enheter är vad som _saknas_. Observera att vår **Data**-enhet (`sdc`) finns men har inte monterats i filsystemet. Azure har lagt till en VHD men har inte initierat den.
 
-## Initialize data disks
+## <a name="initialize-data-disks"></a>Initiera datadiskar
 
-Any additional drives you create from scratch will need to be initialized and formatted. The process for doing this is identical to a physical disk:
+Alla ytterligare enheter du skapar från början måste initieras och formateras. Processen för att gör detta är identisk med en fysisk disk.
 
-1. First, identify the disk. We did that above. You could also use `dmesg | grep SCSI`, which will list all the messages from the kernel for SCSI devices.
+1. Först identifierar du disken. Vi gjorde det ovan. Du kan också använda `dmesg | grep SCSI` som listar alla meddelanden från kärnan för SCSI-enheter.
 
-1. Once you know the drive (`sdc`) you need to initialize, you can use `fdisk` to do that. You will need to run the command with `sudo` and supply the disk you want to partition:
+1. När du känner till enheten (`sdc`) måste du initiera, vilket du kan göra med `fdisk`. Du måste köra kommandot med `sudo` och ange den disk du vill partitionera.
 
     ```bash
     sudo fdisk /dev/sdc
     ```
-1. Use the `n` command to add a new partition. In this example, we also choose **p** for a primary partition and accept the rest of the default values. The output will be similar to the following example:   
+1. Använd kommandot `n` för att lägga till en ny partition.  I det här exemplet väljer vi också p för en primär partition och accepterar resten av standardvärdena. Utdata blir något som liknar följande exempel:   
 
     ```output
     Device does not contain a recognized partition table.
     Created a new DOS disklabel with disk identifier 0x1f2d0c46.
-
+    
     Command (m for help): n
     Partition type
        p   primary (0 primary, 0 extended, 4 free)
@@ -79,11 +81,11 @@ Any additional drives you create from scratch will need to be initialized and fo
     Partition number (1-4, default 1): 1
     First sector (2048-2145386495, default 2048):
     Last sector, +sectors or +size{K,M,G,T,P} (2048-2145386495, default 2145386495):
-
+    
     Created a new partition 1 of type 'Linux' and of size 1023 GiB.
-    ```
+    ```    
 
-1. Print the partition table with the `p` command. It should look something like this:
+1. Skriv ut partitionstabellen med kommandot `p`. Det bör se ut ungefär så här:
 
     ```output
     Disk /dev/sdc: 1023 GiB, 1098437885952 bytes, 2145386496 sectors
@@ -92,22 +94,22 @@ Any additional drives you create from scratch will need to be initialized and fo
     I/O size (minimum/optimal): 4096 bytes / 4096 bytes
     Disklabel type: dos
     Disk identifier: 0x1f2d0c46
-
+    
     Device     Boot Start        End    Sectors  Size Id Type
     /dev/sdc1        2048 2145386495 2145384448 1023G 83 Linux
     ```
+    
+1. Skriv ändringarna med kommandot `w`. Detta avslutar verktyget.
 
-1. Write the changes with the `w` command. This will exit the tool.
-
-1. Next, we need to write a file system to the partition with the `mkfs` command. We will need to specify the file system type and device name that we got from the `fdisk` output:
-    - Pass `-t ext4` to create an _ext4_ filesystem.
-    - The device name is `/dev/sdc`.
+1. Nu måste vi skriva ett filsystem till partitionen med kommandot `mkfs`. Vi måste ange filsystemstypen och enhetsnamnet som vi har fått från `fdisk`-utdata.
+    - Skicka `-t ext4` för att skapa ett _ext4_-filsystem.
+    - Enhetsnamnet är `/dev/sdc`.
 
     ```bash
     sudo mkfs -t ext4 /dev/sdc1
     ```
     
-    This command will take a few minutes to complete.
+    Kommandot tar fem minuter att slutföra.
 
     ```output
     mke2fs 1.44.1 (24-Mar-2018)
@@ -118,24 +120,24 @@ Any additional drives you create from scratch will need to be initialized and fo
             32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
             4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968,
             102400000, 214990848
-
+    
     Allocating group tables: done
     Writing inode tables: done
     Creating journal (262144 blocks): done
     Writing superblocks and filesystem accounting information: done
     ```
 
-1. Next, create a directory we will use as our mount point. Let's assume we will have a `data` folder:
+1. Skapa därefter en katalog som vi använder som monteringspunkt. Anta att vi har en `data`-mapp.
 
     ```bash
     sudo mkdir /data
     ```
-1. Finally, use `mount` to attach the disk to the mount point:
+1. Använd slutligen `mount` för att koppla disken till monteringspunkten.
 
     ```bash
     sudo mount /dev/sdc1 /data
     ```
-    You should be able to use `lsblk` to see the mounted drive now:
+    Du bör kunna använda `lsblk` för att se den monterade enheten nu.
     
     ```output
     NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -150,15 +152,15 @@ Any additional drives you create from scratch will need to be initialized and fo
     sr0      11:0    1  628K  0 rom
     ```
 
-### Mounting the drive automatically
+### <a name="mounting-the-drive-automatically"></a>Montera enheten automatiskt
 
-To ensure that the drive is mounted automatically after a reboot, it must be added to the `/etc/fstab` file. It is also highly recommended that the UUID (universally unique identifier) is used in `/etc/fstab` to refer to the drive rather than just the device name (such as `/dev/sdc1`). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
+För att säkerställa att enheten monteras automatiskt efter en omstart måste den läggas till i filen `/etc/fstab`. Vi rekommenderar även starkt att UUID (Universally Unique Identifier) används i `/etc/fstab` för att referera till enheten i stället för bara enhetsnamnet (t.ex. `/dev/sdc1`). Om operativsystemet upptäcker ett diskfel vid start och använder UUID undviker du att den felaktiga disken monteras på en viss plats. Återstående datadiskar tilldelas sedan samma enhets-ID:n. Du kan hitta UUID för den nya enheten med verktyget `blkid`:
 
 ```bash
 sudo -i blkid
 ```
 
-It will return something like:
+Något sådant här returneras:
 
 ```output
 /dev/sda1: UUID="36a59c42-c04c-4632-b83f-7015abd10358" TYPE="ext4"
@@ -166,68 +168,68 @@ It will return something like:
 /dev/sdc1: UUID="e311c905-e0d9-43ab-af63-7f4ee4ef108e" TYPE="ext4"
 ```
 
-1. Copy the UUID for the `/dev/sdc1` drive and open the `/etc/fstab` file in a text editor:
+1. Kopiera UUID för enheten `/dev/sdc1` och öppna filen `/etc/fstab` i en textredigerare.
 
     ```bash
     sudo vi /etc/fstab
     ```
 
 > [!WARNING]
-> Improperly editing the `/etc/fstab` file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the file is created before editing when you are working with production systems.
+> Felaktig redigering av filen `/etc/fstab` kan leda till att systemet inte kan startas. Om du är osäker läser du distributionens dokumentation för att få information om hur du redigerar filen på rätt sätt. Vi rekommenderar även att en säkerhetskopia av filen skapas innan den redigeras när du arbetar med produktionssystem.
 
-1. Press **G** to move to the last line in the file.
+1. Tryck på **G** för att gå till den sista raden i filen.
 
-1. Press **I** to enter INSERT mode. It should indicate the mode at the bottom of the screen.
+1. Tryck på **I** för att öppna infogningsläget. Läget bör visas längst ned på skärmen.
 
-1. Press the **END** key to move to the end of the line. Alternatively, you can use the arrow keys. Press **ENTER** to move to a new line.
+1. Tryck på **END**-tangenten för att gå till slutet på raden. Alternativt kan du använda piltangenterna. Tryck på **RETUR** om du vill gå till en ny rad.
 
-1. Type the following line into the editor. The values can be space or tab separated. Check the documentation for more information on each of the columns:
+1. Skriv följande rad i redigeraren. Värdena kan avgränsas med blanksteg eller tabb. Mer information om varje kolumn finns i dokumentationen.
 
     ```output
     UUID=<uuid-goes-here>    /data    ext4    defaults,nofail    1    2
     ```
-1. Press **ESC**, then type **:w!** to write the file and **:q** to quit the editor.
+1. Tryck på **ESC** och skriv sedan **:w!** för att skriva filen och **:q** om du vill avsluta redigeraren.
 
-1. Finally, let's check to make sure the entry is correct by asking the OS to refresh the mount points:
+1. Slutligen ska vi kontrollera att posten är korrekt genom att fråga operativsystemet att uppdatera monteringspunkterna.
 
     ```bash
     sudo mount -a
     ```
-
-    If it returns an error, edit the file to find the problem.
+    
+    Om det returnerar ett fel redigerar du filen för att hitta problemet.
 
 > [!TIP]
-> Some Linux kernels support TRIM to discard unused blocks on disks. This feature is available on Azure disks and can save you money if you create large files and then delete them. Learn how to [turn this feature on](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#trimunmap-support-for-linux-in-azure) in our documentation.
+> Vissa Linux-kärnor stöder TRIM för att ta bort oanvända block på diskar. Den här funktionen finns på Azure-diskar och kan du kan spara pengar om du skapar stora filer och sedan tar bort dem. I vår dokumentation finns information om hur du [aktiverar den här funktionen](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#trimunmap-support-for-linux-in-azure).
 
-## Install software onto the VM
+## <a name="install-software-onto-the-vm"></a>Installera programvara på den virtuella datorn
 
-You have several options to install software onto the VM. First, as mentioned, you can use `scp` to copy local files from your machine to the VM. This lets you copy over data or custom applications you want to run.
+Det finns flera alternativ för att installera programvara på den virtuella datorn. Först kan du, som nämnt, använda `scp` till att kopiera lokala filer från din dator till den virtuella datorn. Då kan du kopiera data eller anpassade program du vill köra.
 
-You can also install software through Secure Shell. Azure machines are, by default, internet connected. You can use standard commands to install popular software packages directly from standard repositories. Let's use this approach to install Apache.
+Du kan även installera programvara via SSH. Azure-datorer är som standard anslutna till Internet. Du kan använda standardkommandon för att installera populära programvarupaket direkt från standardlagringsplatser. Vi använder den här metoden för att installera Apache.
 
-### Install the Apache web server
+### <a name="install-apache-web-server"></a>Installera Apache-webbserver
 
-Apache is available within Ubuntu's default software repositories, so we will install it using conventional package management tools:
+Apache är tillgänglig i Ubuntus standardlagringsplatser för programvara, så vi installerar det med hjälp av konventionella pakethanteringsverktyg.
 
-1. Start by updating the local package index to reflect the latest upstream changes:
+1. Starta genom att uppdatera det lokala paketindexet för att spegla de senaste överordnade ändringarna.
 
     ```bash
     sudo apt-get update
     ```
     
-1. Next, install Apache:
+1. Installera sedan Apache.
 
     ```bash
     sudo apt-get install apache2
     ```
-
-1. It should start automatically - we can check the status using `systemctl`:
+    
+1. Det bör starta automatiskt och statusen kan kontrolleras med `systemctl`:
 
     ```bash
     sudo systemctl status apache2
     ```
 
-    This should return something like:
+    Något sådant här bör returneras:
 
     ```output
     apache2.service - The Apache HTTP Server
@@ -241,14 +243,14 @@ Apache is available within Ubuntu's default software repositories, so we will in
                ├─11156 /usr/sbin/apache2 -k start
                ├─11158 /usr/sbin/apache2 -k start
                └─11159 /usr/sbin/apache2 -k start
-
+    
     test-web-eus-vm1 systemd[1]: Starting The Apache HTTP Server...
     test-web-eus-vm1 apachectl[11129]: AH00558: apache2: Could not reliably determine the server's fully qua
     test-web-eus-vm1 systemd[1]: Started The Apache HTTP Server.
     ```
 
-1. Finally, we can try retrieving the default page through the public IP address. It should return a default page.
+1. Slutligen kan vi försöka hämta standardsidan via den offentliga IP-adressen. En standardsida bör returneras.
 
-    ![Screenshot of a web browser showing the Apache default web page hosted at the IP of the new Linux VM.](../media/6-apache-works.png)
+    ![Apache-standardwebbsidan](../media-drafts/6-apache-works.png)
 
-As you can see, SSH allows you to work with the Linux VM just like a local computer. You can administer this VM as you would any other Linux computer: installing software, configuring roles, adjusting features, and other everyday tasks. However, it's a manual process - if we always need to install some software, you might consider automating the process using scripting.
+Som du ser kan du med SSH arbeta med den virtuella Linux-datorn precis som en lokal dator. Du kan administrera den här virtuella datorn precis som andra Linux-datorer: installera programvara, konfigurera roller, justera funktioner och andra dagliga uppgifter. Men det är en manuell process. Om vissa program alltid behöver installeras kan du automatisera processen med hjälp av skript.

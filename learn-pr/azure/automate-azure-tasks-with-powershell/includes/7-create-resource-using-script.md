@@ -89,6 +89,7 @@ param([int]$size, [string]$location)
 
 ## <a name="how-to-create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
 I Azure PowerShell kan du använda cmdleten **New-AzureRmVm** till att skapa en virtuell dator. Cmdleten har många parametrar för alla konfigurationsinställningar för virtuella datorer. De flesta av parametrarna har rimliga standardvärden, så vi behöver bara ange fem saker:
+
 - **ResourceGroupName**: resursgruppen som den nya virtuella datorn ska placeras i.
 - **Name**: namnet på den virtuella datorn i Azure.
 - **Location**: den geografiska plats där den virtuella datorn ska etableras.

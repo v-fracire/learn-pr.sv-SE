@@ -1,32 +1,32 @@
 > [!NOTE]
-> If you are continuing on from **Create an Azure Cosmos DB database built to scale** and you did not delete the Cosmos DB database + collection that you created, then you can skip this unit and move on to adding data with the Data Explorer.
+> Om du fortsätter från **Skapa en Azure Cosmos DB-databas som kan skalas** och inte tog bort Cosmos DB-databasen och samlingen som du skapade kan du hoppa över den här kursdelen och fortsätta med att lägga till data med Datautforskaren.
 
-The first thing we need to do is create an empty Cosmos DB database and collection to work with. We want it to match the one you created in the last module in this Learning Path: a database named **"Products"** and a collection named **"Clothing"**. Use the following instructions and the Azure Cloud Shell on the right side of the screen to recreate the database.
+Det första vi måste göra är att skapa en tom Cosmos DB-databas och en samling som vi kan arbeta med. Vi vill att den motsvarar den du skapade i den föregående modulen i den här utbildningsvägen: en databas med namnet **”Produkter”** och en samling med namnet **”Kläder”**. Använd följande instruktioner och Azure Cloud Shell på höger sida av skärmen om du vill återskapa databasen.
 
-# Create a Cosmos DB account + database with the Azure CLI
+# <a name="create-a-cosmos-db-account--database-with-the-azure-cli"></a>Skapa ett Cosmos DB-konto och en Cosmos DB-databas med Azure CLI
 
-1. Start by selecting the correct subscription - you want to select the subscription ID associated with your free education access subscription.
+1. Börja med att välja rätt prenumeration – välj det prenumerations-ID som är kopplat till din kostnadsfria prenumeration för åtkomst till utbildning.
 
     ```azurecli
     az account list --output table
     ```
 
-1. Make sure you see "sandbox" in the subscription list and set it as the current one to use: <!-- TODO: get official name here -->
+1. Kontrollera att sandbox-miljö eller begränsat läge visas i prenumerationslistan, och ange att det är den som ska användas nu: <!-- TODO: get official name here -->
 
     ```azurecli
     az account set --subscription "sandbox"
     ```
     
-1. Get the Resource Group that has been created for you. If you are using your own subscription, skip this step and just supply a unique name you want to use in the `RESOURCE_GROUP` environment variable below. Take note of the Resource Group name. This is where we will create our database. <!-- Do we get a token for this? -->
+1. Hämta den resursgrupp som har skapats för dig. Om du använder en egen prenumeration hoppar du över det här steget och ger i stället ett unikt namn som du vill använda i miljövariabeln `RESOURCE_GROUP` nedan. Anteckna namnet på resursgruppen. Det är här vi ska skapa vår databas. <!-- Do we get a token for this? -->
 
     ```azurecli
     az group list --out table
     ```
 
-1. To make this a bit easier, set a few environment variables so you don't have to type the common values each time. 
+1. Gör det lite enklare genom att ange några miljövariabler så att du inte behöver skriva in värden som är vanliga varje gång. 
 
     > [!IMPORTANT]
-    > Make sure to change these values to ones appropriate for your session. For example, replace the `<resource group>` value with the Resource Group name you identified above.
+    > Se till att ändra de här värdena till lämpliga värden för sessionen. Ersätt till exempel värdet `<resource group>` med namnet på den resursgrupp som du identifierade ovan.
 
     ```azurecli
     export RESOURCE_GROUP="<resource group>"
@@ -34,34 +34,34 @@ The first thing we need to do is create an empty Cosmos DB database and collecti
     export LOCATION="<location>"
     ```
     
-1. Next, set a variable for the database name. Name it "Users" so it matches the database we created in the last module.
+1. Ange sedan en variabel för databasens namn. Kalla den ”Användare” så att den stämmer överens med databasen som vi skapade i föregående modul.
 
     ```azurecli
     export DB_NAME="Products"
     ```
     
-1. If you are doing this on your own subscription, and you are using a _new_ Resource Group (recommended), then use the following command to create the Resource Group. **Important:** If you are using the free education resources provided by Microsoft Learn, then you do not need to execute this step. Instead, make sure the `RESOURCE_GROUP` variable above is set to your assigned resource group.
+1. Om du gör det här med din egen prenumeration och använder en _ny_ resursgrupp (rekommenderas) skapar du resursgruppen med följande kommando. **Viktigt:** Om du använder de kostnadsfria utbildningsresurserna som tillhandahålls via Microsoft Learn behöver du inte utföra det här steget. Kontrollera i stället att variabeln `RESOURCE_GROUP` ovan har angetts för din tilldelade resursgrupp.
 
     ```azurecli
     az group create --name $RESOURCE_GROUP --location $LOCATION
     ```
     
-1. Next, create the Cosmos DB account. This will take a few minutes to complete.
+1. Skapa sedan Cosmos DB-kontot. Det här kan ta några minuter.
 
     ```azurecli
     az cosmosdb create --name $NAME --kind GlobalDocumentDB --resource-group $RESOURCE_GROUP
     ```
     
-1. Create the `Products` database in the account.
+1. Skapa databasen `Products` i kontot.
 
     ```azurecli
     az cosmosdb database create --name $NAME --db-name $DB_NAME --resource-group $RESOURCE_GROUP
     ```
     
-1. Finally, create the `Clothing` collection.
+1. Avslutningsvis skapar du samlingen `Clothing`.
 
     ```azurecli
     az cosmosdb collection create --collection-name "Clothing" --partition-key-path "/productId" --throughput 1000 --name $NAME --db-name $DB_NAME --resource-group $RESOURCE_GROUP
     ```
 
-Now that we have our Cosmos DB account, database, and collection, let's go add some data!
+Nu när vi har vårt Cosmos DB-konto, vår databas och vår samling är det dags att lägga till lite data!

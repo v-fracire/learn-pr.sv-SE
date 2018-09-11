@@ -1,177 +1,177 @@
-You've chosen to use a Service Bus queue to exchange messages about individual sales between the mobile app that your sales personnel use and the web service, hosted in Azure, that will store details about each sale in an Azure SQL Database instance.
+Du har valt att använda en Service Bus-kö för att utbyta meddelanden om enskilda försäljningar mellan mobiltelefonsappen din säljpersonal använder och webbtjänsten på Azure, som lagrar information om varje försäljning i en Azure SQL-databas.
 
-You've already implemented the necessary objects in your Azure subscription. Now, you want to write code that sends messages to that queue and retrieves messages.
+Du har redan implementerat nödvändiga objekt i Azure-prenumerationen. Nu vill du skriva kod som skickar meddelanden till kön och hämtar meddelanden.
 
-## Clone and open the starter application
+## <a name="clone-and-open-the-starter-application"></a>Klona och öppna startprogrammet
 
-In this unit, you'll build two console applications in **Visual Studio Code**. The first application places messages into a Service Bus queue and the second retrieves them. The applications are part of a single .NET Core solution. 
+I den här enheten kommer du att slutföra två konsolprogram i **Visual Studio Code**. Det första placerar meddelanden i en Service Bus-kö och det andra hämtar dem. Programmen är en del av en enda .NET Core-lösning. 
 
-Start by cloning the solution:
+Börja genom att klona lösningen:
 
-1. Start a command prompt and change to the directory where you want to host the source code for the application.
+1. Starta en kommandotolk och ändra till den katalog där du vill hantera källkoden för programmet.
 
-1. Type the following command, and then press **Enter**:
+1. Ange följande kommando och tryck på **Retur**:
 
     ```powershell
     git clone https:\\ <!-- TODO: (add git URL) -->
     ```
 
-1. When the clone operation is complete, change to the starter folder.
+1. När kloningen är genomförd byter du till startmappen.
 
-1. Type the following command, and then press **Enter**.
+1. Ange följande kommando och tryck på **Retur**.
 
     ```powershell
     code .
     ```
 
-1. If a message appears asking if you want to restore dependencies, click **Yes**.
+1. Om ett meddelande visas som frågar om du vill återställa beroenden klickar du på **Ja**.
 
-## Configure a connection string to a Service Bus namespace
+## <a name="configure-a-connection-string-to-a-service-bus-namespace"></a>Konfigurera en anslutningssträng för en Service Bus-namnrymd
 
-In order to access a Service Bus namespace and use a queue, you must configure two pieces of information in your console apps:
+För att få åtkomst till en Service Bus-namnrymd och använda en kö, måste du konfigurera två typer av information i din konsolapp:
 
-* The endpoint for your namespace
-* The shared access key for authentication
+* Slutpunkten för din namnrymd
+* Den delade åtkomstnyckeln för autentisering
 
-Both of these values can be obtained from the Azure portal in the form of a complete connection string.
+Båda dessa värden kan hämtas från Azure-portalen i form av en fullständig anslutningssträng.
 
 > [!NOTE]
-> For simplicity, you will hard-code the connection string in the **Program.cs** file of both console applications. In a production application, you might use a configuration file or even Azure Key Vault to store the connection string.
+> För enkelhets skull hårdkodar du anslutningssträngen i **Program.cs** för båda konsolprogrammen. I ett riktigt program skulle du kunna använda en konfigurationsfil eller Azure Key Vault för att lagra anslutningssträngen.
 
-1. Switch to the Azure portal.
+1. Växla till Azure-portalen.
 
-1. In the home page, click **All Resources**, and then click the Service Bus namespace you created earlier.
+1. På startsidan klickar du på **Alla resurser** och sedan på Service Bus-namnrymden du skapade tidigare.
 
-1. Under **SETTINGS**, click **Shared Access Policies**.
+1. Under **INSTÄLLNINGAR** klickar du på **Principer för delad åtkomst**.
 
-1. In the list of policies, click **RootManageSharedAccessKey**.
+1. I listan med principer klickar du på **RootManageSharedAccessKey**.
 
-1. To the right of the **Primary Connection string** text box, click the **Click to copy** button.
+1. Till höger om textrutan **Primär anslutningssträng** klickar du på knappen **Klicka för att kopiera**.
 
-1. Switch to **Visual Studio Code**.
+1. Växla till **Visual Studio Code**.
 
-1. In the **Explorer** pane, in the **privatemessagesender** folder, click the **Program.cs** file.
+1. I **Explorer**-fönsterrutan i mappen **privatemessagesender** klickar du på filen **Program.cs**.
 
-1. Locate the following line of code:
-
-    ```C#
-    const string ServiceBusConnectionString = "";
-    ```
-
-1. Place the cursor between the quotation marks, and then press **Ctrl+V**.
-
-1. In the **Explorer** pane, in the **privatemessagereceiver** folder, click the **Program.cs** file.
-
-1. Locate the following line of code:
+1. Leta upp följande kodrad:
 
     ```C#
     const string ServiceBusConnectionString = "";
     ```
 
-1. Place the cursor between the quotation marks, and then press **Ctrl+V**.
+1. Placera markören mellan citattecknen och tryck på **Ctrl-V**.
 
-1. Click **File**, and then click **Save All**.
+1. I **Explorer**-fönsterrutan i mappen **privatemessagereceiver** klickar du på filen **Program.cs**.
 
-1. Close all open editor windows.
-
-## Write code that sends a message to the queue
-
-To complete the component that sends messages about sales, follow these steps:
-
-1. In Visual Studio Code, in the **Explorer** pane, in the **privatemessagesender** folder, click the **Program.cs** file.
-
-1. Locate the `SendSalesMessageAsync()` method.
-
-1. Within that method, locate the following line of code:
+1. Leta upp följande kodrad:
 
     ```C#
-    // Create a queue client here
+    const string ServiceBusConnectionString = "";
     ```
 
-1. To create a queue client, replace that line of code with the following code:
+1. Placera markören mellan citattecknen och tryck på **Ctrl-V**.
+
+1. Klicka på **Arkiv** och sedan på **Spara alla**.
+
+1. Stäng alla öppna redigeringsfönster.
+
+## <a name="write-code-that-sends-a-message-to-the-queue"></a>Skriv koden som skickar ett meddelande till kön
+
+Följ dessa steg för att slutföra komponenten som skickar meddelanden om försäljning:
+
+1. I Visual Studio Code, i **Explorer**-fönsterrutan i mappen **privatemessagesender**, klickar du på filen **Program.cs**.
+
+1. Leta upp metoden `SendSalesMessageAsync()`.
+
+1. Leta upp följande kodrad i den aktuella metoden:
+
+    ```C#
+    // Create a Queue Client here
+    ```
+
+1. Skapa en kö-klient genom att ersätta kodraden med följande kod:
 
     ```C#
     queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
     ```
 
-1. Within the `try...catch` block, locate the following line of code:
+1. Leta upp följande kodrad i `try...catch`-blocket:
 
     ```C#
     // Create and send a message here
     ```
 
-1. To create and format a message for the queue, replace that line of code with the following code:
+1. Skapa och utforma ett meddelande till kön genom att ersätta kodraden med följande kod:
 
     ```C#
     string messageBody = $"$10,000 order for bicycle parts from retailer Adventure Works.";
     var message = new Message(Encoding.UTF8.GetBytes(messageBody));
     ```
 
-1. To display the message in the console, on the next line, add the following code:
+1. För att visa meddelandet i konsolen lägger du till följande kod på nästa rad:
 
     ```C#
     Console.WriteLine($"Sending message: {messageBody}");
     ```
 
-1. To send the message to the queue, on the next line, add the following code:
+1. För att skicka meddelandet till kön lägger du till följande kod på nästa rad:
 
     ```C#
     await queueClient.SendAsync(message);
     ```
 
-1. Locate the following line of code:
+1. Leta upp följande kodrad:
 
     ```C#
     // Close the connection to the queue here
     ```
 
-1. To close the connection the Service Bus, replace that line of code with the following code:
+1. För att stänga anslutningen till Service Bus ersätter du kodraden med följande kod:
 
     ```C#
     await queueClient.CloseAsync();
     ```
 
-1. In Visual Studio Code, close all editor windows and save all changed files.
+1. Stäng alla redigeringsfönster i Visual Studio Code och spara alla ändrade filer.
 
-## Send a message to the queue
+## <a name="send-a-message-to-the-queue"></a>Skicka ett meddelande till kön
 
-To run the component that sends a message about a sale, follow these steps:
+Följ dessa steg om du vill köra komponenten som skickar ett meddelande om en försäljning:
 
-1. In Visual Studio Code, on the **View** menu, click **Debug**.
+1. I Visual Studio Code går du till menyn **Visa** och klickar på **Felsöka**.
 
-1. In the **Debug** pane, in the drop-down list, select **Launch Private Message Sender**, and then press **F5**. Visual Studio Code builds and runs the console application in debugging mode.
+1. I fönsterrutan **Felsöka** väljer du **Starta Skicka privat meddelande** i den nedrullningsbara listrutan och trycker på **F5**. Visual Studio Code bygger och kör konsolprogrammet i felsökningsläge.
 
-1. As the program executes, examine the messages in the **Debug Console**.
+1. När programmet körs kan du granska meddelandena som visas i **Felsökningskonsolen**.
 
-1. Switch to the Azure portal.
+1. Växla till Azure-portalen.
 
-1. If the Service Bus namespace is not displayed, in the home page, click **All Resources**, and then click the Service Bus namespace you created earlier.
+1. Om Service Bus inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
 
-1. In the **Service Bus Namespace** blade, under **ENTITIES**, click **Queues**, and then click the **salesmessages** queue. The **ACTIVE MESSAGE COUNT** should indicate that one message has been added to the queue.
+1. På **Service Bus-namnrymd**-bladet, under **ENTITETER**, klickar du på **Köer** och sedan på kön **salesmessages**. **ANTAL AKTIVA MEDDELANDEN** ska visa att ett meddelande har lagts till i kön.
 
-## Write code that receives a message from the queue
+## <a name="write-code-that-receives-a-message-from-the-queue"></a>Skriv kod som tar emot ett meddelande från kön
 
-To complete the component that retrieves messages about sales, follow these steps:
+Följ dessa steg för att slutföra komponenten som tar emot meddelanden om försäljning:
 
-1. In Visual Studio Code, in the **Explorer** pane, in the **privatemessagereceiver** folder, click the **Program.cs** file.
+1. I Visual Studio Code, i **Explorer**-fönsterrutan i mappen **privatemessagereceiver**, klickar du på filen **Program.cs**.
 
-1. Locate the `ReceiveSalesMessageAsync()` method.
+1. Leta upp metoden `ReceiveSalesMessageAsync()`.
 
-1. Within that method, locate the following line of code:
+1. Leta upp följande kodrad i den aktuella metoden:
 
     ```C#
-    // Create a queue client here
+    // Create a Queue Client here
     ```
 
-1. To create a queue client, replace that line with the following code:
+1. Skapa en kö-klient genom att ersätta kodraden med följande kod:
 
     ```C#
     queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
     ```
 
-1. Locate the `RegisterMessageHandler()` method.
+1. Leta upp metoden `RegisterMessageHandler()`.
 
-1. To configure message handling options, replace all the code within that method with the following code:
+1. Om du vill konfigurera alternativ för meddelandehantering ersätter du all kod i metoden med följande kod:
 
     ```C#
     var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
@@ -181,58 +181,58 @@ To complete the component that retrieves messages about sales, follow these step
     };
     ```
 
-1. To register the message handler, on the next line, add the following code:
+1. För att registrera meddelandehanteraren lägger du till följande kod på nästa rad:
 
     ```C#
     queueClient.RegisterMessageHandler(ProcessMessagesAsync, messageHandlerOptions);
     ```
 
-1. Locate the `ProcessMessagesAsync()` method. You have registered this method as the one that handles incoming messages.
+1. Leta upp metoden `ProcessMessagesAsync()`. Du har registrerat den här metoden som den som hanterar inkommande meddelanden.
 
-1. To display incoming messages in the console, replace all the code within that method with the following code:
+1. Om du vill visa inkommande meddelanden i konsolen ersätter du all kod i metoden med följande kod:
 
     ```C#
     Console.WriteLine($"Received message: SequenceNumber:{message.SystemProperties.SequenceNumber} Body:{Encoding.UTF8.GetString(message.Body)}");
     ```
 
-1. To remove the received message from the queue, on the next line, add the following code:
+1. För att ta bort det mottagna meddelandet från kön lägger du till följande kod på nästa rad:
 
     ```C#
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
     ```
 
-1. Return to the `ReceiveSalesMessageAsync()` method and locate the following line of code:
+1. Återvänd till metoden `ReceiveSalesMessageAsync()` och leta upp följande kodrad:
 
     ```C#
     // Close the queue here
     ```
 
-1. To close the connection to Service Bus, replace that line with the following code:
+1. För att stänga anslutningen till Service Bus ersätter du koden med följande kod:
 
     ```C#
     await queueClient.CloseAsync();
     ```
 
-1. In Visual Studio Code, close all editor windows and save all changed files.
+1. Stäng alla redigeringsfönster i Visual Studio Code och spara alla ändrade filer.
 
-## Retrieve a message from the queue
+## <a name="retrieve-a-message-from-the-queue"></a>Hämta ett meddelande från kön
 
-To run the component that retrieves a message about a sale, follow these steps:
+Följ dessa steg om du vill köra komponenten som tar emot ett meddelande om en försäljning:
 
-1. In Visual Studio Code, on the **View** menu, click **Debug**.
+1. I Visual Studio Code går du till menyn **Visa** och klickar på **Felsöka**.
 
-1. In the **Debug** pane, in the drop-down list, select **Launch Private Message Receiver**, and then press **F5**. Visual Studio Code builds and runs the console application in debugging mode.
+1. I fönsterrutan **Felsöka** väljer du **Starta Ta emot privat meddelande** i den nedrullningsbara listrutan och trycker på **F5**. Visual Studio Code bygger och kör konsolprogrammet i felsökningsläge.
 
-1. As the program executes, examine the messages in the **Debug Console**.
+1. När programmet körs kan du granska meddelandena som visas i **Felsökningskonsolen**.
 
-1. When you see that the message has been received and displayed in the console, on the **Debug** menu, click **Stop Debugging**.
+1. När du ser att meddelandet har tagits emot och visas i konsolen klickar du på menyn **Felsöka** och därefter på **Stoppa felsökning**.
 
-1. Switch to the Azure portal.
+1. Växla till Azure-portalen.
 
-1. If the Service Bus namespace is not displayed, in the home page, click **All Resources**, and then click the Service Bus namespace you created earlier.
+1. Om Service Bus inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
 
-1. In the **Service Bus Namespace** blade, under **ENTITIES**, click **Queues**, and then click the **salesmessages** queue. The **ACTIVE MESSAGE COUNT** should indicate that the message has been removed from the queue.
+1. På **Service Bus-namnrymd**-bladet, under **ENTITETER**, klickar du på **Köer** och sedan på kön **salesmessages**. **ANTAL AKTIVA MEDDELANDEN** ska visa att ett meddelande har tagits bort från kön.
 
-You have written code that sends a message about individual sales to a Service Bus queue. In the sales force distributed application, you should write this code in the mobile app that sales personnel use on devices.
+Du har skrivit kod som skickar ett meddelande om enskilda försäljningar till en Service Bus-kö. När det gäller det distribuerade programmet för säljpersonal, ska du skriva den här koden i mobilappen som säljarna använder på sina enheter.
 
-You have also written code that receives a message from the Service Bus queue. In the sales force distributed application, you should write this code in the web service that runs in Azure and processes received messages.
+Du har även skrivit koden som tar emot ett meddelande från Service Bus-kön. När det gäller det distribuerade programmet för säljpersonal, ska du skriva den här koden i webbtjänsten på Azure, som tar hand om mottagna meddelanden.

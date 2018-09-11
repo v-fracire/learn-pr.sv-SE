@@ -1,18 +1,18 @@
-## Introduction to Jupyter for more interactive deep learning 
+## <a name="introduction-to-jupyter-for-more-interactive-deep-learning"></a>Introduktion till Jupyter för mer interaktiv djupinlärning 
 
-Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+Jupyter Notebook är ett webbprogram med öppen källkod som gör det möjligt att skapa och dela dokument som innehåller kod, formler, visualiseringar och löpande text. Användningsområden är: datarensning och -transformering, numerisk simulering, statistisk modellering, datavisualisering, maskininlärning och mycket mer.
 
-## Serving Jupyter Notebooks with Nvidia Docker on an Azure DSVM
+## <a name="serving-jupyter-notebooks-with-nvidia-docker-on-an-azure-dsvm"></a>Använda Jupyter Notebook med Nvidia Docker i en Azure DSVM
 
-### Step 1 Create a Linux DSVM
+### <a name="step-1-create-a-linux-dsvm"></a>Steg 1 Skapa en Linux DSVM
 
-Use call code from the Azure CLI
+Använd call code (anropskod) från Azure CLI
 
 ```
 code .
 ```
 
-Fill in the following deployment schema and save it as parameter_file.json
+Fyll i följande distributionsschema och spara som parameter_file.json
 
 ``` 
 { 
@@ -27,40 +27,40 @@ Fill in the following deployment schema and save it as parameter_file.json
 }
 ```
 
-A list of available vm sizes can be found here [Ubuntu DSVM ARM template](https://azure.microsoft.com/en-us/global-infrastructure/services/?WT.mc_id=blog-learning-abornst).
+En lista över tillgängliga storlekar för virtuella maskiner finns här [Ubuntu DSVM ARM template](https://azure.microsoft.com/en-us/global-infrastructure/services/?WT.mc_id=blog-learning-abornst).
 
 
-### Create a resource group for your DSVM in a region of your choice:
+### <a name="create-a-resource-group-for-your-dsvm-in-a-region-of-your-choice"></a>Skapa en resursgrupp för din DSVM i en valfri region:
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]]
 ```
 
-A list of available regions can be found here [Azure Regions](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json).
+En lista över tillgängliga regioner hittar du här [Azure-regioner](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json).
 
-### Deploy your DSVM to your new resource group
+### <a name="deploy-your-dsvm-to-your-new-resource-group"></a>Distribuera din DSVM till din nya resursgrupp
 
 ```
 az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters parameter_file.json
 ```
 
-## Step 2 Open the Port 8888, 22 on the DSVM 
+## <a name="step-2-open-the-port-8888-22-on-the-dsvm"></a>Steg 2 Öppna Port 8888, 22 på din DSVM 
 
 ```
 $ az vm open-port -g [[NAME OF RESOURCE GROUP]] -n [[HOSTNAME OF DSVM]] --port 22 --priority 900
 $ az vm open-port -g [[NAME OF RESOURCE GROUP]] -n [[HOSTNAME OF DSVM]] --port 8888 --priority 901
 ```
 
-Port 8888 is the default port for Jupyter Notebooks For detailed steps on opening a port [click here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal?WT.mc_id=blog-medium-abornst)
+Port 8888 är standardporten för Jupyter Notebook [Klicka här](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal?WT.mc_id=blog-medium-abornst) för detaljerade anvisningar om hur du öppnar en port
  
-## Step 3 Connect to the DSVM with the Azure Shell 
+## <a name="step-3-connect-to-the-dsvm-with-the-azure-shell"></a>Steg 3 Anslut till din DSVM via Azure Shell 
  
 ``` 
 ssh myuser@[[HOSTNAME OF DSVM]].westus2.cloudapp.azure.com 
 ``` 
 
-## Step 4 Run Jupyter in Docker Container & link 8888 port to the VM Host 
+## <a name="step-4-run-jupyter-in-docker-container--link-8888-port-to-the-vm-host"></a>Steg 4 Kör Jupyter i Docker Container och länka port 8888 till VM-värden 
 
-Link port 8888 between the VM and the docker container, install jupyter and pull pytorch tutorials.  
+Länka port 8888 mellan den virtuella datorn och dockerbehållaren, installera jupyter och hämta pytorch självstudier.  
 
 ```  
 sudo docker run --rm -it --entrypoint '/bin/sh' -p 8888:8888 pytorch/pytorch -c \
@@ -69,11 +69,11 @@ sudo docker run --rm -it --entrypoint '/bin/sh' -p 8888:8888 pytorch/pytorch -c 
   jupyter notebook --ip=0.0.0.0 --no-browser --allow-root'
 ``` 
 
-## Step 5 Navigate to the Jupyter Notebook in the Browser 
+## <a name="step-5-navigate-to-the-jupyter-notebook-in-the-browser"></a>Steg 5 Navigera till Jupyter Notebook i webbläsaren 
 
-Once the Jupyter notebook is running you will see a message as follows : 
+När Jupyter körs visas följande meddelande: 
 
-> Copy/paste this URL into your browser when you connect for the first time, to login with a token: http://(5b8783e7911d or 127.0.0.1):8888/?token={sometoken}
+> Kopiera och klistra in URL:en i webbläsaren när du ansluter för första gången, logga in med en token: http://(5b8783e7911d or 127.0.0.1):8888/?token={sometoken}
 
-Replace the **http://(5b8783e7911d or 127.0.0.1)** part of the url with **[[HOSTNAME OF DSVM]].westus2.cloudapp.azure.com** and navigate to the address  in a new a tab in your browser:
-- [[HOSTNAME OF DSVM]].westus2.cloudapp.azure.com:8888/?token={sometoken}
+Ersätt **http://(5b8783e7911d or 127.0.0.1)** av URL:en med **[[VÄRDNAMN FÖR DSVM]].westus2.cloudapp.azure.com** och gå till adressen i en ny en flik i webbläsaren:
+- [[VÄRDNAMN FÖR DSVM]].westus2.cloudapp.azure.com:8888/?token={sometoken}

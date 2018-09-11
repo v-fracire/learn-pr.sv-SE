@@ -1,5 +1,15 @@
 ### YamlMime:LearningPath
 uid: learn.architect-great-solutions-in-azure
+metadata:
+  title: Skapa fantastiska lösningar med Azure
+  description: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
+  ms.date: 09/24/2018
+  ms.openlocfilehash: e6c1cf319aaf8df24d5245be7501b32799f8ad50
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43824537"
 title: Skapa fantastiska lösningar med Azure
 summary: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
 prerequisites: Ingen
@@ -10,15 +20,9 @@ roles:
 - solution-architect
 products:
 - azure
-metadata:
-  title: Skapa fantastiska lösningar med Azure
-  description: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
-  ms.openlocfilehash: b61fdd63984e4877edf1f9616fa9ca995eec27bf
-  ms.sourcegitcommit: 89dccddf7de169aecda3c1657e4354906389ed25
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/31/2018
-  ms.locfileid: "43324617"
 modules:
-- learn.sample-module-cloudshell
+- learn.design-a-great-azure-architecture
+- learn.design-for-security
+- learn.design-for-performance-and-scalability
+- learn.design-for-efficiency-and-operations
 achievement: learn.architect-great-solutions-in-azure.trophy

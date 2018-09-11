@@ -33,7 +33,7 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
 
     När du skapar ett Twilio-konto tilldelas du ett telefonnummer som du kan skicka meddelanden från. Du hittar det här telefonnumret på Twilio-instrumentpanelen **Phone Numbers** (telefonnummer). Välj ellipserna längst ned i den vänstra menyn på Twilio-webbplatsen. Välj sedan *SUPER NETWORK -> Phone Numbers*. Du kan fästa den här instrumentpanelen vid den vänstra menyn med en knappnålsikon. Du ser ditt Twilio-nummer under *Manage Numbers -> Active Numbers* (hantera nummer -> aktiva nummer). Du måste ta bort alla blanksteg från numret.
 
-    ![Hitta ditt Twilio-nummer](../media/7-twilio-find-number.png)
+    ![Hitta ditt Twilio-nummer](../media-drafts/7-twilio-find-number.png)
 
     ```cs
     [TwilioSms(AccountSidSetting = "TwilioAccountSid",
@@ -130,15 +130,15 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 
 4. Klicka på knappen **Send Location**. Om meddelandet gick att skicka visas meddelandet ”Location sent successfully” i Xamarin.Forms-appen.
 
-    ![Meddelandet visas som skickat i Xamarin.Forms-appen](../media/7-ui-location-sent.png)
+    ![Meddelandet visas som skickat i Xamarin.Forms-appen](../media-drafts/7-ui-location-sent.png)
 
 5. I konsolloggarna för Azure-funktionen ser du att meddelandet har skapats och skickats. Om ett fel inträffar (som att telefonnumret har fel format) loggas det hit.
 
-    ![Azure-funktionskonsolen visar att meddelandet har skickats](../media/7-function-message-sent.png)
+    ![Azure-funktionskonsolen visar att meddelandet har skickats](../media-drafts/7-function-message-sent.png)
 
 6. Kontrollera om du har fått meddelandet i telefonen. Följ länken i meddelandet för att se din plats.
 
-    ![SMS-meddelandet mottaget på en mobiltelefon](../media/7-message-received.png)
+    ![SMS-meddelandet mottaget på en mobiltelefon](../media-drafts/7-message-received.png)
 
 ## <a name="summary"></a>Sammanfattning
 

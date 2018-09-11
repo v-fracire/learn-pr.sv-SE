@@ -1,22 +1,22 @@
-In this unit, you will perform some basic troubleshooting operations such as pulling container logs, container events, and attaching to a container instance. By the end of this module, you should understand basic capabilities for troubleshooting container instances.
+I den här utbildningsenheten utför du en del grundläggande felsökning som att hämta containerloggar, containerhändelser och koppla dem till en containerinstans. När du har gått igenom modulen bör du kunna grunderna i att felsöka containerinstanser.
 
-## Create a container
+## <a name="create-a-container"></a>Skapa en container
 
-Start by creating a container to use in this unit. If you still have the first container created in this module, skip this step:
+Börja med att skapa containern vi ska använda. Om du fortfarande har den första containern vi skapade i modulen kan du hoppa över det här steget:
 
 ```azurecli
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ports 80 --ip-address Public
 ```
 
-## Get logs from a container instance
+## <a name="get-logs-from-a-container-instance"></a>Hämta loggar från en containerinstans
 
-To view logs from your application code within a container, you can use the `az container logs` command:
+Om du vill visa loggar från programkoden i en container kan du använda kommandot `az container logs`:
 
 ```azazurecli
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-The following is log output from the example container after the web app has been accessed a few times:
+Här är loggutdata från exempelcontainern när webbappen har använts några gånger:
 
 ```bash
 listening on port 80
@@ -26,15 +26,15 @@ listening on port 80
 ::ffff:0.0.0.0 - - [20/Aug/2018:21:44:27 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
 ```
 
-## Get container events
+## <a name="get-container-events"></a>Hämta containerhändelser
 
-The `az container attach` command provides diagnostic information during container startup. Once the container has started, it also streams STDOUT and STDERR to your local console:
+Med kommandot `az container attach` kan du visa diagnostisk information när containern startas. När containern har startats strömmas även STDOUT och STDERR till den lokala konsolen:
 
 ```azazurecli
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-Example output:
+Exempel på utdata:
 
 
 ```bash
@@ -49,17 +49,17 @@ listening on port 80
 listening on port 80
 ```
 
-## Execute a command in a container
+## <a name="execute-a-command-in-a-container"></a>Köra ett kommando i en container
 
-Azure Container Instances supports executing a command in a running container. Running a command in a container you've already started is especially helpful during application development and troubleshooting. The most common use of this feature is to launch an interactive shell, so that you can debug issues in a running container.
+Azure Container Instances har stöd för att köra kommandon i aktiva containers. Under apputveckling och felsökning är det särskilt användbart att kunna köra kommandon i containers som redan har startats. Den här funktionen används oftast till att starta ett interaktivt gränssnitt så att du kan felsöka problem i containern som körs.
 
-This example starts an interactive terminal session with the running container:
+Det här exemplet startar en interaktiv terminalsession med containern som körs:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mycontainer --exec-command /bin/sh
 ```
 
-Once the command has completed, you are effectively working inside of the container. In this example, the `ls` command was run to display the contents of the working directory:
+När kommandot har slutförts arbetar du i praktiken inuti containern. I det här exemplet kördes kommandot `ls` för att visa innehållet i arbetskatalogen:
 
 ```bash
 usr/src/app # ls
@@ -67,23 +67,23 @@ index.html         node_modules       package.json
 index.js           package-lock.json
 ```
 
-Enter `exit` to stop the remote session.
+Ange `exit` för att stoppa fjärrsessionen.
 
-## Monitor container CPU and memory
+## <a name="monitor-container-cpu-and-memory"></a>Övervaka containerns CPU och minne
 
-You may want to pull metrics on CPU and memory usage. To do so, first get the ID of the Azure container instance. In this example, the ID is placed in a variable named `CONTAINER_ID`:
+Du kanske vill hämta mått om användningen av processorkraft och minne. Då måste du först hämta Azure-containerinstansens ID. I det här exemplet ligger ID:t i en variabel med namnet `CONTAINER_ID`:
 
 ```azurecli
 CONTAINER_ID=$(az container show --resource-group myResourceGroup --name mycontainer --query id --output tsv)
 ```
 
-Now, use the `az monitor metrics list` command to pull back CPU usage information:
+Nu kan använda kommandot `az monitor metrics list` till att hämta information om processoranvändningen:
 
 ```azurecli
 az monitor metrics list --resource $CONTAINER_ID --metric CPUUsage --output table
 ```
 
-Example output:
+Exempel på utdata:
 
 ```bash
 Timestamp            Name              Average
@@ -105,13 +105,13 @@ Timestamp            Name              Average
 2018-08-20 21:53:00  CPU Usage      0.5
 ```
 
-The following command can be used to get memory usage information:
+Du kan använda följande kommando till att hämta information om minnesanvändningen:
 
 ```azurecli
 az monitor metrics list --resource $CONTAINER_ID --metric MemoryUsage --output table
 ```
 
-Example output:
+Exempel på utdata:
 
 ```bash
 Timestamp            Name              Average
@@ -131,19 +131,19 @@ Timestamp            Name              Average
 2018-08-20 21:55:00  Memory Usage  19181568.0
 ```
 
-This information is also available in the Azure portal. To see graphical representation of CPU and memory usage information, visit the Azure portal overview page for a container instance.
+Den här informationen är också tillgänglig i Azure Portal. En grafisk representation av processor- och minnesanvändningen finns på sidan Översikt för en containerinstans i Azure Portal.
 
-![Azure portal view of Azure Container Instances CPU and memory usage information](../media-draft/cpu-memory.png)
+![Vy i Azure Portal över processor- och minnesanvändning för Azure Container Instances](../media-draft/cpu-memory.png)
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up"></a>Rensa
+<!---TODO: Do we need to include cleanup for the free education tier?--->
 
-This is the last unit of the Azure Container Instances learning module. At this point, you can cleanup the created resources by deleting the resource group. To do so, use the **az group delete** command:
+Detta är den sista utbildningsenheten i modulen för Azure Container Instances. Nu kan du rensa alla resurser du har skapat genom att ta bort resursgruppen. Det gör du med kommandot **az group delete**:
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned about several troubleshooting operations such as pulling container logs, container events, and attaching to a container instance.
+I den här utbildningsenheten har du lärt dig mer om felsökningsåtgärder som att hämta containerloggar, containerhändelser och att ansluta till en containerinstans.

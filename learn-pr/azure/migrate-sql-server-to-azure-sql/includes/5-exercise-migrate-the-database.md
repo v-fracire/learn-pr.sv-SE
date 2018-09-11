@@ -1,119 +1,116 @@
-Now that you have assessed your database and fixed any errors reported, you're ready to migrate your database. In this unit, you will migrate your SQL database to Azure SQL Database.
+Nu när du har utvärderat din databas och åtgärdat eventuella rapporterade fel är du redo att migrera din databas. I den här delen kommer du att migrera din SQL-databas till Azure SQL Database.
 
-## Setup
+## <a name="setup"></a>Konfiguration
 
-The first step is to download the sample data. You can skip this setup if you already have the data installed locally.
+Ladda ned exempeldata om du inte redan har gjort det.
 
-1. Start an internet browser and navigate to https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017.
+1. Öppna en webbläsare och navigera till https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017.
 
-1. In **OLTP downloads**, click **AdventureWorks2008R2.bak**.
+1. I **OLTP downloads** (OLTP-nedladdningar) klickar du på **AdventureWorks2008R2.bak**.
 
-1. In Management Studio, restore **AdventureWorks 2008R2** to your default instance.
+1. I Management Studio återställer du **AdventureWorks 2008R2** till din standardinstans.
 
-## Create an Azure SQL Database
+## <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL Database
 
-1. Sign in to your Azure portal account.
+1. Logga in på ditt Azure Portal-konto.
 
-1. Click **Create a resource** in the upper left-hand corner of the portal.
+1. Klicka på **Skapa en resurs** längst upp till vänster i portalen.
 
-1. Click **Databases** > **SQL Database**.
+1. Klicka på **Databaser** > **SQL Database**.
 
-1. Enter the following fields on the SQL Database form:
+1. Ange följande fält i SQL Database-formuläret:
 
-    |Field|Description|
+    |Fält|Beskrivning|
     |-----|---|
-    |Database name|Enter a name for your database. This can be the name of your existing database that you're migrating or any new name of your choice|
-    |Resource group|Select a resource group or enter a new resource group name|
-    |Select source|Select *Blank database*|
+    |Databasnamn|Ange ett namn för din databas. Detta kan vara namnet på den befintliga databas som du migrerar eller valfritt nytt namn|
+    |Resursgrupp|Välj ett resursgruppsnamn eller ange ett nytt resursgruppsnamn|
+    |Välj källa|Välj *Tom databas*|
 
-1. Under **Server**, either select an existing server or, enter a globally unique **Server name**, a **Server admin login**, a **Password** (which you should confirm), and a **Location**.
-
-    > [!NOTE]
-    > You will use the server name, login name, and password to connect to your database.
-
-1. Click **Select**.
-
-1. In **Pricing tier**, you can select a database with higher performance, but for this tutorial, select default.
-
-1. Click **Create**. Wait until the database has been provisioned before continuing the tutorial.
-
-    The following screenshot shows a possible configuration for your new SQL database.
-
-    ![Screenshot of a new SQL Database blade in the Azure portal with a sample configuration.](../media-draft/5-create-azure-sql-db.png)
-
-## Create a new migration project
-
-1. Start **Data Migration Assistant**.
-
-1. Click the **New** icon, and specify the following options:
-
-    - **Project type** - Select  the *Migration* option.
-    - **Project name** - Enter a memorable name for your project.
-    - **Source server type** - Select *SQL Server*.
-    - **Target server type** - Select *Azure SQL Database*.
-    - **Migration scope** - Select *Schema and data*.
-
-1. Click **Create**.
-
-## Specify the source server and database
-
-1. Under **Connect to source server**, in the **Server name** field, enter the name of the source SQL Server instance.
-
-1. Select the **Authentication type** supported by the source SQL Server instance.
-    > [!TIP]
-    > It is recommended that you select the **Encrypt connection** check box under Connection properties to encrypt the connection.
-
-1. Select **Connect**.
-
-> [!NOTE]
-> If authentication to the server fails because you do not have permission from your IP address, open the SQL Server instance in **Azure Management Studio**, go to **Firewalls and Virtual Networks** and add a rule. Name it whatever you wish, for example, **Allow Azure**. Set up a range of IP addresses that are allowed to access this instance. The range can be 0.0.0.0 to 255.255.255.255. Save this new rule, and you should be able to access the Azure SQL Server instance. 
-
-1. Select a single source database to migrate to Azure SQL Database and click **Next**.
-
-## Specify the target server and database
-
-1. Under **Connect to target server**, in the **Server name** field, enter the name of the Azure SQL Database instance. Add **.database.windows.net** to the database instance.
-
-1. Select the Authentication type supported by the target Azure SQL Database instance. For this tutorial, select **SQL Server Authentication**.
-    > [!TIP]
-    > It is recommended that you select the **Encrypt connection** check box under Connection properties to encrypt the connection.
-
-1. Enter the **Username** and **Password** that you defined when you created the Azure SQL Database.
-
-1. Click **Connect**.
-
-1. Select a single target database to which to migrate.
-    > [NOTE] If you intend to migrate Windows users, in the **Target external user domain name** field, make sure that the target external user domain name is specified correctly.
-
-1. Click **Next**.
-
-## Select schema objects
-
-1. Select the schema objects from the source database that you want to migrate to Azure SQL Database.
+1. Under **Server** väljer du antingen en befintlig server eller anger ett globalt unikt **servernamn** en **inloggning för serveradministratör** ett **lösenord** (som du ska bekräfta) samt en **plats**.
 
     > [!NOTE]
-    > Some of the objects that cannot be converted as-is are presented with automatic fix opportunities. Clicking these objects on the left pane displays the suggested fixes on the right pane. Review the fixes and choose to either apply or ignore all changes, object by object. Note that applying or ignoring all changes for one object does not affect changes to other database objects. Statements that cannot be converted or automatically fixed are reproduced to the target database and commented.
+    > Du använder servernamnet, inloggningsnamnet och lösenordet för att ansluta till databasen.
 
-    ![Screenshot of the Data Migration Assistant showing the list of migration issues affecting the AdventureWorks SQL Server data with the "Stored Procedure: dbo.uspSearchCandidateResumes" issue selected and the issue details shown.](../media-draft/5-suggested-fix.png)
+1. Klicka på **Välj**.
 
-1. Click **Generate SQL script**.
+1. I **Prisnivå** kan du välja en databas med högre prestanda, men för den här självstudien väljer du standardinställningen.
 
-## Deploy schema
+1. Klicka på **Skapa**. Vänta tills databasen har etablerats innan du fortsätter med självstudien.
 
-1. Click **Deploy schema**.
+    Följande skärmbild visar en potentiell konfiguration för den nya SQL-databasen.
 
-1. Review the results of the schema deployment.
+    ![Skärmbild av ett nytt SQL Database-blad i Azure-portalen med en exempelkonfiguration.](../media-draft/5-create-azure-sql-db.png)
 
-## Migrate data
+## <a name="create-a-new-migration-project"></a>Skapa ett nytt migreringsprojekt
 
-1. Click **Migrate data** to start the data migration process.
+1. Starta **Data Migration Assistant**.
 
-1. Select the tables with the data you want to migrate.
+1. Klicka på ikonen **Nytt** och ange följande alternativ:
 
-1. Click **Start data migration**.
+    - **Projekttyp** – Välj alternativet *Migrering*.
+    - **Projektnamn** – ange ett namn som är lätt att komma ihåg för projektet.
+    - **Typ av källserver** – välj *SQL Server*.
+    - **Typ av målserver** – välj *Azure SQL Database*.
+    - **Migreringsomfång** – välj *Schema och data*.
 
-The final screen shows the overall status.
+1. Klicka på **Skapa**.
 
-## Summary
+## <a name="specify-the-source-server-and-database"></a>Ange källserver och databas
 
-In this unit, you created an empty Azure SQL Database and migrated a local SQL Server database to this new database.
+1. Under **Connect to source server** (Anslut till källserver) går du till fältet **Servernamn** och anger namnet på SQL Server-källinstansen.
+
+1. Välj den **autentiseringstyp** som stöds av SQL Server-källinstansen.
+    > [!TIP]
+    > Vi rekommenderar att du markerar kryssrutan **Kryptera anslutning** Anslutningsegenskaper för att kryptera anslutningen.
+
+1. Välj **Anslut**.
+
+1. Välj en enskild källdatabas att migrera till Azure SQL Database och klicka på **Nästa**.
+
+## <a name="specify-the-target-server-and-database"></a>Ange målserver och databas
+
+1. Under **Connect to target server** (Anslut till målserver) går du till fältet **Servernamn** och anger namnet på Azure SQL Server Database-instansen. Lägg till **database.windows.net** till databasinstansen.
+
+1. Välj den autentiseringstyp som stöds av Azure SQL Database-målinstansen. För den här självstudien väljer du **SQL Server-autentisering**.
+    > [!TIP]
+    > Vi rekommenderar att du markerar kryssrutan **Kryptera anslutning** Anslutningsegenskaper för att kryptera anslutningen.
+
+1. Ange **användarnamnet** och **lösenordet** som du definierade när du skapade Azure SQL-databasen.
+
+1. Klicka på **Anslut**.
+
+1. Välj en enkel måldatabas att migrera till.
+    > [OBS] Om du planerar att migrera Windows-användare ska du i textrutan för målets externa användares domännamn se till att målets externa användares domännamn anges korrekt.
+
+1. Klicka på **Nästa**.
+
+## <a name="select-schema-objects"></a>Välj schemaobjekt
+
+1. Välj de schemaobjekt från källdatabasen som du vill migrera till Azure SQL Database.
+
+    > [!NOTE]
+    > Några av de objekt som inte kan konverteras som de är erbjuds möjligheter för automatisk korrigering. Om du klickar på objekten i den vänstra fönsterrutan visas de föreslagna korrigeringarna i den högra fönsterrutan. Granska korrigeringarna och välj att tillämpa eller ignorera alla ändringar, objekt för objekt. Observera att om du tillämpar eller ignorerar alla ändringar för ett objekt så påverkas inte ändringar för andra databasobjekt. Instruktioner som inte kan konverteras eller repareras automatiskt reproduceras till måldatabasen och kommenteras.
+
+    ![Skärmbild av Data Migration Assistant som visar en lista med migreringsproblem som påverkar AdventureWorks SQL Server-data med felet ”Stored Procedure: dbo.uspSearchCandidateResumes” (Lagrad procedur: dbo.uspSearchCandidateResumes) markerat och probleminformation som visas.](../media-draft/5-suggested-fix.png)
+
+1. Klicka på **Generera SQL-skript**.
+
+## <a name="deploy-schema"></a>Distribuera schema
+
+1. Klicka på **Distribuera schema**.
+
+1. Granska resultatet av schemadistributionen.
+
+## <a name="migrate-data"></a>Migrera data
+
+1. Klicka på **Migrera data** för att datamigreringsprocessen.
+
+1. Välj tabellerna med de data som du vill migrera.
+
+1. Klicka på **Starta datamigrering**.
+
+Den sista skärmen visar övergripande status.
+
+## <a name="summary"></a>Sammanfattning
+
+I den här delen skapade du en tom Azure SQL Database och migrerade en lokal SQL Server-databas till den nya databasen.

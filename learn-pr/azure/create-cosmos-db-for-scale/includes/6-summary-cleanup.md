@@ -6,13 +6,13 @@ Om du planerar att fortsätta arbeta med modulerna i den här utbildningen, hopp
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn döljs klickar du på ![Knappen Expandera](../media/5-create-a-database-and-collection/expand.png) för att expandera den.
+    Om den vänstra menyn döljs klickar du på ![Knappen Expandera](../media-draft/6-expand.png) för att expandera den.
 
-   ![Mått i Azure Portal](../media/5-create-a-database-and-collection/delete-resources-select.png)
+   ![Mått i Azure Portal](../media-draft/6-resources-select.png)
 
-2. Markera resursgruppen i det nya fönstret och klicka sedan på **Ta bort resursgrupp**.
+1. Markera resursgruppen i det nya fönstret och klicka sedan på **Ta bort resursgrupp**.
 
-   ![Mått i Azure Portal](../media/5-create-a-database-and-collection/delete-resources.png)
+   ![Mått i Azure Portal](../media-draft/6-delete-resources.png)
 
-3. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
+1. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
 

@@ -1,62 +1,62 @@
-In this unit, you will install Visual Studio Code and the Azure App Service extension, which will get you ready to develop for Microsoft Azure and to deploy a web app.
+I den här kursdelen kommer du installera Visual Studio Code och Azure App Service-tillägget. Det kommer göra dig redo att utveckla för Microsoft Azure och distribuera en webbapp.
 
-## Exercise steps
+## <a name="exercise-steps"></a>Övningssteg
 
-First, identify which operating system you are using, and follow the steps in the appropriate section below to install Visual Studio Code.
+Börja med att identifiera vilket operativsystem du använder. Följ sedan stegen i aktuellt avsnitt nedan för att installera Visual Studio Code.
 
-### Windows
+### <a name="windows"></a>Windows
 
-1. Download the Visual Studio Code installer for Windows.
+1. Ladda ned Visual Studio Code-installationsprogrammet för Windows.
 
-1. Run the installer. This won't take long.
+1. Kör installationsprogrammet. Det går fort.
 
-1. Open VS Code by navigating to the installation folder (the default path is C:\Program Files\Microsoft VS Code for a 64-bit machine).
+1. Öppna VS Code genom att navigera till installationsmappen (standardsökvägen är C:\Program Files\Microsoft VS-kod för en 64-bitars dator).
 
-### macOS
+### <a name="macos"></a>macOS
 
-1. Download Visual Studio Code for macOS.
+1. Ladda ned Visual Studio Code för macOS.
 
-1. Double-click on the downloaded archive to expand the contents.
+1. Dubbelklicka på det nedladdade arkivet för att visa innehållet.
 
-1. Drag Visual Studio Code.app to the Applications folder, making it available in the Launchpad.
+1. Dra Visual Studio Code.app till programmappen för att göra den tillgänglig i Launchpad.
 
-1. Add VS Code to your Dock by right-clicking on the icon, and choosing Options > Keep in Dock.
+1. Lägg till VS Code till Dock genom att högerklicka på ikonen och välja Options (Alternativ) -> Keep in Dock (Fäst i Dock).
 
-### Linux – Debian and Ubuntu
+### <a name="linux--debian-and-ubuntu"></a>Linux – Debian och Ubuntu
 
-1. Download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center, if it's available, or through the command line (replacing `<file>` with the .deb filename you downloaded):
+1. Ladda ned och installera [.deb paketet (64-bitars)](https://go.microsoft.com/fwlink/?LinkID=760868), antingen via det grafiska programvarucentret, eller via kommandoraden (om tillgängligt) (ersätt `<file>` med det .deb-filnamn som du laddade ned):
 
     ```bash
     sudo dpkg -i <file>.deb
     sudo apt-get install -f # Install dependencies
     ```
 
-### Linux – RHEL, Fedora, and CentOS
+### <a name="linux--rhel-fedora-and-centos"></a>Linux – RHEL, Fedora och CentOS
 
-1. Use the following script to install the key and repository:
+1. Använd följande skript för att installera nyckeln och databasen:
 
     ```bash
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
     ```
 
-1. Update the package cache, and install the package by using dnf (Fedora 22 and above):
+1. Uppdatera paketcachen och installera paketet med dnf (Fedora 22 och senare):
 
     ```bash
     dnf check-update
     sudo dnf install code
     ```
 
-### Linux – openSUSE and SLE
+### <a name="linux--opensuse-and-sle"></a>Linux – openSUSE och SLE
 
-1. The yum repository also works for openSUSE and SLE based systems. The following script will install the key and repository:
+1. Yum-lagringsplatsen fungerar även för openSUSE- och SLE-baserade system. Följande skript installerar nyckeln och databasen:
 
     ```bash
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/vscode.repo'
     ```
 
-1. Update the package cache and install the package by using:
+1. Uppdatera paketcachen och installera paketet med:
 
     ```bash
     sudo zypper refresh
@@ -64,20 +64,20 @@ First, identify which operating system you are using, and follow the steps in th
     ```
 
 > [!NOTE]
-> For further details about installing or updating VS Code on various Linux distributions, please see the [Running VS Code on Linux documentation](https://code.visualstudio.com/docs/setup/linux).
+> Mer information om hur du installerar eller uppdaterar VS Code på olika Linux-distributioner finns under avsnittet om hur du [kör VS Code i Linux-dokumentation](https://code.visualstudio.com/docs/setup/linux).
 
-## Install Azure App Service extension
+## <a name="install-azure-app-service-extension"></a>Installera tillägget för Azure App Service
 
-Once you have installed VS Code, open it.
+Öppna VS Code när det har installerats.
 
-1. Go to the Extensions tab.
+1. Gå till fliken Tillägg.
 
-1. Search for Azure App Service.
+1. Leta upp Azure App Service.
 
-1. Click Install.
+1. Klicka på Installera.
 
-    The following screenshot shows the Azure App Service extension selected from the Visual Studio Code extension search results.
+    Följande skärmbild visar Azure App Service-tillägget som valts i sökresultaten för Visual Studio Code-tillägget.
 
-    ![Screenshot of VS Code showing the Extensions tab with the Azure App Service extension highlighted in the search results.](../media/3-install-azure-extension.png)
+    ![Skärmbild av VS Code som visar fliken Tillägg med Azure App Service-tillägget markerat i sökresultaten.](../media/3-install-azure-extension.png)
 
-This will install the extension. You will be ready to connect to your Azure subscription, and develop for and deploy your web, mobile, or API app to an Azure App Service.
+Detta installerar tillägget. Du kan ansluta till din Azure-prenumeration och utveckla och distribuera dina webb-, mobil- eller API-appar till en Azure App Service.

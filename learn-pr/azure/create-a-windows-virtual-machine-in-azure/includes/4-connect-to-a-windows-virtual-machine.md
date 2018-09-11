@@ -20,7 +20,7 @@ Det finns även Linux-klienter med öppen källkod, till exempel Remmina som gö
 
 Windows 10 innehåller en RDP-klient.
 
-![Windows RDP-klient](../images/2-rdp-client.PNG)
+![Windows RDP-klient](../media-drafts/4-rdp-client.PNG)
 
 ## <a name="what-functionality-does-an-rdp-connection-support"></a>Vilka funktioner stöds med en RDP-anslutning?
 

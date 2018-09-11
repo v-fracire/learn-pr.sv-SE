@@ -51,4 +51,3 @@ Du kan skapa en timerutlösare helt i Azure-portalen. I din Azure-funktion välj
 ## <a name="summary"></a>Sammanfattning
 
 En timerutlösare anropar en Azure-funktion enligt ett konsekvent schema. För att definiera schemat för en timerutlösare skapade vi ett *CRON-uttryck*, vilket är en sträng som motsvarar olika tider.
-

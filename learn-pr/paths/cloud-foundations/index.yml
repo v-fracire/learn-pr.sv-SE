@@ -1,5 +1,15 @@
 ### YamlMime:LearningPath
 uid: learn.cloud-foundations
+metadata:
+  title: Grundarna om molnet
+  description: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
+  ms.date: 09/24/2018
+  ms.openlocfilehash: 42a739267fee3c7b403b72bfc3a07d631f408c17
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43826883"
 title: Grundarna om molnet
 summary: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
 prerequisites: Ingen
@@ -11,18 +21,11 @@ roles:
 - solution-architect
 - administrator
 products:
-- Azure
-metadata:
-  title: Grundarna om molnet
-  description: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
-  ms.openlocfilehash: 8d30b79ba6ce00c903ec0961b49fd99b54a523b2
-  ms.sourcegitcommit: 89dccddf7de169aecda3c1657e4354906389ed25
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/31/2018
-  ms.locfileid: "43324481"
+- azure
 modules:
 - principles-cloud-computing
+- learn.azure-services-features
 - learn.intro-to-compute
 - learn.intro-to-data-in-azure
+- learn.intro-to-azure-networking
 achievement: learn.cloud-foundations.trophy

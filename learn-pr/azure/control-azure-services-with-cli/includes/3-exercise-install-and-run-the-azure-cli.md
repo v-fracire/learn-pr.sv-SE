@@ -1,13 +1,20 @@
+---
+zone_pivot_groups: platform
+ms.openlocfilehash: 1e6e46f3ed22ce99649f55779ac7838f3838b9b8
+ms.sourcegitcommit: 526b39347ae023619cc4c4add68eff971510e523
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42938928"
+---
+Nu ska vi installera Azure CLI på din lokala dator och därefter köra ett enkelt kommando för att verifiera installationen. Vilken metod du använder för att installera Azure CLI beror på datorns operativsystem. Välj anvisningarna för ditt operativsystem.
 
-I den här övningen installerar du Azure CLI på din lokala dator och kör därefter ett enkelt kommando för att verifiera installationen. 
-
-## <a name="installing-the-azure-cli"></a>Installera Azure CLI
-Vilken metod du använder för att installera Azure CLI beroende på datorns operativsystem. Välj anvisningarna för ditt operativsystem.
+::: zone pivot="linux"
 
 ### <a name="linux"></a>Linux
-Här ska du installera Azure CLI på Ubuntu Linux med (**APT**) och Bash-kommandoraden.
+Här ska du installera Azure CLI på **Ubuntu Linux** med (**APT**) och Bash-kommandoraden.
 
-> [!NOTE]
+> [!WARNING]
 > Kommandona nedan är för Ubuntu version 18.04. Om du använder en annan version av Ubuntu måste du lägga till en annan lagringsplats. Mer information finns i [Installera Azure CLI 2.0 med apt](https://docs.microsoft.com/cli/azure/install-azure-cli-apt).
 
 1. Ändra din källista så att Microsoft-lagringsplatsen registreras, och så att pakethanteraren kan hitta Azure CLI-paketet.
@@ -29,6 +36,10 @@ Här ska du installera Azure CLI på Ubuntu Linux med (**APT**) och Bash-kommand
     sudo apt-get update && sudo apt-get install azure-cli
     ```
 
+::: zone-end
+
+::: zone pivot="macos"
+
 ### <a name="macos"></a>macOS
 Här installerar du Azure CLI på macOS med Homebrew-pakethanteraren.
 
@@ -45,6 +56,9 @@ Här installerar du Azure CLI på macOS med Homebrew-pakethanteraren.
     ```bash
     brew install azure-cli
     ```
+::: zone-end
+
+::: zone pivot="windows"
 
 ### <a name="windows"></a>Windows
 Här installerar du Azure CLI på Windows med hjälp av MSI-installationsprogrammet.
@@ -52,6 +66,8 @@ Här installerar du Azure CLI på Windows med hjälp av MSI-installationsprogram
 1. Gå till [https://aka.ms/installazurecliwindows](https://aka.ms/installazurecliwindows), och i webbläsarens dialogruta för säkerhet klickar du på **Kör**.
 1. I installationsprogrammet godkänner du licensvillkoren och klickar sedan på **Installera**.
 1. I dialogrutan **User Account Control** väljer du **Ja**.
+
+::: zone-end
 
 ## <a name="running-the-azure-cli"></a>Köra Azure CLI
 Du kör Azure CLI genom att öppna ett bash-gränssnitt (Linux och macOS), eller från kommandotolken eller PowerShell (Windows).
@@ -62,8 +78,12 @@ Du kör Azure CLI genom att öppna ett bash-gränssnitt (Linux och macOS), eller
     az --version
     ```
 
+::: zone pivot="windows"
+
 > [!NOTE]
-> I Windows finns det några fördelar med att köra Azure CLI från PowerShell jämfört med att köra Azure CLI från kommandotolken. Exempelvis tillhandahåller PowerShell extra funktioner för tabbifyllning utöver dem som finns i kommandotolken. 
+> Det finns några fördelar med att köra Azure CLI från PowerShell jämfört med köra Azure CLI från Kommandotolken för Windows. PowerShell ger ytterligare funktioner än de som är tillgängliga från Kommandotolken. 
+
+::: zone-end
 
 ## <a name="summary"></a>Sammanfattning
 Du konfigurerar dina lokala datorer för att administrera Azure-resurser med Azure CLI. Du kan nu använda Azure CLI lokalt för att ange kommandon eller köra skript. Azure CLI vidarebefordrar dina kommandon till Azure-datacenter där de körs i din Azure-prenumeration.

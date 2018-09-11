@@ -6,9 +6,9 @@ Nu när du förstår hur enheter för programbegäran används för att faststä
     
     Området **Lägg till samling** visas längst till höger. Du kan behöva rulla till höger för att se den.
 
-    ![Datautforskaren i Azure-portalen, bladet Lägg till samling](../media/5-create-a-database-and-collection/azure-cosmosdb-data-explorer.png)
+    ![Datautforskaren i Azure-portalen, bladet Lägg till samling](../media-draft/5-azure-cosmosdb-data-explorer.png)
 
-2. På sidan **Lägg till samling** anger du inställningarna för den nya samlingen.
+1. På sidan **Lägg till samling** anger du inställningarna för den nya samlingen.
 
     Inställning | Föreslaget värde | Beskrivning
     --------|-----------------|-------------
@@ -18,11 +18,11 @@ Nu när du förstår hur enheter för programbegäran används för att faststä
     Partitionsnyckeln    | UserID        | UserID är en bra partitionsnyckel i ett scenario med nätbutiker, eftersom så många frågor baseras på kund-ID:n.
     Dataflöde       |1 000 RU        | Ändra genomflödet till 1 000 enheter för programbegäran per sekund (RU/s). 1 000 är det minsta RU/s-värde som du kan ange för att aktivera automatisk skalning.
     
-    För tillfället markerar vi inte alternativet **Etablera databasens dataflöde** och vi lägger inte heller till några unika nycklar i samlingen. 
+    För tillfället markerar vi inte alternativet **Etablera databasens dataflöde** och vi lägger inte heller till några unika nycklar i samlingen.
     
-3. Klicka på **OK**. Datautforskaren visar den nya databasen och samlingen.
+1. Klicka på **OK**. Datautforskaren visar den nya databasen och samlingen.
 
-    ![Datautforskaren i Azure-portalen visar den nya databasen och samlingen](../media/5-create-a-database-and-collection/azure-cosmos-db-new-collection.png)
+    ![Datautforskaren i Azure-portalen visar den nya databasen och samlingen](../media-draft/5-azure-cosmos-db-new-collection.png)
 
 ## <a name="summary"></a>Sammanfattning
 

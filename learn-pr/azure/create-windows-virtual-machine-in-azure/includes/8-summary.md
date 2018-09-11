@@ -1,22 +1,21 @@
-In this module, you learned how to create a Windows VM using the Azure portal. You then connected to the public IP address of the VM and managed it over RDP. You discovered how RDP in Azure provides a similar experience to logging on interactively to a physical computer.
+I den här modulen har du fått lära dig att skapa en virtuell Windows-dator med Azure portalen. Sedan anslöt du till den offentliga IP-adressen för den virtuella datorn och hanterade den via RDP. Du har fått lära dig hur RDP möjliggör en upplevelse i Azure som är jämförbar med att logga in interaktivt till en fysisk dator.
 
-You learned that while RDP allows us to interact with the operating system and software of the virtual machine, the portal allows us to configure the virtual hardware and connectivity. We also could have used PowerShell or the Azure CLI, if a command-line or scriptable environment were preferred.
+Du fick också lära dig att RDP gör det möjligt att interagera med operativsystemet och programvara i den virtuella datorn, och att portalen gör det möjligt att konfigurera virtuell maskinvara och anslutning. Du skulle även kunna använda PowerShell eller Azure CLI om du föredrar kommandorader eller en skriptbar miljö.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up-the-resources"></a>Rensa resurserna
 
-You are charged for VMs while they run, and for the storage based on how much you use. Always stop and deallocate VMs when you aren't using them, and when you no longer need the resources it's a good idea to delete them. To remove all the resources that you created, you can delete them one-by-one, or just delete the resource group.
+Du debiteras för virtuella datorer när de körs och för lagring baserat på hur mycket du använder. Du bör alltid stoppa och frigöra virtuella datorer när du inte använder dem och när du inte längre behöver resurser är det en bra idé att ta bort dem. Om du vill ta bort alla resurser som du skapade måste du ta bort dem en i taget eller tar du bort resursgruppen.
 
-1. Sign in to the Azure portal.
+1. Logga in på Azure Portal.
 
-1. On the left menu, select **All Services**.
+1. Välj **Alla tjänster** på menyn till vänster.
 
-1. Select **Resource Groups**.
+1. Välj **Resursgrupper**.
 
-1. Find the resource group that you created in the first exercise. Click the ellipsis (...) on the right side of the list view.
+1. Hitta resursgruppen som du skapade i den första övningen. Klicka på ellipsen (...) till höger i listvyn.
 
-1. Select **Delete resource group**.
+1. Välj **Ta bort resursgrupp**.
 
-1. On the next screen, enter the resource group name to confirm the deletion.
+1. På nästa skärm anger du resursgruppens namn för att bekräfta borttagningen.
 
-1. Click **Delete**.
+1. Klicka på **Ta bort**.

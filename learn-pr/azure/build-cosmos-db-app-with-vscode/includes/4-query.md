@@ -1,24 +1,23 @@
-<!--TODO: Explain how to do ExecuteNext (pages closer to SDK imp) vs ToList (continuation token)-->
-Now that you've created documents in your application, let's query them from your application. Azure Cosmos DB uses SQL queries and LINQ queries. This unit focuses on running SQL queries and LINQ queries from your application, as opposed to the portal.
+<!--TODO: Explain how to do ExecuteNext (pages closer to SDK imp) vs ToList (continuation token)--> Nu när du har skapat dokument i ditt program kan du skicka frågor mot dem från programmet. Azure Cosmos DB använder SQL-frågor och LINQ-frågor. Den här kursdelen handlar om att köra SQL-frågor och LINQ-frågor från ditt program i stället för från portalen.
 
-We'll use the user documents you've created for your online retailer application to test these queries.
+Du kan testa de här frågorna med hjälp av användardokumenten som du har skapat för ditt onlineförsäljningsprogram.
 
-## LINQ query basics
+## <a name="linq-query-basics"></a>Grundläggande om LINQ-frågor
 
-LINQ is a .NET programming model that expresses computations as queries on streams of objects. You can create an **IQueryable** object that directly queries Azure Cosmos DB, which translates the LINQ query into a Cosmos DB query. The query is then passed to the Azure Cosmos DB server to retrieve a set of results in JSON format. The returned results are deserialized into a stream of .NET objects on the client side. Many developers prefer LINQ queries, as they provide a single consistent programming model across how they work with objects in application code and how they express query logic running in the database.
+LINQ är en .NET-programmeringsmodell som uttrycker beräkningar som frågor på objektströmmar. Du kan skapa ett **IQueryable**-objekt som frågar Azure Cosmos DB direkt så att LINQ-frågan översätts till en Cosmos DB-fråga. Frågan skickas sedan till Azure Cosmos DB-servern för att hämta en uppsättning resultat i JSON-format. De returnerade resultaten deserialiseras till en .NET-objektström på klientsidan. Många utvecklare föredrar LINQ-frågor eftersom det är en konsekvent programmeringsmodell för hela deras arbete med objekt i programkod och hur de uttrycker frågelogik som körs i databasen.
 
-The following table shows how LINQ queries are translated into SQL.
+Hur LINQ-frågor översätts till SQL visas i följande tabell.
 
-| LINQ expression | SQL translation |
+| LINQ-uttryck | SQL-översättning |
 |---|---|
 | `input.Select(family => family.parents[0].familyName);`| `SELECT VALUE f.parents[0].familyName FROM Families f` |
 |`input.Select(family => family.children[0].grade + c); // c is an int variable` | `SELECT VALUE f.children[0].grade + c FROM Families f` |
 |`input.Select(family => new { name = family.children[0].familyName, grade = family.children[0].grade + 3});`| `SELECT VALUE {"name":f.children[0].familyName, "grade": f.children[0].grade + 3 } FROM Families f`|
 |`input.Where(family=> family.parents[0].familyName == "Smith");`|`SELECT * FROM Families f WHERE f.parents[0].familyName = "Smith"`|
 
-## Run SQL and LINQ queries
+## <a name="run-sql-and-linq-queries"></a>Köra SQL- och LINQ-frågor
 
-1. The following sample shows how a query could be performed in SQL, LINQ, or LINQ lambda from your .NET code. Copy the code and add it to the end of the Program.cs file.
+1. I följande exempel visas hur en fråga kan utföras i SQL, LINQ eller LINQ-lambda från din .NET-kod. Kopiera koden och lägg till den i slutet av filen Program.cs.
 
     ```csharp
     private void ExecuteSimpleQuery(string databaseName, string collectionName)
@@ -54,20 +53,20 @@ The following table shows how LINQ queries are translated into SQL.
     }
     ```
 
-1. Copy and paste the following code to your **BasicOperations** method, before the `await this.DeleteUserDocument("Users", "WebCustomers", "1");` line.
+1. Kopiera och klistra in nedanstående kod i metoden **BasicOperations** före raden `await this.DeleteUserDocument("Users", "WebCustomers", "1");`.
 
     ```csharp
     this.ExecuteSimpleQuery("Users", "WebCustomers");
     ```
 
-1. Save the Program.cs file and then, in the integrated terminal, run the following command.
+1. Spara filen Program.cs och kör följande kommando i den integrerade terminalen.
     
     ```
     dotnet run
     ```
 
-    The console displays the output of the LINQ and SQL queries.
+    Konsolen visar utdatan för LINQ- och SQL-frågorna.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit you learned about LINQ queries, and then added a LINQ and SQL query to your application to retrieve user records.
+I den här delen har du fått lära dig om LINQ-frågor, samt lagt till en LINQ- och SQL-fråga i ditt program för att hämta användarposter.

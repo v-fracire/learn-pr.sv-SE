@@ -1,107 +1,107 @@
-Let's apply a network security group to our network, so that we only allow HTTP traffic through our server.
+Nu ska vi tillämpa en nätverkssäkerhetsgrupp på nätverket så att vi bara tillåter HTTP-trafik genom servern.
 
-## Create a network security group
+## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-Azure should have created a security group for us because we indicated we wanted SSH access. But let's create a new security group, so you can walk through the entire process. This is particularly important if you decide to create your virtual network _before_ your VMs. As mentioned earlier, security groups are _optional_ and not necessarily created with the network.
+Azure bör ha skapat en säkerhetsgrupp åt oss eftersom vi angav att vi ville ha SSH-åtkomst. Men vi ska ändå skapa en ny säkerhetsgrupp så att du ser hur processen ser ut. Detta är särskilt viktigt om du bestämmer dig för att skapa det virtuella nätverket _innan_ de virtuella datorerna. Som vi nämnt tidigare är säkerhetsgrupper _valfria_ och skapas inte nödvändigtvis med nätverket.
 
-1. In the [Azure portal](https://portal.azure.com?azure-portal=true), click the **Create a resource** button in the left-corner sidebar to start a new resource creation.
+1. Skapa en ny resurs genom att klicka på knappen **Skapa en resurs** på den vänstra sidopanelen på [Azure Portal](https://portal.azure.com?azure-portal=true).
 
-1. Type **Network security group** into the filter box and select the matching item in the list.
+1. Skriv ”Nätverkssäkerhetsgrupp” i filterrutan och välj det matchande objektet i listan.
 
-1. Make sure the **Resource Manager** deployment model is selected and click **Create**.
+1. Kontrollera att distributionsmodellen **Resource Manager** är vald och klicka på **Skapa**.
 
-1. Provide a **Name** for your security group. Again, naming conventions are a good idea here. Let's use **test-web-eus-nsg1** for **Test Web Network Security Group #1 in East US**. You'll likely want to change the location portion of the name to reflect where you put the security group.
+1. Ange ett **namn** för din säkerhetsgrupp. Namngivningskonventioner är som sagt en bra idé här, vi använder "test-web-eus-nsg1" för "Test Web Network Security Group #1 in East US". Du vill troligen ändra platsdelen så att den speglar var du placerar säkerhetsgruppen.
 
-1. Select the proper **Subscription** and use your existing **Resource group**.
+1. Välj rätt **prenumeration** och använd din befintliga **resursgrupp**.
 
-1. Finally, put it into the same **Location** as the VM / virtual network. This is important; you won't be able to apply this resource if it's in a different location.
+1. Placera den sedan på samma **plats** som den virtuella datorn/det virtuella nätverket. Obs! Du kan inte använda den här resursen om den finns på en annan plats.
 
-1. Click **Create** to create the group.
+1. Skapa gruppen genom att klicka på **Skapa**.
 
-## Add a new inbound rule to our network security group
+## <a name="add-a-new-inbound-rule-to-our-network-security-group"></a>Lägga till en ny inkommande regel i nätverkssäkerhetsgruppen
 
-Deployment should complete quickly. When it's finished, we can add new rules to our security group:
+Distributionen bör slutföras snabbt, och när den är klar kan vi lägga till nya regler i säkerhetsgruppen.
 
-1. Find the new security group resource and select it in the Azure portal.
+1. Leta upp den nya säkerhetsgruppsresursen och välj den på Azure Portal.
 
-1. On the overview page, you'll find that it has some default rules created to lock down the network.
+1. På översiktssidan ser du att den har några standardregler för att låsa nätverket.
 
-    On the inbound side:
+    På sidan för inkommande trafik:
 
-    - All incoming traffic from one VNet to another is allowed. This lets resources on the VNet talk to each other.
-    - Azure Load Balancer **probe** requests to ensure the VM is alive.
-    - All other inbound traffic is denied.  
+    - All inkommande trafik från ett virtuellt nätverk till ett annat tillåts. På så sätt kan resurser i det virtuella nätverket prata med varandra
+    - Azure Load Balancer ”avsöker” begäranden för att säkerställa att den virtuella datorn är aktiv
+    - All annan inkommande trafik nekas på den utgående sidan:
+    - All nätverkstrafik i det virtuella nätverket tillåts
+    - All utgående trafik till Internet tillåts
+    - All annan utgående trafik nekas
 
-    On the outbound side:  
-    - All in-network traffic on the VNet is allowed.
-    - All outbound traffic to the internet is permitted.
-    - All other outbound traffic is denied.
+> [!NOTE]
+> Dessa standardregler är inställda med höga prioritetsvärden, vilket innebär att de utvärderas _sist_. De kan inte ändras eller tas bort, men du kan _åsidosätta_ dem genom att skapa mer specifika regler som matchar din trafik med ett lägre prioritetsvärde.
 
-    > [!NOTE]  
-    > These default rules are set with high-priority values, which means that they get evaluated _last_. They cannot be changed or deleted, but you can _override_ them by creating more specific rules to match your traffic with a lower priority value.
+1. Klicka på avsnittet **Inkommande säkerhetsregler** på panelen **Inställningar** för säkerhetsgruppen.
 
-1. Click the **Inbound security rules** section in the **Settings** panel for the security group.
+1. Lägg till en ny säkerhetsregel genom att klicka på **+ Lägg till**.
 
-1. Click **+ Add** to add a new security rule.
+    ![Lägg till en säkerhetsregel](../media-drafts/8-add-rule.png)
 
-    ![Screenshot of the Azure portal showing the inbound security rules settings with the Add button highlighted.](../media/8-add-rule.png)
+    Du kan ange informationen som behövs för en säkerhetsregel med någon av två metoder: grundläggande och avancerat. Du kan växla mellan dem genom att klicka på knappen längst upp på panelen ”Lägg till”.
 
-    There are two ways to enter the information necessary for a security rule: basic and advanced. You can switch between them by clicking the button at the top of the **add** panel.
+    ![Grundläggande jämfört med avancerad regelinmatning](../media-drafts/8-advanced-create-rule.png)
 
-    ![A pair of screenshots of the Azure portal showing the toggle between Basic and Advanced rule input, with an arrow linking between the two states of the toggle button highlighted.](../media/8-advanced-create-rule.png)
+    I avancerat läge kan du anpassa regeln helt, men om du behöver konfigurera ett känt protokoll är det lite enklare att arbeta i grundläggande läge.
 
-    The advanced mode provides the ability to customize the rule completely. However, if you need to configure a known protocol, the basic mode is a bit easier to work with.
+1. Växla till grundläggande läge.
 
-1. Switch to the basic mode.
+1. Lägg till informationen för vår HTTP-regel.
 
-1. Add the information for our HTTP rule:
+    - Ange HTTP för **Tjänst**. När du gör det anges portintervallet åt dig.
+    - Ange ”1000” för **Prioritet**. Det måste vara ett lägre värde än för standardregeln **Neka**. Du kan starta intervallet vid valfritt värde, men vi rekommenderar att du lägger till marginaler om ett undantag måste skapas senare.
+    - Ge regeln ett namn, vi använder "allow-http-traffic".
+    - Ge regeln en beskrivning.
 
-    - Set the **Service** to be HTTP. This will set your port range up for you.
-    - Set the **Priority** to **1000**. It has to be a lower number than the default **Deny** rule. You can start the range at any value, but it's recommended that you give yourself some space in case an exception needs to be created later.
-    - Give the rule a name; we'll use **allow-http-traffic**.
-    - Give the rule a description.
+1. Gå tillbaka till läget **Avancerat**. Observera att inställningarna finns kvar. Vi kan använda den här panelen för att skapa mer detaljerade inställningar. I synnerhet vill vi sannolikt begränsa **Källa** till en bestämd IP-adress eller ett intervall med IP-adresser som är specifika för kamerorna. Om du känner till den aktuella IP-adressen för den lokala datorn kan du prova med den. Annars lämnar du inställningen som ”Alla” så att du kan testa regeln.
 
-1. Switch back to the **Advanced** mode. Notice that our settings are still present. We can use this panel to create more fine-grained settings. In particular, we would likely restrict the **Source** to be a specific IP address or range of IP addresses specific to the cameras. If you know the current IP address of your local computer, you can try that. Otherwise, leave the setting as **Any**, so you can test the rule.
+1. Klicka på **Lägg till** för att skapa regeln. När du gör det uppdateras listan över regler för inkommande trafik – observera att de visas i prioritetsordning, vilket är den ordning som de kommer att granskas i.
+    
+## <a name="apply-the-security-group"></a>Tillämpa säkerhetsgruppen
 
-1. Click **Add** to create the rule. This will update the list of inbound rules - notice they are in priority order, which is how they will be examined.
+Som du kanske minns kan vi tillämpa säkerhetsgruppen på ett nätverksgränssnitt för att skydda en enskild virtuell dator, eller på ett undernät där det i så fall gäller för alla resurser i undernätet. Den senare metoden brukar vara den vanligaste, så vi använder den. Vi kan komma till den här resursen i Azure antingen via den virtuella nätverksresursen eller indirekt via den virtuella datorn som använder det virtuella nätverket.
 
-## Apply the security group
+1. Växla till panelen **Översikt** för den virtuella datorn. Du kan hitta den virtuella datorn under **Alla resurser**.
 
-Recall that we can apply the security group to a network interface to guard a single VM or to a subnet where it would apply to any resources on that subnet. The latter approach tends to be the most common, so let's do that. We could get to this resource in Azure through either the virtual network resource or indirectly through the VM that is using the virtual network.
+1. Välj objektet **Nätverk** i avsnittet **Inställningar**.
 
-1. Switch to the **Overview** panel for the virtual machine. You can find the VM under **All Resources**.
+    ![Nätverksobjekt i inställningarna för virtuella datorer](../media-drafts/8-network-settings.png)
 
-1. Select the **Networking** item in the **Settings** section.
+1. I nätverksegenskaperna hittar du information om de nätverksinställningar som tillämpas på den virtuella datorn, inklusive det **virtuella nätverket/undernätet**. Det här är en klickbar länk till resursen. Klicka på den för att öppna det virtuella nätverket. Den här länken är _även_ tillgänglig på panelen **Översikt** för den virtuella datorn. Någon av dessa öppnar **översikten** för det virtuella nätverket.
 
-1. In the networking properties, you will find information about the networking applied to the VM, including the **Virtual network/subnet**. This is a clickable link to get to the resource. Click it to open the virtual network. This link is _also_ available on the **Overview** panel of the VM. Either of these will open the **Overview** of the virtual network.
+1. Välj objektet **Undernät** i avsnittet **Inställningar**.
 
-1. In the **Settings** section, select the **Subnets** item.
+1. Vi bör ha ett enskilt undernät definierat (standard) sedan tidigare då vi skapade den virtuella datorn och nätverket. Klicka på objektet i listan för att öppna informationen.
 
-1. We should have a single subnet defined (default) from when we created the VM + network earlier. Click the item in the list to open the details.
+1. Klicka på posten **Nätverkssäkerhetsgrupp**.
 
-1. Click the **Network security group** entry.
+1. Välj den nya säkerhetsgruppen: **test-web-eus-nsg1**. Det bör också finnas en annan grupp här, som skapades med den virtuella datorn.
 
-1. Select your new security group: **test-web-eus-nsg1**. There should be another group here as well that was created with the VM.
+1. Spara ändringen genom att klicka på **Spara**. Det tar någon minut att tillämpa ändringen i nätverket.
 
-1. Click **Save** to save the change. It will take a minute to apply to the network.
+## <a name="verify-the-rules"></a>Verifiera reglerna
 
-## Verify the rules
+Nu ska vi verifiera ändringen.
 
-Let's validate the change:
+1. Växla tillbaka till panelen **Översikt** för den virtuella datorn. Du kan hitta den virtuella datorn under **Alla resurser**.
 
-1. Switch back to the **Overview** panel for the virtual machine. You can find the VM under **All Resources**.
+1. Välj objektet **Nätverk** i avsnittet **Inställningar**.
 
-1. Select the **Networking** item in the **Settings** section.
+1. På panelen **Översikt** för nätverket finns en länk för **Gällande säkerhetsregler** som snabbt visar hur regler utvärderas. Klicka på länken för att öppna analysen och kontrollera att du ser din nya regel.
 
-1. In the **Overview** panel for the network, there is a link for **Effective security rules** that will quickly show you how rules are going to be evaluated. Click the link to open the analysis and make sure you see your new rule.
+    ![Gällande säkerhetsregler för vårt nätverk](../media-drafts/8-effective-rules.png)
 
-    ![Screenshot of the Azure portal showing the Effective security rules blade for our network.](../media/8-effective-rules.png)
+1. Det bästa sättet att verifiera att allt fungerar är såklart att skicka en HTTP-begäran till servern. Det bör fortfarande fungera. Du kan även ta bort **HTTP**-regeln för att kontrollera att reglerna för nätverkssäkerhetsgrupper nu används.
 
-1. Of course, the best way to validate it's all working is to hit our server with an HTTP request. It should still work. You can even delete the **HTTP** rule to verify that the security group rules are now being applied.
+## <a name="one-more-thing"></a>En till sak
 
-## One more thing
+Det kan vara knepigt att få till säkerhetsreglerna så att de blir rätt. Vi gjorde ett misstag när vi tillämpade den här nya säkerhetsgruppen – vi förlorar vår SSH-åtkomst! För att åtgärda det här problemet kan du lägga till en annan regel till säkerhetsgruppen som ger stöd för SSH-åtkomst. Se till att begränsa de inkommande TCP/IP-adresserna för regeln till de som du äger.
 
-Security rules are tricky to get right. We made a mistake when we applied this new security group - we lost our SSH access! To fix this, you can add another rule to the security group to support SSH access. Make sure to restrict the inbound TCP/IP addresses for the rule to be the ones you own.
-
-> [!WARNING]  
-> Always make sure to lock down ports used for administrative access. An even better approach is to create a VPN to link the virtual network to your private network and only allow RDP or SSH requests from that address range. You can also change the port used by SSH to be something other than the default. Keep in mind that changing ports is not sufficient to stop attacks. It simply makes it a little harder to discover.
+> [!WARNING]
+> Se alltid till att låsa portar som används för administrativ åtkomst. En ännu bättre metod är att skapa ett VPN för att länka det virtuella nätverket till ditt privata nätverk och endast tillåta RDP- eller SSH-begäranden från det adressintervallet. Du kan också ändra den port som används av SSH till något annat än standardvärdet. Tänk på att det inte räcker att ändra portarna för att stoppa attacker, det gör det bara lite svårare att upptäcka dem.

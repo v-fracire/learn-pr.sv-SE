@@ -1,52 +1,53 @@
 ### YamlMime:ModuleUnit
 uid: learn.interactive-deep-learning.2q-deep-learning-101
-title: Knowledege Check
+title: Kunskapskontroll
 metadata:
-  title: Knowledege Check
-  description: Deep learning 101 Knowledege Check
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Kunskapskontroll
+  description: Grunderna i djupinlärning – kunskapskontroll
+  displayType: one-column
+  ms.openlocfilehash: 6539b5c2f32d97a1a20ef2f801a1749f760643e7
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43838419"
 durationInMinutes: 2
-content: Answer the following to continue
+content: Besvara följande för att fortsätta
 quiz:
-  title: 'Deep Learning 101 Quiz'
+  title: Frågeformulär om grunderna i djupinlärning
   questions:
-  - content: 'What is one of the main differences between traditional machine learning and deep learning?'
+  - content: Vad är en av de viktigaste skillnaderna mellan traditionell maskininlärning och djupinlärning?
     choices:
-    - content: In deep learning we only use linear models where as in traditonal machine learning we use all kinds of models graph, algebraic and probablistic.
+    - content: Inom djupinlärning använder vi bara linjära modeller, medan vi för traditionell maskininlärning använder alla typer av modelldiagram, algebra och sannolikhet.
       isCorrect: false
-    - content: In traditional machine learning features are hand picked in deep learning they are hand picked and learned.
+    - content: I traditionell maskininlärning handplockas funktioner, och vid djupinlärning handplockas de och lärs in.
       isCorrect: true
-      correctExplanation: In Deep Learning (DL), the process of feature extraction is learned through representing inputs as vectors and transforming them, with a series of clever linear algebra operations, into a given output.
-    - content: Deep learning is modeled after the brain and traditional machine learning is modeled after the heart.
+      correctExplanation: I Deep Learning (DL) är funktionsextraheringen en process som lärs in genom att indata representeras som vektorer och transformeras med ett antal smarta linjära algebraåtgärder till givna utdata.
+    - content: Djupinlärning modelleras efter hjärnan och traditionell maskininlärning modelleras efter hjärtat.
       isCorrect: false
-  - content: 'What is the purpose of the DSVM?'
+  - content: Vad är syftet med DSVM?
     choices:
-    - content: The DSVMs are the only way to interact with machine learning on Azure.
+    - content: DSVM är det enda sättet att interagera med maskininlärning på Azure.
       isCorrect: false
-    - content: DSVMs are prebuilt images that provide support for the most popular data science and machine learning frameworks.
+    - content: DSVM är färdiga avbildningar som stöder de populäraste ramverken för datavetenskap och maskininlärning.
       isCorrect: true
-      correctExplanation: DSVMs are Azure Virtual Machine images, pre-installed, configured, and tested with several popular tools that are commonly used for data analytics, machine learning, and deep learning training.
-    - content: Unlike the Deep Learning Virtual Machine image DSVMs can only be used for traditional data science.
+      correctExplanation: DSVM:er är Azure Virtual Machine-avbilder som har förinstallerats, konfigurerats och testats med flera populära verktyg som vanligen används för dataanalys, maskininlärning och utbildning inom djupinlärning.
+    - content: Till skillnad från Deep Learning Virtual Machine-avbildningar kan DSVM:er endast användas för traditionell datavetenskap.
       isCorrect: false
-  - content: 'Why are GPUs often used for deep learning?'
+  - content: Varför används GPU:er ofta för djupinlärning?
     choices:
-    - content: The matrix algebra in deep learning requires lots of parallel computation and GPUs make the viable.
-      correctExplanation: The series of matrix operations that we computer as part of the linear algebra component tend to be computationally expensive and are often heavily parallelizable, requiring specialized compute such as Graphics Processing Units GPUs to compute efficiently.
+    - content: Matrisalgebran i djupinlärning kräver massor av parallell beräkning och GPU:er gör den lönsam.
+      correctExplanation: Den serie av matrisåtgärder som vi beräknar som en del av den linjära algebrakomponenten tenderar att vara beräkningsmässigt expansiv och är ofta tungt parallelliserbar, vilket kräver specialiserad databearbetning, t.ex. grafikprocessorer, för att kunna beräkna effektivt.
       isCorrect: true
-    - content: GPUs ensure that deep learning models converge during gradient decent.
+    - content: GPU:er ser till att modeller för djupinlärning konvergeras under gradientsökning.
       isCorrect: false
-    - content: GPUs are needed to evaluate a loss function. 
+    - content: GPU:er behövs för att utvärdera en förlustfunktion.
       isCorrect: false
-  - content: 'What is the difference between an N-Series and D-Series machines on Azure?'
+  - content: Vad är skillnaden mellan datorer i N-serien och D-serien i Azure?
     choices:
-    - content: D series are for deep learning where as N series are for Normal compute.
+    - content: D-serien är för djupinlärning, medan N-serien är för normal beräkning.
       isCorrect: false
-    - content: D series are for general compute where as N series contain GPUs.
+    - content: D-serien är för allmän beräkning, och N-serien är innehåller GPU:er.
       isCorrect: true
-    - content: D series are for high preformance compute where as N series contain GPUs.
+    - content: D-serien är för databehandling med höga prestanda, och N-serien är innehåller GPU:er.
       isCorrect: false

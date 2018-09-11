@@ -1,18 +1,18 @@
-Multiple documents in your database frequently need to be updated at the same time. This unit discusses how to create, register, and run stored procedures from your .NET console application.
+Du måste ofta uppdatera flera dokument i dina databaser samtidigt. Här går vi igenom hur du skapar, registrerar och kör lagrade procedurer från dina .NET-konsolprogram.
 
-## Create a stored procedure in your app
+## <a name="create-a-stored-procedure-in-your-app"></a>Skapa en lagrad procedur i din app
 
-In this stored procedure, the OrderId, which contains a list of all the items in the order, is used to calculate an order total. The order total is calculated from the sum of the items in the order, less any dividends (credits) the customer has, and takes any coupon codes into account.
+I den här lagrade proceduren används OrderId, som innehåller en lista med alla artiklar i ordern, till att beräkna en ordersumma. Ordersumman beräknas genom att artiklarna i ordern summeras, minus eventuell kredit kunden har och med hänsyn till eventuella rabattkoder.
 
-1. In Visual Studio Code, in the Azure tab, expand the **learning-module (SQL)** > **Users** > **WebCustomers** and then right-click **Stored Procedures** and then click **Create Stored Procedure**.
+1. I Visual Studio Code, på fliken Azure expanderar du **inlärningsmodulen (SQL)** > **Användare** > **WebCustomers**. Högerklicka sedan på **Lagrade procedurer** och klicka på **Skapa lagringsprocedur**.
 
-1. In the text box at the top of the screen, type *UpdateOrderTotal* and click Enter to give the stored procedure a name.
+1. I textrutan längst upp på skärmen skriver du *UpdateOrderTotal*. Klicka på Retur för att ge den lagrade proceduren ett namn.
 
-1. Expand **Stored Procedures** and click **UpdateOrderTotal**.
+1. Expandera **Lagrade procedurer** och klicka på **UpdateOrderTotal**.
 
-1. By default, a stored procedure that retrieves the first item is provided.
+1. En lagrad procedur som hämtar det första objektet tillhandahålls som standard.
 
-1. To run this stored procedure from your application, add the following code to the Program.cs file.
+1. Om du vill köra den lagrade proceduren från ditt program, lägger du till följande kod i filen Program.cs.
 
     ```csharp
     public async Task RunStoredProcedure(string databaseName, string collectionName, User user)
@@ -30,36 +30,35 @@ In this stored procedure, the OrderId, which contains a list of all the items in
     ```
     <!--TODO: Update sproc to take order total and check for available dividend, and use of summer coupon code, and provide updated total-->
 
-1. Now copy the following code and paste it into the end of the **BasicOperations** method.
+1. Kopiera sedan följande kod och klistra in den i slutet av metoden **BasicOperations**.
 
     ```
     await this.RunStoredProcedure("Users", "WebCustomers", yanhe);
     ```
 
-1. In the integrated terminal, run the following command to run the sample with the stored procedure.
+1. I den integrerade terminalen, kör du följande kommando för att köra exemplet med den lagrade proceduren.
 
     ```
     dotnet run
     ```
-    The console displays output indicating that the stored procedure was completed.
+    Konsolen visar utdata som anger att den lagrade proceduren har slutförts.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up"></a>Rensa
 
-If you plan to continue working on the modules in this learning path, skip the clean-up process, or else use the following steps to delete your resources to avoid incurring charges for use of the service.
+Om du planerar att fortsätta med modulerna i den här utbildningsvägen kan du hoppa över rensningsprocessen. Annars använder du följande steg för att ta bort dina resurser så att du inte debiteras för användning av tjänsten.
 
-1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
+1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    If the left menu is collapsed, click ![Expand button](../media/5-javascript-programming/expand.png) to expand it.
+    Om den vänstra menyn döljs klickar du på ![Knappen Expandera](../media/5-javascript-programming/expand.png) för att expandera den.
 
-   ![Metrics in the Azure portal](../media/5-javascript-programming/delete-resources-select.png)
+   ![Mått i Azure Portal](../media/5-javascript-programming/delete-resources-select.png)
 
-1. In the new window select the resource group, and then click **Delete resource group**.
+1. Markera resursgruppen i det nya fönstret och klicka sedan på **Ta bort resursgrupp**.
 
-   ![Metrics in the Azure portal](../media/5-javascript-programming/delete-resources.png)
+   ![Mått i Azure Portal](../media/5-javascript-programming/delete-resources.png)
 
-1. In the new window, type the name of the resource group to delete, and then click **Delete**.
+1. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this module you've created a .NET Core console application that creates, updates, and deletes user records, queries the users by using SQL and LINQ, and runs a stored procedure to query items in the database.
+I den här modulen har du skapat ett .NET Core-konsolprogram som skapar, uppdaterar och tar bort användarposter, ställer frågor mot användarna med hjälp av SQL och LINQ samt kör en lagrad procedur för att fråga efter objekt i databasen.

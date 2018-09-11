@@ -219,7 +219,7 @@ Nedan ser du hela koden för sidan.
 
 Kör appen så att du ser det nya användargränssnittet. Om du vill kontrollera bindningarna kan du göra det genom att lägga till brytpunkter i egenskaperna eller i metoden `SendLocation`.
 
-![Appens nya gränssnitt](../media/3-new-ui.png)
+![Appens nya gränssnitt](../media-drafts/3-new-ui.png)
 
 ## <a name="summary"></a>Sammanfattning
 

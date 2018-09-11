@@ -11,5 +11,5 @@ Vissa avbildningar är bara tillgängliga på vissa platser. Försök att lägga
 az vm image list --location eastus --output table
 ```
 
-> [!NOTE]
+> [!TIP]
 > Det här är standardavbildningarna som Azure tillhandahåller. Tänk på att du även kan [skapa och ladda upp dina egna anpassade avbildningar](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) för att skapa virtuella datorer baserat på unika konfigurationer eller mindre vanliga versioner eller distributioner av ett operativsystem.

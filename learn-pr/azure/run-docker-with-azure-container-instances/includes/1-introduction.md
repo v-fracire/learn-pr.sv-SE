@@ -1,22 +1,22 @@
-Containers are becoming the preferred way to package, deploy, and manage cloud applications. Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service.
+Containrar är på väg att bli det bästa sättet att paketera, distribuera och hantera molnprogram. Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva hantera några virtuella datorer och utan att behöva använda en tjänst på högre nivå.
 
-Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend Azure Kubernetes Service (AKS).
+Azure Container Instances är en bra lösning för alla scenarier som kan fungera i isolerade behållare, däribland enkla program, automatisering av uppgifter och att skapa jobb. För scenarier där du behöver fullständig containerorkestrering, som tjänstidentifiering för flera containers, automatisk skalning och koordinerade programuppgraderingar rekommenderar vi Azure Kubernetes Service (AKS).
 
-Azure Container Instances offers the following benefits:
+Azure Container Instances har följande fördelar:
 
-- **Fast startup**: Azure Container Instances can start containers in Azure in seconds.
-- **Per second billing**: You are only charged while the container is running.
-- **Hypervisor-level security**: Azure Container Instances guarantees your application is as isolated in a container as it would be in a VM.
-- **Custom sizes**: Azure Container Instances provides optimum utilization by allowing exact specifications of CPU cores and memory.
-- **Persistent storage**: To retrieve and persist state with Azure Container Instances, we offer direct mounting of Azure Files shares.
-- **Linux and Windows**: Azure Container Instances can schedule both Windows and Linux containers with the same API.
+- **Snabb start**: Azure Container Instances kan starta containers i Azure på bara några sekunder.
+- **Fakturering per sekund**: du debiteras bara när containern körs.
+- **Säkerhet på Hypervisornivå**: Azure Container Instances garanterar att ditt program är lika isolerat i en behållare som i en virtuell dator.
+- **Anpassade storlekar**: Azure Container Instances erbjuder optimal användning eftersom det tillåter exakta specifikationer av CPU-kärnor och minne.
+- **Beständig lagring**: Vi erbjuder direkt montering av Azure Files-resurser för att hämta och bevara tillstånd med Azure Container Instances.
+- **Linux och Windows**: Azure Container Instances kan schemalägga både Windows- och Linux-behållare med samma API.
 
-## Learning objectives  
+## <a name="learning-objectives"></a>Utbildningsmål  
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Run a container in Azure Container Instances.
-- Control container restart behavior.
-- Use environment variables in your containers.
-- Attach data volumes to Azure Container Instances.
-- Learn about troubleshooting Azure Container Instances.
+- köra en container i Azure Container Instances.
+- kontrollera hur containern startas om.
+- använda miljövariabler i din container.
+- montera datavolymer till Azure Container Instances.
+- lära dig mer om felsökning av Azure Container Instances.

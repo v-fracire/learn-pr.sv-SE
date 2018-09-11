@@ -1,17 +1,17 @@
-Imagine you're managing storage for an online retailer. You need tools to create, update, and delete your user and product data. Azure Cosmos DB provides SDKs for .NET, .NET Core, Java, Node.js, and Python.
+Anta att du hanterar lagring för ett näthandelsföretag. Du behöver verktyg för att skapa, uppdatera och ta bort data om användare och produkter. Azure Cosmos DB har SDK:er för .NET, .NET Core, Java, Node.js och Python.
 
-In this module, you will build a .NET Core console application in Visual Studio Code to create, update, and delete user records, query your data, and perform stored procedures using C#.
+I den här modulen får du skapa ett .NET Core-konsolprogram i Visual Studio Code för att skapa, uppdatera och ta bort användarposter, ställa frågor mot data och köra lagrade procedurer med C#.
 
-Visual Studio has a convenient extension for Azure Cosmos DB so you can easily see the database, collection, and documents you created in the previous modules, plus you can create new resources using the extension, and copy your connection string without having to open the Azure portal.
+Visual Studio har ett praktiskt tillägg för Azure Cosmos DB så att du enkelt kan se databasen, samlingen och dokumentet du har skapat i tidigare moduler. Dessutom kan du skapa nya resurser med tillägget och kopiera din anslutningssträng utan att behöva öppna Azure Portal.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:  
+I den här modulen kommer du att göra följande:  
 
-- Create an application to store and query data in Azure Cosmos DB
-- Use the Integrated Terminal in Visual Studio Code to quickly create a console application
-- Add Azure Cosmos DB functionality with the help of the Azure Cosmos DB extension for Visual Studio Code
+- Skapa ett program för att lagra och köra frågor mot data i Azure Cosmos DB.
+- Använda den integrerade terminalen i Visual Studio Code för att snabbt skapa ett konsolprogram.
+- Lägga till Azure Cosmos DB-funktioner med hjälp av Azure Cosmos DB-tillägget för Visual Studio Code.
 
-## Prerequisites
+## <a name="prerequisites"></a>Krav
 
-- Must have [Visual Studio Code](https://code.visualstudio.com/) installed
+- Du måste ha [Visual Studio Code](https://code.visualstudio.com/) installerat.

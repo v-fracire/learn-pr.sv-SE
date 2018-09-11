@@ -6,11 +6,11 @@ I den här övningen skapar och konfigurerar du en anpassad instrumentpanel.
 
 2. I rutan **Min instrumentpanel** ändrar du namnet till **Kundens instrumentpanel**.
 
-## <a name="add-and-configure-the-clock-tile"></a>Lägga till och konfigurera klockpanel
+## <a name="add-and-configure-the-clock-tile"></a>Lägga till och konfigurera klockpanelen
 
-1. Gå till panelgalleriet, och dra och släpp klockan på arbetsytan. Placera den längst upp höger i det tillgängliga utrymmet.
+1. Gå till panelgalleriet och dra klockan till arbetsytan. Placera den längst upp till höger i det tillgängliga utrymmet.
 
-2. Gå till bladet Redigera klocka och ändra platsen till **Pacific Time (USA och Kanada)**.
+2. Gå till bladet **Redigera klockan** och ändra platsen till **Pacific Time (USA och Kanada)**.
 
 3. Gå till **Tidsformat** och klicka på **24-timmars**.
 
@@ -20,7 +20,7 @@ I den här övningen skapar och konfigurerar du en anpassad instrumentpanel.
 
 ## <a name="resize-a-tile"></a>Ändra storlek på en panel
 
-1. Gå till Panelgalleriet och klicka på **Alla resurser**. Dra och släpp sedan panelen längst upp till vänster på den nya instrumentpanelsytan.
+1. Gå till fönstret **Panelgalleri** och klicka på **Alla resurser**. Dra och släpp sedan panelen längst upp till vänster på den nya instrumentpanelsytan.
 
 2. Klicka på panelen, högerklicka på ellipsen och klicka på **6 x 6**.
 
@@ -41,7 +41,7 @@ I den här övningen skapar och konfigurerar du en anpassad instrumentpanel.
 
 ## <a name="clone-a-dashboard"></a>Klona en instrumentpanel
 
-Nu ska du skapa en liknande instrumentpanel för några andra kunder
+Nu ska du skapa en liknande instrumentpanel för några andra kunder.
 
 1. Klicka på knappen **Klona**.
 
@@ -62,21 +62,21 @@ Nu ska du skapa en liknande instrumentpanel för några andra kunder
 
 Nu ska du göra instrumentpanelen tillgänglig för andra användare. Gör så här:
 
-1. Markera Instrumentpanel för Azure AD-administratör och klicka sedan på **Dela**.
+1. Markera administratörsinstrumentpanelen för Azure Active Directory (Azure AD) och klicka sedan på **Dela**.
 
-2. På sidan **Delning och åtkomstkontroll** kontrollerar du att **Publicera till instrumentpanelens resursgrupp** är markerat.
+2. På bladet **Delning och åtkomstkontroll** kontrollerar du att **Publicera till instrumentpanelens resursgrupp** är markerat.
 
 3. Ange **Plats** som något som är lämpligt för ditt geografiska område. Som standard är värdet ditt närmaste datacenter.
 
-4. Klicka på **Publicera** och stäng sidan **Delning och åtkomstkontroll**.
+4. Klicka på **Publicera** och stäng bladet **Delning och åtkomstkontroll**.
 
 5. Klicka på **Instrumentpanel för Azure AD-administratör** och välj **Kundens instrumentpanel**.
 
-6. Observera att i **Alla resurser** visas nu en delad instrumentpanelresurs, och i **Resursgrupper** visas också en resursgrupp med instrumentpaneler.
+    Observera att i **Alla resurser** visas nu en delad instrumentpanelresurs, och i **Resursgrupper** visas också en resursgrupp med instrumentpaneler.
 
-7. Dela Kundens instrumentpanel genom att upprepa Steg 1 till 3.
+6. Dela Kundens instrumentpanel genom att upprepa steg 1 till 3.
 
-## <a name="edit-a-dashboard-file"></a>Redigera en instrumentpanelsfil
+## <a name="edit-a-dashboardjson-file"></a>Redigera en instrumentpanelsfil (JSON)
 
 Så här kan du ladda ned och redigera en instrumentpanelsfil:
 
@@ -84,9 +84,9 @@ Så här kan du ladda ned och redigera en instrumentpanelsfil:
 
 2. Öppna Utforskaren i Windows och gå till mappen Hämtade filer.
 
-3. Leta rätt på filen **Kundens instrumentpanel.json** och dubbelklicka på den.
+3. Leta rätt på filen *Kundens instrumentpanel.json* och dubbelklicka på den.
 
-4. I din filredigerare letar du rätt på texten ”ClockPart”
+4. I din filredigerare letar du rätt på texten *ClockPart*.
 
 5. Vid den första förekomsten av ClockPart ändrar du det tidigare värdet för **rowSpan** till 1.
 
@@ -94,13 +94,13 @@ Så här kan du ladda ned och redigera en instrumentpanelsfil:
 
 7. Vid den andra förekomsten av Clockpart ändrar du Y-värdet från 2 till 1.
 
-8. Spara filen Kundens instrumentpanel.json och stäng kodredigeraren.
+8. Spara filen *Kundens instrumentpanel.json* och stäng kodredigeraren.
 
 9. På Azure-instrumentpanelen klickar du på **Ladda upp**.
 
-10. I dialogrutan **Öppna** bläddrar du till mappen Hämtade filer och dubbelklickar på **Kundens instrumentpanel.json**.
+10. I dialogrutan **Öppna** bläddrar du till mappen Hämtade filer och dubbelklickar på *Kundens instrumentpanel.json*.
 
-11. Observera hur klockornas storlek har ändrats till en rads höjd, och klockan längst ned har flyttats upp en rad.
+    Observera att klockornas storlek har ändrats till en rads höjd, och klockan längst ned har flyttats upp en rad.
 
 ## <a name="select-a-shared-dashboard"></a>Välja en delad instrumentpanel
 
@@ -110,21 +110,25 @@ Du har insett att du inte gillar de mindre klockorna utan vill återgå till den
 
 2. Klicka på **Bläddra bland alla instrumentpaneler**.
 
-3. På sidan **Alla instrumentpaneler** går du till **TYP** och väljer **Delade instrumentpaneler**.
+3. På bladet **Alla instrumentpaneler** går du till **TYP** och väljer **Delade instrumentpaneler**.
 
 4. Klicka på **Kundens instrumentpanel**.
 
-5. Stäng sidan **Alla instrumentpaneler**.
+5. Stäng bladet **Alla instrumentpaneler**.
 
-6. Observera att klockorna nu har återgått till sin ursprungliga storlek.
+    Observera att klockorna nu har återgått till sin ursprungliga storlek.
 
 ## <a name="switch-to-full-screen"></a>Växla till helskärm
 
-1. Klicka på den nedåtriktade pilen bredvid **Kundens instrumentpanel**. Du ser att det finns ytterligare en Kundens instrumentpanel, utan delningssymbolen bredvid. Klicka på den versionen av Kundens instrumentpanel, så blir klockorna små igen.
+1. Klicka på den nedåtriktade pilen bredvid **Kundens instrumentpanel**. 
+
+    Du ser att det finns ytterligare en Kundens instrumentpanel, utan delningssymbolen bredvid. Klicka på den versionen av Kundens instrumentpanel, så blir klockorna små igen.
 
 2. Växla tillbaka till den delade versionen av Kundens instrumentpanel.
 
-3. Klicka på knappen **Helskärm**. Nu försvinner webbläsarmenyerna och fälten.
+3. Klicka på knappen **Helskärm**. 
+
+    Nu försvinner webbläsarmenyerna och fälten.
 
 4. Klicka på **Avsluta helskärmsläge** för att återgå till den vanliga skärmen.
 
@@ -142,15 +146,15 @@ Om du inte vill att en viss instrumentpanel ska vara tillgänglig för delning k
 
 5. Klicka på **Bläddra bland alla instrumentpaneler**.
 
-6. På sidan **Alla instrumentpaneler** går du till **TYP** och väljer **Delade instrumentpaneler**.
+6. På bladet **Alla instrumentpaneler** går du till **TYP** och väljer **Delade instrumentpaneler**.
 
-7. Nu tas Kundens instrumentpanel bort från listan med tillgängliga instrumentpaneler.
+    Nu tas **Kundens instrumentpanel** bort från listan med tillgängliga instrumentpaneler.
 
-8. Stäng sidan Alla instrumentpaneler.
+7. Stäng bladet **Alla instrumentpaneler**.
 
 ## <a name="delete-a-dashboard"></a>Ta bort en instrumentpanel
 
-1. Kontrollera att Instrumentpanel för Azure AD-administratör har markerats.
+1. Kontrollera att Instrumentpanel för **Azure AD-administratör** har markerats.
 
 2. Klicka på knappen **Ta bort**.
 
@@ -158,7 +162,7 @@ Om du inte vill att en viss instrumentpanel ska vara tillgänglig för delning k
 
 ## <a name="reset-a-dashboard"></a>Återställa en instrumentpanel
 
-1. Kontrollera att Kundens instrumentpanel är markerad.
+1. Kontrollera att **Kundens instrumentpanel** är markerad.
 
 2. Klicka på **Redigera**.
 
@@ -166,16 +170,17 @@ Om du inte vill att en viss instrumentpanel ska vara tillgänglig för delning k
 
 4. I meddelanderutan **Återställ instrumentpanelen till standardtillstånd** väljer du **Ja**.
 
-5. Kundens instrumentpanel återställs nu till standardpanelerna.
+    Kundens instrumentpanel återställs nu till standardpanelerna.
 
-6. Klicka på **Anpassningen är klar**.
+5. Klicka på **Anpassningen är klar**.
 
-7. Klicka på ditt namn högst upp i portalen.
+6. Klicka på ditt namn högst upp till höger i portalen.
 
-8. Klicka på Logga ut.
+7. Klicka på **Logga ut**.
 
-9. Stäng webbläsaren.
+8. Stäng webbläsaren.
 
 ## <a name="summary"></a>Sammanfattning
 
 Nu har du skapat och redigerat instrumentpaneler, delat dem, ändrat dem som **.JSON**-filer, tagit bort delning och slutligen återställt dem till standard. Du har fått se vilka effektiva verktyg instrumentpaneler kan vara, och hur du kan använda dem för att skapa praktiska gränssnitt för olika roller i en organisation.
+

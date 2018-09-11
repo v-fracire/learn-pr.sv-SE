@@ -1,0 +1,46 @@
+### YamlMime:ModuleUnit
+uid: learn.design-a-great-azure-architecture.3-design-for-security
+title: Design för säkerhet
+metadata:
+  title: Design för säkerhet
+  description: Design för säkerhet
+  ms.openlocfilehash: 394af78966bfde3b2c82e2af17a10bb8680fc659
+  ms.sourcegitcommit: 09425147d998035edf9d2d36006a54d85e3cf75d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43847256"
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-design-for-security.md)]
+quiz:
+  title: Kunskapskontroll – Design för säkerhet
+  questions:
+  - content: Vilka av följande typer av data kan behöva ha säkerhetsskydd?
+    choices:
+    - content: Kundinformation som innehåller personuppgifter
+      isCorrect: false
+      incorrectExplanation: Det är viktigt att ge dessa data rätt säkerhetsskydd men det är inte det enda rätta valet.
+    - content: Finansiella data som stöd för verksamheten
+      isCorrect: false
+      incorrectExplanation: Det är viktigt att ge dessa data rätt säkerhetsskydd men det är inte det enda rätta valet.
+    - content: Data som innehåller immateriell egendom
+      isCorrect: false
+      incorrectExplanation: Det är viktigt att ge dessa data rätt säkerhetsskydd men det är inte det enda rätta valet.
+    - content: Alla alternativ ovan kan behöva säkerhetsskydd
+      isCorrect: true
+      correctExplanation: Alla alternativ ovan kan ha ytterligare säkerhetsskydd.
+  - content: Vilket av följande är ett exempel på en attack du kan se på perimeternivå?
+    choices:
+    - content: Exponerade autentiseringsuppgifter som publicerats online
+      isCorrect: false
+      incorrectExplanation: Exponerade autentiseringsuppgifter är en enorm risk för en organisation men är inte en perimeterattack.
+    - content: En SYN flood-attack
+      isCorrect: true
+      correctExplanation: SYN flood-attacker är en typ av DoS-attack som ofta sker i nätverksperimetern.
+    - content: Door drafting för att komma in i ett datacenter
+      isCorrect: false
+      incorrectExplanation: Door drafting är en attack på den fysiska nivån.
+    - content: Utpressningstrojaner som krypterar diskarna för en virtuell dator
+      isCorrect: false
+      incorrectExplanation: Utpressningstrojaner är en attack på VM-/beräkningsnivå.

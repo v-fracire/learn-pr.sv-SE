@@ -1,40 +1,45 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-efficiency-and-operations.2-maximize-efficiency-of-cloud-spend
-title: Maximize efficiency of cloud spend
+title: Maximera effektiviteten för molnutgifter
 metadata:
-  title: Maximize efficiency of cloud spend
-  description: In this unit, we'll discuss how to maximize the efficiency of your cloud expenditures
+  title: Maximera effektiviteten för molnutgifter
+  description: I det här avsnittet kommer vi att diskutera hur du maximerar effektiviteten för dina molnutgifter
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 7644faa213e2ea6331e697f016633ae58ff26c47
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44230899"
 durationInMinutes: 15
-content: |
+content: >
   [!include[](includes/2-maximize-efficiency-of-cloud-spend.md)]
 quiz:
-  title: 'Knowledge check - Maximize efficiency of cloud spend'
+  title: Kunskapskontroll – Maximera effektiviteten för molnutgifter
   questions:
-  - content: 'Which of the following is the best candidate for a reserved instance?'
+  - content: Vilket av följande är det bästa alternativet för en reserverad instans?
     choices:
-    - content: 'A web application deployed on Azure App Service.'
+    - content: En webbapp som distribueras i Azure App Service.
       isCorrect: false
-      incorrectExplanation: 'Azure App Service is a PaaS service, reserved instances can only be used for virtual machines.'
-    - content: 'A non-production virtual machine that is automatically shut down in off-hours when not in use.'
+      incorrectExplanation: Azure App Service är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.
+    - content: En virtuell dator för icke-produktion som stängs av automatiskt när den inte används.
       isCorrect: false
-      incorrectExplanation: 'Since this virtual machine will not be running the majority of the time it will not fully utilize the instance reservation, and is not a good candidate for a reserved instance.'
-    - content: 'An Azure SQL Database instance.'
+      incorrectExplanation: Eftersom den här virtuella datorn inte körs under den största delen av tiden utnyttjar den inte instansreservationen till fullo och är inte ett bra alternativ för en reserverad instans.
+    - content: En Azure SQL Database-instans.
       isCorrect: false
-      incorrectExplanation: 'Azure SQL Database is a PaaS service, reserved instances can only be used for virtual machines.'
-    - content: 'A database server for an HR system for a global business.'
+      incorrectExplanation: Azure SQL Database är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.
+    - content: En databasserver för ett HR-system i ett globalt företag.
       isCorrect: true
-      correctExplanation: 'Because of the criticality and global nature of this system, it is likely that it would be running the majority of the time, making it a great candidate for a reserved instance.'
-  - content: 'Compute costs associated with a VM stop accruing when:'
+      correctExplanation: På grund av det här systemets allvarlighetsgrad och globala karaktär är det troligt att den skulle köras under den största delen av tiden, vilket gör den till ett bra alternativ för en reserverad instans.
+  - content: 'Beräkna kostnader i samband med att en virtuell dator stängs av när:'
     choices:
-    - content: 'You shut the virtual machine down from inside the OS.'
+    - content: Du stänger av den virtuella datorn inifrån operativsystemet.
       isCorrect: false
-      incorrectExplanation: 'If you shut down the OS of the virtual machine, it is still allocated on the Azure platform and will continue to accrue compute costs.'
-    - content: 'You click the Stop button in the Azure portal.'
+      incorrectExplanation: Om du stänger av operativsystemet för den virtuella datorn är den fortfarande allokerad på Azure-plattformen och fortsätter att ackumulera beräkningskostnader.
+    - content: Du klickar på stoppknappen i Azure Portal.
       isCorrect: true
-      correctExplanation: 'Clicking the Stop button will deallocate the virtual machine from the Azure platform and will no longer accrue compute costs.'
+      correctExplanation: När du klickar på stoppknappen frigörs den virtuella datorn från Azure-plattformen och slutar att ackumulera beräkningskostnader.

@@ -1,25 +1,24 @@
-Azure Event Hubs provides big data applications the capability to process large volume of data. It also has the ability to scale out during exceptionally high- demand periods as and when required. Azure Event Hubs decouple the sending and receiving messages to manage the data processing. This helps eliminate the risk of overwhelming consumer application and data loss due to any unplanned interruptions.
+Azure Event Hubs ger stordataprogram möjlighet att bearbeta stora mängder data. Det har även kapacitet att skala ut under perioder av exceptionellt hög efterfrågan eller när annars det behövs. Azure Event Hubs frikopplar skickande och mottagande av meddelanden för att hantera databearbetningen. På så sätt kan du eliminera risken för överbelastning av konsumentprogram och dataförlust på grund av oplanerade avbrott.
 
-In this module, you've seen how to deploy Azure Event Hubs as part of an event processing solution. 
-You learned how to:
+I den här modulen har du sett hur du distribuerar Azure Event Hubs som en del av en lösning för händelsebearbetning. Du har lärt dig att:
 
-- Use the Azure CLI commands to create an Event Hubs namespace and an event hub in that namespace. 
-- Configure sender and receiver applications to send and receive messages through the event hub.
-- Use the Azure portal to view your event hub status and performance.
+- Använda Azure CLI-kommandon för att skapa Event Hubs-namnrymder och en händelsehubb i namnrymden. 
+- Konfigurera avsändar- och mottagarprogram för att skicka och ta emot meddelanden via händelsehubben.
+- Använd Azure-portalen för att visa status och prestanda för din händelsehubb.
 
-## Clean up 
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up"></a>Rensa 
+<!---TODO: Do we need to include cleanup for the free education tier?--->
 
-The resources you've used for your event hub testing will incur costs against your subscription. When you've have finished with the event hub, remember to remove these resources in order to avoid unnecessary charges.
+De resurser som du har använt för att testa din händelsehubb ökar kostnaderna för din prenumeration. Kom ihåg att ta bort de här resurserna när du är färdig med händelsehubben för att undvika onödiga kostnader.
 
-Because you create the hub, namespace, and storage in the same resource group, the easiest way to clean up your Azure subscription is to remove the resource group, which will remove all its contents. 
+Eftersom du skapar hubb, namnrymd och lagring i samma resursgrupp, är det lättast att rensa upp din Azure-prenumeration genom att ta bort resursgruppen. Då tas allt dess innehåll bort. 
 
-Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
+Kör följande kommando för att ta bort resursgruppen, namnrymden, lagringskontot och alla relaterade resurser. Ersätt `myResourceGroup` med namnet på den resursgrupp du skapade:
 
 ```azurecli
 az group delete --resource-group myResourceGroup
 ```
 
-When you are asked to confirm the delete, answer **Yes**.
+När du uppmanas att bekräfta borttagningen svarar du **Ja**.
 
-The command may take several minutes to complete as resources are deleted.
+Det kan ta flera minuter att köra kommandot och ta bort resurserna.

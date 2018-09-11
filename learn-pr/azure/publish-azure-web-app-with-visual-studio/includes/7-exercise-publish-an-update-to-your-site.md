@@ -1,35 +1,35 @@
-Your Alpine Ski House web app is up and running, but now you need to show it to your boss. You are going to have to update the site and publish those updates to Azure.
+Webbappen Alpine Ski House är igång och körs, men nu du behöver visa den för chefen. Du behöver uppdatera webbplatsen och publicera uppdateringarna till Azure.
 
-## Update your web app
+## <a name="update-your-web-app"></a>Uppdatera din webbapp
 
-### Replace the boilerplate code
+### <a name="replace-the-boilerplate-code"></a>Ersätta den formaterade exempelkoden
 
-1. In the **Pages** folder, open the **About.cshtml** file.
+1. I mappen **Pages** (Sidor) öppnar du filen **About.cshtml**.
 
-1. At the bottom of the code, locate `<p> Use this area to provide additional information. </p>`
+1. Längst ned i koden letar du rätt på `<p> Use this area to provide additional information. </p>`
 
-1. Replace the boilerplate text with `Welcome to the Alpine Ski House!`
+1. Ersätt den formaterade exempeltexten med `Welcome to the Alpine Ski House!`
 
-1. Save the file.
+1. Spara filen.
 
-1. Open the **About.cshtml.cs** file.
+1. Öppna filen **About.cshtml.cs**.
 
-1. Replace the `Message` string to say **Alpine Ski House is the premier ski hill in Northeast.**
+1. Ersätt strängen `Message` så att den blir **Alpine Ski House is the premier ski hill in Northeast.**
 
-1. Save the file.
+1. Spara filen.
 
-### Publish your updates
+### <a name="publish-your-updates"></a>Publicera dina uppdateringar
 
-1. In Solution Explorer, right-click the project.
+1. Högerklicka på projektet i Solution Explorer.
 
-1. Select **Publish**. You should have an option that includes your [website]-web deploy.
+1. Välj **Publicera**. Du bör ha ett alternativ som innehåller din [website]-web deploy.
 
-1. Select your site, and Visual Studio will send your changes to Azure.
+1. Välj din webbplats så skickar Visual Studio dina ändringar till Azure.
 
-### View your changes
+### <a name="view-your-changes"></a>Visa dina ändringar
 
-Once you've published your changes, Visual Studio will open the site in your browser. Navigate to the **About** page, and see that your changes are reflected.
+När du har publicerat ändringarna öppnar Visual Studio webbplatsen i webbläsaren. Navigera till sidan **Om** och bekräfta att ändringarna visas.
 
-## Congrats!
+## <a name="congrats"></a>Grattis!
 
-You have successfully updated your web app using Visual Studio 2017.
+Du har uppdaterat din webbapp med hjälp av Visual Studio 2017.

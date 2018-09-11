@@ -1,120 +1,119 @@
-There are many communications platforms that can help improve the reliability of a distributed application, including several within Azure. Each of these tools serves a different purpose; let's review each tool in Azure to help choose the right one.
+Det finns många kommunikationsplattformar som kan hjälpa till att förbättra tillförlitligheten i ett distribuerat program, däribland flera i Azure. Varje verktyg har ett eget syfte. Vi tar en titt på varje verktyg i Azure för att välja rätt.
 
-The architecture of our pizza ordering and tracking application requires several components: a website, data storage, back-end service, etc. We can bind the components of our application together in many different ways, and a single application can take advantage of multiple techniques. 
+Arkitekturen i vårt program för pizzabeställning och spårning kräver flera komponenter: en webbplats, datalagring, serverdelstjänst osv. Vi kan binda ihop programmets komponenter på många olika sätt, och ett enda program kan dra nytta av flera tekniker. 
 
-We need to decide which techniques to use in the Contoso Slices application. The first step is to evaluate each place where there is communication between multiple parts. Some components _must_ run in a timely manner for our application to be doing its job at all. Some may be important, but not time-critical. Finally, other components, like our mobile app notifications, are a bit more optional.
+Vi behöver bestämma vilka tekniker som ska användas i programmet Contoso Slices. Det första steget är att utvärdera varje plats där det finns kommunikation mellan flera delar. Vissa komponenter _måste_ köras i rätt tid för att programmet ska göra jobbet alls. Vissa kan vara viktiga men inte tidskritiska. Slutligen är övriga komponenter, som mobilappens meddelanden, lite mer valfria.
 
-Here, you will learn about the communications platforms available in Azure, so that you can choose the right one for each requirement in your application.
+Här får du lära dig om kommunikationsplattformarna som är tillgängliga i Azure, så att du kan välja rätt för varje krav i programmet.
 
-## Decide between messages and events
+## <a name="decide-between-messages-and-events"></a>Välja mellan meddelanden och händelser
 
-Messages and events are both **datagrams**: packages of data sent from one component to another. They are different in ways that at first seem subtle, but can make significant differences in how you architect your application. 
+Meddelanden och händelser är båda **datagram**: datapaket som skickas från en komponent till en annan. De är olika på sätt som först verkar subtila men som kan innebära stora skillnader i hur du skapar programmet. 
 
-### Messages
+### <a name="messages"></a>Meddelanden
 
-In the terminology of distributed applications, the defining characteristic of a message is that the overall integrity of the application may rely on messages being received. You can think of sending a message as one component passing the baton of a workflow to a different component. The entire workflow may be a vital business process, and the message is the mortar that holds the components together.
+I termer av distribuerade program är ett meddelandes definierande egenskaper att programmets övergripande integritet kan förlita sig på meddelanden som tas emot. Du kan föreställa dig att när du skickar ett meddelande till en komponent skickas stafettpinnen från ett arbetsflöde vidare till en annan komponent. Hela arbetsflödet kan vara en viktig affärsprocess, och meddelandet är murbruket som håller ihop komponenterna.
 
-A message generally contains the data itself, not just a reference (like an ID or URL) to data. Sending the data as part of the datagram is less brittle than sending a reference. The messaging architecture guarantees delivery of the message, and because no additional lookups are required, the message is reliably handled. However, the sending application needs to know exactly what data to include, to avoid sending too much data, which requires the receiving component to do unnecessary work. In this sense, the sender and receiver of a message are often coupled by a strict data contract.
+Ett meddelande innehåller vanligtvis själva informationen, inte bara en referens (som ett ID eller en webbadress) till data. Det är mindre känsligt att skicka data som en del av datagrammet jämfört med att skicka en referens. Meddelandearkitekturen garanterar leverans av meddelandet, och eftersom inga ytterligare sökningar krävs hanteras meddelandet på ett tillförlitligt sätt. Men sändningsprogrammet måste veta exakt vilka data som ska ingå för att undvika att skicka för mycket data, vilket kräver att den mottagande komponenten gör onödigt arbete. I det här avseendet är sändaren och mottagaren av ett meddelande ofta kopplade av ett strikt datakontrakt.
 
-In Contoso Slices new architecture, when a pizza order is entered, they would likely use messages. The web front end or mobile app would send a message to the back-end processing components. In the back end, steps like routing to the store near the customer and charging the credit card would take place.
+I Contoso Slices nya arkitektur är det sannolikt att de skulle använda meddelanden när en pizzabeställning kommer. Webbklienten eller mobilappen skulle skicka ett meddelande till serverdelens aktiva komponenter. I serverdelens steg som dirigering till butiken nära kunden och debitering av kreditkortet ske.
 
-### Events
+### <a name="events"></a>Händelser
 
-An event triggers notification that something has occurred. Events are "lighter" than messages and are most often used for broadcast communications.
+En händelse meddelar att något har inträffat. Händelser är enklare än meddelanden och används oftast för sändningskommunikation.
+Händelser har följande egenskaper:
+* Händelsen kan skickas till flera mottagare eller inte till någon alls
+* Händelser är ofta avsedda att ”förgrenas” eller har ett stort antal prenumeranter för varje utgivare
+* Utgivaren av händelsen har ingen förväntan på åtgärder från den mottagande komponenten
 
-Events have the following characteristics:
-* The event may be sent to multiple receivers, or to none at all
-* Events are often intended to "fan out," or have a large number of subscribers for each publisher
-* The publisher of the event has no expectation about the action a receiving component takes
+Vår pizzakedja skulle sannolikt använda händelser vid meddelande till användare om statusändringar. Statusändringshändelser skulle kunna skickas till Azure Event Grid, och därefter till en Azure-funktion och till Notification Hub för en helt _serverlös_ lösning.
 
-Our pizza chain would likely use events for notifications to users about status changes. Status change events could be sent to Azure Event Grid, then on to Azure Functions, and to Azure Notification Hubs for a completely _serverless_ solution.
+Den här skillnaden mellan händelser och meddelanden är grundläggande eftersom kommunikationsplattformar vanligen är utformade för att hantera det ena eller det andra. Service Bus är utformat för att hantera meddelanden. Om du vill skicka händelser ska du troligen välja Event Grid. 
 
-This difference between events and messages is fundamental because communications platforms are generally designed to handle one or the other. Service Bus is designed to handle messages. If you want to send events, you would likely choose Event Grid. 
+Azure har även Azure Event Hub, men det används oftast för en särskild typ av ström med högt kommunikationsflöde som används för analys. Om vi till exempel hade nätverksanslutna sensorer på våra pizzaugnar skulle vi kunna skicka Event Hub kopplat till Azure Stream Analytics för att hålla koll på mönster i temperaturändringarna som kan vara ett tecken på brand eller komponentslitage.
 
-Azure also has Azure Event Hubs, but it is most often used for a specific type of high-flow stream of communications used for analytics. For example, if we had networked sensors on our pizza ovens, we could use Event Hubs coupled with Azure Stream Analytics to watch for patterns in the temperature changes that might indicate an unwanted fire or component wear.
+## <a name="service-bus-topics-queues-and-relays"></a>Service Bus-ämnen, köer och reläer
 
-## Service Bus topics, queues, and relays
+Azure Service Bus kan utbyta meddelanden på tre olika sätt, via köer, ämnen och reläer.
 
-Azure Service Bus can exchange messages in three different ways: queues, topics, and relays.
+### <a name="what-is-a-queue"></a>Vad är en kö?
 
-### What is a queue?
+En **kö** är en enkel temporär lagringsplats för meddelanden. En sändande komponent lägger till ett meddelande till kön. En målkomponent hämtar det meddelande som ligger först i kön. Under normala förhållanden tas varje meddelande emot av endast en mottagare.
 
-A **queue** is a simple temporary storage location for messages. A sending component adds a message to the queue. A destination component picks up the message at the front of the queue. Under ordinary circumstances, each message is received by only one receiver.
+![Azure Service Bus-kö](../media-draft/2-service-bus-queue.png)
 
-![Azure Service Bus queue](../media-draft/2-service-bus-queue.png)
+Köer frikopplar käll- och målkomponenterna för att isolera målkomponenter från hög efterfrågan. 
 
-Queues decouple the source and destination components to insulate destination components from high demand. 
+Under tider med hög belastning kan meddelanden komma in snabbare än målkomponenten kan hantera. Eftersom källkomponenter inte har någon direkt anslutning till målet påverkas inte källan, och kön växer. Målkomponenter tar bort meddelanden från kön eftersom de kan hantera dem. När efterfrågan sjunker kan målkomponenter komma ikapp så att kön förkortas. 
 
-During peak times, messages may come in faster than destination components can handle them. Because source components have no direct connection to the destination, the source is unaffected and the queue will grow. Destination components will remove messages from the queue as they are able to handle them. When demand drops, destination components can catch up and the queue shortens. 
+En kö motsvarar hög efterfrågan som här utan att lägga till resurser i systemet. Men för meddelanden som behöver hanteras relativt snabbt kan de dela belastningen om du lägger till ytterligare instanser av din målkomponent. Varje meddelande hanteras av endast en instans. Det är ett effektivt sätt att skala hela programmet, samtidigt som du bara lägger till resurser till komponenterna som verkligen behöver dem.
 
-A queue responds to high demand like this without needing to add resources to the system. However, for messages that need to be handled relatively quickly, adding additional instances of your destination component can allow them to share the load. Each message would be handled by only one instance. This is an effective way to scale your entire application while only adding resources to the components that actually need it.
+### <a name="what-is-a-topic"></a>Vad är ett ämne?
 
-### What is a topic?
+Ett **ämne** liknar en kö men kan ha flera prenumerationer. Det innebär att flera målkomponenter kan prenumerera på ett ämne, så att varje meddelande levereras till flera mottagare. Prenumerationer kan även filtrera meddelandena i ämnet för att bara ta emot relevanta meddelanden. Prenumerationer erbjuder samma frikopplade kommunikation som köer och svarar på hög efterfrågan på samma sätt. Använd ett ämne om du vill att varje meddelande ska levereras till mer än en målkomponent.
 
-A **topic** is similar to a queue but can have multiple subscriptions. This means that multiple destination components can subscribe to a single topic, so each message is delivered to multiple receivers. Subscriptions can also filter the messages in the topic to receive only messages that are relevant. Subscriptions provide the same decoupled communications as queues and respond to high demand in the same way. Use a topic if you want each message to be delivered to more than one destination component.
+Ämne stöds inte på Basic-prisnivån.
 
-Topics are not supported in the Basic pricing tier.
+![Azure Service Bus-ämne](../media-draft/2-service-bus-topic.png)
 
-![Azure Service Bus topic](../media-draft/2-service-bus-topic.png)
+### <a name="what-is-a-relay"></a>Vad är ett relä?
 
-### What is a relay?
-
-A **relay** is an object that performs synchronous, two-way communication between applications. It is not a temporary storage location for messages like queues and topics. Instead, it provides bidirectional, unbuffered connections across network boundaries such as firewalls. Use a relay when you want direct communications between components as if they were located on the same network segment but separated by network security devices.
+Ett **relä** är ett objekt som erbjuder synkron, dubbelriktad kommunikation mellan program. Det är ingen temporär lagringsplats för meddelanden som köer och ämnen. Istället erbjuder det dubbelriktade, obuffrade anslutningar över nätverksgränser, som brandväggar. Använd ett relä när du vill dirigera kommunikation mellan komponenter som om de fanns i samma nätverkssegment men separeras av enheter för nätverkssäkerhet.
 
 > [!NOTE]
-> Although relays are part of Azure Service Bus, they do not implement loosely coupled messaging workflows and are not considered further in this module.
+> Trots att reläer är delar av Azure Service Bus implementerar de inte löst kopplade arbetsflöden för meddelanden och tas inte upp mer i den här modulen.
 
-## Service Bus queues and storage queues
+## <a name="service-bus-queues-and-storage-queues"></a>Service Bus-köer och Storage-köer
 
-There are two Azure features that include message queues: Service Bus and Azure Storage accounts. As a general guide, storage queues are simpler to use but are less sophisticated and flexible than Service Bus queues.
+Det finns två funktioner i Azure som innehåller meddelandeköer: Service Bus- och Storage-konton. Som en allmän riktlinje är lagringsköer enklare att använda men mindre avancerade och flexibla än Service Bus-köer.
 
-Key advantages of Service Bus queues include:
+Viktiga fördelar med Service Bus-köer är:
 
-* Supports larger messages size (256 KB per message versus 64 KB)
-* Supports both at-least-once and at-most-once delivery - choose between a very small chance that a message is lost or a very small chance it is handled twice
-* Guarantees **first-in-first-out (FIFO)** order - messages are handled in the same order they are added (although FIFO is the normal operation of a queue, it is not guaranteed for every message)
-* Can group multiple messages into a transaction - if one message in the transaction fails to be delivered, all messages in the transaction will not be delivered
-* Supports role-based security
-* Does not require destination components to continuously poll the queue
+* Stöder större meddelandestorlek (256 KB per meddelande jämfört med 64 KB)
+* Stöder både leverans minst en gång och leverans högst en gång – välj mellan en mycket liten risk för att ett meddelande försvinner eller en mycket liten risk för att det hanteras två gånger
+* Garanterar **FIFO-beställning (först in först ut)**  – meddelanden hanteras i samma ordning som de läggs till (även om FIFO är en kös normala drift garanteras det inte för varje meddelande)
+* Kan gruppera flera meddelanden till en transaktion – om ett meddelande i transaktionen inte skickas levereras inga meddelanden i transaktionen
+* Stöder rollbaserad säkerhet
+* Kräver inga målkomponenter för att kontinuerligt avsöka kön
 
-Advantages of storage queues:
+Fördelar med Storage-köer:
 
-* Supports unlimited queue size (versus 80-GB limit for Service Bus queues)
-* Maintains a log of all messages
+* Stöder obegränsad köstorlek (jämfört med högst 80 GB för Service Bus-köer)
+* Innehåller en logg över alla meddelanden
 
-## How to choose a communications technology
+## <a name="how-to-choose-a-communications-technology"></a>Så här väljer du en kommunikationsteknik
 
-We've seen the different concepts and the implementations Azure provides. Let's discuss what our decision process should look like for each of our communications.
+Vi har sett de olika begreppen och implementeringarna som Azure tillhandahåller. Vi ska diskutera hur vår beslutsprocess ska se ut för varje kommunikation.
 
-#### Consider the following questions:
+#### <a name="consider-the-following-questions"></a>Överväg följande frågor:
 
-1. Is the communication an event? If so, consider using Event Grid or Event Hubs.
+1. Är kommunikationen en händelse? Om det är det bör du överväga att använda Event Grid eller Event Hub.
 
-1. Should a single message be delivered to more than one destination? If so, use a Service Bus topic. Otherwise, use a queue.
+1. Ska ett enda meddelande levereras till mer en ett mål? Om det ska det använder du ett Service Bus-ämne. Använd annars en kö.
 
-If you decide that you need a queue:
+Om du bestämmer dig för att du behöver en kö:
 
-#### Choose Service Bus queues if:
+#### <a name="choose-service-bus-queues-if"></a>Välj Service Bus-köer om:
 
-- You need an at-most-once delivery guarantee
-- You need a FIFO guarantee
-- You need to group messages into transactions
-- You want to receive messages without polling the queue
-- You need to provide role-based access to the queues
-- You need to handle messages larger than 64 KB but smaller than 256 KB
-- Your queue size will not grow larger than 80 GB
-- You would like to be able to publish and consume batches of messages
+- Du behöver en garanti om leverans högst en gång
+- Du behöver en FIFO-garanti
+- Du behöver gruppera meddelanden i transaktioner
+- Du vill ta emot meddelanden utan att avsöka kön
+- Du behöver ange en rollbaserad åtkomst till köerna
+- Du behöver hantera meddelanden som är större än 64 KB men mindre än 256 KB
+- Storleken på din kö inte kommer att bli större än 80 GB
+- Du vill kunna publicera och använda batchar av meddelanden
 
-#### Choose queue storage if:
-- You need a simple queue with no particular additional requirements
-- You need an audit trail of all messages that pass through the queue
-- You expect the queue to exceed 80 GB in size
-- You want to track progress for processing a message inside of the queue
+#### <a name="choose-queue-storage-if"></a>Välj Queue-lagring om:
+- Du behöver en enkel kö utan några specifika ytterligare krav
+- Du behöver en spårningslogg för alla meddelanden som skickas via kön
+- Du förväntar dig att kön kommer att överskrida 80 GB i storlek
+- Du vill följa förloppet för bearbetning av ett meddelande i kön
 
-Although the components of a distributed application can communicate directly, you can often increase the reliability of that communication by using an intermediate communication platform such as Azure Service Bus or Azure Event Grid.
+Även om komponenterna i ett distribuerat program kan kommunicera direkt kan du ofta öka kommunikationens tillförlitlighet genom att använda en mellanliggande kommunikationsplattform som Azure Service Bus eller Event Grid.
 
-Event Grid is designed for events, which notify recipients only of an event and do not contain the raw data associated with that event. Azure Event Hubs is designed for high-flow analytics types of events. Azure Service Bus and storage queues are for messages, which can be used for binding the core pieces of any application workflow.
+Event Grid är utformat för händelser, som endast meddelar mottagare av en händelse som inte innehåller rådata som är associerade med den händelsen. Event Hub är utformat för händelser med analyser med högt flöde. Azure Service Bus- och Storage-köer är för meddelanden, vilka kan användas för att binda ihop grunddelarna i ett programs arbetsflöde.
 
-If your requirements are simple, if you want to send each message to only one destination, or if you want to write code as quickly as possible, a storage queue may be the best option. Otherwise, Service Bus queues provide many more options and flexibility.
+Om dina krav är enkla, om du endast vill skicka varje meddelande till ett mål eller om du vill skriva kod så snabbt som möjligt kan en lagringskö vara det bästa alternativet. I annat fall erbjuder Service Bus-köer många fler alternativ och större flexibilitet.
 
-If you want to send messages to multiple subscribers, use a Service Bus topic.
+Om du vill skicka meddelanden till flera prenumeranter kan du använda ett Service Bus-ämne.

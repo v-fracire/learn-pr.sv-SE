@@ -1,14 +1,14 @@
-In this module, we wrote a script to automate the creation of multiple VMs. Even though the script was relatively short, you can see the potential power when you combine loops, variables, and functions from PowerShell with cmdlets from Azure PowerShell.
+I den här modulen skrev vi ett skript som automatiserar skapandet av flera virtuella datorer. Även om skriptet var relativt kort märker du vilken potentiell kraft det har när du kombinerar loopar, variabler och funktioner från PowerShell med cmdletar från Azure PowerShell.
 
-Azure PowerShell is a good automation choice for admins with PowerShell experience. The combination of clean syntax and a powerful scripting language also makes it worth considering even if you are new to PowerShell. This level of automation for time-consuming and error-prone tasks should help you reduce administrative time and increase quality.
+Azure PowerShell är ett bra automationsalternativ för administratörer med PowerShell-erfarenhet. Kombinationen av ren syntax och ett kraftfullt skriptspråk gör det värt att överväga även om du är nybörjare på PowerShell. Den här nivån av automatisering för tidskrävande uppgifter som lätt drabbas av fel minskar den administrativa tiden och ökar kvaliteten.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up-your-resources"></a>Rensa dina resurser
+<!---TODO: Do we need to include cleanup for the free education tier?--->
 
-Provisioned and running VMs incur costs against your subscription. You should remove unneeded VMs to avoid unnecessary charges. The easiest way to cleanup your Azure subscription is to remove the associated resource group; this will also delete all the VMs in the group. And you can do this from PowerShell! When you are finished, please run the following Azure PowerShell cmdlet:
+Etablerade och virtuella datorer som körs medför kostnader i din prenumeration. Du bör ta bort virtuella datorer som inte används för att undvika onödiga kostnader. Det enklaste sättet att rensa upp din Azure-prenumeration på är att ta bort den associerade resursgruppen. Detta tar även bort alla virtuella datorer i gruppen. Och du kan göra detta från PowerShell! När du är klar kör du följande Azure PowerShell-cmdlet:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name TrialsResourceGroup
 ```
 
-When you are asked to confirm the delete, answer **Yes**. The command may take several minutes to complete.
+När du uppmanas att bekräfta borttagningen svarar du **Ja**. Det här kommandot kan ta flera minuter att slutföra.

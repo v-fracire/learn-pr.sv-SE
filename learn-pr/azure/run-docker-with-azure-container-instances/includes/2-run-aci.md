@@ -1,22 +1,22 @@
-Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this unit, you create a container in Azure and expose it to the internet with a fully qualified domain name (FQDN).
+Azure Container Instances gör det enkelt att skapa och hantera Docker-containers i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här utbildningsenheten skapar du en container i Azure och gör den tillgänglig på internet via ett fullständigt kvalificerat domännamn (FQDN).
 
-## Create a resource group
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Azure Container Instances, like all Azure resources, must be placed in a resource group, a logical collection into which Azure resources are deployed and managed.
+Azure Container Instances måste precis som alla Azure-resurser placeras i en resursgrupp, som är en logisk samling där Azure-resurser distribueras och hanteras.
 
-Create a resource group with the `az group create` command.
+Skapa en resursgrupp med kommandot `az group create`.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-## Create a container
+## <a name="create-a-container"></a>Skapa en container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group to the **az container create** command. You can optionally expose the container to the internet by specifying a DNS name label. In this example, you deploy a container that hosts a small web app.
+Du kan skapa en container genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp i kommandot **az container create**. Du kan också göra containern tillgänglig på Internet genom att ange en DNS-namnetikett. I det här exemplet distribuerar du en container som är värd för en liten webbapp.
 
-Execute the following command to start a container instance. The *--dns-name-label* value must be unique within the Azure region you create the instance, so you might need to modify this value to ensure uniqueness:
+Kör följande kommando för att starta en containerinstans. Värdet *--dns-name-label* måste vara unikt i den Azure-region där du skapar instansen, så du kan behöva ändra värdet för att det ska vara unikt:
 
 ```azurecli
 az container create \
@@ -27,7 +27,7 @@ az container create \
     --dns-name-label aci-demo
 ```
 
-Within a few seconds, you should get a response to your request. Initially, the container is in the **Creating** state, but it should start within a few seconds. You can check the status using the `az container show` command:
+Om några sekunder bör du få ett svar på din begäran. Först har containern statusen **Creating** (skapas) men den bör starta inom några sekunder. Du kan kontrollera statusen med kommandot `az container show`:
 
 ```azurecli
 az container show \
@@ -37,7 +37,7 @@ az container show \
     --out table
 ```
 
-When you run the command, the container's fully qualified domain name (FQDN) and its provisioning state are displayed:
+När du kör kommandot visas containerns fullständiga domännamn (FQDN) och dess etableringsstatus:
 
 ```bash
 FQDN                                    ProvisioningState
@@ -45,12 +45,12 @@ FQDN                                    ProvisioningState
 aci-demo.eastus.azurecontainer.io       Succeeded
 ```
 
-Once the container moves to the **Succeeded** state, navigate to its FQDN in your browser:
+När containern övergår till statusen **Lyckades** går du till dess FQDN i din webbläsare:
 
-![Browser screenshot showing an application running in an Azure container instance](../media-draft/aci-app-browser.png)
+![Skärmbild av webbläsare med en app som körs i en Azure-containerinstans](../media-draft/aci-app-browser.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created an Azure container instance that is running a web server and application. You also accessed this application using the FQDN of the container instance.
+I den här utbildningsenheten har du skapat en Azure-containerinstans som kör en webbserver och en app. Du använde också appen via FQDN-värdet för containerinstansen.
 
-In the next unit, you will configure container instance restart policies.
+I nästa utbildningsenhet konfigurerar du containerinstansens omstartsprincip.

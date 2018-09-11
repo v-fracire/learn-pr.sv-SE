@@ -1,13 +1,13 @@
-When you create a virtual machine, it gets assigned a public IP address that is reachable over the Internet, and a private IP address used within the Azure data center. We can quickly test that the Linux VM is up and running using the `ssh` tool. Remember that we set our admin name to `aldis`, so we have to specify that.
+När du skapar en virtuell dator får den en offentlig IP-adress som kan nås via internet och en privat IP-adress som används i Azure-datacentret. Vi kan snabbt testa att en virtuell Linux-dator körs med verktyget `ssh`. Kom ihåg att vi angav `aldis` som administratörsnamn, så vi måste använda det nu.
 
 ```azurecli
 ssh 168.61.54.62 -l aldis
 ```
 
 > [!NOTE]
-> We don't need a password because we generated an SSH key pair as part of the VM creation. The first time you shell into the VM, it will give you a prompt about the authenticity of the host. 
+> Vi behöver inget lösenord eftersom vi genererade ett SSH-nyckelpar när vi skapade den virtuella datorn. Första gången du ansluter till den virtuella datorn via shell uppmanas du att autentisera värden. 
 > 
-> This is because we are hitting an IP address directly instead of a host name. Answering "yes" will save the IP as a valid host for connection and allow the connection to proceed.
+> Det beror på att vi ansluter direkt till en IP-adress i stället för till ett värdnamn. Om du svarar ”yes” sparas IP-adressen som en giltig värd för anslutning och anslutningen upprättas.
 
 ```
 The authenticity of host '168.61.54.62 (168.61.54.62)' can't be established.
@@ -16,7 +16,7 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '168.61.54.62' (RSA) to the list of known hosts.
 ```
 
-Then you'll be presented with a remote shell where you can enter Linux commands.
+Sedan visas ett fjärr-shell där du kan ange Linux-kommandon.
 
 ```
 The programs included with the Debian GNU/Linux system are free software;
@@ -28,4 +28,4 @@ permitted by applicable law.
 aldis@SampleVM:~$
 ```
 
-Try a few commands as practice and when you are finished, sign out of your account (type `logout` or `exit` in the shell).
+Prova några kommandon som träning. När du är färdig loggar du ut från kontot (skriv `logout` eller `exit` i shell).

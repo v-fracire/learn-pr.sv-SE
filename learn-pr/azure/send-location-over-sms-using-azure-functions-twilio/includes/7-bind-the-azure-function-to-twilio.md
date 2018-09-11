@@ -1,18 +1,18 @@
-At this point, the mobile app is complete and it can send the user's location and list of phone numbers to an Azure function that can deserialize the data. In this unit, you bind the Azure function to Twilio to send SMS messages.
+Nu är den mobila appen färdig och kan skicka användarens plats samt listan med telefonnummer till en Azure-funktion som kan avserialisera data. I den här kursdelen får du binda Azure-funktionen till Twilio för att skicka SMS.
 
-Azure Functions can be connected to other services, either services in Azure or third-party services. These connections, called bindings, exist in two forms - input and output bindings. Input bindings provide data to your function and output bindings take data from your function and send it to another service. You can read about bindings in the [Azure Functions Binding docs](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+Du kan ansluta Azure Functions till andra tjänster, antingen tjänster i Azure eller från tredje part. Sådana anslutningar kallas bindningar och finns i två varianter, in- och utdatabindningar. Indatabindningar levererar data till funktionen och bindningar hämtar data från funktionen och skickar dem till en annan tjänst. Du kan läsa mer om bindningar i [dokumentationen om Azure Functions-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
 
-Bindings for Azure Functions created in Visual Studio are defined using parameters to the function, decorated with attributes.
+Bindningar för Azure Functions som skapas i Visual Studio definieras med funktionsparametrar och attribut.
 
-## Bind the Azure function to Twilio
+## <a name="bind-the-azure-function-to-twilio"></a>Binda Azure-funktionen till Twilio
 
-Sending SMS messages via Twilio requires an output binding that is configured with your account subscription ID (SID) and Auth Token.
+När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigurerad med ID:t för din kontoprenumeration (SID) och en autentiseringstoken.
 
-1. Stop the local Azure Functions runtime if it's still running from the previous unit.
+1. Stoppa den lokala körningen av Azure Functions om det fortfarande körs sedan den föregående enheten.
 
-1. Add the "Microsoft.Azure.WebJobs.Extensions.Twilio" NuGet package to the `ImHere.Functions` project. This NuGet package contains the relevant classes for the binding.
+1. Lägg till NuGet-paketet Microsoft.Azure.WebJobs.Extensions.Twilio i projektet `ImHere.Functions`. Det här NuGet-paketet innehåller de klasser som behövs för bindningen.
 
-1. Add a new parameter to the static `Run` method on the `SendLocation` static class called `messages`. This parameter will have a type of `ICollector<SMSMessage>`. You'll need to add a using directive for the `Twilio` namespace.
+1. Lägg till en ny parameter i den statiska metoden `Run` i den statiska klassen `SendLocation` med namnet `messages`. Den här parametern ska ha typen `ICollector<SMSMessage>`. Du måste lägga till ett användningsdirektiv för namnområdet `Twilio`.
 
     ```cs
     [FunctionName("SendLocation")]
@@ -23,17 +23,17 @@ Sending SMS messages via Twilio requires an output binding that is configured wi
                                                       TraceWriter log)
     ```
 
-1. Decorate the new `messages` parameter with the `TwilioSms` attribute. This attribute has three parameters you need to set.
+1. Utöka den nya parametern `messages` med attributet `TwilioSms`. Det här attributet har tre parametrar som du måste ange.
 
-    | Setting      |  Value   | Description                                        |
+    | Inställning      |  Värde   | Beskrivning                                        |
     | --- | --- | ---|
-    | **AccountSidSetting** | "TwilioAccountSid" | The SID for your Twilio account. Rather than set the SID directly, this parameter is the name of a value in the function app settings that will be used to retrieve the SID. |
-    | **AuthTokenSetting** | "TwilioAuthToken" | The Auth Token for your Twilio account. Rather than set the Auth Token directly, this parameter is the name of a value in the function app settings that will be used to retrieve the Auth Token. |
-    | **From** | Your Twilio phone number | The Twilio phone number that the SMS messages will come from in international format (+\<country code\>\<phone number\>, for example "+1555123456"). |
+    | **AccountSidSetting** | ”TwilioAccountSid” | Aktuellt SID för ditt Twilio-konto. Snarare än att ställa in SID-värdet direkt så är den här parametern namnet på ett värde i appinställningarna som används till att hämta ditt SID. |
+    | **AuthTokenSetting** | ”TwilioAuthToken” | Autentiseringstoken för ditt Twilio-konto. Snarare än att ställa in autentiseringstoken direkt så är den här parametern namnet på ett värde i appinställningarna som används till att hämta din autentiseringstoken. |
+    | **From** | Ditt Twilio-telefonnummer | Twilio-telefonnumret som dina SMS skickas från i internationellt format (+\<landskod\>\<telefonnummer\>, till exempel ”+1555123456”). |
 
-    When you create a Twilio account, you are assigned a phone number that you can send messages from. You can find this phone number on the Twilio **Phone Numbers** dashboard. From the Twilio site, select the ellipses at the bottom of the left-hand menu. Then, select *SUPER NETWORK->Phone Numbers*. You can pin this dashboard to the left-hand menu using the pin icon. Your Twilio number will be under *Manage Numbers->Active Numbers*. You'll need to remove any spaces from the number.
+    När du skapar ett Twilio-konto tilldelas du ett telefonnummer som du kan skicka meddelanden från. Du hittar det här telefonnumret på Twilio-instrumentpanelen **Phone Numbers** (telefonnummer). Välj ellipserna längst ned i den vänstra menyn på Twilio-webbplatsen. Välj sedan *SUPER NETWORK -> Phone Numbers*. Du kan fästa den här instrumentpanelen vid den vänstra menyn med en knappnålsikon. Du ser ditt Twilio-nummer under *Manage Numbers -> Active Numbers* (hantera nummer -> aktiva nummer). Du måste ta bort alla blanksteg från numret.
 
-    ![Finding your Twilio number](../media-drafts/7-twilio-find-number.png)
+    ![Hitta ditt Twilio-nummer](../media-drafts/7-twilio-find-number.png)
 
     ```cs
     [TwilioSms(AccountSidSetting = "TwilioAccountSid",
@@ -41,7 +41,7 @@ Sending SMS messages via Twilio requires an output binding that is configured wi
                From = "+1xxxxxxxxx")]ICollector<SMSMessage> messages,
     ```
 
-1. Function app settings can be configured locally inside the `local.settings.json` file. Add your Twilio account SID and Auth Token to this JSON file using the setting names that were passed to the `TwilioSMS` attribute.
+1. Du kan konfigurera inställningarna för Functions-appen lokalt i filen `local.settings.json`. Lägg till SID och autentiseringstoken för ditt Twilio-konto i den här JSON-filen och använd inställningsnamnen som skickades till attributet `TwilioSMS`.
 
     ```json
     {
@@ -55,16 +55,16 @@ Sending SMS messages via Twilio requires an output binding that is configured wi
     }
     ```
 
-    Replace \<Your SID\> and \<Your Auth Token\> with the values from your Twilio dashboard.
+    Ersätt \<Your SID\> och \<Your Auth Token\> med värdena från instrumentpanelen i Twilio.
 
-    > These local settings will be only for running locally. In a production app, these values would be your local development or test account credentials. Once the Azure Function has been deployed to Azure, you'll be able to configure the production values.
-    > If you check your code into source control, these local application setting values will be checked in, too, so be careful not to check in any actual values in these files if your code is open source or public in any form.
+    > De här lokala inställningarna används bara vid lokal körning. I en produktionsapp skulle dessa värden vara autentiseringsuppgifterna för det lokala utvecklings- eller testkontot. När Azure-funktionen har distribuerats till Azure kan du konfigurera värden för produktionsmiljön.
+    > Om du checkar in koden i källkontrollen checkas de här lokala inställningsvärdena också in, så var försiktig så att du inte checkar in faktiska värden om koden är öppen källkod eller på annat sätt offentlig.
 
-## Create the SMS messages
+## <a name="create-the-sms-messages"></a>Skapa SMS
 
-The `ICollector<SMSMessage>` parameter is a collection of `SMSMessage` instances and is used to collect the SMS messages you want to send. After the function has finished running, any instances of `SMSMessage` added to this collection are passed to Twilio and sent to the relevant recipients.
+Parametern `ICollector<SMSMessage>` är en samling `SMSMessage`-instanser och används till att samla in de SMS du vill skicka. När funktionen har körts skickas alla instanser av `SMSMessage` som lagts till vidare först till Twilio och sedan till mottagarna.
 
-1. In the `SendLocation` function, add code to loop through the phone numbers in the `PostData` and create an SMS message for each one.
+1. Lägg till kod i funktionen `SendLocation` som itererar över telefonnumren i `PostData` och skapa ett SMS för varje nummer.
 
     ```cs
     foreach (string toNo in data.ToNumbers)
@@ -77,9 +77,9 @@ The `ICollector<SMSMessage>` parameter is a collection of `SMSMessage` instances
     }
     ```
 
-    The message needs the phone number to send to and a body that contains the Google Maps URL created from the user's location.
+    I meddelandet behövs mottagarens telefonnummer och brödtext som innehåller webbadressen till Google Maps för användarens plats.
 
-1. Log each message, and then add it to the `messages` collection.
+1. Logga varje meddelande och Lägg till dem i samlingen `messages`.
 
     ```cs
     foreach (string toNo in data.ToNumbers)
@@ -90,7 +90,7 @@ The `ICollector<SMSMessage>` parameter is a collection of `SMSMessage` instances
     }
     ```
 
-The complete `SendLocation` method is shown below.
+Hela metoden `SendLocation` visas nedan.
 
 ```cs
 [FunctionName("SendLocation")]
@@ -120,26 +120,26 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 }
 ```
 
-## Test it out
+## <a name="test-it-out"></a>Testa den
 
-1. Set the `ImHere.Functions` app as the startup project and start it without debugging.
+1. Ställ in appen `ImHere.Functions` som startprojekt och starta den utan felsökning.
 
-1. Set the `ImHere.UWP` app as the startup project and run it.
+1. Ställ in appen `ImHere.UWP` som startapp och kör den.
 
-1. Enter your own phone number in international format (+\<country code\>\<phone number\>) into the Xamarin.Forms app. Twilio trial accounts can send  messages only to verified phone numbers, so for now, you'll only be able to message yourself unless you upgrade to a paid account or verify other numbers.
+1. Ange ditt eget telefonnummer med internationellt format (+\<landskod\>\<telefonnummer\>) i Xamarin.Forms-appen. Provkonton hos Twilio kan skicka bara skicka meddelanden till verifierade telefonnummer, så om du inte uppgraderar till ett betalkonto eller verifierar flera nummer kan du bara skicka meddelanden till dig själv.
 
-1. Click the **Send Location** button. If the SMS message was sent successfully, you'll see a message in the Xamarin.Forms app saying, "Location sent successfully".
+1. Klicka på knappen **Send Location** (Skicka plats). Om meddelandet gick att skicka visas meddelandet ”Location sent successfully” (Platsen har skickats) i Xamarin.Forms-appen.
 
-    ![The Xamarin.Forms app showing the location as sent](../media-drafts/7-ui-location-sent.png)
+    ![Meddelandet visas som skickat i Xamarin.Forms-appen](../media-drafts/7-ui-location-sent.png)
 
-1. In the console logs for the Azure function, you'll see the message being created and sent. If any errors occur (such as, the number is in the wrong format), they will be logged out here.
+1. I konsolloggarna för Azure-funktionen ser du att meddelandet har skapats och skickats. Om ett fel inträffar (som att telefonnumret har fel format) loggas det hit.
 
-    ![The Azure function console showing the message has been sent](../media-drafts/7-function-message-sent.png)
+    ![Azure-funktionskonsolen visar att meddelandet har skickats](../media-drafts/7-function-message-sent.png)
 
-1. Check your phone for a message. Follow the link in the message to see your location.
+1. Kontrollera om du har fått meddelandet i telefonen. Följ länken i meddelandet för att se din plats.
 
-    ![The SMS message received on a mobile phone](../media-drafts/7-message-received.png)
+    ![SMS-meddelandet mottaget på en mobiltelefon](../media-drafts/7-message-received.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to create a Twilio binding for the Azure function and send an SMS message with the user's location to a function that was running locally. In the next unit, you publish the function to Azure.
+I den här utbildningsenheten har du lärt dig hur du skapar en Twilio-bindning för Azure-funktionen och skickar ett SMS med användarens plats till en funktion som körs lokalt. I nästa steg får du publicera funktionen i Azure.

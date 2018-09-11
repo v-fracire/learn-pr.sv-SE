@@ -1,15 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.enable-reliable-messaging-for-big-data-applications-using-azure-event-hubs.6-evaluate-the-performance-of-the-deployed-event-hub-using-the-azure-portal
-title: Evaluate the performance of the deployed Event Hub using the Azure Portal
+title: Utvärdera prestanda för den distribuerade händelsehubben med Azure Portal
 metadata:
-  title: Evaluate the performance of the deployed Event Hub using the Azure Portal
-  description: Evaluate the performance of the deployed Event Hub using the Azure Portal
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Utvärdera prestanda för den distribuerade händelsehubben med Azure Portal
+  description: Utvärdera prestanda för den distribuerade händelsehubben med Azure Portal
+  ms.openlocfilehash: 8ce2dfbba0548a7d3e7868b1b51da153815fb2e9
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43838515"
 durationInMinutes: 5
-content: |
-  [!include[](includes/6-evaluate-the-performance-of-the-deployed-event-hub-using-the-azure-portal.md)]
+content: '[!include[](includes/6-evaluate-the-performance-of-the-deployed-event-hub-using-the-azure-portal.md)]'

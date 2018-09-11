@@ -1,14 +1,14 @@
-Imagine you work for a company that does data processing and storage for traffic cameras. The video streams are analyzed, categorized, and processed to identify faces and license plates at particular times. The information is uploaded to Azure Data Lake and a searchable index is generated for law enforcement.
+Anta att du arbetar på ett företag som bearbetar data och lagring från trafikkameror. Videoströmmarna analyseras, kategoriseras och bearbetas för att identifiera ansikten och registreringsskyltar vid specifika tidpunkter. Den här informationen överförs sedan till Azure Data Lake och ett sökbart index genereras för juridiska krav.
 
-These video streams use a range of different codecs and resolutions. You need to run several Windows-based proprietary software packages to carry out the initial processing and encode them into a common video format. Since new formats are regularly released, it's beneficial to do the video processing on virtual machines (VMs). The proprietary packages can then be added and updated without stopping the entire system.
+Dessa videoströmmar använder en mängd olika codecs och upplösningar. Du måste köra flera Windows-baserade tillverkarspecifika programvarupaket för att utföra den inledande bearbetningen och koda dem till ett vanligt videoformat. Eftersom det ständigt släpps nya format är det bäst att bearbeta videomaterialet på virtuella datorer. Då kan tillverkarspecifika paket läggas till och uppdateras utan att hela systemet behöver stoppas.
 
-Azure provides a robust virtual machine hosting solution that can meet your needs. Let's explore how to create and work with Windows virtual machines in Azure.
+Azure tillhandahåller en robust virtuell dator som värdlösning som uppfyller dina behov. Låt oss se hur du skapar och arbetar med virtuella Windows-datorer i Azure.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Understand the options that are available for virtual machines in Azure.
-- Create a Windows virtual machine using the Azure portal.
-- Connect to a running Windows virtual machine using Remote Desktop.
-- Install software and change the network configuration on a VM using the Azure portal.
+- Förstå de tillgängliga alternativen för virtuella datorer i Azure.
+- Skapa en virtuell Windows-dator med Azure Portal.
+- Anslut till en aktiv virtuell Windows-dator med hjälp av fjärrskrivbord.
+- Installera programvara och ändra nätverkskonfigurationen på en virtuell dator med Azure Portal.

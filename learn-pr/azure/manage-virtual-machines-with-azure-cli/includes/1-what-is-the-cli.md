@@ -1,27 +1,27 @@
-Jim manages a set of Azure virtual machines running on our corporate web infrastructure, which includes several websites and database servers running on various platforms. 
+Jim hanterar en uppsättning virtuella Azure-datorer som körs på företagets webbinfrastruktur, som omfattar flera webbplatser och databasservrar som körs på olika plattformar. 
 
-While the Azure portal is easy to use, Jim has found that navigating through the various blades adds time to some of the tasks. 
+Även om Azure-portalen är lätt att använda har Jim märkt att det är tidskrävande att navigera bland de olika bladen för några av uppgifterna. 
 
-While exploring alternatives, he discovers the Azure CLI tool.
+Medan han tittar på alternativen upptäcker han verktyget Azure CLI.
 
-Working with the Azure CLI, Jim can write scripts to check the status of his servers, deploy a new configuration, open a port, or connect to a virtual machine to change a setting.
+När Jim arbetar med Azure CLI kan han skriva skript för att kontrollera servrarnas status, distribuera en ny konfiguration, öppna en port eller ansluta till en virtuell dator och ändra en inställning.
 
-Perhaps you are like Jim and are looking for a tool to help automate tasks in your cloud environment. We're going to show you how to use the Azure CLI to create and manage virtual machines hosted in Azure. 
+Du kanske precis som Jim är ute efter ett verktyg som hjälper till att automatisera uppgifter i din molnmiljö. Vi ska visa hur du använder Azure CLI för att skapa och hantera virtuella datorer i Azure. 
 
-## Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
-The Azure CLI is Microsoft's cross-platform command-line tool for managing Azure resources. It's available for macOS, Linux, and Windows, or in the browser using [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Azure CLI är Microsofts plattformsoberoende kommandoradsverktyg för att hantera Azure-resurser. Det finns för macOS, Linux och Windows eller i webbläsaren med [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!IMPORTANT]
-> There are two versions of the Azure CLI tool available today: Azure CLI 1.0 and Azure CLI 2.0. We'll be using Azure CLI 2.0, which is the latest version and is recommended unless you're running legacy scripts. Azure CLI 1.0 is started with the `azure` command, and Azure CLI 2.0 is started with the `az` command. 
+> I dag finns det två tillgängliga versioner av verktyget Azure CLI: Azure CLI 1.0 och Azure CLI 2.0. Vi använder Azure CLI 2.0, som är den senaste versionen och rekommenderas om du inte kör äldre skript. Azure CLI 1.0 startas med kommandot `azure`, och Azure CLI 2.0 startas med kommandot `az`. 
 
-The Azure CLI can help you manage Azure resources such as virtual machines and disks from the command line or in scripts. Let's get started and see what it can do.
+Med Azure CLI kan du hantera Azure-resurser som virtuella datorer och diskar från kommandoraden eller i skript. Vi sätter igång och ser vad vi kan göra.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Create a virtual machine with the Azure CLI
-- Resize virtual machines with the Azure CLI.
-- Perform basic management tasks using the Azure CLI.
-- Connect to a running VM with SSH and the Azure CLI.
+- Skapa en virtuell dator med Azure CLI
+- Ändra storlek på virtuella datorer med Azure CLI
+- Utföra grundläggande hanteringsåtgärder med Azure CLI.
+- Ansluta till en aktiv virtuell dator med SSH och Azure CLI.

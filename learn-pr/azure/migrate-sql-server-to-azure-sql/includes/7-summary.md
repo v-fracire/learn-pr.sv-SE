@@ -1,16 +1,15 @@
-You performed a migration by creating an Azure SQL Database and used the Data Migration Assistant to migrate a local, on-premises, SQL Server database to the new Azure SQL Database.
+Du har utfört en migrering genom att skapa en Azure SQL Databas och använt Data Migration Assistant för att migrera en lokal, SQL Server-databas till den nya Azure SQL Database.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="cleanup"></a>Rensa
 
-Use the following steps to delete resources created in this module:
+Använd följande steg för att ta bort resurser som skapats i den här modulen:
 
-1. Sign in to your Azure portal.
+1. Logga in på Azure Portal.
 
-1. Click **All resources**.
+1. Klicka på **Alla resurser**.
 
-1. Select the database that you created for this module.
+1. Klicka på databasen som du har skapat för den här modulen.
 
-1. On the database **Overview** page, click **Delete**.
+1. På databasen sidan **Översikt** klickar du på **Ta bort**.
 
-1. Enter the database name and press **Delete**.
+1. Ange databasens namn och tryck på **Ta bort**.

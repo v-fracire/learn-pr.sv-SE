@@ -1,4 +1,4 @@
-En av de viktigaste åtgärderna för att köra virtuella datorer är att kunna starta och stoppa dem.
+En av de viktigaste åtgärderna du förmodligen vill göra medan de virtuella datorerna körs är att kunna starta och stoppa dem.
 
 ## <a name="stopping-a-vm"></a>Stoppa en virtuell dator
 

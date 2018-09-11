@@ -1,93 +1,93 @@
-You're now ready to create a new event hub. After creating the event hub, you'll use the Azure portal to view your new hub.
+Du är nu redo att skapa en ny händelsehubb. När du har skapat händelsehubben använder du Azure Portal för att visa den nya hubben.
 
-You'll create an event hub using the Azure CLI. For this exercise, use the Azure CLI 2.0. 
+Du ska skapa en händelsehubb med hjälp av Azure CLI. I den här övningen ska du använda Azure CLI 2.0. 
 
-## Create an Event Hubs namespace
+## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-Use the following steps to create an Event Hubs namespace using Bash shell supported by Azure Cloud shell:
+Följ stegen nedan för att skapa ett Event Hubs-namnområde med hjälp av Bash-gränssnittet som stöds av Azure Cloud Shell:
 
-1. Sign in to the Cloud Shell (Bash).  
+1. Logga in till Cloud Shell (Bash).  
 
-1. Create an Azure resource group using the following command:
+1. Skapa en Azure-resursgrupp med hjälp av följande kommando:
 
     ```azurecli
         az group create --name <resource group name> --location <location>
     ```
 
-    |Parameter      |Description|
+    |Parameter      |Beskrivning|
     |---------------|-----------|
-    |--name (required)      |Enter a new resource group name.|
-    |--location (required)     |Enter the location of your nearest Azure datacenter, for example, westus.|
+    |--name (krävs)      |Ange ett nytt resursgruppsnamn.|
+    |--location (krävs)     |Ange platsen för ditt närmaste Azure-datacenter, till exempel westus (västra USA).|
 
-1. Create the Event Hubs namespace using the following command:
+1. Skapa Event Hubs-namnområdet med hjälp av följande kommando:
 
     ```azurecli
         az eventhubs namespace create --name <Event Hubs namespace name> --resource-group <resource group name> -l <location>
     ```
 
-    |Parameter      |Description|
+    |Parameter      |Beskrivning|
     |---------------|-----------|
-    |--name (required)      |Enter a 6-50 characters-long unique name for your Event Hubs namespace. The name should contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or number.|
-    |--resource-group (required)  |Enter the resource group you created in step 1.
-    |--l (optional)     |Enter the location of your nearest Azure datacenter, for example, westus.|
+    |--name (krävs)      |Ange ett unikt namn för Event Hubs-namnområdet på mellan 6 och 50 tecken. Namnet får endast innehålla bokstäver, siffror och bindestreck. Det måste börja med en bokstav och sluta med en bokstav eller siffra.|
+    |--resource-group (krävs)  |Ange resursgruppen som du skapade i steg 1.
+    |--l (valfritt)     |Ange platsen för ditt närmaste Azure-datacenter, till exempel westus (västra USA).|
 
-1. Fetch the connection string for your Event Hubs namespace using the following command. You'll need this to configure applications to send and receive messages using your event hub.
+1. Hämta anslutningssträngen för Event Hubs-namnområdet med hjälp av följande kommando. Du behöver den för att konfigurera program att skicka och ta emot meddelanden med hjälp av din händelsehubb.
 
     ```azurecli
         az eventhubs namespace authorization-rule keys list --resource-group <resource group name> --namespace-name <EventHub namespace name> --name RootManageSharedAccessKey
     ```
 
-    |Parameter      |Description|
+    |Parameter      |Beskrivning|
     |---------------|-----------|
-    |--resource-group (required)  |Enter the resource group you created in step 1.|
-    |--namespace-name (required)      |Enter the namespace you created in step 2.|
+    |--resource-group (krävs)  |Ange resursgruppen som du skapade i steg 1.|
+    |--namespace-name (krävs)      |Ange namnområdet som du skapade i steg 2.|
 
-    This command returns the connection string for your Event Hubs namespace that you'll use later to configure your publisher and consumer applications. Save the value of the following keys for later use.
+    Det här kommandot returnerar anslutningssträngen för Event Hubs-namnområdet som du ska använda senare för att konfigurera dina program för utgivare och konsumenter. Spara värdet för följande nycklar för användning senare.
 
     - **primaryConnectionString**
     - **primaryKey**
 
-## Create an event hub
+## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-Use the following steps to create your new event hub:
+Följ stegen nedan för att skapa din nya händelsehubb:
 
-1. Create a new event hub using the following command:
+1. Skapa en ny händelsehubb med hjälp av följande kommando:
 
     ```azurecli
         az eventhubs eventhub create --name <event hub name> --resource-group <Resource Group name> --namespace-name <Event Hubs namespace name>
     ```
 
-    |Parameter      |Description|
+    |Parameter      |Beskrivning|
     |---------------|-----------|
-    |--name (required)  |Enter a name for your event hub.|
-    |--resource-group (required)  |Enter the resource group you created in the previous procedure.|
-    |--namespace-name (required)      |Enter the namespace you created in the previous procedure.|
+    |--name (krävs)  |Ange ett namn för din händelsehubb.|
+    |--resource-group (krävs)  |Ange resursgruppen som du skapade i föregående procedur.|
+    |--namespace-name (krävs)      |Ange namnområdet som du skapade i föregående procedur.|
 
-1. View the details of your event hub using the following command: 
+1. Visa information om händelsehubben med hjälp av följande kommando: 
 
     ```azurecli
         az eventhubs eventhub show --resource-group <Resource Group name> --namespace-name <Event Hubs namespace name> --name <event hub name>
     ```
 
-    |Parameter      |Description|
+    |Parameter      |Beskrivning|
     |---------------|-----------|
-    |--resource-group (required)  |Enter the resource group that you created in the previous procedure.|
-    |--namespace-name (required)      |Enter the namespace you created in the previous procedure.|
-    |--name  (required)|Enter the name of the event hub you created in step 1.|
+    |--resource-group (krävs)  |Ange resursgruppen som du skapade i föregående procedur.|
+    |--namespace-name (krävs)      |Ange namnområdet som du skapade i föregående procedur.|
+    |--name (krävs)|Ange namnet på händelsehubben som du skapade i steg 1.|
 
-## View the event hub in the Azure portal
+## <a name="view-the-event-hub-in-the-azure-portal"></a>Visa händelsehubben på Azure Portal
 
-Use the following steps view your event hub in the Azure portal.
+Följ stegen nedan för att visa händelsehubben på Azure Portal.
 
-1. Find your Event Hubs namespace using the Search bar at the top of the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Leta upp Event Hubs-namnområdet med hjälp av sökfältet överst på [Azure Portal](https://portal.azure.com?azure-portal=true).
 
-1. Click your namespace to open it.
+1. Klicka på namnområdet för att öppna det.
 
-1. From **Event Hubs Namespace** > **ENTITIES**, click **Event Hubs**.
-    Your event hub displays with a status of **Active**, and default values for **Message Retention** (*7*) and **Partition Count** of (*4*).
+1. Klicka på **Event Hubs** från **Event Hubs-namnområde** > **ENTITETER**.
+    Din händelsehubb visas med statusen **Aktiv** och standardvärden för **Kvarhållning av meddelanden** (*7*) och **Antal partitioner** (*4*).
 
-    ![Event Hub displayed in the Azure Portal](../media-draft/3-event-hub.png)
+    ![Händelsehubb på Azure Portal](../media-draft/3-event-hub.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-You've now created a new event hub, and you've all the necessary information ready to configure your publisher and consumer applications.
+Nu har du skapat en ny händelsehubb och har all nödvändig information som krävs för att konfigurera dina program för utgivare och konsumenter.

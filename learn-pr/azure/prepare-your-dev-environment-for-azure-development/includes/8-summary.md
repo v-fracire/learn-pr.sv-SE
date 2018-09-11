@@ -1,1 +1,1 @@
-In this module, you prepared your development environment by installing an appropriate integrated development environment (IDE) for your needs. You also installed the Azure toolkit within that IDE, to streamline the publishing of content directly to the various Azure services.
+I den här modulen har du förberett en utvecklingsmiljö genom att installera en lämplig integrerad utvecklingsmiljö (IDE) för dina behov. Du har också installerat Azure-verktyg i den IDE:n för att effektivisera publicering av innehåll direkt till de olika Azure-tjänsterna.
