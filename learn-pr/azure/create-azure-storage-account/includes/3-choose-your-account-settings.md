@@ -1,40 +1,40 @@
-The storage account settings we've already covered apply to the data services in the account. Here, we will discuss the three settings that apply to the account itself, rather than to the data stored in the account:
+De inställningar för lagringskonton som vi redan har gått igenom gäller för datatjänsterna i kontot. Här diskuterar vi de tre inställningar som gäller för konton självt i stället för de data som lagras i kontot:
 
-- Name
-- Deployment model
-- Account kind
+- Namn
+- Distributionsmodell
+- Typ av konto
 
-These settings impact how you manage your account and the cost of the services within it.
+Dessa påverkar hur du hanterar ditt konto och kostnaden för tjänsterna i det.
 
-## Name
+## <a name="name"></a>Namn
 
-Each storage account has a name. The name must be globally unique, use only lowercase letters and digits and be between 3 and 24 characters.
+Varje lagringskonto har ett namn. Namnet måste vara globalt unikt. Det måste innehålla mellan 3 och 24 tecken och endast använda gemena bokstäver och siffror.
 
-## Deployment model
+## <a name="deployment-model"></a>Distributionsmodell
 
-A _deployment model_ is the system Azure uses to organize your resources. It defines the API that you use to create, configure, and manage those resources. Azure provides two deployment models:
+En _distributionsmodell_ är det system som Azure använder för att organisera dina resurser. Den definierar det API som du använder för att skapa, konfigurera och hantera resurserna. Azure tillhandahåller två distributionsmodeller:
 
-- **Resource Manager**: the current model that uses the Azure Resource Manager API
-- **Classic**: a legacy offering that uses the Azure Service Management API
+- **Resource Manager**: den aktuella modellen som använder Azure Resource Manager (ARM) API
+- **Klassisk**: ett äldre erbjudande som använder Azure Service Management (ASM) API.
 
-The decision on which one to choose is usually easy, because most Azure resources only work with Resource Manager. However, storage accounts, virtual machines, and virtual networks support both, so you must choose one or the other when you create your storage account.
+Beslutet om vilket du väljer är vanligtvis enkelt eftersom de flesta Azure-resurser endast fungerar med Resource Manager. Däremot stöder lagringskonton, virtuella datorer och virtuella nätverk båda två. Det innebär att du måste välja det ena eller det andra när du skapar ditt lagringskonto.
 
-The key feature difference between the two models is their support for grouping. The Resource Manager model adds the concept of a _resource group_, which is not available in the classic model. A resource group lets you deploy and manage a collection of resources as a single unit.
+Den huvudsakliga skillnaden i funktioner mellan de två modellerna är stödet för gruppering. Resource Manager-modellen lägger till begreppet med en _resursgrupp_ som är inte tillgängligt i den klassiska modellen. Med en resursgrupp kan du distribuera och hantera en samling resurser som en enda enhet.
 
-Microsoft recommends that you use **Resource Manager** for all new resources.
+Microsoft rekommenderar att du använder Resource Manager för alla nya resurser.
 
-## Account kind
+## <a name="account-kind"></a>Typ av konto
 
-Storage account _kind_ is a set of policies that determine which data services you can include in the account and the pricing of those services. There are three kinds of storage accounts:
+Lagringskontots _typ_ är en uppsättning principer som bestämmer vilka datatjänster du kan inkludera i kontot samt prissättning för dessa tjänster. Det finns tre typer av lagringskonton:
 
-- **StorageV2 (general purpose v2)**: the current offering that supports all storage types and all of the latest features
-- **Storage (general purpose v1)**: a legacy kind that supports all storage types but may not support all features
-- **Blob storage**: a legacy kind that allows only block blobs and append blobs
+- **StorageV2 (generell användning v2)**: det nuvarande erbjudandet som har stöd för alla lagringstyper och alla de senaste funktionerna
+- **Storage (generell användning v1)**: en äldre typ som har stöd för alla lagringstyper som kanske inte stöder alla funktioner
+- **Blob-lagring**: en äldre typ som endast tillåter blockblobar och tilläggsblobar.
 
-Microsoft recommends that you use the **General-purpose v2** option for new storage accounts.
+Microsoft rekommenderar att du använder generell användning v2 för nya lagringskonton.
 
-There are a few special cases that can be exceptions to this rule. For example, pricing for transactions is lower in general purpose v1, which would allow you to slightly reduce costs if that matches your typical workload.
+Det finns några särskilda fall som kan utgöra undantag för den här regeln. Till exempel är priserna för transaktioner lägre i generell användning v1, vilket du kan använda för att minska kostnaderna något om det matchar din normala arbetsbelastning.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-The core advice here is to choose the **Resource Manager** deployment model and the **StorageV2 (general purpose v2)** account kind for all your storage accounts. The other options still exist primarily to allow existing resources to continue operation. For new resources, there are few reasons to consider the other choices.
+Det viktigaste rådet här är att välja distributionsmodellen **Resource Manager** och kontotypen **StorageV2 (generell användning v2)** alla dina lagringskonton. De andra alternativen finns fortfarande tillgängliga, främst för att tillåta att befintliga resurser fortsätter köras. För nya resurser finns det väldigt få anledningar att välja de andra alternativen.

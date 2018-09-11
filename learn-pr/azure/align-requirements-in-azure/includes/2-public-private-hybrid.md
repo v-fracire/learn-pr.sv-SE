@@ -1,71 +1,71 @@
-Imagine you work at a healthcare company. You have legacy systems, line of business systems, and future plans for new systems. You've heard there are advantages to using cloud computing. How do you choose the best deployment model for different solutions: public, private, or hybrid cloud?
+Anta att du arbetar på ett hälso- och sjukvårdsföretag. Du har äldre system, affärssystem och framtida planer för nya system. Du har hört att det finns fördelar med att använda molntjänster. Hur väljer du den bästa distributionsmodellen för olika lösningar? Ska det vara offentligt moln, privat moln eller hybridmoln?
 
-## What is cloud computing?
+## <a name="what-is-cloud-computing"></a>Vad är molntjänster?
 
-Cloud computing is the provisioning of services and applications on demand over the internet. Servers, applications, data, and other resources are provided as a service. 
+Molntjänster innebär etableringen av tjänster och program på begäran via Internet. Servrar, program, data och andra resurser tillhandahålls som en tjänst. 
 
-To the user, the details of the services are abstracted. You can quickly provision computing resources and use the service with minimal management. You shouldn't think of cloud computing as a datacenter available through the internet. Cloud computing uses virtualization, commodity hardware, and automated processes to provide a self-service user experience to customers similar to a public utility.
+För användaren är informationen om tjänsterna abstrakt. Du kan snabbt etablera beräkningsresurser och använda tjänsten med minimal hantering. Det är fel att tro att molntjänster är ett datacenter som är tillgängligt via Internet. Molntjänster använder virtualisering, maskinvara och automatiserade processer för att kunna erbjuda en självbetjäningsupplevelse till kunder som liknar ett offentligt verktyg.
 
-There are three deployment models for cloud computing: public cloud, private cloud, and hybrid cloud. The following illustration shows an overview of these deployment models.
+Det finns tre distributionsmodeller för molntjänster: offentliga moln, privata moln och hybridmoln. Följande illustration visar en översikt över de här distributionsmodellerna.
 
-![An illustration showing a high-level overview of cloud deployment models.](../media/2-cloud-deployment.png)
+![En illustration som visar en övergripande översikt över molndistributionsmodeller.](../media/2-cloud-deployment.png)
 
-!!! Video TC-008 placeholder !!! 
+!!! Video TC-008 platshållare !!! 
 
 > [!VIDEO https://channel9.msdn.com/Series/History/The-History-of-Microsoft-1995/player]
 
-## Public cloud
+## <a name="public-cloud"></a>Offentligt moln
 
-Public clouds are the most common way of deploying cloud computing. Services are offered over the public internet and available to anyone who wants to purchase them. The cloud resources such as servers and storage are owned and operated by a third-party cloud service provider and delivered over the internet. Services may be free or sold on demand, allowing customers to pay only per usage for the CPU cycles, storage, or bandwidth they consume. Microsoft Azure is an example of a public cloud. 
+Offentliga moln är det vanligaste sättet att distribuera molntjänster på. Tjänsterna erbjuds via offentligt Internet och är tillgängliga för alla som vill köpa dem. Molnresurser, till exempel servrar och lagring, ägs och drivs av en extern molntjänstleverantör och tillhandahålls via Internet. Tjänster kan erbjudas utan kostnad eller mot en avgift på begäran, vilket innebär att kunderna betalar per användning för de CPU-cykler, det lagringsutrymme eller den bandbredd de nyttjar. Microsoft Azure är ett exempel på ett offentligt moln. 
 
-Let's imagine your healthcare company needs an enrollment website. The site needs to scale and be responsive during peak enrollment various times during the year. Your customers access the site from global locations. You can use the public cloud to automatically scale up to meet demand at peak enrollment. When site traffic is low, your site can scale down to save costs. Your site is responsive at peak demand, and you only pay for more resources when needed. You can also deploy your website in multiple geographic regions to increase reliability and responsiveness.
+Låt oss anta att din arbetsplats behöver en registreringswebbplats. Webbplatsen behöver kunna skalas och vara dynamisk när registreringen når höga nivåer vid olika tidpunkter under året. Dina kunder får åtkomst till webbplatsen från globala platser. Du kan använda det offentliga molnet för att automatiskt skala upp när du behöver möta efterfrågan vid registreringstoppar. När trafiken är låg kan webbplatsen skalas ned för att spara kostnader. Webbplatsen är dynamisk vid höga nivåer och du betalar bara för fler resurser när de behövs. Du kan också distribuera din webbplats i olika geografiska områden för att förbättra tillförlitligheten och svarstiderna.
 
-During the development of your website, developers want to create multiple development environments to speed their development process. Developers can use the public cloud to quickly provision virtual machines for sandboxed environments to develop a solution. When the developers no longer need an environment, they can delete it.
+Under utvecklingen av din webbplats vill utvecklarna skapa flera utvecklingsmiljöer för att påskynda utvecklingsprocessen. Utvecklarna kan använda det offentliga molnet för att snabbt etablera virtuella datorer i begränsade miljöer för att utveckla en lösning. När utvecklarna inte behöver miljön längre kan de ta bort den.
 
-### Why public cloud?
+### <a name="why-public-cloud"></a>Varför ska man använda ett offentligt moln?
 
-Public clouds can be deployed faster than on-premises infrastructures and with an almost infinitely scalable platform. Every employee of a company can use the same application from any office or branch using their device of choice as long as they can access the internet. 
+Offentliga moln kan distribueras snabbare än en lokal infrastruktur och med en nästan oändligt skalbar plattform. Samtliga anställda på ett företag kan använda samma program från valfritt kontor eller avdelning och med en valfri enhet så länge de kan ansluta till Internet. 
 
-Examples of why you would use public cloud:
+Exempel på varför du bör använda ett offentligt moln:
 
-- **Service consumption through on-demand or subscription model:** The on-demand or subscription model allows you to pay for the portion of CPU, storage, and other resources that you use or reserve.
-- **No up-front investment of hardware:** No requirement to purchase, manage, and maintain on-premises hardware and application infrastructure. The cloud service provider is held responsible for all management and maintenance of the system. 
-- **Automation:** Quickly provision infrastructure resources using a web portal, scripts, or via automation. 
-- **Geographic dispersity:** Store data near your users, or in desired locations without having to maintain your own datacenters.
-- **Reduced hardware maintenance:** The service provider is responsible for hardware maintenance.
+- **Användning av tjänsten på begäran, vid behov eller med prenumeration:** Med en modell på begäran eller med prenumeration betalar du för den del av processorn, lagringen och andra resurser som du använder eller reserverar.
+- **Ingen inledande investering av maskinvara:** Inget krav på att köpa, hantera och underhålla lokal maskinvara och infrastruktur. Molntjänstleverantören har ansvar för all hantering och underhåll av systemet. 
+- **Automatisering:** Etablera resurser snabbt i infrastrukturen med hjälp av en webbportal, skript eller automatiskt. 
+- **Geografisk spridning:** Placera datan där den behövs utan att du behöver ha egna datacentra.
+- **Minskat maskinvaruunderhåll:** Internetleverantören ansvarar för maskinvaruunderhållet.
 
-## Private cloud
+## <a name="private-cloud"></a>Privat moln
 
-A private cloud consists of computing resources used exclusively by users from one business or organization. It can be physically located at your organization’s on-site datacenter, or it can be hosted by a third-party service provider. The term private cloud should not be considered a rebranding of traditional on-premises datacenters. A private cloud uses on-premises infrastructure and services to provide similar benefits of the public cloud. It uses an abstraction platform to provide *cloud-like* services such as Kubernetes clusters or a complete cloud environment like Azure Stack. The organization is responsible for the purchase, configuration, and maintenance of the hardware. Communication between the systems is usually on the network infrastructure that the business owns and maintains. For example, a private internal network or a dedicated fiber optic connection between buildings.
+Ett privat moln består av beräkningsresurser som uteslutande används av utvalda användare från ett företag eller organisation. Det kan finnas fysiskt i organisationens lokala datacenter eller det kan vara värdbaserat från tredje part. Det privata molnet är inte ett annat namn på ett traditionellt lokalt datacenter. Ett privat moln använder den lokala infrastrukturen och tjänster för att tillhandahålla liknande fördelar som det offentliga molnet. Det använder en abstraktionsplattform för att tillhandahålla *molnliknande* tjänster, till exempel Kubernetes-kluster eller en komplett molnmiljö som Azure Stack. Organisationen är ansvarig för inköp, konfiguration och underhåll av maskinvara. Kommunikationen mellan systemen sker vanligtvis i nätverksinfrastrukturen som företaget äger och underhåller. Det kan exempelvis vara ett privat internt nätverk eller en dedikerad fiberoptisk anslutning mellan byggnader.
 
-Imagine you work at healthcare company and you have an application that is in use at one of your datacenters. The operating environment can't be replicated in the public cloud. You have a new requirement to access data at another one of your datacenters. The database containing the data needs to remain at the other site because of regulatory compliance. This scenario is a private cloud. You have two datacenters your organization owns. You could use a public cloud VPN over the internet to connect the datacenters. However, the scenario would be considered a private cloud since the solution is private to the organization.
+Anta att du arbetar på sjuk- och hälsovårdsföretaget och du har ett program som används i ett av dina datacenter. Driftmiljön kan inte replikeras i det offentliga molnet. Du har fått ett nytt krav om att komma åt data på ett annat av dina datacenter. Den databas som innehåller datan måste vara kvar på den andra platsen på grund av juridiska skäl. Det här scenariot är ett privat moln. Organisationen har två datacentra. Du kan använda en offentlig moln-VPN via Internet för att ansluta dina datacentra. Dock anses scenariot vara ett privat moln, eftersom lösningen är privat i organisationen.
 
-### Why private cloud?
+### <a name="why-private-cloud"></a>Varför ska man använda ett privat moln?
 
-A private cloud can provide more flexibility to an organization. Your organization can customize its cloud environment to meet specific business needs. Since resources are not shared with others, high levels of control and security are possible. Also, private clouds can provide a level of scalability and efficiency.
+Ett privat moln kan ge mer flexibilitet åt en organisation. Organisationen kan anpassa molnmiljön för att uppfylla specifika affärsbehov. Eftersom resurserna inte delas med andra går det att ha höga kontroll- och säkerhetsnivåer. Med privata moln kan man dessutom få både skalbarhet och effektivitet.
 
-Examples of why you would use private cloud:
+Exempel på varför du bör använda ett privat moln:
 
-- **Pre-existing environment:** An existing operating environment that can't be replicated in the public cloud. A large investment in hardware and employees with solution expertise. A large organization may choose to commoditize their computing resources.
-- **Legacy applications:** Business-critical legacy applications that can't easily be physically relocated.
-- **Data sovereignty and security:** Political borders and legal requirements may dictate where data can physically exist.
-- **Regulatory compliance / certification:**  PCI or HIPAA compliance. Certified on-premises datacenter.
+- **Befintlig miljö:** En befintlig driftsmiljö som inte kan replikeras i det offentliga molnet. En stor investering i maskinvara och anställda med lösningskompetens. En stor organisation kan välja att anpassa sina beräkningsresurser.
+- **Äldre program:** Verksamhetskritiska äldre program som det inte är enkelt att flytta fysiskt.
+- **Datasuveränitet och säkerhet:** Politiska gränser och juridiska krav kan styra var datan ska finnas fysiskt.
+- **Regelefterlevnad/certifiering:** PCI- eller HIPAA-efterlevnad. Certifierat lokalt datacenter.
 
-## Hybrid cloud
+## <a name="hybrid-cloud"></a>Hybridmoln
 
-A hybrid cloud is a computing environment that combines a public cloud and a private cloud by allowing data and applications to be shared between them. When computing and processing demand fluctuates, hybrid cloud computing gives businesses the ability to seamlessly scale their on-premises infrastructure up to the public cloud to handle any overflow - without giving third-party datacenters access to the entirety of their data. Organizations gain the flexibility and computing power of the public cloud for basic and non-sensitive computing tasks, while keeping business-critical applications and data on-premises, safely behind a company firewall.
+Ett hybridmoln är en beräkningsmiljö som kombinerar ett offentligt moln och ett privat moln genom att data och program kan delas. När beräknings- och databehandlingsefterfrågan varierar ger hybridmolntjänsterna företaget möjlighet att enkelt skala sina lokala infrastruktur till det offentliga molnet – utan att datacentra från tredje part får tillgång till samtliga data. Företagen får flexibilitet och beräkningskraft från det offentliga molnet för grundläggande och icke-känsliga beräkningsuppgifter, samtidigt som verksamhetskritiska program och data finns kvar lokalt bakom företagets brandvägg.
 
-Using a hybrid cloud helps eliminate the need to make up-front capital expenditures to handle short-term spikes in demand. It also has the flexibility to manage which resources are local versus resources in the cloud. Companies pay only for resources they temporarily use instead of having to purchase, program, and maintain additional resources and equipment that could remain idle over long periods of time. Integration is generally through a secure VPN between cloud providers like Azure and on-premises datacenters.
+Med ett hybridmoln kan man eliminera behovet av att göra direkta investeringar i maskinvara för att hantera tillfälliga trafiktoppar. Man får även flexibilitet att hantera vilka resurser som ska vara lokala och vilka resurser som ska finnas i molnet. Företagen betalar bara för resurser som de använder i stället för att behöva köpa in, programmera och underhålla extraresurser och utrustning som kanske inte ens används under långa tidsperioder. Integrering sker vanligtvis via en säker VPN mellan molnleverantörer som Azure och lokala datacentra.
 
-Imagine you work at healthcare company and you have an application where customers can access their healthcare information. A regulation requires that the data needs to remain at a physical location. The customer website needs to be responsive to their many global users.  As a solution, the database could be hosted in an on-premises datacenter and the website could be hosted in the public cloud. A VPN is used between the on-premises datacenter and the public cloud. This scenario would be considered a hybrid cloud.
+Anta att du arbetar på sjuk- och hälsovårdsföretaget och du har ett program där kunderna kan få åtkomst till sin hälsoinformation. Det finns ett regelverk som kräver att datan ska finnas på en fysisk plats. Kundwebbplatsen måste kunna vara dynamisk för de olika globala användarna.  En lösning kan därför vara att databasen hanteras på ett lokalt datacenter och webbplatsen finns i det offentliga molnet. En VPN-anslutning används mellan det lokala datacentrat och det offentliga molnet. Det här scenariot kan anses vara ett hybridmoln.
 
-### Why hybrid cloud?
+### <a name="why-hybrid-cloud"></a>Varför ska man använda hybridmoln?
 
-Hybrid cloud allows your organization to control and maintain a private infrastructure for sensitive assets. It also gives you the flexibility to take advantage of additional resources in the public cloud when you need them. With the ability to scale to the public cloud, you pay for extra computing power only when needed. It can also ease transitioning to the cloud. You can migrate gradually by phasing in workloads over time.
+Med hybridmoln kan din organisation styra och underhålla en privat infrastruktur för känsliga tillgångar. Det ger dig även flexibilitet att använda fler resurser i det offentliga molnet när du behöver dem. Med möjligheten att skala till det offentliga molnet betalar du för extra databehandlingskraft enbart när det behövs. Det kan också underlätta övergången till molnet. Du kan migrera gradvis genom att fasa in arbetsbelastningar över tid.
 
-Examples of why you would use hybrid cloud:
+Exempel på varför du bör använda hybridmoln:
 
-- **Existing hardware investment:** Business reasons require that you use an existing operating environment and hardware.
-- **Regulatory requirements:** Regulation requires that the data needs to remain at a physical location.
-- **Unique operating environment:** Public cloud can't replicate a legacy operating environment.
-- **Migration:** Move workloads to the cloud over time.
+- **Befintlig maskinvaruinvestering:** Verksamheten kräver att du använder en befintlig driftsmiljö och maskinvara.
+- **Juridiska krav:** Regelverk kräver att data ska finnas på en fysisk plats.
+- **Unik driftsmiljö:** Det offentliga molnet kan inte replikera en äldre driftsmiljö.
+- **Migrering:**: Flytta arbetsbelastningar till molnet över tid.

@@ -1,80 +1,81 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-neural-network-with-dsvm.5-knowledge-check
-title: Check your knowledge
+title: Testa dina kunskaper
 metadata:
-  title: Check your knowledge
-  description: Confirm that you understood the steps required to build neural networks with Tensorflow and the Azure Data Science Virtual Machine.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Testa dina kunskaper
+  description: Visa att du förstått vad som krävs för att skapa neurala nätverk med Tensorflow och Azure Data Science Virtual Machine.
+  ms.openlocfilehash: 50c8562c19b838f0b7414434c8d6ac4296969c00
+  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43251657"
 durationInMinutes: 10
+content: required
 quiz:
-  title: Building Neural Networks with TensorFlow and the Azure Data Science Virtual Machine
+  title: Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine
   questions:
-  - content: "Can you create a Data Science VM with an operating system other than Linux?"
+  - content: Kan du skapa en Data Science VM med ett annat operativsystem än Linux?
     choices:
-    - content: "No"
+    - content: Nej
       isCorrect: false
-      incorrectExplanation: "There are other options for operating systems for the Data Science VM."
-    - content: "Yes"
+      incorrectExplanation: Du kan välja andra operativsystem för en Data Science VM.
+    - content: Ja
       isCorrect: true
-      correctExplanation: "Great! Proceed to the next part of the lab."
-  - content: "What should be copied in the Azure Portal to use to connect to the Data Science VM with client?"
+      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+  - content: Vad ska du kopiera i Azure-portalen när du ska ansluta din Data Science VM till klienten?
     choices:
-    - content: "IP Address"
+    - content: IP-adress
       isCorrect: true
-      correctExplanation: "Great! Proceed to the next part of the lab."
-    - content: "Subscription name"
+      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+    - content: Prenumerationsnamn
       isCorrect: false
-      incorrectExplanation: "The subscription name isn't needed to connect to the VM."
-    - content: "DNS name"
+      incorrectExplanation: Prenumerationens namn behövs inte för anslutning till den virtuella datorn.
+    - content: DNS-namn
       isCorrect: false
-      incorrectExplanation: "The DNS name isn't needed to connect to the VM."
-    - content: "Virtual network/subnet"
+      incorrectExplanation: DNS-namnet behövs inte för anslutning till den virtuella datorn.
+    - content: Virtuellt nätverk/undernät
       isCorrect: false
-      incorrectExplanation: "The Virtual network or subnet isn't needed to connect to the VM."
-  - content: "What do you need to perform transfer learning on the Data Science VM?"
+      incorrectExplanation: Det virtuella nätverket eller undernätet behövs inte för anslutning till den virtuella datorn.
+  - content: Vad behöver du för att överföra inlärning på din Data Science VM?
     choices:
-    - content: "Access to a large GPU"
+    - content: Tillgång till en kraftig GPU
       isCorrect: false
-      incorrectExplanation: "While a GPU is great for retraining on images, it doesn't need to be large or required."
-    - content: "Tensorflow installed"
+      incorrectExplanation: Även om en GPU kan vara användbar vid bildinlärning är den inte obligatorisk och behöver inte vara kraftig.
+    - content: Tensorflow installerat
       isCorrect: false
-      incorrectExplanation: "Tensorflow is already installed in the Data Science VM so there's no need to install it again."
-    - content: "Pre-trained model"
+      incorrectExplanation: Tensorflow är redan installerat i din Data Science VM så du behöver inte installera det igen.
+    - content: Förtränad modell
       isCorrect: true
-      correctExplanation: "Great! Proceed to the next part of the lab."
-    - content: "A very large set of data"
+      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+    - content: En mycket stor datamängd
       isCorrect: false
-      incorrectExplanation: "You don't need a large data set to use pre-trained models."
-  - content: "What is the name of the tool to visualize Tensorflow models?"
+      incorrectExplanation: Du behöver inte någon stor datamängd för att använda förtränade modeller.
+  - content: Vad heter verktyget för visualisering av Tensorflow-modeller?
     choices:
-    - content: "Tensorview"
+    - content: Tensorview
       isCorrect: false
-      incorrectExplanation: ""
-    - content: "Tensorvision"
+      incorrectExplanation: ''
+    - content: Tensorvision
       isCorrect: false
-      incorrectExplanation: ""
-    - content: "Tensorpanel"
+      incorrectExplanation: ''
+    - content: Tensorpanel
       isCorrect: true
-      incorrectExplanation: "Great! Proceed to the next part of the lab."
-    - content: "Tensorboard"
+      incorrectExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+    - content: Tensorboard
       isCorrect: false
-      correctExplanation: ""
-  - content: "When executing the TkInter code for a GUI to test the model, what is the name of the Python script it calls to get results from the model?"
+      correctExplanation: ''
+  - content: När du ska testa modellen och kör TkInter-kod för en GUI, vad heter då Python-skriptet som anropas för att hämta resultat från modellen?
     choices:
-    - content: "retrain.py"
+    - content: retrain.py
       isCorrect: false
-      incorrectExplanation: "This script was used earlier to retrain the model with our own images."
-    - content: "classify.py"
+      incorrectExplanation: Det här skriptet användes tidigare till att träna om modellen med våra egna bilder.
+    - content: classify.py
       isCorrect: false
-      incorrectExplanation: "This script was used to put the TkInter code into and run from."
-    - content: "label_image.py"
+      incorrectExplanation: Det här skriptet användes till att placera ut och köra TkInter-koden.
+    - content: label_image.py
       isCorrect: true
-      correctExplanation: "ThGreat! Proceed to the next part of the lab."
-    - content: "results.py"
+      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+    - content: results.py
       isCorrect: false
-      incorrectExplanation: "This script wouldn't exist and would result in an error."
+      incorrectExplanation: Det här skriptet finns inte och skulle generera ett fel.

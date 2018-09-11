@@ -1,15 +1,18 @@
-We've talked through the Azure pricing calculator and how you can use it to estimate your costs on Azure and compare pricing between different service offerings. We looked at savings options, how to export pricing estimates, and at various tools that Azure has available to help you keep your cloud spend in check.
+Vi har gått igenom priskalkylatorn för Azure och hur du kan använda den för att beräkna dina kostnader för Azure och jämföra priser mellan olika tjänster. Vi har tittat på hur du kan spara och dela uppskattningar, samt de verktyg i Azure som kan hjälpa dig att hålla molnutgifterna under kontroll. 
 
-- Azure Advisor provides recommendations in a number of areas, including cost.
-- Azure Cost Management gives you reporting and billing information, so you can gain insights into where you're spending your money.
-- Cloudyn takes this even further and gives you detailed information that you can use for chargebacks and to identify areas of inefficiency.
+- I Azure Advisor får du rekommendationer kring flera olika områden, inklusive kostnader.
+- I Azure Cost Management får du rapporter och faktureringsinformation så att du ser var utgifterna kommer ifrån. 
+- Cloudyn går steget längre. Här får du detaljerad information som du kan använda för motkontering, och du kan identifiera områden som kan effektiviseras.
 
-We then explored best practices to help you save money on both infrastructure and licensing.
+Sedan gick vi igenom några bra sätt att spara pengar på både infrastruktur och licenser.
 
-## Learn more
+## <a name="learn-more"></a>Läs mer
 
-Here are some places to go to learn more about what we've covered today:
+Här kan du läsa mer om det du har lärt dig i dag:
 
-- [Azure billing documentation](https://docs.microsoft.com/azure/billing/)
+- [Dokumentation om Azure-fakturering](https://docs.microsoft.com/azure/billing/)
 - [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
-- [Azure budgets](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+- [Azure-budgetar](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+
+
+

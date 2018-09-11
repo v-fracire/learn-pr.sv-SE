@@ -1,124 +1,115 @@
-Your transportation company wants to set themselves apart from other companies but without breaking the bank. You must have a good handle on how to set up the database to provide the best service while controlling costs.
+Logistikföretaget som du jobbar för har bestämt sig för att man ska stå ut från mängden, men naturligtvis utan att spräcka budgeten. Nu gäller för dig att du kan konfigurera databasen och tillhandahålla bästa möjliga prestanda utan att kostnaderna skenar.
 
-Here, you'll learn:
+Detta får du får lära dig:
 
-- What considerations you need to make when creating an Azure SQL database, including:
-  - How a logical server acts as an administrative container for your databases.
-  - The differences between purchasing models.
-  - How elastic pools enable you to share processing power among databases.
-  - How collation rules affect how data is compared and sorted.
-- How to bring up Azure SQL Database from the portal.
-- How to add firewall rules so that your database is accessible from only trusted sources.
+* Vilka överväganden som du behöver göra när du skapar en Azure SQL Database, inklusive:
+  * Hur en logisk server kan fungera som en administrativ container för dina databaser.
+  * Skillnader mellan prismodeller.
+  * Hur elastiska pooler gör det möjligt att dela bearbetningskapaciteten mellan olika databaser.
+  * Hur sorteringsreglerna påverkar hur data jämförs och sorteras.
+* Hur du öppnar Azure SQL Database från portalen.
+* Hur du lägger till brandväggsregler så att databasen är tillgänglig från endast betrodda källor.
 
-Let's take a quick look at some things you need to consider when you create an Azure SQL database.
+Låt oss ta en snabb titt på några saker som du behöver tänka på när du skapar en Azure SQL Database.
 
-## One server, many databases
+## <a name="one-server-many-databases"></a>En server, många databaser
 
-When you create your first Azure SQL database, you also create an _Azure SQL logical server_. Think of a logical server as an administrative container for your databases. You can control logins, firewall rules, and security policies through the logical server. You can also override these policies on each database within the logical server.
+När du skapar din första Azure SQL Database skapas även en _logisk Azure SQL-server_. Tänk dig den logiska servern som en administrativ container för dina databaser. Med den logiska servern kan du styra över saker som inloggningar, brandväggsregler och säkerhetsprinciper. Du kan också åsidosätta dessa principer för varje enskild databas på den logiska servern.
 
-For now, you need just one database. But a logical server enables you to add more later and tune performance among all your databases.
+För tillfället behöver du bara en enda databas. Men eftersom du har en logisk server kan du lägga till fler databaser senare och finjustera prestanda hos alla dina databaser.
 
-## Choose performance: DTUs versus vCores
+## <a name="choose-performance-dtus-versus-vcores"></a>Välj prestanda: DTU eller Virtuell kärna
 
-Azure SQL Database has two purchasing models: DTU and vCore.
+Azure SQL Database har två prismodeller: DTU och Virtuell kärna.
 
-### What are DTUs?
+### <a name="what-are-dtus"></a>Vad är en DTU?
 
-DTU stands for Database Transaction Unit and is a combined measure of compute, storage, and IO resources. Think of the DTU model as a simple, preconfigured purchase option.
+DTU står för Database Transaction Unit – databastransaktionsenhet – och är ett kombinerat mått på beräkning, lagring och IO-resurser. Tänk på DTU-modellen som ett enkelt och förkonfigurerat alternativ.
 
-Because your logical server can hold more than one database, there's also the idea of eDTUs, or elastic Database Transaction Units. This option enables you to choose one price, but allow each database in the pool to consume fewer or greater resources depending on current load.
+Eftersom din logiska server kan innehålla mer än en databas finns också varianten eDTU, alltså elastiska databastransaktionsenheter. Det här alternativet gör det möjligt att välja en prisnivå, men varje databas i poolen kan ändå använda färre eller fler resurser beroende på aktuell belastning.
 
-### What are vCores?
+### <a name="what-are-vcores"></a>Vad är en virtuell kärna?
 
-vCore gives you greater control over what compute and storage resources you create and pay for.
+Med virtuell kärna får du mer kontroll över vilka beräknings- och lagringsresurser som du skapar och betalar för.
 
-While the DTU model provides fixed combinations of compute, storage, and IO resources, the vCore model enables you to configure resources independently. For example, with the vCore model you can increase storage capacity but keep the existing amount of compute and IO throughput.
+Medan DTU-modellen har fasta kombinationer för beräkning, lagring och I/O-resurser kan du med Virtuell kärna konfigurera resurser oberoende av varandra. Med Virtuell kärna kan du till exempel öka lagringskapaciteten men behålla den befintliga mängden beräkningar och I/O-operationer. 
 
-Your transportation and logistics prototype only needs one Azure SQL Database instance. You decide on the DTU option because it provides a good balance of compute, storage, and IO performance and is less expensive to get started.
+Prototypappen behöver bara en Azure SQL Database-instans. Du bestämmer dig för alternativet DTU eftersom det ger en bra balans mellan beräkning, lagring och I/O-prestanda. Dessutom blir det lättare att komma igång till en låg intial kostnad.
 
-## What are SQL elastic pools?
+## <a name="what-are-sql-elastic-pools"></a>Vad är elastiska SQL-pooler?
 
-When you create your Azure SQL database, you can create a _SQL elastic pool_.
+När du skapar din Azure SQL Database kan du även skapa en _elastisk SQL-pool_.
 
-SQL elastic pools relate to eDTUs. They enable you to buy a set of compute and storage resources that are shared among all the databases in the pool. Each database can use the resources they need, within the limits you set, depending on current load.
+Elastiska SQL-pooler är nära besläktat med eDTU. Du köper en viss mängd beräknings- och lagringsresurser som delas mellan alla databaser i poolen. Varje databas kan använda de resurser som den behöver, inom de gränser du ställer in och beroende på aktuell belastning.
 
-For your prototype, you won't need a SQL elastic pool because you need only one SQL database.
+För prototypen behöver du inte någon elastisk SQL-pool eftersom du bara behöver en enda SQL-databas.
 
-## What is collation?
+## <a name="what-is-collation"></a>Vad är sortering?
 
-Collation refers to the rules that sort and compare data. Collation helps you define sorting rules when case sensitivity, accent marks, and other language characteristics are important.
+Sortering syftar här på regler som sorterar och jämför data. Definiera sorteringsregler för fall där skiftlägeskänslighet, accenter och andra särdrag har stor betydelse.
 
-Let's take a moment to consider what the default collation, **SQL_Latin1_General_CP1_CI_AS**, means.
+Låt oss titta närmare på standardsorteringen **SQL_Latin1_General_CP1_CI_AS** en stund.
 
-- **Latin1_General** refers to the family of Western European languages.
-- **CP1** refers to code page 1252, a popular character encoding of the Latin alphabet.
-- **CI** means that comparisons are case insensitive. For example, "HELLO" compares equally to "hello".
-- **AS** means that comparisons are accent sensitive. For example, "résumé" doesn't compare equally to "resume".
+* **Latin1_General** står för västeuropeiska språk.
+* **CP1** står för teckentabellen 1252, en populär teckenkodning för det latinska alfabetet.
+* **CI** betyder att ingen hänsyn tas till skiftläget. ”HEJ” är alltså jämställt med ”hej”.
+* **AS** betyder att hänsyn tas till användningen av accenter. Som exempel kan nämnas att ”résumé” inte är samma sak som ”resume”.
 
-Because you don't have specific requirements around how data is sorted and compared, you choose the default collation.
+Eftersom du inte har några särskilda krav på hur data sorteras och jämförs kan du välja standardsortering.
 
-## Create your Azure SQL database
+## <a name="create-your-azure-sql-database"></a>Skapa en Azure SQL Database
 
-Here you'll set up your database, which includes creating your logical server. You'll choose settings that support your transportation logistics application. In practice, you would choose settings that support the kind of app you're building.
+Här får du konfigurera en egen databas, vilket även innefattar att skapa den logiska servern. Du väljer inställningar som stöder en logistikapp. I praktiken kan man välja inställningar som stöder typ av app som du håller på att skapa.
 
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. [Logga in på Azure-portalen](https://portal.azure.com?azure-portal=true).
+1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen. Välj **Databaser** och välj sedan **SQL Database**.
 
-1. From the portal, click **Create a resource** from the upper left-hand corner. Select **Databases**, then select **SQL Database**.
+    ![Skapa en Azure SQL Database från portalen](../media-draft/create-db.png)
+1. Gå till **Server**, klicka på **Konfigurera inställningarna**, fyll i formuläret och klicka sedan på **Välj**. Här får du lite hjälp med att fylla i formuläret:
 
-   ![Screenshot of the Azure portal showing the Create a resource blade with the Databases section selected and the Create a resource, Databases, and SQL Database buttons highlighted.](../media-draft/create-db.png)
-
-1. Under **Server**, click **Configure required settings**, fill out the form, then click **Select**. Here's more information on how to fill out the form:
-
-    | Setting      | Value |
+    | Inställning      | Värde |
     | ------------ | ----- |
-    | **Server name** | A globally unique [server name](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-    | **Server admin login** | A [database identifier](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) that serves as your primary administrator login name. |
-    | **Password** | Any valid password that has at least eight characters and contains characters from three of these categories: uppercase characters, lowercase characters, numbers, and non-alphanumeric characters. |
-    | **Location** | Any valid location. |
+    | **Servernamn** | Ett unikt [servernamn](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) globalt. |
+    | **Inloggning för serveradministratör** | Ett [databas-ID](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) som fungerar som din primära administratörsinloggning. |
+    | **Lösenord** | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
+    | **Plats** | Valfri giltig plats. |
     > [!IMPORTANT]
-    > Note your server name, admin login, and password for later.
+    > Anteckna servernamn, administratörsinloggning och lösenord för senare bruk.
+1. Klicka på **Prisnivå** att välja tjänstnivå. Välj prisnivån **Basic** och klicka sedan på **Använd**.
+1. Använd dessa värden för att fylla i resten av formuläret.
 
-1. Click **Pricing tier** to specify the service tier. Select the **Basic** service tier, then click **Apply**.
-
-1. Use these values to fill out the rest of the form.
-
-    | Setting      | Value |
+    | Inställning      | Värde |
     | ------------ | ----- |
-    | **Database name** | **Logistics** |
-    | **Subscription** | Your subscription |
-    | **Resource group** | **logistics-db-rg** |
-    | **Select source** | **Blank database** |
-    | **Want to use SQL elastic pool?** | **Not now** |
-    | **Collation** | **SQL_Latin1_General_CP1_CI_AS** |
+    | **Databasnamn** | **Logistik** | 
+    | **Prenumeration** | Din prenumeration |
+    | **Resursgrupp** | **logistics-db-rg** | 
+    | **Välj källa** | **Tom databas** | 
+    | **Vill du använda elastisk SQL-pool?** | **Inte nu** |
+    | **Sortering** | **SQL_Latin1_General_CP1_CI_AS** |
+1. Skapa en Azure SQL Database genom att klicka på **Skapa**.
+1. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
+    ![Övervakning av distributionsprocessen](../media-draft/notifications-progress.png) När processen är klar klickar du på **Pin to dashboard** (Fäst på instrumentpanelen) för att fästa din databasserver på instrumentpanelen så att du alltid har snabb åtkomst när du behöver det.
+    ![Fästa servern på instrumentpanelen](../media-draft/notifications-complete.png)
 
-1. Click **Create** to create your Azure SQL database.
+## <a name="set-the-server-firewall"></a>Konfigurera serverns brandvägg
 
-1. On the toolbar, click **Notifications** to monitor the deployment process.
+Din Azure SQL Database är nu aktiverad och driften är i full gång. Du har många alternativ för att ytterligare konfigurera, skydda, övervaka och felsöka den nya databasen.
 
-When the process completes, click **Pin to dashboard** to pin your database server to the dashboard so that you have quick access when you need it later.
+Anta att du efter ett tag inser att du behöver ytterligare beräkningskraft för att hålla jämna steg med efterfrågan. Du kan då justera prestandaalternativen eller byta mellan modellerna DTU och Virtuell kärna.
 
-   ![Screenshot of the Azure portal showing the Notifications menu with the Pin to dashboard button from a recent deployment success message highlighted.](../media-draft/notifications-complete.png)
+Du kan också ange vilka system som ska få åtkomst till databasen via brandväggen. Brandväggen förhindrar först all åtkomst till databasservern från system utanför Azure.
 
-## Set the server firewall
+För din prototyp behöver du bara åtkomst till databasen från din bärbara dator. Senare kan du godkänna ytterligare system, till exempel din mobilapp.
 
-Your Azure SQL database is now up and running. You have many options to further configure, secure, monitor, and troubleshoot your new database.
+Nu ska vi aktivera utvecklingsdatorn för att få åtkomst till databasen via brandväggen.
 
-For example, say that over time you realize you need additional compute power to keep up with demand. You can adjust performance options or even switch between the DTU and vCore performance models.
+1.  Gå till översiktsbladet i logistikdatabasen. Om du har fäst databasen sedan tidigare kan du klicka på panelen **Logistics** (Logistik) på instrumentpanelen för att komma dit.
+    ![Logistikpanelen](../media-draft/logistics-tile.png)
+1. Klicka på **Konfigurera serverns brandvägg**.
 
-You can also specify which systems can access your database through the firewall. Initially, the firewall prevents all access to your database server from outside of Azure.
+    ![Konfigurera serverns brandvägg](../media-draft/set-server-firewall.png)
+1. Klicka på **Lägg till klient-IP** i verktygsfältet och klicka på **Spara**.
 
-For your prototype, you only need to access the database from your laptop. Later, you can whitelist additional systems, such as your mobile app.
+    ![Lägga till klientens IP-adress](../media-draft/add-client-ip.png)
 
-Let's enable your development computer to access the database through the firewall now.
-
-1. Go to the overview blade of the Logistics database. If you pinned the database earlier, you can click the **Logistics** tile on the dashboard to get there.
-
-1. Click **Set server firewall**.
-
-    ![Screenshot of the Azure portal showing a SQL database overview blade with the Set server firewall button highlighted.](../media-draft/set-server-firewall.png)
-
-1. Click **Add client IP**, and then click **Save**.
-
-    ![Screenshot of the Azure portal showing a SQL database Firewall settings blade with the Add client IP button highlighted.](../media-draft/add-client-ip.png)
-
-In the next part, you'll get some hands-on practice with your new database and with Azure Cloud Shell. You'll connect to the database, create a table, add some sample data, and execute a few SQL statements.
+I nästa del får du prova på några praktiska övningar med den nya databasen och Cloud Shell. Du kommer att få ansluta till databasen, skapa en tabell, lägga till exempeldata och köra några SQL-uttryck.

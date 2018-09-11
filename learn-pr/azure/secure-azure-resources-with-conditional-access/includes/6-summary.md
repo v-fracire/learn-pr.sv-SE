@@ -1,3 +1,3 @@
-In this module, you created a directory and enabled Azure Multi-Factor Authentication using a conditional access rule. You can now create additional conditional access policies for this or other Azure resources.
+I den här modulen skapade du en katalog och aktiverade Azure Multi-Factor Authentication med hjälp av en regel för villkorlig åtkomst. Nu kan du skapa fler principer för villkorlig åtkomst för den här eller andra Azure-resurser.
 
-For more information, check out our documentation at [https://aka.ms/AzureADDocs](https://aka.ms/AzureADDocs).
+Mer information finns i vår dokumentation på https://aka.ms/AzureADDocs.

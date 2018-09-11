@@ -1,44 +1,44 @@
-There are many times when you need to group a series of data updates together, because a change to one piece of data needs to result in a change to another piece of data. Transactions enable you to group these updates so that if one event in a series of updates fails, the entire series can be rolled back, or undone. For example, as an online retailer you could use a transaction for the placement of an order and payment verification. The grouping of the related events ensures that you don't reduce your inventory levels until an approved form of payment is received.
+Det kan ofta hända att du behöver gruppera en serie datauppdateringar eftersom en ändring kan leda till att en annan dataenhet också behöver ändras. Med transaktioner kan du gruppera de här uppdateringarna. Om en uppdatering i serien misslyckas kan du då ångra eller återställa hela serien. I en onlinebutik kan du till exempel använda en transaktion för processen att lägga en order och verifiera betalningen. När du grupperar de här relaterade händelserna ser du till att inte lagernivån minskas förrän du har tagit emot en godkänd form av betalning.
 
-Here, you'll learn what a transaction is, and whether they're required for your data.
+Här får du lära dig vad en transaktion är och när de är bra att använda för dina data.
 
-## What is a transaction?
+## <a name="what-is-a-transaction"></a>Vad är en transaktion?
 
-A transaction is a logical unit that is independently executed for data retrieval or updates.
+En transaktion är en logisk enhet som körs oberoende när data ska hämtas eller uppdateras.
 
-Here's the question to ask yourself regarding whether you need a transactional database: Will a change to one piece of data in your dataset impact another? If the answer is yes, then you'll need transaction support in your database service.
+När du ska avgöra om du behöver en databas med transaktionsstöd ska du fråga dig det här: Kommer uppdateringar påverka andra datapunkter i datamängden? Om svaret är Ja så behöver du transaktionsstöd i databastjänsten.
 
-Transactions are often defined by a set of four requirements, referred to as ACID guarantees. ACID stands for Atomicity, Consistency, Isolation, and Durability:
+Transaktioner definieras ofta i termer av fyra olika krav, som kallas för ACID-garantier. ACID står för atomicitet, konsekvens, isolering och varaktighet:
 
-- Atomicity means all the data is updated, or all the data is rolled back to its original state.
-- Consistency ensures that if something happens partway through the transaction, that part of the data is isn't left without the updates. Across the board, the data is consistent in applying the transaction or not.
-- Isolation ensures that one transaction is not impacted by another transaction.
-- Durability means that the changes made due to the transaction are permanently saved in the system. Committed data is saved by the system such that, even in the event of a failure and system restart, the data is available in its correct state.
+* Atomicitet innebär att alla data uppdateras, eller att alla data återställs till sitt ursprungliga tillstånd.
+* Konsekvens innebär att om det händer något medan transaktionen utförs så blir inte vissa data uppdaterade medan andra inte blir det. Antingen tillämpas hela transaktionen eller ingen del av den.
+* Isolering innebär att en transaktion inte påverkas av en annan transaktion.
+* Varaktighet innebär att ändringar som görs på grund av transaktionen sparas permanent i systemet. Bekräftade data sparas i systemet så att de är tillgängliga i korrekt tillstånd även om systemet måste startas om efter ett fel.
 
-When a database has ACID guarantees, it applies these principles to its transactions, and you can be assured that your transactions will be applied in a consistent manner.
+När en databas har ACID-garantier gäller dessa principer för transaktionerna och du kan vara säker på att dina transaktioner tillämpas konsekvent.
 
-## OLTP vs OLAP
+## <a name="oltp-vs-olap"></a>OLTP eller OLAP
 
-Transactional databases are often called OLTP (Online Transaction Processing) systems. OLTP systems commonly support lots of users, have quick response times, and handle large volumes of data. They are also highly available (meaning they have very minimal downtime), and typically handle small or relatively simple transactions.
+Transaktionsdatabaser kallas ofta för OLTP-system (Online Transaction Processing). OLTP-system har normalt stöd för många användare, korta svarstider, kan hantera stora mängder data, har hög tillgänglighet (vilket innebär få avbrott i driften) och hanterar oftast små eller relativt enkla transaktioner.
 
-On the contrary, OLAP (Online Analytical Processing) systems commonly support fewer users, have longer response times, can be less available, and typically handle large and complex transactions.
+OLAP-system (Online Analytical Processing) har istället normalt stöd för färre användare, längre svarstider, de kan vara mindre tillgängliga och hanterar ofta stora och komplexa transaktioner.
 
-The terms OLTP and OLAP aren't used as frequently as they used to be, but the comparison does make it easier to categorize the needs of your application, so it's an important concept to be aware of. 
+OLTP och OLAP används inte så ofta som förut, men jämförelsen gör det enklare att kategorisera behoven i din app så de är viktiga begrepp att känna till. 
 
-Now that we're familiar with transactions, OLTP, and OLAP, let's walk through each of the data sets in the online retail scenario, and determine the need for transactions.
+Nu när vi bekantat oss med transaktioner, OLTP och OLAP ska vi gå igenom var och en av datamängderna i scenariot med onlinebutiken och avgöra om du behöver använda transaktioner.
 
-## Product catalog data
+### <a name="product-catalog-data"></a>Data i produktkatalogen
 
-Product catalog data should be stored in a transactional database. When users place an order and the payment is verified, the inventory for the item should be updated. Likewise, if the customer's credit card is declined, the order should be rolled back, and the inventory should not be updated. These relationships all require transactions.
+Data i produktkatalogen bör lagras i en transaktionsdatabas. När användare lägger en order och betalningen har verifierats artikelns lagerstatus uppdateras. Om kundens kreditkort nekas ska ordern återställas och lagerstatusen ska inte uppdateras. För de här relationerna bör du använda transaktioner.
 
-## Photos and videos
+### <a name="photos-and-videos"></a>Foton och videor
 
-Photos and videos in a product catalog don't require transaction support. The only reason a change would be made to a photo or video is if an update was made, or new files were added. Even though there is a relationship between the image and the actual product data, it's not transactional in nature.
+Foton och videor i produktkatalogen behöver inget transaktionsstöd. De ändras bara vid uppdateringar och när nya filer läggs till. Även om det finns en relation mellan bilden och faktiska produktdata är inte relationen transaktionsbaserad.
 
-## Business data
+### <a name="business-data"></a>Affärsdata
 
-For the business data, because all of the data is historical and unchanging, transaction support is not required. The business analysts working with the data also have unique needs in that they often require working with aggregates in their queries, so that they can work with the totals of other smaller data points.
+Eftersom alla affärsdata är historiska och aldrig ändras krävs inget stöd för transaktioner. Affärsanalytiker som arbetar med data har också unika behov eftersom de normalt behöver arbeta med aggregeringar i sina frågor, så att de kan hantera summor snarare än mindre datapunkter.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Ensuring that your data is in the correct state is not always an easy task. Transactions can help by enforcing data integrity requirements on your data. If your data would benefit from the principles of ACID, you should choose a storage solution that supports transactions.
+Det kan vara svårt att se till att dina data har rätt tillstånd. Du kan använda transaktioner till att garantera dataintegriteten. Om dina data skulle ha nytta av ACID-principerna bör du välja en lagringslösning med transaktionsstöd.

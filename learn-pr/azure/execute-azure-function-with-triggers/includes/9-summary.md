@@ -1,9 +1,8 @@
-An Azure function won't do work until something explicitly tells it to execute. In this module, we explored the timer, HTTP, and blob triggers.
+En Azure-funktion fungerar inte förrän något uttryckligen beordrar den att köra. I den här modulen lärde vi oss om timer-, HTTP- och blob-utlösare. 
 
-Timer triggers are great when you need to execute a function at a consistent time. HTTP triggers allow you to execute logic when you receive data from an outside source. Blob triggers allow you to respond to data that's stored or updated in the cloud.
+Timerutlösare är användbara när du behöver utföra en funktion vid en viss tidpunkt konsekvent. Med HTTP-utlösare kan du köra logik när du tar emot data från en extern källa. Med blob-utlösare kan du svara på data som lagras eller uppdateras i molnet.
 
-## Cleanup
+## <a name="cleanup"></a>Rensa
+Om du vill ta bort funktionen helt kan du ta bort resursgruppen eller själva funktionen från verktygsfältet.
 
-To completely delete the Function, you can delete the Resource Group, or the Function itself from the toolbar.
-
-![Screenshot of the Azure portal showing a Functions App toolbar with the Delete button highlighted.](../media/6-delete-function.png)
+![Ta bort funktionen](../media-drafts/6-delete-function.png)

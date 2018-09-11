@@ -1,76 +1,76 @@
-You now have your site up and running on Azure. How can you help ensure your site is running 24/7?
+Nu är din webbplats igång på Azure. Hur kan du se till att din webbplats alltid är igång?
 
-For example, what happens when you need to do weekly maintenance? Your service will still be unavailable during your maintenance window. And because your site reaches users all over the world, there's no good time to take down your systems for maintenance. You may also run into performance issues if too many users connect at the same time.
+Vad händer till exempel när du behöver utföra veckounderhåll? Tjänsten kommer fortfarande att vara otillgänglig under underhållsperioden. Och eftersom webbplatsen når användare över hela världen finns det ingen bra tidpunkt att ta ned systemen för underhåll. Du kan också stöta på prestandaproblem om för många användare ansluter samtidigt.
 
-## What are availability and high availability?
+## <a name="what-are-availability-and-high-availability"></a>Vad är tillgänglighet och hög tillgänglighet?
 
-_Availability_ refers to how long your service is up and running without interruption. _High availability_, or _highly available_, refers to a service that's up and running for a long period of time.
+_Tillgänglighet_ avser hur länge tjänsten är igång utan avbrott. _Hög_ _tillgänglighet_ avser en tjänst som är igång under lång tid.
 
-Think of a social media or news site that you visit daily. Can you always access the site, or do you often see error messages like "503 Service Unavailable"? You know how frustrating it is when you can't access the information you need.
+Tänk på en webbplats för sociala medier eller nyheter som du besöker dagligen. Kommer du alltid åt webbplatsen eller visas ofta felmeddelanden, till exempel ”503 – tjänsten är inte tillgänglig”? Du vet hur frustrerande det är när du inte kommer åt den information du behöver.
 
-You may have heard terms like "five nines availability." Five nines availability means that the service is guaranteed to be running 99.999 percent of the time. Although it's difficult to achieve 100 percent availability, many teams strive for at least five nines.
+Du kanske har hört uttryck som ”five nines”-tillgänglighet. ”Five nines” (fem nior) innebär att tjänsten garanterat är igång 99,999 procent av tiden. Det är svårt att uppnå 100 procent tillgänglighet, men många team strävar efter minst fem nior.
 
-## What is resiliency?
+## <a name="what-is-resiliency"></a>Vad är återhämtning?
 
-_Resiliency_ refers to a system's ability to stay operational during abnormal conditions.
+_Återhämtning_ avser ett systems förmåga att fortsätta fungera under avvikande förhållanden.
 
-These conditions include:
+Exempel på sådana förhållanden:
 
-- Natural disasters.
-- System maintenance, both planned and unplanned, including software updates and security patches.
-- Spikes in traffic to your site.
-- Threats made by malicious parties, such as distributed denial of service, or DDoS, attacks.
+- Naturkatastrofer
+- Systemunderhåll, både planerat och oplanerat, bland annat programuppdateringar och säkerhetskorrigeringar
+- Toppar i trafiken på webbplatsen
+- Hot från parter med ont uppsåt, till exempel distribuerade överbelastningsattacker (DDoS)
 
-Imagine your marketing team wants to have a flash sale to promote a line of new products. You might expect a huge spike in traffic during this time. This spike could overwhelm your processing system, causing it to slow down or halt, disappointing your users. You may have experienced this disappointment for yourself. Have you ever wanted tickets for an event only to find the website wasn't responding?
+Tänk dig att marknadsavdelningen vill ha en utförsäljning för att marknadsföra en serie nya produkter. Du kan förvänta dig en hög topp i trafiken under den här tiden. Den här toppen kan överbelasta bearbetningssystemet, så att det blir långsamt eller stannar helt och dina användare blir besvikna. Du kan ha upplevt den här besvikelsen själv. Har du någonsin velat ha biljetter till ett evenemang men upptäckt att webbplatsen inte reagerar?
 
-## What is a load balancer?
+## <a name="what-is-a-load-balancer"></a>Vad är en belastningsutjämnare?
 
-A _load balancer_ distributes traffic evenly among each system in a pool. A load balancer can help you achieve both high availability and resiliency.
+En _belastningsutjämnare_ distribuerar trafik jämnt mellan alla system i en pool. Med hjälp av en belastningsutjämnare kan du uppnå både hög tillgänglighet och återhämtning.
 
-Say you start by adding additional VMs, each configured identically, to each tier. The idea is to have additional systems ready, in case one goes down or is serving too many users at the same time.
+Anta att du börjar med att lägga till ytterligare virtuella datorer, med identisk konfiguration, på varje nivå. Tanken är att ha ytterligare system som är redo om ett blir otillgängligt eller hanterar för många användare samtidigt.
 
-The problem here is that each VM would have its own IP address. Plus, you don't have a way to distribute traffic in case one system goes down or is busy. How do you connect your VMs so that they appear to the user as one system?
+Problemet här är att varje virtuell dator har en egen IP-adress. Dessutom går det inte att distribuera trafik om ett system blir otillgängligt eller är upptaget. Hur kopplar du samman de virtuella datorerna så att de visas som ett enda system för användaren?
 
-The answer is to use a load balancer to distribute traffic. The load balancer becomes the entry point to the user. The user doesn't know (or need to know) which system the load balancer chooses to receive the request.
+Lösningen är att använda en belastningsutjämnare för att distribuera trafik. Belastningsutjämnaren blir användarens startpunkt. Användaren vet inte (och behöver inte veta) vilket system belastningsutjämnaren väljer för att ta emot begäran.
 
-The following illustration shows the role of a load balancer.
+Här är ett diagram.
 
-![An illustration showing the web tier of a three-tier architecture. The web tier has multiple virtual machines to service user requests. There is a load balancer that distributes user requests among the virtual machines.](../media/3-load-balancer.png)
+![Belastningsutjämna trafik mellan virtuella datorer](../media-draft/load-balancer.png)
 
-You see that the load balancer receives the user's request. The load balancer directs the request to one of the VMs in the web tier. If a VM is unavailable or stops responding, the load balancer stops sending traffic to it. The load balancer then directs traffic to one of the responsive servers.
+Du ser att belastningsutjämnaren tar emot användarens begäran. Belastningsutjämnaren dirigerar begäran till någon av de virtuella datorerna på webbnivån. Om en virtuell dator inte är tillgänglig eller inte svarar slutar belastningsutjämnaren att skicka trafik till den. Belastningsutjämnaren dirigerar sedan trafik till en av de tillgängliga servrarna.
 
-Load balancing enables you to run maintenance tasks without interrupting service. For example, you can stagger the maintenance window for each VM. During the maintenance window, the load balancer detects that the VM is unresponsive, and directs traffic to other VMs in the pool.
+Med hjälp av belastningsutjämning kan du köra underhållsuppgifter utan att avbryta tjänsten. Du kan exempelvis sprida ut underhållsperioden för alla virtuella datorer. Under underhållsperioden känner belastningsutjämnaren av att den virtuella datorn inte svarar och dirigerar trafik till andra virtuella datorer i poolen.
 
-For your e-commerce site, the app and data tiers can also have a load balancer. It all depends on what your service requires.
+För din näthandelswebbplats kan app- och datanivåerna också ha en belastningsutjämnare. Det beror helt på vad tjänsten kräver.
 
-## What is Azure Load Balancer?
+## <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
-Azure Load Balancer is a load balancer service that Microsoft provides.
+Azure Load Balancer är en tjänst för belastningsutjämning som Microsoft tillhandahåller.
 
-You can manually configure load balancer software on a virtual machine. The downside is that you now have an additional system that you need to maintain. If your load balancer goes down or needs routine maintenance, you're back to your original problem.
+Du kan manuellt konfigurera programvara för belastningsutjämning på en virtuell dator. Nackdelen är att du nu har ett ytterligare system som du behöver underhålla. Om belastningsutjämnaren blir otillgänglig eller kräver rutinunderhåll kommer du tillbaka till det ursprungliga problemet.
 
-Instead, you can use Azure Load Balancer because there's no infrastructure or software for you to maintain. Azure takes care of maintenance for you.
+I stället kan du använda Azure Load Balancer eftersom du inte behöver underhålla någon infrastruktur eller programvara – Azure tar hand om underhållet åt dig.
 
-The following illustration shows  the role of Azure load balancers in a multi-tier architecture.
+Här är ett diagram som visar flera virtuella datorer på varje nivå. På varje nivå finns en Azure Load Balancer som distribuerar trafik mellan de virtuella datorerna i poolen.
 
-![An illustration showing the web tier of a three-tier architecture. The web tier has multiple virtual machines to service user requests. There is a load balancer that distributes user requests among the virtual machines.](../media/3-azure-load-balancer.png)
+![Belastningsutjämna trafik mellan virtuella datorer med Azure Load Balancer](../media-draft/azure-load-balancer.png)
 
-## What about DNS?
+## <a name="what-about-dns"></a>Hur är det med DNS?
 
-DNS, or Domain Name System, is a way to map user-friendly names to their IP addresses. You can think of DNS as the phonebook of the internet.
+DNS (Domain Name System) är ett sätt att mappa användarvänliga namn till deras IP-adresser. Du kan se DNS som Internets telefonkatalog.
 
-For example, your domain name, contoso.com, might map to the IP address of the load balancer at the web tier, 40.65.106.192.
+Domännamnet contoso.com kan till exempel mappas till belastningsutjämnarens IP-adress på webbnivå, 40.65.106.192.
 
-You can bring your own DNS server or use Azure DNS, a hosting service for DNS domains that runs on Azure infrastructure.
+Du kan ta med din egen DNS-server eller använda Azure DNS, en värdtjänst för DNS-domäner som körs på Azure-infrastruktur.
 
-The following illustration shows Azure DNS. When the user navigates to contoso.com, Azure DNS routes traffic to the load balancer.
+Här är ett diagram som visar Azure DNS. När användaren navigerar till contoso.com dirigerar Azure DNS trafik till belastningsutjämnaren.
 
-![An illustration showing the Azure domain name system positioned in front of the load balancer.](../media/3-dns.png)
+![Använda Azure DNS för att tilldela ett DNS-namn](../media-draft/dns.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-With load balancing in place, your e-commerce site is now more highly available and resilient. When you perform maintenance or receive an uptick in traffic, your load balancer can distribute traffic to another available system.
+Med belastningsutjämning har din näthandelswebbplats nu högre tillgänglighet och återhämtning. När du utför underhåll eller när trafiken ökar tillfälligt kan belastningsutjämnaren distribuera trafik till ett annat tillgängligt system.
 
-Although you can configure your own load balancer on a VM, Azure Load Balancer reduces upkeep because there's no infrastructure or software to maintain.
+Du kan konfigurera en egen belastningsutjämnare på en virtuell dator, men **Azure Load Balancer** minskar behovet av underhåll eftersom det inte finns någon infrastruktur eller programvara att underhålla.
 
-DNS maps user-friendly names to their IP addresses, much like how a phonebook maps names of people or businesses to phone numbers. You can bring your own DNS server, or use Azure DNS.
+DNS mappar användarvänliga namn till deras IP-adresser, ungefär som en telefonkatalog mappar namn på personer och företag till telefonnummer. Du kan ta med en egen DNS-server eller använda Azure DNS.

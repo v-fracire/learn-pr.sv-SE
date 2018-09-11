@@ -1,79 +1,79 @@
-Organizations often have multiple storage accounts to let them implement different sets of requirements. In the chocolate-manufacturer example, there would be one storage account for the private business data and one for the consumer-facing files. Here, you will learn the policy factors that are controlled by a storage account, which will help you decide how many accounts you need.
+Organisationer har ofta flera lagringskonton så att de kan implementera olika kravuppsättningar. I exemplet med chokladtillverkaren skulle det finnas ett lagringskonto för privata affärsdata och ett för konsumentinriktade-filer. Här lär du dig de principfaktorer som styrs av ett lagringskonto och som hjälper dig att avgöra hur många konton du behöver.
 
-## What is Azure Storage?
+## <a name="what-is-azure-storage"></a>Vad är Azure Storage?
 
-Azure provides many ways to store your data. There are multiple database options like Azure SQL, Cosmos DB, Azure Tables, etc. Azure offers multiple ways to store messages, such as Azure Queues and Event Hubs. You can even store loose files using options like Azure Files and Azure Blobs.
+Azure erbjuder många sätt att lagra data. Det finns flera alternativ för databaser som Azure SQL, Cosmos DB, Azure Tables osv. Det finns flera sätt att lagra meddelanden såsom Azure Queues och Event Hubs. Du kan även lagra lösa filer med hjälp av alternativ som Azure Files och Azure Blobs.
 
-Azure selected four of these data services and placed them together under the name _Azure Storage_. The four services are: Azure Blobs, Azure Files, Azure Queues, and Azure Tables. The following illustration shows the elements of Azure Storage.
+Azure har valt fyra av dessa datatjänster och placerat dem tillsammans med namnet _Azure Storage_. De fyra tjänsterna är: Azure Blobs, Azure Files, Azure Queues och Azure Tables. Följande bild visar elementen i Azure Storage.
 
-![Illustration listing the Azure data services that are part of Azure Storage.](../media-drafts/2-azure-storage.png)
+![Bild som visar de Azure-datatjänster som ingår i Azure Storage.](../media-drafts/2-azure-storage.png)
 
-These four were given special treatment because they are all primitive, cloud-based storage services and are often used together in the same application.
+Dessa fyra gavs särskild behandling eftersom de alla är primitiva, molnbaserade lagringstjänster och ofta används tillsammans i samma program.
 
-## What is a storage account?
+## <a name="what-is-a-storage-account"></a>Vad är ett lagringskonto?
 
-A _storage account_ is a container that groups a set of Azure Storage services together. Only data services from Azure Storage can be included in a storage account (Azure Blobs, Azure Files, Azure Queues, and Azure Tables). The following illustration shows a storage account containing several data services.
+En _lagringskonto_ är en container som grupperar en uppsättning Azure Storage-tjänster tillsammans. Endast datatjänster från Azure Storage kan ingå i ett lagringskonto (Azure Blobs, Azure Files, Azure Queues och Azure Tables). Följande bild visar ett lagringskonto som innehåller flera datatjänster.
 
-![Illustration of an Azure storage account containing a mixed collection of data services.](../media-drafts/2-what-is-a-storage-account.png)
+![Bild av ett Azure-lagringskonto som innehåller en blandad uppsättning datatjänster.](../media-drafts/2-what-is-a-storage-account.png)
 
-Combining data services into a storage account lets you manage them as a group. The settings you specify when you create the account, or any that you change after creation, are applied to everything in the account. Deleting the storage account deletes all of the data stored inside it.
+Genom att kombinera datatjänster i ett lagringskonto kan du hantera dem som en grupp. De inställningar du anger när du skapar kontot, eller dem som du ändrar efter skapandet, tillämpas på allt i kontot. Om du tar bort lagringskontot tas alla data som lagras i det bort.
 
-A storage account is an Azure resource and is included in a resource group. The following illustration shows an Azure subscription containing multiple resource groups, where each group contains one or more storage accounts.
+Ett lagringskonto är en Azure-resurs och ingår i en resursgrupp. Följande bild visar en Azure-prenumeration som innehåller flera resursgrupper där varje grupp innehåller en eller flera lagringskonton.
 
-![Illustration of an Azure subscription containing multiple resource groups and storage accounts.](../media-drafts/2-resource-groups-and-storage-accounts.png)
+![Bild av en Azure-prenumeration som innehåller flera resursgrupper och lagringskonton.](../media-drafts/2-resource-groups-and-storage-accounts.png)
 
-Other Azure data services like Azure SQL and Cosmos DB are managed as independent Azure resources and cannot be included in a storage account. The following illustration shows a typical arrangement: Blobs, Files, Queues, and Tables are inside storage accounts, while other services are not.
+Andra Azure-datatjänster som Azure SQL och Cosmos DB hanteras som oberoende Azure-resurser och kan inte ingå i ett lagringskonto. Följande bild visar ett typiskt arrangemang: blobar, filer, köer och tabeller finns i lagringskonton medan andra tjänster inte gör det.
 
-![Illustration of an Azure subscription showing some data services that cannot be placed in a storage account.](../media-drafts/2-typical-subscription-organization.png)
+![Bild av en Azure-prenumeration som visar vissa datatjänster som kan inte placeras i ett lagringskonto.](../media-drafts/2-typical-subscription-organization.png)
 
-## Storage account settings
+## <a name="storage-account-settings"></a>Inställningar för lagringskonto
 
-A storage account defines a policy that applies to all the storage services in the account. For example, you could specify that all the contained services will be stored in the West US datacenter, accessible only over https, and billed to the sales department's subscription.
+Ett lagringskonto definierar en princip som gäller för alla lagringstjänster i kontot. Du kan till exempel ange att alla inneslutna tjänster ska lagras i datacentret i USA, västra, endast kan nås över https och faktureras till försäljningsavdelningens prenumeration.
 
-The settings that are controlled by a storage account are:
+De inställningar som styrs av ett lagringskonto är:
 
-- **Subscription**: The Azure subscription that will be billed for the services in the account.
+- **Prenumeration**: Den Azure-prenumeration som debiteras för tjänster i kontot.
 
-- **Location**: The datacenter that will store the services in the account.
+- **Plats**: Det datacenter som lagrar tjänsterna i kontot.
 
-- **Performance**: Determines the data services you can have in your storage account and the type of the underlying hardware disk. **Standard** allows you to have any data service (Blob, File, Queue, Table) and uses magnetic disk drives. **Premium** limits you to one specific type of blob called a _page blob_ and uses solid-state drives for storage.
+- **Prestanda**: Avgör vilka datatjänster du kan ha på ditt lagringskonto och typen av den underliggande maskinvarudisken. **Standard** gör att du kan ha valfri datatjänst (blob, fil, kö, tabell) och använder magnetiska hårddiskar. **Premium** begränsar dig till en viss typ av blob som kallas en _sidblob_ och använder SSD-diskar för lagring.
 
-- **Replication**: Determines the strategy used to make copies of your data to protect against hardware failure or natural disaster. At a minimum, Azure will automatically maintain a copy of your data within the datacenter associated with the storage account. This is called locally-redundant storage (LRS), and guards against hardware failure but does not protect you from an event that incapacitates the entire datacenter. You can upgrade to one of the other options such as geo-redundant storage (GRS) to get replication at other datacenters across the world.
+- **Replikering**: Avgör vilken strategi som används för att göra kopior av dina data för att skydda mot maskinvarufel och naturkatastrofer. Azure upprätthåller automatiskt minst en kopia av dina data i det datacenter som är associerat med lagringskontot. Detta kallas lokalt redundant lagring (LRS) och skyddar mot maskinvarufel men inte skyddar från händelser som slår ut hela datacentret. Du kan uppgradera till ett av de andra alternativen, till exempel geo-redundant lagring (GRS), för att få replikering på andra datacenter över hela världen.
 
-- **Access tier**: Controls how quickly you will be able to access the blobs in this storage account. Hot gives quicker access than Cool, but at increased cost. This applies only to blobs, and serves as the default value for new blobs.
+- **Åtkomstnivå**: Styr hur snabbt du kan komma åt blobar i det här lagringskontot. Frekvent ger snabbare åtkomst än Lågfrekvent men till ett högre pris. Detta gäller endast för blobar och fungerar som standardvärde för nya blobar.
 
-- **Secure transfer required**: A security feature that determines the supported protocols for access: enabled requires https, while disabled allows http.
+- **Säker överföring krävs**: En säkerhetsfunktion som bestämmer det protokoll som stöds för åtkomst: aktiverat kräver https medan inaktiverat tillåter http.
 
-- **Virtual networks**: A security feature that allows inbound access requests only from the virtual network(s) you specify.
+- **Virtuella nätverk**: En säkerhetsfunktion som endast tillåter inkommande begäranden från de virtuella nätverk som du anger.
 
-## How many storage accounts do you need?
+## <a name="how-many-storage-accounts-do-you-need"></a>Hur många lagringskonton behöver du?
 
-A storage account represents a collection of settings like location, replication strategy, subscription, etc. You need one storage account for every group of settings that you want to apply to your data. The following illustration shows two storage accounts that differ in one setting; that one difference is enough to require separate storage accounts.
+Ett lagringskonto representerar en samling inställningar såsom plats, replikeringsstrategi, prenumeration osv. Du behöver ett lagringskonto för varje grupp med inställningar som du vill tillämpa på dina data. Följande bild visar två lagringskonton som skiljer sig i en inställning; den enstaka skillnaden är tillräcklig för att kräva separata lagringskonton.
 
-![Illustration showing two storage accounts with different settings.](../media-drafts/2-multiple-storage-accounts.png)
+![Bild som visar två lagringskonton med olika inställningar.](../media-drafts/2-multiple-storage-accounts.png)
 
-The number of storage accounts you need is typically determined by your data diversity, cost sensitivity, and tolerance for management overhead.
+Det antal lagringskonton som du behöver avgörs vanligtvis av din datamångfald, kostnadskänslighet och tolerans för hanteringsarbete.
 
-### Data diversity
+### <a name="data-diversity"></a>Datamångfald
 
-Organizations often generate data that differs in where it is consumed, how sensitive it is, which group pays the bills, etc. Diversity along any of these vectors can lead to multiple storage accounts. Let's consider two examples:
+Organisationer genererar ofta data som skiljer sig i hur de används, hur känsliga de är, vilken grupp som betalar fakturorna osv. Mångfald längsmed dessa vektorer kan leda till flera lagringskonton. Vi tittar på två exempel:
 
-1. Do you have data that is specific to a country or region? If so, you might want to locate it in a datacenter in that country for performance or compliance reasons. You will need one storage account for each location.
+1. Har du data som är specifika för ett land eller en region? I så fall bör du kanske lagra dem i ett datacenter i det landet av prestanda- eller efterlevnadsskäl. Du behöver ett lagringskonto för varje plats.
 
-1. Do you have some data that is proprietary and some that is for public consumption? If so, you could enable virtual networks for the proprietary data and not for the public data. This will also require separate storage accounts.
+1. Har du vissa data som är privata och vissa som är till för offentlig användning? I så fall kan du aktivera virtuella nätverk för privata data och undvika dem för offentliga data. Detta kräver också separata lagringskonton.
 
-In general, increased diversity means an increased number of storage accounts.
+I allmänhet innebär ökad mångfald ett större antal lagringskonton.
 
-### Cost sensitivity
+### <a name="cost-sensitivity"></a>Kostnadskänslighet
 
-A storage account by itself has no financial cost; however, the settings you choose for the account do influence the cost of services in the account. Geo-redundant storage costs more than locally-redundant storage. Premium performance and the Hot access tier increase the cost of blobs.
+Ett lagringskonto i sig medför ingen ekonomisk kostnad. Däremot påverkar de inställningar du väljer för kontot kostnaden för tjänsterna i kontot. Geo-redundant lagring kostar mer än lokalt redundant lagring. Premium-prestanda och Frekvent åtkomstnivå ökar kostnaden för blobar.
 
-You can use multiple storage accounts to reduce costs. For example, you could partition your data into critical and non-critical categories. You could place your critical data into a storage account with geo-redundant storage and put your non-critical data in a different storage account with locally-redundant storage.
+Du kan använda flera lagringskonton för att minska kostnaderna. Du kan till exempel partitionera dina data till kritiska och icke-kritiska kategorier. Du kan placera dina viktiga data i ett lagringskonto med geo-redundant lagring och placera dina icke-kritiska data i ett annat lagringskonto med lokalt redundant lagring.
 
-### Tolerance for management overhead
+### <a name="tolerance-for-management-overhead"></a>Tolerans för hanteringsarbete
 
-Each storage account requires some time and attention from an administrator to create and maintain. It also increases complexity for anyone who adds data to your cloud storage; everyone in this role needs to understand the purpose of each storage account so they add new data to the correct account.
+Varje lagringskonto kräver tid och uppmärksamhet från en administratör i form av skapande och underhåll. Det ökar även komplexiteten för alla som lägger till data till molnlagringen. Alla i den här rollen måste förstå syftet med varje lagringskonto så att de lägger till nya tjänster till rätt konto.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Storage accounts are a powerful tool to help you get the performance and security you need while minimizing costs. A typical strategy is to start with an analysis of your data and create partitions that share characteristics like location, billing, replication strategy, etc., and then create one storage account for each partition.
+Lagringskonton är ett kraftfullt verktyg som hjälper dig att få de prestanda och den säkerhet du behöver samtidigt som kostnaderna minimeras. En vanligt strategi är att börja med en analys av dina data och skapa partitioner som delar egenskaper som plats, fakturering, replikeringsstrategi osv. och sedan skapa ett lagringskonto för varje partition.

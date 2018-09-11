@@ -1,49 +1,49 @@
-Previously, you saw how **Azure Load Balancer** helps you achieve high availability and minimize downtime.
+Tidigare såg du hur **Azure Load Balancer** hjälper dig att uppnå hög tillgänglighet och minimera driftstopp.
 
-Although your e-commerce site is more highly available, it doesn't solve the issue of latency or create resiliency across geographic regions.
+Även om din e-handelswebbplats är mer tillgänglig löser det problemet med svarstider skapar inte återhämtningsförmåga i olika geografiska områden.
 
-How can you make your site, which is located in the United States, load faster for users located in Europe or Asia?
+Hur kan du göra så att din webbplats, som finns i USA, läses in snabbare för användare i Europa eller Asien?
 
-## What is network latency?
+## <a name="what-is-network-latency"></a>Vad är svarstid för nätverk?
 
-_Latency_ refers to the time it takes for data to travel over the network. Latency is typically measured in milliseconds.
+_Svarstid_ är den tid det tar för data att överföras via nätverket. Svarstiden mäts vanligtvis i millisekunder.
 
-Compare latency to bandwidth. Bandwidth refers to the amount of data that can fit on the connection. Latency refers to the time it takes for that data to reach its destination.
+Jämför svarstid med bandbredd. Bandbredd är den mängd data som får plats på anslutningen. Svarstid är den tid det tar för data att nå sitt mål.
 
-Factors such as the type of connection you use and how your application is designed can affect latency. But perhaps the biggest factor is distance.
+Faktorer såsom den typ av anslutning du använder och hur programmet är utformat kan påverka svarstiden. Men den största faktorn är kanske avståndet.
 
-Think about your e-commerce site on Azure, which is in the East US region. It would typically take less time to transfer data to Atlanta (a distance of around 400 miles) than to transfer data to London (a distance of around 4,000 miles).
+Ta svarstid din e-handelswebbplats på Azure, som är i regionen USA, östra. Det skulle vanligtvis ta kortare tid att överföra data till Atlanta (ett avstånd på cirka 640 km) än att överföra data till London (ett avstånd på cirka 6 400 km).
 
-Your e-commerce site delivers standard HTML, CSS, JavaScript, and images. The network latency for many files can add up. How can you reduce latency for users located far away geographically?
+Din e-handelswebbplats levererar standard-HTML, CSS, JavaScript och bilder. När det förekommer många filer kan svarstiden för nätverk bli betydande. Hur kan du minska svarstiden för användare som är geografiskt långt borta?
 
-## Scale out to different regions
+## <a name="scale-out-to-different-regions"></a>Skala ut till olika regioner
 
-Recall that Azure provides data centers in regions across the globe.
+Azure tillhandahåller datacenter i regioner över hela världen.
 
-Think about the cost of building a data center. Equipment costs aren't the only factor. You need to provide the power, cooling, and personnel to keep your systems running at each location. It might be prohibitively expensive to replicate your entire data center. But doing so with Azure can cost much less, because Azure already has the equipment and personnel in place.
+Beakta kostnaden för att bygga ett datacenter. Kostnaderna för utrustning inte är den enda faktorn; du måste tillhandahålla ström, kylning och personal för att hålla systemen igång på varje plats. Det kan vara orimligt dyrt att replikera hela datacentret. Men om du gör det med Azure kan det kosta mycket mindre eftersom Azure redan har utrustning och personal på plats.
 
-One way to reduce latency is to provide exact copies of your service in more than one region. HThe following illustration shows an example of global deployment.
+Ett sätt att minska svarstiden är att tillhandahålla exakta kopior av din tjänst i flera regioner. Här är ett diagram.
 
-![An illustration showing a world map with three Azure data centers highlighted. Each data center is labelled with a unique domain name.](../media/4-global-deployment.png)
+![E-handelswebbplats som körs i regionerna USA, östra, Europa, norra och Asien, östra](../media-draft/global-deployment.png)
 
-The diagram shows your e-commerce site running in three Azure regions: East US, North Europe, and East Asia. Notice the DNS name for each. How can you connect users to the service that's closest geographically, but under the contoso.com domain?
+Diagrammet visar din e-handelswebbplats som körs i tre Azure-regioner: USA, östra, Europa, norra och Asien, östra. Lägg märke till DNS-namnet för var och en. Hur kan du ansluta användare till den tjänst som ligger närmast geografiskt, men under domänen contoso.com?
 
-## Use Traffic Manager to route users to the closest endpoint
+## <a name="use-traffic-manager-to-route-users-to-the-closest-endpoint"></a>Använda Traffic Manager för att dirigera användare till den närmaste slutpunkten
 
-One answer is **Azure Traffic Manager**. Traffic Manager uses the DNS server that's closest to the user to direct user traffic to a globally distributed endpoint. The following illustration shows the role of the Traffic Manager.
+En lösning är **Traffic Manager**. Traffic Manager använder den DNS-server som är närmast användaren för att dirigera användartrafik till en globalt distribuerad slutpunkt. Här är ett diagram.
 
-![An illustration showing Azure Traffic Manager routing a user request to the nearest data center. ](../media/4-traffic-manager.png)
+![Använda Traffic Manager för att dirigera en användare i Italien till närmaste slutpunkt](../media-draft/traffic-manager.png)
 
-Traffic Manager doesn't see the traffic that's passed between the client and server. Rather, it directs the client web browser to a preferred endpoint. Traffic Manager can route traffic in a few different ways, such as to the endpoint with the lowest latency.
+Traffic Manager ser inte den trafik som skickas mellan klienten och servern. I stället dirigerar den klientwebbläsaren till en föredragen slutpunkt. Traffic Manager kan dirigera trafik på ett par olika sätt, till exempel till slutpunkten med kortast svarstid.
 
-Although not shown here, this setup could also include your on-premises deployment running in California. You can connect Traffic Manager to your own on-premises networks, enabling you to maintain your existing data center investments. Or you can move your application entirely to the cloud. The choice is yours.
+Det visas inte här, men den här konfigurationen skulle även kunna innehålla en lokal distribution som körs i Kalifornien. Du kan ansluta Traffic Manager till dina egna lokala nätverk, så att du kan underhålla dina befintliga datacenterinvesteringar. Eller så kan du flytta ditt program helt och hållet till molnet. Valet är ditt.
 
-## Compare Load Balancer to Traffic Manager
+## <a name="compare-azure-load-balancer-to-traffic-manager"></a>Jämföra Azure Load Balancer med Traffic Manager
 
-Azure Load Balancer distributes traffic within the same region to make your services more highly available and resilient. Traffic Manager works at the DNS level, and directs the client to a preferred endpoint. This endpoint can be to the region that's closest to your user.
+Azure Load Balancer distribuerar trafiken inom samma region för att göra dina tjänster mer tillgängliga och motståndskraftiga. Traffic Manager fungerar på DNS-nivå och dirigerar klienten till en önskad slutpunkt. Den här slutpunkten kan vara till den region som ligger närmast dina användare.
 
-Load Balancer and Traffic Manager both help make your services more resilient, but in slightly different ways. When Load Balancer detects an unresponsive VM, it directs traffic to other VMs in the pool. Traffic Manager monitors the health of your endpoints. In contrast, when Traffic Manager finds an unresponsive endpoint, it directs traffic to the next closest endpoint that is responsive.
+Både Azure Load Balancer och Traffic Manager hjälper dig att göra dina tjänster mer motståndskraftiga, men på något olika sätt. När Azure Load Balancer identifierar en virtuell dator som inte svarar dirigerar den trafiken till andra virtuella datorer i poolen. Traffic Manager övervakar hälsan för dina slutpunkter. När Traffic Manager hittar en slutpunkt som inte svarar dirigerar den däremot trafiken till nästa närmaste slutpunkt som svarar.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Geographic distance is one of the biggest factors that contributes to latency. With Traffic Manager in place, you can host exact copies of your service in multiple geographic regions. That way, users in the United States, Europe, and Asia will all have a good experience using your e-commerce site.
+Geografiskt avstånd är en av de största faktorer som bidrar till svarstid. Med Traffic Manager på plats kan du hantera exakta kopior av din tjänst i flera geografiska områden. På så sätt får användare i USA, Europa och Asien en bra upplevelse med hjälp av din e-handelsplats.

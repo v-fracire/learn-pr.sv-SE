@@ -1,28 +1,28 @@
-Using the **Access control (IAM)** blade in the Azure portal has been working fine, but you are getting several permission requests each day. To keep up with the access management tasks, you decide to use PowerShell to help automate some of the steps.
+Att använda bladet **Åtkomstkontroll (IAM)** i Azure Portal skulle ha fungerat bra, men du får många behörighetsbegäranden varje dag. Om du vill hålla jämna steg med åtkomsthanteringen, kan du använda PowerShell till att automatisera vissa av stegen.
 
-## Open Cloud Shell PowerShell
+## <a name="open-cloud-shell-powershell"></a>Öppna Cloud Shell PowerShell
 
-1. Make sure you are still signed in to the Azure portal as **LabAdmin-_XXXXXXX_@_xxxxxxxxxxxx_.onmicrosoft.com**. You can find the username and password on the **Resources** tab at the top of this window.
+1. Kontrollera att du fortfarande är inloggad på Azure Portal som **LabAdmin-_XXXXXXX_@_xxxxxxxxxxxx_.onmicrosoft.com**. Du hittar användarnamn och lösenord på fliken **Resurser** högst upp i det här fönstret.
 
-1. At the top of the portal, click **Cloud Shell** to open the Cloud Shell pane.
+1. Överst i portalen klickar du på **Cloud Shell** för att öppna fönstret Cloud Shell.
 
-    ![Cloud Shell button](../media-draft/6-cloud-shell-button.png)
+    ![Cloud Shell-knapp](../media-draft/6-cloud-shell-button.png)
 
-1. In the upper left of the Cloud Shell pane, make sure it is set to **PowerShell**. If it is set to **Bash**, change it to **PowerShell**.
+1. Kontrollera att den är inställd på **PowerShell** i det övre vänstra hörnet i fönstret Cloud Shell. Om den är inställd på **Bash** ändrar du detta till **PowerShell**.
 
-    It might take a few moments to load. When finished, it will look similar to the following:
+    Det kan ta en stund att läsa in den. När det är klart ser det ut ungefär som följande:
 
     ![Cloud Shell PowerShell](../media-draft/6-cloud-shell-powershell.png)
 
-## Grant access
+## <a name="grant-access"></a>Bevilja åtkomst
 
-To grant access to a user using Azure PowerShell, you use the [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) command. You must specify the security principal, role definition, and scope.
+Om du vill bevilja åtkomst till en användare med Azure PowerShell använder du kommandot [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Du måste ange säkerhetsobjekt, rolldefinition och omfång.
 
-Follow these steps to assign the Virtual Machine Contributor role to the **LabUser-_XXXXXXX_** user at the resource group scope.
+Följ dessa steg om du vill tilldela rollen Virtuell datordeltagare till **LabUser-_XXXXXXX_**-användaren i resursgruppsomfånget.
 
-1. On the **Resources** tab at the top of this window, copy the **Grant access PowerShell** command.
+1. På fliken **Resurser** högst upp i det här fönstret kan du kopiera kommandot **Bevilja åtkomst till PowerShell**.
 
-1. Paste the command into the PowerShell pane and press the Enter key to run it. The following shows an example command and the output:
+1. Klistra in kommandot i PowerShell-fönstret och tryck på Retur-tangenten för att köra det. Nedan visas ett exempel på kommando och utdata:
 
     ```Example
     PS Azure:\> New-AzureRmRoleAssignment -SignInName LabUser-XXXXXXX@xxxxxxxxxxxx.onmicrosoft.com `
@@ -40,17 +40,17 @@ Follow these steps to assign the Virtual Machine Contributor role to the **LabUs
     CanDelegate        : False
     ```
 
-    The output shows that the Virtual Machine Contributor role has been assigned to LabUser-_XXXXXXX_ at the FirstUpConsultantsRG1-_XXXXXXX_ scope.
+    Utdatan visar att rollen Virtuell datordeltagare har tilldelats till LabUser-_XXXXXXX_ i omfånget FirstUpConsultantsRG1-_XXXXXXX_.
 
-## List access
+## <a name="list-access"></a>Lista för åtkomst
 
-To verify the access for the resource group, you use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command to list the role assignments.
+Om du vill kontrollera åtkomsten för resursgruppen använder du kommandot [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) för att visa en lista med rolltilldelningarna.
 
-Follow these steps to list all the role assignments for the **LabUser-XXXXXXX** user at the resource group scope.
+Följ dessa steg om du vill visa en lista med alla rolltilldelningar för **LabUser-XXXXXXX**-användaren i resursgruppsomfånget.
 
-1. On the **Resources** tab at the top of this window, copy the **List access PowerShell** command.
+1. På fliken **Resurser** högst upp i det här fönstret kan du kopiera kommandot **Lista för åtkomst till PowerShell**.
 
-1. Paste the command into the PowerShell pane and press the Enter key to run it. The following shows an example command and the output.
+1. Klistra in kommandot i PowerShell-fönstret och tryck på Retur-tangenten för att köra det. Nedan visas ett exempel på kommando och utdata.
 
     ```Example
     PS Azure:\> Get-AzureRmRoleAssignment -SignInName LabUser-XXXXXXX@xxxxxxxxxxxx.onmicrosoft.com `
@@ -67,21 +67,21 @@ Follow these steps to list all the role assignments for the **LabUser-XXXXXXX** 
     CanDelegate        : False
     ```
 
-    The output shows that the Virtual Machine Contributor role has been assigned to LabUser-_XXXXXXX_ at the FirstUpConsultantsRG1-_XXXXXXX_ scope.
+    Utdatan visar att rollen Virtuell datordeltagare har tilldelats till LabUser-_XXXXXXX_ i omfånget FirstUpConsultantsRG1-_XXXXXXX_.
 
-    If you refresh the **Access control (IAM)** blade for the resource group in the Azure portal, this is how the role assignment looks:
+    Om du uppdaterar bladet **Åtkomstkontroll (IAM)** för resursgruppen i Azure Portal, ser rolltilldelningen ut så här:
 
-    ![Role assignments for a user at resource group scope](../media-draft/6-cloud-shell-access-control.png)
+    ![Rolltilldelningar för en användare med resursgruppsomfång](../media-draft/6-cloud-shell-access-control.png)
 
-## Remove access
+## <a name="remove-access"></a>Ta bort åtkomst
 
-To remove access for users, groups, and applications, you use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) to remove a role assignment.
+Om du vill ta bort åtkomst för användare, grupper och program använder du [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) och tar bort en rolltilldelning.
 
-Follow these steps to remove the Virtual Machine Contributor role assignment for the **LabUser-_XXXXXX_** user at the resource group scope.
+Följ dessa steg om du vill ta bort rolltilldelningen Virtuell datordeltagare för **LabUser-_XXXXXXX_**-användaren i resursgruppsomfånget.
 
-1. On the **Resources** tab at the top of this window, copy the **Remove access PowerShell** command.
+1. På fliken **Resurser** högst upp i det här fönstret kan du kopiera kommandot **Ta bort åtkomst till PowerShell**.
 
-1. Paste the command into the PowerShell pane and press the Enter key to run it. The following shows an example command.
+1. Klistra in kommandot i PowerShell-fönstret och tryck på Retur-tangenten för att köra det. Nedan visas ett exempel på kommandot.
 
     ```Example
     PS Azure:\> Remove-AzureRmRoleAssignment -SignInName LabUser-XXXXXXX@xxxxxxxxxxxx.onmicrosoft.com `
@@ -89,11 +89,11 @@ Follow these steps to remove the Virtual Machine Contributor role assignment for
       -ResourceGroupName "FirstUpConsultantsRG1-XXXXXXX"
     ```
 
-1. In the PowerShell pane, click the close (**X**) button to close the pane.
+1. I PowerShell-fönstret klickar du på knappen Stäng (**X**) för att stänga fönstret.
 
-    ![Cloud Shell close button](../media-draft/6-cloud-shell-close.png)
+    ![Knappen Stäng i Cloud Shell](../media-draft/6-cloud-shell-close.png)
 
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to grant a user access to create and manage virtual machines in a resource group using Azure PowerShell. In the next unit, you learn how to view the RBAC changes over time.
+I det här avsnittet lärde du dig att bevilja en användar åtkomst för att skapa och hantera virtuella datorer i en resursgrupp med hjälp av Azure PowerShell. I nästa avsnitt lär du dig att visa RBAC-ändringar över tid.

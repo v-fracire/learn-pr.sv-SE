@@ -1,77 +1,64 @@
-Your first step will likely be to re-create your on-premises configuration in the cloud.
+Första steget är sannolikt att återskapa din lokala konfiguration i molnet.
 
-This basic configuration will give you a sense of how networks are configured, and how network traffic moves in and out of Azure.
+Den här grundläggande konfigurationen ger dig en uppfattning om hur nätverk konfigureras och hur nätverkstrafik färdas in i och ut från Azure.
 
-## Your e-commerce site at a glance
+## <a name="your-e-commerce-site-at-a-glance"></a>Kort om din e-handelswebbplats
 
-Larger enterprise systems are often composed of multiple inter-connected applications and services that work together. You might have a front-end web system that takes displays inventory and allows customers to create an order. That might talk to a variety of web services to provide the inventory data, manage user profiles, process credit cards, and request fulfillment of processed orders.
+En [N-nivåarkitektur](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier) delar in ett program i två eller fler logiska nivåer. Arkitektoniskt sett kan högre nivåer komma åt tjänster från en lägre nivå, men en lägre nivå bör aldrig komma åt en högre nivå.
 
-There are several strategies and patterns employed by software architects and designers to make these complex systems easier to design, build, manage, and maintain. Let's look at a few of them, starting with _loosely coupled architectures_.
+Nivåer hjälper till att avgränsa problemområden och ska helst utformas för att vara återanvändbara. En nivåindelad arkitektur förenklar även underhållet. Nivåer kan uppdateras eller bytas ut oberoende av varandra, och det går att infoga nya nivåer vid behov.
 
-### Benefits of a loosely coupled architecture
+_Med tre nivåer_ anger ett N-nivåprogram med tre nivåer. Ditt e-handelswebbprogram följer den här arkitekturen med tre nivåer:
 
-<!-- TOOD: verify video -->
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2yHrc]
+* **Webbnivån** ger dina användare webbgränssnittet via en webbläsare
+* **Programnivån** körs affärslogik
+* **Datanivån** innehåller databaser och annan lagring som lagrar produktinformation och kundordrar
 
-### Using an N-tier architecture
+Här är ett diagram. Spåra flödet från användaren till datanivån.
 
-An architectural pattern that can be used to build loosely coupled systems is _N-Tier_.
+![En grundläggande webbapp med tre lager](../media-draft/three-tier.png)
 
-An [N-tier architecture](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier) divides an application into two or more logical tiers. Architecturally, a higher tier can access services from a lower tier, but a lower tier should never access a higher tier.
+När användaren klickar på knappen för att lägga ordern skickas begäran till webbnivån tillsammans med användarens adress och betalningsinformation. Webbnivån skickar denna information till programnivån, som verifierar betalningsinformation och kontrollerar lagret. Programnivån kan sedan lagra ordern på datanivån för senare hämtning och expediering.
 
-Tiers help separate concerns, and are ideally designed to be reusable. Using a tiered architecture also simplifies maintenance. Tiers can be updated or replaced independently, and new tiers can be inserted if needed.
+## <a name="your-e-commerce-site-running-on-azure"></a>Din e-handelswebbplats som körs på Azure
 
-_Three-tier_ refers to an n-tier application that has three tiers. Your e-commerce web application follows this three-tier architecture:
+Azure tillhandahåller många olika sätt att hantera dina webbprogram, från fullständigt förkonfigurerade miljöer som är värd för din kod till virtuella datorer som du konfigurerar, anpassar och hanterar.
 
-* The **web tier** provides the web interface to your users through a browser.
-* The **application tier** runs business logic.
-* The **data tier** includes databases and other storage that hold product information and customer orders.
+Vi antar att du väljer att köra din e-handelswebbplats på virtuella datorer. Så här kan det se ut i din testmiljö som körs på Azure.
 
-The following illustration shows the flow of request from the user to the data tier.
+![En grundläggande webbapp med tre lager som körs på Azure](../media-draft/test-deployment.png)
 
-![An illustration showing a three-tier architecture where each tier is hosted in a dedicated virtual machine.](../media/2-three-tier.png)
+Vi går igenom hur det här fungerar.
 
-When the user clicks the button to place the order, the request is sent to the web tier, along with the user's address and payment information. The web tier passes this information to the application tier, which would validate payment information and check inventory. The application tier might then store the order in the data tier, to be picked up later for fulfillment.
+## <a name="what-is-an-azure-region"></a>Vad är en Azure-region?
 
-## Your e-commerce site running on Azure
+En _region_ är ett Azure-datacenter inom en viss geografisk plats. USA, östra, USA, västra och Europa, norra är exempel på regioner. Som du ser körs programmet i regionen USA, östra.
 
-Azure provides many different ways to host your web applications, from fully pre-configured environments that host your code, to virtual machines that you configure, customize, and manage.
+## <a name="what-is-a-virtual-network"></a>Vad är ett virtuellt nätverk?
 
-Let's say you choose to run your e-commerce site on virtual machines. Here's what that might look like in your test environment running on Azure. The following illustration shows a three-tier architecture running on virtual machines with security features enabled to restrict inbound requests. 
+En _virtuellt nätverk_ är ett logiskt isolerat nätverk på Azure. Virtuella Azure-nätverk är något du känner till om du har konfigurerat nätverk på Hyper-V, VMware eller kanske på andra offentliga moln.
 
-![An illustration showing a three-tier architecture where each tier is running on a separate virtual machine. Each virtual machine is labelled with its IP address and is inside its own virtual network. Each virtual network has a network security group that lists the open ports.](../media/2-test-deployment.png)
+Webb-, program- och datanivåerna har en enskild virtuell dator. Varje virtuell dator tillhör ett virtuellt nätverk.
 
-Let's break this down.
+Användarna interagerar med webbnivån direkt, så den virtuella datorn har en offentlig IP-adress. Användarna interagerar inte med program- eller datanivåerna. Dessa datorer har därför en privat IP-adress.
 
-### What is an Azure region?
+Azure-datacenter hanterar den fysiska maskinvaran åt dig. Du konfigurerar virtuella nätverk via programvara, vilket gör att du kan hantera ett virtuellt nätverk precis som ditt eget nätverk. Du kan till exempel dela upp ett virtuellt nätverk i undernät för att få bättre kontroll över hur nätverket tilldelar IP-adresser. Du väljer även vilka andra nätverk det virtuella nätverket kan nå, oavsett om det är det offentliga Internet eller andra nätverk i det privata IP-adressutrymmet.
 
-A _region_ is an Azure data center within a specific geographic location. East US, West US, and North Europe are examples of regions. You see that the application is running in the East US region.
+### <a name="whats-a-network-security-group"></a>Vad är en nätverkssäkerhetsgrupp?
 
-### What is a virtual network?
+En _nätverkssäkerhetsgrupp_, eller NSG, tillåter eller avvisar inkommande nätverkstrafik till dina Azure-resurser. Du kan betrakta en nätverkssäkerhetsgrupp som en brandvägg på molnnivå för nätverket.
 
-A _virtual network_ is a logically isolated network on Azure. Azure virtual networks will be familiar to you if you’ve set up networks on Hyper-V, VMware, or even on other public clouds.
-
-The web, application, and data tiers each have a single VM. Each VM belongs to a virtual network.
-
-Users interact with the web tier directly, so that VM has a public IP address. Users don't interact with the application or data tiers. So these VMs each have a private IP address.
-
-Azure data centers manage the physical hardware for you. You configure virtual networks through software, which enables you to treat a virtual network just like your own network. For example, you can divide a virtual network into subnets to better control how the network assigns IP addresses. You also choose which other networks your virtual network can reach, whether that’s the public internet or other networks in the private IP address space.
-
-### What's a network security group?
-
-A _network security group_, or NSG, allows or denies inbound network traffic to your Azure resources. Think of a network security group as a cloud-level firewall for your network.
-
-For example, notice that the VM in the web tier allows inbound traffic on ports 22 (SSH) and 80 (HTTP). Each network security group here allows traffic from all sources. You can configure a network security group to accept traffic only from known sources, such as IP addresses that you trust.
+Till exempel kan du se att den virtuella datorn på webbnivån tillåter inkommande trafik på portarna 22 (SSH) och 80 (HTTP). Varje nätverkssäkerhetsgrupp här tillåter trafik från alla källor. Du kan konfigurera en nätverkssäkerhetsgrupp för att endast acceptera trafik från kända källor, till exempel IP-adresser som du litar på.
 
 > [!NOTE]
-> Port 22 enables you to connect directly to Linux systems over SSH. Here we show port 22 open for learning purposes. In practice, you might configure VPN access to your virtual network to increase security.
+> Med port 22 kan du ansluta direkt till Linux-system via SSH. Här visar vi port 22 som öppen i utbildningssyfte. I praktiken kan du konfigurera VPN-åtkomst till ditt virtuella nätverk för att öka säkerheten.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Your three-tier application is now running on Azure in the East US region. A _region_ is an Azure data center within a specific geographic location.
+Ditt program med tre nivåer körs nu på Azure i regionen USA, östra. En _region_ är ett Azure-datacenter inom en viss geografisk plats.
 
-Each tier can access services only from a lower tier. The VM running in the web tier has a public IP address because it receives traffic from the internet. The VMs in the lower tiers, the application and data tiers, each have private IP addresses because they don't communicate directly over the internet.
+Varje nivå kan bara komma åt tjänster från en lägre nivå. Den virtuella dator som kör på webbnivån har en offentlig IP-adress eftersom den tar emot trafik från Internet. De virtuella datorerna på de lägre nivåerna är program- och datanivåerna, och båda har privata IP-adresser eftersom de inte kommunicerar direkt via Internet.
 
-_Virtual networks_ enable you to group and isolate related systems. You define _network security groups_ to control what traffic can flow through a virtual network.
+Med _Virtuella nätverk_ kan du gruppera och isolera relaterade system. Du definierar _nätverkssäkerhetsgrupper_ för att styra vilken trafik som kan flöda via ett virtuellt nätverk.
 
-The configuration you saw here is a good start. But when you deploy your e-commerce site to production in the cloud, you'll likely run into the same problems as you did in your on-premises deployment.
+Den konfiguration som du såg här är en bra början. Men när du distribuerar din e-handelswebbplats till produktion i molnet kommer du troligen stöta på samma problem som i den lokala distributionen.

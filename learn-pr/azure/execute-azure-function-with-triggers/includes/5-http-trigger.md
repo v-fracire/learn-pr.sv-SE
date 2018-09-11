@@ -1,47 +1,47 @@
-An HTTP request is a common operation on most platforms and devices. Whether it's a request to look up a word in a dictionary or to get the local weather, we send HTTP requests all the time. Azure Functions allows us to quickly create a piece of logic to execute when an HTTP request is received.
+En HTTP-begäran är en vanlig åtgärd på de flesta plattformar och enheter. Oavsett om det är en begäran för att leta upp ett ord i en ordlista eller för att se den lokala väderleksrapporten skickar vi HTTP-begäranden hela tiden. Med Azure Functions kan vi snabbt skapa en del av en logik som körs när en HTTP-begäran tas emot.  
 
-Here, you'll learn how to create and invoke an Azure function using an HTTP trigger. You'll also explore some of the customization options that are available.
+Här lär du dig att skapa och anropa en Azure-funktion med hjälp av en HTTP-utlösare. Du kommer även att utforska några av de anpassningsalternativ som finns tillgängliga.
 
-## What is an HTTP trigger?
+## <a name="what-is-an-http-trigger"></a>Vad är en HTTP-utlösare?
 
-An HTTP trigger is a trigger that executes a function when it receives an HTTP request. HTTP triggers have many capabilities and customizations, including:
+En HTTP-utlösare är en utlösare som utför en funktion när den tar emot en HTTP-begäran. HTTP-utlösare har många funktioner och anpassningar som inkluderar:
 
-- Provide authorized access by supplying keys.
-- Restrict which HTTP verbs are supported.
-- Return data back to the caller.
-- Receive data through query string parameters or through the request body.
-- Support URL route templates to modify the function URL.
+- Ge auktoriserad åtkomst genom att tillhandahålla nycklar.
+- Begränsa vilka HTTP-verb som stöds.
+- Returnera data tillbaka till anroparen.
+- Ta emot data via frågesträngsparametrar eller genom begärandetexten.
+- Stödja vägmallar för webbadresser för att ändra funktionswebbadressen.
 
-When you create an HTTP trigger, select a programming language, provide a trigger name, and select an Authorization level.
+När du skapar en HTTP-utlösare, väljer ett programmeringsspråk, anger ett namn på utlösare och väljer en auktorisationsnivå.
 
-## What is an HTTP trigger Authorization level?
+## <a name="what-is-an-http-trigger-authorization-level"></a>Vad är en auktorisationsnivå för HTTP-utlösare?
 
-An HTTP trigger Authorization level is a flag that indicates if an incoming HTTP request needs an API key for authentication reasons.
+En auktorisationsnivå för HTTP-utlösare är en flagga som anger om en inkommande HTTP-begäran behöver en API-nyckel för att autentisera eller ej.
 
-There are three Authorization levels:
+Det finns tre auktorisationsnivåer:
 
-1. Function
-2. Anonymous
+1. Funktion
+2. Anonym
 3. Admin
 
-The **Function** and **Admin** levels are "key" based. To send an HTTP request, you must supply a key for authentication. There are two types of keys: *function* and *host*. The differences between the two keys are their scope. *Function* keys are specific to a function. *Host* keys apply to all functions inside the entire Azure Functions application. If your Authorization level is set to **Function**, you can use either a *function* or a *host* key. If your Authorization level is set to **Admin**, you must supply a *host* key.
+Nivåerna **Funktion** och **Admin** är ”nyckelbaserade”. Du måste ange en nyckel för autentisering för att skicka en HTTP-begäran. Det finns två typer av nycklar: *funktion* och *värd*. Skillnaden mellan dessa två nycklar är dess skala. *Funktionsnycklar* är specifika för en funktion. *Värdnycklar* gäller för alla funktioner i hela Azure Functions-programmet. Om din auktorisationsnivå är inställd på **funktion** kan du använda antingen en *funktionsnyckel* eller en *värdnyckel*. Om din auktorisationsnivå är inställd på **Admin** måste du använda en *värdnyckel*.
 
-The **Anonymous** level means that there's no authentication required. We use this level in our exercise.
+Nivån **anonym** innebär att ingen autentisering krävs. Vi använder den här nivån i vår övning.
 
-## How to create an HTTP trigger
+## <a name="how-to-create-an-http-trigger"></a>Så här skapar du en HTTP-utlösare
 
-Just like a timer trigger, you can create an HTTP trigger through the Azure portal. Inside your Azure function, you select **HTTP trigger** from the list of predefined trigger types. Then you enter the logic that you want to execute and make any customizations like restricting the use of certain HTTP verbs.
+Precis som en timerutlösare kan du skapa en HTTP-utlösare via Azure-portalen. I Azure-funktionen väljer du **HTTP-utlösare** från listan över fördefinierade utlösartyper. Sedan anger du logiken som du vill köra och utför eventuella anpassningar som att begränsa användningen av vissa HTTP-verb. 
 
-One setting that's important to understand is **Request parameter name**. This setting is a string that represents the name of the parameter that contains the information about an incoming HTTP request. By default, the name of the parameter is *req*.
+En inställning som är viktig att förstå är **Parameternamn för förfrågan**. Den här inställningen är en sträng som representerar namnet på den parameter som innehåller information om en inkommande HTTP-begäran. Som standard är namnet på parametern *req*.
 
-## How to invoke an HTTP trigger
+## <a name="how-to-invoke-an-http-trigger"></a>Så här anropar du en HTTP-utlösare
 
-To invoke an HTTP trigger, you send an HTTP request to the URL for your function. To get this URL, go to the code page for your function and select the **Get function URL** link.
+Om du vill anropa en HTTP-utlösare skickar du en HTTP-begäran till webbadressen för din funktion. Gå till sidan med koden för din funktion och välj länken **Hämta funktionswebbadress** för att hämta den här webbadressen.
 
-![Screenshot of the Azure portal showing a Functions App blade with the app's Get function URL button highlighted.](../media/5-function-url.png)
+![Leta reda på webbadressen för funktionen](../media-drafts/5-function-url.png)
 
-After you have the URL for your function, you can send HTTP requests. If your function receives data, remember that you can use either query string parameters or supply the data through the request body.
+När du har webbadressen för funktionen kan du skicka HTTP-begäranden. Kom ihåg att du antingen kan använda frågesträngsparametrar eller ange data via begärandetexten om funktionen tar emot data.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-An HTTP trigger invokes an Azure function when it receives an HTTP request to its function URL. HTTP triggers allow you to receive data and return data back to the caller.
+En HTTP-utlösare anropar en Azure-funktion när den tar emot en HTTP-begäran till dess funktionswebbadress. Med HTTP-utlösare kan du både ta emot data och returnera data tillbaka till anroparen.

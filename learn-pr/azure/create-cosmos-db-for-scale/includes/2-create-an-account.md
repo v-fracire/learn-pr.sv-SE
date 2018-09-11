@@ -1,55 +1,54 @@
-Your company has chosen Azure Cosmos DB to meet the demands of their expanding customer and product base. You have been tasked with creating the database.
+Ditt företag har valt Azure Cosmos DB för att uppfylla kraven från en växande produkt- och kundbas. Du har fått i uppgift att skapa databasen.
 
-The first step is to create an Azure Cosmos DB account.
+Det första steget är att skapa ett Azure Cosmos DB-konto. 
 
-## What is an Azure Cosmos DB account?
+## <a name="what-is-an-azure-cosmos-db-account"></a>Vad är ett Azure Cosmos DB-konto?
 
-Azure Cosmos DB account is an Azure resource that acts as an organizational entity for your databases. It connects your usage to your Azure subscription for billing purposes.
+Ett Azure Cosmos DB-konto är en Azure-resurs som fungerar som en organisationsentitet för dina databaser. Det kopplar din användning till din Azure-prenumeration för faktureringsändamål.
 
-Each Azure Cosmos DB account is associated with one of the several data models Azure Cosmos DB supports, and you can create as many accounts as you need. 
+Varje Azure Cosmos DB-konto är associerat med någon av flera datamodeller som Azure Cosmos DB har stöd för, och du kan skapa så många konton du behöver. 
 
-SQL API is the preferred data model if you are creating a new application. If you're working with graphs or tables, or migrating your MongoDB or Cassandra data to Azure, create additional accounts and select relevant data models.
+SQL-API:n är den rekommenderade datamodellen om du skapar ett nytt program. Om du arbetar med diagram eller tabeller, eller om du migrerar MongoDB- eller Cassandra-data till Azure, skapar du ytterligare konton och väljer relevanta datamodeller.
 
-When creating an account, choose an ID that is meaningful to you; it is how you identify your account. Further, create the account in the Azure region that's closest to your users to minimize latency between the datacenter and your users.
+När du skapar ett konto väljer du ett ID som passar dig. Det är så du identifierar ditt konto. Skapa också kontot i den Azure-region som är närmast dina användare för att minimera fördröjningen mellan datacentret och dina användare.
 
-You can optionally set up virtual networks and geo-redundancy during account creation, but this can also be done later. In this module we will not enable those settings.
+Om du vill kan du konfigurera virtuella nätverk och georedundans när kontot skapas, men det kan också göras senare. I den här modulen aktiverar vi inte dessa inställningar.
 
-## Creating an Azure Cosmos DB account in the portal
+## <a name="creating-an-azure-cosmos-db-account-in-the-portal"></a>Skapa ett Azure Cosmos DB-konto på portalen
 
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-
-1. Click **Create a resource** > **Databases** > **Cosmos DB**.
+1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
+2. Klicka på **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.
    
-   ![The Azure portal Databases pane](../media-draft/2-create-nosql-db-databases-json-tutorial.png)
+   ![Azure Portal-databasfönstret](../media/1-introduction/create-nosql-db-databases-json-tutorial-1.png)
 
-1. On the **New account** page, enter the settings for the new Azure Cosmos DB account.
+3. På sidan **Nytt konto** anger du inställningarna för det nya Azure Cosmos DB-kontot.
  
-    Setting|Value|Description
+    Inställning|Värde|Beskrivning
     ---|---|---
-    ID|*Enter a unique name*|Enter a unique name to identify this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID.<br><br>The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
-    API|SQL|The API determines the type of account to create. Azure Cosmos DB provides five APIs to suit the needs of your application: SQL (document database), Gremlin (graph database), MongoDB (document database), Azure Table, and Cassandra, each of which currently requires a separate account. <br><br>Select **SQL** because in this module you are creating a document database that is queryable using SQL syntax and accessible with the SQL API.|
-    Subscription|*Your subscription*|Select the Azure subscription that you want to use for this Azure Cosmos DB account.
-    Resource Group|Create new<br><br>*Then enter the same unique name as provided above in ID*|Select **Create New**, and then enter a new resource-group name for your account. For simplicity, the same name can be used as your ID. 
-    Location|*Select the region closest to your users*|Select the geographic location in which to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.
-    Enable geo-redundancy| Leave blank | This setting creates a replicated version of your database in a second (paired) region. Leave this blank for now, as the database can be replicated later.
-    Virtual networks|Disabled|Leave virtual networks disabled for now. This can be enabled later.
+    ID|*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom *documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
+    API|SQL|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er för ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure-tabell och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Välj **SQL** eftersom du i den här modulen ska skapa en dokumentdatabas som stöder frågekörning med SDL-syntax och som kan nås med SQL-API:et.|
+    Prenumeration|*Din prenumeration*|Välj den Azure-prenumeration som du vill använda för det här Azure Cosmos DB-kontot. 
+    Resursgrupp|Skapa ny<br><br>*Ange sedan samma unika namn som angavs ovan i ID:t*|Välj **Skapa ny** och ange sedan ett nytt resursgruppsnamn för ditt konto. För enkelhetens skull kan samma namn användas som ditt-ID. 
+    Plats|*Välj den region som är närmast dina användare*|Välj den geografiska plats som ska vara värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.
+    Aktivera geo-redundans| Lämna tomt | Den här inställningen skapar en replikerad version av databasen i en andra (parad) region. Lämna detta tomt tills vidare, eftersom databasen kan replikeras senare. 
+    Virtuella nätverk|Inaktiverad|Lämna virtuella nätverk inaktiverade för tillfället. Du kan aktivera det senare. 
 
-1. Click **Create**.
+4. Klicka på **Skapa**.
 
-    ![The new account page for Azure Cosmos DB](../media-draft/2-azure-cosmos-db-create-new-account.png)
+    ![Den nya kontosidan för Azure Cosmos DB](../media/1-introduction/azure-cosmos-db-create-new-account.png)
 
-1. The account creation takes a few minutes. Wait for the portal to display the notification that the deployment succeeded and click the notification. 
+5. Det tar några minuter att skapa kontot. Vänta tills portalen visar meddelandet om att distributionen är klar och klicka på meddelandet. 
 
-    ![Notification alert](../media-draft/2-azure-cosmos-db-notification.png)
+    ![Avisering](../media/1-introduction/azure-cosmos-db-notification.png)
 
-1. In the notification window, click **Go to resource**.
+6. Klicka på **Gå till resurs** i meddelandefönstret.
 
-    ![Go to resource](../media-draft/2-azure-cosmos-db-go-to-resource.png)
+    ![Gå till resurs](../media/1-introduction/azure-cosmos-db-go-to-resource.png)
 
-    The portal displays the **Congratulations! Your Azure Cosmos DB account was created** page.
+    Portalen visar sidan **Grattis! Azure Cosmos DB-kontot har skapats**.
 
-    ![The Azure portal Notifications pane](../media-draft/2-azure-cosmos-db-account-created.png)
+    ![Meddelandefönstret i Azure-portalen](../media/1-introduction/azure-cosmos-db-account-created.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-You have created an Azure Cosmos DB account, which is the first step in creating an Azure Cosmos DB database. You selected appropriate settings for your data types and set the account location to minimize latency for your users.
+Du har skapat ett Azure Cosmos DB-konto, som är det första steget när du ska skapa en Azure Cosmos DB-databas. Du har valt lämpliga inställningar för dina datatyper och angett platsen för kontot för att minimera fördröjningen för dina användare.

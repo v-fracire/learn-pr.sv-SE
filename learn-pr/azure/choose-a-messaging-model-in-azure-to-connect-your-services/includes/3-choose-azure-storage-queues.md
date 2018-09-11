@@ -1,63 +1,63 @@
-Suppose you are planning the architecture for your music-sharing application. You want to ensure that music files are uploaded to the web API reliably from the mobile app - we then want to deliver the details about new songs directly to the app when an artist adds new music to their collection. This is a perfect use of a message-based system and Azure offers two solutions to this problem:
+Anta att du planerar arkitekturen för ditt musikdelningsprogram. Du vill säkerställa att musikfilerna överförs till webb-API:et på ett tillförlitligt sätt från den mobila appen – sedan ska informationen om de nya låtarna levereras direkt till appen när en artist lägger till ny musik i sin samling. Det här är ett perfekt användningsområde för ett meddelandebaserat system. Azure erbjuder två lösningar på det här problemet:
 
 - Azure Queue Storage
 - Azure Service Bus
 
-## What is Azure Queue Storage?
-Queue storage is a service that uses Azure Storage to store large numbers of messages that can be securely accessed from anywhere in the world using a simple REST-based interface. Queues can contain millions of messages, limited only by the capacity of the storage account that owns it.
+## <a name="what-is-azure-queue-storage"></a>Vad är Azure Queue Storage?
+Queue Storage är en tjänst som använder Azure Storage för att lagra stora mängder meddelanden som på ett säkert sätt kan nås från var som helst i världen med ett enkelt REST-baserat gränssnitt. Köer kan innehålla miljontals meddelanden; det begränsas bara av kapaciteten för det lagringskonto som äger det.
 
-## What is Azure Service Bus?
-Service Bus is a message broker system intended for enterprise applications. These apps often utilize multiple communication protocols, have different data contracts, higher security requirements, and can include both cloud and on-premises services. Service Bus is built on top of a dedicated messaging infrastructure designed for exactly these scenarios.
+## <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
+Service Bus är ett system för asynkron meddelandekö som är avsett för företagsprogram. De här apparna använder ofta flera kommunikationsprotokoll, har olika datakontrakt, högre säkerhetskrav och kan innehålla både molnbaserade och lokala tjänster. Service Bus är byggt ovanpå en dedikerad meddelandeinfrastruktur som har utformats för just dessa scenarier.
 
-Both of these services are based on the idea of a "queue" which holds sent messages until the target is ready to receive them. If you've never worked with a message queue system before, they have several convenient benefits.
+Båda tjänsterna baseras på konceptet med en ”kö” som kvarhåller skickade meddelanden tills målet är redo att ta emot dem. Om du aldrig har arbetat med ett meddelandekösystem förut finns det flera praktiska fördelar att upptäcka.
 
-## Increased reliability
-Queues are used by distributed applications as a temporary storage location for messages pending delivery to a destination component. The source component can add a message to the queue and destination components can retrieve the message at the front of the queue for processing. Queues increase the reliability of the message exchange because, at times of high demand, messages can simply wait until a destination component is ready to process them.
+## <a name="increased-reliability"></a>Ökad tillförlitlighet
+Köer används av distribuerade program som en tillfällig lagringsplats för meddelanden som väntar på leverans till en målkomponent. Källkomponenten kan lägga till ett meddelande till kön, och målkomponenter kan hämta meddelandet längst fram i kön för bearbetning. Köer ökar tillförlitligheten för meddelanden eftersom det vid hög efterfrågan kan innebära att meddelanden får vänta tills en målkomponent är redo att bearbeta dem.
 
-## Message delivery guarantees
-Queuing systems usually guarantee delivery of each message in the queue to a destination component. However, these guarantees can take different approaches:
+## <a name="message-delivery-guarantees"></a>Garantier för meddelandeleverans
+Kösystem garanterar vanligtvis att alla meddelanden i kön levereras till en målkomponent. Dessa garantier kan dock fungera på olika sätt:
 
-- **At-Least-Once Delivery.** In this approach, each message is guaranteed to be delivered to at least one of the components that retrieve messages from the queue. Note, however, that in certain circumstances, it is possible that the same message may be delivered more than once. For example, if there are two instances of a web app retrieving messages from a queue, ordinarily each message goes to only one of those instances. However, if one instance takes a long time to process the message, and a time-out expires, the message may be sent to the other instance as well. Your web app code should be designed with this possibility in mind.
+- **Leverans minst en gång.** Den här metoden garanterar att varje meddelande levereras till minst en av de komponenter som hämtar meddelanden från kön. Observera att det i vissa fall kan hända att samma meddelande levereras mer än en gång. Om det till exempel finns två instanser av en webbapp som hämtar meddelanden från en kö skickas vanligtvis varje meddelande till endast en av dessa instanser. Men om det tar lång tid för en instans att bearbeta meddelandet och en tidsgräns går ut kan meddelandet skickas till den andra instansen också. Koden i din webbapp bör utformas för att ta hänsyn till den här möjligheten.
 
-- **At-Most-Once Delivery.** In this approach, each message is not guaranteed to be delivered, and there is a very small chance that it may not arrive. However, unlike At-Least-Once delivery, there is no chance that the message will be delivered twice. This is sometimes referred to as "automatic duplicate detection".
+- **Leverans högst en gång.** Med den här metoden går det inte att garantera att varje meddelande levereras, och det finns en mycket liten risk att det inte kommer fram alls. Till skillnad från hur alternativet ”Leverans minst en gång” fungerar finns det dock ingen risk att meddelandet levereras två gånger. Detta kallas ibland ”automatisk dubblettidentifiering”.
 
-- **First-In-First-Out (FIFO).** In most messaging systems, messages usually leave the queue in the same order in which they were added, but you should consider whether this order is guaranteed. If your distributed application requires that messages are processed in precisely the correct order, you must choose a queue system that includes a FIFO guarantee.
+- **Först in först ut (FIFO).** I de flesta meddelandesystem lämnar meddelanden vanligtvis kön i samma ordning som de har lagts till, men du bör fundera på om den här ordningen ska vara garanterad. Om det distribuerade programmet kräver att meddelanden behandlas i exakt rätt ordning måste du välja ett kösystem med FIFO-garanti.
 
-## Transactional support
-Some closely related groups of messages may cause problems when delivery fails for one message in the group.
+## <a name="transactional-support"></a>Transaktionsstöd
+Vissa nära relaterade grupper av meddelanden kan orsaka problem om leveransen misslyckas för ett av meddelandena i gruppen.
 
-For example, consider an e-commerce application. When the user clicks the **Buy** button, a series of messages might be generated and sent off to various processing destinations:
+Tänk dig exempelvis ett e-handelsprogram. När användaren klickar på knappen **Köp** genereras kanske en serie meddelanden och skickas till olika bearbetningsmål:
 
-- A message with the order details is sent to a fulfillment center
-- A message with the total and payment details is sent to a credit card processor. 
-- A message with the receipt information is sent to a database to generate an invoice for the customer
+- Ett meddelande med orderinformationen skickas till en expedieringscentral
+- Ett meddelande med information om totalsumman och betalningen skickas till ett kreditkortsföretag. 
+- Ett meddelande med kvittoinformationen skickas till en databas för att generera en faktura för kunden
 
-In this case, we want to make sure _all_ messages get processed, or none of them are processed. We won't be in business long if the credit card message is not delivered, and all our orders are fulfilled without payment! You can avoid these kinds of problems by grouping the two messages into a transaction. Message transactions succeed or fail as a single unit - just like in the database world. If the credit card details message delivery fails, then so will the order details message.
+I det här fallet vi vill vara säkra på att _alla_ meddelanden bearbetas eller att inga av dem bearbetas. Det skulle orsaka en hel del problem om kreditkortsmeddelandet inte levererades och alla våra beställningar slutfördes utan betalning! Du kan undvika dessa typer av problem genom att gruppera de två meddelandena i en transaktion. Meddelandetransaktioner lyckas eller misslyckas som en enda enhet – precis som i databasvärlden. Om leveransen av kreditkortsinformationen misslyckas kommer även orderinformationen att göra det.
 
-## Which service should I choose?
-Having understood that the communication strategy for this architecture should be a message, you must choose whether to use Azure Storage queues or Azure Service Bus, both of which can be used to store and deliver messages between your components. Each has a slightly different feature set, which means you can choose one or the other, or use both, depending on the problem you are solving.
+## <a name="which-service-should-i-choose"></a>Vilken tjänst bör jag välja?
+Eftersom du har förstått att kommunikationsstrategin för den här arkitekturen ska vara ett meddelande måste du välja om du ska använda Azure Storage-köer eller Azure Service Bus. Båda kan användas för att lagra och leverera meddelanden mellan dina komponenter. De har något annorlunda funktionsuppsättningar, vilket innebär att du kan använda den ena, den andra eller båda två beroende på det problem som du vill lösa.
 
-#### Choose Service Bus queues if:
+#### <a name="choose-service-bus-queues-if"></a>Välj Service Bus-köer om:
 
-- You need an At-Most-Once delivery guarantee.
-- You need a FIFO guarantee.
-- You need to group messages into transactions.
-- You want to receive messages without polling the queue.
-- You need to provide a role-based access model to the queues.
-- You need to handle messages larger than 64 KB but less than 256 KB.
-- Your queue size will not grow larger than 80 GB.
-- You would like to be able to publish and consume batches of messages.
+- Du behöver en garanti om leverans högst en gång.
+- Du behöver en FIFO-garanti.
+- Du behöver gruppera meddelanden i transaktioner.
+- Du vill ta emot meddelanden utan att avsöka kön.
+- Du behöver ange en modell för rollbaserad åtkomst till köerna.
+- Du behöver hantera meddelanden som är större än 64 KB men mindre än 256 KB.
+- Storleken på din kö inte kommer att bli större än 80 GB.
+- Du vill kunna publicera och använda batchar av meddelanden.
 
-Queue storage isn't quite as feature-rich, but if you don't need any of those features, it can be a simpler choice. In addition, it's the best solution if your app has any of the following requirements.
+Kölagring har inte riktigt lika många funktioner, men om du inte behöver några av de funktionerna kan det vara ett enklare val. Dessutom är det den bästa lösningen om din app har något av följande krav.
 
-#### Choose Queue storage if:
+#### <a name="choose-queue-storage-if"></a>Välj Queue-lagring om:
 
-- You need an audit trail of all messages that pass through the queue.
-- You expect the queue to exceed 80 GB in size.
-- You want to track progress for processing a message inside of the queue.
+- Du behöver en spårningslogg för alla meddelanden som skickas via kön.
+- Du förväntar dig att kön kommer att överskrida 80 GB i storlek.
+- Du vill följa förloppet för bearbetning av ett meddelande i kön.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-A queue is a simple, temporary storage location for messages sent between the components of a distributed application. Use a queue to organize messages and gracefully handle unpredictable surges in demand.
+En kö är en enkel, tillfällig lagringsplats för meddelanden som skickas mellan komponenterna i ett distribuerat program. Använd en kö till att ordna meddelanden och smidigt hantera oväntade toppar i efterfrågan.
 
-Use Storage queues when you want a simple and easy-to-code queue system. For more advanced needs, use Service Bus queues.
+Använd Storage-köer om du vill ha ett enkelt kösystem som är lätt att koda. Använd Service Bus-köer för mer avancerade behov.

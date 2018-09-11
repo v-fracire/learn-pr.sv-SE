@@ -1,15 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.classify-images-with-custom-vision-services.6-classify-images
-title: Use the app to classify images
+title: Klassificera bilder med appen
 metadata:
-  title: Use the app to classify images
-  description: Use the app to classify images
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Klassificera bilder med appen
+  description: Klassificera bilder med appen
+  ms.openlocfilehash: 5d661faa262c1c2f780a5937959fcc2c095e83e8
+  ms.sourcegitcommit: 107578417899e44b5611917dec7bcc21d4c1582e
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43228769"
 durationInMinutes: 10
-content: |
-  [!include[](includes/6-classify-images.md)]
+content: '[!include[](includes/6-classify-images.md)]'

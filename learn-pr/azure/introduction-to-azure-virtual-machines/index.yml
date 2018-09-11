@@ -1,0 +1,32 @@
+### YamlMime:Module
+uid: learn.introduction-to-azure-virtual-machines
+metadata:
+  title: Introduktion till Azure Virtual Machines
+  description: Lär dig mer om vilka beslut du behöver fatta innan du skapar en virtuell dator, vilka alternativ du använder för att skapa och arbeta med den virtuella datorn, samt vilka tillägg och tjänster du använder för att hantera den virtuella datorn.
+  ms.openlocfilehash: 7b567e7336251009b6f07684697a3afd3c441422
+  ms.sourcegitcommit: ee277f4207efa50a4f7c657b47725be7f8c45489
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43475159"
+title: Introduktion till Azure Virtual Machines
+summary: Lär dig mer om vilka beslut du behöver fatta innan du skapar en virtuell dator, vilka alternativ du använder för att skapa och arbeta med den virtuella datorn, samt vilka tillägg och tjänster du använder för att hantera den virtuella datorn.
+abstract: 'I den här modulen lär du dig om: – De beslut som du behöver fatta innan du skapar en virtuell dator, t.ex. storlek, antal diskar och operativsystem – Alternativ för att skapa och hantera den virtuella datorn i Azure via portalen, CLI och PowerShell – Tillägg och tjänster som du kan använda för att enklare administrera dina virtuella datorer'
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- administrator
+- developer
+products:
+- Azure
+units:
+- learn.introduction-to-azure-virtual-machines.1-introduction
+- learn.introduction-to-azure-virtual-machines.2-compile-a-checklist-for-creating-a-vm
+- learn.introduction-to-azure-virtual-machines.3-create-a-vm
+- learn.introduction-to-azure-virtual-machines.4-describe-other-create-vm-options
+- learn.introduction-to-azure-virtual-machines.5-high-availability
+- learn.introduction-to-azure-virtual-machines.6-backup-services
+- learn.introduction-to-azure-virtual-machines.7-knowledge-check
+- learn.introduction-to-azure-virtual-machines.8-summary
+achievement: learn.introduction-to-azure-virtual-machines.badge

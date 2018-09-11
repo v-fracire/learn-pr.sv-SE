@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.azure-container-registry.build-image
+interactive: bash
+metadata:
+  title: Skapa containeravbildningar med Azure Container Registry
+  description: Skapa containeravbildningar med Azure Container Registry
+  ms.openlocfilehash: efd1d1214c56dca12d47644d41303b78773246f4
+  ms.sourcegitcommit: a29274a7a22a1b88016cd49c067921557992c945
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43317734"
+title: Skapa containeravbildningar med Azure Container Registry
+durationInMinutes: 15
+content: '[!include[](includes/3-build-images.md)]'

@@ -1,78 +1,78 @@
-Suppose you need to manage access to resources in Azure for the developer, engineering, and marketing teams. You’ve started to receive access requests, and you need to quickly come up to speed on how access management for resources works in Azure.
+Anta att du behöver hantera åtkomst till resurser i Azure för utvecklare, tekniker och marknadsföringsteam. Du har börjat få åtkomstbegäranden och du behöver snabbt förstå hur åtkomsthantering av resurser fungerar i Azure.
 
-## What is RBAC?
+## <a name="what-is-rbac"></a>Vad är RBAC?
 
-Role-based access control (RBAC) is an authorization system built on [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) that provides fine-grained access management of resources in Azure. Azure has lots of resources, but a few examples include virtual machines, websites, networks, and storage.
+Rollbaserad åtkomstkontroll (RBAC) är ett auktoriseringssystem som bygger på [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) och som ger detaljerad åtkomsthantering av resurser i Azure. Azure har många resurser, men några exempel är virtuella datorer, webbplatser, nätverk och lagring.
 
-## What can I do with RBAC?
+## <a name="what-can-i-do-with-rbac"></a>Vad kan jag göra med RBAC?
 
-RBAC allows you grant access to single users or user groups to Azure resources that you control.
+Med RBAC kan du bevilja åtkomst till enskilda användare eller användargrupper för de Azure-resurser som du hanterar.
 
-Here are some examples:
-- Allow one user to manage virtual machines in a subscription and another user to manage virtual networks
-- Allow a database administrator group to manage SQL databases in a subscription
-- Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets
-- Allow an application to access all resources in a resource group
+Här följer några exempel:
+- Tillåt en användare att hantera virtuella datorer i en prenumeration och en annan användare att hantera virtuella nätverk
+- Tillåt en databasadministratörsgrupp att hantera SQL-databaser i en prenumeration
+- Tillåt en användare att hantera alla resurser i en resursgrupp, till exempel virtuella datorer, webbplatser och undernät
+- Tillåt att ett program får åtkomst till alla resurser i en resursgrupp
 
-## RBAC in the Azure portal
+## <a name="rbac-in-the-azure-portal"></a>RBAC i Azure Portal
 
-In several areas in the Azure portal, you'll see a blade named **Access control (IAM)**, also known as identity and access management. On this blade, you can see who has access to that area and their role. Using this same blade, you can grant or remove access.
+I flera områden i Azure Portal finns ett blad med namnet **Åtkomstkontroll (IAM)**, även kallad identitets- och åtkomsthantering. På det här bladet kan se du vilka som har åtkomst till området och deras roll. Med samma blad kan du bevilja eller ta bort åtkomst.
 
-The following shows an example of the Access control (IAM) blade for a resource group. In this example, Alain Charon has been assigned the Backup Operator role on this resource group.
+Nedan visas ett exempel på bladet Åtkomstkontroll (IAM) för en resursgrupp. I det här exemplet har Alain Charon tilldelats rollen som ansvarig för säkerhetskopiering i resursgruppen.
 
-![Access control (IAM) in the Azure portal](../media-draft/2-resource-group-access-control.png)
+![Åtkomstkontroll (IAM) i Azure Portal](../media-draft/2-resource-group-access-control.png)
 
-## How does RBAC work?
+## <a name="how-does-rbac-work"></a>Hur fungerar RBAC?
 
-You control access to resources using RBAC by creating role assignments, which control how permissions are enforced. To create a role assignment, you need three elements: a security principal, a role definition, and a scope. You can think of these elements as "who," "what," and "where."
+Du kan styra åtkomsten till resurser med hjälp av RBAC, genom att skapa rolltilldelningar som styr hur behörigheter tillämpas. Om du vill skapa en rolltilldelning behöver du tre element: ett säkerhetsobjekt, en rolldefinition och ett omfång. Du kan tänka på de här elementen som ”vem”, ”vad” och ”var”.
 
-### 1. Security principal (who)
+### <a name="1-security-principal-who"></a>1. Säkerhetsobjekt (vem)
 
-A *security principal* is just a fancy name for a user, group, or application that you want to grant access to.
+Ett *säkerhetsobjekt* är ett annat namn på en användare, en grupp eller ett program som du vill bevilja åtkomst för.
 
-![Security principal](../media-draft/2-rbac-security-principal.png)
+![Säkerhetsobjekt](../media-draft/2-rbac-security-principal.png)
 
-### 2. Role definition (what you can do)
+### <a name="2-role-definition-what-you-can-do"></a>2. Rolldefinition (vad du kan göra)
 
-A *role definition* is a collection of permissions. It's sometimes just called a role. A role definition lists the permissions that can be performed, such as read, write, and delete. Roles can be high-level, like Owner, or specific, like Virtual Machine Contributor.
+En *rolldefinition* är en samling behörigheter. Ibland kallas det helt enkelt för en roll. En rolldefinition visar en lista på de behörigheter som kan utföras, till exempel läsa, skriva och ta bort. Roller kan vara på hög nivå som t.ex. Ägare, eller specifika som t.ex. Virtuell datordeltagare.
 
-![Role definition](../media-draft/2-rbac-role-definition.png)
+![Rolldefinition](../media-draft/2-rbac-role-definition.png)
 
-Azure includes several [built-in roles](/azure/role-based-access-control/built-in-roles) that you can use. The following lists four fundamental built-in roles:
+Azure innehåller flera [inbyggda roller](/azure/role-based-access-control/built-in-roles) som du kan använda. I följande lista finns fyra grundläggande inbyggda roller:
 
-- Owner - Has full access to all resources, including the right to delegate access to others.
-- Contributor - Can create and manage all types of Azure resources, but can’t grant access to others.
-- Reader - Can view existing Azure resources.
-- User Access Administrator - Lets you manage user access to Azure resources.
+- Ägare – Har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra.
+- Deltagare – Kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.
+- Läsare – Kan se befintliga Azure-resurser.
+- Administratör för användaråtkomst – Låter dig hantera användarnas åtkomst till Azure-resurser.
 
-If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](/azure/role-based-access-control/custom-roles).
+Om de inbyggda rollerna inte uppfyller organisationens specifika krav, kan du skapa egna [anpassade roller](/azure/role-based-access-control/custom-roles).
 
-### 3. Scope (where)
+### <a name="3-scope-where"></a>3. Omfång (var)
 
-*Scope* is where the access applies to. This is helpful if you want to make someone a Website Contributor, but only for one resource group.
+*Omfång* är det område som åtkomsten gäller för. Det här är användbart om du vill göra någon till en webbplatsdeltagare, men endast för en resursgrupp.
 
-In Azure, you can specify a scope at multiple levels: management group, subscription, resource group, or resource. Scopes are structured in a parent-child relationship. When you grant access at a parent scope, those permissions are inherited by the child scopes. For example, if you assign the Contributor role to a group at the subscription scope, that role is inherited by all resource groups and resources in the subscription.
+I Azure kan du ange ett omfång på flera nivåer: hanteringsgrupp, prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad/underordnad relation. När du beviljar åtkomst i ett överordnat omfång, ärvs dessa behörigheter av underordnade omfång. Om du tilldelar rollen Deltagare till en grupp i prenumerationsomfånget, ärvs den rollen av alla resursgrupper och resurser i prenumerationen.
 
-![Scope](../media-draft/2-rbac-scope.png)
+![Omfång](../media-draft/2-rbac-scope.png)
 
-### Role assignment
+### <a name="role-assignment"></a>Rolltilldelning
 
-Once you have determined the who, what, and where, you can combine those elements to grant access. A *role assignment* is the process of binding a role to a security principal at a particular scope, for the purpose of granting access. To grant access, you create a role assignment. To revoke access, you remove a role assignment.
+När du har bestämt vem, vad och var, kan du kombinera dessa element för att bevilja åtkomst. En *rolltilldelning* innebär att en roll kopplas till ett säkerhetsobjekt i ett visst omfång, i syfte att bevilja åtkomst. För att bevilja åtkomst skapar du en rolltilldelning. För att återkalla åtkomst tar du bort en rolltilldelning.
 
-The following example shows how the Marketing group has been assigned the Contributor role at the sales resource group scope.
+I det här exemplet har marknadsföringsgruppen tilldelats rollen Deltagare i försäljningsresursgruppens omfång.
 
-![Role assignment](../media-draft/2-rbac-overview.png)
+![Rolltilldelning](../media-draft/2-rbac-overview.png)
 
-## RBAC is allow-only with no deny
+## <a name="rbac-is-allow-only-with-no-deny"></a>RBAC tillåter endast behörighet, den nekas inte
 
-Currently, RBAC is an allow-only model with no deny. What this means is that when you are assigned a role, RBAC allows you to perform certain actions, such as read, write, or delete. RBAC does not explicitly deny access. So, if one role assignment grants you read permissions to a resource group and different role assignment grants you write permissions to the same resource group, you will have write permissions on that resource group.
+RBAC är för närvarande en modell som tillåter behörighet, den nekar inte. Det innebär att när du har tilldelats en roll ger RBAC dig behörighet att utföra vissa åtgärder, till exempel att läsa, skriva eller ta bort. RBAC ger ingen uttrycklig nekad åtkomst. Så om en rolltilldelning ger dig läsbehörighet till en resursgrupp och andra rolltilldelningar ger dig skrivbehörighet till samma resursgrupp, kommer du ha skrivbehörighet i den resursgruppen.
 
-RBAC has something called `NotActions` permissions. `NotActions` is not a deny rule – it is simply a convenient way to create a set of allowed permissions when specific permissions need to be excluded.
+RBAC har något som kallas `NotActions`-behörigheter. `NotActions` är inte en neka-regel – det är bara ett praktiskt sätt att skapa en uppsättning tillåtna behörigheter när specifika behörigheter behöver undantas.
 
-## Other roles in Azure
+## <a name="other-roles-in-azure"></a>Andra roller i Azure
 
-As you work with Azure, you might encounter other roles, such as Global Administrator, Account Administrator, and several others. Many of these other roles are used for Azure Active Directory administration, such as creating users, resetting passwords, managing user licenses, and managing domains. There's more information that you can read if you want to learn the details, but the important thing to remember is that RBAC roles are used to manage access to Azure resources.
+När du arbetar med Azure kan du stöta på andra roller som t.ex. Global administratör, Kontoadministratör med flera. Många av dessa andra roller används för Azure Active Directory-administration, till exempel att skapa användare, återställa lösenord, hantera användarlicenser och hantera domäner. Det finns mer information att läsa, men det är viktigast att komma ihåg att RBAC-roller används för att hantera åtkomst till Azure-resurser.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned the basics of how RBAC works. Now that you have the RBAC fundamentals out of the way, you can get your hands dirty by starting to use RBAC. The easiest way to get started is to use the Azure portal. The rest of this module has you perform hands-on exercises related to RBAC.
+I det här avsnittet har du lärt dig grunderna i hur RBAC fungerar. Nu när du har RBAC-grunderna avklarade, kan du börja använda RBAC. Det enklaste sättet att komma igång på är att använda Azure Portal. I resten av den här modulen kommer du att utföra praktiska övningar som rör RBAC.

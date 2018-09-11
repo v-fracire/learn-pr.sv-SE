@@ -1,17 +1,16 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-azure-resources-with-rbac.6-grant-access-powershell
 metadata:
-  title: Grant access using RBAC and Azure PowerShell
-  description: Learn how to grant a user access to create and manage virtual machines in a resource group using Azure PowerShell.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Grant access using RBAC and Azure PowerShell
-#TODO: Update labID
-#labId: 1234
+  title: Bevilja åtkomst med hjälp av RBAC och Azure PowerShell
+  description: Lär dig hur du ger en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp med hjälp av Azure PowerShell.
+  displayType: one-column
+  ms.openlocfilehash: 5675e822091ab1bc73be393997b2963436edafae
+  ms.sourcegitcommit: bb4b1f9e2a7399769ff84199f018abd14a3e73aa
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/01/2018
+  ms.locfileid: "43455572"
+title: Bevilja åtkomst med hjälp av RBAC och Azure PowerShell
+labOnDemandUrl: https://labondemand.com/Launch/00000000
 durationInMinutes: 10
-content: |
-  [!include[](includes/6-grant-access-powershell.md)]
+content: '[!include[](includes/6-grant-access-powershell.md)]'

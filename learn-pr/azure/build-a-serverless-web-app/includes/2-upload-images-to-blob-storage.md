@@ -1,251 +1,274 @@
-The application you're building is a photo gallery. It uses client-side JavaScript to call APIs to upload and display images. In this unit, you will create an API using a serverless function that generates a time-limited URL to upload an image. The web application uses this URL to upload an image to Blob storage using the [Blob storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
+Programmet som du skapar är ett fotogalleri. Programmet använder JavaScript på klientsidan för att anropa API:er för uppladdning och visning av bilder. I den här modulen skapar du ett API med hjälp av en serverlös funktion som genererar en tidsbegränsad URL för uppladdning av en bild. Webbprogrammet använder den genererade URL:en för att ladda upp en avbildning till Blob Storage med hjälp av [REST-API:et för Blob Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
 
-## Create a Blob storage container for images
+## <a name="create-a-blob-storage-container-for-images"></a>Skapa en Blob Storage-container för bilder
 
-The application requires a separate storage container to upload and host images.
+Programmet kräver en separat lagringscontainer för att ladda upp och lagra bilder.
 
-1. Ensure that you're still signed in to Azure Cloud Shell (Bash). If not, select **Enter focus mode** to open a Cloud Shell window.
+1. Kontrollera att du fortfarande är inloggad i Azure Cloud Shell (Bash). Om inte väljer du **Enter focus mode** (Växla till fokusläge) för att öppna ett Cloud Shell-fönster.
 
-1.  Create a new container in your Storage account named **images** in your Storage account with public access to all blobs.
+1.  Skapa en ny container med namnet **images** (bilder) i ditt lagringskonto med offentlig åtkomst till alla blobbar.
 
     ```azurecli
     az storage container create -n images --account-name <storage account name> --public-access blob
     ```
 
-## Create an Azure Functions app
+## <a name="create-an-azure-functions-app"></a>Skapa en Azure Functions-app
 
-Azure Functions is a service for running serverless functions. A serverless function can be triggered (called) by events, such as an HTTP request, or when a blob is created in a storage container.
+Med tjänsten Azure Functions kan du köra serverlösa funktioner. En serverlös funktion kan utlösas (anropas) av händelser som till exempel en HTTP-begäran eller när en blobb skapas i en lagringscontainer.
 
-An Azure Functions app is a container for one or more serverless functions.
+En Azure Functions-app är en container för en eller flera serverlösa funktioner.
 
-- Create a new Functions app with a unique name in the **first-serverless-app** resource group that you created earlier. Functions apps require a Storage account. In this unit, you will use the existing storage account you created in the last unit.
+- Skapa en ny Azure Functions-app med ett unikt namn i resursgruppen som du skapade tidigare med namnet **first-serverless-app**. Ett lagringskonto krävs för Azure Functions-appar. I den här självstudien använder du det befintliga lagringskontot.
 
     ```azurecli
     az functionapp create -n <function app name> -g first-serverless-app -s <storage account name> -c westcentralus
     ```
 
-## Create an HTTP-triggered serverless function
+## <a name="create-an-http-triggered-serverless-function"></a>Skapa en HTTP-utlöst serverlös funktion
 
-To securely upload an image to Blob storage, the photo gallery web app makes an HTTP request to the serverless function to generate a time-limited URL. The function is triggered by an HTTP request and uses the Azure Storage SDK to generate and return the secure URL.
+Webbappen för fotogalleriet skickar en HTTP-begäran till den serverlösa funktionen för att generera en tidsbegränsad URL för säker uppladdning av en bild till Blob Storage. Funktionen utlöses av en HTTP-begäran och använder Azure Storage SDK för att generera och returnera den säkra URL:en.
 
-1. After the Functions app is created, search for it in the [Azure portal](https://portal.azure.com/?azure-portal=true) using the **Search** box. Click on the app to open it.
+1. När Functions-appen har skapats kan du söka efter den på Azure Portal med hjälp av **sökrutan**. Klicka på appen för att öppna den.
 
-    ![Open the Functions app](../media/2-search-function-app.png)
+    ![Öppna Functions-appen](../media/2-search-function-app.png)
 
-1. In the left navigation of the Functions app window, point to **Functions** and click the plus sign (+) to create a new serverless function.
 
-    ![Create a new function](../media/2-new-function.png)
+1. I Functions-appfönstrets vänstra navigeringsfönster pekar du på **Functions** och klickar på plustecknet (+) för att skapa en ny serverlös funktion.
 
-1. Click **Custom function** to see a list of function templates.
+    ![Skapa en ny funktion](../media/2-new-function.png)
 
-1. Find the **HttpTrigger** template and click C# or JavaScript.
+1. Klicka på **Anpassad funktion** för att visa en lista med funktionsmallar.
 
-1. Use the following values to create a function that generates a blob upload URL:
+1. Leta upp mallen **HttpTrigger** och klicka på önskat språk (C# eller JavaScript).
 
-    | Setting      |  Suggested value   | Description                                        |
+1. Använd dessa värden för att skapa en funktion som genererar en blobbuppladdnings-URL:
+
+    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | ---|
-    | **Language** | C# or JavaScript | Select the language that you want to use. |
-    | **Name your function** | GetUploadUrl | Enter this name exactly as shown, so the application can discover the function. |
-    | **Authorization level** | Anonymous | Allows the function to be accessed publicly. |
+    | **Språk** | C# eller JavaScript | Välj det språk som du vill använda. |
+    | **Namnge din funktion** | GetUploadUrl | Ange det här namnet exakt så som det visas så att programmet kan identifiera funktionen. |
+    | **Auktoriseringsnivå** | Anonym | Gör funktionen offentligt tillgänglig. |
 
-    ![Enter settings for a new HTTP-triggered function](../media/2-new-function-httptrigger.png)
+    ![Ange inställningarna för en ny HTTP-utlöst funktion](../media/2-new-function-httptrigger.png)
 
-1. Click **Create** to create the function.
+1. Klicka på **Skapa** för att skapa funktionen.
 
 ::: zone pivot="csharp"
-1. (C#) When the function's source code appears, replace all of the content in the **run.csx** file with the content in the [**csharp/GetUploadUrl/run.csx**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/GetUploadUrl/run.csx) file.
+1. **C#** 
+
+    När funktionens källkod visas ersätter du allt innehåll i **run.csx**-filen med innehållet i filen [**csharp/GetUploadUrl/run.csx**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/GetUploadUrl/run.csx).
 
 ::: zone-end
 
 ::: zone pivot="javascript"
-1. (JavaScript) This function requires the `azure-storage` package from npm. The package generates the shared access signature (SAS) token that's required to build the secure URL. To install the npm package, click on the Functions app on the left navigation and click **Platform features**.
+1. **JavaScript** 
 
-1. (JavaScript) Click **Console** to reveal a console window.
+    1. (JavaScript) Den här funktionen kräver `azure-storage`-paketet från npm. Paketet genererar den SAS-token (signatur för delad åtkomst) som krävs för att skapa den säkra URL:en. Installera npm-paketet genom att klicka på Functions-appen i det vänstra navigeringsfönstret och klicka på **Plattformsfunktioner**.
 
-    ![Open a console window](../media/2-open-console.jpg)
+    1. (JavaScript) Öppna ett konsolfönster genom att klicka på **Konsol**.
 
-1. (JavaScript) Ensure the current directory is **d:\home\site\wwwroot** by running the command `cd d:\home\site\wwwroot`.
+        ![Öppna ett konsolfönster](../media/2-open-console.jpg)
 
-1. (JavaScript) Run the command `npm init -y` to create an empty **package.json** file.
+    1. (JavaScript) Kontrollera att den aktuella katalogen är **d:\home\site\wwwroot** genom att köra kommandot `cd d:\home\site\wwwroot`.
 
-1. (JavaScript) To install the package, run the command `npm install --save azure-storage` in the console. Save the package as **package.json**. It may take a few minutes to complete the operation.
+    1. (JavaScript) Kör kommandot `npm init -y` för att skapa en tom **package.json**-fil.
 
-1. (JavaScript) Click on the function (**GetUploadUrl**) in the left navigation to reveal the function. Replace all of the content in the **index.js** file with the content in the [**javascript/GetUploadUrl/index.js**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/GetUploadUrl/index.js) file.
+    1. (JavaScript) Kör kommandot `npm install --save azure-storage` i konsolen för att installera paketet. Spara paketet som **package.json**. Det kan ta några minuter att slutföra åtgärden.
 
-    ![Contents of index.js after update](../media/2-paste-js.jpg)
+    1. (JavaScript) Klicka på funktionen (**GetUploadUrl**) i det vänstra navigeringsfönstret för att visa funktionen. Byt ut hela innehållet i filen **index.js** med innehållet i filen [**javascript/GetUploadUrl/index.js**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/GetUploadUrl/index.js).
+    
+        ![Innehållet i index.js efter uppdatering](../media/2-paste-js.jpg)
 
 ::: zone-end
 
-1. Click **Logs** below the code window to expand the logs panel.
+1. Klicka på **Loggar** under kodfönstret för att expandera loggpanelen.
 
-1. Click **Save**. Check the logs panel to ensure the function is successfully compiled.
+1. Klicka på **Spara**. Granska loggpanelen för att bekräfta att funktionen har kompilerats.
 
-The function generates a shared access signature (SAS) URL that's used to upload a file to Blob storage. The SAS URL is valid for a short time and only allows a single file to be uploaded. Consult the Blob storage documentation for more information on [how to use shared access signatures](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Funktionen genererar en så kallad SAS-URL (signatur för delad åtkomst) som används för att ladda upp en fil till Blob Storage. SAS-URL:en är giltig en kort tid och tillåter bara uppladdning av en enda fil. Läs dokumentationen för Blob Storage om du vill veta mer om [hur du använder signaturer för delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
 
-## Add an environment variable for the storage connection string
+## <a name="add-an-environment-variable-for-the-storage-connection-string"></a>Lägg till en miljövariabel för anslutningssträngen för lagring
 
-The function that you created requires a connection string for the Storage account so that it can generate the SAS URL. Instead of hardcoding the connection string in the function body, it can be stored as an application setting. Application settings are accessible as environment variables by all functions in the Functions app.
+Funktionen som du har skapat behöver en anslutningssträng för lagringskontot för att kunna generera SAS-URL:en. I stället för att hårdkoda anslutningssträngen i funktionens kod kan du lagra den som en programinställning. Alla funktioner i Functions-appen kan komma åt programinställningar som miljövariabler.
 
-1. In Cloud Shell, query the Storage account connection string and save it to a Bash variable named **STORAGE_CONNECTION_STRING**.
+1. Hämta anslutningssträngen för lagringskontot från Cloud Shell och spara den i en bash-variabel med namnet **STORAGE_CONNECTION_STRING**.
 
     ```azurecli
     export STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n <storage account name> -g first-serverless-app --query "connectionString" --output tsv)
     ```
 
-    Confirm the variable is set successfully.
+    Bekräfta att variabeln är korrekt angiven.
 
     ```azurecli
     echo $STORAGE_CONNECTION_STRING
     ```
 
-1. Create a new application setting named **AZURE_STORAGE_CONNECTION_STRING** using the value saved from the previous step.
+1. Skapa en ny programinställning med namnet **AZURE_STORAGE_CONNECTION_STRING** genom att använda värdet som sparades i föregående steg.
 
     ```azurecli
     az functionapp config appsettings set -n <function app name> -g first-serverless-app --settings AZURE_STORAGE_CONNECTION_STRING=$STORAGE_CONNECTION_STRING -o table
     ```
 
-    Confirm that the command's output contains the new application setting with the correct value.
+    Bekräfta att kommandots utdata innehåller den nya programinställningen med rätt värde.
 
 
-## Test the serverless function
+## <a name="test-the-serverless-function"></a>Testa den serverlösa funktionen
 
-In addition to creating and editing functions, the Azure portal also provides a built-in tool for testing functions.
+Förutom att skapa och redigera funktioner innehåller Azure Portal även ett inbyggt verktyg för att testa funktioner.
 
-1. To test the HTTP serverless function, on the right of the code window, click on the **Test** tab to expand the test panel.
+1. Testa den serverlösa HTTP-funktionen genom att klicka på fliken **Testa** till höger om kodfönstret för att expandera testpanelen.
 
-1. Change the **Http method** to **GET**.
+1. Ändra **Http-metoden** till **GET**.
 
-1. Under **Query**, click **Add parameter** and add the following parameter:
+1. Under **Fråga** klickar du på **Lägg till parameter** och lägger till följande parameter:
 
-    | Name      |  Value   | 
+    | Namn      |  Värde   | 
     | --- | --- |
     | **filename** | image1.jpg |
 
-1. In the test panel, click **Run** to send an HTTP request to the function.
+1. Klicka på **Kör** på testpanelen för att skicka en HTTP-begäran till funktionen.
 
-1. The function returns an upload URL in the output. The function execution appears in the Logs panel.
+1. Funktionen returnerar en uppladdnings-URL. Funktionskörningen visas på loggpanelen.
 
-    ![Logs showing function ran successfully](../media/2-test-function.png)
+    ![Loggar som visar att funktionen körts utan problem](../media/2-test-function.png)
 
 
-## Configure CORS in the Functions app
+## <a name="configure-cors-in-the-functions-app"></a>Konfigurera CORS i Functions-appen
 
-Because the function front end is hosted in Blob storage, it has a different domain name than the Azure Functions app. For the client-side JavaScript to successfully call the function that you created, the Functions app has to be configured for cross-origin resource sharing (CORS).
+Eftersom funktionens klientdel finns i Blob Storage har den ett annat domännamn än Azure Functions-appen. För att JavaScript-koden på klientsidan ska kunna anropa funktionen som du har skapat måste Functions-appen konfigureras för CORS (Cross-Origin Resource Sharing).
 
-1. In the left navigation of the Functions app window, click on the name of your Functions app.
+1. Klicka på namnet på Functions-appen i det vänstra navigeringsfältet i Functions-appens fönster.
 
-1. Click on **Platform features** to view a list of advanced features.
+1. Visa en lista med avancerade funktioner genom att klicka på **Plattformsfunktioner**.
 
-1. Under **API**, click **CORS**.
+1. Klicka på **CORS** under **API**.
 
-    ![Select CORS](../media/2-open-cors.jpg)
+    ![Välj CORS](../media/2-open-cors.jpg)
 
-1. Add an allow origin for the application URL from the previous module and omit the trailing slash (/). For example: `https://firstserverlessweb.z4.web.core.windows.net`.
+1. Lägg till tillåtna ursprung för program-URL:en från den föregående modulen, men utelämna det avslutande snedstrecket (/). Till exempel `https://firstserverlessweb.z4.web.core.windows.net`.
 
-    ![CORS settings showing serverless web app URL added](../media/2-add-cors.png)
+    ![CORS-inställningar som visar att den serverlösa webbappens URL har lagts till](../media/2-add-cors.png)
 
-1. Click **Save**.
+1. Klicka på **Spara**.
 
-::: zone pivot="csharp"
-1. (C#) Navigate back to the `GetUploadUrl` function and select the **Integrate** tab.
+1. **C#**:
 
-1. (C#) Under **Selected HTTP methods**, select **OPTIONS**.
+   1. (C#) Gå tillbaka till funktionen `GetUploadUrl` och välj fliken **Integrera**.
 
-    **GET**, **POST**, and **OPTIONS** should all be selected. CORS uses the **OPTIONS** method, which isn't selected by default for C# functions.  
+   1. (C#) Välj **OPTIONS** under **Utvalda HTTP-metoder**.
 
-1. (C#) Click **Save**.
+      **GET**, **POST** och **OPTIONS** bör vara markerade. CORS använder **OPTIONS**-metoden, som inte är markerad som standard för C#-funktioner.  
 
-::: zone-end
+   1. (C#) Klicka på **Spara**.
 
-1. Still in the Azure portal, navigate to the Functions app. Select the **Overview** tab. Click **Restart** to make sure that the changes for CORS take effect.
+1. Navigera till Functions-appen från Azure Portal. Välj fliken **Översikt**. Klicka på **Starta om** för att se till att ändringarna för CORS har tillämpats.
 
-## Configure CORS in the Storage account
+## <a name="configure-cors-in-the-storage-account"></a>Konfigurera CORS i lagringskontot
 
-Because the Functions app also makes client-side JavaScript calls to Blob storage to upload files, you have to configure the Storage account for CORS.
+Eftersom Functions-appen även gör JavaScript-anrop till Blob Storage för filuppladdning måste du även konfigurera lagringskontot för CORS.
 
-- Run the following command to allow all origins to upload files to the Storage account:
+- Kör följande kommando för att tillåta att alla ursprung laddar upp filer till lagringskontot:
 
     ```azurecli
     az storage cors add --methods OPTIONS PUT --origins '*' --exposed-headers '*' --allowed-headers '*' --services b --account-name <storage account name>
     ```
 
 
-## Modify the web app to upload images
+## <a name="modify-the-web-app-to-upload-images"></a>Ändra webbappen för att ladda upp bilder
 
-The web app retrieves settings from a file named **settings.js**. In the following steps, you create the file using Cloud Shell. You set `window.apiBaseUrl` to the URL of the Functions app, and `window.blobBaseUrl` to the URL of the Azure Blob storage endpoint.
+Webbappen hämtar inställningar från en fil med namnet **settings.js**. Skapa filen med hjälp av Cloud Shell i de följande stegen. Ange `window.apiBaseUrl` till URL:en för Functions-appen och `window.blobBaseUrl` till URL:en för Azure Blob Storage-slutpunkten.
 
-1. In Cloud Shell, ensure that the current directory is the **www/dist** folder.
+1. Kontrollera i Cloud Shell att mappen **www/dist** är den aktuella mappen.
 
     ```azurecli
     cd ~/functions-first-serverless-web-application/www/dist
     ```
 
-1. Open the Cloud Shell Editor by typing the command `code`.
+1. Kör en fråga för att hämta Functions-appens URL och lagra den i en bash-variabel med namnet **FUNCTION_APP_URL**.
 
     ```azurecli
-    code
+    export FUNCTION_APP_URL="https://"$(az functionapp show -n <function app name> -g first-serverless-app --query "defaultHostName" --output tsv)
     ```
 
-1. In the Cloud Shell window below the editor, query the function app's URL.
+    Bekräfta att variabeln är korrekt angiven.
 
     ```azurecli
-    echo "https://"$(az functionapp show -n <function app name> -g first-serverless-app --query "defaultHostName" --output tsv)
+    echo $FUNCTION_APP_URL
     ```
 
-1. Add the following line into the editor window, using the function app URL you retrieved in the previous step.
+1. Ställ in bas-URI:n för API-anrop till Functions-appen genom att skapa **settings.js**-filen. Lägg till URL:en för Functions-appen som i följande exempel:
 
-    ```
-    window.apiBaseUrl = '<function app url>'
-    ```
+    `window.apiBaseUrl = 'https://fnapp@lab.GlobalLabInstanceId.azurewebsites.net'`
 
-1. In the Cloud Shell window below the editor, query the Azure Blob Storage endpoint URL.
+    Du kan göra ändringen genom att köra följande kommando eller genom att använda en kommandoradsredigerare som VIM.
 
     ```azurecli
-    echo $(az storage account show -n <storage account name> -g first-serverless-app --query primaryEndpoints.blob -o tsv | sed 's/\/$//')
+    echo "window.apiBaseUrl = '$FUNCTION_APP_URL'" > settings.js
     ```
 
-1. Append a second line into the editor window, using the Storage endpoint URL you retrieved in the previous step.
-
-    ```
-    window.blobBaseUrl = '<blob storage endpoint url>'
-    ```
-
-1. Save the file as **settings.js** and close the editor.
-
-1. Confirm the file was successfully written and it now contains 2 lines.
+    Kontrollera att filen skrivits korrekt.
 
     ```azurecli
     cat settings.js
     ```
 
-1. Upload the file to Blob storage.
+1. Kör en fråga för att hämta bas-URL:en för Blob Storage och lagra den i en bash-variabel med namnet **BLOB_BASE_URL**.
+
+    ```azurecli
+    export BLOB_BASE_URL=$(az storage account show -n <storage account name> -g first-serverless-app --query primaryEndpoints.blob -o tsv | sed 's/\/$//')
+    ```
+
+    Bekräfta att variabeln är korrekt angiven.
+
+    ```azurecli
+    echo $BLOB_BASE_URL
+    ```
+
+1. Ställ in bas-URI:n för API-anrop till Functions-appen genom att lägga till Blob Storage-URL:en i **settings.js**-filen som i följande exempel:
+
+    `window.blobBaseUrl = 'https://mystorage.blob.core.windows.net'`
+
+    Du kan göra ändringen genom att köra följande kommando eller genom att använda en kommandoradsredigerare som VIM.
+
+    ```azurecli
+    echo "window.blobBaseUrl = '$BLOB_BASE_URL'" >> settings.js
+    ```
+
+    Kontrollera att filen skrivits korrekt och att den nu innehåller två rader.
+
+    ```azurecli
+    cat settings.js
+    ```
+
+1. Ladda upp filen till Blob Storage.
 
     ```azurecli
     az storage blob upload -c \$web --account-name <storage account name> -f settings.js -n settings.js
     ```
 
 
-## Test the web application
+## <a name="test-the-web-application"></a>Testa webbprogrammet
 
-At this point, the gallery application is able to upload an image to Blob storage, but it can't display images yet. It will try to call a `GetImages` function that doesn't exist yet because you create it in a later module. The call will fail and the web page will appear to be stuck on "Analyzing...," but the image you select will be successfully uploaded.
+Nu kan galleriprogrammet ladda upp en bild till Blob Storage, men den kan inte visa bilder än. Den kommer att försöka anropa en `GetImages`-funktion som inte finns ännu eftersom du skapar den i en senare modul. Anropet misslyckas och sidan verkar ha fastnat på ”Analyserar...”, men bilden du valt kommer att laddas upp korrekt.
 
-You can verify that an image is successfully uploaded by checking the contents of the **images** container in the Azure portal.
+Du kan kontrollera att en bild har laddats upp genom att kontrollera innehållet i containern **images** på Azure Portal.
 
-1. In a browser window, browse to the application. Select an image file and upload it. The upload completes, but because we haven't added the ability to display images yet, the app doesn't show the uploaded photo. (The web page appears to be stuck on "Analyzing image..." You'll fix that later.)
+1. Gå till programmet i ett webbläsarfönster. Välj en bildfil och ladda upp den. Uppladdningen slutförs, men eftersom vi inte har lagt till möjligheten att visa bilder ännu så visar inte appen det uppladdade fotot. (Sidan verkar ha fastnat på ”Analyserar bild...”.) Du åtgärdar detta senare.)
 
-1. In Cloud Shell, confirm the image was uploaded to the **images** container.
+1. Kontrollera i Cloud Shell att bilden har laddats upp till containern **images**.
 
     ```azurecli
     az storage blob list --account-name <storage account name> -c images -o table
     ```
 
-1. Before moving on to the next tutorial, delete all files in the **images** container.
+1. Ta bort alla filer i containern **images** innan du går vidare till nästa självstudie.
 
     ```azurecli
     az storage blob delete-batch -s images --account-name <storage account name>
     ```
 
-## Summary
 
-In this unit, you created an Azure Functions app and learned how to use a serverless function to allow a web application to upload images to Blob storage. Next, you will learn how to create thumbnails for the uploaded images using a blob-triggered serverless function.
+## <a name="summary"></a>Sammanfattning
+
+I den här enheten har du skapat en Azure Functions-app och lärt dig hur du använder en serverlös funktion för att ladda upp bilder till Blob Storage från ett webbprogram. I nästa avsnitt lär du dig hur du skapar miniatyrbilder för de uppladdade bilderna med hjälp av en blobbutlöst serverlös funktion.

@@ -1,60 +1,59 @@
-## Creating Key Vaults for your applications
+## <a name="creating-key-vaults-for-your-applications"></a>Skapa nyckelvalv för dina program
 
-Good practice is to create a separate vault for each deployment environment of each of your applications, such as development, test, and production. It's possible to use vaults to share secrets across multiple apps, but the impact of an attacker gaining read access to a vault increases with the number of secrets in the vault.
-
-> [!TIP]
-> If you use the same names for secrets across different environments for an application, the only environment-specific configuration that has to change in your app is the vault URL.
-
-Creating a vault requires no initial configuration. Your user identity is automatically granted the full set of secret management permissions and you can start adding secrets immediately. Once you have a vault, adding and managing secrets can be done from any Azure administrative interface, including the Azure portal, the Azure CLI, and Azure PowerShell. When you set up your application to use the vault, you'll need to assign the correct permissions to it; we'll see that in the next unit.
-
-## Vault authentication and permissions
-
-Azure Key Vault's API uses Azure Active Directory to authenticate users and applications. Vault access policies are based on *actions*, and are applied across an entire vault. For example, an application with **Get** (read secret values), **List** (list names of all secrets), and **Set** (create or update secret values) permissions to a vault is able to create secrets, list all secret names, and get and set all secret values in that vault.
-
-*All* actions performed on a vault require authentication and authorization &mdash; there is no way to grant any kind of anonymous access.
+Det är bra att ge skapa ett separat valv för varje distributionsmiljö för varje program, till exempel utveckling, testning och produktion. Det är möjligt att använda valv för att dela hemligheter mellan flera appar, men risken för en angripare som får läsåtkomst till ett valv ökar med antalet hemligheter i valvet.
 
 > [!TIP]
-> When granting vault access to developers and apps, grant only the minimum set of permissions needed. Permissions restrictions help avoid accidents caused by code bugs and reduce the impact of stolen credentials or malicious code injected into your app.
+> Om du använder samma namn för hemligheter i olika miljöer för ett program, kommer den enda miljöspecifika konfiguration som behöver ändras i din app vara valvets URL.
 
-Developers will usually only need **Get** and **List** permissions to a development-environment vault. A lead or senior developer will need full permissions to the vault to change and add secrets when necessary. Full permissions to production-environment vaults are typically reserved for senior operations staff.
+Det krävs ingen inledande konfiguration för att skapa ett valv. Din användaridentitet beviljas automatiskt en full uppsättning med behörigheter för hemlighetshantering och du kan börja lägga till hemligheter omedelbart. När du har ett valv kan du lägga till och hantera hemligheter från alla Azure-administrationsgränssnitt, inklusive Azure-portalen, Azure CLI och Azure PowerShell. När du konfigurerar programmet till att använda valvet måste du tilldela korrekt behörighet, vilket vi tittar närmare på i nästa enhet.
 
-For apps, typically only **Get** permissions are required. Some apps may require **List** depending on the way the app is implemented. The app we'll implement in this module's exercise requires the **List** permission because of the technique it uses to read secrets from the vault.
+## <a name="vault-authentication-and-permissions"></a>Valvautentisering och behörigheter
 
-## Exercise
+API:n för Azure Key Vaults använder Azure Active Directory till att autentisera användare och program. Principerna för valvåtkomst baseras på *åtgärder* och tillämpas i hela valvet. Till exempel kan ett program med behörigheterna **Hämta** (läsa hemligheter), **Lista** (göra en lista med namnen på alla hemligheter) och **Ange** (skapa eller uppdatera hemligheter) för ett valv skapa hemligheter, visa en lista med alla namn på hemligheterna, samt hämta och ange alla hemligheter i det valvet.
 
-Given all the trouble the company's been having with application secrets, management has asked you to create a small starter app to set the other developers on the right path. The app needs to demonstrate best practices for managing secrets as simply and securely as possible.
+*Alla* åtgärder som utförs i ett valv kräver autentisering och auktorisering &mdash; det finns inget sätt att bevilja någon form av anonym åtkomst.
 
-To start, you'll create a vault and store one secret.
+> [!TIP]
+> När valvåtkomst beviljas för utvecklare och appar, beviljas endast den minsta uppsättningen behörigheter som krävs. Tack vare behörighetsbegränsningarna kan man undvika incidenter på grund av kodbuggar och minska effekterna vid stulna autentiseringsuppgifter eller skadlig kod som sprids till din app.
 
-### Create a resource group
-<!---TODO: Update for sandbox?--->
+Utvecklare kommer vanligtvis bara behöva behörigheterna **Hämta** och **Lista** i ett valvs utvecklingsmiljö. En erfaren utvecklare behöver fullständig behörighet till valvet för att kunna ändra och lägga till hemligheter när det behövs. Fullständig behörighet till produktionsmiljövalv är vanligtvis reserverade för erfaren personal.
 
-Create a resource group called `keyvault-exercise-group` for all of the resources In this unit. At the end of this module, we'll be deleting this resource group to cleanup everything at once. We'll use `eastus` as the location for everything In this unit.
+För appar krävs vanligtvis endast behörigheten **Hämta**. Vissa appar kan kräva **Lista**, beroende på hur appen implementeras. Appen som vi implementerar i den här modulövningen kräver behörigheten **Lista**, på grund av den teknik som används för att läsa hemligheter från valvet.
 
-Use the Azure Cloud Shell terminal on the right to run the following Azure CLI command. This will create the resource group in your subscription.
+## <a name="exercise"></a>Övning
+
+På grund av alla problem som företaget har haft med programhemligheter, har ledningen bett dig att skapa en liten startapp som hjälper de andra utvecklarna. Appen ska visa metodtips för att hantera hemligheter så enkelt och säkert som möjligt.
+
+Till att börja med måste du skapa ett valv och lagra en hemlighet.
+
+### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+Skapa en resursgrupp med namnet `keyvault-exercise-group` för alla resurser i den här övningen. I slutet av den här modulen tar vi bort resursgruppen för att kunna rensa allt på samma gång. Vi använder `eastus` som plats för allt innehåll i den här övningen.
+
+Använd Azure Cloud Shell-terminalen till höger för att köra följande Azure CLI-kommando. Detta skapar resursgruppen i din prenumeration.
 
 ```azurecli
 az group create --name keyvault-exercise-group --location eastus
 ```
 
-### Create the vault and store the secret in it
+### <a name="create-the-vault-and-store-the-secret-in-it"></a>Skapa valvet och lagra hemligheten i det
 
-Next, we'll create the vault and store our secret in it.
+Därefter skapar vi valvet och lagrar hemligheten i det.
 
-**Key Vault names must be globally unique, so you'll need to pick a unique name**. Vault names must be 3-24 characters long and contain only alphanumeric characters and dashes.
+**Namn på nyckelvalv måste vara globalt unika, så du måste välja ett unikt namn**. Valvnamn måste vara mellan 3 och 24 tecken långa och får endast innehålla alfanumeriska tecken och streck.
 
 ```azurecli
 az keyvault create --name <your-unique-vault-name> --resource-group keyvault-exercise-group --location eastus
 ```
 
-When it finishes, you'll see JSON output describing the new vault.
+När det är klart visas JSON-utdata med en beskrivning av det nya valvet.
 
-Now add the secret: our secret will be named **SecretPassword** with a value of **reindeer_flotilla**.
+Lägg nu till hemligheten: Vår hemlighet får namnet **SecretPassword** med värdet **reindeer_flotilla**.
 
 ```azurecli
 az keyvault secret set --name SecretPassword --value reindeer_flotilla --vault-name <your-unique-vault-name>
 ```
 
-Make a note of the vault name &mdash; you'll be needing it again soon.
+Anteckna valvnamnet &mdash; du kommer att behöva det senare.
 
-We'll write the code for our application shortly, but first we need to learn a little bit about how our app is going to authenticate to a vault.
+Vi ska skriva koden för våra program strax, men först måste vi ta reda på lite mer om hur vår app ska autentiseras till ett valv.

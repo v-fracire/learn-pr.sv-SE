@@ -1,62 +1,62 @@
-The Azure CLI lets you type commands and execute them immediately from the command line. Recall that the overall goal in the software development example is to deploy new builds of a web app for testing. Let's talk about the sorts of tasks you can do with the Azure CLI.
+Med Azure CLI kan du skriva kommandon och köra dem direkt från kommandoraden. Kom ihåg att målet i det här utvecklingsexemplet är att distribuera nya versioner av en webbapp så att de kan testas. Nu ska vi titta på vilka slags uppgifter du kan utföra med Azure CLI.
 
-## What Azure resources can be managed using the Azure CLI?
+## <a name="what-azure-resources-can-be-managed-using-the-azure-cli"></a>Vilka Azure-resurser kan jag hantera med Azure CLI?
 
-The Azure CLI lets you control nearly every aspect of every Azure resource. You can work with resource groups, storage, virtual machines, Azure Active Directory (Azure AD), containers, machine learning, and so on.
+Med Azure CLI kan du styra nästan alla aspekter av varje Azure-resurs. Du kan arbeta med resursgrupper, lagring, virtuella datorer, Azure Active Directory (Azure AD), containrar, maskininlärning och så vidare.
 
-Commands in the CLI are structured in _groups_ and _subgroups_. Each group represents a service provided by Azure, and the subgroups divide commands for these services into logical groupings. For example, the `storage` group contains subgroups including **account**, **blob**, **storage**, and **queue**.
+Kommandona i CLI är strukturerade i _grupper_ och _undergrupper_. Varje grupp representerar en tjänst som tillhandahålls av Azure och undergrupperna delar in kommandona för de här tjänsterna i logiska grupper. Till exempel innehåller gruppen `storage` undergrupper som **account**, **blob**, **storage** och **queue**.
 
-So, how do you find the particular commands you need? One way is to use `az find`. For example, if you want to find commands that might help you manage a storage blob, you can use the following find command:
+Hur hittar jag de kommandon jag behöver? Ett sätt är att använda `az find`. Om du till exempel vill hitta kommandon som hjälper dig att hantera en lagringsblob kan du använda det här find-kommandot:
 
 ```bash
 az find -q blob
 ```
 
-If you already know the name of the command you want, the `--help` argument for that command will get you more detailed information on the command, and for a command group, a list of the available subcommands. So, with our storage example, here's how you can get a list of the subgroups and commands for managing blob storage:
+Om du redan vet namnet på det kommando som du vill köra kan du använda argumentet `--help` för att visa mer detaljerad information om kommandot, eller visa en lista över de tillgängliga underkommandona för en kommandogrupp. I vårt lagringsexempel kan du visa en lista med undergrupper och kommandon för hantering av bloblagring så här:
 
 ```bash
 az storage blob --help
 ```
 
-## How to create an Azure resource
+## <a name="how-to-create-an-azure-resource"></a>Skapa en Azure-resurs
 
-When creating a new Azure resource, there are typically three steps: connect to your Azure subscription, create the resource, and verify that creation was successful. The following illustration shows a high-level overview of the process.
+När du ska skapa en ny resurs i Azure gör du det vanligen i tre steg: ansluter till Azure-prenumerationen, skapar resursen och kontrollerar att den skapades. Följande illustration visar en översikt över den här processen.
 
-![An illustration showing the steps to create an Azure resource using the command-line interface.](../media-drafts/4-create-resources-overview.png)
+![En bild som visar hur du skapar en Azure-resurs med hjälp av kommandoradsgränssnittet.](../media-drafts/4-create-resources-overview.png)
 
-Each step corresponds to a different Azure CLI command.
+Varje steg motsvarar ett eget Azure CLI-kommando.
 
-### Connect
+### <a name="connect"></a>Ansluta
 
-Since you're working with a local install of the Azure CLI, you'll need to authenticate before you can execute Azure commands, by using the Azure CLI **login** command. 
+Eftersom du arbetar med en lokal installation av Azure CLI måste du autentisera dig innan du kan köra Azure-kommandon. Det gör du med Azure CLI-kommandot **login**. 
 
 ```bash
 az login
 ```
 
-The Azure CLI will typically launch your default browser to open the Azure sign-in page. If this doesn't work, follow the command-line instructions and enter an authorization code at [https://aka.ms/devicelogin](https://aka.ms/devicelogin).
+Azure CLI öppnar normalt din standardwebbläsare och visar inloggningssidan för Azure. Om det inte fungerar följer du anvisningarna på kommandoraden och anger en auktoriseringskod på [https://aka.ms/devicelogin](https://aka.ms/devicelogin).
 
-After a successful sign in, you'll be connected to your Azure subscription. 
+När inloggningen är färdig ansluts du till din Azure-prenumeration. 
 
-### Create
+### <a name="create"></a>Skapa
 
-You'll often need to create a new resource group before you create a new Azure service, so we'll use resource groups as an example to show how to create Azure resources from the CLI.
+Du behöver ofta skapa en ny resursgrupp innan du skapar en ny Azure-tjänst, så vi använder resursgrupper som exempel för att visa hur du kan skapa Azure-resurser via CLI.
 
-The Azure CLI **group create** command creates a resource group. You must specify a name and location. The name must be unique within your subscription. The location determines where the metadata for your resource group will be stored. You use strings like "West US", "North Europe", or "West India" to specify the location; alternatively, you can use single word equivalents, such as westus, northeurope, or westindia. The core syntax is:
+Du skapar en resursgrupp med Azure CLI-kommandot **group create**. Du måste ange ett namn och en plats. Namnet måste vara unikt inom prenumerationen. Platsen avgör var metadata för resursgruppen lagras. Du använder strängar som ”USA, västra”, ”Europa, norra” eller ”västra Indien” för att ange platsen. Du kan också använda konkatenerade ord som usavästra, europanorra eller indienvästra. Den grundläggande syntaxen ser ut så här:
 
 ```bash
 az group create --name <name> --location <location>
 ```
 
-### Verify
+### <a name="verify"></a>Verifiera
 
-For many Azure resources, the Azure CLI provides a **list** subcommand to view resource details. For example, the Azure CLI **group list** command lists your Azure resource groups. This is useful here to verify whether creation of the resource group was successful:
+För många Azure-resurser har Azure CLI ett **list**-underkommando som visar information om resursen. Azure CLI-kommandot **group list** visar till exempel en lista med dina Azure-resursgrupper. Det här är användbart när du ska kontrollera att resursgruppen har skapats:
 
 ```bash
 az group list
 ```
 
-To get a more concise view, you can format the output as a simple table:
+Du kan göra vyn tydligare genom att formatera utdata som en tabell:
 
 ```bash
 az group list --output table

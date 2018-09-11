@@ -1,42 +1,42 @@
-We have seen how to create cost estimates for environments you'd like to build, walked through some tools to get details on where we're spending money, and projected future expenses. Our next challenge is to look at how to reduce those infrastructure costs.
+Vi har gått igenom hur du skapar kostnadsuppskattningar för miljöer du vill skapa, vi har tittat på några verktyg som ger information om vart pengarna går och skapat prognoser för framtida utgifter. Nästa utmaning är att titta på hur du kan sänka dina infrastrukturkostnader.
 
-## Use reserved instances
+## <a name="use-reserved-instances"></a>Använda reserverade instanser
 
-If you have VM workloads that are static and predictable in nature, particularly ones that run 24x7x365, using reserved instances is a fantastic way to potentially save up to 70-80%, depending on the VM size. The following illustration shows that using Azure reserved instances saves you up to 72% and using reserved instance plus Azure Hybrid Benefit saves up to 80% in costs.
+Om du har VM-arbetsbelastningar som är statiska och förutsägbara till sin natur, särskilt om de körs dygnet runt hela året, kan du spara upp till 70–80 procent genom att använda reserverade instanser beroende på de virtuella datorernas storlek. Följande illustration visar att du sparar upp till 72 % om du använder reserverade instanser för Azure och sparar upp till 80 % i kostnader om du använder reserverad instans plus Azure Hybrid-förmåner.
 
-![An illustration showing cost benefits of using Azure reserved instances and Azure Hybrid Benefits compared to pay-as-you go.](../media/4-savings-coins.png)
+![En illustration som visar kostnadsfördelarna med att använda reserverade instanser för Azure och Azure Hybrid-förmåner jämfört med att betala per användning.](../media-drafts/4-savings-coins.png)
 
-Reserved instances are purchased in one-year or three-year terms, with payment required for the full term up front. After it's purchased, Microsoft matches up the reservation to running instances and decrements the hours from your reservation. Reservations can be purchased through the Azure portal. And because reserved instances are a compute discount, they are available for both Windows and Linux VMs.
+Reserverade instanser köps under ett eller tre år, och du betalar för hela perioden i förskott. Efter köpet matchar Microsoft reservationen mot de instanser som körs och minskar antalet timmar i reservationen. Du kan köpa reservationer via Azure Portal. Eftersom reserverade instanser utgör en rabatt på databehandlingen är de tillgängliga för både Windows- och Linux-datorer.
 
-## Right-size underutilized virtual machines
+## <a name="right-size-underutilized-virtual-machines"></a>Ange rätt storlek för underutnyttjade virtuella datorer
 
-Recall from our previous discussion that Azure Cost Management and Azure Advisor might recommend right-sizing or shutting down VMs. Right-sizing a virtual machine is the process of resizing it to a proper size. Let's imagine you have a server running as a domain controller that is sized as a **Standard_D4sv3**, but your VM is sitting at 90% idle the vast majority of the time. By resizing this VM to a **Standard_D2sv3**, you reduce your compute cost by 50%. Costs are linear and double for each size larger in the same series. In this case, you might even benefit from changing the instance series to go to a less expensive VM series. The following illustration shows a 50% savings achieved by moving one size down within the same series.
+Tidigare tog vi upp att Azure Cost Management och Azure Advisor kan rekommendera att du ändrar storlek på eller stänger av virtuella datorer. Det här handlar om att dina virtuella datorer ska ha rätt storlek för uppgiften. Låt oss anta att du har en server som körs som en domänkontrollant och har storleken **Standard_D4sv3**, men den virtuella datorn är inaktiv till 90 % större delen av tiden. Genom att ändra storlek på den virtuella datorn till **Standard_D2sv3** kan du minska kostnaden för databehandlingen med 50 %. Kostnaderna är linjära och fördubblas för varje större storlek i samma serie. I det här fallet kan du kanske även spara ännu mer genom att byta till en enklare serie virtuella datorer. Följande illustration visar en besparing på 50 % som uppnås genom att gå ned en storlek inom samma serie.
 
-![An illustration to demonstrate savings achieved by downsizing an under-utilized virtual machine.](../media/4-vm-resize.png)
+![En illustration för att demonstrera besparingar som uppnås genom att minska storleken på en underutnyttjad virtuell dator.](../media-drafts/4-vm-resize.png)
 
-Over-sized virtual machines are a common unnecessary expense on Azure and one that can be easily fixed. You can change the size of a VM through the Azure portal, Azure PowerShell, or the Azure CLI.
+För stora virtuella datorer är en onödig utgift i Azure som är både vanligt förekommande och enkel att rätta till. Du kan ändra storleken på en virtuell dator via Azure Portal, Azure PowerShell eller Azure CLI.
 
-> [!TIP]
-> Resizing a VM requires it to be stopped, resized, and then restarted. This may take a few minutes depending on how significant the size change is. Plan for an outage, or shift your traffic to another instance while you perform this task.
+> [!NOTE]
+> När du ändrar storlek på en virtuell dator måste du stoppa den, ändra storleken och sedan starta om datorn. Det här kan ta några minuter beroende på hur stor ändringen är. Planera för ett avbrott eller flytta trafiken till en annan instans medan du utför den här uppgiften.
 
-## Deallocate virtual machines in off hours
+## <a name="deallocate-virtual-machines-in-off-hours"></a>Frigöra virtuella datorer utanför normal arbetstid
 
-If you have virtual machine workloads that are only used during certain periods of time, but you're running them every hour of every day, you're wasting money. These VMs are great candidates to shut down when not in use and start back up on a schedule, saving you compute costs while the VM is deallocated.
+Om du har arbetsbelastningar på virtuella datorer som endast används under vissa perioder, men du kör dem kontinuerligt, så slösar du pengar. De här virtuella datorerna kan stängas av när de inte används och sedan startas enligt ett schema, så att du sparar in på datorkostnaderna när den virtuellt datorn är frigjord.
 
-This approach is a great strategy for development environments. It's often the case that development may happen only during business hours, giving you the flexibility to deallocate these systems in the off hours and stopping your compute costs from accruing. Azure now has an [automation solution](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) fully available for you to leverage in your environment.
+Den här metoden passar utmärkt för utvecklingsmiljöer. Utveckling sker ofta bara under arbetstid, och då kan du frigöra systemen utanför normal arbetstid så att du inte ådrar dig några beräkningskostnader. Azure har nu en [automatiseringslösning](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) som du kan använda i din miljö.
 
-You can also use the auto-shutdown feature on a virtual machine to schedule automated shutdowns.
+Du kan också använda funktionen för automatisk avstängning om du vill schemalägga avstängningen av en virtuell dator.
 
-![Screenshot of the Azure portal showing the Auto-shutdown section of a virtual machine blade with a shutdown time enabled.](../media/4-vm-auto-shutdown.png)
+![Automatisk avstängning](../media-drafts/4-vm-auto-shutdown.png)
 
-## Delete unused virtual machines
+## <a name="delete-unused-virtual-machines"></a>Ta bort virtuella datorer som inte används 
 
- This advice may sound obvious, but if you aren't using a service, you should shut it down. It's not uncommon to find non-production or proof-of-concept systems left around following a project that is no longer needed. Regularly review your environment and work to identify these systems. Shutting down these systems can have a multifaceted benefit by saving you not only on infrastructure costs but also potential savings on licensing and operations.
+ Det här rådet kan låta uppenbart, men om du inte använder en tjänst bör du stänga av den. Det är inte ovanligt att hitta system som använts utanför produktion eller till konceptbeskrivningar, som inte längre behövs eftersom projektet är avslutat. Gå regelbundet igenom din miljö och försök identifiera sådana system. Det kan också vara bra att stänga av sådana system eftersom du även kan spara pengar på licenser och drift.
 
-## Migrate to PaaS or SaaS services
+## <a name="migrate-to-paas-or-saas-services"></a>Migrera till PaaS- eller SaaS-tjänster 
 
-Lastly, as you move workloads to the cloud, a natural evolution is to start with infrastructure-as-a-service (IaaS) services and then move them to platform-as-a-service (PaaS) as appropriate, in an iterative process.
+När du migrerar arbetsbelastningar till molnet är det naturligt att börja med IaaS-tjänster och sedan stegvis flytta över lämpliga arbetsbelastningar till PaaS.
 
-PaaS services typically provide substantial savings in both resource and operational costs. The challenge is that depending on the type of service, varying levels of effort will be required to move to these services from both a time and resource perspective. You might be able to easily move a SQL Server database to Azure SQL Database, but it might take substantially more effort to move your multitier application to a container or serverless-based architecture. It's a good practice to continuously evaluate the architecture of your applications to determine if there are efficiencies to be gained through PaaS services.
+PaaS-tjänster kan ofta ge betydande besparingar både när det gäller resurser och drift. Beroende på typen av tjänst så krävs det olika mycket tid och resurser till att flytta tjänsterna. Du kanske enkelt kan flytta en SQL Server-databas till Azure SQL Database, men det kan vara betydligt svårare att flytta dina program med flera nivåer till en container eller en serverfri arkitektur. Det är en bra idé att kontinuerligt utvärdera arkitekturen i dina program och avgöra om du kan göra dem effektivare genom att övergå till PaaS-tjänster.  
 
-Azure makes it easy to test these services with little risk, giving you the ability to try out new architecture patterns relatively easily. That said, it's typically a longer journey and might not be of immediate help if you're looking for quick wins from a cost-savings perspective. The Azure Architecture Center is a great place to get ideas for transforming your application, as well as best practices across a wide array of architectures and Azure services.
+Med Azure kan du testa de här tjänsterna riskfritt eftersom du relativt enkelt kan prova nya arkitekturmönster. Det här är dock normalt en längre process och kanske inte är till hjälp omedelbart om du är ute efter snabba kostnadsbesparingar. Azure Architecture Center är en bra plats för att få idéer om hur du kan omvandla ditt program, där du även hittar metodtips för en mängd olika arkitekturer och Azure-tjänster. 

@@ -1,51 +1,51 @@
 ### YamlMime:ModuleUnit
 uid: learn.align-requirements-in-azure.2-public-private-hybrid
-title: Understanding Azure solutions for public, private, and hybrid cloud
+title: Förstå Azure-lösningar för offentliga, privata och hybrida moln
 metadata:
-  title: Understanding Azure solutions for public, private, and hybrid cloud
-  description: Understanding Azure solutions for public, private, and hybrid cloud
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-durationInMinutes: 15
-content: |
+  title: Förstå Azure-lösningar för offentliga, privata och hybrida moln
+  description: Förstå Azure-lösningar för offentliga, privata och hybrida moln
+  ms.openlocfilehash: 47ac55a8b082a596a8eadab77b1940fdac90e4ec
+  ms.sourcegitcommit: cac22638c8487b2a9e567262aee73616ff0035e9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2018
+  ms.locfileid: "42910514"
+durationInMinutes: 10
+content: >
   [!include[](includes/2-public-private-hybrid.md)]
 quiz:
-  title: 'Azure solutions for public, private and hybrid cloud'
+  title: Azure-lösningar för offentliga, privata och hybrida moln
   questions:
-  - content: 'Given the following scenario, what is the best cloud deployment model? A SQL server database is needed for a short term project. The IT department does not have available hardware that meets the performance requirements or resources to deploy it. The project starts next week. Once the project is over, the database is no longer needed.'
+  - content: Vad är den bästa distributionsmodellen i molnet i följande scenario? En SQL Server-databas krävs för ett projekt på kort sikt. IT-avdelningen har inte tillgänglig maskinvara som uppfyller prestandakraven eller resurser för att distribuera den. Projektet startar nästa vecka. När projektet är slutfört behövs inte databasen längre.
     choices:
-    - content: Public cloud
-      correctExplanation: Because of the urgency and lifecycle of the SQL database. Public cloud is the best option.
+    - content: Offentligt moln
+      correctExplanation: På grund av angelägenhetsgraden och livscykeln för SQL-databasen. Offentligt moln är det bästa alternativet.
       isCorrect: true
-    - content: Private cloud
-      incorrectExplanation: The IT department does not have resources to deploy a SQL Server.
+    - content: Privat moln
+      incorrectExplanation: IT-avdelningen har inte resurser för att distribuera en SQL-server.
       isCorrect: false
-    - content: Hybrid cloud
-      incorrectExplanation: Hybrid cloud could be an option. However, there is no requirement that there needs to be a connection between private and public clouds.
+    - content: Hybridmoln
+      incorrectExplanation: Hybridmoln kan vara ett alternativ. Det finns dock inget krav på att en anslutning mellan privata och offentliga moln finns.
       isCorrect: false
-  - content: 'Given the following scenario, what is the best cloud deployment model? You create several virtual machines in the cloud. The VMs are networked together using a virtual network. The VMs have access to x-ray image files in cloud storage. One of the VMs is a web server that host a website exposed to the Internet for customers to access their records. There is a VPN that connects the solution to your on-premises datacenter for customer information to display with the image files.'
+  - content: Vad är den bästa distributionsmodellen i molnet i följande scenario? Du skapar flera virtuella datorer i molnet. De virtuella datorerna är anslutna till varandra via ett virtuellt nätverk. De virtuella datorerna har åtkomst till röntgenbildfiler i molnlagringen. En av de virtuella datorerna är en webbserver som är värd för en webbplats på nätet så att kunder har åtkomst till sina poster. Det finns ett VPN-nätverk som ansluter lösningen till ditt lokala datacenter för att kundinformation ska kunna visas med bildfilerna.
     choices:
-    - content: Public cloud
-      incorrectExplanation: Because of the connection to the on-premises datacenter, this is not a public cloud deployment.
+    - content: Offentligt moln
+      incorrectExplanation: Det här är inte en distribution av ett offentligt moln på grund av anslutningen till lokala datacenter.
       isCorrect: false
-    - content: Private cloud
-      incorrectExplanation: Because of the virtual machines and network in the public cloud, this is not a private cloud deployment.
+    - content: Privat moln
+      incorrectExplanation: Det här är inte en distribution av ett offentligt moln eftersom de virtuella datorerna och nätverket är i ett offentligt moln.
       isCorrect: false
-    - content: Hybrid cloud
-      correctExplanation: This scenario uses both public and private cloud with a connection between the two. Therefore, it is a hybrid cloud deployment.
+    - content: Hybridmoln
+      correctExplanation: Det här scenariot använder både offentliga och privata moln med en anslutning mellan dem. Det är därför en hybridmolnsdistribution.
       isCorrect: true
-  - content: 'Given the following scenario, what is the cloud deployment model? You have two datacenters in your organization. One datacenter has a database that can only reside in one of the datacenters because of a regulatory requirement. You want to access the database from the other datacenter. You create a VPN using a cloud provider to connect the two datacenters.'
+  - content: Vad är distributionsmodellen i molnet i följande scenario? Du har två datacenter i organisationen. Ett datacenter har en databas som bara kan placeras i ett av datacentren på grund av en förordning. Åtkomst till den här databasen behövs från det andra datacentret. Du skapar ett VPN-nätverk med hjälp av en molnleverantör för att ansluta de två datacentren.
     choices:
-    - content: Public cloud
-      incorrectExplanation: Because of the two private datacenters, this is not a public cloud deployment.
+    - content: Offentligt moln
+      incorrectExplanation: Det här är inte en distribution av ett offentligt moln på grund av de två privata datacentren.
       isCorrect: false
-    - content: Private cloud
-      correctExplanation: The VPN is a public cloud resource. However, because the VPN is a private connection between two private datacenters, this is a private cloud deployment.
+    - content: Privat moln
+      correctExplanation: VPN-anslutningen är en resurs i ett offentliga moln. Men det här är en distribution av privat moln eftersom VPN-anslutningen är en privat anslutning mellan två privata datacenter.
       isCorrect: true
-    - content: Hybrid cloud
-      correctExplanation: The VPN is a public cloud resource and the datacenters are private. However, because the VPN only connects two private datacenters (not to the public cloud, this is not a hybrid cloud deployment.
+    - content: Hybridmoln
+      correctExplanation: VPN-anslutningen är en resurs i ett offentliga moln och datacentrena är privata. Men det här är inte en hybridmolnsdistribution eftersom VPN-anslutningen kopplar samman två privata datacenter (inte till det offentliga molnet).
       isCorrect: false

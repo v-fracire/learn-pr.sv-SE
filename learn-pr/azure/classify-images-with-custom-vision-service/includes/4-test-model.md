@@ -1,25 +1,35 @@
-Later in this module, you will create a Node.js app that uses the model to identify the artist of paintings presented to it. But you don't have to write an app to test the model; you can do your testing in the portal, and you can further refine the model using the images that you test with. In this unit, you will test the model's ability to identify the artist of a painting using test images provided for you.
+### <a name="exercise-4-test-the-model"></a>Övning 4: Testa modellen
 
-1. Click **Quick Test** at the top of the page.
+I [övning 5](../5-build-app.yml) ska du skapa en Node.js-app som använder modellen till att känna igen konstnären bakom ett verk. Du behöver inte skriva någon ny app för att testa modellen. Du kan göra dina tester i portalen och förfina modellen med hjälp av testbilderna. I den här övningen testar du modellens förmåga att känna igen konstnären bakom verket med utgångspunkt från testbilderna.
 
-    ![Testing the model](../media/4-portal-click-quick-test.png)
+1. Klicka på **Quick Test** (Snabbtest) högst upp på sidan.
+ 
+    ![Testa modellen](../images/portal-click-quick-test.png)
 
-1. Click **Browse local files**, and then browse to the "Quick Tests" folder in the module resources. Select **PicassoTest_01.jpg**, and click **Open**.
+    _Testa modellen_ 
 
-    ![Selecting a Picasso test image](../media/4-portal-select-test-01.png)
+1. Klicka på **Bläddra bland lokala filer** och bläddra till mappen Quick Tests (Snabbtest) bland labbresurserna. Välj **PicassoTest_01.jpg** och klicka på **Öppna**.
 
-1. Examine the results of the test in the "Quick Test" dialog. What is the probability that the painting is a Picasso? What is the probability that it is a Rembrandt or Pollock?
+    ![Välja en testbild av Picasso](../images/portal-select-test-01.png)
 
-1. Close the "Quick Test" dialog. Then click **Predictions** at the top of the page.
+    _Välja en testbild av Picasso_ 
 
-    ![Viewing the tests that have been performed](../media/4-portal-select-predictions.png)
+1. Granska testresultatet i dialogrutan Quick Test (Snabbtest). Vad är sannolikheten för att målningen är en Picasso? Vad är sannolikheten att den målats av Rembrandt eller Pollock?
 
-1. Click the test image that you uploaded to show a detail of it. Then tag the image as a "Picasso" by selecting **Picasso** from the drop-down list and clicking **Save and close**.
+1. Stäng dialogrutan Quick Test (Snabbtest). Klicka sedan på **Predictions** (Förutsägelser) överst på sidan.
+ 
+    ![Visa tester som utförts](../images/portal-select-predictions.png)
 
-    > By tagging test images this way, you can refine the model without uploading additional training images.
+    _Visa tester som utförts_ 
 
-    ![Tagging the test image](../media/4-tag-test-image.png)
+1. Klicka på den testbild som du laddade upp för att visa detaljer i den. Tagga bilden som en ”Picasso” genom att välja **Picasso** i den nedrullningsbara listan och klicka på **Save and close** (Spara och stäng).
 
-1. Perform another quick test using the file named **FlowersTest.jpg** in the "Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
+    > Genom att tagga bilder på det här sättet kan du förfina modellen utan att behöva ladda upp fler träningsbilder.
+ 
+    ![Tagga testbilden](../images/tag-test-image.png)
 
-The model is trained and ready to go and appears to be adept at identifying paintings by certain artists. Now let's go a step further and incorporate the model's intelligence into an app.
+    _Tagga testbilden_ 
+
+1. Gör ännu ett snabbtest med filen som heter **FlowersTest.jpg** i mappen Quick Test (Snabbtest). Bekräfta att den här bilden har tilldelats en låg sannolikhet för att vara målad av Picasso, Rembrandt eller Pollock.
+
+Modellen är nu tränad och beredd på att identifiera konstverk av utvalda konstnärer. Nu ska vi ta det hela ett steg längre och införliva modellens intelligens i en app.

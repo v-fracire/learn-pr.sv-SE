@@ -1,65 +1,69 @@
-In this unit, we're going to create an Azure function that displays the name and size of a blob when it's created or updated.
+I den här övningen ska vi skapa en Azure-funktion som visar namnet och storleken för en blob när den har skapats eller uppdaterats. 
 
-## Create a blob trigger
+## <a name="create-a-blob-trigger"></a>Skapa en blobutlösare
 
-Again, let's continue using our existing Azure Functions application and add a blob trigger.
+Vi ska fortsätta att använda vårt befintliga Azure Functions-program och lägger till en blobutlösare.
 
-1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
 
-1. Point to **Functions** and select the plus (+) icon.
+1. Peka på **Funktioner** och välj plustecknet (+).
 
-1. Select **Custom Function** and then **Blob trigger**.
+    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
 
-1. Select **C#** as the language.
+1. Välj **Anpassad funktion** och sedan **Blob-utlösare**.
 
-1. Leave the **Name** set to the default value.
+1. Välj **C#** som språk. 
 
-1. Leave the **Path** set to the default value.
+1. Lämna standardvärdet för **Namn**.
 
-1. Select an existing Azure Storage account, or select **Create** if you want Azure to create a new account for you.
+1. Lämna standardvärdet för **Sökväg**.
 
-## Create a blob container
+1. Välj ett befintligt Azure Storage-konto eller välj **Skapa** om du vill att Azure ska skapa ett nytt konto åt dig.
 
-Now that we've created a blob trigger, let's use the Storage Explorer to create a blob and trigger the function.
+## <a name="create-a-blob-container"></a>Skapa en blobcontainer
 
-1. Open the storage account you used (or created) in a new tab. An easy way to do this is to open a new Azure Portal tab and click on **Storage accounts** in the sidebar, or to use **All services** in the sidebar and then filter by the name. We want to use a new tab so we can switch between the two services we are working with.
+Nu när vi har skapat en blobutlösare ska vi använda Storage Explorer för att skapa en blob och utlösa funktionen.
 
-1. Click on the **Storage Explorer (preview)** section - this will open a new blade where you can work with blobs and files.
+1. Öppna det lagringskonto som du valde att använda (eller skapade) på en ny flik. Ett enkelt sätt att göra detta är att öppna en ny flik på Azure Portal och klicka på **Lagringskonton** i sidopanelen eller att använda **Alla tjänster** i sidopanelen och sedan filtrera efter namn. Vi vill använda en ny flik så att vi kan växla mellan de två tjänsterna som vi arbetar med.
 
-Remember that our blob trigger is monitoring only the location described in the **Path** field. By default, our path should be:
+1. Klicka på **Storage Explorer (förhandsversion)**. Nu öppnas ett nytt blad där du kan arbeta med blobar och filer.
 
-> samples-workitems/{name}
+Kom ihåg att vår blobutlösare endast övervakar den plats som beskrivs i fältet **Sökväg**. Som standard bör sökvägen vara:
 
-We need to create a container called **samples-workitems**.
+> samples-workitems/{namn}
 
-1. Right-click **BLOB CONTAINERS** and select **Create blob container**.
+Vi behöver skapa en container med namnet **samples-workitems**.
 
-1. Enter **samples-workitems** as the name, leave the access level at the default **Private** setting.
+1. Högerklicka på **BLOBCONTAINRAR** och välj **Skapa blobcontainer**.
 
-## Turn on your blob trigger
+1. Ange **samples-workitems** som namn och lämna standardinställningen **Privat** för åtkomstnivån.
 
-Now that we've created our container to monitor, let's run our function so we can see output when a blob is created.
+## <a name="turn-on-your-blob-trigger"></a>Aktivera blobutlösaren
 
-1. Switch back to the Azure Function tab (or reopen it).
+Nu när vi har skapat containern som ska övervakas kör vi vår funktion så att vi ser utdata när en blob skapas.
 
-1. Select your blob trigger to open the code screen.
+1. Växla tillbaka till fliken Azure-funktion (eller öppna den igen).
 
-1. Select **Run** - this will open the output window.
+1. Välj blobutlösaren för att öppna kodskärmen.
 
-## Create a blob
+1. Välj **Kör**. Utdatafönstret öppnas.
 
-Our blob trigger is now up and listening for activity. Let's create a blob to see if we get a log message.
+## <a name="create-a-blob"></a>Skapa en blob
 
-1. In Storage explorer, select the **samples-workitems** container.
+Nu är blobutlösaren aktiverad och lyssnar efter aktivitet. Nu ska vi skapa en blob och se om vi får ett loggmeddelande.
 
-1. Select **Upload** from the toolbar.
+1. Välj containern **samples-workitems** i Storage Explorer.
 
-1. Select any file from your computer.
+1. Välj **Överför** från verktygsfältet.
 
-1. Select **Upload**.
+1. Välj en fil från datorn.
 
-1. Switch back to the Azure Function tab and check the output logs for a message that displays what file was uploaded.
+1. Välj **Överför**.
 
-## Pause the Function
+1. Gå tillbaka till fliken Azure-funktion och kontrollera utdataloggarna för ett meddelande som visar vilken fil som laddades upp.
 
-To ensure that you aren't charged for additional requests, you can click **Pause** above the log window.
+## <a name="pause-the-function"></a>Pausa funktionen
+
+Klicka på **Pausa** ovanför loggfönstret så att du inte debiteras för ytterligare begäranden.
+
+![Pausa funktionen](../media-drafts/4-pause-timer.png)

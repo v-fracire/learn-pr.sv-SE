@@ -1,38 +1,35 @@
-Now that your Azure SQL database is up and running, you can connect it to your favorite SQL Server management tool to populate it with real data.
+Nu när din Azure SQL Database är igång kan du ansluta den till ett SQL Server-hanteringsverktyg och fylla den med riktiga data.
 
-You initially considered whether to run your database on-premises or in the cloud. With Azure SQL Database, you configure a few basic options and you have a fully functional SQL database that you can connect to your apps.
+Inledningsvis valde du mellan att köra databasen lokalt eller i molnet. Med Azure SQL Database kan du konfigurera några grundläggande alternativ och enkelt få en fullt fungerande SQL-databas som du kan koppla till dina appar.
 
-There's no infrastructure or software patches to maintain. You're now free to focus more on getting your transportation logistics app prototype up and running and less on database administration. Your prototype won't be a throw-away demo, either. Azure SQL Database provides production-level security and performance features.
+Ingen infrastruktur att underhålla, inga programkorrigeringar att installera. Nu slipper du lägga tid på databasadministration och kan istället fokusera på att bli klar med prototypen till logistikappen. Se till så att prototypen blir mer än en enkel demo. Azure SQL Database tillhandahåller säkerhets- och prestandafunktioner på produktionsnivå.
 
-Remember that each Azure SQL logical server contains one or more databases. Azure SQL Database provides two pricing models, DTU and vCore, to help you balance cost versus performance across all your databases.
+Kom ihåg att varje logisk Azure SQL-server innehåller en eller flera databaser. Azure SQL Database har två olika prismodeller, DTU och Virtuell kärna, som gör det enkelt att hitta den rätta balansen mellan kostnad och prestanda för alla dina databaser.
 
-Choose DTU if you're just getting started or want a simple, preconfigured buying option. Choose vCore when you want greater control over what compute and storage resources you create and pay for.
+Välj DTU om du precis har kommit igång eller bara vill ha ett enkelt och förkonfigurerat alternativ. Välj Virtuell kärna om du vill ha mer kontroll över vilka beräknings- och lagringsresurser du skapar och betalar för.
 
-Azure Cloud Shell makes it easy to start working with your databases. From Cloud Shell, you have access to the Azure CLI, which enables you to get information about your Azure resources. Cloud Shell also provides many other common utilities, such as `sqlcmd`, to help you start working right away with your new database.
+Cloud Shell gör det enkelt att börja arbeta med databaser. Från Cloud Shell har du har åtkomst till Azure CLI, ett kommandoradsgränssnitt som tillhandahåller information om dina Azure-resurser. Cloud Shell tillhandahåller även flera vanliga verktyg, till exempel `sqlcmd`, för att du lättare ska komma igång och jobba med den nya databasen.
 
-## Clean up
+## <a name="cleanup"></a>Rensa
 
-<!---TODO: Update for sandbox?--->
+Passa på att experimentera lite med din Azure SQL Database-installation. När du är klar är det enklaste sättet att ta bort databasen att ta bort dess överordnade resursgrupp.
 
-Feel free to experiment more with your Azure SQL Database installation. When you're done, the easiest way to delete your database is to delete its parent resource group.
+1. Klicka på **Resursgrupper** i portalen.
+1. Välj **logistics-db-rg**.
+1. Klicka på **Ta bort resursgrupp**.
 
-1. From the portal, click **Resource groups**.
+    ![Ta bort resursgruppen](../media-draft/delete-rg.png)
+1. Skriv ”logistics-db-rg” på kommandoraden och klicka på **Ta bort**.
 
-1. Select **logistics-db-rg**.
+## <a name="additional-resources"></a>Ytterligare resurser
 
-1. Click **Delete resource group**.
+I dokumentationen hittar du mer utförlig information, inklusive självstudier och exempel. Här följer några länkar till vad du lärt dig här:
 
-1. At the prompt, type "logistics-db-rg" and click **Delete**.
+* [Dokumentation om Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/)
+* [Prismodeller och resurser för Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers)
+* [Logiska Azure SQL Database-servrar och hur de hanteras](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-logical-servers)
+* [Brandväggsregler för SQL Database och SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure)
 
-## Additional resources
+Läs mer om Cloud Shell i [Översikt över Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 
-The documentation provides lots more information, including tutorials and samples. Here are a few links to what we covered here:
-
-- [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/)
-- [Azure SQL Database purchasing models and resources](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)
-- [Azure SQL Database logical servers and their management](https://docs.microsoft.com/azure/sql-database/sql-database-logical-servers)
-- [Azure SQL Database and SQL Data Warehouse firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
-
-To learn more about Cloud Shell, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
-If you're interested in learning more about the `sqlcmd` utility, see [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility?view=sql-server-2017).
+Om du vill veta mer om verktyget `sqlcmd`, se [sqlcmd](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-2017).

@@ -1,51 +1,51 @@
-A co-worker named Alain at First Up Consultants needs the ability to create and manage virtual machines for a project he is working on. Your manager has asked that you handle this request. Using the best practice to grant users the least privileges to get their work done, you decide to create a new resource group and assign Alain the Virtual Machine Contributor role.
+En medarbetare som heter Alain på First Up Consultants behöver kunna skapa och hantera virtuella datorer till ett projekt han arbetar med. Din chef har bett dig att hantera denna begäran. Utifrån regelverket om att bevilja användare lägsta möjliga behörighet för att utföra sitt arbete väljer du att skapa en ny resursgrupp och tilldela Alain rollen Virtuell datordeltagare.
 
-## Sign in to the Azure portal
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-- Make sure you are still signed in to the Azure portal as **LabAdmin-_XXXXXXX_@_xxxxxxxxxxxx_.onmicrosoft.com**. You can find the username and password on the **Resources** tab at the top of this window.
+- Kontrollera att du fortfarande är inloggad på Azure Portal som **LabAdmin-_XXXXXXX_@_xxxxxxxxxxxx_.onmicrosoft.com**. Du hittar användarnamn och lösenord på fliken **Resurser** högst upp i det här fönstret.
 
-## Grant access
+## <a name="grant-access"></a>Bevilja åtkomst
 
-Follow these steps to assign the Virtual Machine Contributor role to a user at the resource group scope.
+Följ dessa steg om du vill tilldela rollen Virtuell datordeltagare till en användare i resursgruppomfånget.
 
-1. In the navigation list, click **Resource groups**.
+1. Klicka på **Resursgrupper** i navigeringslistan.
 
-1. Find and click the **FirstUpConsultantsRG1-_XXXXXXX_** resource group.
+1. Hitta och klicka på resursgruppen **FirstUpConsultantsRG1-_XXXXXXX_**.
 
-   ![Resource group list](../media-draft/5-resource-groups.png)
+   ![Lista över resursgrupper](../media-draft/5-resource-groups.png)
 
-1. Click **Access control (IAM)** to see the current list of role assignments.
+1. Klicka på **Åtkomstkontroll (IAM)** för att visa den aktuella listan med rolltilldelningar.
 
-   ![Access control (IAM) blade for resource group](../media-draft/5-resource-group-access-control.png)
+   ![Bladet Åtkomstkontroll (IAM) för resursgruppen](../media-draft/5-resource-group-access-control.png)
 
-1. At the top, click **Add** to open the **Add permissions** pane.
+1. Klicka på **Lägg till** högst upp för att öppna fönstret **Lägg till behörigheter**.
 
-   ![Add permissions pane](../media-draft/5-add-permissions.png)
+   ![Fönstret Lägg till behörigheter](../media-draft/5-add-permissions.png)
 
-1. In the **Role** drop-down list, select **Virtual Machine Contributor**.
+1. I listrutan **Roll** väljer du **Virtuell datordeltagare**.
 
-1. In the **Select** list, select **LabUser-_XXXXXXX_**.
+1. I listan **Välj** väljer du **LabUser-_XXXXXXX_**.
 
-   ![Add permissions pane completed](../media-draft/5-add-permissions-save.png)
+   ![Fönstret Lägg till behörigheter ifyllt](../media-draft/5-add-permissions-save.png)
 
-1. Click **Save** to create the role assignment.
+1. Klicka på **Spara** för att skapa rolltilldelningen.
 
-   After a few moments, the **LabUser-_XXXXXXX_** user is assigned the Virtual Machine Contributor role at the **FirstUpConsultantsRG1-_XXXXXXX_** resource group scope. The user can now create and manage virtual machines just within this resource group.
+   Efter en liten stund tilldelas användaren **LabUser-_XXXXXXX_** rollen Virtuell datordeltagare i resursgruppomfånget **FirstUpConsultantsRG1-_XXXXXXX_**. Användaren kan nu skapa och hantera virtuella datorer bara i den här resursgruppen.
 
-   ![Virtual Machine Contributor role assignment](../media-draft/5-vm-contributor-assignment.png)
+   ![Rolltilldelningen Virtuell datordeltagare](../media-draft/5-vm-contributor-assignment.png)
 
-## Remove access
+## <a name="remove-access"></a>Ta bort åtkomst
 
-In RBAC, to remove access, you remove a role assignment.
+I RBAC tar du bort en rolltilldelning för att ta bort åtkomst.
 
-1. In the list of role assignments, select the **LabUser-_XXXXXXX_** user with the Virtual Machine Contributor role.
+1. I listan över rolltilldelningar väljer du användaren **LabUser-_XXXXXXX_** med rollen Virtuell datordeltagare.
 
-1. Click **Remove**.
+1. Klicka på **Ta bort**.
 
-   ![Remove role assignment message](../media-draft/5-remove-role-assignment.png)
+   ![Meddelandet Ta bort rolltilldelning](../media-draft/5-remove-role-assignment.png)
 
-1. In the **Remove role assignments** message that appears, click **Yes**.
+1. När du ser meddelandet **Ta bort rolltilldelningar** klickar du på **Ja**.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to grant a user access to create and manage virtual machines in a resource group using the Azure portal. In the next unit, you look at how to grant access using PowerShell.
+I det här avsnittet lärde du dig att bevilja en användare åtkomst för att skapa och hantera virtuella datorer i en resursgrupp med hjälp av Azure Portal. I nästa avsnitt får du se hur du beviljar åtkomst med hjälp av PowerShell.

@@ -1,29 +1,30 @@
 ### YamlMime:ModuleUnit
 uid: learn.choose-storage-approach-in-azure.3-operations-and-latency
 metadata:
-  title: Determine operational needs
-  description: Determine operational needs
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Determine operational needs
+  title: Åtgärder och svarstider
+  description: Åtgärder och svarstider
+  displayType: one-column
+  ms.openlocfilehash: 3d67e7dd28258dc8accc73c36ae7573e143b7c02
+  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43252335"
+title: Åtgärder och svarstider
 durationInMinutes: 10
-content: |
+content: >
   [!include[](includes/3-operations-and-latency.md)]
 quiz:
-  title: 'Knowledge check'
+  title: Åtgärder och svarstider
   questions:
-  - content: "How would you classify the operational needs of a database that stored user data for your online retail application. The data set would contain shipping preferences, previous orders, and profile information to display on product reviews."
+  - content: Hur skulle du klassificera åtgärdsbehoven i en databas som lagrar användardata i din onlinebutiksapp? Datauppsättningen skulle innehålla leveransinställningar, tidigare ordrar och profilinformation som visas i produktrecensioner.
     choices:
-    - content: "The application requires fast retrieval times, lots of reads and writes, and needs to be able to query on every property."
+    - content: Behoven i appen är snabb datahämtning, stora mängder läsningar och skrivningar samt möjligheten att köra frågor mot de olika egenskaperna
       isCorrect: true
-      correctExplanation: "Users will create and update their user data frequently, and the application will update their order information in their user data. Although customers in an online retail site don't expect to be able to query their data in a robust manner, such as querying to see if they have a shipping address in a certain zip code, the company will want to be able to query to see how many users are in a certain zip code. So be sure to remember all the users of your data, not just your end customer, when it comes to listing requirements."
-    - content: "The application requires fast retrieval times, lots of reads and writes, and needs to be able to query on a limited set of properties."
+      correctExplanation: Användarna skapar och uppdaterar data ofta och appen uppdaterar orderinformation i användardata. Även om kunderna i en onlinebutik inte förväntar sig att kunna köra komplicerade frågor mot sina data, som att se efter om de har en leveransadress i ett visst postnummer, så vill företaget kunna köra frågor för att se hur många användare som tillhör ett visst postnummer. Var därför noga med att komma ihåg alla som ska använda data, inte bara kunderna, när du formulerar dina krav.
+    - content: Behoven i appen är snabb datahämtning, stora mängder läsningar och skrivningar samt möjligheten att köra frågor mot en begränsad uppsättning egenskaper
       isCorrect: false
-      correctExplanation: "Although customers in an online retail site don't expect to be able to query their data in a robust manner, such as querying to see if they have a shipping address in a certain zip code, the company will want to be able to query to see how many users are in a certain zip code, so all properties should be indexed an queryable."
-    - content: "The application can support slow retrieval times and read-only operations."
+      correctExplanation: Även om kunderna i en onlinebutik inte förväntar sig att kunna köra komplicerade frågor mot sina data, som att se efter om de har en leveransadress i ett visst postnummer, så vill företaget kunna köra frågor för att se hur många användare som tillhör ett visst postnummer. Därför bör alla egenskaper indexeras och gå att köra frågor mot.
+    - content: Appen klarar sig med långsam datahämtning och skrivskyddade åtgärder
       isCorrect: false
-      incorrectExplanation: "Customers will be creating and updating their own profile information, so the user data needs to be read-write."
+      incorrectExplanation: Kunderna skapar och uppdaterar sin egen profilinformation, så det måste gå att både läsa och skriva användardata.

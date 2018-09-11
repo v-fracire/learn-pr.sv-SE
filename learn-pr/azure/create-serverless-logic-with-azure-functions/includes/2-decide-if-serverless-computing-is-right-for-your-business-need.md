@@ -1,43 +1,45 @@
-To help decide whether serverless computing is right for you, let's first learn what serverless is all about.
+För att avgöra om serverlös databehandling passar för dig ska vi först lära oss vad serverlös handlar om.
 
-## What is serverless compute?
+## <a name="what-is-serverless-compute"></a>Vad är serverlös beräkning?
 
-Serverless compute can be thought of as a function as a service (FaaS), or a microservice that is hosted on a cloud platform. Your business logic runs as functions and you don't have to manually provision or scale infrastructure. The cloud provider manages infrastructure. Your app is automatically scaled out or down depending on load. Azure has several ways to build this sort of architecture. The two most common approaches are Azure Logic Apps and Azure Functions, which we focus on in this module.
+Serverlös beräkning kan betraktas som en funktion som en tjänst (FaaS) eller en mikrotjänst som finns på en molnplattform. Din affärslogik körs som funktioner och du behöver inte etablera eller skala infrastruktur manuellt. Molnleverantören hanterar infrastrukturen. Din app skalas automatiskt ut eller ned beroende på belastningen. Azure har flera sätt att skapa den här typen av arkitektur. De två vanligaste metoderna är Azure Logic Apps och Azure Functions som vi fokuserar på i den här modulen.
 
-## What is Azure Functions?
+## <a name="what-is-azure-functions"></a>Vad är Azure Functions?
 
-Azure Functions is a serverless application platform. It allows developers to host business logic that can be executed without provisioning infrastructure. Functions provides intrinsic scalability and you are charged only for the resources used. You can write your function code in the language of your choice, including C#, F#, and JavaScript. Support for NuGet and NPM is also included, so you can use popular libraries in your business logic.
+Azure Functions är en serverlös programplattform. Den gör det möjligt för utvecklare att lagra kod för affärslogik som kan köras utan att etablera infrastruktur. Functions har inbyggda funktioner för skalbarhet och du debiteras bara för de resurser som används. Du kan skriva funktionskoden på det språk du föredrar, bland annat C#, F# och JavaScript. Stöd för NuGet och NPM ingår också, så du kan använda populära bibliotek i din affärslogik.
 
-## Benefits of a serverless compute solution
+## <a name="benefits-of-a-serverless-compute-solution"></a>Fördelar med en serverlös beräkningslösning
 
-Serverless compute is a great option for hosting business logic code in the cloud. With serverless offerings such as Azure Functions, you can write your business logic in the language of your choice. You get automatic scaling, you have no servers to manage, and you are charged based on what is used — not on reserved time. Here are some additional characteristics of a serverless solution for you to consider.
+Serverlös beräkning är ett bra alternativ för att lagra kod för affärslogik i molnet. Med serverlösa erbjudanden, till exempel Azure Functions, kan du skriva affärslogiken på det språk du föredrar. Du får automatisk skalning, du har inga servrar att hantera och du debiteras baserat på vad som används – inte på reserverad tid. Här följer några ytterligare kännetecken för en serverlös lösning att ta hänsyn till.
 
-### Avoids over-allocation of infrastructure
+### <a name="avoids-over-allocation-of-infrastructure"></a>Undviker överallokering av infrastruktur
 
-Suppose you've provisioned VM servers and configured them with enough resources to handle your peak load times. When the load is light, you are potentially paying for infrastructure you're not using. Serverless computing helps solve the allocation problem by scaling up or down automatically, and you're only billed when your function is processing work.
+Anta att du har etablerat VM-servrar och konfigurerat dem med tillräckliga resurser för att hantera dina högsta belastningstider. När belastningen är lätt betalar du eventuellt för infrastruktur som du inte använder. Serverlös databehandling löser allokeringsproblem genom att skala upp eller ned automatiskt och du debiteras bara när funktionen bearbetar arbete.
 
-### Stateless logic
+### <a name="stateless-logic"></a>Tillståndslös logik
 
-Stateless functions are great candidates for serverless compute; function instances are created and destroyed on demand. If state is required, it can be stored in an associated storage service.
+Tillståndslösa funktioner är bra kandidater för serverlös beräkning. funktionsinstanser skapas och förstörs på begäran. Om ett tillstånd krävs kan det lagras i en associerad lagringstjänst.
 
-### Event driven
+### <a name="event-driven"></a>Händelsebaserad
 
-Functions are _event driven_. This means they run only in response to an event (called a "trigger"), such as receiving an HTTP request, or a message being added to a queue. You configure a trigger as part of the function definition. This approach simplifies your code by allowing you to declare where the data comes from (trigger/input binding) and where it goes (output binding). You don't need to write code to watch queues, blobs, hubs, etc. You can focus purely on the business logic.
+Funktioner är _händelsebaserade_. Det innebär att de endast körs som svar på en händelse (kallas en ”utlösare”), till exempel för att ta emot en HTTP-begäran eller när ett meddelande läggs till i en kö. Du konfigurerar en utlösare som en del av funktionsdefinitionen. Den här metoden förenklar din kod genom att låta dig deklarera var data kommer från (utlösare/indatabindning) och var de ska (utdatabindning). Du behöver inte skriva kod för att se köer, blobar, hubbar osv. Du kan fokusera enbart på affärslogiken.
 
-### Functions can be used in traditional compute environments
+### <a name="functions-can-be-used-in-traditional-compute-environments"></a>Funktioner kan användas i traditionella beräkningsmiljöer
 
-Functions are a key component of serverless computing, but they are also a general compute platform for executing any type of code. Should the needs of your app change, you can take your project and deploy it in a non-serverless environment, which gives you the flexibility to manage scaling, run on virtual networks, and even completely isolate your functions.
+Funktioner är en viktig del av serverlös databehandling, men de är också en allmän beräkningsplattform för att köra alla typer av kod. Om behoven för din app ändras kan du ta projektet och distribuera det i en icke-serverlös miljö som ger dig flexibiliteten att hantera skalning, köra i virtuella nätverk och även helt isolera dina funktioner.
 
-## Drawbacks of a serverless compute solution
+## <a name="drawbacks-of-a-serverless-compute-solution"></a>Nackdelar med en serverlös beräkningslösning
 
-Serverless compute will not always be the appropriate solution to hosting your business logic. Here are a few characteristics of functions that may affect your decision to host your services in serverless compute.
+Serverlös beräkning är inte alltid rätt lösning för att lagra din affärslogik. Här följer några kännetecken som funktioner har som kan påverka ditt beslut att lagra dina tjänster i beräkning utan server. 
 
-### Execution time
+### <a name="execution-time"></a>Körningstid
 
-By default, functions have a timeout of 5 minutes. This timeout is configurable to a maximum of 10 minutes. If your function requires more than 10 minutes to execute, you can host it on a VM. Additionally, if your service is initiated through an HTTP request and you expect that value as an HTTP response, the timeout is further restricted to 2.5 minutes. Finally, there's also an option called **Durable Functions** that allows you to orchestrate the executions of multiple functions without any timeout.
+Funktioner har som standard en tidsgräns på 5 minuter. Denna tidsgräns kan konfigureras till högst 10 minuter. Om din funktion kräver mer än 10 minuter för att köras kan du lägga upp den på en virtuell dator. Om tjänsten initieras via en HTTP-begäran och du förväntar dig att det värdet ska vara ett HTTP-svar begränsas tidsgränsen ytterligare, till 2,5 minuter. Slutligen finns också alternativet **Durable Functions** som gör det möjligt att samordna körningar av flera funktioner utan någon tidsgräns.
 
-### Execution frequency
+### <a name="execution-frequency"></a>Körningsfrekvens
 
-The second characteristic is execution frequency. If you expect your function to be executed continuously by multiple clients, it would be prudent to estimate the usage and calculate the cost of using functions accordingly. It might be cheaper to host your service on a VM.
+Det andra kännetecknet är körningsfrekvens. Om du räknar med att funktionen ska köras kontinuerligt av flera klienter är det klokt att uppskatta förbrukningen och beräkna kostnaden för att använda funktioner. Det kan vara billigare att lagra tjänsten på en virtuell dator.
 
-While scaling, only one function app instance can be created every 10 seconds, for up to 200 total instances. Keep in mind, each instance can service multiple concurrent executions, so there is no set limit on how much traffic a single instance can handle. Different types of triggers have different scaling requirements, so research your choice of trigger and investigate its limits.
+När du skalar kan endast en instans av en funktionsapp skapas var tionde sekund, för upp till totalt 200 instanser. Tänk på att varje instans kan hantera flera körningar samtidigt, så det finns ingen tydlig begränsning för hur mycket trafik en instans kan hantera. Olika typer av utlösare har olika skalningskrav, så du bör undersöka ditt val av utlösare och dess begränsningar.
+
+

@@ -1,30 +1,29 @@
-In this module, you secured an app's secret configuration in Azure Key Vault. Our app code authenticates to the vault with a managed identity and automatically loads the secrets from the vault into ASP.NET Core's configuration system at startup.
+I den här modulen har du skyddat en apps hemliga konfiguration i Azure Key Vault. Vår appkod autentiserar till valvet med Hanterad tjänstidentitet och läser automatiskt in hemligheterna från valvet till ASP.NET Core-konfigurationssystemet vid start.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="cleanup"></a>Rensa
 
-To cleanup your Azure subscription, run the following in the Azure Cloud Shell to delete the resource group containing all the resources we created in this module.
+Om du vill rensa din Azure-prenumeration kör du följande i Azure Cloud Shell för att ta bort resursgruppen som innehåller alla de resurser som vi skapade i den här modulen.
 
 ```console
 az group delete --name keyvault-exercise-group
 ```
 
-To cleanup your Cloud Shell storage, delete the `KeyVaultDemoApp` directory.
+Du kan rensa Cloud Shell-lagringen genom att ta bort katalogen `KeyVaultDemoApp`.
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-If this was a real app, what would come next?
+Om det här var en verklig app, vad är nästa steg?
 
-- Put all your app secrets in your vaults! There's no longer any reason to have them in configuration files.
-- Continue to develop the application. Your production environment is all set up, so for future deployments to it you don't need to repeat all the setup.
-- To support development, create a development-environment vault that contains secrets with the same names but different values. Grant permissions to the development team and configure the vault name in the app's development-environment configuration file. When developers run the app locally, `AddAzureKeyVault` will automatically detect local installations of Visual Studio and the Azure CLI and use Azure credentials configured in those applications to sign in and access the vault.
-- Create additional environments for purposes like user acceptance testing.
-- Separate vaults across different subscriptions and/or resource groups to isolate them.
-- Grant access to other environment vaults to the appropriate people.
+- Att placera alla apphemligheter i dina valv! Det finns inte längre någon anledning att ha dem i konfigurationsfiler.
+- Fortsätt att utveckla programmet. Din produktionsmiljö har konfigurerats, och du behöver inte upprepa alla inställningar vid framtida distributioner till miljön.
+- För att underlätta utvecklingen skapar du ett valv för utvecklingsmiljön som innehåller hemligheter med samma namn men med andra värden. Tilldela behörigheter till utvecklingsteamet och konfigurera valvnamnet i konfigurationsfilen för appens utvecklingsmiljö. När utvecklare kör appen lokalt identifierar `AddAzureKeyVault` automatiskt lokala installationer av Visual Studio och Azure CLI och använder Azure-autentiseringsuppgifterna som konfigurerats i programmen för att logga in och komma åt valvet.
+- Skapa ytterligare miljöer för särskilda ändamål som till exempel acceptanstest för användare.
+- Avgränsa valv för olika prenumerationer och/eller resursgrupper för att isolera dem.
+- Bevilja åtkomst till andra miljövalv till rätt personer.
 
-## Further reading
+## <a name="further-reading"></a>Ytterligare läsning
 
-- [Key Vault documentation](https://docs.microsoft.com/azure/key-vault/)
-- [More about AddAzureKeyVault and its advanced options](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration?view=aspnetcore-2.1&tabs=aspnetcore2x)
-- [This tutorial](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application) walks through using `KeyVaultClient`, including manually authenticating it to Azure Active Directory using a client secret instead of using a managed identity.
-- [Managed identities for Azure resources token service documentation](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol), for implementing the authentication workflow yourself.
+- [Dokumentation om Key Vault](https://docs.microsoft.com/azure/key-vault/)
+- [Mer om AddAzureKeyVault och dess avancerade alternativ](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration?view=aspnetcore-2.1&tabs=aspnetcore2x)
+- [Den här självstudien](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application) beskriver hur du använder `KeyVaultClient`, inklusive manuell autentisering mot Azure Active Directory med hjälp av en klienthemlighet i stället för MSI.
+- [Dokumentation om MSI-tokentjänsten](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) om du vill implementera autentiseringsarbetsflödet själv

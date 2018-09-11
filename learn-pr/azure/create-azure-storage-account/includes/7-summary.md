@@ -1,5 +1,5 @@
-Storage accounts let you create a group of data management rules and apply them all at once to a group of Azure Blobs, Azure Files, Azure Queues, and Azure Tables. 
+Med lagringskonton kan du skapa en grupp med regler för datahantering och tillämpa dem allihop samtidigt på en grupp med Azure-blobar, Azure-filer, Azure-köer och Azure-tabeller. 
 
-If you tried to achieve the same thing without storage accounts, it would be tedious and error-prone. For example, what are the chances that you could successfully apply the exact same ruleset to thousands of blobs?
+Att försöka uppnå samma sak utan lagringskonton skulle vara tidsödande och felbenäget. Hur stor skulle till exempel chansen vara att lyckas med att tillämpa exakt samma regeluppsättning på tusentals blobar?
 
-Instead, you capture the rules in the settings for a storage account, and those rules are automatically applied to every data service in the account.
+I stället sparar du reglerna i inställningarna för ett lagringskonto, och de reglerna tillämpas automatiskt på varje datatjänst i kontot.

@@ -1,102 +1,107 @@
-In this unit, you will use the Azure portal to create a storage account that is appropriate for a fictitious southern California surf report web app.
+I den här övningen använder du Azure-portalen för att skapa ett lagringskonto som är lämpligt för en fiktiv webbapp för surfrapporter i södra Kalifornien.
 
-The surf report site lets users upload photos and videos of their local beach conditions. Viewers will use the content to help them choose the beach with the best surfing conditions. Your list of design and feature goals is:
+## <a name="design-goals"></a>Designmål
 
-- Video content must load quickly
-- The site must handle unexpected spikes in upload volume
-- Outdated content will be removed as surf conditions change so the site always shows current conditions
+Webbplatsen med surfrapporter kan användas till att ladda upp foton och videoklipp som visar förhållandena på lokala surfplatser. Tittarna använder innehållet för att välja den strand som har de bästa surfvillkoren. Din lista över design- och funktionsmål är:
 
-You decide on an implementation that buffers uploaded content in an Azure Queue for processing and then moves it into an Azure Blob for storage. You need a storage account that can hold both queues and blobs while delivering low-latency access to your content.
+- Videoinnehåll måste läsas in snabbt
+- Platsen måste kunna hantera oväntade toppar i uppladdningsvolym
+- Inaktuellt innehåll tas bort allteftersom surfvillkoren ändras så att webbplatsen alltid visar aktuella villkor
 
-## Use the Azure portal to create a storage account
+Du väljer en implementering som buffrar uppladdat innehåll i en Azure-kö för bearbetning och sedan flyttar det till en Azure-blob för lagring. Du behöver ett lagringskonto som kan innehålla både köer och blobar samtidigt som det ger åtkomst med kort svarstid till ditt innehåll.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/?azure-portal=true).
+## <a name="exercise-steps"></a>Övningssteg
 
-1. In the top left of the Azure Portal, select **Create a resource**.
+### <a name="launch-the-blade"></a>Starta bladet
 
-1. In the selection panel that appears, select **Storage**.
+1. I en webbläsare navigerar du till [Azure-portalen](https://portal.azure.com?azure-portal=true) och loggar in på ditt konto.
 
-1. On the right side of that pane, select **Storage account - blob, file, table, queue**.
+1. I sidofältet till vänster väljer du **Skapa en resurs**.
 
-    ![Screenshot of the Azure portal showing the Create a resource blade with the Storage category and Storage account option highlighted.](..\media\5-portal-storage-select.png)
+1. Välj rubriken **Lagring** på Azure Marketplace.
 
-### Configure the basic options
+1. Välj **Lagringskonto**. Portalen visar bladet **Skapa lagringskonto**.
 
-Under **PROJECT DETAILS**:
+### <a name="configure-the-basic-options"></a>Konfigurera de grundläggande alternativen
 
-1. Select the appropriate **Subscription**.
+1. Välj fliken **Grundläggande inställningar** längst upp på bladet.
 
-1. Select the existing Resource Group <rgn>[Sandbox resource group name]</rgn> from the drop-down list.
+1. **Prenumeration:** Välj en av dina prenumerationer.
 
-    > [!NOTE]
-    > This free Resource Group has been provided by Microsoft as part of the learning experience. When you create an account for a real application, you will want to create a new Resource Group in your subscription to hold all the resources for the app.
+1. **Resursgrupp**: Skapa en ny resursgrupp med namnet **SurfReportResourceGroup**.
 
-Under **INSTANCE DETAILS**:
+1. **Namn på lagringskonto**: Ange ett globalt unikt värde som `surfreport` plus dina initialer plus en siffra.
 
-1. Enter a **Storage account name**. The name will be used to generate the public URL used to access the data in the account. It must be unique across all existing storage account names in Azure. It must be 3 to 24 characters long and can contain only lowercase letters and numbers.
+ 1. **Plats**: Välj **USA, västra**.
 
-1. Select a **Location** near to you. 
+    Anledning: Programmet är avsett för användare i södra Kalifornien. För att minimera svarstiden vid inläsning av videor ska blobarna hanteras nära dessa användare. Detta gör **USA, västra** till ett bra alternativ.
 
-1. Leave the **Deployment model** as _Resource manager_. This is the preferred model for all resource deployments in Azure and allows you to group all the related resources for your app into a _resource group_ for easier management.
+1. **Distributionsmodell**: Välj **Resource Manager**.
+    
+    Anledning: **Resurshanterare** är lämplig eftersom den gör att du kan använda en resursgrupp för att hantera webbappen, lagringskontot osv. för programmet.
 
-1. Select _Standard_ for the **Performance** option. This decides the type of disk storage used to hold the data in the Storage account. Standard uses traditional hard disks, and Premium uses solid-state drives (SSD) for faster access. However, remember that Premium only supports _page blobs_ and you will need block blobs for your videos, and a queue for buffering - both of which are only available with the _Standard_ option.
+1. **Prestanda**: Välj **Standard**.
 
-1. Select _StorageV2 (general purpose v2)_ for the **Account kind**. This provides access to the latest features and pricing. In particular, Blob storage accounts have more options available with this account type. You need a mix of blobs and a queue, so the _Blob storage_ option will not work. For this application, there would be no benefit to choosing a _Storage (general purpose v1)_ account, since that would limit the features you could access and would be unlikely to reduce the cost of your expected workload.
+    Anledning: Du kan inte använda alternativet **Premium** eftersom det skulle begränsa lagringskontot sidblobar. Du behöver blockblobar för dina videor och en kö för buffring. Båda dessa är bara tillgängliga i alternativet **Standard**.
 
-1. Leave the **Replication** as _Locally-redundant storage (LRS)_. Data in Azure storage accounts are always replicated to ensure high availability - this option lets you choose how far away the replication occurs to match your durability requirements. In our case, the images and videos quickly become out-of-date and are removed from the site. This means there is little value to paying extra for global redundancy. If a catastrophic event results in data loss, you can restart the site with fresh content from your users.
+1. **Typ av konto**: Välj **StorageV2 (generell användning v2)**.
 
-1. Set the **Access tier** to _Hot_. This setting is only used for Blob storage. The **Hot Access Tier** is ideal for frequently accessed data, and the **Cool Access Tier** is better for infrequently accessed data. Note that this only sets the _default_ value - when you create a Blob, you can set a different value for the data. In our case, we want the videos to load quickly, so you will use the high-performance option for your blobs.
+    Anledning: **StorageV2 (generell användning v2)** är det rätta valet i det här fallet. Du behöver en blandning av blobar och en kö, så alternativet **Blob-lagring** fungerar inte. För det här programmet skulle det inte finnas någon fördel med att välja ett konto för **Storage (generell användning v1)** eftersom det skulle begränsa de funktioner du kan komma åt och förmodligen inte skulle minska kostnaden för den förväntade arbetsbelastningen.
+
+1. **Replikering**: Välj **Lokalt redundant lagring (LRS)**.
+
+    Anledning: Bilderna och videorna blir snabbt inaktuella och tas bort från platsen. Det innebär att det inte finns någon större poäng med att betala extra för global redundans. I händelse av en katastrof som leder till dataförlust kan du starta om webbplatsen med nytt innehåll från användarna.
+
+1. **Åtkomstnivå (Standard)**: Välj **Frekvent**.
    
-The following screenshot shows the completed settings for the **Basics** tab. Note that the resource group, subscription, and name will have different values.
+    Anledning: Du vill att videor ska läsas in snabbt, och därför använder du alternativet med höga prestanda för dina blobar.
+   
+Följande skärmbild visar slutförda inställningar för fliken **Grundläggande inställningar**.
 
-![Screenshot of a Create a storage account blade with the **Basics** tab selected.](../media-drafts/5-create-storage-account-basics.png)
+![Skärmbild av ett blad för att skapa ett lagringskonto med fliken **Grundläggande inställningar** markerad.](../media-drafts/5-create-storage-account-basics.png)
 
-### Configure the advanced options
+### <a name="configure-the-advanced-options"></a>Konfigurera avancerade alternativ
 
-1. Click the **Next: Advanced >** button to move to the **Advanced** tab, or select the **Advanced** tab at the top of the screen.
+1. Välj fliken **Avancerat** längst upp på bladet.
 
-1. The **Secure transfer required** setting controls whether **HTTP** can be used for the REST APIs used to access data in the Storage account. Setting this option to _Enabled_ will force all clients to use SSL (**HTTPS**). Most of the time you will want to set this to _Enabled_ as using HTTPS over the network is considered a best practice.
+1. **Säker överföring krävs**: Välj **Aktiverat**.
 
-    > [!WARNING]
-    > If this option is enabled, it will enforce some additional restrictions. Azure files service connections without encryption will fail, including scenarios using SMB 2.1 or 3.0 on Linux. Because Azure storage doesn’t support SSL for custom domain names, this option cannot be used with a custom domain name.
+    Anledning: Https via kabeln anses allmänt vara bästa praxis.
 
-1. Set the **Virtual networks** option to _None_. This option allows you to isolate the storage account on an Azure virtual network. We want to use public Internet access. Our content is public facing and you need to allow access from public clients.
+1. **Virtuella nätverk**: Välj **Inaktiverat**.
 
-1. Leave the **Data Lake Storage Gen2** option as _Disabled_. This is for big-data applications that aren't relevant to this module.
+    Anledning: Innehållet är offentligt, och du behöver tillåta åtkomst från offentliga klienter.
 
-The following screenshot shows the completed settings for the **Advanced** tab.
+Följande skärmbild visar slutförda inställningar för fliken **Avancerat**.
 
-![Screenshot of an Create a storage account blade with the **Advanced** tab selected.](../media-drafts/5-create-storage-account-advanced.png)
+![Skärmbild av ett blad för att skapa ett lagringskonto med fliken **Avancerat** markerad.](../media-drafts/5-create-storage-account-advanced.png)
 
-### Create
+### <a name="create"></a>Skapa
 
-1. You can explore the **Tags** settings if you like. This lets you associate key/value pairs to the account for your categorization and is a feature available to any Azure resource.
+1. Klicka på knappen **Granska + skapa** längst ned på bladet.
 
-1. Click **Review + create** to review the settings. This will do a quick validation of your options to make sure all the required fields are selected. If there are issues, they'll be reported here. Once you've reviewed the settings, click **Create** to provision the storage account.
+1. På nästa skärm klickar du på knappen **Skapa** längst ned på bladet.
 
-It will take a few minutes to deploy the account. While Azure is working on that, let's explore the APIs we'll use with this account.
+1. Vänta tills resursen skapas.
 
-### Verify
+### <a name="verify"></a>Verifiera
 
-1. Select the **Storage accounts** link in the left sidebar.
+1. Välj länken **Lagringskonton** i det vänstra sidofältet.
 
-1. Locate the new storage account in the list to verify that creation succeeded.
+1. Leta upp det nya lagringskontot i listan för att verifiera skapandet.
 
-<!-- Cleanup sandbox -->
-[!include[](../../../includes/azure-sandbox-cleanup.md)]
+### <a name="clean-up"></a>Rensa
 
-When you are working in your own subscription, you can the following steps in the Azure portal to delete the resource group and all associated resources.
+1. Välj länken **Resursgrupper** i det vänstra sidofältet.
 
-1. Select the **Resource groups** link in the left sidebar.
+1. Leta upp **SurfReportResourceGroup** i listan.
 
-1. Locate the resource group you created in the list.
+1. Högerklicka på posten **SurfReportResourceGroup** och välj **Ta bort resursgrupp** på snabbmenyn.
 
-1. Right-click on the resource group entry and select **Delete resource group** from the context menu. You can also click the "..." menu element on the right side of the entry to get to the same context menu.
+1. Ange resursgruppens namn i bekräftelsefältet.
 
-1. Type the resource group name into the confirmation field.
+1. Klicka på knappen **Ta bort**.
 
-1. Click the **Delete** button.
+## <a name="summary"></a>Sammanfattning
 
-## Summary
-
-You created a storage account with settings driven by your business requirements. For example, you might have selected a West US datacenter because your customers were primarily located in southern California. This is a typical flow: first analyze your data and goals, and then configure the storage account options to match.
+Du har skapat ett lagringskonto med inställningar som styrs av dina affärsbehov. Till exempel valde du ett datacenter i USA, västra eftersom dina kunder främst fanns i södra Kalifornien. Det här är ett typiskt flöde: först analyserar du dina data och mål och sedan konfigurerar du alternativen för lagringskonton så att de matchar.

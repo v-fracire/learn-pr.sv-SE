@@ -1,27 +1,33 @@
-Blobs are "files for the cloud". Apps work with blobs in much the same way as they would work with files on a disk, like reading and writing data. However, unlike a local file, blobs can be reached from anywhere with an internet connection.
+## <a name="what-are-blobs-and-how-are-they-used"></a>Vad är blobbar och hur används de?
 
-Azure Blob storage is *unstructured*, meaning that there are no restrictions on the kinds of data it can hold. For example, a blob can hold a PDF document, a JPG image, a JSON file, video content, etc. Blobs aren't limited to common file formats &mdash; a blob could contain gigabytes of binary data streamed from a scientific instrument, an encrypted message for another application, or data in a custom format for an app you're developing.
+Blobbar är ”filer för molnet”. Appar fungerar med blobbar på ungefär samma sätt som med filer på en disk, där de läser och skriver data. Men till skillnad från en lokal fil är blobbar tillgängliga överallt via en Internetanslutning. 
 
-Blobs are usually not appropriate for structured data that needs to be queried frequently. They have higher latency than memory and local disk and don't have the indexing features that make databases efficient at running queries. However, blobs are frequently used in *combination* with databases to store non-queryable data. For example, an app with a database of user profiles could store profile pictures in blobs. Each user record in the database would include the name or URL of the blob containing the user's picture.
+Azure Blob Storage är *ostrukturerad*, vilket innebär att det inte finns några begränsningar för vilken typ av data som tjänsten kan lagra. En blobb kan till exempel innehålla ett PDF-dokument, en JPG-bild, en JSON-fil, videoinnehåll osv. Blobbar är inte begränsade till vanliga filformat &mdash; en blobb kan innehålla flera gigabyte binära data som strömmas från ett vetenskapligt instrument, ett krypterat meddelande för ett annat program eller data i ett anpassat format för en app som du utvecklar.
 
-Blobs are used for data storage in many ways across all kinds of applications and architectures:
+Blobbar är vanligtvis inte lämpliga för strukturerade data som används ofta. De har längre svarstid än minne och lokala diskar och saknar de indexeringsfunktioner som gör databaser så effektiva för frågekörning. Blobbar används dock ofta i *kombination* med databaser för att lagra data som det inte går att köra frågor mot. En app med en databas för användarprofiler kan till exempel lagra profilbilder i blobbar. Varje användarpost i databasen skulle i så fall innehålla namnet eller URL:en för blobben som innehåller användarens bild.
 
-- Apps that need to communicate large amounts of data over a messaging system that supports only small messages can store data in blobs and send the blob URLs in messages.
-- Blob storage can be used like a file system for storing and sharing documents and other personal data.
-- Static web assets like images can be stored in blobs and made available for public download as if they were files on a web server.
-- Many Azure components use blobs behind the scenes. For example, Azure Cloud Shell stores your files and configuration in blobs, and Azure Virtual Machines uses blobs for hard-disk storage.
+Blobbar används för att lagra data på många olika sätt i alla typer av program och arkitekturer:
 
-Some apps will constantly create, update, and delete blobs as part of their work. Others will use a small set of blobs and rarely change them.
+* Appar som behöver kommunicera stora mängder data i ett meddelandesystem som endast stöder små meddelanden kan lagra data i blobbar och skicka blobb-URL:er i meddelanden.
+* Blob Storage kan användas som ett filsystem för att lagra och dela dokument och andra personliga data.
+* Statiska webbresurser, till exempel bilder, kan lagras i blobbar och göras tillgängliga för offentlig nedladdning som om de vore filer på en webbserver.
+* Många Azure-komponenter använder blobbar i bakgrunden. Exempelvis lagrar Azure Cloud Shell dina filer och konfigurationer i blobbar, och Azure Virtual Machines använder blobbar för hårddisklagring.
 
-## Storage accounts, containers, and metadata
+Vissa appar skapar, uppdaterar och tar bort blobbar kontinuerligt som en del av deras arbete. Andra använder en liten uppsättning blobbar och ändrar dem sällan.
 
-In Blob storage, every blob lives inside a *blob container*. You can store an unlimited number of blobs in a container and an unlimited number of containers in a storage account. Containers are "flat" &mdash; they can only store blobs, not other containers.
+## <a name="storage-accounts-containers-and-metadata"></a>Lagringskonton, containrar och metadata
 
-Blobs and containers support metadata in the form of name-value string pairs. Your apps can use metadata for anything you like: a human-readable description of a blob's contents to be displayed by the application, a string that your app uses to determine how to process the blob's data, etc.
+I Blob Storage finns varje blobb i en *blobbcontainer*. Du kan lagra ett obegränsat antal blobbar i en container och ett obegränsat antal containrar i ett lagringskonto. Containrar är ”platta” &mdash; de kan endast lagra blobbar, inte andra containrar.
+
+**Att göra: ersätt den här bilden med något bättre**
+
+![Konton, containrar och blobbar](../media-drafts/2-storage-container-blob.png)
+
+Blobbar och containrar stöder metadata i form av namn/värde-strängpar. Dina appar kan använda metadata för vad du vill: en läsbar beskrivning av en blobbs innehåll som ska visas av programmet, en sträng som din app använder för att avgöra hur blobbens data ska bearbetas osv.
 
 > [!TIP]
-> Blob storage does not provide any mechanism for searching or sorting blobs by metadata. See the Further Reading section at the end of this module for information about using Azure Search to achieve this.
+> Blob Storage tillhandahåller ingen mekanism för att söka efter eller sortera blobbar baserat på metadata. Information om hur du använder Azure Search för att göra det finns i avsnittet Fler resurser i slutet av den här modulen.
 
-## The Blob storage API and client libraries
+## <a name="the-blob-storage-api-and-client-libraries"></a>Blob Storage-API och klientbibliotek
 
-The Blob storage API is REST-based and supported by client libraries in many popular languages. It lets you write apps that create and delete blobs and containers, upload and download blob data, and list the blobs in a container.
+API:et för Blob Storage är REST-baserat och stöds av klientbibliotek i många populära språk. Med API:et kan du skriva appar som skapar och tar bort blobbar och containrar, som laddar upp och laddar ned blobbdata och som visar en lista över blobbarna i en container.

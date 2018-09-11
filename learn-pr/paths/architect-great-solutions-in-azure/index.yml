@@ -1,29 +1,24 @@
 ### YamlMime:LearningPath
 uid: learn.architect-great-solutions-in-azure
-metadata:
-  title: Architect great solutions in Azure
-  description: Learn how to design and build secure, scalable, performant solutions in Azure by examining the core principles found in every good architecture.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Architect great solutions in Azure
-summary: Learn how to design and build secure, scalable, performant solutions in Azure by examining the core principles found in every good architecture.
-prerequisites: None
-#TODO: Update icon URL with real image 
+title: Skapa fantastiska lösningar med Azure
+summary: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
+prerequisites: Ingen
 iconUrl: http://via.placeholder.com/120x120
-levels: 
+levels:
 - beginner
-roles: 
+roles:
 - solution-architect
-products: 
+products:
 - azure
+metadata:
+  title: Skapa fantastiska lösningar med Azure
+  description: Läs om hur du utformar och skapar säkra, skalbara, högpresterande lösningar i Azure genom att undersöka huvudprinciperna som finns i varje bra arkitektur.
+  ms.openlocfilehash: b61fdd63984e4877edf1f9616fa9ca995eec27bf
+  ms.sourcegitcommit: 89dccddf7de169aecda3c1657e4354906389ed25
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43324617"
 modules:
-- learn.pillars-of-a-great-azure-architecture
-- learn.design-for-security
-- learn.design-for-performance-and-scalability
-- learn.design-for-efficiency-and-operations
-- learn.design-for-availability-and-recoverability
+- learn.sample-module-cloudshell
 achievement: learn.architect-great-solutions-in-azure.trophy

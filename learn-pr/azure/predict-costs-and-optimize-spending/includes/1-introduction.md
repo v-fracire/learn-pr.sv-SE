@@ -1,22 +1,19 @@
-When planning a solution in the cloud, there's always the challenge of balancing cost against performance. It can feel like a guessing game whether the selected options will stay within budget, or if we'll have a surprise on our next bill!
+När du planerar en lösning i molnet måste du alltid balansera kostnader och prestanda. Ibland kan det kännas osäkert om budgeten håller för de alternativ du väljer, eller om nästa räkning kommer bli en tråkig överraskning!
 
-We need to be able to confidently answer several questions:
+Vi måste kunna få tydliga svar på flera frågor:
 
-- What will this solution cost this fiscal year?
-- Is there a configuration we could use to save money?
-- Is there a way to estimate how a change would impact your cost and performance _without_ putting it into a production system?
+- Vad kommer den här lösningen att kosta detta räkenskapsår? 
+- Finns det någon konfiguration vi kan använda för att spara pengar? 
+- Går det att uppskatta hur en ändring skulle påverka kostnader och prestanda _utan_ att sätta den i produktion?
 
-In this module, we'll explore the tools you can use to answer these questions and more.
+I den här modulen går vi igenom de verktyg du kan använda för att få svar på de här frågorna.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
+> [!div class="checklist"]
+> * Uppskatta kostnader med priskalkylatorn i Azure.
+> * Förutse och optimera kostnader med Azure Cost Management och Azure Advisor.
+> * Metodtips för att sänka dina infrastrukturkostnader.
+> * Metodtips för att sänka dina licenskostnader.
 
-In this module, you will:
-
-- Estimate costs with the Azure pricing calculator.
-- Predict and optimize costs with Azure Cost Management and Azure Advisor.
-- Best practices for saving on infrastructure costs.
-- Best practices for saving on licensing costs.
-
-## Prerequisite
-
-- An understanding of your options within Azure infrastructure components.
+## <a name="prerequisite"></a>Krav 
+- En förståelse för olika alternativ för infrastrukturkomponenter i Azure. 

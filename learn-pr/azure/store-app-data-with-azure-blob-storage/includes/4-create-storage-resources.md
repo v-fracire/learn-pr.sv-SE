@@ -1,33 +1,32 @@
-Once we have an idea of how we're going to store data across storage accounts, containers and blobs, we can think about the Azure resources we need to create to support the app.
+När vi har en uppfattning om hur vi ska lagra data i lagringskonton, containrar och blobar kan vi tänka på de Azure-resurser som vi måste skapa för att appen ska fungera.
 
-### Storage accounts
+### <a name="storage-accounts"></a>Lagringskonton
 
-Storage account creation is an administrative/management activity that takes place prior to deploying and running your app. Accounts are usually created by a deployment or environment setup script, an Azure Resource Manager template, or manually by an administrator. Applications other than administrative tools generally should not have permissions to create storage accounts.
+Skapande av lagringskonton är en administrativ-/hanteringsaktivitet som utförs innan du distribuerar och kör din app. Konton skapas vanligtvis av ett konfigurationsskript för distribution eller miljöer, en Azure Resource Manager-mall, eller manuellt av en administratör. Andra program än administrationsverktyg bör generellt sätt inte ha behörighet att skapa lagringskonton.
 
-### Containers
+### <a name="containers"></a>Containrar
 
-Unlike storage account creation, container creation is a lightweight activity that makes sense to perform from within an app. It's not uncommon for apps to create and delete containers as part of their work.
+Till skillnad från skapande av lagringskonton är skapandet av containrar en enkel aktivitet som kan utföras inifrån en app. Det är inte ovanligt att appar skapar och tar bort containrar som en del av sättet de arbetar.
 
-For apps that rely on a known set of containers with hard-coded or preconfigured names, typical practice is to let the app create the containers it needs on startup or first usage if they don't already exist. Letting your app create containers instead of doing it as part of your app's deployment eliminates the need for both your application and your deployment process to know the names of the containers the app uses.
+För appar som förlitar sig på en känd uppsättning av containrar med hårdkodade eller förkonfigurerade namn är den vanliga metoden att låta appen skapa containrarna som behövs vid start eller vid första användning om de inte redan finns. Att låta appen skapa containrar i stället för att göra det som en del av distributionen av appen eliminerar behovet för både appen och distributionsprocessen att känna till namnen på de containrar som appen använder.
 
-## Exercise
+## <a name="exercise"></a>Övning
 
-We're going to complete an unfinished ASP.NET Core app by adding code to use Azure Blob storage. This exercise is more about exploring the Blob storage API than it is about designing an organization and naming scheme, but here's a quick overview of the app and how it stores data.
+Vi kommer att färdigställa en oavslutat ASP.NET Core-app genom att lägga till kod för att använda Azure Blob Storage. Den här övningen handlar mer om att utforska API för Blob-lagring än om att utforma en organisations- och namngivningsschema, men här är en snabb överblick över appen och hur den lagrar data.
 
-![Screenshot of the FileUploader web app](../media/4-fileuploader-with-files.PNG)
+![Skärmbild av webbappen FileUploader](../media-drafts/fileuploader-with-files.PNG)
 
-Our app works like a shared folder that accepts file uploads and makes them available for download. It doesn't use a database for organizing blobs &mdash; instead, it sanitizes the names of uploaded files and uses them as blob names directly. All uploaded files are stored in a single container.
+Vår app fungerar som en delad mapp som tar emot filuppladdningar och gör dem tillgängliga för nedladdning. Den använder inte en databas för att organisera blobar &mdash; i stället sanerar den namnen på de uppladdade filerna och använder dem som blobnamn direkt. Alla uppladdade filer lagras i en enskild container.
 
-The code we'll start with compiles and runs, but the parts responsible for storing and loading data are empty. After we complete the code, we'll deploy the app to Azure App Service and test it.
+Koden vi börjar med kompileras och körs, men delarna som är ansvariga för att lagra och läsa in data är tomma. När vi har slutfört koden kan vi distribuera appen till Azure App Service och testa den.
 
-Let's set up the storage infrastructure for our app.
+Vi kan ställa in lagringsinfrastrukturen för vår app.
 
-### Resource group and storage account
-<!---TODO: Update for sandbox?--->
+### <a name="resource-group-and-storage-account"></a>Resursgrupp och lagringskonto
 
-First, we'll create a resource group to contain all the resources In this unit. We'll delete it at the end to cleanup everything we create. We'll also create the storage account our app will use to store blobs.
+Först skapar vi en resursgrupp som ska innehålla alla resurser i den här övningen. På slutet kommer vi att ta bort den för att rensa bort allt vi skapat. Vi ska även skapa lagringskontot vår app ska använda för att lagra blobar.
 
-Use the Azure Cloud Shell terminal to create the resource group and storage account by running the following Azure CLI commands. You'll need to provide a unique name for the storage account &mdash; make a note of it for later. The choice of `eastus` for the location is arbitrary.
+Använd Azure Cloud Shell-terminalen för att skapa resursgruppen och lagringskontot genom att köra följande Azure CLI-kommandon. Du måste ange ett unikt namn för lagringskontot &mdash;. Gör en anteckning om det till senare. Valet av `eastus` för platsen är godtycklig.
 
 ```console
 az group create --name blob-exercise-group --location eastus
@@ -35,8 +34,8 @@ az storage account create --name <your-unique-storage-account-name> --resource-g
 ```
 
 > [!NOTE]
-> Why `--kind StorageV2`? There are a few different kinds of storage accounts. For most scenarios, you should use general-purpose v2 accounts. The only reason you need to explicitly specify `--kind StorageV2` is that general-purpose v2 accounts are still fairly new and have not yet been made the default in the Azure Portal or the Azure CLI.
+> Varför `--kind StorageV2`? Det finns ett antal olika typer av lagringskonton. I de flesta fall bör du använda General-purpose v2-konton. Den enda anledningen till att du uttryckligen måste ange `--kind StorageV2` är att general-purpose v2-konton fortfarande är relativt nya och att de ännu inte är standard i Azure-portalen eller Azure CLI.
 
-### Container
+### <a name="container"></a>Container
 
-The app we'll be working with in this module uses a single container. We're going to follow the best practice of letting the app create the container at startup. However, container creation can be done from the Azure CLI: run `az storage container create -h` in the Cloud Shell terminal if you'd like to see the documentation.
+Appen som vi kommer att arbeta med i den här modulen använder en enskild container. Vi ska följa regelverket och låta appen skapa containern vid start. Men skapandet av en container kan göras från Azure CLI: kör `az storage container create -h` i Cloud Shell-terminalen om du vill se dokumentationen.

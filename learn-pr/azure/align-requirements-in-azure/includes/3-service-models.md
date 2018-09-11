@@ -1,13 +1,13 @@
-Cloud computing resources are delivered using three different service models.
+Databehandlingsresurser i molnet levereras som tre olika tjänstmodeller.
 
-- **Infrastructure-as-a-service (IaaS)** provides instant computing infrastructure that you can provision and manage over the Internet.
-- **Platform as a service (PaaS)** provides ready-made development and deployment environments that you can use to deliver your own cloud services.
-- **Software as a service (SaaS)** delivers applications over the Internet as a web-based service.
+- Med **infrastruktur som en tjänst (IaaS)** får du en infrastruktur för omedelbar databearbetning som du kan etablera och hantera via internet.
+- Med **plattform som en tjänst (PaaS)** får du färdiga utvecklings- och distributionsmiljöer som du kan använda till att leverera egna molntjänster.
+- **Programvara som en tjänst (SaaS)** levererar program över internet som en webbaserad tjänst.
 
-!!! Video TC-007 placeholder !!!
+!!! Video TC-007 platshållare !!!
 
 > [!VIDEO https://channel9.msdn.com/Series/History/The-History-of-Microsoft-1995/player]
 
-When choosing a service model, consider which party should be responsible for the computing resource. Based on your scenario, you can decide how much shared management responsibility you want. The following illustration shows a list of resources that you manage and that your service provider manages in each cloud service category.
+När du väljer tjänstmodell ska du fundera på vem som ska ansvara för databearbetningsresursen. I ditt scenario kan du bestämma du hur mycket delat hanteringsansvar du vill ha. På bilden nedan finns en lista över de resurser som du hanterar och som din tjänstleverantör hanterar i varje molntjänstkategori.
 
-![An illustration showing the level of shared management responsibility in each category of cloud service.](../media/3-shared-responsibility.png)
+![En bild som visar ansvarsnivån för delad hantering i varje molntjänstkategori.](../media/3-shared-responsibility.png)

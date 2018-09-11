@@ -1,53 +1,54 @@
-It's common to execute a piece of logic at a set interval. Imagine you're a blog owner and you notice that your subscribers aren't reading your most recent posts. You decide that the best action is to send an email once a week to remind them to check your blog. You implement this logic using an Azure function with a _timer trigger_ to invoke your function weekly.
+Det är vanligt att köra en del av logiken med ett angivet intervall. Anta att du har en blogg och du lägger märke till att dina prenumeranter inte har läst dina senaste inlägg. Du bestämmer dig för att den bästa åtgärden är att skicka ett e-postmeddelande till dem en gång i veckan för att påminna dem om att gå in på din blogg. Du implementerar den här logiken med hjälp av en Azure-funktion med en _timerutlösare_ som anropar funktionen en gång i veckan.
 
-## What is a timer trigger?
+## <a name="what-is-a-timer-trigger"></a>Vad är en timerutlösare?
 
-A timer trigger is a trigger that executes a function at a consistent interval. To create a timer trigger, you need to supply two pieces of information.
+En timerutlösare är en utlösare som kör en funktion med ett konsekvent intervall. Om du vill skapa en timerutlösare måste du ange två typer av information. 
 
-1. A *Timestamp parameter name*, which is simply an identifier to access the trigger in code.
-2. A *Schedule*, which is a *CRON expression* that sets the interval for the timer.
+1. Ett *tidsstämpelparameternamn*, vilket helt enkelt är en identifierare som får åtkomst till utlösaren i koden. 
+2. Ett *schema*, vilket är ett *CRON-uttryck* som anger intervallet för timern.
 
-## What is a CRON expression?
+## <a name="what-is-a-cron-expression"></a>Vad är ett CRON-uttryck?
 
-A *CRON expression* is a string that consists of six fields that represent a set of times.
+Ett *CRON-uttryck* är en sträng som består av sex fält som motsvarar olika tider.
 
-The order of the six fields in Azure is: `{second} {minute} {hour} {day} {month} {day of the week}`.
+Ordningen på de sex fälten i Azure är: `{second} {minute} {hour} {day} {month} {day of the week}`.
 
-For example, a *CRON expression* to create a trigger that executes every five minutes looks like:
+Ett *CRON-uttryck* som skapar en utlösare som körs var femte minut ut ser exempelvis ut så här:
 
-```log
+```
 0 */5 * * * *
 ```
 
-At first, this string may look confusing. We'll come back and break down these concepts when we have a deeper look at *CRON expressions*.
+Den här strängen kan se förvirrande ut först. Vi kommer tillbaka till de här begreppen när vi tar en närmare titt på *CRON-uttryck*.
 
-To build a *CRON expression*, you need to have a basic understanding of some of the special characters.
+För att kunna skapa ett *CRON-uttryck* måste du ha en grundläggande förståelse för vissa specialtecken.
 
-| Special character | Meaning | Example |
+| Specialtecken | Betydelse | Exempel |
 | ------------- | ------------- | ------------- |
-| *      | Selects every value in a field | An asterisk "*" in the day of the week field means *every* day. |
-| ,      | Separates items in a list | A comma "1,3" in the day of the week field means just Mondays (day 1) and Wednesdays (day 3). |
-| -      | Specifies a range | A hyphen "10-12" in the hour field means a range that includes the hours 10, 11, and 12. |
-| /      | Specifies an increment | A slash "*/10" in the minutes field means an increment of every 10 minutes. |
+| *      | Väljer varje värde i ett fält | En asterisk ”*” i fältet för veckodag innebär *varje* dag. |
+| ,      | Avgränsar objekt i en lista | Ett kommatecken ”1,3” i fältet för veckodag innebär enbart måndagar (dag 1) och onsdagar (dag 3). |
+| -      | Anger ett intervall | Ett bindestreck ”10-12” i fältet för timme innebär ett intervall för timmarna 10, 11 och 12. |
+| /      | Anger en ökning | Ett snedstreck ”*/10” i fältet för minuter innebär en ökning var tionde minut. |
 
-Now we'll go back to the original CRON expression example. Let’s try to understand it better by breaking it down field by field.
+Vi ska gå nu tillbaka till det ursprungliga exemplet på CRON-uttryck. Vi kan förstå det bättre om vi bryter ned ett fält i taget.
 
-```log
+```
 0 */5 * * * *
 ```
 
-The **first field** represents seconds. This field supports the values 0-59. Because the field contains a zero, it selects the first possible value, which is one second.
+Det **första fältet** motsvarar sekunder. Det här fältet stöder värdena 0–59. Eftersom fältet innehåller en nolla, väljs det första möjliga värdet som är en sekund.
 
-The **second field** represents minutes. The value "*/5" contains two special characters. First, the asterisk (\*) means "select every value within the field." Because this field represents minutes, the possible values are 0-59. The second special character is the slash (/), which represents an increment. When you combine these characters together, it means for all values 0-59, select every fifth value. An easier way to say that is simply "every five minutes."
+Det **andra fältet** motsvarar minuter. Värdet ”*/5” innehåller två specialtecken. Till att börja med innebär asterisken (\*) ”välj alla värden i fältet”. Eftersom det här fältet motsvarar minuter är 0–59 möjliga värden. Det andra specialtecknet är ett snedstreck (/) som motsvarar en ökning. När du kombinerar dessa tecken innebär det att var femte värde ska väljas för alla värden 0–59. Ett enklare sätt att säga det är helt enkelt ”var femte minut”.
 
-The **remaining four fields** represent the hour, day, month, and weekday of the week. An asterisk for these fields means to select every possible value. In this example, we select "every hour of every day of every month."
+De **återstående fyra fälten** motsvarar timme, dag, månad och veckodag. En asterisk i dessa fält innebär att alla möjliga värden ska väljas. I det här exemplet väljer vi ”varje timme varje dag i varje månad”.
 
-When you put all the fields together, the expression is read as "on the first second, of every fifth minute of every hour, of every day, of every month".
+När du sätter ihop alla fält läses uttrycket som ”den första sekunden, var femte minut i varje timme, varje dag, varje månad”.
 
-## How to create a timer trigger
+## <a name="how-to-create-a-timer-trigger"></a>Skapa en timerutlösare
 
-A timer trigger can be created completely within the Azure portal. In your Azure function, select **timer trigger** from the list of predefined trigger types. Enter the logic that you want to execute. Supply a **Timestamp parameter name** and the **CRON expression**.
+Du kan skapa en timerutlösare helt i Azure-portalen. I din Azure-funktion väljer du **timerutlösare** i listan med fördefinierade utlösartyper. Ange den logik som du vill köra. Ange ett **tidsstämpelparameternamn** och **CRON-uttrycket**.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-A timer trigger invokes an Azure function on a consistent schedule. To define the schedule for a timer trigger, we build a *CRON expression*, which is a string that represents a set of times.
+En timerutlösare anropar en Azure-funktion enligt ett konsekvent schema. För att definiera schemat för en timerutlösare skapade vi ett *CRON-uttryck*, vilket är en sträng som motsvarar olika tider.
+

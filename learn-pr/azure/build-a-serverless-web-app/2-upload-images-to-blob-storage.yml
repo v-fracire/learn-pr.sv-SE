@@ -1,20 +1,16 @@
 ### YamlMime:ModuleUnit
 uid: learn.build-a-serverless-web-app.2-upload-images-to-blob-storage
-title: Upload images to Blob storage with Azure Functions
+title: Ladda upp bilder till Blob Storage med Azure Functions
 metadata:
-  title: Upload images to Blob storage with Azure Functions
-  description: Upload images to Blob storage with Azure Functions
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Ladda upp bilder till Blob Storage med Azure Functions
+  description: Ladda upp bilder till Blob Storage med Azure Functions.
   zone_pivot_groups: dev-lang-csharp-javascript
-# TODO: Consider Azure Portal Interactivity. This module uses both Cloud Shell and the portal, which should be able to be accessed together with azure-portal.
-# interactive: azure-portal
+  ms.openlocfilehash: 57d4d73a5a8a32f6ed57ad5163c5fe4854428c1a
+  ms.sourcegitcommit: 9ad30c8c720645864a007a64612c70cce6406ce7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43333836"
 durationInMinutes: 15
 interactive: bash-editor
-azureSandbox: true
-content: |
-  [!include[](includes/2-upload-images-to-blob-storage.md)]
+content: '[!include[](includes/2-upload-images-to-blob-storage.md)]'

@@ -1,18 +1,20 @@
-To address the storage problem for your online learning portal, you're thinking of storing your data in the cloud. However, your biggest concern with cloud storage is security, backup, and disaster recovery. You're also concerned that it could be difficult to manage cloud-hosted data.
+Du fungerar på att lösa utbildningsportalens lagringsproblem genom att lagra data i molnet. Det du främst är bekymrad över när det gäller molnlagring är säkerhet, säkerhetskopiering och haveriberedskap. Du oroar dig också för att det kan vara svårt att hantera dina molnbaserade data.
 
-## What is Azure Storage?
+## <a name="what-is-azure-storage"></a>Vad är Azure Storage?
 
-Azure Storage is a cloud-based solution that provides highly secure and scalable storage for modern business needs. Its features address the key challenges of cloud storage and provide you with a reliable and durable storage solution.
+Azure Storage är en molnbaserad lösning med hög säkerhet och utmärkt skalbarhet för moderna affärsbehov. De förbättrade funktionerna hanterar alla utmaningar inom molnlagringen så att du får en tillförlitlig och beständig lagringslösning.
 
-## Benefits of using Azure to store data
+## <a name="benefits-of-using-azure-to-store-data"></a>Fördelar med datalagring i Azure
 
-The following are some of the benefits of Azure storage:
+![Fördelar](../media-draft/Benefits.png)
 
-- **Automated backup and recovery** - This feature mitigates the risk of losing your data if there is any unforeseen failure or interruption.
-- **Replication across the globe** - Azure Storage replicates the copies of your data to protect it against any planned or unplanned events, such as scheduled maintenance or hardware failures. You can choose to replicate your data at multiple locations across the globe.
-- **Support for data analytics** – Azure storage supports performing analytics on your data consumption.
-- **Encryption capabilities** – Azure Storage encrypts all the data to make it highly secure. It also has tight control over who can access the data.
-- **Multiple data type support** – Azure can store almost any type of data you need. It can handle video files, text files, and even large binary files like virtual hard disks. It also has many options for your relational and NoSQL data.
-- **Support for structured/unstructured data** - Azure Cosmos DB and Azure Blob storage features provide the option to store both structured and unstructured data.
-- **Data storage in virtual disks** - Azure also has the capability of storing up to 8 TB of data in its virtual disks. This is a significant capability when you're storing heavy data such as videos and simulations.
-- **Storage tiers** - Azure Storage offers storage tiers to prioritize access to data based on frequently used versus rarely used information.
+Här är några av fördelarna med Azure Storage:
+
+- **Automatisk säkerhetskopiering och återställning** – den här funktionen minskar risken för att du ska förlora dina data vid oförutsedda fel eller avbrott.
+- **Replikering över hela världen** – Azure Storage replikerar kopior av dina data så att de skyddas mot planerade och oplanerade händelser som schemalagt underhåll eller maskinvarufel. Du kan välja att replikera dina data till flera platser i hela världen.
+- **Stöd för dataanalys** – Azure Storage har stöd för analysfunktioner kring dataförbrukningen.
+- **Krypteringsfunktioner** – Azure Storage krypterar alla data så att de hålls säkra. Dessutom tillämpas strikta kontroller för vem som har tillgång till data.
+- **Stöd för flera datatyper** – Azure kan lagra nästan alla typer av data du kan behöva. Lösningen hanterar videofiler, textfiler och även stora binära filer som virtuella hårddiskar. Dessutom finns många alternativ för relationsdata och NoSQL-data.
+- **Stöd för strukturerade/ostrukturerade data** – med funktionerna för Azure Cosmos DB- och Azure Blob-lagring kan du välja att lagra både strukturerade och ostrukturerade data.
+- **Datalagring på virtuella diskar** – i Azure kan du även lagra upp till 8 TB data på virtuella diskar. Det här är en avsevärd kapacitet när det gäller resurskrävande data som videor och simuleringar.
+- **Lagringsnivåer** – Azure Storage har olika lagringsnivåer så att du kan prioritera dataåtkomsten baserat på om dina data används ofta eller sällan. Det här förbättrar användarupplevelsen avsevärt.

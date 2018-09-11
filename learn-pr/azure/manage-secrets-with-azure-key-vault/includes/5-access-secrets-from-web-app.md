@@ -1,30 +1,30 @@
-Now that you know how enabling managed identities for Azure resources creates an identity for our app to use for authentication, we'll create an app that uses that identity to access secrets in the vault.
+Nu när du vet hur du ska aktivera att MSI skapar en identitet som vår app ska använda vid autentisering, skapar vi en app som använder den identiteten för att få åtkomst till hemligheter i valvet.
 
-## Reading secrets in an ASP.NET Core app
+## <a name="reading-secrets-in-an-aspnet-core-app"></a>Läsa hemligheter i en ASP.NET Core-app
 
-The Azure Key Vault API is a REST API that handles all management and usage of keys and vaults. Each secret in a vault has a unique URL, and secret values are retrieved with HTTP GET requests.
+API:n för Azure Key Vault är en REST API som sköter all hantering och användning av nycklar och valv. Varje hemlighet i ett valv har en unik URL och hemligheterna hämtas med HTTP GET-begäranden.
 
-The official Key Vault client library for .NET Core is the `KeyVaultClient` class in the Microsoft.Azure.KeyVault NuGet package. You don't need to use it directly, though &mdash; with ASP.NET Core's `AddAzureKeyVault` method, you can load all the secrets from a vault into the Configuration API at startup. This technique enables you to access all of your secrets by name using the same `IConfiguration` interface you use for the rest of your configuration. Apps that use `AddAzureKeyVault` require both **Get** and **List** permissions to the vault.
+Det officiella Key Vault-klientbiblioteket för .NET Core är `KeyVaultClient`-klassen i Microsoft.Azure.KeyVault NuGet-paketet. Du behöver inte använda det direkt, men &mdash; med ASP.NET Cores `AddAzureKeyVault`-metod kan du läsa in alla hemligheter från ett valv till konfigurations-API:n vid start. Med den här tekniken får du åtkomst till alla dina hemligheter med samma `IConfiguration`-gränssnitt som du använder i resten av din konfiguration. Appar som använder `AddAzureKeyVault` kräver både behörigheten **Hämta** och **Lista** för valvet.
 
 > [!TIP]
-> Regardless of the framework or language you use to build your app, cache secret values locally or load them into memory at app startup unless you have a specific reason not to. Reading them directly from the vault every time you need them is unnecessarily slow and expensive.
+> Oavsett vilket ramverk och språk du använder när du skapar din app, ska du cachelagra hemliga värden lokalt eller läsa in dem i minnet vid appstarten – om du inte har en särskild anledning att låta bli. Det är onödigt långsamt och dyrt att läsa dem direkt från valvet varje gång du behöver dem.
 
-`AddAzureKeyVault` only requires the vault name as an input, which we'll get from our local app configuration. It also automatically handles managed identity authentication &mdash; when used in an app deployed to Azure App Service with managed identities for Azure resources enabled, it will detect the managed identities token service and use it to authenticate. It's a good fit for most scenarios and implements all best practices, and we'll use it in this unit's exercise.
+`AddAzureKeyVault` kräver endast valvnamnet som indata, vilket vi får från våra lokala appkonfiguration. Den hanterar också automatiskt MSI-autentisering &mdash; när den används i en app som distribueras till Azure App Service med MSI aktiverat, identifierar den MSI-tokentjänsten och använder den vid autentiseringen. Det är ett bra alternativ för de flesta scenarier så vi kommer att använda det i övningen för denna enhet.
 
-## Handling secrets in an app
+## <a name="handling-secrets-in-an-app"></a>Hantera hemligheter i en app
 
-Once a secret is loaded into your app, it's up to your app to handle it securely. In the app we build in this module, we write our secret value out to the client response and view it in a web browser to demonstrate that it has been loaded successfully. **Returning a secret value to the client is *not* something you'd normally do!** Usually, you'll use secrets to do things like initialize client libraries for databases or remote APIs.
+När en hemlighet har lästs in i din app är det upp till din app att hantera den på ett säkert sätt. I appen som vi skapar i den här modulen skriver vi vår hemlighet till klientsvaret och visar den i en webbläsare för att kunna kontrollera att den har lästs in korrekt. **Att returnera en hemlighet till klienten är *inte* något som du normalt sett gör!** Vanligtvis använder du hemligheter till att exempelvis initiera klientbibliotek för databaser eller fjärr-API:er.
 
 > [!IMPORTANT]
-> Always carefully review your code to ensure that your app never writes secrets to any kind of output, including logs, storage, and responses.
+> Granska alltid koden noga för att säkerställa att din app aldrig skriver hemligheterna till någon typ av utdata, inklusive loggar, lagring och svar.
 
-## Exercise
+## <a name="exercise"></a>Övning
 
-We'll create a new ASP.NET Core web API and use `AddAzureKeyVault` to load the secret from our vault.
+Vi ska skapa en ny webb-API i ASP.NET Core och använda `AddAzureKeyVault` till att läsa in hemligheten från vårt valv.
 
-### Create the app
+### <a name="create-the-app"></a>Skapa appen
 
-In the Azure Cloud Shell terminal, run the following to create a new ASP.NET Core web API application and open it in the editor.
+I Azure Cloud Shell-terminalen kör du följande för att skapa en ny webb-API i ASP.NET Core och öppna den i redigeringsprogrammet.
 
 ```console
 dotnet new webapi -o KeyVaultDemoApp
@@ -32,18 +32,18 @@ cd KeyVaultDemoApp
 code .
 ```
 
-After the editor loads, run the following commands in the shell to add the NuGet package containing `AddAzureKeyVault` and restore all of the app's dependencies.
+När redigeringsprogrammet har lästs in kör du följande kommandon i gränssnittet för att lägga till NuGet-paketet med `AddAzureKeyVault` och återställa alla beroenden i appen.
 
 ```console
 dotnet add package Microsoft.Extensions.Configuration.AzureKeyVault
 dotnet restore
 ```
 
-### Add code to load and use secrets
+### <a name="add-code-to-load-and-use-secrets"></a>Lägga till kod för att läsa in och använda hemligheter
 
-To demonstrate good usage of Key Vault, we will modify our app to load secrets from the vault at startup. We'll also add a new controller with an endpoint that gets our **SecretPassword** secret from the vault.
+För att kunna visa en bra användning av Key Vault, ändrar vi vår app så att den läser in hemligheter från valvet vid start. Vi lägger också till en ny kontrollant med en slutpunkt som hämtar vår **SecretPassword**-hemlighet från valvet.
 
-First, the app startup: Open `Program.cs`, delete the contents and replace them with the following code:
+Först startas appen: Öppna `Program.cs`, ta bort innehållet och ersätt det med följande kod:
 
 ```csharp
 using Microsoft.AspNetCore;
@@ -71,10 +71,9 @@ namespace KeyVaultDemoApp
                     var vaultUrl = $"https://{builtConfig["VaultName"]}.vault.azure.net/";
 
                     // Load all secrets from the vault into configuration. This will automatically
-                    // authenticate to the vault using a managed identity. If a managed identity
-                    // is not available, it will check if Visual Studio and/or the Azure CLI are
-                    // installed locally and see if they are configured with credentials that can
-                    // access the vault.
+                    // authenticate to the vault using MSI. If MSI is not available, it will
+                    // check if Visual Studio and/or the Azure CLI are installed locally and
+                    // see if they are configured with credentials that can access the vault.
                     config.AddAzureKeyVault(vaultUrl);
                 })
                 .UseStartup<Startup>();
@@ -82,15 +81,15 @@ namespace KeyVaultDemoApp
 }
 ```
 
-> [!TIP]
-> Make sure to save files with `Ctrl+S` when you're done editing them.
+> [!NOTE]
+> Spara filerna med `Ctrl+S` när du är klar med redigeringen.
 
-The only change from the starter code is the addition of `ConfigureAppConfiguration`. This is where we load the vault name from configuration and call `AddAzureKeyVault` with it.
+Den enda ändringen i startkoden är att vi lägger till `ConfigureAppConfiguration`. Nu läser vi in valvnamnet från konfigurationen och anropar `AddAzureKeyVault` med den.
 
-Next, the controller: Create a new file in the `Controllers` folder called `SecretTestController.cs` and paste the following code into it.
+Därefter kommer vi till kontrollanten: Skapa en ny fil i mappen `Controllers` med namnet `SecretTestController.cs` och klistra in följande kod i den.
 
-> [!TIP]
-> To create a new file, use the `touch` command in the shell. In this case, use `touch Controllers/SecretTestController.cs`. You'll need to click the refresh button in the Files pane of the editor to see it there.
+> [!NOTE]
+> Du kan skapa en ny fil med kommandot `touch` i gränssnittet. I det här fallet använder du `touch Controllers/SecretTestController.cs`. Du måste klicka på knappen Uppdatera i rutan Filer i redigeringsprogrammet för att se det.
 
 ```csharp
 using System;
@@ -136,4 +135,4 @@ namespace KeyVaultDemoApp.Controllers
 }
 ```
 
-Run `dotnet build` in the shell to make sure everything compiles. The app is ready to run &mdash; now let's get it into Azure!
+Kör `dotnet build` i gränssnittet för kontrollera att allt kompileras. Appen är redo att köras &mdash; nu ska vi få in den i Azure!

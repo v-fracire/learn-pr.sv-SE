@@ -1,15 +1,15 @@
-Suppose you manage an online sales learning portal for your organization. The majority of your sales team are often in different geographical areas, so the online learning portal is an essential requirement. It's even more important as your organization continues to increase the skills and knowledge enhancement training for the sales staff.
+Anta att du hanterar en utbildningsportal om onlineförsäljning för din organisation. De flesta i säljteamet är utspridda på olika platser, så de måste ha tillgång till onlineportalen. Den är ännu viktigare när organisationen fortsätter att utveckla säljpersonalens kunskaper och kompetens.
 
-Your training data includes high-quality video, detailed sales simulations, and large repositories for maintaining student data and progress. Currently, all the training content is stored in your on-premises storage. You have an aggressive plan to add new courses and would like to avoid the need to continuously increase the local storage capacity.
+Dina utbildningsdata är resurskrävande. De innehåller video av hög kvalitet, detaljerade säljsimuleringar och stora databaser med användarnas data och framsteg. För närvarande lagras allt utbildningsmaterial lokalt. Du har en djärv plan för att lägga till nya kurser och vill slippa att hela tiden behöva lägga till mer lokal lagringskapacitet.
 
-You're looking for a storage solution that is secure, durable, scalable, and easily accessible from across the globe.
+Du letar efter en lagringslösning som är säker, beständig, skalbar och enkelt kan nås oavsett var användarna befinner sig.
 
-Azure Storage provides features that will meet all of your business needs.
+Azure Storage har funktioner som täcker alla de här behoven.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Explore the benefits of Azure Storage
-- Explore how Azure Storage meets your business demands
-- Compare Azure storage with on-premises storage
+- Lär dig om fördelarna med Azure Storage
+- Lär dig hur Azure Storage kan uppfylla dina affärsbehov
+- Jämför Azure Storage med lokal lagring

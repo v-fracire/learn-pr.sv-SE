@@ -1,37 +1,37 @@
 ### YamlMime:ModuleUnit
 uid: learn.intro-to-azure-networking.4-reduce-latency-traffic-manager
-title: Reduce latency with Azure Traffic Manager
+title: Minska svarstiden med Traffic Manager
 metadata:
-  title: Reduce latency with Azure Traffic Manager
-  description: Learn how Traffic Manager can reduce latency and create resiliency across geographic regions.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Minska svarstiden med Traffic Manager
+  description: Läs om hur Traffic Manager kan minska svarstiden och skapa återhämtning i olika geografiska områden.
+  ms.openlocfilehash: fa64f6d6e7bfe0f991bf15002f24690a2c02f0fd
+  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43477853"
 durationInMinutes: 7
-content: |
+content: >
   [!include[](includes/4-reduce-latency-traffic-manager.md)]
 quiz:
-  title: 'Knowledge Check: Reduce latency with Traffic Manager'
+  title: 'Kunskapskontroll: Minska svarstiden med Traffic Manager'
   questions:
-  - content: 'How does Traffic Manager reduce latency?'
+  - content: Hur minskar Traffic Manager svarstiden?
     choices:
-    - content: 'It chooses only the fastest networks between endpoints.'
+    - content: Den väljer enbart de snabbaste nätverken mellan slutpunkter.
       isCorrect: false
-      incorrectExplanation: 'Traffic Manager does not take specific network speeds into account.'
-    - content: "It chooses the endpoint that's closest to the user's DNS server."
+      incorrectExplanation: Traffic Manager tar inte hänsyn till specifika nätverkshastigheter.
+    - content: Den väljer den slutpunkt som är närmast användarens DNS-server.
       isCorrect: true
-      correctExplanation: "Choosing the server that's closest to the user is a good way to reduce latency."
-    - content: 'It caches content, similar to how content delivery networks work.'
+      correctExplanation: Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.
+    - content: Den cachelagrar innehåll, på ungefär samma sätt som nätverk för innehållsleverans fungerar.
       isCorrect: false
-      incorrectExplanation: "Traffic Manager doesn't see the traffic that's passed between the client and server, nor does it cache content."
-  - content: 'You live in England, but your DNS server is in Italy. How does Traffic Manager direct traffic?'
+      incorrectExplanation: Traffic Manager ser inte den trafik som skickas mellan klienten och servern, och cachelagrar inte heller innehåll.
+  - content: Du bor i England, men din DNS-server finns i Italien. Hur dirigerar Traffic Manager trafik?
     choices:
-    - content: "It chooses the service that's closest to England."
+    - content: Den väljer den tjänst som är närmast England.
       isCorrect: false
-      incorrectExplanation: "Traffic Manager uses the _DNS server_ that's closest to the user, not the user's location, to direct traffic."
-    - content: "It chooses the service that's closest to Italy."
+      incorrectExplanation: Traffic Manager använder den _DNS-server_ som är närmast användaren, inte användarens plats, för att dirigera trafik.
+    - content: Den väljer den tjänst som är närmast Italien.
       isCorrect: true
-      correctExplanation: "Traffic Manager uses the _DNS server_ that's closest to the user, not the user's location, to direct traffic."
+      correctExplanation: Traffic Manager använder den _DNS-server_ som är närmast användaren, inte användarens plats, för att dirigera trafik.

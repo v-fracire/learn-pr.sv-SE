@@ -1,56 +1,56 @@
-Imagine that you've been asked to build a system on Azure, and you've been asked for an estimate of what it might cost to run over the next 12 months. You already know that Azure pricing is fully transparent and that you're billed monthly for only the services that you use. How would you get that estimate without deploying and running those services or without manually pricing out each service from the Azure service pricing pages?
+Anta att du har blivit ombedd att skapa ett system i Azure, och fått i uppgift att uppskatta kostnaderna för att köra systemet de närmsta 12 månaderna. Du vet redan att priserna för Azure är helt transparenta och att du faktureras per månad för de tjänster du använder. Hur skulle du göra en sådan uppskattning utan att faktiskt distribuera och köra tjänsterna eller räkna ihop alla priser manuellt från sidan med prisinformation? 
 
-## Introducing the Azure pricing calculator
+## <a name="introducing-the-azure-pricing-calculator"></a>Introduktion till priskalkylatorn för Azure
 
-To make estimates easy for customers to create, Microsoft developed the **Azure pricing calculator**. The Azure pricing calculator is a free web-based tool that allows you to input Azure services and modify properties and options of the services. It outputs the costs per service and total cost for the full estimate.
+Microsoft ville att kunderna enkelt skulle kunna göra egna uppskattningar, så vi utvecklade **priskalkylatorn för Azure**. Priskalkylatorn för Azure är ett kostnadsfritt webbverktyg där du kan ange olika Azure-tjänster och sedan ändra egenskaper och alternativ för tjänsterna. Du ser kostnaden per tjänst och totalkostnaden för hela uppskattningen.
 
-In another browser window or tab, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). On the pricing calculator page, you'll see three tabs:
+Öppna en annan webbläsare eller flik och gå till [Azures priskalkylator](https://azure.microsoft.com/pricing/calculator/). Du ser tre flikar i priskalkylatorn:
 
-1. **Products.** This tab is where you'll do most of your activity. This tab has all the Azure services listed and is where you'll add or remove services to formulate your estimate.
-2. **Estimates.** This tab has all of your previously saved estimates. We'll go through this process in a moment.
-3. **FAQ.** Just as it says, this tab has answers to some frequently asked questions.
+1. **Produkter.** På den här fliken utförs det mesta av aktiviteten. Här visas alla Azure-tjänster, och du kan lägga till eller ta bort tjänster från din uppskattning.
+2. **Uppskattningar.** På den här fliken visas dina sparade uppskattningar. Vi går igenom den här processen om en stund.
+3. **Vanliga frågor och svar.** Precis som namnet antyder så hittar du svar på några vanliga frågor här.
 
-Let's start with the **Products** tab. You'll see the full listing of service categories down the left-hand side. Clicking on any of the categories will display the services in that category. There's also a search box where you can search through all services for the service you're looking for. Clicking on the service will add that service to your estimate. You can add just one service, or you can add as many as you need, including multiples of the same service (for example, multiple virtual machines).
+Vi börjar med fliken **Produkter**. Här ser du hela listan med tjänstkategorier till vänster. Om du klickar på en kategori visas tjänsterna i kategorin. Det finns också en sökruta där du kan söka efter en viss tjänst bland samtliga tjänster. Om du klickar på tjänsten läggs den till i din uppskattning. Du kan lägga en eller flera tjänster, och du kan även lägga till flera förekomster av samma tjänst (till exempel flera virtuella datorer). 
 
-After you've added the services, you'll want to price them. Scrolling down on the page will show you customizable details for that service that apply to pricing. For example, on virtual machines, you can select details such as the region, operating system, and instance size, all of which will impact the pricing for the VM. You'll see a subtotal for the service. And scrolling further down, you'll see a full total for all services included in the estimate. Along with the total, you'll see buttons where you can export, save, and share the estimate.
+När du har lagt till tjänsterna är nästa steg att prissätta dem. Om du rullar nedåt på sidan ser du anpassningsbar information om priser för tjänsten. För virtuella datorer kan du till exempel välja detaljer som påverkar priset för den virtuella datorn, som region, operativsystem och instansstorlek. Du ser en delsumma för tjänsten. Om du rullar ännu längre ned ser du en totalsumma för alla tjänster som ingår i uppskattningen. Bredvid totalsumman ser du knappar för att exportera, spara och dela uppskattningen.
 
-## Estimate a solution
+## <a name="estimate-a-solution"></a>Uppskatta kostnaden för en lösning
 
-From our original scenario, let's imagine that this system will run on two Azure VMs and will connect to an Azure SQL Database instance. We also want to have a layer 7 firewall in place to ensure we have the following enhanced load-balancing capabilities. The following illustration shows an application gateway connected to two virtual machines that are connected to a single Azure SQL Database instance.
+I vårt ursprungliga scenario kan vi anta att systemet ska köras på två virtuella datorer i Azure och ansluta till en instans av Azure SQL Database. Vi vill också ha en layer 7-brandvägg som ger oss följande utökade funktioner för belastningsutjämning. Följande illustration visar en programgateway som är ansluten till två virtuella datorer som är anslutna till en enda Azure SQL Database-instans.
 
-![An illustration of a sample architecture that will be used as an example to demonstrate estimating costs.](../media/2-estimate-costs-architecture.png)
+![En illustration av en exempelarkitektur som används som exempel för att demonstrera uppskattning av kostnader.](../media-drafts/2-estimate-costs-architecture.png)
 
-We can use the Azure pricing calculator to figure out what the solution will cost and export our estimate to share with the team.
+Vi kan använda priskalkylatorn i Azure till att se vad lösningen kommer att kosta och sedan exportera vår uppskattning för att dela den med teamet.
 
-> [!TIP]
-> Make sure you have a clean calculator with nothing listed in the estimate. If you have anything present in your estimate, click the trashcan icon on each item to reset the estimate.
+> [!NOTE]
+> Se till att du har en ren kalkylator utan några poster i uppskattningen. Om du ser poster i uppskattningen klickar du på papperskorgsikonen för dem så att uppskattningen återställs.
 
-In the Azure pricing calculator, on the **Products** tab, add the following services to the estimate by clicking on them:
+Lägg till följande tjänster på fliken **Produkter** i Azures priskalkylator genom att klicka på dem:
 
-* Virtual Machines in the Compute category
-* Azure SQL Database in the Database category
-* Application Gateway in the Network category
+- Virtuella datorer i kategorin Databearbetning
+- Azure SQL-databas i kategorin Databaser
+- Application Gateway i kategorin Nätverk
 
-We can configure the details of each, on the **Estimates** tab, to get a solid estimate of our costs. Use the **West US** region for all resources.
+Vi kan konfigurera detaljer för varje tjänst på fliken **Beräkningar** så att vi får en tydlig bild över kostnaderna. Använd regionen **USA, västra** för alla resurser.
 
-* **Virtual Machines.** This is an ASP.NET application, so we'll need to use a **Windows OS** VM. This application doesn't require a massive amount of computing power, so select the **D2v3** instance size. We'll need two virtual machines, and they will run all the time (730 hours/month). We're going to use premium SSD storage for these VMs and will require just one disk per VM of size **E10**, for a total of two disks.
+* **Virtuella datorer.** Det här är en ASP.NET-app, så vi måste använda en virtuell dator med **Windows som operativsystem**. Appen behöver inga stora mängder beräkningskraft, så välj instansstorleken **D2v3**. Vi behöver två virtuella datorer och de kommer att köras kontinuerligt (730 timmar/månad). Vi ka använder SSD-lagring för de virtuella datorerna och behöver bara en disk per virtuell dator med storleken **E10**, vilket totalt ger två diskar. 
 
-* **SQL Database.** For the database, we're going to provision a **single database type** using the **vCore model**. We want a General Purpose, Gen 4 database with 4 vCores. We'll need 32 GB of storage and will be retaining an average of 16 GB of storage. Our retention policy will be 8 weeks, 12 months, and 5 years.
+* **SQL Database.** Som databas etablerar vi en **enkel databastyp** med **vCore-modellen**. Vi vill ha en Gen 4-databas för generell användning med 4 virtuella kärnor. Vi behöver 32 GB lagringsutrymme och kommer att förvara i genomsnitt 16 GB data. Vår bevarandeprincip blir åtta veckor, 12 månader och fem år. 
 
-* **Application Gateway.** For Application Gateway, we're going to use the Web Application Firewall tier, so we have some protection for our environment. And we're going to go with just two instances and medium size, as our load isn't going to be high. We expect to process 1 TB of data per month.
+* **Application Gateway.** I Application Gateway använder vi WAF-nivån som skydd för miljön. Vi nöjer oss med bara två medelstora instanser eftersom belastningen inte kommer vara så hög. Vi räknar med att bearbeta 1 TB data per månad.
 
-Looking through your estimate, you should see a summary cost for each service you've added and a full total for the entire estimate. In this case, your estimate should be in the neighborhood of **$1,400.00 per month**. You can try playing with some of the options to see the estimate go up and down.
+När du går igenom uppskattningen bör du se en summerad kostnad för varje tjänst du lagt till och en totalsumma för hela uppskattningen. I det här fallet bör uppskattningen vara ungefär **1 400,00 USD/månad**. Du kan prova att ändra några av alternativen och se hur uppskattningen ändras.
 
-## Share and save your estimate
+## <a name="share-and-save-your-estimate"></a>Dela och spara uppskattningen
 
-We now have an estimate for our solution. We can save this estimate, so we can come back to it at a later time and make adjustments if necessary, export it to Excel for further analysis, and share the estimate via a URL.
+Nu har vi en uppskattning av kostnaden för vår lösning. Vi kan spara den här uppskattningen så att vi kan återvända till den och göra ändringar senare, vi kan exportera den till Excel för vidare analys och vi kan dela uppskattningen i form av en webbadress. 
 
-To export the estimate, click `Export` at the bottom of the estimate. This will download your estimate in Excel (**.xlsx**) format and will include all the services you added to your estimate.
+Om du vill exportera uppskattningen klickar du på `Export` längst ned. Då laddas uppskattningen ned i Excel-format (**.xlsx**) med alla tjänster du lade till.
 
-We can either share the Excel spreadsheet, or we can click on the `Share` button in the calculator. This gives you a URL that you can use to share this estimate. Anyone with this link will be able to access it, making it easy to share with your team.
+Vi kan antingen dela Excel-kalkylbladet eller klicka på knappen `Share` i kalkylatorn. Då får du en webbadress till uppskattningen som du kan dela. Alla som får webbadressen kan se uppskattningen vilket gör det enkelt att dela den i hela teamet.
 
-If you are logged in with your Azure account, you can save the estimate, so you can come back to it later. Go ahead and click the **Save** button. If you are signed in, you should see a notification that your estimate was saved. If you aren't signed in, you'll see a message to sign in to save your estimate. After you've saved the estimate, scroll back up to the top of the page and select the **Estimates** tab. You will see your estimate there. You can then select it to pull it back up or delete it if you no longer need it.
+Om du har loggat in med ditt Azure-konto kan du spara uppskattningen och öppna den igen senare. Klicka på knappen **Spara**. Om du är inloggad bör du se ett meddelande om att uppskattningen har sparats. Om du inte är inloggad ser du ett meddelande om att logga in för att spara uppskattningen. När du har sparat uppskattningen rullar du tillbaka till sidans överkant och väljer fliken **Uppskattningar**. Här ser du din uppskattning. Om du inte längre behöver uppskattningen kan du ta bort den.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-We have arrived at a cost estimate for a set of Azure services without spending any money. We didn't create anything, and we have a fully sharable estimate that we can do further analysis or modifications on in the future. You can use this not only to create estimates for systems where you know the specific services you plan to use but also to compare how different services might impact your overall costs. An example is Microsoft SQL Server on a VM vs. Azure SQL Database. Now let's take a look at how we can get insight into costs for services we've already deployed.
+Vi har tagit fram en uppskattning av kostnaden för en uppsättning Azure-tjänster utan att det kostat någonting. Vi behövde inte skapa några resurser, och resultatet är en uppskattning vi kan dela, analysera vidare eller återanvända senare. Du kan både skapa uppskattningar där du känner till precis vilka tjänster du kommer använda och jämföra hur olika tjänster skulle påverka totalkostnaden. Ett exempel är Microsoft SQL Server på en virtuell dator jämfört med Azure SQL Database. Nu ska vi titta närmare på hur vi kan se kostnader för tjänster vi redan har distribuerat.

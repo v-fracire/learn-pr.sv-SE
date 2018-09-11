@@ -1,16 +1,16 @@
-Many applications consist of programs that run on several different computers or devices. In such distributed applications, messages must be sent between the components across networks and long distances. Even on the same server or in the same data center, loosely coupled architectures require mechanisms for components to communicate. Reliable messaging is often a critical problem.
+Många program består av program som körs på flera olika datorer eller enheter. I sådana distribuerade program måste meddelanden skickas mellan komponenterna i nätverk och över långa avstånd. Även om de finns på samma server eller i samma datacenter, kräver löst sammansatta arkitekturer mekanismer för att komponenterna ska kunna kommunicera. En tillförlitlig meddelandehantering är ofta ett kritiskt problem.
 
-Suppose you work at a software company that develops a music-sharing application. Musicians can upload music they create to your platform by using a web front end or a mobile app. They can listen to and comment on other members' work. The application consists of a website that runs at your ISP, a mobile app that runs on users' mobile devices, a web API that runs in Azure, and an Azure SQL Database where data is stored.
+Anta att du arbetar på ett programvaruföretag som utvecklar ett program för musikdelning. Musiker kan ladda upp musik som de skapar till din plattform med hjälp av en webbklient eller en mobilapp. De kan lyssna på och kommentera sådant som andra medlemmar har gjort. Programmet består av en webbplats som körs hos din Internetleverantör, en mobilapp som körs på användarnas mobila enheter, ett webb-API som körs i Azure och en Azure SQL-databas där data lagras.
 
-You have observed that at times of high demand, some music files are not successfully uploaded, and some comments are not posted. Your testing shows that these issues are caused by dropped messages between front-end components and the web API. You plan to solve these issues by using one or more of the following technologies: Azure Storage queues, Azure Event Hubs, Azure Event Grid, and Azure Service Bus.
+Du har märkt att när det är hög efterfrågan laddas vissa musikfiler inte upp och vissa kommentarer publiceras inte. Ditt test visar att dessa problem orsakas av utelämnade meddelanden mellan klientdelskomponenterna och webb-API:n. Du tänker lösa dessa problem genom att använda en eller flera av följande tekniker: Azure Storage-köer, Azure Event Hubs, Azure Event Grid och Azure Service Bus.
 
-Here, you will learn how to choose the right messaging technology in Azure for each communication task in a distributed application.
+Här lär du dig att välja rätt meddelandeteknik i Azure för varje kommunikation i ett distribuerat program.
 
-## Learning objectives
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att göra följande:
 
-- Describe events and messages, and the challenges you can use them to solve in a distributed application.
-- Identify scenarios in which Storage queue is the best messaging technology for an application.
-- Identify scenarios in which Event Grid is the best messaging technology for an application.
-- Identify scenarios in which Event Hubs is the best messaging technology for an application.
-- Identify scenarios in which Service Bus is the best messaging technology for an application.
+- Beskriva händelser och meddelanden samt utmaningarna med att använda dem i ett distribuerat program.
+- Identifiera scenarier där en Storage-kö är den bästa meddelandetekniken för ett program.
+- Identifiera scenarier där Event Grid är den bästa meddelandetekniken för ett program.
+- Identifiera scenarier där Event Hubs är den bästa meddelandetekniken för ett program.
+- Identifiera scenarier där Service Bus är den bästa meddelandetekniken för ett program.

@@ -1,39 +1,34 @@
 ### YamlMime:Module
 uid: learn.build-a-serverless-web-app
-metadata:
-  title: Build a serverless web app
-  description: Deploy a simple web application that allows users to upload images via an HTML-based user interface (UI). The web app uses a serverless back end to automatically tag and store captions that describe the images.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Build a serverless web app
-summary: Deploy a simple web application that allows users to upload images via an HTML-based user interface (UI). The web app uses a serverless back end to automatically tag and store captions that describe the images.
-abstract: | 
-  In this module, you will:
-  - Configure Azure Blob storage to host a static website and uploaded images
-  - Upload images to Azure Blob storage using Azure Functions
-  - Resize images using Azure Functions
-  - Store image metadata in Azure Cosmos DB
-  - Use the Cognitive Services Computer Vision API to auto-generate image captions
-  - Use Azure Active Directory to secure the web app by authenticating users
-prerequisites: None
-#TODO: Update icon URL with real image 
-iconUrl: http://via.placeholder.com/120x120
+title: Skapa en webbapp utan server
+summary: Distribuera en enkel webbapp som gör det möjligt för användare att ladda upp bilder via ett HTML-baserat användargränssnitt (UI). I webbappen används en serverlös serverdel för att automatiskt tagga och lagra bildtexter som beskriver bilderna.
+cardDescription: Distribuera en enkel webbapp som gör det möjligt för användare att ladda upp bilder via ett HTML-baserat användargränssnitt (UI). I webbappen används en serverlös serverdel för att automatiskt tagga och lagra bildtexter som beskriver bilderna.
+iconUrl: /learn/achievements/build-a-serverless-web-app.svg
 levels:
 - intermediate
 roles:
 - developer
 products:
 - azure
-- azure-cosmos-db
-- azure-cloud-shell
-- azure-functions
-- azure-portal
+- cosmosDB
+- cloudShell
+- computerVision
+- azureFunctions
+- azurePortal
+- storageBlob
+metadata:
+  title: Skapa en webbapp utan server
+  description: Distribuera en enkel webbapp som gör det möjligt för användare att ladda upp bilder via ett HTML-baserat användargränssnitt (UI). I webbappen används en serverlös serverdel för att automatiskt tagga och lagra bildtexter som beskriver bilderna.
+  ms.date: 09/24/2018
+  ms.openlocfilehash: 5f47b534140d53c0734be359955b95d84e87d2c1
+  ms.sourcegitcommit: bf091e3a389138b59573865ca54775e38a4ffa1f
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43154968"
+abstract: "I den här modulen kommer du att göra följande:\n> [!div class=\"checklist\"]\n> * Konfigurera Azure Blob Storage att lagra en statisk webbplats och uppladdade bilder.\n> * Ladda upp bilder till Azure Blob Storage med hjälp av Azure Functions.\n> * Ändra storlek på bilder med hjälp av Azure Functions.\n> * Lagra bildmetadata i Azure Cosmos DB. \n> * Använd API:et för visuellt innehåll i Cognitive Services för att skapa bildtexter automatiskt.\n> * Använd Azure Active Directory för att skydda webbappen genom att autentisera användare.\n"
+prerequisites: Ingen
 units:
-#TODO: None of these units have a knowledge task or task validation component (need to add somewhere so users don't get marked complete solely by viewing the pages).
 - learn.build-a-serverless-web-app.1-create-web-app-in-blob-storage
 - learn.build-a-serverless-web-app.2-upload-images-to-blob-storage
 - learn.build-a-serverless-web-app.3-resize-images-with-functions

@@ -1,82 +1,79 @@
-Choosing the correct storage solution can lead to better performance, cost savings, and improved managability. Here, you'll apply what you've learned about the data in your online retail scenario, and find the best Azure service for each data set. 
+Du kan få bättre prestanda genom at välja rätt lagringslösning. Här får du använda det du har lärt dig om data i onlinebutiksscenariot och hitta bästa möjliga Azure-tjänst för varje datamängd. 
 
-## Product catalog data
+## <a name="product-catalog-data"></a>Data i produktkatalogen
 
-**Data classification:** Semi-structured because of the need to extend or modify the schema for new products
+Dataklassificering: halvstrukturerade
 
-**Operations:**
+Åtgärder:
 
-- Customers require a high number of read operations, with the ability to query on many fields within the database.
-- The business requires a high number of write operations to track the constantly changing inventory.
+* Kunderna behöver göra många läsåtgärder och köra frågor mot många olika fält i databasen.
+* I verksamheten behövs många skrivåtgärder eftersom lagret hela tiden förändras.
 
-**Latency & throughput:** High throughput and low latency
+Latens och dataflöde: stort dataflöde och korta svarstider
 
-**Transactional support:** Required
+Transaktionsstöd: krävs
 
-### Recommended service: Azure Cosmos DB
+### <a name="recommended-service-azure-cosmos-db"></a>Rekommenderad tjänst: Azure Cosmos DB
 
-Azure Cosmos DB supports semi-structured data, or NoSQL data, by design. So, supporting new fields, such as the "Bluetooth Enabled" field or any new fields you need in the future, is a given with Azure Cosmos DB.
+Azure Cosmos DB har i sin struktur stöd för halvstrukturerade data, eller NoSQL-data. Därför är det inga problem med nya fält, som fältet Bluetooth Enabled eller andra fält du kan behöva i framtiden.
 
-Regarding operations, Azure Cosmos DB supports SQL for queries and every property is indexed by default. Creating queries to match your customers’ need to filter on almost everything is supported.
+När det gäller åtgärder så har Azure Cosmos DB SQL-frågestöd och alla egenskaper indexeras som standard, så du kan skapa frågor som matchar kundernas filtreringsbehov för nästan allt.
 
-Regarding latency and throughput, Azure Cosmos DB enables you to configure your both. You can scale up to handle higher customer demand during peak shopping times, or scale down during slower times to conserve cost. And because Azure Cosmos DB indexes all properties by default, customers will be able to query on any field.
+Du kan konfigurera svarstider och dataflöden i Azure Cosmos DB, så du kan skala upp för att hantera en högre efterfrågan under rusningstid i butiken och skala ned för att spara pengar när efterfrågan är lägre. Eftersom Azure Cosmos DB indexerar alla egenskaper som standard kan du även låta kunderna köra frågor mot samtliga fält.
 
-Azure Cosmos DB is also ACID-compliant, so you can be assured that your transactions are completed according to those strict requirements.
+Azure Cosmos DB är även ACID-kompatibelt, så du kan vara säker på att dina transaktioner utförs enligt dessa strikta krav.
 
-As an added plus, Azure Cosmos DB also enables you to replicate your data anywhere in the world with the click of a button. So, if your e-commerce site has concentrated users in the US, France, and England, you can replicate your data to those data centers to reduce latency, as you've physically moved the data closer to your users. And even with data replicated around the world, you can choose from one of five consistency levels. By choosing the right consistency level, you can determine the tradeoffs to make between consistency, availability, latency, and throughput.
+Dessutom kan du replikera dina data var som helst i världen med en enda knapptryckning i Azure Cosmos DB. Så om din onlinebutik har många användare i USA, Frankrike och England kan du replikera dina data till dessa datacenter för att minska svarstiderna, eftersom data fysiskt är närmare dina användare. Och trots att data replikeras över hela världen kan du välja mellan fem konsekvensnivåer och balansera konsekvens, tillgänglighet, svarstider och dataflöden.
 
-### Why not other Azure services?
+### <a name="why-not-other-azure-services"></a>Varför inte andra Azure-tjänster?
 
-Azure SQL Database would be an excellent choice for this data set, were it not for the need to extend the schema ad-hoc for new products. Azure SQL Database can provide many of the same benefits of Azure Cosmos DB, but it cannot handle heterogeneous data, all data needs to adhere to a schema.
+Andra Azure-tjänster, som Azure Table Storage, Azure HBase i HDInsight och Azure Redis Cache, kan också lagra NoSQL-data. Eftersom användarna i det här scenariot vill köra frågor mot många olika fält passar Azure Cosmos DB bättre än Azure Table Storage, Azure Redis Cache och Azure HBase i HDInsight. Azure Cosmos DB indexerar alla fält som standard medan de andra har begränsningar i indexeringen, så att det inte går att köra frågor mot alla fält i databasen.
 
-Other Azure services, such as Azure Table storage, Azure HBase as a part of HDInsight, and Azure Redis Cache, can also store NoSQL data. In this scenario, because users will want to query on multiple fields, Azure Cosmos DB is a better fit. This is because Azure Cosmos DB indexes every field by default, whereas the other services are limited in the data they index, so they have reduced abilities to query on any field in the database.
+## <a name="photos-and-videos"></a>Foton och videor
 
-## Photos and videos
+Dataklassificering: ostrukturerade
 
-**Data classification:** Unstructured
+Åtgärder:
 
-**Operations:**
+* Foton och videor behöver bara hämtas per ID.
+* Data skapas och uppdateras mer sällan och svarstiderna kan vara längre än för läsåtgärder.
 
-- Only need to be retrieved by ID.
-- Customers require a high number of read operations with low-latency.
-- Creates and updates will be somewhat infrequent and can have higher latency than read operations.
+Latens och dataflöde: för hämtningar per ID krävs korta svarstider och stort dataflöde. Data kan skapas och uppdateras med längre svarstider än för läsåtgärderna.
 
-**Latency & throughput:** Retrievals by ID need to support low latency and high throughput. Creates and updates can have higher latency than read operations.
+Transaktionsstöd: krävs inte
 
-**Transactional support:** Not required
+## <a name="recommended-service-azure-blob-storage"></a>Rekommenderad tjänst: Azure BLOB Storage
 
-### Recommended service: Azure Blob storage
+Azure BLOB Storage har stöd för lagring av filer som foton och videor. Dessutom fungerar det med Azure Content Delivery Network (CDN) genom att det mest använda innehållet cachelagras på gränsservrar, vilket minskar svarstiderna när bilder ska visas för användarna.
 
-Azure Blob storage supports storing files such as photos and videos. It also works with Azure Content Delivery Network (CDN) by caching the most used content and storing it on edge servers. This reduces latency in serving up those images to your users.
+När du använder Azure BLOB Storage kan du också flytta bilder från frekvent lagringsnivå till lågfrekvent lagring eller arkivlagring, så att du minskar kostnaderna och kan fokusera dataflödet på de bilder och videor som visas oftast.
 
-By using Azure Blob storage, you can also move images from the hot storage tier to the cool or archive storage tier, to reduce costs and focus throughput on the most viewed images and videos.
+### <a name="why-not-other-azure-services"></a>Varför inte andra Azure-tjänster?
 
-### Why not other Azure services?
+Du kan ladda upp bilder till Azure App Services så att samma server som kör appen även används till att visa dina bilder. Det här skulle fungera om du inte har så många bilder, men om du har massor av filer och en global publik får du bättre prestanda genom att använda Azure BLOB Storage med Azure Content Delivery Network.
 
-You could upload your images to Azure App Service, so that the same server running your app is serving up your images. That would work if you didn't have many file. But if you have lots of files, and a global audience, you'll get more performant results by using Azure Blob storage with Azure CDN.
+## <a name="business-data"></a>Affärsdata
 
-## Business data
+Dataklassificering: strukturerade
 
-**Data classification:** Structured
+Åtgärder: Skrivskyddade komplexa analysfrågor över flera databaser
 
-**Operations:** Read-only, complex analytical queries across multiple databases
+Latens och dataflöde: Viss svarstid i resultaten kan förväntas eftersom frågorna är komplexa.
 
-**Latency & throughput:** Some latency in the results is expected based on the complex nature of the queries.
+Transaktionsstöd: krävs
 
-**Transactional support:** Required
+### <a name="recommended-service-azure-sql-database"></a>Rekommenderad tjänst: Azure SQL Database
 
-### Recommended service: Azure SQL Database
+Affärsanalytiker kör ofta frågor mot sina affärsdata, och de kan oftare SQL än andra frågespråk. Du kan använda Azure SQL Database som fristående lösning, men om du dessutom använder Azure Analysis Services kan dataanalytiker skapa en semantisk modell över data i Azure SQL Database och sedan dela den med användare i verksamheten. Då kan de ansluta till modellen från valfritt BI-verktyg och omedelbart utforska data och få insikter. 
 
-Business data will most likely be queried by business analysts, who are more likely to know SQL than any other query language. Azure SQL Database could be used as the solution by itself, but pairing it with Azure Analysis Services enables data analysts to create a semantic model over the data in SQL Database. They can then share it with business users, so that all they need to do is connect to the model from any business intelligence (BI) tool, and immediately explore the data and gain insights. 
+### <a name="why-not-other-azure-services"></a>Varför inte andra Azure-tjänster?
 
-### Why not other Azure services?
+Azure SQL Data Warehouse har stöd för OLAP-lösningar och SQL-frågor. Dina affärsanalytiker måste dock köra frågor över flera databaser, och det finns det inte stöd för i Azure SQL Data Warehouse.
 
-Azure SQL Data Warehouse supports OLAP solutions and SQL queries. But your business analysts will need to perform cross-database queries, which SQL Data Warehouse does not support.
+Azure Analysis Services kan användas tillsammans med Azure SQL Database. Dina affärsanalytiker är dock mer vana vid SQL än att arbeta med Power BI, så de vill ha en databas med stöd för SQL-frågor och det stödet saknas i Azure Analysis Services. Dessutom är de finansiella data du lagrar i datamängden relationsbaserade och flerdimensionella till sin natur. Azure Analysis Services har stöd för tabelldata som lagras i själva tjänsten, men inte för flerdimensionella data. Om du vill analysera flerdimensionella data i Azure Analysis Services kan du köra frågor direkt mot Azure SQL Database.
 
-Azure Analysis Services could be used in addition to Azure SQL Database. But your business analysts are more well versed in SQL than working with Power BI. So they'd like a database that supports SQL queries, which Azure Analysis Services does not. In addition, the financial data you're storing in your business data set is relational and multidimensional in nature. Azure Analysis Services supports tabular data stored on the service itself, but not multidimensional data. To analyze multidimensional data with Azure Analysis Services, you can use direct query to the SQL Database.
+Azure Stream Analytics är ett bra när du vill analysera data och omvandla dem till användbara insikter, men fokus ligger på realtidsdata som strömmar in. I det här fallet tittar våra affärsanalytiker bara på historiska data.
 
-Azure Stream Analytics is a great way to analyze data and transform it into actionable insights, but its focus is on real-time data that is streaming in. In this case, our business analysts will be looking at historical data only.
+## <a name="summary"></a>Sammanfattning
 
-## Summary
-
-Each category of data has different storage requirements, and it's your job to figure out which solution is best. You should always consider the category of data, required operations, latency, and the need for transactional support.
+Varje datakategori har olika lagringskrav och det är ditt jobb att ta reda på vilken lösning som är bäst. Du bör alltid överväga datakategorin, vilka åtgärder som utförs, svarstider och behovet av transaktionsstöd.

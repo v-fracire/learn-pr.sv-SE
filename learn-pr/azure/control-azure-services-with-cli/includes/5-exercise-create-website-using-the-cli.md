@@ -1,89 +1,87 @@
-Next, let's use the Azure CLI to create a resource group, and then to deploy a web app into this resource group. 
+Nu ska vi använda Azure CLI för att skapa en resursgrupp och sedan distribuera en webbapp i den här resursgruppen. 
 
-### Create a resource group
+### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+1. Öppna ett bash-gränssnitt i Linux eller macOS, eller öppna kommandotolken eller PowerShell om du arbetar i Windows.
 
-1. Open a bash shell on Linux or macOS, or open the Command Prompt window or PowerShell if working from Windows.
-
-1. Start the Azure CLI and run the login command.
+2. Starta Azure CLI och kör inloggningskommandot.
 
     ```bash
     az login
     ```
-    If you do not get an Azure sign-in page in your web browser, follow the command-line instructions and enter an authorization code at [https://aka.ms/devicelogin](https://aka.ms/devicelogin).
+    Om du inte ser en inloggningssida för Azure i webbläsaren följer du anvisningarna på kommandoraden och anger en auktoriseringskod på [https://aka.ms/devicelogin](https://aka.ms/devicelogin).
 
-1. Create a resource group.
+3. Skapa en resursgrupp.
 
     ```bash
     az group create --location westeurope --name popupResGroup
     ```
 
-1. Verify that the resource group was created successfully by listing all your resource groups in a table.
+4. Kontrollera att resursgruppen har skapats genom att visa alla resursgrupper i en tabell.
 
     ```bash
     az group list --output table
     ```
 
-> [!TIP]
-> You can also confirm the resource was created in the Azure portal. Open a web browser, sign in to the portal and navigate to the **Resource Groups** section. The new resource group should be displayed in the list.
+> [!NOTE]
+> Du kan också kontrollera att resursen har skapats på Azure Portal. Öppna en webbläsare, logga in på portalen och gå till avsnittet **Resursgrupper**. Den nya resursgruppen bör visas i listan.
+> 
+> ![Använda portalen för att visa resursgrupper](../media-drafts/5-listing-resource-groups.png)
 
-1. If you have a lot of items in the group, you can filter the return values by adding a `--query` option, try this command:
+
+5. Om det finns många objekt i gruppen kan du filtrera returvärdena genom att lägga till ett `--query`-alternativ. Prova det här kommandot:
 
     ```bash
     az group list --query '[?name == popupResGroup]'
     ```
 
-    The query is formmated using **JMESPath** which is a standard query language for JSON requests. You can learn more about this powerful filter language at <http://jmespath.org/>. We also cover queries in more depth in the **Manage VMs with the Azure CLI** module.
+    Frågan är formaterad med **JMESPath**, som är ett standardfrågespråk för JSON-begäranden. Du kan läsa mer om det här kraftfulla filterspråket på <http://jmespath.org/>. Vi tar även upp frågor mer ingående i modulen **Hantera virtuella datorer med Azure CLI**.
 
-### Steps to create a service plan
+### <a name="steps-to-create-a-service-plan"></a>Steg för att skapa en serviceplan
+När du kör webbappar med Azure App Service betalar du för de Azure-beräkningsresurser som används av apparna, och beloppet beror på den App Service-plan som är associerad med webbapparna. Serviceplaner avgör vilken region som används för appens datacenter, hur många virtuella datorer som används och prisnivån.
 
-When you run Web Apps, using the Azure App Service, you pay for the Azure compute resources used by the app, and this depends on the App Service plan associated with your Web Apps. Service plans determine the region used for the app datacenter, number of VMs used, and pricing tier.
-
-1. Create an App Service plan to run your app. The following command does not specify a pricing tier or VM instance details, so by default, you'll get a **Basic** plan with 1 **Small** VM instance.
+1. Skapa en App Service-plan för att köra din app. Följande kommando anger inte någon prisnivå eller information om VM-instansen, så som standard får du en plan på **Basic**-nivå med en **Liten** VM-instans.
 
     > [!WARNING]
-    > The name of the app and plan must be _unique_, so add a suffix to the name and replace the `<unique>` text in the command below with a set of numbers, your initials, or some other piece of text to make sure it's unique in all of Azure. 
+    > Namnet på appen och planen måste vara _unika_. Lägg därför till ett suffix till namnet och ersätt texten `<unique>` i kommandot nedan med några siffror, dina initialer eller en textsträng så att namnet blir unikt i hela Azure. 
 
     ```bash
     az appservice plan create --name popupapp-<unique> --resource-group popupResGroup --location westeurope
     ```
 
-1. Verify that the service plan was created successfully by listing all your plans in a table.
+1. Kontrollera att serviceplanen har skapats genom att visa alla dina planer i en tabell.
 
     ```bash
     az appservice plan list --output table
     ```
 
-### Steps to create a web app
+### <a name="steps-to-create-a-web-app"></a>Steg för att skapa en webbapp
+Nu ska vi skapa webbappen i din serviceplan. Du kan distribuera koden på samma gång, men i vårt exempel gör vi det i separata steg.
 
-Next, you'll create the web app in your service plan. You can deploy the code at the same time, but for our example, we'll do this as separate steps.
-
-1. Create the web app, supply the name of the plan you created above. **Just like the plan, the app name must be unique, replace the `<unique>` marker with some text to make the name globally unique.**
+1. Skapa webbappen och ange namnet på planen som du skapade ovan. **Precis som planen måste appnamnet vara unikt. Ersätt därför markören `<unique>` med en textsträng så att namnet blir unikt globalt.**
     ```bash
     az webapp create --name popupapp-<unique> --resource-group popupResGroup --plan popupapp-<unique>
     ```
 
-1. Verify that the app was created successfully by listing all your apps in a table.
+1. Kontrollera att appen har skapats genom att visa alla dina appar i en tabell.
 
     ```bash
     az webapp list --output table
     ```
 
-1. Make a note of the **DefaultHostName**; you will need this later.
+1. Anteckna **DefaultHostName**, du behöver det här värdet senare.
 
-### Steps to deploy code from GitHub
-
-1. The final step is to deploy code from a GitHub repository to the web app. Let's use a simple PHP page available in the Azure Samples Github repository that displays "HelloWorld!" when it executes. Make sure to use the web app name you created.
+### <a name="steps-to-deploy-code-from-github"></a>Steg för att distribuera kod från GitHub
+1. Det sista steget är att distribuera kod från en GitHub-lagringsplats till webbappen. Vi ska använda en enkel PHP-sida som är tillgänglig på Github-lagringsplatsen för Azure-exempel och som visar ”HelloWorld!” när den körs. Var noga med att använda namnet på webbappen som du skapat.
 
     ```bash
     az webapp deployment source config --name popupapp-<unique> --resource-group popupResGroup --repo-url "https://github.com/Azure-Samples/php-docs-hello-world" --branch master --manual-integration
     ```
 
-1. Once it's deployed, Azure will make your website available through the unique app name in the `azurewebsites.net` domain. For example, if my app name was "popupapp-mslearn123", then my website address would be: <http://popupapp-mslearn123.azurewebsites.net>. You will need to type in the correct URL to hit your specific instance.
+1. När den har distribuerats blir din webbplats tillgänglig via det unika appnamnet i domänen `azurewebsites.net`. Om appnamnet till exempel är ”popupapp mslearn123” blir webbadressen: <http://popupapp-mslearn123.azurewebsites.net>. Du måste ange rätt URL för att komma till din specifika instans.
 
-1. The page displays "HelloWorld!"
+1. ”HelloWorld!” visas på sidan.
 
-1. Close the browser window.
+1. Stäng webbläsarfönstret.
 
-## Summary
-
-This exercise demonstrated a typical pattern for an interactive Azure CLI session. You first used a standard command to create a new resource group. You then used a set of commands to deploy a resource (in this example, a web app) into this resource group. This set of commands could easily be combined into a shell script, and executed every time you need to create the same resource.
+## <a name="summary"></a>Sammanfattning
+I den här övningen fick du se ett vanligt mönster för en interaktiv Azure CLI-session. Först använde du ett standardkommando för att skapa en ny resursgrupp. Sedan använde du en uppsättning kommandon för att distribuera en resurs (i det här exemplet en webbapp) till resursgruppen. Du kan enkelt samla de här kommandona i ett kommandoskript och köra det varje gång du behöver skapa samma resurs.

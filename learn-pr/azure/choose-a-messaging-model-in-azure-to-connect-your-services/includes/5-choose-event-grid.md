@@ -1,56 +1,56 @@
-Many applications use a publish-subscribe model to notify distributed components that something happened, or that some object changed. Suppose you have a music-sharing application with a Web API that runs in Azure. When a new song is uploaded by a user, you need to notify all the mobile apps installed on user devices around the world who are interested in the genre that was just uploaded.
+Många program använder en publicera-prenumerera-modell för att meddela distribuerade komponenter om att något har hänt eller att ett objekt har ändrats. Anta att du har ett program för musikdelning med ett webb-API som körs i Azure. När en ny låt laddas upp av en användare måste du meddela alla mobilappar som finns installerade på enheter för användare över hela världen som är intresserade av den genre som just laddats upp.
 
-In this architecture, the publisher of the sound file doesn't need to know about any of the subscribers interested in the music being shared. In addition, we want to have a one-to-many relationship where we can have multiple subscribers who can optionally decide whether they are interested in this new song. Azure Event Grid is a perfect solution for this sort of architecture.
+I den här arkitekturen behöver utgivaren av ljudfilen inte känna till de prenumeranter som är intresserade av den musik som delas. Dessutom vill vi ha en en-till-många-relation där vi kan ha flera prenumeranter som kan välja om de är intresserade av den här nya låten. Azure Event Grid är en perfekt lösning för den här typen av arkitektur.
 
-## What is Event Grid?
-Event Grid is a service that distributes _events_ from different sources, such as Azure Blob storage accounts or Azure Media Services, to different subscribers, such as Azure Functions or Webhooks.
+## <a name="what-is-event-grid"></a>Vad är Event Grid?
+Event Grid är en tjänst som distribuerar _händelser_ från olika källor, till exempel Azure Blob-lagringskonton eller Azure Media Services, till olika prenumeranter som exempelvis Azure Functions eller webhooks.
 
-### What is an event source?
-An event source is any component that can generate an event (sometimes referred to as a "publisher"). For example, a user might add a new song to a Blob storage account through our Web API. This generates an event that Event Grid can distribute to interested event subscribers. Publishers send events, but have no expectation of what will receive or process them.
+### <a name="what-is-an-event-source"></a>Vad är en händelsekälla?
+En händelsekälla är en komponent som kan generera en händelse (kallas ibland ”utgivare”). Till exempel kan en användare lägga till en ny låt till ett Blob-lagringskonto via vårt Webb-API. Detta genererar en händelse som Event Grid kan distribuera till intresserade händelseprenumeranter. Utgivare skickar händelser men har inga förväntningar om vad som tar emot eller bearbetar dem.
 
-### What is an event subscriber?
-An event subscriber is any component that can receive events from Event Grid. For example, Azure Functions can execute code in response to the new song being added to the Blob storage account. Subscribers can decide which events they want to handle and Event Grid will efficiently notify each interested subscriber when a new event is available - no polling required.
+### <a name="what-is-an-event-subscriber"></a>Vad är en händelseprenumerant?
+En händelseprenumerant är en komponent som kan ta emot händelser från Event Grid. Till exempel kan Azure Functions köra kod som svar på den nya låt som läggs till i Blob-lagringskontot. Prenumeranter kan välja vilka händelser de vill hantera, så meddelar Event Grid på ett effektivt sätt alla berörda prenumeranter när en ny händelse är tillgänglig – det krävs ingen avsökning.
 
-Event Grid supports most Azure services as a publisher or subscriber and can also be used with third-party services. It provides a dynamically scalable, low-cost, messaging system that allows publishers to notify subscribers about a status change. The following illustration shows Azure Event Grid receiving messages from multiple sources and distributing them to event handlers based on subscription.
+Event Grid stöder de flesta Azure-tjänster som utgivare eller prenumerant och kan även användas med tjänster från tredje part. Det tillhandahåller ett dynamiskt skalbart meddelandesystem till låg kostnad som gör att utgivare kan meddela prenumeranter om statusändringar.
 
-![An illustration showing an Azure Event Grid positioned between multiple event sources and multiple event handlers. The event sources send events to the Event Grid and the Event Grid forwards relevant events to the subscribers. Event Grid use topics to decide which events to send to which handlers. Events sources tag each event with one or more topics and event handlers subscribe to the topics they are interested in.](../media-draft/5-event-grid.png)
+![Diagram över Event Grid-källor och prenumeranter](../media-draft/5-event-grid.png)
 
 > [!NOTE]
-> Event Grid sends an event to notify subscribers about something changing - however the _actual object_ that was changed is not part of the event delivery.
+> Event Grid skickar en händelse för att meddela prenumeranter om något som ändras – men det _faktiska objekt_ som ändrades ingår inte i händelseleveransen.
 
-## Types of event sources
-Events can be generated by the following Azure resource types:
+## <a name="types-of-event-sources"></a>Typer av händelsekällor
+Händelser kan genereras av följande Azure-resurstyper:
 
-- **Azure subscriptions and resource groups.** Subscriptions and resource groups generate events related to management operations in Azure. For example, when a user creates a virtual machine, this source generates an event.
-- **Storage accounts.** Storage accounts can generate events when users add blobs, files, table entries, or queue messages. You can use both blob accounts and general-purpose accounts as event sources.
-- **Media Services.** Media Services hosts video and audio media, and provides advanced management features for media files. Media Services can generate events when an encoding job is started or completed on a video file.
-- **Azure IoT Hub.** IoT Hub communicates with and gathers telemetry from IoT devices. It can generate events whenever such communications arrive.
-- **Custom events.** Custom events can be generated using the REST API, or with the Azure SDK on Java, GO, .NET, Node, Python, and Ruby. For example, you could create a custom event in the Web Apps feature of Azure App Service. This can happen in the worker role, when it picks up a message from a storage queue.
+- **Azure-prenumerationer och resursgrupper.** Prenumerationer och resursgrupper genererar händelser som är relaterade till hanteringsåtgärder i Azure. När en användare skapar en virtuell dator genererar exempelvis den här källan en händelse.
+- **Lagringskonton.** Lagringskonton kan generera händelser när användarna lägger till blobbar, filer, tabellposter eller kömeddelanden. Du kan använda både blobbkonton och konton för generell användning som händelsekällor.
+- **Media Services.** Media Services är värd för video- och ljudmedia och innehåller avancerade hanteringsfunktioner för mediefiler. Media Services kan generera händelser när ett kodningsjobb startas eller slutförs i en videofil.
+- **Azure IoT Hub.** IoT Hub kommunicerar med och samlar in telemetri från IoT-enheter. Den kan generera händelser när sådan kommunikation tas emot.
+- **Anpassade händelser.** Anpassade händelser kan genereras med hjälp av REST API eller med Azure SDK för Java, GO, .NET, Node, Python och Ruby. Du kan till exempel skapa en anpassad händelse i Web Apps-funktionen i Azure App Service. Detta kan inträffa i arbetsrollen när den tar emot ett meddelande från en lagringskö.
 
-This broad integration with diverse event sources within Azure ensures that Event Grid can distribute events that relate to almost any Azure resource.
+Den här omfattande integreringen med olika händelsekällor inom Azure säkerställer att Event Grid kan distribuera händelser som är relaterade till nästan vilken Azure-resurs som helst.
 
-## Topics
-In Event Grid, a topic is a collection of related events. When you publish events from a source, you decide whether those events need only a single topic or to be divided into multiple topics. Components that receive and handle events subscribe to topics to determine the events they will receive.
+## <a name="topics"></a>Ämnen
+I Event Grid består ett ämne av en samling med relaterade händelser. När du publicerar händelser från en källa väljer du om dessa händelser bara behöver ett enda ämne eller om de ska delas upp i flera ämnen. Komponenter som tar emot och hanterar händelser prenumererar på ämnen för att avgöra vilka händelser de ska ta emot.
 
-## Subscriptions
-Event handlers use subscriptions to tell Event Grid which events in a topic they want to receive. The subscription also fixes the endpoint - this is the location that Event Grid sends event notifications. A subscription can also filter events by their type or by their subject, so you can ensure an event handler only receives relevant events.
+## <a name="subscriptions"></a>Prenumerationer
+Händelsehanterare använder prenumerationer för att informera Event Grid om vilka händelser i ett ämne de ska ta emot. Prenumerationen bestämmer även slutpunkten – vilket är den plats som Event Grid skickar händelsemeddelanden till. En prenumeration kan även filtrera händelserna efter typ eller ämne så att du kan vara säker på att en händelsehanterare endast tar emot relevanta händelser.
 
-## Event handlers
-The following object types in Azure can receive and handle events from Event Grid:
+## <a name="event-handlers"></a>Händelsehanterare
+Följande objekttyper i Azure kan ta emot och hantera händelser från Event Grid:
 
-- **Azure Functions.** An Azure function consists of custom code that runs in Azure, with no host virtual server or container. Use an Azure function as an event handler when you want to code a custom response to the event.
-- **Webhooks.** A webhook is web API that implements a push architecture.
-- **Azure Logic Apps.** An Azure logic app hosts a business process as a workflow.
-- **Microsoft Flow.** Flow also hosts workflows, but it is easier for non-technical staff to use.
+- **Azure Functions.** En Azure-funktion består av anpassad kod som körs i Azure utan någon virtuell värdserver eller container. Använd en Azure-funktion som en händelsehanterare när du vill koda ett anpassat svar på händelsen.
+- **Webhooks.** En webhook är ett webb-API som implementerar en push-arkitektur.
+- **Azure Logic Apps.** En Azure-logikapp är värd för en affärsprocess som ett arbetsflöde.
+- **Microsoft Flow.** Flow är också värd för arbetsflöden men är enklare för icke-teknisk personal att använda.
 
-## Should you use Event Grid?
-Use Event Grid when you need these features:
+## <a name="should-you-use-event-grid"></a>Bör du använda Event Grid?
+Använd Event Grid när du behöver dessa funktioner:
 
-- **Simplicity.** It is very easy to connect sources to subscribers in Event Grid.
-- **Advanced filtering.** Subscriptions have close control over the events they receive from a topic.
-- **Fan-out.** You can subscribe an unlimited number of endpoints to the same events and topics.
-- **Reliability.** Event Grid retries event delivery for up to 24 hours for each subscription.
-- **Pay-per-event.** Pay only for the number of events that you transmit.
+- **Enkelhet.** Det är mycket enkelt att ansluta källor till prenumeranter i Event Grid.
+- **Avancerad filtrering.** Prenumerationer har noggrann kontroll över de händelser som de tar emot från ett ämne.
+- **Förgrening.** Du kan prenumerera på ett obegränsat antal slutpunkter till samma händelser och ämnen.
+- **Tillförlitlighet.** Event Grid försöker upprepat leverera händelser i upp till 24 timmar för varje prenumeration.
+- **Betala per händelse.** Betala endast för det antal händelser som du överför.
 
-## Summary
-Event Grid is a simple but versatile event distribution system. Use it to deliver discrete events to subscribers, which will receive those events reliably and quickly. We have one more messaging model to examine - what if we want to deliver a large _stream_ of events? In this scenario, Event Grid isn't a great solution because it's designed for one-event-at-a-time delivery. Instead, we need to turn to another Azure service: Event Hubs.
+## <a name="summary"></a>Sammanfattning
+Event Grid är ett enkelt och mångsidigt distributionssystem för händelser. Du kan använda det till att leverera distinkta händelser till prenumeranter, som får händelserna på ett pålitligt och snabbt sätt. Vi har ytterligare en meddelandemodell att titta på – hur gör vi om vi vill leverera en stor _ström_ med händelser? I det här scenariot är Event Grid inte den ideala lösningen eftersom den är utformad för leverans av en händelse i taget. I stället vänder vi oss till en annan Azure-tjänst: Event Hubs.

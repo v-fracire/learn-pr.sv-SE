@@ -1,16 +1,17 @@
-Azure Multi-Factor Authentication has traditionally been deployed like a hammer by IT departments, enabled for every user for every authentication. When the feature is integrated with conditional access, Azure Multi-Factor Authentication becomes a razor-sharp scalpel that allows you to specify which apps and circumstances require it.
+Azure Multi-Factor Authentication har traditionellt används mycket generellt av IT-avdelningar, som ofta aktiverat det för alla användare och för alla autentiseringar. När funktionen integreras med villkorlig åtkomst blir Azure Multi-Factor Authentication ett precisionsinstrument som gör att du kan ange vilka appar och omständigheter som fordrar det.
 
-Imagine that you work for First Up Consultants, an engineering firm that specializes in circuit and electrical design. They're moving their on-premises workloads to Azure. Your manager in the IT department is responsible for keeping the company’s assets secure. The admin wants you to make sure that any time an administrator accesses the Azure portal, they've performed multi-factor authentication. The admin has tasked you with enabling this functionality and testing it. You'll use Azure AD, conditional access, and Azure Multi-Factor Authentication.
+Anta att du arbetar för First Up Consultants, ett ingenjörsföretag som specialiserar sig på kretskort och elektrisk design. De migrerar sina lokala arbetsbelastningar till Azure. Din chef på IT-avdelningen ansvarar för att skydda företagets tillgångar. Administratören vill att du ser till att administratörer utför multifaktorautentisering varje gång de använder Azure-portalen. Administratören har gett dig uppgiften att aktivera och testa den här funktionen. Du kommer att använda Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication.
 
-In this module, you will learn how to use conditional access along with Azure Multi-Factor Authentication to secure access to the Azure portal.
+I den här modulen lär du dig hur du använder villkorsstyrd åtkomst tillsammans med Azure Multi-Factor Authentication för att skydda åtkomst till Azure-portalen.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
+- Skapa en testanvändare och en användningsgrupp
+- Aktivera en princip för villkorsstyrd åtkomst som kräver multifaktorautentisering
 
-- Create a test user and a user group.
-- Enable a conditional access policy that requires Multi-Factor Authentication (MFA).
+## <a name="prerequisites"></a>Krav
 
-## Prerequisites
-
-- Knowledge of basic Azure concepts, such as resource groups and subscriptions.
+- Kunskaper om grundläggande Azure-begrepp, som resursgrupper och prenumerationer
+- Åtkomst till en Azure-prenumeration
+- Behörigheter för att skapa en katalog

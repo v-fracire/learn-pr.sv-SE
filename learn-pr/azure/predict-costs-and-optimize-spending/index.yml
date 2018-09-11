@@ -1,35 +1,34 @@
 ### YamlMime:Module
 uid: learn.predict-costs-and-optimize-spending
 metadata:
-  title: Predict costs and optimize spending for Azure
-  description: Cost is one of the most important aspects of the cloud and can have a massive impact on your business. Azure has several tools available to help you get a better understanding of cloud spend and some best practices that you can leverage to help you save money.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Predict costs and optimize spending for Azure 
-summary: Cost is one of the most important aspects of the cloud and can have a massive impact on your business. Azure has several tools available to help you get a better understanding of cloud spend and some best practices that you can leverage to help you save money.
-abstract: |
-  In this module, you will:
-  - Use the Azure pricing calculator to estimate your costs
-  - Identify tools you can use to predict and optimize your costs on Azure
-  - Identify best practices for reducing your infrastructure costs
-  - Identify best practices for reducing your licensing costs
-prerequisites: |
-  - An understanding of your options within Azure infrastructure components
-#TODO: Update icon URL with real image 
+  title: Förutse kostnader och optimera dina utgifter
+  description: I den här modulen går vi igenom hur du kan förutse, analysera och få kontroll över dina kostnader i Azure.
+  ms.openlocfilehash: 0f1ca5015bbe652a423df79daccf0512cb2f6977
+  ms.sourcegitcommit: d40bff88f60d5ddb3d875f788cafdd0c40069f23
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "42615514"
+title: Förutse kostnader och optimera dina utgifter
+summary: Kostnaden är en av molnets viktigaste fördelar, och den kan ha stor inverkan på din verksamhet. Azure innehåller flera verktyg som hjälper dig att få en bättre förståelse för dina utgifter i molnet och några metodtips som du kan använda för att spara pengar.
+abstract: >
+  * Använd priskalkylatorn för Azure till att uppskatta dina kostnader.
+
+  * Hitta verktyg du kan använda för att förutse och optimera dina kostnader i Azure.
+
+  * Hitta bra sätt att minska dina infrastrukturkostnader.
+
+  * Hitta bra sätt att minska dina licenskostnader.
+cardDescription: Det här är kortbeskrivningen av exempelmodulen (det här visas på prestationsmärket).
 iconUrl: http://via.placeholder.com/120x120
 levels:
 - beginner
 roles:
-- solution-architect
+- solutions-architect
 - administrator
+achievement: learn.placeholder.badge
 products:
-- azure
-- azure-portal
-- azure-cost-management
+- Azure
 units:
 - learn.predict-costs-and-optimize-spending.1-introduction
 - learn.predict-costs-and-optimize-spending.2-estimate-costs-with-the-azure-pricing-calculator
@@ -37,4 +36,3 @@ units:
 - learn.predict-costs-and-optimize-spending.4-save-on-infrastructure-costs
 - learn.predict-costs-and-optimize-spending.5-save-on-licensing-costs
 - learn.predict-costs-and-optimize-spending.6-summary
-achievement: learn.predict-costs-and-optimize-spending.badge

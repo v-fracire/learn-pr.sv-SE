@@ -1,15 +1,17 @@
-### Delete the Data Science VM
+### <a name="exercise-6-delete-the-data-science-vm"></a>Övning 6: Ta bort en Data Science VM
 
-In this unit, you will delete the resource group created in Exercise 1 when you created the Data Science VM. Deleting the resource group deletes everything in it and prevents any further charges from being incurred for it. Resource groups that are deleted can't be recovered, so be certain you're finished using it before deleting it. However, it is **important not to leave this resource group deployed any longer than necessary** because a Data Science VM is moderately expensive.
+I den här övningen ska du ta bort resursgruppen som skapades i övning 1 när du skapade en Data Science VM. Om du tar bort resursgruppen raderas även allt innehåll i den. Därmed kan inga fler kostnader uppkomma. Det går inte att återställa borttagna resursgrupper, så se noga till så att du är helt klar med den innan du tar bort den. **Tänk på att du inte distribuera den här resursgruppen längre än nödvändigt** eftersom en Data Science VM är ganska dyr i drift.
 
-1. Return to the blade for the resource group you created in Exercise 1. Then, click the **Delete resource group** button at the top of the blade.
+1. Gå tillbaka till bladet för resursgruppen som du skapade i övning 1. Klicka sedan på **Ta bort resursgrupp** överst på bladet.
 
-    ![Deleting the resource group](../media-draft/6-delete-resource-group.png)
+    ![Ta bort resursgruppen](../images/delete-resource-group.png)
 
-1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group. Then, click the **Delete** button to remove all traces of this module from your Azure subscription.
+    _Ta bort resursgruppen_
 
-After a few minutes, the resource group and all of its resources will be deleted. Billing stops when you click **Delete**, so you're not charged for the time required to delete the resources. Similarly, billing doesn't start until the resources are fully and successfully deployed.
+1. För säkerhets skull måste du ange resursgruppens namn. (När du väl tar tagit bort en resursgrupp går det inte att återställa den.) Skriv namnet på resursgruppen. Klicka på knappen **Ta bort** för att ta bort alla spår av den här labbuppgiften från din Azure-prenumeration.
 
-### Summary
+Efter några minuter tas resursgruppen och de resurser som finns i den bort. Debiteringen upphör när du klickar på **Ta bort**. Du kommer alltså inte att debiteras för den tid det tar att radera resurserna. På samma sätt inleds inte debiteringen förrän resurserna är fullständigt distribuerade och klara att köras.
 
-The steps in this module may be generalized to perform other types of image-classification tasks. For example, you could train the same TensorFlow model to recognize cat images or identify defective parts produced on an assembly line. Image classification is one of the most prevalent uses of machine learning today, and its usefulness will only increase over time. Now that you have a basis to work from, try creating some image-classification models of your own. You never know what might come of it!
+### <a name="summary"></a>Sammanfattning
+
+Stegen i den här labbuppgiften är generella och kan även användas i samband med andra typer av bildklassificeringar. Du kan till exempel träna samma TensorFlow-modell till att känna igen kattbilder eller identifiera defekter på produkter på ett löpande band. Bildklassificering är ett av de vanligaste användningsområdena för maskininlärning idag och användbarheten kommer troligen att öka med tiden. Nu när du har tillägnat dig grundkunskaperna kan du prova att skapa egna modeller för bildklassificering. Kanske är du något nytt på spåren!

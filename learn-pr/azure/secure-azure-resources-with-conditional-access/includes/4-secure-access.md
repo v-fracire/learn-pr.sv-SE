@@ -1,29 +1,29 @@
-In the previous exercise, we enabled trial licenses, created a directory, created a user, and created a group to test our solution. In this unit, we will create our conditional access rule to require Azure Multi-Factor Authentication for the Azure portal.
+I den föregående övningen aktiverade vi utvärderingslicenser, skapade en katalog, skapade en användare och skapade en grupp för att testa vår lösning. I den här övningen ska vi skapa vår regel för villkorlig åtkomst för att kräva multifaktorautentisering för Azure Portal.
 
-## Enable conditional access-based Multi-Factor Authentication
+## <a name="enable-conditional-access-based-multi-factor-authentication"></a>Aktivera multifaktorautentisering baserat på villkorlig åtkomst
 
-Conditional access allows administrators to configure when they do or do not want something to happen. They can use multiple rules in parallel to grant or deny access to resources. Here's the rule that we need to create:
+Villkorlig åtkomst gör att administratörer kan konfigurera när de vill, och när de inte vill, att något ska hända. De kan använda flera regler parallellt för att bevilja eller neka åtkomst till resurser. Här är den regel som vi behöver skapa:
 
-**When accessing the Azure portal - Require multi-factor authentication**
+**Vid åtkomst till Azure Portal – kräv multifaktorautentisering**
 
-The steps that follow will walk you through the process to create a conditional access rule to require users to perform multi-factor authentication when they access the Azure portal.
+Följande steg beskriver steg för steg hur du skapar en regel för villkorlig åtkomst som kräver att användarna utför multifaktorautentisering när de ansluter till Azure Portal.
 
-1. Browse to **Azure Active Directory** > **Conditional access**.
+1. Gå till **Azure Active Directory** > **Villkorlig åtkomst**.
 
-1. Click **New policy**.
+1. Klicka på **Ny princip**.
 
-1. Name the policy **Require MFA for Azure portal**.
+1. Ge principen namnet **Require MFA for Azure portal** (Kräv MFA för Azure Portal).
 
-1. Under **Assignments** > **Users and groups**, select **Users and groups**. Select the group that we created **CA-MFA-AzurePortal**. and click **Done**.
+1. Välj **Användare och grupper** under **Tilldelningar** > **Användare och grupper**. Välj gruppen som vi skapade, **CA-MFA-AzurePortal**. Klicka på **Klar**.
 
-1. Under **Cloud apps** > **Select apps**, select **Microsoft Azure Management**.
+1. Välj **Microsoft Azure Management** (Microsoft Azure-hantering) under **Molnappar** > **Välj appar**.
 
-1. Under **Access controls** > **Grant**, select **Require multi-factor authentication**.
+1. Välj **Kräv multifaktorautentisering** under **Åtkomstkontroller** > **Bevilja**.
 
-1. Set **Enable policy** to **On**.
+1. Välj **På** för **Aktivera princip**.
 
-1. Click **Create**.
+1. Klicka på **Skapa**.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to create a conditional access rule. The rule requires Multi-Factor Authentication when accessing the Azure portal.
+I den här kursdelen har du lärt dig hur du skapar en regel för villkorlig åtkomst. Regeln kräver multifaktorautentisering för åtkomst till Azure Portal.

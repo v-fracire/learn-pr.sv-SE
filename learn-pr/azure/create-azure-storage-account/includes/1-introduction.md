@@ -1,17 +1,16 @@
-Most organizations have diverse requirements for their cloud-hosted data. For example, you might need to store data in a specific region, or you might require separate billing for different data categories. Azure storage accounts let you formalize these types of policies and apply them to your Azure data.
+De flesta organisationer har flera olika krav för deras molnbaserade data. Exempelvis kan du behöva lagra data i en viss region, eller så krävs separat debitering för olika kategorier. Med Azure-lagringskonton kan du formalisera dessa typer av principer och tillämpa dem på dina Azure-data.
 
-Suppose you work at a chocolate manufacturer that produces baking ingredients such as cocoa powder and chocolate chips. You market your products to grocery stores who then sell them to consumers.
+Anta att du arbetar på en chokladfabrik som producerar bageriingredienser, till exempel kakaopulver och chokladbitar. Du marknadsför dina produkter till livsmedelsbutiker som sedan säljer dem till konsumenter.
 
-Your formulations and manufacturing processes are trade secrets. The spreadsheets, documents, and instructional videos that capture this information are critical to your business and require geographically-redundant storage. This data is primarily accessed from your main factory, so you would like to store it in a nearby datacenter. The expense for this storage needs to be billed to the manufacturing department.
+Dina formler och tillverkningsprocesser är affärshemligheter. De kalkylblad, dokument och instruktionsvideor som lagrar den här informationen är kritiskt viktiga för din verksamhet och kräver geografiskt redundant lagring. De här data läses främst från din huvudfabrik, så du vill lagra dem i ett närliggande datacenter. Kostnaden för den här lagringen måste faktureras till tillverkningsavdelningen.
 
-You also have a sales group that creates cookie recipes and baking videos to promote your products to consumers. Your priority for this data is low cost, rather than redundancy or location. This storage must be billed to the sales team.
+Du har även en försäljningsgrupp som skapar recept på kakor och videor med bakningsinstruktioner för att marknadsföra dina produkter till konsumenter. Din prioritet för dessa data är låg kostnad i stället för redundans eller plats. Den här lagringen måste faktureras till säljteamet.
 
-Here, you will see how to handle these types of business requirements by creating multiple Azure storage accounts. Each storage account will have the appropriate settings for the data it holds.
+Här visas hur du hanterar dessa typer av affärskrav genom att skapa flera Azure-lagringskonton. Varje lagringskonto har lämpliga inställningar för de data som det innehåller.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
-
- - Decide how many storage accounts you need for your project.
- - Determine the appropriate settings for each storage account.
- - Create a storage account using the Azure portal.
+I den här modulen kommer du att göra följande:
+ - Bestämma hur många lagringskonton du behöver för projektet
+ - Fastställa lämpliga inställningar för varje lagringskonto
+ - Skapa ett lagringskonto med Azure-portalen

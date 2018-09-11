@@ -1,15 +1,15 @@
-You manage IT infrastructure for a growing e-commerce site. Business ia strong and your datacenter is starting to struggle to keep up with demand from your users. Your service fails when too many users connect at the same time. Plus, you face more scheduled and unscheduled maintenance windows than you'd like. 
+Du hanterar IT-infrastruktur för en växande e-handelswebbplats. Verksamheten går bra och ditt datacenter börjar få det svårt att hålla jämna steg med efterfrågan från användarna. Tjänsten slutar fungera när det är för många användare som ansluter på samma gång. Dessutom förekommer det fler planerade och oplanerade underhållsfönster än vad du föredrar. 
 
-Because your site is based in northern California, you also find that network delay is especially bad for users located in other regions, such as Europe and Asia.
+Eftersom din webbplats är baserad i norra Kalifornien upptäcker du att nätverksfördröjningen är särskilt hög för användare i andra regioner, till exempel i Europa och Asien.
 
-You decide to move your e-commerce site to the cloud to help save costs. But how can Azure help make your site run better?
+Du bestämmer dig för att flytta e-handelswebbplatsen till molnet för att minska kostnaderna. Hur kan då Azure göra så att webbplatsen presterar bättre?
 
-Managing networks on Azure isn't entirely different from managing on-premises networks. 
+Att hantera nätverk på Azure är inte helt annorlunda från att hantera lokala nätverk. 
 
-## Learning objectives
+## <a name="learing-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Learn how an Azure virtual network provides secure network communication among resources such as virtual machines and other networks
-- Learn what high availability and resiliency mean and how Azure Load Balancer can increase resiliency within a single geographic region
-- Learn what latency is and how Traffic Manager helps reduce network latency and provides resiliency across geographic locations
+- Hur Azure-nätverk tillhandahåller säker nätverkskommunikation mellan resurser, till exempel virtuella datorer och andra nätverk
+- Vad hög tillgänglighet och återhämtningsförmåga innebär samt hur Azure Load Balancer kan öka återhämtningsförmågan i ett enskilt geografiskt område
+- Vad svarstid innebär och hur Traffic Manager hjälper till att minska svarstiden i nätverk och ge återhämtningsförmåga över geografiska platser

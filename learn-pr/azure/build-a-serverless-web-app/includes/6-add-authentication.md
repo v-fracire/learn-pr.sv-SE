@@ -1,82 +1,81 @@
-Azure App Service authentication enables turn-key authentication support in an Azure Functions app. It integrates seamlessly with Facebook, Twitter, Microsoft accounts, Google, and Azure Active Directory. You'll add App Service authentication to protect the back-end APIs of your web app.
+Med Azure App Service-autentisering kan du använda nyckelfärdig autentisering i en Azure Functions-app. Autentiseringen integreras sömlöst med Facebook, Twitter, Microsoft-konton, Google och Azure Active Directory. Du lägger till App Service-autentisering för att skydda serverdels-API:erna för din webbapp.
 
-## Enable App Service authentication
+## <a name="enable-app-service-authentication"></a>Aktivera App Service-autentisering
 
-1. Open the function app in the [Azure portal](https://portal.azure.com/?azure-portal=true).
+1. Öppna funktionsappen på Azure Portal.
 
-1. Under **Platform features**, select **Authentication/Authorization**.
+1. Välj **Autentisering/auktorisering** under **Plattformsfunktioner**.
 
-    ![Select Authentication and Authorization](../media/6-authorization.jpg)
+    ![Välja autentisering och auktorisering](../media/6-authorization.jpg)
 
-1. Select the following values:
+
+1. Välj följande värden:
     
-    | Setting      |  Suggested value   | Description                                        |
+    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | ---|
-    | **App Service Authentication** | On | Enable authentication. |
-    | **Action when request is not authenticated** | Sign in with Azure Active Directory. | Select a configured authentication method (See below). |
-    | **Authentication Providers** | See below. | See below. |
-    | **Token store** | On | Allow App Service to store and manage tokens. |
-    | **Allowed external redirect URLs** | The URL of your application, for example https://firstserverlessweb.z4.web.core.windows.net/. | URLs that App Service is allowed to redirect to, after a user is authenticated. |
+    | **App Service-autentisering** | På | Aktivera autentisering. |
+    | **Åtgärd när begäran inte har autentiserats** | Logga in med Azure Active Directory. | Välj en konfigurerad autentiseringsmetod (se nedan). |
+    | **Autentiseringsprovidrar** | Se nedan. | Se nedan. |
+    | **Tokenarkiv** | På | Tillåt att App Service lagrar och hanterar token. |
+    | **Tillåtna externa omdirigeringswebbadresser** | Webbadressen för ditt program, till exempel https://firstserverlessweb.z4.web.core.windows.net/. | Webbadresser som App Service kan omdirigera till när en användare har autentiserats. |
 
-1. Select **Azure Active Directory** to reveal **Azure Active Directory Settings**.
+1. Visa **Azure Active Directory-inställningar** genom att välja **Azure Active Directory**.
 
-    1. Select **Express** as the **Management Mode** and fill in the following information.
+    1. Välj **Express** som **Hanteringsläge** och fyll i informationen nedan.
     
-        | Setting      |  Suggested value   | Description                                        |
+        | Inställning      |  Föreslaget värde   | Beskrivning                                        |
         | --- | --- | ---|
-        | **Management mode** | Express, Create new AD app | Automatically set up a service principal and Azure Active Directory authentication. |
-        | **Create app** | my-serverless-webapp | Enter a unique application name. |
+        | **Hanteringsläge** | Express, Skapa ny AD-app | Konfigurera automatiskt ett huvudnamn för tjänsten och Azure Active Directory-autentisering. |
+        | **Skapa app** | my-serverless-webapp | Ange ett unikt programnamn. |
     
-    1. Click **OK** to save the Azure Active Directory settings.
+    1. Spara Azure Active Directory-inställningarna genom att klicka på **OK**.
 
-    ![Authentication and Authorization and Azure Active Directory settings](../media/6-create-aad.png)
-
-
-1. Click **Save**.
+    ![Inställningar för autentisering, auktorisering och Azure Active Directory](../media/6-create-aad.png)
 
 
-## Modify the web app to enable authentication
+1. Klicka på **Spara**.
 
-1. In Cloud Shell, ensure that the current directory is the **www/dist** folder.
+
+## <a name="modify-the-web-app-to-enable-authentication"></a>Ändra webbappen för att aktivera autentisering
+
+1. Kontrollera i Cloud Shell att mappen **www/dist** är den aktuella mappen.
 
     ```azurecli
     cd ~/functions-first-serverless-web-application/www/dist
     ```
 
-1. You enable authentication in your function app by modifying **settings.js**. Open the file in Cloud Shell Editor.
+1. Du aktiverar autentisering i funktionsappen genom att lägga till följande kodrad i filen **settings.js**:
+
+    `window.authEnabled = true`
+
+    Gör ändringen och visa resultatet genom att köra följande kommandon eller genom att använda en kommandoradsredigerare som VIM.
 
     ```azurecli
-    code settings.js
+    echo "window.authEnabled = true" >> settings.js
     ```
 
-1. Append the following line to the file.
-
-    ```azurecli
-    window.authEnabled = true
-    ```
-
-1. Confirm the change was made to the file.
+    Kontrollera att ändringen har gjorts i filen.
 
     ```azurecli
     cat settings.js
     ```
 
-1. Upload the file to Blob storage.
+1. Ladda upp filen till Blob Storage.
 
     ```azurecli
     az storage blob upload -c \$web --account-name <storage account name> -f settings.js -n settings.js
     ```
 
 
-## Test the application
+## <a name="test-the-application"></a>Testa programmet
 
-1. Open the application in a browser. Click **Log in** and log in.
+1. Öppna programmet i en webbläsare. Klicka på **Logga in** och logga in.
 
-1. Select an image file and upload it.
+1. Välj en bildfil och ladda upp den.
 
-    ![Sign in page](../media/6-aad-auth.png)
+    ![Inloggningssida](../media/6-aad-auth.png)
     
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to add authentication to the application using Azure App Service authentication.
+I den här kursdelen har du lärt dig hur du lägger till autentisering i programmet med hjälp av Azure App Service-autentisering.

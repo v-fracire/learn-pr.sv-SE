@@ -1,22 +1,19 @@
-The Azure portal is great for performing single tasks, and to see a quick overview of the state of your resources. But for tasks that need to be repeated daily, or even hourly, using the command line and a set of tested commands or scripts can help get your work done more quickly and avoid errors. 
+Azure-portalen är perfekt när du utför enkla uppgifter och vill få en snabb överblick över tillståndet för dina resurser. Men om du har uppgifter som upprepas varje dag eller till och med per timme, kan du med hjälp av kommandoraden och en uppsättning testade kommandon eller skript få jobbet gjort snabbare och undvika fel. 
 
-Suppose you work at a company that develops Azure Web Apps. These are applications hosted in Azure, with all the benefits of automatically configured security, load balancing, management, and so on. You're currently testing a web app that generates sales forecasts, based on a range of inputs from different databases and other data sources. Your developers use Windows, Linux, and Mac computers, and use a GitHub repository for daily builds of the applications. 
+Anta att du arbetar på ett företag som utvecklar Azure Web Apps. Det är program som körs i Azure, vilket innebär alla fördelar med automatiskt konfigurerad säkerhet, belastningsutjämning, hantering och så vidare. Du testar för närvarande en webbapp som genererar försäljningsprognoser, baserat på ett antal indata från olika databaser och andra datakällor. Utvecklarna använder Windows-, Linux- och Mac-datorer, samt en GitHub-lagringsplats för dagliga versioner av programmen. 
 
-As part of the testing, you want to compare app performance for different data sources, and for different types of data connections. You've noticed that when your development team uses the Azure portal to create a new test instance of the app, they don't always use exactly the same parameters. You plan to solve this problem by using a set of standard deployment commands for each app test, which can be automated if required, and which will work in the same way across all the computers used by your software team.
+Som en del av testningen vill du jämföra appens prestanda vid olika datakällor och olika typer av anslutningar. Du har lagt märke till att när utvecklingsteamet använder Azure-portalen till att skapa en ny testinstans för appen använder de inte alltid exakt samma parametrar. Du tänker lösa problemet med hjälp av en uppsättning standardmässiga distributionskommandon för varje apptest, vilket kan automatiseras om det behövs och som fungerar på samma sätt i alla datorer som används av ditt programteam.
 
-In this module, you'll see how to manage Azure resources using the Azure CLI. 
+I den här modulen visar vi hur du hanterar Azure-resurser med Azure CLI. 
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att göra följande:
 
-In this module, you will:
+- Installera Azure CLI på Linux, macOS och/eller Windows.
+- Ansluta till en Azure-prenumeration med hjälp av Azure CLI.
+- Skapa Azure-resurser med Azure CLI.
 
-- Install the Azure CLI on Linux, macOS, and/or Windows.
-- Connect to an Azure subscription using the Azure CLI.
-- Create Azure resources using the Azure CLI.
-
-## Prerequisites  
-
-- Experience with a command-line interface, such as PowerShell or Bash
-- Knowledge of basic Azure concepts, such as resource groups
-- Experience administering Azure resources using the Azure portal
-- 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
+- Kunskaper om grundläggande Azure-begrepp, som exempelvis resursgrupper
+- Erfarenhet av att administrera Azure-resurser med hjälp av Azure-portalen

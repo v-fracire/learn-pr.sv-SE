@@ -1,0 +1,40 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-efficiency-and-operations.4-use-automation-to-reduce-effort-and-error
+title: Använda automatisering för att minska insatser och fel
+metadata:
+  title: Använda automatisering för att minska insatser och fel
+  description: I det här avsnittet kommer vi att se hur du kan använda automatisering för att minska insatser och fel
+  ms.openlocfilehash: 6a965bd1a9bad3cc40341d5c36e8f842008e731c
+  ms.sourcegitcommit: e394fdeec09107310bb48f3cae1745963ae669ca
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/01/2018
+  ms.locfileid: "43452469"
+durationInMinutes: 5
+content: >
+  [!include[](includes/4-use-automation-to-reduce-effort-and-error.md)]
+quiz:
+  title: Kunskapskontroll – Använda automatisering för att minska insatser och fel
+  questions:
+  - content: Vilket av följande kan inte användas till att automatisera distributionen av infrastruktur?
+    choices:
+    - content: Azure PowerShell
+      isCorrect: false
+      incorrectExplanation: Med Azure PowerShell kan du skapa skript för att automatisera distributionen av infrastruktur.
+    - content: Azure CLI
+      isCorrect: false
+      incorrectExplanation: Med Azure CLI kan du skapa skript för att automatisera distributionen av infrastruktur.
+    - content: Mallar för Resurshanteraren
+      isCorrect: false
+      incorrectExplanation: Med Resource Manager-mallar kan du helt automatisera distributionen av infrastrukturen.
+    - content: Azure Storage Explorer
+      isCorrect: true
+      correctExplanation: Azure Storage Explorer är ett verktyg för att hantera lagringskonton. Det innehåller inte funktioner för att automatisera distribution av infrastruktur.
+  - content: Azure Automation kan användas till att automatisera start/stopp av virtuella datorer när de inte används.
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Azure Automation är bra alternativ om du vill automatisera start/stopp av virtuella datorer när de inte används.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Azure Automation är bra alternativ om du vill automatisera start/stopp av virtuella datorer när de inte används.

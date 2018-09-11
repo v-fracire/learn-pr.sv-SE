@@ -1,26 +1,23 @@
-The **Data Science Virtual Machine** for Linux is a virtual-machine image that simplifies getting started with data science.Multiple tools are already built, installed, and configured to get you up and running quickly. The NVIDIA GPU driver, NVIDIA CUDA, and NVIDIA CUDA Deep Neural Network (cuDNN) library are also included, as are Jupyter and TensorFlow. All pre-installed frameworks are GPU-enabled but work on CPUs as well.
+**Data Science Virtual Machine** för Linux är en VM-avbildning som gör det enklare att komma igång med data science. Många verktyg har redan skapats, installerats och konfigurerats av oss för att du ska kunna komma igång så snabbt som möjligt. NVIDIA GPU-drivrutinen, NVIDIA CUDA och NVIDIA CUDA Deep Neural Network-biblioteket (cuDNN) ingår, liksom Jupyter och TensorFlow. Alla förinstallerade ramverk är GPU-kompatibla, men fungerar även bra tillsammans med vanliga processorer.
 
-## Learning objectives
+## <a name="what-is-covered-in-this-lab"></a>Vad går vi igenom i den här labbuppgiften?
 
-In this module, you will:
+ I den här labbuppgiften kommer du att göra följande:
+* skapa en Data Science VM för Linux i Azure
+* ansluta till din DSVM via fjärrskrivbordet
+* träna upp en TensorFlow-modell att klassificera bilder som innehåller varmkorvar och bilder som INTE innehåller varmkorvar
+* använda modellen i en Python-app.
 
-- Create a Linux Data Science Virtual Machine in Azure.
-- Connect to the DSVM via remote desktop.
-- Train a TensorFlow model to classify images as ones containing hot dogs and ones NOT containing hot dogs.
-- Use the model in a Python app.
+För att kunna göra den här labbuppgiften behöver du en Azure-prenumeration och fjärrskrivbordsklienten Xfce. Mer information finns i avsnittet om förutsättningar. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) innan du börjar.
 
-### Prerequisites
-<!---TODO: This is really long, need to make more concise and also add to index.yml--->
-<!---TODO: Update for free sandbox.--->
+### <a name="prerequisites-for-the-lab"></a>Förutsättningar för labbuppgiften
 
-To complete this module, you will need an Azure subscription and a Xfce remote-desktop client.
+ 1. **Microsoft Azure-konto**: du behöver ett giltigt och aktivt Azure-konto för den här labbuppgiften. Om du inte har ett sådant kan du registrera dig för en [kostnadsfri provperiod](https://azure.microsoft.com/en-us/free/)
 
- 1. **Microsoft Azure Account**: You will need a valid and active Azure account for this module. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/free/)
+    * Om du har en aktiv prenumeration på Visual Studio har du en kredit på 50–150 USD per månad. Om du följer [den här länken](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) kan du läsa mer om att aktivera och börja använda din månatliga Azure-kredit.
 
-    * If you are a Visual Studio Active Subscriber, you are entitled to a $50-$150 credit per month. You can refer to this [link](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to find out more, including how to activate and start using your monthly Azure credit.
+    * Om du inte prenumererar på Visual Studio kan du registrera dig för [Visual Studio Dev Essentials](https://www.visualstudio.com/dev-essentials/) utan kostnad och skapa ett **kostnadsfritt Azure-konto** (gäller för 1 års kostnadsfria tjänster, 200 USD för första månaden).
 
-    * If you are not a Visual Studio Subscriber, you can sign up for the FREE [Visual Studio Dev Essentials](https://www.visualstudio.com/dev-essentials/) program to create **Azure free account** (includes one year of free services, $200 for the first month).
+    * Om du är student kan du registrera dig för [Azure for Students](https://aka.ms/azure4students) utan kostnad och få 100 USD i Azure-krediter + ett års kostnadsfria tjänster, och du behöver inget kreditkort. 
 
-    * If you are a student, you can sign up for a free [Azure for Students](https://aka.ms/azure4students) account to get $100 in free Azure credits, plus a year of free services, with no credit card required. 
-
-1. An [Xfce](https://xfce.org/) remote-desktop client such as [X2Go](https://wiki.x2go.org/doku.php/download:start)
+1. En [Xfce](https://xfce.org/)-skrivbordsklient som [X2Go](https://wiki.x2go.org/doku.php/download:start)

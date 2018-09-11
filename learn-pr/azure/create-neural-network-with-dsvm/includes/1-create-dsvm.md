@@ -1,36 +1,51 @@
-### Create an Ubuntu Data Science VM
+### <a name="exercise-1-create-an-ubuntu-data-science-vm"></a>Övning 1: Skapa en Ubuntu Data Science VM
 
-The Data Science Virtual Machine for Linux is a virtual-machine image that simplifies getting started with data science. Multiple tools are already built, installed, and configured in order to get you up and running quickly. The NVIDIA GPU driver, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads) and the [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn) (cuDNN) library are also included, as are [Jupyter](http://jupyter.org/), several sample Jupyter notebooks, and [TensorFlow](https://www.tensorflow.org/). All pre-installed frameworks are GPU-enabled but work on CPUs as well. In this unit, you will create an instance of the Data Science Virtual Machine (DSVM) for Linux on Azure.
+Data Science Virtual Machine för Linux är en VM-avbildning som gör det lättare att komma igång med datavetenskap. Många verktyg har redan skapats, installerats och konfigurerats av oss för att du ska kunna komma igång så snabbt som möjligt. NVIDIA GPU-drivrutinen, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads) och [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn)-biblioteket (cuDNN) ingår, liksom [Jupyter](http://jupyter.org/), flera exempel på Jupyter Notebook och [TensorFlow](https://www.tensorflow.org/). Alla förinstallerade ramverk är GPU-kompatibla, men fungerar även bra tillsammans med vanliga processorer. I den här övningen ska du skapa en instans av Data Science Virtual Machine för Linux på Azure.
 
-1. Open the [Azure Portal](https://portal.azure.com/?azure-portal=true) in your browser.
+1. Öppna [Azure-portalen](https://portal.azure.com) i webbläsaren. Om du ombeds logga in ska du göra det med autentiseringsuppgifterna för ditt Microsoft-konto.
 
-1. Click **Create a resource** in the menu on the left side of the portal, and then type "data science" (without quotation marks) into the search box. Select **Data Science Virtual Machine for Linux (Ubuntu)** from the results list.
+1. Klicka på **+ Skapa en resurs** i menyn på vänster sida av portalen och skriv sedan ”data science” (utan citattecken) i sökfältet. Välj **Data Science Virtual Machine for Linux (Ubuntu)** i resultatlistan.
 
-    ![Finding the Ubuntu Data Science VM](../media-draft/1-new-data-science-vm.png)
+    ![Hitta en Ubuntu Data Science VM](../images/new-data-science-vm.png)
 
-1. Take a moment to review the list of tools included in the VM. Then, click **Create** at the bottom of the blade.
+    _Hitta en Ubuntu Data Science VM_
 
-1. Fill in the "Basics" blade as shown below. Provide a password that's at least 12 characters long containing a mix of uppercase letters, lowercase letters, numbers, and special characters. *Be sure to remember the user name and password that you enter, because you will need them later in the module.*
+1. Titta igenom listan med verktyg som medföljer den virtuella datorn. Klicka sedan på **Skapa** längst ned på bladet.
 
-    ![Entering basic information about the VM](../media-draft/1-create-data-science-vm-1.png)
+1. Fyll i bladet med grundinställningar enligt nedan. Ange ett lösenord som består av minst 12 tecken med en blandning av versaler, gemener, siffror och specialtecken. *Var noga med att komma ihåg det användarnamn och det lösenord som du anger, eftersom du behöver dem senare i labbuppgiften.*
 
-1. In the "Choose a size" blade, select **DS1_V2 Standard**, which provides a low-cost way to experiment with Data Science VMs. Then, click the **Select** button at the bottom of the blade.
+    ![Ange grundläggande information om den virtuella datorn](../images/create-data-science-vm-1.png)
 
-    ![Choosing a VM size](../media-draft/1-create-data-science-vm-2.png)
+    _Ange grundinställningar_
 
-1. In the **Settings** blade, check **SSH (22)** in the list of inbound ports so clients can connect to the VM using the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol on port 22. Then, click **OK**.
+1. På bladet Choose a size (Välj en storlek) väljer du **DS1_V2 Standard**, som ger dig möjlighet att experimentera med virtuella datorer för datavetenskap till en låg kostnad. Klicka på knappen **Välj** längst ned på bladet.
 
-    ![Creating the VM](../media-draft/1-create-data-science-vm-3.png)
+    ![Välja storlek på den virtuella datorn](../images/create-data-science-vm-2.png)
 
-1. In the **Create** blade, take a moment to review the options you selected for the VM, and click **Create** to start the VM creation process.
+    _Välja storlek på den virtuella datorn_
 
-    ![Creating the VM](../media-draft/1-create-data-science-vm-4.png)
+1. På bladet Inställningar markerar du **SSH (22)** i listan över ingående portar så att klienterna kan ansluta till den virtuella datorn med hjälp av protokollet [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) på port 22. Klicka sedan på **OK**.
 
-1. Click **Resource groups** in the menu on the left side of the portal. Then, click the **data-science-rg** resource group.
+    ![Skapa den virtuella datorn](../images/create-data-science-vm-3.png)
 
-    ![Opening the resource group](../media-draft/1-open-resource-group.png)
+    _Skapa den virtuella datorn_
 
-  
-1. Wait until "Deploying" changes to "Succeeded", indicating that DSVM and supporting Azure resources have been created. Deployment typically takes five minutes or less. Periodically click **Refresh** at the top of the blade to refresh the deployment status.
+1. Titta igenom de alternativ som du har valt för den virtuella datorn på bladet Skapa och sedan klicka på **Skapa** att starta framställningen av virtuella datorer.
 
-    ![Monitoring the deployment status](../media-draft/1-deployment-succeeded.png)
+    ![Skapa den virtuella datorn](../images/create-data-science-vm-4.png)
+
+    _Skapa den virtuella datorn_
+
+1. Klicka på **Resursgrupper** i menyn som visas till vänster i portalen. Klicka sedan på resursgruppen ”data-science-rg”.
+
+    ![Öppna resursgruppen](../images/open-resource-group.png)
+
+    _Öppna resursgruppen_
+
+1. Vänta tills statusen ”Distribuerar” ändras till ”Lyckades”. Detta är en indikation på att DSVM-datorn och alla stödjande Azure-resurser har skapats. Distributionen tar högst 5 minuter. Med jämna mellanrum klickar du på **Uppdatera** överst på bladet för att uppdatera distributionens status.
+
+    ![Övervaka distributionsstatus](../images/deployment-succeeded.png)
+
+    _Övervaka distributionsstatus_
+
+När distributionen är klar kan du gå vidare till nästa övning.

@@ -1,38 +1,38 @@
 ### YamlMime:ModuleUnit
 uid: learn.choose-storage-approach-in-azure.4-transactions
 metadata:
-  title: Group multiple operations in a transaction
-  description: Group multiple operations in a transaction
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Group multiple operations in a transaction
+  title: Gruppera flera åtgärder i en transaktion
+  description: Gruppera flera åtgärder i en transaktion
+  displayType: one-column
+  ms.openlocfilehash: deca0e972e897760f2179b8176dfdd079790a423
+  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43252615"
+title: Gruppera flera åtgärder i en transaktion
 durationInMinutes: 10
-content: |
+content: >
   [!include[](includes/4-transactions.md)]
 quiz:
-  title: 'Transactions'
+  title: Transaktioner
   questions:
-  - content: "What kind of system does the product data need?"
+  - content: Vilken typ av system behövs för produktdata?
     choices:
-    - content: "OLAP"
+    - content: OLAP
       isCorrect: false
-      incorrectExplanation: "No, an OLAP system is best for data that requires complex queries or transactions, and doesn't require low latency. The product data needs to be modified quickly, and needs a low-latency, high-throughput system."
-    - content: "OLTP"
+      incorrectExplanation: Nej, OLAP-system passar bäst för data där du behöver köra komplexa frågor eller transaktioner och där svarstiderna inte är kritiska. Produktdata måste kunna ändras snabbt, och då behövs ett system med korta svarstider och stora dataflöden.
+    - content: OLTP
       isCorrect: true
-      correctExplanation: "Yes, OLTP systems support lots of users, have quick response times, handle large volumes of data, are highly available, and typically handle small or relatively simple transactions, which is perfect for the product data set."
-  - content: "If the operations to update inventory and process payments were in the same transaction, and a user was attemtping to apply a store credit for the full amount and submitted the exact same order via phone and by laptop to an ACID-compliant database, what would happen?" 
+      correctExplanation: Ja, OLTP-system har stöd för många användare, korta svarstider, kan hantera stora mängder data, har hög tillgänglighet och hanterar oftast små eller relativt enkla transaktioner, vilket är perfekt för produktdata.
+  - content: Vad skulle hända om åtgärderna att uppdatera lagret och bearbeta betalningar låg i samma transaktion, och en användare skickade exakt samma order via telefon och bärbar dator till en ACID-kompatibel databas?
     choices:
-    - content: "The first order would complete, the remaining credit account would change to zero, and the second order would be updated to show that the user had no in-store credit remaining."
+    - content: Den första ordern skulle bearbetas, återstående kredit skulle ändras till noll och den andra ordern skulle uppdateras med information om att användaren inte hade någon återstående butikskredit
       isCorrect: false
-      incorrectExplanation: "No, due to the Isolation in transactional databases, the two transactions are handled independently, and the first transaction would not modify the second in-process transaction until the second transaction completed and failed."
-    - content: "One order would be processed and would use the in-store credit, and the other order would update the remaining inventory for the items in the basket, but would not complete the order."
+      incorrectExplanation: Nej, på grund av isoleringen i transaktionsdatabaser skulle de två transaktionerna hanteras oberoende av varandra. Den första transaktionen skulle inte ändra den andra pågående transaktionen förrän den andra transaktionen slutfördes och misslyckades.
+    - content: En order skulle bearbetas och använda upp butikskrediten, medan den andra ordern skulle uppdatera återstående lager för artiklarna i kundvagnen men inte slutföras
       isCorrect: false
-      incorrectExplanation: "No, due to the Atomicity in transactional databases, the second order would not update the remaining inventory for the failed order."
-    - content: "One order would be processed and would use the in-store credit, and the other order would not be processed."
+      incorrectExplanation: Nej, på grund av atomiciteten i transaktionsdatabaser skulle den andra ordern inte uppdatera återstående lager för den misslyckade ordern.
+    - content: En order skulle bearbetas och använda upp butikskrediten och den andra ordern skulle inte bearbetas
       isCorrect: true
-      correctExplanation: "Yes, once the second order determined the in-store credit had already been used, it would roll back the transaction."
-
+      correctExplanation: Ja, när den andra ordern avgör att butikskrediten redan har använts så skulle transaktion återställas.

@@ -1,85 +1,84 @@
-In this unit, we create an Azure function that's invoked every 20 seconds using a timer trigger.
+I den här övningen ska vi skapa en Azure-funktion som anropas var 20:e sekund med hjälp av en timerutlösare.
 
-## Create an Azure function
+## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-Let’s start by creating an Azure Function in the portal.
+Vi ska börja med att skapa en Azure-funktion på portalen.
 
-1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
 
-1. In the left navigation, select **Create a resource**.
+1. Välj **Skapa en resurs** i det vänstra navigeringsfönstret.
 
-1. Select **Compute**.
+1. Välj **Beräkna**.
 
-1. Locate and select **Function App**. You can also optionally use the search bar to locate the template.
+1. Leta upp och välj **Funktionsapp**. Du kan även använda sökfältet för att hitta mallen.
 
-    ![Screenshot of the Azure portal showing the Create a resource blade with the Function App highlighted.](../media/4-click-function-app.png)
+    ![Välj Funktionsapp](../media-drafts/4-click-function-app.png)
 
-1. Enter a unique **App name**.
+1. Ange ett unikt **appnamn**.
 
-1. Select a **Subscription**.
+1. Välj en **prenumeration**.
 
-1. Create a new **Resource Group**.
+1. Skapa en ny **resursgrupp**.
 
-1. Choose **Windows** as your **OS**.
+1. Välj **Windows** som **operativsystem**.
 
-1. Choose **Consumption Plan** for your **Hosting Plan**. You're charged for each execution of your function. Resources are automatically allocated based on your application workload.
+1. Välj **Förbrukningsplan** som **värdplan**. Du debiteras för varje körning av funktionen. Resurser tilldelas automatiskt baserat på programmets arbetsbelastning.
 
-1. Select a **Location**.
+1. Välj en **plats**.
 
-1. Create a new **Storage** account, you can change the name if you like - it will default to a variation of the App name
+1. Skapa ett nytt **lagringskonto**. Du kan ändra namnet om du vill – standardnamnet är en variant av appnamnet
 
-1. Turn off **Application Insights**.
+1. Inaktivera **Application Insights**.
 
-1. Select **Create**. This will take a few minutes to complete, you can watch the **Notifications** icon in the toolbar area - once it has finished creating the resource it will have a button there to open it in the Azure Portal.
+1. Välj **Skapa**. Åtgärden tar några minuter. Titta på **meddelandeikonen** i verktygsfältsområdet. När resursen har skapats visas en knapp där som du kan klicka på för att öppna resursen på Azure Portal.
 
-## Create a timer trigger
+## <a name="create-a-timer-trigger"></a>Skapa en timerutlösare
 
-Now we're going to create a timer trigger inside our Azure function.
+Nu ska vi skapa en timerutlösare i vår Azure-funktion.
 
-1. After the Azure function is created, select **All resources** from the left navigation.
+1. När Azure-funktionen har skapats väljer du **Alla resurser** i det vänstra navigeringsfönstret.
 
-1. Locate and select your Azure function.
+1. Leta upp och välj din Azure-funktion.
 
-1. On the new blade, point to **Functions** and select the plus (+) icon.
+1. Peka på **Funktioner** och välj plustecknet (+) på det nya bladet.
 
-    ![Screenshot of the Azure portal showing a Functions App blade with the add (+) button of the Functions sub-menu highlighted.](../media/4-hover-function.png)
+    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
 
-1. Select **Timer**.
+1. Välj **Timer**.
 
-1. Select **CSharp** as the language.
+1. Välj **CSharp** som språk.
 
-1. Select **Create this function**.
+1. Välj **Skapa den här funktionen**.
 
-## Configure the timer trigger
+## <a name="configure-the-timer-trigger"></a>Konfigurera timerutlösaren
 
-We have an Azure function with logic to print a message to the log window. We're going to set the schedule of the timer to execute every 20 seconds.
+Vi har en Azure-funktion med logik som skriver ut ett meddelande till loggfönstret. Vi ska ange timerns schema så att den körs var 20:e sekund.
 
-1. Select **Integrate**.
+1. Välj **Integrera**.
 
-1. Enter the following value into the **Schedule** box:
+1. Ange följande värde i rutan **Schema**:
 
-    ```log
+    ```
     */20 * * * * *
     ```
 
-1. Select **Save**.
+1. Välj **Spara**.
 
-## Start the timer
+## <a name="start-the-timer"></a>Starta timern
 
-Now that we've configured the timer, we're ready to start it.
+Nu när vi har konfigurerat timern är vi redo att starta den.
 
-1. Select **TimerTriggerCSharp1**.
+1. Välj **TimerTriggerCSharp1**. 
 
     > [!NOTE]
-    > **TimerTriggerCSharp1** is a default name. It's automatically selected when you create the trigger.
+    > **TimerTriggerCSharp1** är standardnamnet. Det väljs automatiskt när du skapar utlösaren.
 
-1. Select **Run**.
+1. Välj **Kör**. 
 
-At this point, you should see a message every 20 seconds in the log window.
+Du bör nu se ett meddelande i loggfönstret var 20:e sekund.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up"></a>Rensa
 
-To ensure that you aren't charged for this function, above the log window, select **Pause** to stop the timer.
+För att undvika att debiteras för den här funktionen väljer du **Pausa** ovanför loggfönstret för att stoppa timern.
 
-![Screenshot of the Azure portal showing a Functions App's Logs output panel with the Pause button highlighted.](../media/4-pause-timer.png)
+![Pausa](../media-drafts/4-pause-timer.png)

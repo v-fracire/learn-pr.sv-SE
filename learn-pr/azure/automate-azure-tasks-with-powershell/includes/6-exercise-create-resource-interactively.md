@@ -1,41 +1,39 @@
-Suppose you work at a company that makes a suite of Linux admin tools. Your job is to help potential customers try your software before they buy it. Because the software makes root-level changes to the OS, you have decided to create a Linux VM for each trial customer. You create the VMs as needed and delete them at the end of the trial subscription. This way, each customer starts with a clean version of the OS. 
+Anta att du arbetar på ett företag som tillverkar en uppsättning verktyg för Linux-administration. Ditt jobb är att hjälpa potentiella kunder att testa programvaran innan de köper den. Eftersom programvaran gör ändringar i operativsystemet på rotnivå har du valt att skapa en virtuell Linux-dator för varje utvärderingsversion. Du skapar de virtuella datorer som behövs och tar bort dem i slutet av provperioden. På så sätt börjar varje kund börjar med en ren version av operativsystemet. 
 
-To keep these VMs separate from the VMs your company uses for internal testing, you will create a dedicated resource group to house them. You only need one resource group so using Azure PowerShell in interactive mode is a reasonable choice for this task.
+Du håller de här virtuella datorerna åtskilda från företagets egna virtuella testdatorer genom att skapa en dedikerad resursgrupp för dem. Du behöver bara en resursgrupp, så det är lämpligt att använda Azure PowerShell i interaktivt läge för den här uppgiften.
 
-## Steps to create a resource group
-<!---TODO: Update for sandbox.--->
+## <a name="steps-to-create-a-resource-group"></a>Steg för att skapar en resursgrupp
 
-1. Launch PowerShell.
+1. Starta PowerShell.
 
-1. Import the module into the current session so you have access to the Azure cmdlets.
+1. Importera modulen till den aktuella sessionen så att du kommer åt cmdletarna i Azure.
 
    ```powershell
    Import-Module AzureRM
    ```
 
-1. Connect to Azure using the command shown below. After entering the command, authenticate by providing your Azure credentials.
+1. Anslut till Azure med kommandot nedan. När du har angett kommandot autentiserar du dig med dina autentiseringsuppgifter för Azure.
 
    ```powershell
    Connect-AzureRmAccount
    ```
 
-1. Create a resource group.
+1. Skapa en resursgrupp.
 
     ```powershell
     New-AzureRmResourceGroup -Name "TrialsResourceGroup" -Location "East US"
     ```
 
-1. Verify the resource group was created successfully.
+1. Kontrollera att resursgruppen har skapats.
 
     ```powershell
     Get-AzureRmResource | Format-Table
     ```
+Du kan också kontrollera att resursgruppen har skapats i Azure Portal. Det gör du genom att logga in på portalen och gå till avsnittet **Resursgrupper** (se nedan). Den nya resursgruppen ska visas i listan.
 
-Another way to check whether the resource group was created successfully is to use the Azure portal. To do this, login to the Portal and navigate to the **Resource Groups** section (see below). The new resource group should be displayed in the list.
+I den här bilden ser du kategorin Resursgrupper i Azure-portalen.
 
-The following screenshot shows the location of the Resource groups category in the Azure portal.
+![Bild av bladet Favoriter i Azure-portalen med kategorin Resursgrupper markerad.](../media/6-listing-resource-groups.png)
 
-![Screenshot of the Azure portal Favorites blade with the Resource group category highlighted.](../media/6-listing-resource-groups.png)
-
-## Summary
-This exercise shows a common pattern for an interactive PowerShell session. You used a standard cmdlet to import the AzureRM module and then the Azure PowerShell cmdlets to perform a specific task. You now have a resource group in your subscription and are ready to create VMs.
+## <a name="summary"></a>Sammanfattning
+I den här övningen visas ett vanligt mönster för en interaktiv PowerShell-session. Du använde en vanlig cmdlet till att importera AzureRM-modulen och sedan Azure PowerShell-cmdletar till att utföra en viss uppgift. Nu har du en resursgrupp i din prenumeration och är redo att skapa virtuella datorer.

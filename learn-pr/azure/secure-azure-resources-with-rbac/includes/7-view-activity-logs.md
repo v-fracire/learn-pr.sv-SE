@@ -1,44 +1,44 @@
-First Up Consultants reviews role-based access control (RBAC) changes quarterly for auditing and troubleshooting purposes. You know that changes get logged in [Azure Activity Log](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Your manager has asked if you can generate a report of the role assignment and custom role changes for the last month.
+First Up Consultants granskar ändringar i rollbaserad åtkomstkontroll (RBAC) kvartalsvis för att hitta eventuella fel. Du vet att ändringarna loggas i [Azure-aktivitetsloggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Din chef har bett dig att generera en rapport över rolltilldelningen och ändringar i anpassade roller under den senaste månaden.
 
-## View activity logs
+## <a name="view-activity-logs"></a>Visa aktivitetsloggar
 
-The easiest way to get started is to view the activity logs with the Azure portal.
+Det enklaste sättet att komma igång på är att visa aktivitetsloggarna i Azure Portal.
 
-1. Click **All services** and then find **Activity log**.
+1. Klicka på **Alla tjänster** och leta reda på **Aktivitetslogg**.
 
-    ![Activity logs using the portal](../media-draft/7-all-services-activity-log.png)
+    ![Aktivitetsloggar i portalen](../media-draft/7-all-services-activity-log.png)
 
-1. Click **Activity log**.
+1. Klicka på **Aktivitetslogg**.
 
-    ![Activity logs using the portal](../media-draft/7-activity-log-portal.png)
+    ![Aktivitetsloggar i portalen](../media-draft/7-activity-log-portal.png)
 
-1. Set the **Timespan** filter to **Last month**.
+1. Ange filtret **Tidsintervall** för att filtrera fram **Förra månaden**.
 
-1. Set the **Event category** filter to **Administrative**.
+1. Ange filtret **Händelsekategori** för att filtrera till **Administrativ**.
 
-1. In the **Operation** filter, type **role** to filter the list.
+1. I filtret **Åtgärd** skriver du **roll** för att filtrera listan.
 
-1. Select the following RBAC operations:
+1. Välj följande RBAC-åtgärder:
 
-    - Create role assignment (roleAssignments)
-    - Delete role assignment (roleAssignments)
-    - Create or update custom role definition (roleDefinitions)
-    - Delete custom role definition (roleDefinitions)
+    - Skapa rolltilldelning (roleAssignments)
+    - Ta bort rolltilldelning (roleAssignments)
+    - Skapa eller uppdatera en anpassad rolldefinition (roleDefinitions)
+    - Ta bort anpassad rolldefinition (roleDefinitions)
 
-    ![Operation filter](../media-draft/7-operation-filter.png)
+    ![Filtret Åtgärd](../media-draft/7-operation-filter.png)
 
-1. Click **Apply** to apply your filters.
+1. Klicka på **Tillämpa** för att tillämpa dina filter.
 
-    You'll see all the role assignment and role definition operations for the last month. It also includes a link to download the activity log as a CSV file.
+    Du ser alla rolltilldelnings- och rolldefinitionsåtgärder under den senaste månaden. Där finns också en länk för att hämta aktivitetsloggen som en CSV-fil.
 
-    ![RBAC activity logs](../media-draft/7-activity-log-portal-filter.png)
+    ![RBAC-aktivitetsloggar](../media-draft/7-activity-log-portal-filter.png)
 
-## End lab
+## <a name="end-lab"></a>Avsluta labbuppgift
 
-1. To end the lab, click the hamburger menu in the upper-right corner of this window and then click **End**.
+1. Om du vill avsluta labbuppgiften klickar du på hamburgermenyn i det övre högra hörnet i fönstret och sedan på **Avsluta**.
 
-1. Click **Yes, end my lab**.
+1. Klicka på **Ja, avsluta min labbuppgift**.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to use Azure Activity Log to list RBAC changes in the portal and generate a simple report.
+I det här avsnittet har du lärt att använda Azure-aktivitetsloggen till att göra en lista med RBAC-ändringar i portalen och generera en enkel rapport.

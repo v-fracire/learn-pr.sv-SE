@@ -1,41 +1,41 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-azure-storage-account.6-knowledge-check
-title: "Knowledge check: Create a storage account"
+title: 'Kunskapskontroll: Skapa ett lagringskonto'
 durationInMinutes: 3
 metadata:
-  title: "Knowledge check: Create a storage account"
-  description: Questions about storage account properties and creation.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: 'Kunskapskontroll: Skapa ett lagringskonto'
+  description: Frågor om lagringskontons egenskaper och hur de skapas.
+  ms.openlocfilehash: ab689dd2ef9802ce036ec683909b291c3b342370
+  ms.sourcegitcommit: c07e11980180ae35cb3485548f81e16152d77781
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43471751"
 quiz:
-  title: "Knowledge check: Create a storage account"
+  title: 'Kunskapskontroll: Skapa ett lagringskonto'
   questions:
-  - content: "Suppose you have two video files stored as blobs. One of the videos is business-critical and requires a replication policy that creates multiple copies across geographically diverse datacenters. The other video is non-critical, and a local replication policy is sufficient. True or false: To satisfy these constraints, the two blobs will need to be in separate storage accounts."
+  - content: 'Anta att du har två videofiler som lagrats som blobar. Den ena videon är affärskritisk och kräver en replikeringsprincip som skapar flera kopior i geografiskt spridda datacenter. Den andra videon är icke-kritisk och det räcker med en lokal replikeringsprincip. Sant eller falskt: För att uppfylla de här begränsningarna måste de två blobarna finnas på separata lagringskonton.'
     choices:
-    - content: "True"
+    - content: Sant
       isCorrect: true
-      correctExplanation: "Replication policy is a characteristic of a storage account. Every member in the storage account must use the same policy. If you need some data to use the geo-replication strategy and other data to use the local replication strategy, then you will need two storage accounts."
-    - content: "False"
+      correctExplanation: Replikeringsprincip är en egenskap för ett lagringskonto. Alla medlemmar i lagringskontot måste använda samma princip. Om vissa data måste använda strategin för geo-replikering och andra data måste använda strategin för lokal replikering behöver du två lagringskonton.
+    - content: Falskt
       isCorrect: false
-  - content: "The name of a storage account must be:"
+  - content: 'Namnet på ett lagringskonto måste vara:'
     choices:
-    - content: "Unique within the containing resource group."
+    - content: Unikt inom resursgruppen som innehåller det.
       isCorrect: false
-    - content: "Unique within your Azure subscription."
+    - content: Unikt inom din Azure-prenumeration.
       isCorrect: false
-    - content: "Globally unique."
+    - content: Globalt unikt
       isCorrect: true
-      correctExplanation: "The storage account name is used as part of the URI for API access, so it must be globally unique."
-  - content: "In a typical project, when would you create your storage account(s)?"
+      correctExplanation: Lagringskontots namn används som en del av URI:n för API-åtkomst, så det måste vara globalt unikt.
+  - content: När skulle du skapa lagringskonton i ett typiskt projekt?
     choices:
-    - content: "At the beginning, during project setup."
+    - content: I början, under projektkonfigurationen.
       isCorrect: true
-      correctExplanation: "Storage accounts are usually stable for the lifetime of a project. It is common to create them at the start of a project."
-    - content: "After deployment, when the project is running."
+      correctExplanation: Lagringskonton är vanligtvis stabila under ett projekts livslängd. Det är vanligt att skapa dem i början av ett projekt.
+    - content: Efter distributionen, när projektet är igång.
       isCorrect: false
-    - content: "At the end, during resource cleanup."
+    - content: I slutet, vid rensning av resurser.
       isCorrect: false

@@ -1,50 +1,53 @@
-In this unit, we're going to create an Azure function that accepts an HTTP request with a single string. The function returns a string back to the caller to represent success or failure.
+I den här övningen ska vi skapa en Azure-funktion som tar emot en HTTP-begäran med en enda sträng. Funktionen returnerar en sträng till anroparen som anger om åtgärden lyckades eller misslyckades.
 
-## Create an HTTP trigger
+## <a name="create-an-http-trigger"></a>Skapa en HTTP-utlösare
 
-Let's continue using our existing Azure Functions application and add an HTTP trigger.
+Vi ska fortsätta att använda vår befintliga Azure Functions-app och lägger till en HTTP-utlösare.
 
-1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
 
-1. Point to **Functions** and select the plus (+) icon.
+1. Peka på **Funktioner** och välj plustecknet (+).
 
-1. Select **HTTP trigger**.
+    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
 
-1. Select **C#** as the language.
+1. Välj **HTTP-utlösare**.
 
-1. Leave the **Name** set to the default value.
+1. Välj **C#** som språk. 
 
-1. Set the **Authorization level** to **Anonymous**.
+1. Lämna standardvärdet för **Namn**.
 
-1. Select **Create**.
+1. Välj **Anonym** för **Auktorisationsnivå**.
 
-1. Take a quick look at the auto-generated code to get an idea about what's going on. The *req* parameter represents the incoming request and contains a *name* parameter. We check to see if *name* has a value. If it does, we return a greeting. Otherwise, we return an error message.
+1. Välj **Skapa**.
 
-## Get your function URL
+1. Ta en titt på den automatiskt genererade koden så att du får en uppfattning om vad som sker. Parametern *req* representerar den inkommande begäran och innehåller parametern *name*. Vi kontrollerar om *name* har ett värde. I så fall returnerar vi en hälsning. Annars returnerar vi ett felmeddelande.
 
-Now that we've created the HTTP trigger, let's get the function URL so we can begin to make a request.
+## <a name="get-your-function-url"></a>Hämta funktionens webbadress
 
-1. Select your HTTP trigger to open the code screen.
+Nu när vi har skapat HTTP-utlösaren ska vi hämta funktionens webbadress så att vi kan börja skapa en begäran.
 
-1. To the right of **Run**, select **Get function URL**.
+1. Välj HTTP-utlösaren för att öppna kodskärmen.
 
-1. Select **Copy**.
+1. Välj **Hämta funktionswebbadress** till höger om **Kör**.
 
-1. Select **Run** to start your function.
+1. Välj **Kopiera**.
 
-## Issue a GET request to your HTTP trigger
+1. Välj **Kör** för att starta funktionen.
 
-We now have our function URL copied to our clipboard. Let's issue a GET request to see if we get a response.
+## <a name="issue-a-get-request-to-your-http-trigger"></a>Skicka en GET-begäran till HTTP-utlösaren
 
-1. Open a new tab in your web browser.
+Nu har vi kopierat funktionens webbadress till Urklipp. Vi ska skicka en GET-begäran och se om vi får något svar.
 
-1. Paste the URL into the address bar.
+1. Öppna en ny flik i webbläsaren.
 
-1. Add a query string parameter called *name* with your name for example `.../api/HttpTriggerCSharp1?name=Jesse`
+1. Klistra in webbadressen i adressfältet.
 
-1. Select ENTER to submit the request.
+1. Lägg till en frågesträngsparameter med namnet *name* med ditt eget namn, till exempel `.../api/HttpTriggerCSharp1?name=Jesse`
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+1. Klicka på Retur för att skicka begäran.
 
-To ensure that you aren't charged for this function, select **Pause** above the log window.
+## <a name="clean-up"></a>Rensa
+
+För att undvika att debiteras för den här funktionen väljer du **Pausa** ovanför loggfönstret.
+
+![Pausa](../media-drafts/4-pause-timer.png)

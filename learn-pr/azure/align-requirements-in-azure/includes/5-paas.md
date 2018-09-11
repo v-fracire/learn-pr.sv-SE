@@ -1,27 +1,27 @@
-Platform as a service (PaaS) is a complete development and deployment environment in the cloud. With PaaS, you can build and deploy everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. You purchase the resources from a cloud service provider on a pay-as-you-go basis and access them over a secure Internet connection. Like IaaS, PaaS includes infrastructure such as servers, storage, and networking. In addition, it also includes middleware, development tools, and other services. PaaS supports the complete web application lifecycle: building, testing, deploying, managing, and updating. PaaS removes the need to manage software licenses, middleware, and infrastructure of the services. You manage the applications and services you develop, and the cloud service provider typically manages everything else.
+Plattform som en tjänst (PaaS) är en komplett miljö för utveckling och distribution i molnet. Med PaaS kan du skapa och distribuera allt från enkla molnbaserade appar till avancerade, molnkompatibla företagsprogram. Du köper resurserna från en molntjänstleverantör enligt modellen betala per användning, och du har tillgång till dem via en säker Internetanslutning. Precis som med IaaS inkluderar PaaS infrastruktur som servrar, lagring och nätverk. Dessutom inkluderar det även mellanprogram, utvecklingsverktyg och andra tjänster. PaaS har stöd för hela livscykeln för webbappar: skapande, testning, distribution, hantering och uppdatering. Med PaaS behöver du inte hantera programvarulicenser, mellanprogram eller tjänsternas infrastruktur. I stället hanterar du de program och tjänster du utvecklar, medan molntjänstleverantören vanligtvis hanterar allt annat.
 
-### Common scenarios
+### <a name="common-scenarios"></a>Vanliga scenarier
 
-Let's imagine your healthcare company needs a website to describe a product. Your developers want to use PHP. Using PaaS, your developers have the option to *create a web app*. The infrastructure details such as creating a virtual machine, installing a web server, and installing middleware are abstracted away. You don't need to care what operating system it runs on or what physical hardware is required. Your developers deploy the website files to the cloud and your website is available on the Internet.
+Låt oss anta att ditt hälsovårdsföretag behöver en webbplats för att beskriva en produkt. Utvecklarna vill använda PHP. Med PaaS kan utvecklarna *skapa en webbapp*. Detaljerna i infrastrukturen, som att skapa en virtuell dator, installera en webbserver och installera mellanprogram döljs via abstraktioner. Du behöver inte bry dig om vilket operativsystem appen körs i eller vilken fysisk maskinvara som krävs. Utvecklarna distribuerar filerna för webbplatsen till molnet och webbplats är tillgänglig på Internet.
 
-Let's imagine another scenario. Your company needs a SQL database to support data analysts for a special project. You don't have infrastructure to accommodate the request. You can quickly provision a SQL Server in the cloud that meets the need of the project. The data analysts can connect to the server. The SQL Server database is provided as a service. Therefore, you don't worry about updates, security patches, or optimizing physical storage for reads and writes.
+Vi tänker oss ett annat scenario. Ditt företag behöver en SQL-databas till dataanalysen i ett visst projekt. Du har inte den infrastruktur som behövs för det här. Du kan snabbt etablera en SQL Server-instans i molnet som uppfyller behoven i projektet. Dataanalytikerna kan ansluta till servern. SQL Server-databasen tillhandahålls som en tjänst. Därför behöver du inte bekymra dig om uppdateringar, säkerhetsuppdateringar eller optimering av den fysiska lagringen för läsning och skrivning.
 
-Some other common scenarios include:
+Här är några andra vanliga scenarier:
 
-**Development framework:** PaaS provides a framework that developers can build upon to develop or customize cloud-based applications. Similar to the way you create an Excel macro, PaaS lets developers create applications using built-in software components. Cloud features such as scalability, high-availability, and multi-tenant capability are included, reducing the amount of coding that developers must do.
+**Utvecklingsramverk:** Med PaaS får du ett ramverk som utvecklare kan bygga vidare på när de ska skapa eller anpassa molnbaserade program. Ungefär som när du skapar ett Excel-makro så kan utvecklare skapa program med hjälp av inbyggda programkomponenter. Molnfunktioner som skalbarhet, hög tillgänglighet och flera klientorganisationer ingår, vilket innebär mindre kodning för utvecklarna.
 
-**Analytics or business intelligence:** Analysis tools provided as a service allows you to analyze and mine data. Organizations can find insights and patterns to predict outcomes to improve forecasting, product design decisions, investment returns, and other business decisions.
+**Analys eller business intelligence:** Analysverktyg tillhandahålls som en tjänst och gör att du kan analysera och utvinna data. Organisationer kan hitta insikter och mönster som ger bättre prognoser, beslut kring produktutvecklingen, avkastning på investeringar och andra affärsbeslut.
 
-### Advantages
+### <a name="advantages"></a>Fördelar
 
-By delivering infrastructure as a service, PaaS has similar advantages as IaaS. But its additional features including middleware, development tools, and other business tools provide additional advantages:
+Eftersom infrastrukturen levereras som en tjänst har PaaS ungefär samma fördelar som IaaS. Funktionerna som mellanprogram, utvecklingsverktyg och andra affärsverktyg ger dock ytterligare fördelar:
 
-**Reduced development time:** PaaS development tools can reduce development time for new applications. Developers can use pre-coded application components built into the platform, such as workflow, directory services, security features, and search. Platform as a service components can give your development team new capabilities without you needing to add staff having the required skills.
+**Kortare utvecklingstider:** PaaS-utvecklingsverktygen kan korta ned utvecklingstiden för nya program. Utvecklare kan använda förkodade programkomponenter som är inbyggda i plattformen, såsom komponenter för arbetsflöden, katalogtjänster, säkerhetsfunktioner och sökning. Med PaaS-komponenter kan utvecklingsteamet göra mer utan att du behöver anställa personal med rätt kompetens.
 
-**Develop for multiple platforms:** Some service providers give you development options for multiple platforms, such as desktop, mobile devices, and browsers making cross-platform apps quicker and easier to develop.
+**Utveckla för flera plattformar:** Vissa tjänsteleverantörer erbjuder utvecklingsalternativ för flera plattformar, som stationära datorer, mobila enheter och webbläsare, så att det går snabbare att utveckla plattformsoberoende appar.
 
-**Use sophisticated tools affordably:** A pay-as-you-go model makes it possible for individuals or organizations to use sophisticated development software and business intelligence and analytics tools that they could not afford to purchase outright.
+**Använd avancerade verktyg till låg kostnad:** I modellen med betalning per användning kan individer och organisationer använda avancerade utvecklingsprogram samt verktyg för business intelligence och analys som de inte skulle ha råd att köpa in direkt.
 
-**Support geographically distributed development teams:** Because the development environment is accessed over the Internet, development teams can work together on projects even when team members are at remote locations.
+**Stöd för geografiskt utspridda utvecklingsteam:** Eftersom utvecklingsmiljön är tillgänglig via Internet kan utvecklingsteamen samarbeta i projekt även när de befinner sig på olika platser.
 
-**Efficiently manage the application lifecycle:** PaaS provides all of the capabilities that you need to support the complete web application lifecycle: building, testing, deploying, managing, and updating within the same integrated environment.
+**Hantera programmets livscykel effektivt:** Med PaaS får du alla funktioner du behöver för programmets hela livscykel: du kan skapa, testa, distribuera, hantera och uppdatera det i samma integrerade miljö.

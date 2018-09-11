@@ -1,61 +1,69 @@
-In this module, you will deploy a simple web application that presents an HTML-based user interface. A serverless back end enables the application to upload images and automatically generate descriptive captions.
+I den här modulen ska du distribuera ett enkelt webbprogram som visar ett HTML-baserad användargränssnitt. Med en serverlös funktion kan programmet ladda upp bilder och automatiskt hämta bildtexter som beskriver bilderna.
 
-![Running web app](../media/0-app-screenshot-finished.png)
+![Webbapp som körs](../media/0-app-screenshot-finished.png)
 
-The following diagram shows the Azure services that are used by the application.
+I följande diagram visas de Azure-tjänster som används av programmet.
 
-![Solution architecture diagram](../media/0-architecture.jpg)
+1. Azure Blob Storage hanterar statiskt webbinnehåll (HTML, CSS och JS) och lagrar bilder.
+2. Azure Functions hanterar uppladdning, storleksändring och metadatalagring för bilder.
+3. Azure Cosmos DB lagrar bildmetadata.
+4. Azure Logic Apps hämtar bildtexter från API:et för visuellt innehåll i Cognitive Services.
+5. Azure Active Directory hanterar användarautentisering.
 
-1. Azure Blob storage serves static web content (HTML, CSS, JS) and stores images.
-2. Azure Functions manages image uploads, resizing, and metadata storage.
-3. Azure Cosmos DB stores image metadata.
-4. Azure Logic Apps retrieves image captions from the Cognitive Services Computer Vision API.
-5. Azure Active Directory manages user authentication.
+![Diagram över lösningsarkitektur](../media/0-architecture.jpg)
 
-Azure Blob storage is a low-cost and massively scalable service that can be used to host static files. In this module, you will use Blob storage to serve static content (for example, HTML, JavaScript, or CSS) for a web app you build.
+I den här kursdelen lär du dig att:
+> [!div class="checklist"]
+> * Konfigurera Azure Blob Storage att lagra en statisk webbplats och uppladdade bilder.
+> * Ladda upp bilder till Azure Blob Storage med hjälp av Azure Functions.
+> * Ändra storlek på bilder med hjälp av Azure Functions.
+> * Lagra bildmetadata i Azure Cosmos DB.
+> * Använd API:et för visuellt innehåll i Cognitive Services för att skapa bildtexter automatiskt.
+> * Använd Azure Active Directory för att skydda webbappen med användarautentisering.
 
-## Create an Azure Storage account
-<!---TODO: Update for sandbox?--->
+Azure Blob Storage är en tjänst med extremt hög skalbarhet för lagring av statiska filer till låg kostnad. I den här självstudien använder du tjänsten för att hantera statiskt innehåll (till exempel HTML, JavaScript, CSS) för en webbapp som du skapar.
 
-An Azure Storage account is an Azure resource that allows you to store tables, queues, files, blobs (objects), and virtual machine disks.
+## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
-1. Select the **Enter focus mode** button to launch Azure Cloud Shell (Bash). This button is at the top right or the bottom of the page, depending on how wide your browser window is. Focus mode docks a Cloud Shell window on the right side of your browser window, so you can easily execute commands that are shown in the tutorial.
+Ett Azure Storage-konto är en Azure-resurs där du kan lagra tabeller, köer, filer, blobbar (objekt) och VM-diskar.
 
-1. In Azure, a resource group is a container that holds related Azure resources for ease of management. Create a new resource group named **first-serverless-app**.
+1. Välj knappen **Enter focus mode** (Använd fokusläge) för att starta Azure Cloud Shell (Bash). Knappen finns längst upp till höger eller längst ned på sidan, beroende på hur stort ditt webbläsarfönster är. I fokusläge dockas Cloud Shell-fönstret till höger i webbläsarfönstret, så att du enkelt kan köra kommandona som beskrivs i självstudien.
+
+1. I Azure är en resursgrupp en container med relaterade Azure-resurser som underlättar hanteringen. Skapa en ny resursgrupp med namnet **first-serverless-app**.
 
     ```azurecli
     az group create -n first-serverless-app -l westcentralus
     ```
 
-1. The static content (HTML, CSS, and JavaScript files) for this tutorial is hosted in Blob storage. Blob storage requires a Storage account. Create a general-purpose v2 (GPv2) Storage account in the resource group. Replace `<storage account name>` with a unique name.
+1. Det statiska innehållet (HTML-, CSS- och JavaScript-filer) för den här självstudiekursen finns i Blob Storage. För Blob Storage krävs ett lagringskonto. Skapa ett lagringskonto (generell användning V2) i resursgruppen. Ersätt `<storage account name>` med ett unikt namn.
 
     ```azurecli
     az storage account create -n <storage account name> -g first-serverless-app --kind StorageV2 -l westcentralus --https-only true --sku Standard_LRS
     ```
     
-1. Use the Search bar at the top of the [Azure portal](https://portal.azure.com/?azure-portal=true) to find the storage account that you just created. Open the account.
+1. Använd sökfältet överst i [Azure Portal](https://portal.azure.com) för att leta rätt på det lagringskonto som du just skapade. Öppna kontot.
 
-1. On the left navigation, select **Static website (preview)** to configure a container for static website hosting.
-    - Select **Enabled** to enable a static website.
-    - Enter **index.html** as the index document name. The box already has *index.html* in a gray font, but this is only example text. You still have to enter **index.html** in the box.
-    - Click **Save**.
+1. Välj **Statisk webbplats (förhandsversion)** i det vänstra navigeringsfönstret för att konfigurera en container för lagring av statiskt webbplatsinnehåll.
+    - Välj **Aktiverad** för att aktivera en statisk webbplats.
+    - Ange **index.html** som namn på indexdokumentet. I fältet står det redan *index.html* med grått teckensnitt, men det är bara exempeltext. Du måste ändå ange **index.html** i fältet.
+    - Klicka på **Spara**.
     
-    ![Enter static website settings](../media/1-storage-static-website.png)
+    ![Ange inställningar för statisk webbplats](../media/1-storage-static-website.png)
 
-1. Save the **Primary Endpoint** in a place where you can conveniently copy it from while working through the tutorial. This endpoint is the URL of your web application.
+1. Spara den **primära slutpunkten** på en plats som du enkelt kan kopiera den från när du går igenom självstudien. Denna slutpunkt är webbadressen för ditt webbprogram.
 
-## Upload the web application
+## <a name="upload-the-web-application"></a>Ladda upp webbprogrammet
 
-1. The source files for the application that you build in this tutorial are located in a [GitHub repository](https://github.com/Azure-Samples/functions-first-serverless-web-application). Go to your home directory in Cloud Shell and clone this repository.
+1. Källfilerna för programmet som du skapar i den här självstudien finns på en [GitHub-lagringsplats](https://github.com/Azure-Samples/functions-first-serverless-web-application). Kontrollera att du är i din hemkatalog i Cloud Shell och klona lagringsplatsen.
 
     ```azurecli
     cd ~
     git clone https://github.com/Azure-Samples/functions-first-serverless-web-application
     ```
 
-    The repository is cloned to `/home/<username>/functions-first-serverless-web-application`.
+    Lagringsplatsen klonas till `/home/<username>/functions-first-serverless-web-application`.
 
-1. The client-side web application is located in the **www** folder and is built using the Vue.js JavaScript framework. Open the **www** folder and run **npm** commands to install the application dependencies and build the application. The last of these commands might take several minutes to complete.
+1. Webbprogrammet på klientsidan finns i mappen **www** och skapas med hjälp av JavaScript-ramverket Vue.js. Växla till mappen och kör **npm**-kommandon för att installera programmets beroenden och skapa programmet. Det sista av kommandona kan ta flera minuter att slutföra.
 
     ```azurecli
     cd ~/functions-first-serverless-web-application/www
@@ -63,20 +71,20 @@ An Azure Storage account is an Azure resource that allows you to store tables, q
     npm run generate
     ```
 
-    The application is generated in the **dist** folder.
+    Programmet genereras i mappen **dist**.
 
-1. Change the current directory to the **dist** folder and upload the application to the **$web** blob container.
+1. Ändra aktuell katalog till mappen **dist** och ladda upp programmet till blobcontainern **$web**.
 
     ```azurecli
     cd dist
     az storage blob upload-batch -s . -d \$web --account-name <storage account name>
     ```
 
-1. To view the application, open the static website’s primary endpoint URL in a web browser.
+1. Visa programmet genom att öppna webbadressen för den primära slutpunkten för statiska webbplatser i lagringskontot i en webbläsare.
 
-    ![First serverless web app home page](../media/1-app-screenshot-new.png)
+    ![Startsida för den första serverlösa webbappen](../media/1-app-screenshot-new.png)
 
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created a resource group named **first-serverless-app** that contains a Storage account. A blob container named **$web** in the Storage account stores the static content for your web application and makes the content publicly available. Next, you will learn how to use a serverless function to upload images to Blob storage from this web application.
+I den här kursdelen har du skapat en resursgrupp med namnet **first-serverless-app** som innehåller ett lagringskonto. En blobcontainer med namnet **$web** i lagringskontot lagrar webbappens statiska innehåll och gör innehållet offentligt tillgängligt. I nästa avsnitt lär du dig använda en serverlös funktion för att ladda upp bilder till Blob Storage från det här webbprogrammet.

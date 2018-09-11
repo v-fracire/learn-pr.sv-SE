@@ -1,29 +1,29 @@
-Now that you understand how request units are used to determine database throughput and how the partition key creates the scale-out strategy for your database, you're ready to create your database and collection.
+Nu när du förstår hur enheter för programbegäran används för att fastställa databasens dataflöde och hur partitionsnyckeln skapar utskalningsstrategin för din databas, är du redo att skapa din databas och samling.
 
-## Creating your database and collection
+## <a name="creating-your-database-and-collection"></a>Skapa databas och samling
 
-1. In the Azure Portal, select **Data Explorer** from your Cosmos DB resource and then click the **New Collection** button in the toolbar.
+1. På Azure-portalen väljer du **Datautforskaren** från Cosmos DB-resursen och klickar sedan på **Ny samling** i verktygsfältet.
     
-    The **Add Collection** area is displayed on the far right. You may need to scroll right to see it.
+    Området **Lägg till samling** visas längst till höger. Du kan behöva rulla till höger för att se den.
 
-    ![The Azure portal Data Explorer, Add Collection blade](../media-draft/5-azure-cosmosdb-data-explorer.png)
+    ![Datautforskaren i Azure-portalen, bladet Lägg till samling](../media/5-create-a-database-and-collection/azure-cosmosdb-data-explorer.png)
 
-1. In the **Add collection** page, enter the settings for the new collection.
+2. På sidan **Lägg till samling** anger du inställningarna för den nya samlingen.
 
-    Setting | Suggested value | Description
+    Inställning | Föreslaget värde | Beskrivning
     --------|-----------------|-------------
-    Database id      | Products         | Enter *Products* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain /, \\, #, ?, or a trailing space.
-    Collection id    | Clothing  | Enter *Clothing* as the name for your new collection. Collection ids have the same character requirements as database names.
-    Storage capacity | Unlimited     | Use the default value of **Unlimited**. This value is the storage capacity of the database, and it enables your database to scale out as needed.
-    Partition key    | productId        | productId is a good partition key for an online retail scenario, as so many queries are based around the product ID.
-    Throughput       |1000 RU        | Change the throughput to 1000 request units per second (RU/s). 1000 is the minimum RU/s value you can set to enable automatic scaling.
+    Databas-id      | Användare         | Ange *Användare* som namn på den nya databasen. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg.
+    Samlings-id    | WebCustomers  | Ange *WebCustomers* som namn på din nya samling. Samma teckenkrav gäller för samlings-ID:n som databasnamn.
+    Lagringskapacitet | Obegränsat     | Använd standardvärdet **Obegränsat**. Det här värdet är databasens lagringskapacitet som gör det möjligt att skala upp din databas vid behov.
+    Partitionsnyckeln    | UserID        | UserID är en bra partitionsnyckel i ett scenario med nätbutiker, eftersom så många frågor baseras på kund-ID:n.
+    Dataflöde       |1 000 RU        | Ändra genomflödet till 1 000 enheter för programbegäran per sekund (RU/s). 1 000 är det minsta RU/s-värde som du kan ange för att aktivera automatisk skalning.
     
-    For now, don't check the **Provision database throughput** option, and don't add any unique keys to the collection.
+    För tillfället markerar vi inte alternativet **Etablera databasens dataflöde** och vi lägger inte heller till några unika nycklar i samlingen. 
     
-1. Click **OK**. The Data Explorer will display the new database and collection.
+3. Klicka på **OK**. Datautforskaren visar den nya databasen och samlingen.
 
-    ![The Azure portal Data Explorer, showing the new database and collection](../media-draft/5-azure-cosmos-db-new-collection.png)
+    ![Datautforskaren i Azure-portalen visar den nya databasen och samlingen](../media/5-create-a-database-and-collection/azure-cosmos-db-new-collection.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you used your knowledge of partition keys and request units to create a database and collection with throughput and scaling settings appropriate for your business needs.
+I den här enheten använde du dina kunskaper om partitionsnycklar och enheter för programbegäran till att skapa en databas och en samling med ett dataflöde och en skalning som passar dina affärsbehov.

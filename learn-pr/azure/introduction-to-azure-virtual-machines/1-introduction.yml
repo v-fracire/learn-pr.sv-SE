@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.introduction-to-azure-virtual-machines.1-introduction
+title: Introduktion till Azure Virtual Machines
+metadata:
+  title: Introduktion till Azure Virtual Machines
+  description: Introduktion till Azure Virtual Machines
+  ms.openlocfilehash: 4f5f3944470f34af29eb8c8827296fe37cde3c48
+  ms.sourcegitcommit: ee277f4207efa50a4f7c657b47725be7f8c45489
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43475655"
+durationInMinutes: 2
+content: '[!include[](includes/1-introduction.md)]'

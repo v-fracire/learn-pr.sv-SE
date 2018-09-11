@@ -1,25 +1,25 @@
-Azure Key Vault is a *secret store*: a centralized cloud service for storing application secrets. Key Vault helps prevent the above scenarios by keeping application secrets in a single central location and providing secure access, permissions control, and access logging.
+Azure Key Vault är ett *hemligt arkiv*: en centraliserad molntjänst för lagring av programhemligheter. Key Vault hjälper till att förhindra ovannämnda scenarier genom att lagra programhemligheter på en enda central plats och tillhandahåller säker åtkomst, behörighetskontroll och loggning av användaråtkomst.
 
-The main benefits of using Key Vault are:
+De främsta fördelarna med att använda Key Vault är dessa:
 
-- Reduced risk of accidental secret leaks by storing secrets securely, outside of configuration and source control, and eliminating scenarios where secrets are copied around in files or pasted into emails or chats
-- Restricted secret access with access policies tailored to the applications and individuals that need them
-- Centralized secret storage, so that multiple users and instances of applications can access secret values that only need to be updated in one place
-- Access logging and monitoring to help you understand how and when secrets are accessed
+- Minskad risk för oavsiktliga hemlighetsläckage genom att hemligheter lagras säkert, utanför konfiguration och källkontroll, och scenarier elimineras där hemligheter kopieras i filer eller klistras in i e-postmeddelanden eller chattar.
+- Begränsad åtkomst till hemligheter med åtkomstprinciper som är specialanpassade utifrån de program och personer som behöver dem.
+- Centraliserad lagring av hemligheter, så att flera användare och instanser av program kan komma åt hemliga värden som bara behöver uppdateras på ett enda ställe.
+- Åtkomstloggning och -övervakning som hjälper dig att förstå hur och när hemligheter används.
 
-Secrets are stored in individual *vaults*, which are Azure resources with their own configuration and security policies that you can create with any of the standard Azure management tools like the Azure portal or the Azure CLI. Secret access and vault management is accomplished via a REST API, which is also supported by all of the Azure management tools as well as client libraries available for many popular languages. Every vault has a unique URL where its API is hosted.
+Hemligheter lagras i enskilda *valv* som är Azure-resurser med egna konfigurations- och säkerhetsprinciper som du kan skapa med något av de vanliga Azure-hanteringsverktygen som Azure-portalen eller Azure CLI. Hemlighetsåtkomst och valvhantering sker via ett REST-API som även stöds av alla Azure-hanteringsverktyg samt klientbibliotek som är tillgängliga på många populära språk. Varje valv har en unik webbadress där dess API finns.
 
 > [!IMPORTANT]
-> **Key Vault is designed to store configuration secrets for server applications.** It's not intended for storing data belonging to your app's users, and it shouldn't be used in the client-side part of an app. This is reflected in its performance characteristics, API, and cost model.
+> **Key Vault är utformat för att lagra konfigurationshemligheter för serverprogram.** Det är inte avsett för att lagra data som tillhör appanvändarna, och det bör inte användas i en apps klientsida. Det återspeglas i dess prestandaegenskaper, API och kostnadsmodell.
 >
-> User data should be stored elsewhere, such as in an Azure SQL database with Transparent Data Encryption, or a storage account with Storage Service Encryption. Secrets used by your application to access those data stores can be kept in Key Vault.
+> Användardata ska lagras någon annanstans, som i en Azure SQL-databas med transparent datakryptering eller ett lagringskonto med Storage Service Encryption. Du kan förvara hemligheter som används av ditt program för att få åtkomst till dessa datalager.
 
-## What is a secret in Key Vault?
+## <a name="what-is-a-secret-in-key-vault"></a>Vad är en hemlighet i Key Vault?
 
-In Key Vault, a secret is a name-value pair of strings. Secret names must be 1-127 characters long, contain only alphanumeric characters and dashes, and must be unique within a vault. A secret value can be any UTF-8 string up to 25 KB in size.
+I Key Vault är en hemlighet ett namn-värde-par med strängar. Hemliga namn måste vara mellan 1 och 127 tecken långa, får endast innehålla alfanumeriska tecken och streck och måste vara unikt inom ett valv. Ett hemligt värde kan vara valfri UTF-8-sträng upp till 25 KB.
 
 > [!TIP]
-> Secret names don't need to be considered especially secret themselves. You can store them in your app's configuration if your implementation calls for it. The same is true of vault names and URLs.
+> Hemliga namn måste inte betraktas som särskilt hemliga i sig. Du kan lagra dem i appens konfiguration om implementationen anropar den. Samma gäller för valvnamn och webbadresser.
 
 > [!NOTE]
-> Key Vault supports two additional kinds of secrets beyond strings &mdash; *keys* and *certificates* &mdash; and provides useful functionality specific to their use cases. This module does not cover these features and concentrates on secret strings like passwords and connection strings.
+> Key Vault stöder ytterligare två typer av hemligheter utöver strängar &mdash; *nycklar* och *certifikat* &mdash; och tillhandahåller praktiska funktioner som är specifika för deras användningsområden. Den här modulen täcker inte dessa funktioner och koncentrerar sig på hemliga strängar som lösenord och anslutningssträngar.

@@ -1,59 +1,59 @@
-Complex or repetitive tasks often take a great deal of administrative time. Organizations prefer to automate these tasks to reduce costs and avoid errors.
+Komplexa och repetitiva aktiviteter kan ofta kräva mycket administration. Organisationer vill gärna automatisera sådana uppgifter för att minska kostnaderna och undvika fel.
 
-This is important in the Customer Relationship Management (CRM) company example. There, you test your software on multiple Linux Virtual Machines (VMs) that you need to continuously delete and recreate. You want to use a PowerShell script to automate the creation of the VMs.
+Det här är viktigt i CRM-exemplet (Customer Relationship Management). Där får du testa din programvara på flera virtuella Linux-datorer (VM) som du tar bort och återskapar upprepade gånger. Det är en bra idé att skapa de virtuella datorerna automatiskt med ett PowerShell-skript.
 
-Beyond the core operation of creating a VM you have a few additional requirements for your script. 
-- You will create multiple VMs, so you want to put the creation inside a loop
-- You need to create VMs in three different resource groups, so the name of the resource group should be passed to the script as a parameter
+Förutom grundåtgärden att skapa en virtuell dator finns ytterligare några krav på skriptet. 
+- Du kommer att skapa flera virtuella datorer, så det är bra att placera åtgärden i en loop
+- Du skapar de virtuella datorerna i tre olika resursgrupper, så namnet på resursgruppen bör överföras till skriptet som en parameter
 
-In this section, you will see how to write and execute an Azure PowerShell script that meets these requirements.
+I det här avsnittet visas hur du skriver och kör ett Azure PowerShell-skript som uppfyller de här kraven.
 
-## What is a PowerShell script?
-A PowerShell script is a text file containing commands and control constructs. The commands are invocations of cmdlets. The control constructs are programming features like loops, variables, parameters, comments, etc. supplied by PowerShell.
+## <a name="what-is-a-powershell-script"></a>Vad är ett PowerShell-skript?
+Ett PowerShell-skript är en textfil som innehåller kommandon och styrelement. Kommandona anropar cmdletar. Styrelementen är programkonstruktioner som loopar, variabler, parametrar, kommentarer och annat som finns i PowerShell.
 
-PowerShell script files have a **.ps1** file extension. You can create and save these files with any text editor. 
+PowerShell-skriptfiler har filtillägget **.ps1**. Du kan skapa och spara de här filerna i valfri textredigerare. 
 
 > [!TIP]
-> If you’re writing PowerShell scripts under Windows, you can use the Windows PowerShell Integrated Scripting Environment (ISE). This editor provides features such as syntax coloring and a list of available cmdlets.
+> Om du skriver PowerShell-skript i Windows kan du använda Windows integrerade skriptmiljö för PowerShell (ISE). Den här redigeraren har funktioner som syntaxfärgning och en lista med tillgängliga cmdletar.
 >
-The following screenshot shows the Windows PowerShell Integrated Scripting Environment (ISE) with a sample script to connect to Azure and create a virtual machine in Azure.
+I följande bild visas Windows PowerShell Integrated Scripting Environment (ISE) med ett exempelskript som ansluter till Azure och skapar en virtuell dator.
 
->![Screenshot of the Windows PowerShell Integrated Scripting Environment with a script to create a virtual machine open in the editing window.](../media/7-windows-powershell-ise-screenshot.png)
+>![Skärmbild av Windows PowerShell Integrated Scripting Environment med ett skript som skapar en virtuell dator i redigeringsfönstret.](../media/7-windows-powershell-ise-screenshot.png)
 
-Once you have written the script, execute it from the PowerShell command line by passing the name of the file preceded by a dot and a backslash:
+När du har skrivit skriptet kör du det från PowerShell-kommandoraden genom att skriva en punkt och ett bakstreck följt av namnet på filen:
 
 ```powershell
 .\myScript.ps1
 ```
 
-## PowerShell techniques
-PowerShell has many features found in typical programming languages. You can define variables, use branches and loops, capture command-line parameters, write functions, add comments, and so on. We will need three features for our script: variables, loops, and parameters.
+## <a name="powershell-techniques"></a>PowerShell-tekniker
+PowerShell har många funktioner som finns i vanliga programmeringsspråk. Du kan definiera variabler, använda grenar och loopar, inhämta kommandoradsparametrar, skriva funktioner, lägga till kommentarer och så vidare. Vi kommer att använda tre funktioner i vårt skript: variabler, loopar och parametrar.
 
-### Variables
-PowerShell supports variables. Use **$** to declare a variable and **=** to assign a value. For example:
+### <a name="variables"></a>Variabler
+PowerShell har stöd för variabler. Använd **$** för att deklarera en variabel och **=** för att tilldela ett värde. Exempel:
 
 ```powershell
 $loc = "East US"
 $iterations = 3
 ```
 
-Variables can hold objects. For example, the following definition sets the **adminCredential** variable to the object returned by the **Get-Credential** cmdlet.
+Variabler kan innehålla objekt. Följande definition anger exempelvis variabeln **adminCredential** till objektet som returneras av cmdleten **Get-Credential**.
 
 ```powershell
 $adminCredential = Get-Credential
 ```
 
-To obtain the value stored in a variable, use the **$** prefix and its name as shown below: 
+Du kan komma åt värdet som lagras i en variabel genom att använda prefixet **$** och variabelns namn som i exemplet nedan: 
 
 ```powershell
 $loc = "East US"
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location $loc
 ```
 
-### Loops
-PowerShell has several loops: **For**, **Do...While**, **For...Each**, and so on. The **For** loop is the best match for our needs because we will execute a cmdlet a fixed number of times.
+### <a name="loops"></a>Loopar
+PowerShell har flera loopar: **For**, **Do...While**, **For...Each** och så vidare. **For**-loopen passar bäst för våra behov eftersom vi ska köra en cmdlet ett visst antal gånger.
 
-The core syntax is shown below; the example runs for two iterations and prints the value of **i** each time. The comparison operators are written **-lt** for "less than", **-le** for "less than or equal", **eq** for "equal", **ne** for "not equal", etc.
+Den huvudsakliga syntaxen visas nedan. Exemplet körs i två iterationer och skriver ut värdet för **i** varje gång. Jämförelseoperatorerna skrivs som **-lt** för ”mindre än”, **-le** för ”mindre än eller lika med”, **eq** för ”lika med”, **ne** för ”inte lika med” och så vidare.
 
 ```powershell
 For ($i = 1; $i -lt 3; $i++)
@@ -62,41 +62,40 @@ For ($i = 1; $i -lt 3; $i++)
 }
 ```
 
-### Parameters
-When you execute a script, you can pass arguments on the command line. You can provide names for each parameter to help the script extract the values. For example:
+### <a name="parameters"></a>Parametrar
+När du kör ett skript kan du skicka argument på kommandoraden. Du kan ange namn för varje parameter så att deras värden kan användas i skriptet. Exempel:
 
 ```powershell
 .\setupEnvironment.ps1 -size 5 -location "East US"
 ```
 
-Inside the script, you capture the values into variables. In this example, the parameters are matched by name:
+I skriptet tar du värdena och gör dem till variabler. I det här exemplet matchas parametrarna med hjälp av namnen:
 
 ```powershell
 param([string]$location, [int]$size)
 ```
 
-You can omit the names from the command line. For example:
+Du kan utelämna namnen på kommandoraden. Exempel:
 
 ```powershell
 .\setupEnvironment.ps1 5 "East US"
 ```
 
-Inside the script, you rely on position for matching when the parameters are unnamed:
+När parametrarna inte har namn används deras placering till matchning i skriptet:
 
 ```powershell
 param([int]$size, [string]$location)
 ```
 
-## How to create a Linux Virtual Machine
-Azure PowerShell provides the **New-AzureRmVm** cmdlet to create a Virtual Machine. The cmdlet has many parameters to let it handle the large number of VM configuration settings. Most of the parameters have reasonable default values so we only need to specify five things:
+## <a name="how-to-create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
+I Azure PowerShell kan du använda cmdleten **New-AzureRmVm** till att skapa en virtuell dator. Cmdleten har många parametrar för alla konfigurationsinställningar för virtuella datorer. De flesta av parametrarna har rimliga standardvärden, så vi behöver bara ange fem saker:
+- **ResourceGroupName**: resursgruppen som den nya virtuella datorn ska placeras i.
+- **Name**: namnet på den virtuella datorn i Azure.
+- **Location**: den geografiska plats där den virtuella datorn ska etableras.
+- **Credential**: ett objekt som innehåller användarnamn och lösenord för den virtuella datorns administratörskonto. Vi använder cmdleten **Get-Credential** till att fråga efter användarnamn och lösenord. **Get-Credential** placerar användarnamnet och lösenordet i ett credential-objekt som returneras som resultat.
+- **Image**: identiteten för operativsystemet som ska användas i den virtuella datorn. Vi använder ”UbuntuLTS”.
 
-- **ResourceGroupName**: The resource group into which the new VM will be placed.
-- **Name**: The name of the VM in Azure.
-- **Location**: Geographic location where the VM will be provisioned.
-- **Credential**: An object containing the username and password for the VM admin account. We will use the **Get-Credential** The cmdlet to prompt for a username and password. **Get-Credential** packages the username and password into a credential object, which it returns as its result.
-- **Image**: Identity of the operating system to use for the VM. We will use "UbuntuLTS".
-
-The syntax for the cmdlet is shown below:
+Syntaxen för cmdleten visas nedan:
 
 ```powershell
    New-AzureRmVm 
@@ -107,5 +106,5 @@ The syntax for the cmdlet is shown below:
        -Image <image name>
 ```
 
-## Summary
-The combination of PowerShell and Azure PowerShell gives you all the tools you need to automate Azure. In our CRM example, we will be able to create multiple Linux VMs using a parameter to keep the script generic and a loop to avoid repeated code. This means that a formerly complex operation can now be executed in a single step.
+## <a name="summary"></a>Sammanfattning
+I PowerShell och Azure PowerShell har du alla verktyg du behöver för att automatisera Azure. I vårt CRM-exempel kommer vi att kunna skapa flera virtuella Linux-datorer. Vi använder en parameter som gör skriptet generellt och en loop som gör att vi inte behöver upprepa koden. Det innebär att en åtgärd som tidigare var komplicerad nu kan köras i ett enda steg.

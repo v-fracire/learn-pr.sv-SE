@@ -1,25 +1,30 @@
 ### YamlMime:Module
 uid: learn.intro-to-containers
 metadata:
-  title: Introduction to containers on Azure
-  description: Learn about creating and using containers on Azure.
+  title: Introduktion till containrar i Azure
+  description: Lär dig mer om att skapa och använda containrar i Azure.
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Introduction to containers on Azure
-summary: Learn about creating and using containers on Azure.
-abstract: | 
-  In this module, you will:
-  - Prepare a local container development environment
-  - Learn basic Docker operations
-  - Run, list, and delete containers
-  - Create a custom container images
-  - Push container images to a public container registry and run containers from these images
-prerequisites: None
-#TODO: Update icon URL with real image 
+  ms.openlocfilehash: 1ab76a68fc7384bb7d24a159d679a55f82430a6d
+  ms.sourcegitcommit: b1b68b477ab39109c48f227b504a5050cae7a718
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/01/2018
+  ms.locfileid: "43412148"
+title: Introduktion till containrar i Azure
+summary: Lär dig mer om att skapa och använda containrar i Azure.
+abstract: >
+  I den här modulen kommer du att göra följande:
+
+  - Förbereda en lokal miljö för containerutveckling.
+
+  - Läsa om grundläggande Docker-åtgärder.
+
+  - Köra, visa och ta bort containrar.
+
+  - Skapa anpassade containeravbildningar.
+
+  - Överföra containeravbildningar till ett offentligt containerregister och köra containrarna från avbildningarna.
+prerequisites: Ingen
 iconUrl: http://via.placeholder.com/120x120
 levels:
 - beginner
@@ -33,5 +38,4 @@ units:
 - learn.intro-to-containers.3-basic-operations
 - learn.intro-to-containers.4-container-images
 - learn.intro-to-containers.5-knowledge-check
-- learn.intro-to-containers.6-summary
 achievement: learn.intro-to-containers.badge

@@ -1,37 +1,37 @@
-The Azure CLI is a command-line program to connect to Azure and execute administrative commands on Azure resources. It runs on Linux, macOS, and Windows and allows administrators and developers to execute their commands through a terminal or command line prompt (or script!) instead of a web browser. For example, to restart a virtual machine (VM), you would use a command like the following:
+Azure CLI är ett kommandoradsprogram som används för att ansluta till Azure och köra administrativa kommandon på Azure-resurser. Det körs i Linux, macOS och Windows och gör att administratörer och utvecklare kan köra sina kommandon via en terminal eller från kommandoraden (eller ett skript) i stället för i en webbläsare. Om du till exempel vill starta om en virtuell dator (VM) använder du ett kommando liknande följande:
 
  ```bash
  az vm restart -g MyResourceGroup -n MyVm
  ```
 
-The Azure CLI provides cross-platform command-line tools for managing Azure resources, and can be installed locally on Linux, Mac, or Windows computers. The Azure CLI can also be used from a browser through the Azure Cloud Shell. In both cases, it can be used interactively or scripted. For interactive use, you first launch a shell such as cmd.exe on Windows or Bash on Linux or macOS and then issue the command at the shell prompt. To automate repetitive tasks, you assemble the CLI commands into a shell script using the script syntax of your chosen shell and then execute the script.
+Azure CLI tillhandahåller plattformsoberoende kommandoradsverktyg för hantering av Azure-resurser och kan installeras lokalt på Linux-, Mac- eller Windows-datorer. Azure CLI kan också användas från en webbläsare via Azure Cloud Shell. I båda fallen kan det användas interaktivt eller skriptas. För interaktiv användning startar du först ett gränssnitt som cmd.exe i Windows eller Bash i Linux eller macOS och anger sedan kommandot i gränssnittets kommandotolk. Om du vill automatisera repetitiva uppgifter sätter du samman CLI-kommandona till ett kommandoskript med hjälp av skriptsyntax för det valda gränssnittet och kör skriptet.
 
-## How to install Azure CLI
+## <a name="how-to-install-azure-cli"></a>Installera Azure CLI
 
-On both Linux and macOS, you use a package manager to install PowerShell Core. The recommended package manager differs by OS and distribution:
-- Linux: **apt-get** on Ubuntu, **yum** on Red Hat, and **zypper** on OpenSUSE
+Du använder en pakethanterare för att installera PowerShell Core i både Linux och macOS. Den rekommenderade pakethanteraren skiljer sig beroende på operativsystem och distribution:
+- Linux: **apt-get** i Ubuntu, **yum** i Red Hat och **zypper** i OpenSUSE
 - Mac: **Homebrew**
 
-The Azure CLI is available in the Microsoft repository, so you'll first need to add that repository to your package manager.
+Azure CLI är tillgängligt i Microsofts databas, så du måste först lägga till databasen till pakethanteraren.
 
-On Windows, you install the Azure CLI by downloading and running an MSI file.
+I Windows installerar du Azure CLI genom att hämta och köra en MSI-fil.
 
-## Using the Azure CLI in scripts
+## <a name="using-the-azure-cli-in-scripts"></a>Använda Azure CLI i skript
 
-If you want to use the Azure CLI commands in scripts, you need to be aware of any issues around the "shell" or environment used for running the script. For example, in a bash shell, the following syntax is used when setting variables:
+Om du vill använda Azure CLI-kommandona i skript måste du vara medveten om eventuella problem relaterade till ”servergränssnittet” eller miljön som ska användas för att köra skriptet. I ett bash-gränssnitt används exempelvis följande syntax för att ställa in variabler:
 
  ```bash
  variable="value"
  variable=integer
  ```
 
-If you use a PowerShell environment for running Azure CLI scripts, you'll need to use this syntax for variables:
+Om du använder en PowerShell-miljö för att köra Azure CLI-skript måste du använda den här syntaxen för variabler:
 
  ```powershell
  $variable="value"
  $variable=integer
  ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-The Azure CLI must be installed before it can be used to manage Azure resources from a local computer. The installation steps vary for Windows, Linux, and macOS, but once installed, the commands are common across platforms. 
+Azure CLI måste installeras innan det kan användas för att hantera Azure-resurser från en lokal dator. Installationsstegen varierar för Windows, Linux och macOS, men när det har installerats är kommandona samma för alla plattformar. 

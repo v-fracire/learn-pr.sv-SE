@@ -1,61 +1,49 @@
-You decide to deploy Azure AD and use conditional access policies that Azure require Multi-Factor Authentication when anyone accesses the Azure portal. You need to create a directory and get temporary licenses in place.
+Du bestämmer dig för att distribuera Azure AD och använda principer för villkorsstyrd åtkomst som gör att Azure kräver multifaktorautentisering när någon använder Azure-portalen. Du behöver skapa en katalog och använda tillfälliga licenser.
 
-## Create a directory
-We will create a new directory for First Up Consultants where we can test without fear of impacting production users.
+## <a name="create-a-directory"></a>Skapa en katalog
+Vi skapar en ny katalog för First Up Consultants, där vi kan testa utan att det påverkar produktionsanvändarna.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. I det vänstra navigeringsfönstret klickar du på **Skapa en resurs** > **Identitet** > **Azure Active Directory**.
+1. På bladet **Skapa katalog** anger du följande värden för **Organisationsnamn** och **Ursprungligt domännamn**:
 
-1. In the left navigation pane, click **Create a resource** > **Identity** > **Azure Active Directory**.
+   1. ORGANISATIONSNAMN: `First Up Consultants`.
+   1. URSPRUNGLIGT DOMÄNNAMN: `firstupconsultants<XXXX>.onmicrosoft.com`.
 
-1. In the **Create directory** blade, provide the following values for the **Organization name** and **Initial domain name**:
+1. Vänta tills katalogen skapas. Klicka på länken för att växla till den nya katalogen eller klicka på **Katalog- och prenumerationsfilter** längst upp i fönstret och välj sedan den nya katalogen.
 
-   1. ORGANIZATION NAME: `First Up Consultants`.
-   1. INITIAL DOMAIN NAME: `firstupconsultants<XXXX>.onmicrosoft.com`.
+## <a name="get-trial-licenses"></a>Skaffa utvärderingslicenser
 
-1. Wait for the directory to be created. Click the link to switch to the new directory, or click the **Directory and subscription filter** at the top of the window and then choose the newly created directory.
+För att kunna använda funktioner som villkorsstyrd åtkomst och multifaktorautentisering behöver du minst en utvärderingslicens. Följande steg visar hur du aktiverar en utvärderingslicens:
 
-## Get trial licenses
+1. I Azure AD-fönsterrutan **Översikt** klickar du på länken **Starta en kostnadsfri utvärdering**.
+1. Under objektet **Azure AD Premium P2** klickar du på **Kostnadsfri utvärderingsversion** och klickar sedan på **Aktivera**.
 
-In order for you to use features like conditional access and Multi-Factor Authentication, you will need at least a trial license. The following steps walk you through how to enable a trial license:
+## <a name="create-a-test-user"></a>Skapa en testanvändare
 
-1. In the Azure AD **Overview** pane, click the **Start a free trial** link.
+Vi behöver testa det här med en användare. Isabella Simonsen (en annan medlem i teamet) har ställt upp som frivillig för att hjälpa till. Hon behöver ett konto i katalogen, så vi går igenom stegen för att skapa kontot.
 
-1. Under the item **Azure AD Premium P2**, click **Free trial**, and then click **Activate**.
-
-## Create a test user
-
-We're going to need to test this out with a user. Isabella Simonsen (another member of your team) has volunteered to help you out. She will need an account in the directory, so we will go through the steps to create her account.
-
-1. Browse to **Azure Active Directory** > **Users** > **All users**.
-
-1. Click **New user**.
-
-1. Create a user named **Isabella Simonsen** with a user name of:
+1. Gå till **Azure Active Directory** > **Användare** > **Alla användare**.
+1. Klicka på **Ny användare**.
+1. Skapa en användare med namnet **Isabella Simonsen** med användarnamnet:
 
    * `Isabella@firstupconsultants<XXXX>.onmicrosoft.com`
 
-1. Check the box to **Show Password** for the user. Make a note of the password so you can use it later when testing.
+1. Markera kryssrutan för att **Visa lösenord** för användaren. Anteckna lösenordet så att du kan använda det senare när du testar.
+1. Klicka på **Skapa**.
 
-1. Click **Create**.
+## <a name="create-a-pilot-group"></a>Skapa en pilotgrupp
 
-## Create a pilot group
+Vi kommer att tilldela den princip som vi skapar till en grupp med användare, men vi måste skapa en grupp för den här principen. Följande steg hjälper dig att skapa en säkerhetsgrupp för pilotdistributionen.
 
-We will be assigning the policy that we create to a group of users, but we need to create a group for this policy. The following steps help you create a security group for the pilot deployment.
+1. Gå till **Azure Active Directory** > **Grupper** > **Alla grupper**.
+1. Klicka på **Ny grupp**.
+1. Grupptyp **Säkerhet**.
+1. Gruppnamn **CA-MFA-AzurePortal**.
+1. Medlemskapstyp **Tilldelad**.
+1. Välj den användare som vi skapade i föregående steg och välj **Välj**.
+1. Klicka på **Skapa**.
 
-1. Browse to **Azure Active Directory** > **Groups** > **All groups**.
+## <a name="summary"></a>Sammanfattning
 
-1. Click **New group**.
-
-1. Group type **Security**.
-
-1. Group name **CA-MFA-AzurePortal**.
-
-1. Membership type **Assigned**.
-
-1. Select the user that we created in the previous step, and choose **Select**.
-
-1. Click **Create**.
-
-## Summary
-
-In this unit, you learned how to create a trial licensed directory, a test user, and a pilot group in the Azure portal.
+I den här enheten lärde du dig hur du skapar en katalog med utvärderingslicens, en testanvändare och en pilotgrupp i Azure-portalen.

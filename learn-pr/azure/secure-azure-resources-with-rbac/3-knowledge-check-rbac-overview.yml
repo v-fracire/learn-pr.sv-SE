@@ -1,52 +1,54 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-azure-resources-with-rbac.3-knowledge-check-rbac-overview
 metadata:
-  title: Knowledge check - What is RBAC?
-  description: Knowledge check - What is RBAC?
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Knowledge check - What is RBAC?
+  title: Kunskapskontroll – Vad är RBAC?
+  description: Kunskapskontroll – Vad är RBAC?
+  displayType: one-column
+  ms.openlocfilehash: 973a839a37cfc03f3078519642d2216d4983ef15
+  ms.sourcegitcommit: 850ce909966600e7a8d6f89d8bdebbb621416838
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43478885"
+title: Kunskapskontroll – Vad är RBAC?
 durationInMinutes: 3
+content: Kunskapskontroll – Vad är RBAC?
 quiz:
-  title: Knowledge check - What is RBAC?
+  title: Kunskapskontroll – Vad är RBAC?
   questions:
-  - content: 'A role in Azure is a collection of permissions.'
+  - content: En roll i Azure är en samling av behörigheter.
     choices:
-    - content: 'True'
+    - content: Sant
       isCorrect: true
-      correctExplanation: Correct! A role in Azure is a collection of permissions with a name that you can assign to a user, group, or application.
-    - content: 'False'
+      correctExplanation: Rätt! En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.
+    - content: Falskt
       isCorrect: false
-      incorrectExplanation: A role in Azure is a collection of permissions with a name that you can assign to a user, group, or application.
-  - content: 'What are the three elements that make up a role assignment?'
+      incorrectExplanation: En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.
+  - content: Vilka är de tre element som utgör en rolltilldelning?
     choices:
-    - content: User, group, and application
+    - content: Användare, grupp och program
       isCorrect: false
-      correctExplanation: User, group, and application are security principals.
-    - content: Security principal, role, and scope
+      correctExplanation: Användare, grupp och program är säkerhetsobjekt.
+    - content: Säkerhetsobjekt, roll och omfång
       isCorrect: true
-      incorrectExplanation: Correct! A role assignment is the process of binding a role to a security principal at a particular scope for the purpose of granting access.
-    - content: Management group, subscription, and resource group
+      incorrectExplanation: Rätt! En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt i ett visst omfång i syfte att bevilja åtkomst.
+    - content: Hanteringsgrupp, prenumeration och resursgrupp
       isCorrect: false
-      correctExplanation: Management group, subscription, and resource group are ways to organize your Azure resources and represent scopes.
-    - content: Owner, Contributor, and Reader
+      correctExplanation: Hanteringsgrupp, prenumeration och resursgrupp är metoder för att ordna dina Azure-resurser och de representerar omfång.
+    - content: Ägare, Deltagare och Läsare
       isCorrect: false
-      correctExplanation: Owner, Contributor, and Reader are built-in roles in Azure.
-  - content: 'What is the inheritance order for scope in Azure?'
+      correctExplanation: Ägare, Deltagare och Läsare är inbyggda roller i Azure.
+  - content: Vilken är arvsordningen för omfång i Azure?
     choices:
-    - content: Management group, resource group, subscription, resource
+    - content: Hanteringsgrupp, resursgrupp, prenumeration och resurs
       isCorrect: false
-      correctExplanation: This is not the correct order.
-    - content: Management group, subscription, resource group, resource
+      correctExplanation: Detta är inte rätt ordning.
+    - content: Hanteringsgrupp, prenumeration, resursgrupp och resurs
       isCorrect: true
-      incorrectExplanation: Correct!
-    - content: Subscription, management group, resource group, resource
+      incorrectExplanation: Rätt!
+    - content: Prenumeration, hanteringsgrupp, resursgrupp och resurs
       isCorrect: false
-      correctExplanation: This is not the correct order.
-    - content: Subscription, resource group, management group, resource
+      correctExplanation: Detta är inte rätt ordning.
+    - content: Prenumeration, resursgrupp, hanteringsgrupp och resurs
       isCorrect: false
-      correctExplanation: This is not the correct order.
+      correctExplanation: Detta är inte rätt ordning.

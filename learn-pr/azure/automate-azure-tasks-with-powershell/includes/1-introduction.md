@@ -1,21 +1,19 @@
-Creating administration scripts is a powerful way to optimize your work flow. You can automate common, repetitive tasks, and once a script has been verified, it will run consistently, likely reducing errors.
+Att skapa administrationsskript är ett kraftfullt sätt att optimera ditt arbetsflöde på. Du kan automatisera vanliga, repetitiva uppgifter och när ett skript har verifierats kan det kan köras konsekvent, vilket minskar risken för fel.
 
-Suppose you work at a company that uses Azure Virtual Machines (VMs) to test your Customer Relationship Management (CRM) software. The VMs are built from images that include a web front-end, a web service that implements business logic, and a SQL database.
+Anta att du arbetar på ett företag som använder virtuella Azure-datorer till att testa CRM-programvara. De virtuella datorerna skapas från avbildningar som inkluderar en webbklientdel, en webbtjänst som implementerar affärslogik och en SQL-databas.
 
-You have been executing multiple rounds of tests on a single VM but noticed that changes in the database and configuration files can cause inconsistent results. In one case, a bug created a phone call record with no corresponding customer in the database. The orphaned record caused subsequent integration tests to fail even after the bug was fixed. You plan to solve this problem by using a fresh VM deployment for each testing cycle. You want to automate the VM creation setup because it will be executed many times per week. 
+Du har kört flera tester på en enskild virtuell dator och märkt att ändringar i databasen och konfigurationsfilerna kan orsaka inkonsekventa resultat. I ett fall skapades en post för telefonsamtal i en bugg utan att någon motsvarande kund fanns i databasen. Den överblivna posten orsakade att efterföljande integreringstester misslyckades även när felet hade åtgärdats. Du tänker lösa problemet med hjälp av en ny distribution av virtuella datorer för varje testcykel. Du vill automatisera skapandet av en virtuell dator eftersom det ska utföras flera gånger per vecka. 
 
-Here, you will see how to manage Azure resources using Azure PowerShell. You will use Azure PowerShell interactively for one-off tasks and write scripts to automate repeated tasks. 
+Här visar vi hur du hanterar Azure-resurser med Azure PowerShell. Du använder Azure PowerShell interaktivt för engångsuppgifter och skriver skript för att automatisera återkommande uppgifter. 
 
-## Learning objectives
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att göra följande:
+- Avgöra om Azure PowerShell är rätt verktyg för dina Azure-administrationsuppgifter.
+- Installera Azure PowerShell på Linux, macOS och/eller Windows.
+- Ansluta till en Azure-prenumeration med hjälp av Azure PowerShell.
+- Konfigurera Azure-resurser med Azure PowerShell.
 
-- Decide if Azure PowerShell is the right tool for your Azure administration tasks
-- Install Azure PowerShell on Linux, macOS, and/or Windows
-- Connect to an Azure subscription using Azure PowerShell
-- Create Azure resources using Azure PowerShell
-
-## Prerequisites
-
-- Experience with a command-line interface such as PowerShell or Bash
-- Knowledge of basic Azure concepts such as resource groups and Virtual Machines
-- Experience administering Azure resources using the Azure portal
+## <a name="prerequisites"></a>Krav
+- Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
+- Kunskaper om grundläggande Azure-begrepp, som resursgrupper och virtuella datorer
+- Erfarenhet av att administrera Azure-resurser med hjälp av Azure-portalen

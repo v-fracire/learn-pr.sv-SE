@@ -1,28 +1,39 @@
-When talking about cloud computing, there are three major categories. It's important to understand them because they are used in conversation, documentation, and training.
+När man talar om molnbaserad databehandling finns det tre huvudkategorier. Det är viktigt att förstå dem, eftersom de används i konversationer, dokumentation och utbildning.
 
-## Explore the three categories of cloud computing
+Här följer tre vanliga kategorier av molntjänster:
 
-<!-- TODO: Verify video -->
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEbs]
+- Infrastructure as a Service (IaaS)
+- Plattform som en tjänst (PaaS)
+- Programvara som en tjänst (SaaS)
 
-### Infrastructure as a service (IaaS)
+En sak att tänka på är att kategorierna är lager som ligger ovanpå varandra. Till exempel lägger PaaS till ett lager över IaaS genom att tillhandahålla en abstraktionsnivå. Abstraktionerna har fördelen att dölja informationen du inte bryr dig om, så att du snabbare kommer till kodningen. Men priset du får betala är att du får mindre kontroll över den underliggande maskinvaran. På bilden nedan finns en lista över alla resurser som du hanterar och som din tjänsteleverantör hanterar i varje molntjänstkategori.
 
-Infrastructure as a Service is the most flexible category of cloud services. It aims to give you complete control over the hardware that runs your application. Instead of buying hardware, with IaaS, you rent it.
+![En bild som visar abstraktionsnivån för varje molntjänstkategori.](../media/5-layer-diagram.png)
 
-### Platform as a service (PaaS)
 
-PaaS provides an environment for building, testing, and deploying software applications. The goal of PaaS is to help you create an application as quickly as possible without having to worry about managing the underlying infrastructure. For example, when deploying a web application using PaaS, you don't have to install an operating system, web server, or even system updates.
+### <a name="infrastructure-as-a-service-iaas"></a>IaaS (Infrastructure as a Service)
 
-### Software as a service (SaaS)
+Infrastruktur som en tjänst är den mest flexibla kategorin av molntjänster och syftet är att ge dig fullständig kontroll över den maskinvara som kör programmet. Istället för att köpa maskinvara hyr du den med laaS.
 
-SaaS is software that is centrally hosted and managed for the end customer. It is usually based on an architecture where one version of the application is used for all customers, and licensed through a monthly or annual subscription. Office 365 is a perfect example of SaaS software.
+Här följer några exempel på laaS:
 
-## Think about service categories as layers
+- Virtuella datorer
+- Brandväggar
+- Hårddiskar
+- Lastbalanserare
 
-One thing to understand is that these categories are layers on top of each other. For example, PaaS adds a layer on top of IaaS by providing a level of abstraction. The abstraction has the benefit of hiding the details that you may not care about so that you can get to coding quicker. However, one cost of that is that you have less control over the underlying hardware. The following illustration shows a list of resources that you manage and that your service provider manages in each cloud service category.
+### <a name="platform-as-a-service-paas"></a>Plattform som en tjänst (PaaS)
 
-![An illustration showing the level of abstraction in each category of cloud service.](../media/5-layer-diagram.png)
+Plattform som en tjänst är en miljö för att skapa, testa och distribuera program. Målet med PaaS är att hjälpa dig att skapa ett program så snabbt som möjligt utan att du ska behöva bekymra dig om att hantera den underliggande infrastrukturen. När du till exempel distribuerar ett webbprogram med PaaS behöver du inte installera något operativsystem, någon webbserver eller ens systemuppdateringar. 
 
-## Summary
+Ett exempel på PaaS är Azure App Service.
 
-IaaS, PaaS, and SaaS each contain different levels of managed services. You may easily use a combination of these types of infrastructure. You could use Office 365 on your company’s computers (SaaS), and in Azure you could host your VMs (IaaS) and use Azure SQL Database (PaaS) to store your data. With the cloud’s flexibility, you can use any combination that provides you with the maximum result.
+### <a name="software-as-a-service-saas"></a>Programvara som en tjänst (SaaS)
+
+Programvara som en tjänst är ett sätt att leverera program via internet. Ett SaaS-program kallas vanligtvis ett webbaserat program, men termen SaaS-program härstammar från det faktum att programmet finns på en SaaS-leverantörs server. Du behöver inte bekymra dig om installation eller konfiguration med SaaS, utan du använder det bara via en webbläsare eller programvara. 
+
+Ett exempel på ett SaaS-program är Microsoft Office 365.
+
+## <a name="summary"></a>Sammanfattning
+
+IaaS, PaaS och SaaS är allihop lager ovanpå varandra. Nivå av kontroll som du vill ha över den underliggande maskinvaran avgör vilken kategori av tjänster som fungerar bäst för dig.

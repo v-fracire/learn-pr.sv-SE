@@ -1,45 +1,46 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-access-azure-ad-multi-factor-authentication.6-summary
 metadata:
-  title: Summary
-  description: Summary
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Summary
+  title: Sammanfattning
+  description: Sammanfattning
+  displayType: one-column
+  ms.openlocfilehash: 254fbb2d71f03aa6048c4fab026724c2bb8c2077
+  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43477183"
+title: Sammanfattning
 durationInMinutes: 10
-content: |
+content: >
   [!include[](includes/6-summary.md)]
 quiz:
-  title: 'Knowledge Check: Azure Active Directory and conditional access'
+  title: 'Kunskapstest: Azure Active Directory och villkorsstyrd åtkomst'
   questions:
-  - content: 'Azure AD is just an AD DS domain controller running in Azure.'
-    choices: 
-    - content: 'True'
+  - content: Azure AD är bara en AD DS-domänkontrollant som körs i Azure.
+    choices:
+    - content: Sant
       isCorrect: false
-      incorrectExplanation: While Azure AD performs many of the same functions as traditional AD DS, it's a cloud-based multi-tenant, directory, and identity management service.
-    - content: 'False'
+      incorrectExplanation: Många av funktionerna i Azure AD och traditionella AD DS är visserligen samma, men Azure AD är en molnbaserad klient-, katalog- och identitetshanteringstjänst.
+    - content: Fel
       isCorrect: true
-      correctExplanation: Correct! AD DS is a server role on Windows Server. Azure AD is a cloud-based multi-customer public directory service.
-  - content: 'What three items should exist in a successful conditional access policy?'
-    choices: 
-    - content: 'User or group, application, time of day'
+      correctExplanation: Rätt! AD DS är en serverroll i Windows Server. Azure AD är en molnbaserad offentlig katalogtjänst för flera klienter.
+  - content: Vilka tre objekt bör finnas i en effektiv villkorsstyrd åtkomstprincip?
+    choices:
+    - content: Användare eller grupp, program, tid på dagen
       isCorrect: false
-      correctExplanation: Time of day is not an option that's available in conditional access rules.
-    - content: 'User or group, application, control to be enforced'
+      correctExplanation: Tiden på dagen är inte ett tillgängligt alternativ i regler för villkorlig åtkomst.
+    - content: Användare eller grupp, program, kontrollen som ska framtvingas
       isCorrect: true
-      incorrectExplanation: Correct! Selecting these three items will create self-contained functional conditional access rules.
-    - content: 'User or group, Linux OS, control to be enforced'
+      incorrectExplanation: Rätt! Genom att välja dessa tre objekt skapar du fristående, effektiva regler för villkorlig åtkomst.
+    - content: Användare eller grupp, Linux-operativsystem, kontroll som ska framtvingas
       isCorrect: false
-      correctExplanation: While you can target some device platforms, Linux isn't currently supported.
-  - content: 'How would you modify the conditional access rule that we created to require Multi-Factor Authentication for all users?'
-    choices: 
-    - content: 'Under **Access Controls** > **Session**, select **Use application-enforced restrictions**.'
+      correctExplanation: Du kan visserligen välja specifika enhetsplattformar, men Linux stöds inte för närvarande.
+  - content: Hur ändrar du regeln för villkorlig åtkomst som vi skapade för att kräva multifaktorautentisering för alla användare?
+    choices:
+    - content: Välj **Use application-enforced restrictions** (Använd programdefinierade begränsningar) under **Åtkomstkontroller** > **Session**.
       isCorrect: false
-      correctExplanation: Sorry, that option won't modify the rule appropriately.
-    - content: 'Change the user and group assignment from **Select users and groups** to **All users**.'
+      correctExplanation: Regeln ändras inte på rätt sätt med det alternativet.
+    - content: Ändra användar- och grupptilldelningen från **Välj användare och grupper** till **Alla användare**.
       isCorrect: true
-      incorrectExplanation: Correct! Selecting all users will make this policy apply to any user who triggers this conditional access rule. It's suggested that you create a group and add it to the exclude list for instances where users may need to bypass Multi-Factor Authentication due to lost or forgotten methods.
+      incorrectExplanation: Rätt! Om du väljer Alla användare tillämpas principen på alla användare som utlöser den här regeln för villkorlig åtkomst. Vi rekommenderar att du skapar en grupp och lägger till den i undantagslistan för instanser där användare kan behöva kringgå multifaktorautentisering på grund av förlorade eller bortglömda metoder.

@@ -1,23 +1,23 @@
-In the previous exercises, we gathered a basic understanding of Azure AD. We created a directory, created a user and group, and then created a conditional access rule that requires Azure Multi-Factor Authentication when accessing the Azure portal.
+I den förra övningen gick vi igenom grunderna i Azure AD. Vi skapade en katalog, skapade en användare och en grupp och skapade sedan en regel för villkorlig åtkomst som kräver multifaktorautentisering för åtkomst till Azure Portal.
 
-Now, we'll test if we can access our resources.
+Nu ska vi testa om vi kan komma åt våra resurser.
 
-## Test access to resources
+## <a name="test-access-to-resources"></a>Testa åtkomsten till resurser
 
-You know that your users will sign in and access all their SaaS applications using the MyApps portal, so this is what we'll test.
+Eftersom du vet att användarna kommer att logga in och komma åt alla sina SaaS-program via MyApps-portalen så väljer vi att testa just detta.
 
-1. Open an InPrivate browser window.
+1. Öppna ett InPrivate-webbläsarfönster.
 
-1. Browse to https://myapps.microsoft.com.
+1. Gå till https://myapps.microsoft.com.
 
-1. Sign in as the user that we created in Unit 2.
+1. Logga in som användaren som vi skapade i del 2.
 
-   * Notice that you're signed in to the portal without requiring Multi-Factor Authentication.
+   * Observera att du loggas in på portalen utan att utföra multifaktorautentisering.
 
-1. In the same browser window, browse to https://portal.azure.com.
+1. Gå till https://portal.azure.com i samma webbläsarfönster.
 
-   * Notice that you're now required to provide more information to keep your account secure. This interrupt is Azure Multi-Factor Authentication kicking in because of the conditional access policy we created. You can stop at this point and close the browser window.
+   * Nu uppmanas du att ange mer information för att skydda ditt konto. Det här avbrottet är i själva verket Azure Multi-Factor Authentication som aktiveras via principen för villkorlig åtkomst som vi skapade. Du kan avbryta här och stänga webbläsarfönstret.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to grant a user access to create and manage virtual machines in a resource group using Azure PowerShell. In the next unit, you look at how to create a custom role and define your own permissions.
+I det här avsnittet har du lärt dig hur du beviljar behörighet till en användare att skapa och hantera virtuella datorer i en resursgrupp via Azure PowerShell. I nästa del ska vi se hur du skapar en anpassad roll och definierar dina egna behörigheter.

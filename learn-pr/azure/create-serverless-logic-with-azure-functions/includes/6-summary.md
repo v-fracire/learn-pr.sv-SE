@@ -1,12 +1,12 @@
-You've learned how to use Azure Functions to host business logic services in the cloud. It's a great way to add hosted services to your solution that can scale and grow with your business. You focus on the code using the language of your choice, and Azure manages the infrastructure. Functions can integrate with other services, like Event Grid, GitHub, Twilio, Microsoft Graph, and Logic Apps to create complex and robust serverless workflows quickly and easily.
+Du har lärt dig hur du använder Azure Functions för att hantera affärslogiktjänster i molnet. Det är ett bra sätt att lägga till värdbaserade tjänster i din lösning som kan skalas och växa med verksamheten. Du kan arbeta med koden i valfritt språk och låta Azure hantera infrastrukturen. Azure Functions kan integreras med andra tjänster, t.ex. Event Grid, GitHub, Twilio, Microsoft Graph och Logic Apps så att du snabbt och enkelt kan skapa komplexa och robusta serverlösa arbetsflöden.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="cleanup"></a>Rensa
+Azure-funktioner körs endast när de utlöses, men du kanske ändå vill ta bort de resurser som skapats i den här övningen.
 
-Although Azure functions run only when they're triggered, you may want to remove the resources we created in the exercise.
+1. Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true) med ditt Azure-konto.
 
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) using your Azure account.
+1. Öppna resursgruppen som du skapade i den första övningen genom att välja **Alla resurser** på menyn till vänster och sedan **escalator-functions-group**.
 
-1. Access the resource group you created in the first exercise by choosing **All resources** in the left-hand menu, and then selecting **escalator-functions-group**.
+1. Klicka på knappen **Ta bort resursgrupp** i verktygsfältet. Du uppmanas att ange namnet på resursgruppen som ska tas bort. Klicka på knappen **Ta bort** när du är klar.  
 
-1. In the toolbar, press the **Delete resource group** button. You will be asked to type in the name of the resource group to be deleted. Press the **Delete** button once complete.
+![Ta bort resursgrupp](../media-draft/6-cleanup.png)

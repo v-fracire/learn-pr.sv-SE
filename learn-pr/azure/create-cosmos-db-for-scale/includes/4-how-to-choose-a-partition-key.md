@@ -1,27 +1,27 @@
-The online retailer that you work for plans to expand to a new geographical area soon. This move will increase your customer base and transaction volume. You must ensure that your database is equipped to handle expansion whenever required.
+Onlineåterförsäljaren som du arbetar för planerar att inom kort utöka till ett nytt geografiskt område. Flytten utökar din kundbas och dina transaktionsvolymer. Du måste se till att din databas klarar att hantera expansion när så krävs.
 
-Having a partition strategy ensures that when your database needs to grow, it can do so easily and continue to perform efficient queries and transactions.
+Om du har en partitionsstrategi säkerställer det att när din databas behöver växa kan den enkelt göra det och fortsätta att utföra effektiva frågor och transaktioner.
 
-## What is a partition strategy?
+## <a name="what-is-a-partition-strategy"></a>Vad är en strategi för partition?
 
-If you continue to add new data to a single server or a single partition, it will eventually run out of space. To prepare for this, you need a partitioning strategy to **scale out** instead of up. Scaling out is also called horizontal scaling, and it enables you to add more partitions to your database as your application needs them.
+Om du fortsätter att lägga till nya data till en enskild server eller en enskild partition får du så småningom slut på utrymme. För att förbereda för det behöver du en partitioneringsstrategi för att **skala ut** istället för upp. Att skala ut kallas även för horisontell skalning, och det gör att du kan lägga till fler partitioner till din databas när ditt program behöver det.
 
-The partition and scale-out strategy in Azure Cosmos DB is driven by the partition key, which is a value set when you create a collection. Once the partition key is set, it cannot be changed without recreating the collection, so selecting the right partition key is an important decision to make early in your development process.  
+Partitionen och utskalningsstrategin i Azure Cosmos DB drivs av partitionsnyckeln, vilket är ett värde som ställs in när du skapar en samling. När partitionsnyckeln är inställd går det inte att ändra den utan att återskapa samlingen, så det är viktigt att välja rätt partitionsnyckel tidigt i utvecklingsprocessen.  
 
-In this unit, you will learn how to choose a partition key that's right for your scenario and will take advantage of the autoscaling that Azure Cosmos DB can do for you.
+I den här delen får du lära dig att välja en partitionsnyckel som är rätt för ditt scenario och som drar nytta av autoskalningen som Azure Cosmos DB kan göra åt dig.
 
-## Partition key basics
+## <a name="partition-key-basics"></a>Grundläggande om partitionsnycklar
 
-A partition key represents a value in your database that's frequently queried. In our online retail scenario, using the `userID` or `productId` value as the partition key is a good choice because it will be unique and likely used to lookup records. `userID` is a good choice, as your application frequently needs to retrieve the personalization settings, shopping cart, order history, and profile information for the user, just to name a few. `productId` is also a good choice, as your application needs to query inventory levels, shipping costs, color options, warehouse locations, and more.
+En partitionsnyckel representerar ett värde i din databas som används ofta. I vårt scenario med en onlinebutik är det ett bra val att använda värdet `UserID` eller `ProductID` som partitionsnyckel eftersom den blir unik och kommer sannolikt att användas för att slå upp poster. `UserID` är ett bra val, eftersom ditt program ofta behöver hämta anpassningsinställningar, kundvagn, orderhistorik och profilinformation för användaren, för att bara nämna några. `ProductID` är också ett bra val, eftersom programmet måste fråga lagernivåer, leveranskostnader, färgalternativ, lagerplatser med mera.
 
-A partition key should aim to distribute operations across the database. You want to distribute requests to avoid hot partitions. A hot partition is a single partition that receives many more requests than the others, which can create a throughput bottleneck. For example, for your e-commerce application, the current time would be a poor choice of partition key, because all the incoming data would go to a single partition key. `userID` or `productId` would be better, as all the users on your site would likely be adding and updating their shopping cart or profile information at about the same frequency, which distributes the reads and writes across all the user partitions. Likewise, updates to product data would also likely be evenly distributed, making `productId` a good partition key choice.
+En partitionsnyckel bör syfta till att distribuera åtgärder i databasen. Du vill distribuera begäranden för att undvika heta partitioner. En frekvent partition (hot partition) är en enda partition som får många fler begäran än de andra. Det kan skapa en flaskhals för dataflödet. För exempelvis ditt e-handelsprogram skulle den aktuella tiden vara ett dåligt val av partitionsnyckel, eftersom alla inkommande data skulle gå till en enda partitionsnyckel. `UserID` eller `ProductID` skulle passa bättre, eftersom alla användare på webbplatsen troligtvis skulle lägga till och uppdatera sin kundvagn eller profilinformation med ungefär samma frekvens, vilket distribuerar läsningar och skrivningar i alla användarpartitioner. På samma sätt skulle uppdateringar till produktdata även troligen bli jämnt fördelade, vilket gör `ProductID` till en bra val av partitionsnyckel.
 
-Each partition key has a maximum storage space of 10 GB, which is the size of one physical partition in Azure Cosmos DB. So, if your single `userID` or `productId` record is going to be larger than 10 GB, think about using a composite key instead so that each record is smaller. An example of a composite key would be `userID-date`, which would look like **CustomerName-08072018**. This composite key approach would enable you to create a new partition for each day a user visited the site.
+Varje partitionsnyckel har ett maximalt lagringsutrymme på 10 GB, vilket är storleken på en fysisk partition i Azure Cosmos DB. Så om din enskilda post för `UserID` eller `ProductID` kommer att överstiga 10 GB ska du fundera på att använda en sammansatt nyckel istället, så att varje post blir mindre. Ett exempel på en sammansatt nyckel är `UserID-date`, vilket skulle se ut så här: **CustomerName-08072018**. Metoden med sammansatt nyckel skulle göra det möjligt för dig att skapa en ny partition för varje dag som en användare besökte webbplatsen.
 
-## Best practices
+## <a name="best-practices"></a>Bästa praxis
 
-When you're trying to determine the right partition key and the solution isn't obvious, here are a few tips to keep in mind.
+När du försöker bestämma rätt sammansatt nyckel och lösningen inte är uppenbar får du här några tips på vad du kan tänka på.
 
-- Don’t be afraid of having too many partition keys. The more partition keys you have, the more scalability you have.
-- To determine the best partition key for a read-heavy workload, review the top three to five queries you plan on using. The value most frequently included in the WHERE clause is a good candidate for the partition key.
-- For write-heavy workloads, you'll need to understand the transactional needs of your workload, because the partition key is the scope of multi-document transactions.
+- Var inte rädd för att ha för många partitionsnycklar. Ju fler partitionsnycklar du har, desto mer skalbarhet får du.
+- För att bestämma vilken partitionsnyckel som är bäst för en arbetsbelastning som är mer inriktad på läsning tar du en titt på de tre till fem översta frågorna du tänker använda. Värdet som oftast ingår i WHERE-satsen är en stark kandidat för partitionsnyckeln.
+- För arbetsbelastningar som är mer inriktade på skrivning måste du förstå arbetsbelastningens transaktionsbehov, eftersom partitionsnyckeln omfattar transaktioner för flera dokument.

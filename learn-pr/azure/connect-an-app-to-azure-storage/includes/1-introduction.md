@@ -1,10 +1,10 @@
-Imagine you're building a photo-sharing application. Every day, thousands of users take pictures and rely on your application to keep them safe and make them accessible across all their devices. Storing these photos is critical to your business, and you would like to ensure that the system used in your application is fast, reliable and secure. Ideally without you having to build all these aspects into the app.
+Tänk sig att du utvecklar en app för att dela foton. Varje dag kommer du att ha tusentals användare som tar bilder och litar på att du lagrar dem på ett säkert sätt. Du har den största förståelse för hur viktiga fotona är för användarna, och du vill därför vara säker på att lagringssystemet är snabbt, tillförlitligt och robust. Dessutom vill du vara säker på att det är säkert och säkerhetskopieras regelbundet, så att du slipper utveckla egna funktioner för detta inom ramen för lagringssystemet. Det ska bara funka, helt enkelt.
 
-Azure Storage provides such power, resiliency, and performance in the cloud. This module will provide you with the knowledge to be able to utilize the power of Azure Storage to achieve the reliability and performance in your app that you require. This knowledge can then be applied to any application.
+Azure Storage tillhandahåller denna kapacitet, återhämtningsförmåga och höga prestanda i molnet. I den här modulen får du lära dig att använda den inneboende kraften i Azure Storage för att uppnå den tillförlitlighet och höga prestanda som du behöver till din app. Den här kunskapen kan sedan tillämpas på alla typer av appar.
 
-## Learning objectives
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att göra följande:
 
-- Explore the data types and services supported by an Azure storage account
-- Create a new Azure storage account using the Azure portal
-- Create a new application and connect the app to an Azure Storage account.
+- Avgöra om Azure Storage är rätt för din app
+- Utvärdera designen när du använder Azure Storage i din app
+- Skapa en ny app och ansluta den till ett Azure Storage-konto.

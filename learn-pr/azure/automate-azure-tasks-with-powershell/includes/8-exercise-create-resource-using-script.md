@@ -1,32 +1,32 @@
-In this unit, you will continue with the example of a company that makes Linux admin tools. Recall that you plan to use Linux VMs to let potential customers test your software. You have a resource group ready and now it is time to create the VMs.
+I den här övningen fortsätter du med exemplet på ett företag som skapar administrationsverktyg för Linux. Kom ihåg att du tänker använda virtuella Linux-datorer så att potentiella kunder kan testa din programvara. Du har en resursgrupp som är redo och nu är det dags att skapa de virtuella datorerna.
 
-Your company has paid for a booth at a big Linux trade show. You plan a demo area containing three terminals each connected to a separate Linux VM. At the end of each day, you want to delete the VMs and recreate them, so they start fresh every morning. Creating the VMs manually after work when you are tired would be error prone. You want to write a PowerShell script to automate the VM creation process.
+Företaget har betalat för en monter på en stor Linux-mässa. Du planerar en demonstration med tre terminaler som var och en är ansluten till en separat virtuell Linux-dator. I slutet av varje dag vill du ta bort de virtuella datorerna och återskapa dem, så att de börjar från början varje morgon. Att skapa de virtuella datorerna manuellt efter jobbet när du är trött kan riskera att fel uppstår. Du vill i stället skriva ett PowerShell-skript som skapar de virtuella datorerna automatiskt.
 
-## Write a script that creates Virtual Machines
+## <a name="write-a-script-that-creates-virtual-machines"></a>Skriva ett skript som skapar virtuella datorer
 
-Follow these steps to write the script:
+Följ dessa steg för att skriva skriptet:
 
-1. Create a new text file named **ConferenceDailyReset.ps1**.
+1. Skapa en ny textfil med namnet **ConferenceDailyReset.ps1**.
 
-1. Capture the parameter in a variable:
+2. Ange parametern i en variabel:
 
     ```powershell
     param([string]$resourceGroup)
     ```
 
-1. Authenticate with Azure using your credentials:
+3. Autentisera till Azure med dina autentiseringsuppgifter:
 
     ```powershell
     Connect-AzureRmAccount
     ```
 
-1. Prompt for a username and password for the VM's admin account and capture the result in a variable:
+4. Fråga efter ett användarnamn och lösenord för den virtuella datorns administratörskonto och ange resultatet i en variabel:
 
     ```powershell
     $adminCredential = Get-Credential -Message "Enter a username and password for the VM administrator."
     ```
 
-1. Create a loop that executes three times:
+5. Skapa en loop som körs tre gånger:
 
     ```powershell
     For ($i = 1; $i -le 3; $i++) 
@@ -35,21 +35,21 @@ Follow these steps to write the script:
     }
     ```
 
-1. In the loop body, create a name for each VM and store it in a variable:
+6. I loopens brödtext skapar du ett namn för varje virtuell dator och lagrar dem i en variabel:
 
     ```powershell
     $vmName = "ConferenceDemo" + $i
     ```
 
-1. Next, create a VM using the `$vmName` variable:
+7. Skapa därefter en virtuell dator med hjälp av variabeln `$vmName`:
 
    ```powershell
    New-AzureRmVm -ResourceGroupName $resourceGroup -Name $vmName -Credential $adminCredential -Location "East US" -Image UbuntuLTS
    ```
 
-1. Save the file.
+8. Spara filen.
 
-The completed script should look like this:
+Det färdiga skriptet bör se ut så här:
 
 ```powershell
 param([string]$resourceGroup)
@@ -66,22 +66,19 @@ For ($i = 1; $i -le 3; $i++)
 }
 ```
 
-## Execute the script
+## <a name="execute-the-script"></a>Köra skriptet
 
-Launch PowerShell and change to the directory where you saved the script file. To run the script, execute the following command:
+Starta PowerShell och gå till den katalog där du sparade skriptfilen. Använd följande kommando för att köra skriptet:
 
 ```powershell
 .\ConferenceDailyReset.ps1 TrialsResourceGroup
 ```
 
-The script may take a few minutes to complete. When it is finished, verify that it ran successfully:
+Det kan ta några minuter att slutföra skriptet. När det är klart kontrollerar du att det har körts:
 
-<!---TODO: Update for sandbox?--->
-1. In a browser, sign into the [Azure portal](https://portal.azure.com/?azure-portal=true).
+1. Logga in på Azure-portalen i en webbläsare.
+2. Klicka på **Resursgrupper** i det vänstra navigeringsfönstret.
+3. I listan med resursgrupper klickar du på **TrialsResourceGroup**. I listan med resurser bör du se de nyligen skapade virtuella datorerna och deras associerade resurser.
 
-1. In the navigation on the left, click **Resource Groups**.
-
-1. In the list of resource groups, click **TrialsResourceGroup**. In the list of resources, you should see the newly created VMs and their associated resources.
-
-## Summary
-You wrote a script that automated the creation of three VMs in the resource group indicated by a script parameter. The script is short and simple but automates a process that would take a long time to complete manually with the portal.
+## <a name="summary"></a>Sammanfattning
+Du skrev ett skript som automatiserade skapandet av tre virtuella datorer i resursgruppen med en skriptparameter. Skriptet är kort och enkelt, men automatiserar en process som tar lång tid att slutföra manuellt med portalen.

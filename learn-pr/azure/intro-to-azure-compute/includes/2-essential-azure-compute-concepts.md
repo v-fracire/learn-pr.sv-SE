@@ -1,49 +1,41 @@
-Your research team needs to perform computationally intense data processing and doesn't have the equipment to do the work. They've decided to use Azure to do the data analysis.
+Forskningsteamet behöver utföra beräkningsintensiv databehandling och har inte den utrustning som krävs för arbetet. De har bestämt sig för att utföra dataanalysen i Azure.
 
-## What is Azure compute?
-Azure compute is an on-demand computing resource service for running cloud-based applications. It provides computing resources like multi-core processors and supercomputers via virtual machines and containers. It also provides serverless computing to enable running apps without requiring infrastructure setup or configuration. The resources are available on-demand and can typically be created in minutes or even seconds. You pay only for the resources you use and only for as long as you're using them.
+## <a name="what-is-azure-compute"></a>Vad är Azure Compute?
+Azure Compute är en databehandlingstjänst på begäran för molnbaserade program. Den innehåller resurser som processorer med flera kärnor och superdatorer som du får tillgång till via virtuella datorer och containrar. Dessutom finns serverfri databehandling så att du kan köra appar utan att behöva installera eller konfigurera någon infrastruktur. Resurserna är tillgängliga på begäran och kan vanligtvis skapas på bara några minuter eller till och med sekunder. Du betalar bara för de resurser du använder och endast så länge du använder dem.
 
-There are three common techniques for performing compute in Azure:
+Det finns tre vanliga tekniker för databehandling i Azure:
+1. Virtuella datorer
+1. Containrar
+1. Serverfri databehandling
 
-- Virtual machines
-- Containers
-- Serverless computing
+## <a name="what-are-virtual-machines"></a>Vad är virtuella datorer?
 
-## What are virtual machines?
+En **virtuell dator (VM)** är en programvaruemulering av en fysisk dator. De innehåller en virtuell processor, minne, lagring och nätverksresurser. De är värd för ett operativsystem, och du kan installera och köra programvara precis som på en fysisk dator. Via en fjärrskrivbordsklient kan du använda och styra den virtuella datorn precis som om du satt framför en fysisk terminal.
 
-A **virtual machine (VM)** is a software emulation of a physical computer. They include a virtual processor, memory, storage, and networking resources. They host an operating system, and you're able to install and run software just like a physical computer. And by using a remote desktop client, you can use and control the virtual machine as if you were sitting in front of a physical terminal.
+### <a name="virtual-machines-in-azure"></a>Virtuella datorer i Azure
 
-### Virtual machines in Azure
+Du kan skapa och vara värd för virtuella datorer i Azure. I vanliga fall kan du skapa och etablera nya virtuella datorer på bara några minuter genom att välja en förkonfigurerad avbildning.
 
-Virtual machines can be created and hosted in Azure. New virtual machines can typically be created and provisioned in minutes by selecting a pre-configured virtual machine image.
+Att välja avbildning är ett av de viktigaste besluten när du skapar en virtuell dator. En avbildning är mallen som används till att skapa den virtuella datorn. Dessa mallar har redan ett operativsystem (OS) och ofta annan programvara, till exempel utvecklingsverktyg eller värdmiljöer för webben.
 
-Selecting an image is one of the most important decisions you'll need to make when creating a VM. An image is a template used to create a virtual machine. These templates already include an operating system (OS) and often other software, such as development tools or web hosting environments.
+## <a name="what-are-containers"></a>Vad är containrar?
 
-## What are containers?
+Containrar är en virtualiseringsmiljö, men till skillnad från virtuella datorer har de inget operativsystem. I stället refererar de till operativsystemet i den värdmiljö som kör containern. Om fem containrar till exempel körs på en server med en specifik Linux-kernel så körs alla fem containrar på samma kernel. 
 
-Containers are a virtualization environment but, unlike a virtual machine, they do not include an operating system. Instead, they reference the operating system of the host environment that runs the container. For example, if five containers are running on a server with a specific Linux kernel, all five containers are running on that same kernel.
+Containrar innehåller normalt ett program som du skriver och som innehåller de bibliotek som krävs för att programmet ska kunna köras på värdmiljöns kernel. 
 
-The following illustration show a comparison between applications running directly on a VM and applications running inside containers on a VM.
+Containrar är menade att vara enkla och utformade för att kunna skapas, skalas ut och stoppas dynamiskt när miljön och behoven ändras.
 
-![An illustration showing how the operating system is a part of the virtual machine and not part of the container.](../media/2-vm-versus-containers.png)
+En fördel med att använda containrar är att du kan köra flera isolerade program på en virtuell dator. Eftersom containrar är skyddade och isolerade i sig själva behöver du inte nödvändigtvis separata virtuella datorer för olika arbetsbelastningar.
 
-Containers typically contain an application that you write and will include any libraries required for your application to run on the host environment's kernel. 
+Azure har stöd för Docker-containrar och flera olika sätt att hantera dessa containrar. Du kan hantera containrar manuellt eller med Azure-tjänster, till exempel Azure Kubernetes Service.
 
-Containers are meant to be lightweight and are designed to be created, scaled out, and stopped dynamically. This allows you to respond to changes in demand and quickly restart in case of a crash or hardware interruption. 
+### <a name="what-is-serverless-computing"></a>Vad är serverfri databehandling?
 
-A benefit of using containers is the ability to run multiple isolated applications on a virtual machine. Since containers themselves are secured and isolated, you don't necessarily need separate VMs for separate workloads.
+Serverfri databehandling är en molnbaserad körningsmiljö som kör din kod men där den underliggande värdmiljön är helt abstrakt. Du skapar en instans av tjänsten och lägger till din kod, men du behöver inte, och kan inte, konfigurera eller underhålla någon infrastruktur.
 
-Azure supports Docker containers and several ways to manage those containers. Containers can be managed manually or with Azure services such as Azure Kubernetes Service.
+Du konfigurerar dina serverfria appar för att svara på händelser. Det kan gälla en REST-slutpunkt, en timer eller ett meddelande som tas emot från en annan Azure-tjänst. Den serverfria appen körs bara när den utlöses av en händelse. 
 
-### What is serverless computing?
+Du ansvarar inte för infrastrukturen. Skalning och prestanda hanteras automatiskt och du debiteras endast för de resurser du använder. Du behöver inte ens reservera kapacitet.
 
-Serverless computing is a cloud-hosted execution environment that runs your code but completely abstracts the underlying hosting environment. You create an instance of the service, and you add your code; no infrastructure configuration or maintenance is required, or even allowed.
-
-You configure your serverless apps to respond to _events_. This could be a REST endpoint, a periodic timer, or even a message received from another Azure service. The serverless app runs only when it's triggered by an event.
-
-Infrastructure isn't your responsibility. Scaling and performance are handled automatically, and you are billed only for the exact resources you use. There's no need to even reserve capacity.
-
-Azure has two implementations of serverless compute: 
-
-- **Azure Functions** which can execute code in almost any modern language
-- **Azure Logic Apps** which are designed in a web-based designer and can execute logic triggered by Azure services without writing any code.
+Azure har två implementeringar av serverfri databehandling: **Azure Functions** som kan köra kod på nästan alla moderna språk, och **Azure Logic Apps** där du kan köra logik som utlöses av Azure-tjänster utan att du behöver skriva någon kod.

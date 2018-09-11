@@ -1,0 +1,3 @@
+### <a name="summary"></a>Sammanfattning
+
+Idag används bildklassificering allt mer till att automatisera uppgifter som att kontrollera om bilder som laddas upp till webbplatser är stötande, eller att inspektera om delar som monteras i olika produktionslinjer är defekta. Att skapa en modell för bildklassificering manuellt – det vill säga att skriva koden från grunden i Python, R eller något annat språk – kräver en hel del expertis, men med Custom Vision Service kan i stort sett alla skapa avancerade modeller för bildklassificering. Och när du väl har skapat och tränat upp en modell kan du skriva appen som ska använda den med några få rader kod.

@@ -1,17 +1,17 @@
-Adding data and querying data in your database should be straightforward. 
+Att lägga till data och fråga efter data i databasen bör vara enkelt. 
 
-Imagine you work for an online clothing retailer and you need to add inventory data to your e-commerce database in Azure Cosmos DB. Once the data is in the database, you can query it by using familiar SQL queries (yes, just like the ones you use in SQL Server) and perform complex operations by using stored procedures and user-defined functions (UDFs).
+Tänk dig att du arbetar hos en återförsäljare av bildelar och du behöver data för delar i din e-handelsdatabas i Azure Cosmos DB. När data är i databasen kan du fråga i den med hjälp av välbekanta SQL-frågor (ja, precis som dem du använder i SQL Server) och utföra komplexa åtgärder genom att använda lagrade procedurer och användardefinierade funktioner.
 
-Azure Cosmos DB provides a Data Explorer in the Azure portal that you can use to perform all these operations: adding data, modifying data, and creating and running stored procedures. The Data Explorer can be used in the Azure portal or it can be undocked and used in a standalone web browser, providing additional space to work with your data.
+Azure Cosmos DB har Datautforskaren i Azure Portal som du kan använda för att utföra alla dessa åtgärder – lägga till data, ändra data och skapa och köra lagrade procedurer. Datautforskaren kan användas i Azure Portal eller kopplas bort och användas i en fristående webbläsare, vilket ger ytterligare utrymme att arbeta med dina data.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
+- skapa produktkatalogdokument i Datautforskaren
+- utföra Azure Cosmos DB-frågor
+- skapa och köra åtgärder på dina dokument genom att använda lagrade procedurer
 
-- Create product catalog documents in the Data Explorer
-- Perform Azure Cosmos DB queries
-- Create and run operations on your documents by using stored procedures
+## <a name="prerequisites"></a>Krav
 
-## Prerequisites
-
-- Have an understanding of databases and queries
+- Förståelse för databaser och frågor
+- Ett Azure Cosmos DB-konto, en databas och en samling som den skapas i modulen ”Skapa en Azure Cosmos DB-databas byggd för att skalas om”

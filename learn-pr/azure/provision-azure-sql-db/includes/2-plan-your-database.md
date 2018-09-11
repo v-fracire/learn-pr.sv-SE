@@ -1,47 +1,44 @@
-Azure provides PaaS services to help you manage all kinds of data, from highly structured relational data to unstructured data.
+Azure tillhandahåller PaaS-tjänster som du kan använda för att hantera alla typer av data, från strukturerade relationsdata till ostrukturerade data.
 
-Here you'll learn why Azure SQL Database is a convenient, cost-effective, and secure way to host your relational databases.
+Här kan du läsa mer om varför Azure SQL Database ger dig ett praktiskt, kostnadseffektivt och säkert sätt att agera värd för relationsdatabaser.
 
-## Why choose Azure SQL Database?
+## <a name="why-choose-azure-sql-database"></a>Men varför ska man välja Azure SQL Database?
 
-Your transportation logistics application requires stored procedures that run basic CRUD (**create**, **read**, **update**, and **delete**) operations. You have experience working with SQL Server and other relational databases.
+Säg att du har en logistikapp som behöver tillgång till några lagrade CRUD-åtgärder (**skapa**, **läsa**, **uppdatera** och **ta bort**). Du har erfarenhet av att arbeta med SQL Server och andra relationsdatabaser.
 
-You consider two choices for your database:
+Du har två alternativ när det gäller databasen:
 
-1. Host SQL Server on-premises. Your IT team runs a small in-house data center to support the finance department and a few other teams. You can work with IT to host a SQL Server deployment in their data center.
+1. Du kan vara värd för SQL Server lokalt. IT-avdelningen driver ett litet lokalt datacenter som tillhandahåller tjänster åt ekonomiavdelningen och några andra avdelningar på företaget. Samarbeta med IT-avdelningen och låt datacentret vara värd för en SQL Server-distribution.
+1. Du kan vara värd för Azure SQL Database i molnet. Azure SQL Database bygger på SQL Server och tillhandahåller de relationsdatabasfunktioner som du behöver.
 
-1. Host Azure SQL Database in the cloud. Azure SQL Database is based on SQL Server and provides the relational database functionality you need.
+Du har bestämt dig för att skapa webb- och appnivåer för din logistikapp hos Azure. Då är det också klokt att låta Azure vara värd för databasen. Det finns även andra anledningar till varför Azure SQL Database är ett smart val och varför det till och med är enklare att använda än virtuella datorer.
 
-You've decided to build the web and application tiers for your logistics app on Azure. So it makes sense to also host your database there. But there are some other reasons why Azure SQL Database is a smart choice, and why it's even easier than using virtual machines.
+* **Praktiskt**
 
-- **Convenience**
+    När du ska konfigurera SQL Server på en virtuell dator eller på någon annan fysisk maskinvara måste du först ta reda på maskin- och programvarukraven. Du måste ha kunskap om de senaste regelverken och rekommendationerna för säkerhet samt kunna hantera operativsystem och SQL Server-korrigeringar som en del av rutinunderhållet. Du måste också kunna sköta säkerhetskopiering och tackla eventuella problem med datakvarhållning själv.
 
-    Setting up SQL Server on a VM or on physical hardware requires you to know about hardware and software requirements. You'll need to understand the latest security best practices and manage operating system and SQL Server patches on a routine basis. You also need to manage backup and data retention issues yourself.
+    När du väljer Azure SQL Database tar vi hand om hanteringen av maskinvaran, uppdateringen av programvaran och installationen av korrigeringsfiler för operativsystemet. Allt du behöver göra är att ange namnet på din databas och ett par andra alternativ. På bara några minuter har du en aktiv och fungerande SQL-databas.
 
-    With Azure SQL Database, we manage the hardware, software updates, and OS patches for you. All you specify is the name of your database and a few options. You'll have a running SQL database in minutes.
+    Du kan enkelt skala upp och ned antalet SQL Database-instanser vid behov. Azure SQL Database går snabbt att skala upp och är enkel att konfigurera. Du slipper tänka på konfigurationen och kan istället lägga mer krut på att bygga en helt fantastisk app.
+* **Kostnad**
 
-    You can bring up and tear down Azure SQL Database instances at your convenience. Azure SQL Database comes up fast and is easy to configure. You can focus less on configuring software and more on making your app great.
+    Eftersom vi sköter allt åt dig behöver du inte köpa, driva eller underhålla några egna system.
 
-- **Cost**
+    Azure SQL Database har flera olika prisnivåer. Använd de olika prisnivåerna för att hitta rätt balans mellan prestanda och kostnad. Börja med en liten summa varje månad.
+* **Skalning**
+ 
+    Du upptäcker att mängden logistikdata som måste du lagra fördubblas för varje år som går. Hur mycket extra kapacitet ska du planera för när du kör lokalt?
 
-    Because we manage things for you, there are no systems for you to buy, provide power for, or otherwise maintain.
+    Om du använder Azure SQL Database kan du enkelt justera prestanda och storleken på databasen i takt med att dina behov skiftar.
 
-    Azure SQL Database has several pricing options. These pricing options enable you to balance performance versus cost. You can start for just a few dollars a month.
+* **Säkerhet**
 
-- **Scale**
+    Azure SQL Database levereras med en brandvägg som konfigureras automatiskt för att begränsa antalet anslutningar från Internet.
 
-    You find that the amount of transportation logistics data you must store doubles every year. When running on-premises, how much excess capacity should you plan for?
+    Du kan sätta upp IP-adresser som du har förtroende för på en lista med tillåtna användare. Om du använder en sådan lista blir det lättare att använda Visual Studio, SQL Server Management Studio eller andra verktyg för att hantera din Azure SQL Database.
 
-    With Azure SQL Database, you can adjust the performance and size of your database on the fly when your needs change.
+## <a name="summary"></a>Sammanfattning
 
-- **Security**
+När du väljer Azure SQL Database tar vi hand om hanteringen av maskinvaran, uppdateringen av programvaran och installationen av korrigeringsfiler för operativsystemet. Vi har en rad olika prisnivåer så att du får den prestanda du behöver till en förutsägbar kostnad. Azure SQL Database levereras också med en brandvägg så att du kan styra över åtkomsten till dina data.
 
-    Azure SQL Database comes with a firewall that's automatically configured to restrict connections from the Internet.
-
-    You can "whitelist" IP addresses you trust. Whitelisting lets you use Visual Studio, SQL Server Management Studio, or other tools to manage your Azure SQL database.
-
-## Summary
-
-With Azure SQL Database, we manage the hardware, software updates, and OS patches for you. We provide buying options to help you get the performance you need at a predictable cost. Azure SQL Database also comes with a firewall so that you can control access to your data.
-
-Although you don't need to be a DBA to use Azure SQL Database, there are a few concepts you should understand before you start. We'll cover these concepts next.
+Du inte behöver vara någon erfaren databasadministratör för att kunna använda Azure SQL Database, men det finns ändå några begrepp som du bör känna till innan du börjar. Härnäst går vi igenom just dessa begrepp.

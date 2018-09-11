@@ -1,3 +1,3 @@
-You learned just a few ways Azure networking can help reduce latency and make your apps and services more highly available. 
+Du har lärt dig några sätt som Azure-nätverk kan minska svarstiden och ge dina appar och tjänster högre tillgänglighet. 
 
-With load balancing and global distribution in place, your e-commerce site is ready for the world. Users reach the domain that's closest geographically. Each domain has failover built in, helping every user have a great experience. The numbers are already showing increased traffic, and business is booming.
+Med belastningsutjämning och global distribution är din näthandelswebbplats redo för världen. Användarna når den domän som är geografiskt närmast. Alla domäner har inbyggd redundans, så att användarna får en bra upplevelse. Siffrorna visar redan på ökad trafik och verksamheten blomstrar.

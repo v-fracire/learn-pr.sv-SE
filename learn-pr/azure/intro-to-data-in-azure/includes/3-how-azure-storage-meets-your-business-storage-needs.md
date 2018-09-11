@@ -1,90 +1,84 @@
-Looking at the benefits of Azure Storage, you understand that it offers the best options for storing your learning portal. Now let's explore the benefits and options available in Azure Storage in detail to see how it fits your business needs.
+När du tittar på fördelarna med Azure Storage kommer du se att Azure har de bästa alternativen för lagring av din utbildningsportal. Nu ska vi utforska fördelarna och alternativen som är tillgängliga med Azure Storage närmare för att se hur Azure kan uppfylla dina affärsbehov.
 
-## How Azure Storage can meet your business storage needs
+## <a name="how-azure-storage-can-meet-your-business-storage-needs"></a>Så kan Azure-lagring uppfylla lagringsbehoven på ditt företag
 
-Azure Storage provides several options that accommodate specific types of data storage needs.
+Azure Storage har flera alternativ som är anpassade för olika typer av datalagring.
 
-### Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 
-**Azure SQL Database** is a robust, fully managed, relational cloud database that stores all your data. You can use this feature to store data that you frequently access and update, such as personal and training-related information for your staff. You can also migrate your existing SQL Server databases without changing your applications. The following illustration shows the types of data from the online learning portal scenario that would be stored in an Azure SQL database.
+**Azure SQL Database** är en robust, helt hanterad och molnbaserad relationsdatabas som lagrar alla dina data. Du kan använda den här funktionen till att lagra data som du använder och uppdaterar ofta, till exempel personlig och utbildningsrelaterad information om din personal. Du kan också migrera befintliga SQL Server-databaser utan att ändra dina program.
 
-![An illustration showing Azure SQL used to store student information such as transcripts, certifications, and study materials.](../media/3-Azure_SQL.png)
+![AzureSQL](../media-draft/Azure_SQL.png)
 
-### Azure Cosmos DB
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Cosmos DB is a globally distributed database service. It supports schema-less data that offers the capability to build highly responsive and *Always On* applications to support constantly changing data. You can use this feature to store data that is updated and maintained based on inputs from users around the world. The following illustration shows a sample Azure Cosmos DB database used to store data that is accessed by multiple people located around the world.
+Azure Cosmos DB är en globalt distribuerad databastjänst. Funktionen har stöd för data utan schema så att du kan utveckla dynamiska program som *alltid är aktiva*, vilket ger stöd för data som ändras kontinuerligt. Du kan använda den här funktionen för att lagra data som uppdateras och underhålls baserat på indata från användare i hela världen.
 
-![An illustration showing usage of Azure Cosmos DB in the online training scenario to store the course catalog. Azure Cosmos DB is a good choice here because the catalog is updated by administrators and accessed by students all over the world.](../media/3-Azure_cosmos_db.png)
+![CosmosDB](../media-draft/Azure_cosmos_db.png)
 
-### Azure Blob storage
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Azure Blob storage provides the ability to stream large video or audio files directly to the user browser from anywhere in the world. Blob storage is also used to store data for backup and restore, disaster recovery, and archiving. Azure Blob storage can store up to 8 TB of data to store files for virtual machines. The following illustration shows an example usage of Azure blob storage.
+Med Azure Blob Storage kan du strömma stora video- eller ljudfiler direkt till användarens webbläsare var som helst i världen. Blob Storage används också till att lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering. Azure Blob Storage kan lagra upp till 8 TB data för virtuella datorer.
 
-![An illustration showing Azure blob storage used to store and stream video or audio files.](../media/3-Azure_blob.png)
+![AzureBlob](../media-draft/Azure_blob.png)
 
-### Azure Data Lake Storage Gen2
+### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-The Data Lake feature of Azure storage allows you to perform analytics on your data usage and prepare reports accordingly. Data Lake is a large repository that stores both structured and unstructured data.
+Med funktionen Data Lake i Azure Storage kan du analysera dataanvändningen och skapa rapporter baserat på resultatet. Data Lake är en stor databas för både strukturerade och ostrukturerade data.
 
-**Azure Data Lake Storage Gen2** combines the scalability and cost benefits of object storage with the reliability and performance of the Big Data file system capabilities. The following illustration shows how Azure Data Lake stores all your business data  and makes it available for analysis.
+**Azure Data Lake Storage Gen2** kombinerar objektlagringens skalbarhet och kostnadsfördelar med Big Data-filsystemens tillförlitlighet och prestanda.
 
-![An illustration showing the role of Azure Data Lake in preparing and storing your data for use by analysis tools. Azure Data Lake can handle a variety of input types such as  relational, video, or sensor data.](../media/3-Data_lake_store_concept.png)
+![Data_Lake_Store_concept](../media-draft/Data_lake_store_concept.png)
 
-### Azure Files
+### <a name="azure-files"></a>Azure Files
 
-Azure Files offers fully managed file shares in the cloud. Applications running in Azure can easily share files between VMs. You can use Azure file shares at the same time for cloud or on-premises deployments of Windows, Linux, and macOS. The following illustration shows Azure Files being used to share data between two geographical locations. Azure Files uses the Server Message Block (SMB) protocol which ensures the data is encrypted at rest and in transit.
+Med Azure Files får du helt hanterade filresurser i molnet. Program som körs i Azure kan enkelt dela filer mellan virtuella datorer. Du kan använda Azure-filresurser på samma gång för molnet eller lokala distributioner av Windows, Linux och macOS.
 
-![An illustration showing the file sharing capabilities of Azure Files. ](../media/3-Azure_Files.png)
+![Azure_Files](../media-draft/Azure_Files.png)
 
-### Azure Queue
+### <a name="azure-queue"></a>Azure Queue
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world. A single queue message is up to 64 KB in size, and a queue can contain millions of messages.
+Azure Queue Storage är en tjänst för lagring av stora mängder meddelanden som kan nås var som helst i världen. Ett enskilt kömeddelande har en storlek på upp till 64 kB och en kö kan innehålla flera miljoner meddelanden.
 
-Typically, there are one or more sender components and one or more receiver components. Sender components add message to the queue. Receiver components retrieve messages from the front of the queue for processing. The following illustration shows multiple sender applications adding messages to the Azure Queue and one receiver application retrieving the messages.
+Queue Storage används främst för följande:
 
-![An illustration showing a high-level architecture of Azure Queue storage](../media/3-Azure_Queue.png)
+- För att skapa en lista med kvarvarande arbetsuppgifter och för att skicka meddelanden mellan olika Azure-webbservrar.
+- För att belastningsutjämna mellan olika webbservrar/infrastrukturer och hantera trafiktoppar.
+- För att säkerställa återhämtning efter komponentfel när flera personer använder dina data samtidigt.
 
-Queue storage is primarily used for the following:
+![Azure_Queue](../media-draft/Azure_Queue.png)
 
-- To create a backlog of work and to pass messages between different Azure web servers.
-- For load balancing between different web servers/infrastructure and for managing bursts of traffic.
-- To build resilience against component failure when multiple users access your data at the same time.
+### <a name="azure-standard-storage"></a>Azure Standard Storage
 
-### Azure Standard Storage
+Virtuella datorer i Azure använder diskar till att lagra operativsystem, program och data. Azure Standard Storage ger ett tillförlitligt och kostnadseffektivt diskstöd för virtuella datorer som kör arbetsbelastningar som inte är verksamhetskritiska. Med Standard Storage lagras data på hårddiskar (HDD).
 
-Virtual machines in Azure use disks to store operating systems, applications, and data. Azure Standard Storage delivers reliable, low-cost disk support for VMs running workloads that are not mission critical. With Standard Storage, the data is stored on hard disk drives (HDDs).
+När du arbetar med virtuella datorer kan du använda SSD-standarddiskar och HDD-standarddiskar för mindre kritiska arbetsbelastningar, och SSD-premiumdiskar för verksamhetskritiska produktionsprogram. Azures diskar har konsekvent levererat tillförlitlighet i företagsklass, med en branschledande årlig felfrekvens på 0 %.
 
-When working with VMs, you can use standard SSD and HDD disks for less critical workloads, and premium SSD disks for mission-critical production applications. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate. The following illustration shows an Azure virtual machine using separate disks to store different data.
+![Azure_disk](../media-draft/Azure_disks.png)
 
-![An illustration showing two disks inside a virtual machine, one that stores the operating system and one that stores data.](../media/3-Azure_disks.png)
+### <a name="storage-tiers"></a>Lagringsnivåer
 
-### Storage tiers
+Azure Storage har tre lagringsnivåer för lagring av blobobjekt:
 
-Azure Storage offers three storage tiers for blob object storage:
+1. **Frekvent lagringsnivå** – Azures frekventa lagringsnivå är optimerad för att lagra data som används ofta. 
+1. **Lågfrekvent lagringsnivå** – Azures lågfrekventa lagringsnivå är optimerad för att lagra data som inte används ofta och som lagras i minst 30 dagar.
+1. **Arkivlagringsnivå** – arkivlagringsnivån i Azure är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav. Arkivlagring i Azure är perfekt för lagring av äldre versioner av dina data så att du kan hämta dem om det krävs för granskning eller vid andra aktiviteter som inträffar mer sällan.
 
-1. **Hot storage tier** - The Azure hot storage tier is optimized for storing data that is accessed frequently. 
+![Archive_Tier](../media-draft/Archive_Storage_Tier.png)
 
-1. **Cool storage tier** - The Azure cool storage tier is optimized for storing data that is infrequently accessed and stored for at least 30 days.
+### <a name="azure-storage-encryptionreplication"></a>Kryptering/replikering i Azure Storage
 
-1. **Archive storage tier** - The Azure archive storage tier is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements. The archive storage in Azure is ideal for storing older versions of your data so that you can retrieve it when required for auditing or other infrequent activities.
+Azure Storage har funktioner för kryptering och replikering som ger hög säkerhet och tillgänglighet för dina data.
 
-The following illustration shows the Azure Blob Storage tiers.
+#### <a name="encryption-for-storage-services"></a>Kryptering för lagringstjänster
 
-![An illustration showing the three different storage tiers of Azure Blob Storage: hot, cold, and archive.](../media/3-Archive_Storage_Tier.png)
+Följande typer av kryptering är tillgängliga för dina resurser:
 
-### Azure Storage encryption/replication
+1. **Azure Storage Service Encryption (SSE)** för data i vila hjälper dig att skydda dina data på ett sätt som uppfyller organisationens krav på säkerhet och regelefterlevnad. Azure SSE krypterar data innan de lagras och dekrypterar data innan de hämtas. Krypteringen och dekrypteringen är transparent för användaren.
+1. **Kryptering på klientsidan** är när data redan har krypterats av klientbiblioteken. Azure lagrar data i krypterat tillstånd i vila och dekrypterar sedan när data hämtas.
 
-Azure Storage provides security and high availability to your data through encryption and replication features.
+    Den här krypteringsfunktionen gör att dina data uppfyller globala skyddsstandarder. Den passar bra för lagring av känslig information som personuppgifter och finansiella data.
 
-#### Encryption for storage services
+#### <a name="replication-for-storage-availability"></a>Replikering för tillgänglighet
 
-The following encryption types are available for your resources:
-
-1. **Azure Storage Service Encryption (SSE)** for data at rest helps you secure your data to meet the organization's security and regulatory compliance. The Azure SSE encrypts the data before storing it and decrypts the data before retrieving it. The encryption and decryption are transparent to the user.
-1. **Client-side encryption** is where the data is already encrypted by the client libraries. Azure stores the data in the encrypted state at rest, which is then decrypted during retrieval.
-
-    This encryption feature ensures your data meets global protection standards. It is appropriate for storing sensitive information like personal and financial data.
-
-#### Replication for storage availability
-
-A replication type is set up when you create a storage account. The replication feature ensures that your data is durable and always available. Azure Storage enables regional and geographic replications to protect your data against natural disasters and other local disasters like fire or flooding.
+Replikeringstypen ställs in när du skapar ett lagringskonto. Replikeringsfunktionen garanterar att dina data alltid är tillgängliga. Azure Storage har regionbaserad och geografisk replikering som skyddar dina data mot naturkatastrofer och andra lokala katastrofer som bränder eller översvämningar.

@@ -1,94 +1,38 @@
-Every business must decide how they want to store their data and execute their logic. Depending on your business requirements, cloud computing may or may not be right for you.
+Alla företag måste bestämma hur de ska lagra sina data och köra sin logik. Beroende på vilka krav företaget har är det inte säkert att molntjänster passar dig.
 
-Let's learn some of the top benefits of cloud computing.
+Nu ska du få se några av de främsta fördelarna med molntjänster.
 
-:::row:::
-    :::column:::
-        ![fpo image](../media/3-cost-effective.png)
-    :::column-end:::
-    :::column span="3":::
-        **It’s cost effective**
+### <a name="cloud-computing-is-cost-effective"></a>Molntjänster är kostnadseffektiva
 
-Cloud computing provides a **pay-as-you-go** pricing model. Rather than paying for a pre-defined amount of computing resources or hardware up-front, you rent hardware and pay for the resources that you use.
+Molntjänster har en prismodell där du **betalar per användning**. I stället för att betala för en fördefinierad mängd resurser eller maskinvara direkt, hyr du maskinvaran och betalar bara för de resurser som du använder.
 
-For example, imagine you have a blog, and when you create a new post you want to notify your subscribers via text message. Using the correct cloud computing service, you'll only spend money when you're sending texts to your subscribers. When you're not posting, it won’t cost you anything.
+Anta exempelvis att du har en blogg. När du skriver ett nytt inlägg vill du meddela dina prenumeranter detta via SMS. Med rätt molntjänst kostar det bara pengar när du skickar SMS:et till dina prenumeranter. Under den tid när du inte publicerar något kostar det dig ingenting.
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        ![fpo image](../media/3-scalable.png)
-    :::column-end:::
-    :::column span="3":::
-        **It's scalable**
+### <a name="cloud-computing-is-scalable"></a>Molntjänster är skalbara
 
-Cloud computing supports both _vertical_ and _horizontal_ scaling depending on your needs.
+Molntjänster stöder både _lodrät_ och _vågrät_ skalning, beroende på dina behov.
 
-**Vertical scaling** is the process of adding resources to increase the power of an existing server. Some examples of vertical scaling are: adding a faster CPU, additional CPUs, or adding more memory.
+**Lodrät skalning** är en process där du lägger till resurser för att öka kraften i en befintlig server. Exempel på lodrät skalning är att lägga till en snabbare processor, fler processorer eller mer minne.
 
-**Horizontal scaling** is the process of adding more servers that function together as one unit. For example, instead of having one server processing incoming requests, you have two.
+**Vågrät skalning** är processen att lägga till flera servrar som fungerar tillsammans som en enhet. I stället för att ha en server som bearbetar inkommande begäranden, har du två.
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        ![fpo image](../media/3-elastic.png)
-    :::column-end:::
-    :::column span="3":::
-        **It's elastic**
+### <a name="cloud-computing-is-elastic"></a>Molntjänster är elastiska
 
-As your workload changes due to a spike or drop in demand, a cloud computing system can compensate by automatically adding or removing resources.
+Om arbetsbelastningen ändras på grund av en tillfällig ökning eller minskning av efterfrågan, kan molntjänsten automatiskt lägga till eller ta bort resurser för att kompensera för detta.
 
-For example, imagine your website is featured in a news article, which leads to a spike in traffic overnight. Since the cloud is elastic, it automatically allocates more computing resources to handle the increased traffic. When the traffic begins to settle, the cloud notices it has too many resources allocated and begins to remove them so you don’t waste any money.
+Anta exempelvis att det skrivs om webbplatsen i en nyhetsartikel och att detta leder till en topp i trafiken över en natt. Eftersom molnet är elastiskt kan det automatiskt allokera fler beräkningsresurser för att hantera den ökade trafiken. När sedan trafiken börjar lugna ner sig och molnet märker att det har för många allokerade resurser, tar det bort dem så att du inte behöver slösa pengar i onödan.
 
-Another example is if you are running an application used by employees, you can have the cloud automatically add resources for the core hours during which most people access the application, and remove the resources at the usual end of the day.
+### <a name="cloud-computing-is-current"></a>Molntjänster är aktuella
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        ![fpo image](../media/3-current.png)
-    :::column-end:::
-    :::column span="3":::
-        **It's current**
+När du använder molnet kommer du att kunna fokusera på det viktigaste: att skapa och distribuera program. Du behöver inte lägga tid på underhållsarbete med korrigering av programvara, maskinvaruinställningar, uppgraderingar och andra IT-hanteringsuppgifter. Allt detta är dolt och görs automatiskt för att du ska kunna använda det senaste och bästa verktyget till att driva verksamheten.
 
-When you use the cloud, you’re able to focus on what matters: building and deploying applications. You don't have to be caught up in the maintenance work of software patching, hardware setup, upgrades, and other IT management tasks. All of this is automatically done for you to ensure you're using the latest and greatest tools to run your business.
+### <a name="cloud-computing-is-reliable"></a>Molntjänster är tillförlitliga
 
-Additionally, the computer hardware is maintained and upgraded by the cloud provider. For example, if a disk goes out, the disk will be replaced. If new hardware comes out, you don’t have to go through the process of replacing your hardware. You also don’t have to bear the cost for having up-to-date hardware all the time.
+När du driver ett företag måste du vara säker på att dina data alltid finns där. Molntjänstleverantörer erbjuder säkerhetskopiering av data, katastrofåterställning och datareplikering som ser till att dina data är säkra.
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        ![fpo image](../media/3-reliable.png)
-    :::column-end:::
-    :::column span="3":::
-        **It's reliable**
+## <a name="summary"></a>Sammanfattning
 
-When you're running a business, you want to be confident your data is always going to be there. Cloud computing providers offer data backup, disaster recovery, and data replication services to make sure your data is always safe.
+Med molntjänster är det enklare att driva företag. Molntjänster är kostnadseffektiva, skalbara, elastiska, aktuella och tillförlitliga. Detta innebär att du kan lägga mer tid på sådant som är viktigt och mindre tid på att hantera de bakomliggande detaljerna.
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        ![fpo image](../media/3-reliable.png)
-    :::column-end:::
-    :::column span="3":::
-        **It's secure**
 
-Think about how you secure your data center. You have physical security &ndash; who can access the building, who can touch server racks, and so on. You also have digital security &ndash; who can connect to your systems and data over the network.
 
-The cloud is essentially a network of large data centers distributed throughout the globe. So cloud providers need to deal with many of these same issues, just at a larger scale.
-
-When it comes to physical security &ndash; threats to cloud infrastructure, cloud providers invest heavily in walls, cameras, gates, security personnel, and so on to protect physical assets. They also have strict procedures in place to ensure employees have access only to those resources that they’ve been authorized to manage.
-
-Then there’s digital security. One thing that makes the cloud unique is that you rent compute and storage resources from a shared pool. Plus, data can travel in many different ways &ndash; within a data center, between data centers, and over the internet.
-
-For example, you want only authorized users to be able to log into virtual machines or storage systems running in the cloud. The responsibility for securing these resources is shared between you and the cloud provider. Cloud providers offer tools that help you mitigate security threats but you must use these tools to protect the resources you use.
-
-    :::column-end:::
-:::row-end:::
-
-## Summary
-
-Cloud computing makes running a business easier. It’s cost effective, scalable, elastic, current, reliable, and secure. This means you’re able to spend more time on what matters and less time on managing the underlying details.

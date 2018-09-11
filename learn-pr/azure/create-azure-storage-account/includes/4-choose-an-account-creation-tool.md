@@ -1,20 +1,20 @@
-There are several tools that create a storage account. You typically choose based on if you want a GUI and whether you need automation.
+Det finns flera verktyg som skapar ett lagringskonto. Vanligtvis väljer du baserat på om du vill ha ett grafiskt användargränssnitt och huruvida det behövs automatisering.
 
-## Available tools
+## <a name="available-tools"></a>Tillgängliga verktyg
 
-The available tools are:
+De tillgängliga verktygen är:
 
-- Azure Portal
-- Azure CLI (Command-line interface)
+- Portalen
+- Kommandoradsgränssnittet (CLI)
 - Azure PowerShell
-- Management client libraries
+- Hanteringsklientbiblioteken.
 
-The portal provides a GUI with explanations for each setting. This makes it easy to use and helpful for learning about the options.
+Portalen har ett grafiskt användargränssnitt med knappbeskrivningar för varje inställning. Detta gör den enkel att använda och användbar för att lära dig mer om alternativen.
 
-The other tools all support automation. The Azure CLI and Azure PowerShell let you write scripts, while the management libraries allow you to incorporate the creation into a client app.
+Alla de andra verktygen stödjer automatisering. Med CLI och Azure PowerShell kan du skriva skript medan hanteringsbiblioteken gör det möjligt att införliva det du skapar i en klientapp.
 
-## How to choose a tool
+## <a name="how-to-choose-a-tool"></a>Så väljer du verktyg
 
-Storage accounts are typically based on an analysis of your data, so they tend to be relatively stable. This means that storage-account creation is usually a one-time operation done at the start of a project. For one-time activities, the portal is the most common choice.
+Lagringskonton baseras vanligtvis på en analys av dina data, så de brukar vara relativt stabila. Det innebär att skapande av lagringskonton vanligtvis är en engångsåtgärd som görs i början av ett projekt. Portalen är det vanligaste valet för engångsaktiviteter.
 
-In the rare cases where you need automation, the decision is between a programmatic API or a scripting solution. Scripts are typically faster to create and less work to maintain because there is no need for an IDE, NuGet packages, or build steps. If you have an existing client application, the management libraries might be an attractive choice; otherwise, scripts will likely be a better option.
+I sällsynta fall där du behöver automatisering ligger beslutet mellan ett programmatiskt API eller en skriptlösning. Skript går normalt snabbare att skapa och kräver mindre arbete för att underhålla eftersom det inte finns något behov av en IDE, NuGet-paket eller kompileringssteg. Om du har ett befintlig klientprogram kan hanteringsbiblioteken vara ett bra val; i annat fall är skript troligen ett bättre alternativ.

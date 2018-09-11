@@ -1,137 +1,136 @@
-In this unit, you will create a new storage account in your Azure subscription. You will then use Azure Cloud Shell to create a new queue, add a message to it, and then read that message and remove it from the queue.
+I den här övningen ska du skapa ett nytt lagringskonto i din Azure-prenumeration. Du kommer sedan att använda Azure Cloud Shell till att skapa en ny kö, lägga till ett meddelande i den, läsa meddelandet och sedan ta bort det från kön.
 
-These are the same actions taken by components in a distributed application. For example, a mobile app may add a message to a queue, where it waits for a web service to retrieve it and process it.
+Det här är samma åtgärder som vidtas av komponenterna i ett distribuerat program. En mobilapp kan till exempel lägga till ett meddelande i en kö, där det väntar på att en webbtjänst ska hämta och bearbeta det.
 
-## Create a storage account
-<!---TODO: Update for sandbox.--->
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Since Azure Storage queues are part of Azure general-purpose storage accounts, you must start by creating a storage account:
+Eftersom Azure Storage-köer ingår i Azure-lagringskonton för generell användning, måste du börja med att skapa ett lagringskonto:
 
-1. In a browser, navigate to the [Azure portal](https://portal.azure.com?azure-portal=true), and sign in with your normal credentials.
+1. I en webbläsare går du till [Azure Portal](https://portal.azure.com?azure-portal=true) och loggar in med dina vanliga autentiseringsuppgifter.
 
-1. In the top left, click **All services**.
+1. Klicka på **Alla tjänster** i det övre vänstra hörnet.
 
-1. Scroll down to the **Storage** section, and then click **Storage accounts**.
+1. Rulla ned till avsnittet **Lagring** och klicka sedan på **Lagringskonton**.
 
-1. At the top left of the **Storage accounts** blade, click **Add**.
+1. Klicka på **Lägg till** längst upp till vänster på bladet **Lagringskonton**.
 
-  ![Screenshot of Storage accounts blade, with Add highlighted](../media-draft/4-create-a-storage-account-1.png)
+  ![Skärmbild av bladet Lagringskonton med Lägg till markerat](../media-draft/4-create-a-storage-account-1.png)
 
-1. In the resulting dialog, enter the following information, each of these options has a `(i)` icon in the portal which you can use to get more information about what the option does.
+1. Ange följande information i dialogrutan som visas. Vart och ett av dessa alternativ har en `(i)`- ikon i portalen som du kan använda för att få mer information om alternativet.
 
-    - In the **Name** text box, type a unique name for the storage account.
-    - Under **Deployment model**, ensure that **Resource Manager** is selected.
-    - In the **Account kind** drop-down list, select **Storage (general purpose v2)**.
-    - In the **Location** drop-down list, select a region near you.
-    - In the **Replication** drop-down list, select **Locally-redundant storage (LRS)**.
-    - Under **Performance**, select **Standard**.
-    - Under **Access tier**, select **Cool**.
-    - Under **Secure transfer required**, select **Disabled**.
-    - Under **Subscription**, select your subscription.
-    - Under **Resource group**, select **Create new**. In the text box, type **MusicSharingResourceGroup**.
-    - Under **Virtual networks**, select **Disabled**. 
+    - Ange ett unikt namn för lagringskontot i textrutan **Namn**.
+    - Kontrollera att **Resource Manager** är valt under **Distributionsmodell**.
+    - Välj **Lagring (generell användning v2)** i listrutan **Typ av konto**.
+    - Välj en region nära dig i listrutan **Plats**.
+    - Välj **Lokalt redundant lagring (LRS)** i listrutan **Replikering**.
+    - Välj **Standard** under **Prestanda**.
+    - Under **Åtkomstnivå** väljer du **Lågfrekvent**.
+    - Under **Säker överföring krävs** väljer du **Inaktiverat**.
+    - Välj din prenumeration under **Prenumeration**.
+    - Välj **Skapa ny** under **Resursgrupp**. Skriv **MusicSharingResourceGroup** i textrutan.
+    - Under **Virtuella nätverk** väljer du **Inaktiverat**. 
 
-    ![Screenshot of Create storage account dialog box](../media-draft/4-create-a-storage-account-2.png)
+    ![Skärmbild av dialogrutan Skapa lagringskonto](../media-draft/4-create-a-storage-account-2.png)
 
-1. Click **Create** - Azure will create a new resource group and a new storage account associated with it.
+1. Klicka på **Skapa** – Azure skapar en ny resursgrupp och ett nytt lagringskonto som är associerade med den.
 
-    ![Screenshot of Create storage account dialog box, with Create highlighted](../media-draft/4-create-a-storage-account-3.png)
+    ![Skärmbild av dialogrutan Skapa lagringskonto med Skapa markerat](../media-draft/4-create-a-storage-account-3.png)
 
-## Create a queue
+## <a name="create-a-queue"></a>Skapa en kö
 
-Now that the storage account has been created, you can add a new queue to it. You must create the queue by using PowerShell commands:
+Nu när lagringskontot har skapats kan du lägga till en ny kö till det. Du måste skapa kön med hjälp av PowerShell-kommandon:
 
-1. In the top right of the portal, click the **Cloud Shell** link `(>_)`.
+1. Klicka på länken **Cloud Shell** uppe till höger i portalen `(>_)`.
 
-    ![Screenshot of Azure portal, with Cloud Shell icon highlighted](../media-draft/4-create-a-storage-queue-1.png)
+    ![Skärmbild av Azure Portal med ikonen Cloud Shell markerad](../media-draft/4-create-a-storage-queue-1.png)
 
-1. In the **Welcome to Azure Cloud Shell** screen, click **PowerShell (Linux)**.
+1. På skärmen **Välkommen till Azure Cloud Shell** klickar du på **PowerShell (Linux)**.
 
-1. If the **You have no storage mounted** screen appears, click **Create storage**.
+1. Om skärmen **You have no storage mounted** (Du har ingen lagring monterad) visas klickar du på **Skapa lagring**.
 
-1. When the `PS Azure` prompt appears, to obtain the storage account, type the following command. Substitute `<storageaccountname>` with the unique name of your storage account you created above, and then press **Enter**. We want to assign the resulting object to a variable named `$storageaccount`.
+1. Skapa lagringskontot genom att skriva följande kommando när kommandotolken `PS Azure` visas. Ersätt `<storageaccountname>` med det unika namnet för ditt lagringskonto som du skapade ovan och tryck sedan på **Retur**. Vi tilldelar det resulterande objektet till en variabel med namnet `$storageaccount`.
 
     ```powershell
     $storageaccount = Get-AzureRmStorageAccount -Name <storageaccountname> -ResourceGroup  MusicSharingResourceGroup
     ```
 
-1. Next, we need to get the storage account _context_ - this is a property on the returned object. Let's assign it to another variable named `$context`.
+1. Därefter måste vi hämta lagringskontots _sammanhang_ – vilket är en egenskap för det returnerade objektet. Nu ska vi tilldela det till en annan variabel med namnet `$context`.
 
     ```powershell
     $context = $storageaccount.Context
     ```
 
-1. Now we are ready to create the queue. Use the `New-AzureStorageQueue` command and assign it to a `$messageQueue` variable.
-    - Pass a `-Name` parameter with the value `musicsharingmessages`
-    - Pass a `-Context` parameter with the value you retrieved in the previous step.
+1. Nu är vi redo att skapa kön. Använd kommandot `New-AzureStorageQueue` och tilldela den till en `$messageQueue`-variabel.
+    - Skicka en `-Name`-parameter med värdet `musicsharingmessages`
+    - Skicka en `-Context`-parameter med värdet som du hämtade i föregående steg.
 
     ```powershell
     $messageQueue = New-AzureStorageQueue -Name musicsharingmessages -Context $context
     ```
 
-## Add a message to the queue
+## <a name="add-a-message-to-the-queue"></a>Lägga till ett meddelande i kön
 
-Now that you have created a queue in the storage account, you can add a message to it.
+Nu när du har skapat en kö på lagringskontot kan du lägga till ett meddelande i den.
 
-1. To create a new message, use the `New-Object` method to create a .NET `CloudQueueMessage` with a string-based argument:
+1. Du skapar ett nytt meddelande med metoden `New-Object` där du skapar en .NET `CloudQueueMessage` med ett strängbaserat argument:
 
     ```powershell
     $newSongMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList "A new song has been added."
     ```
 
-1. To add the new message to the new queue, pass the created `CloudQueueMessage` to the `AddMessageAsync` method on your `$messageQueue` queue.
+1. Om du vill lägga till det nya meddelandet i den nya kön, skickar du den skapade `CloudQueueMessage` till `AddMessageAsync`-metoden i din `$messageQueue`-kö.
 
     ```powershell
     $messageQueue.CloudQueue.AddMessageAsync($newSongMessage)
     ```
 
-## Verify the message was queued
+## <a name="verify-the-message-was-queued"></a>Kontrollera att meddelandet placerades i kön
 
-We can use the **Storage Explorer** to work with our queue. There are two variations available:
+Vi kan använda **Storage Explorer** när vi arbetar med vår kö. Det finns två tillgängliga varianter:
 
-- A cross-platform desktop app for Linux, macOS, and Windows that you can download.
-- A preview web version in the Azure portal. This is the one we will use here, but you can install the desktop version if you prefer - the instructions are very similar.
+- En plattformsoberoende skrivbordsapp för Linux, macOS och Windows som du kan hämta.
+- En webbförhandsversion i Azure Portal. Det är den som vi använder här, men du kan installera skrivbordsversionen om du föredrar det – instruktionerna är mycket lika.
 
-1. In the Azure portal, in the navigation on the left, click **All resources**.
+1. Klicka på **Alla resurser** i menyn på vänster sida i Azure Portal.
 
-1. In the list of resources, click the storage account you created earlier.
+1. Klicka på lagringskontot du skapade tidigare i listan med resurser.
 
-1. In the storage account blade, click **Storage Explorer (Preview)**.
+1. Klicka på **Storage Explorer (förhandsversion)** på bladet för lagringskontot.
 
-1. In the Storage Explorer, under **QUEUES**, click **musicsharingmessages**. The Storage Explorer should display the message you just added.
+1. Klicka på **musicsharingmessages** i Storage Explorer under **KÖER**. Storage Explorer bör nu visa meddelandet som du nyss lade till.
 
-## Retrieve and remove the message
+## <a name="retrieve-and-remove-the-message"></a>Hämta och ta bort meddelandet
 
-A destination component for a message in a Storage queue must retrieve the message at the front of the queue. Then the destination component must process the message and delete it from the queue so that other components do not retrieve it.
+En målkomponent för ett meddelande i en lagringskö måste hämta meddelandet som ligger först i kön. Målkomponenten måste sedan bearbeta meddelandet och ta bort det från kön så att andra komponenter inte hämtar det.
 
-1. We can retrieve the first available message in PowerShell using the `GetMessageAsync` method on our queue. This is an asynchronous .NET method, since we want to wait for it we can just use the `Result` property to get the return value. This returns an object representing the message which we can assign to a parameter.
+1. Vi kan hämta det första meddelande som är tillgängligt i PowerShell med hjälp av `GetMessageAsync`-metoden i vår kö. Det här är en asynkron .NET-metod, eftersom vi vill vänta tills vi bara kan använda `Result`-egenskapen för att hämta det returnerade värdet. Det här returnerar ett objekt som motsvarar det meddelande som vi kan tilldela till en parameter.
 
     ```powershell
     $retrievedMessage = $messageQueue.CloudQueue.GetMessageAsync().Result
     ```
 
-1. We can get a textual version of the message by calling `AsString` - this will output the value on the console.
+1. Vi kan få en textversion av meddelandet genom att anropa `AsString` – detta kommer att visa värdet i konsolen.
 
     ```powershell
     $retrievedMessage.AsString
     ```
 
-1. Or, we can display all the properties of the message by just typing the variable name and pressing **Enter**.
+1. Vi kan också visa alla egenskaper för meddelandet genom att bara skriva variabelnamnet och trycka på **Retur**.
 
     ```powershell
     $retrievedMessage
     ```
 
-1. `GetMessageAsync` does *not* remove the message - it simply returns it, which means we could process it again. To remove the message from the queue, we can use the `DeleteMessageAsync` method on the queue - this requires that we pass in the message we want to remove.
+1. `GetMessageAsync` tar *inte* bort meddelandet – det bara returnerar det, vilket innebär att vi kan bearbeta det igen. Om du vill ta bort meddelandet från kön kan vi använda `DeleteMessageAsync`-metoden på kön – detta kräver att vi skickar in det meddelande som vi ta bort.
 
     ```powershell
     $messageQueue.CloudQueue.DeleteMessageAsync($retrievedMessage)
     ```
 
-1. To verify that the message is gone, refresh the queue display in the Azure portal by navigating to the Storage Account blade and selecting **Overview > Storage Explorer**. Under **QUEUES**, click **musicsharingmessages**. The Storage Explorer should now show that the queue is empty because you removed the only message.
+1. Om du vill kontrollera att meddelandet är borta, uppdaterar du kön som visas i Azure Portal genom att gå till bladet Lagringskonto och välja **Översikt > Storage Explorer**. Klicka på **musicsharingmessages** under **KÖER**. Storage Explorer bör nu visa att kön är tom eftersom du har tagit bort det enda meddelandet.
 
 
-## Summary
-Storage account queues are a good solution when you want to pass _messages_ between the components of a distributed application. This is a great choice if you want to guarantee delivery or to ensure that messages are delivered in the same order you sent them. However, queues imply that the sender and receiver understand the format of the data being passed - there's an implied data contract between them which adds a bit of "coupling" between the two communicating services.
+## <a name="summary"></a>Sammanfattning
+Köer för lagringskonton är en bra lösning när du vill skicka _meddelanden_ mellan komponenterna i ett distribuerat program. Det här är ett bra alternativ om du vill garantera leveransen eller säkerställa att meddelandena levereras i samma ordning som du skickade dem. Köer innebär dock att avsändaren och mottagaren måste förstå formatet för de data som skickas – det finns ett underförstått datakontrakt mellan dem som lägger till en slags ”koppling” mellan de två kommunikationstjänsterna.
 
-Not all architectures need to pass formatted blocks of data, some really just need simple messages which we want to fire-and-forget without any knowledge of what will handle the message. In these scenarios, a queue isn't a great choice. Let's look at another messaging strategy which is more suited to this style of communication.
+Det är inte alla arkitekturer som behöver skicka formaterade datablock, vissa skickar egentligen bara enkla meddelanden som vi kan läsa och glömma utan att behöva ha någon kunskap om vad som hanterar meddelandet. I dessa scenarion är användningen av en kö inte något bra alternativ. Låt oss titta på en annan strategi för meddelanden som är lämpligare än den här typen av kommunikation.

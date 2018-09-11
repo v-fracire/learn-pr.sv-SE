@@ -1,53 +1,53 @@
-At First Up Consultants, you've been granted access to the Azure subscription for the marketing team. You want to familiarize yourself with the Azure portal and see what roles are currently assigned.
+Du arbetar på First Up Consultants och har beviljats åtkomst till Azure-prenumerationen för marknadsföringsteamet. Du vill bekanta dig med Azure Portal och se vilka roller som är tilldelade för närvarande.
 
-## List role assignments for yourself
+## <a name="list-role-assignments-for-yourself"></a>Visa en lista med egna rolltilldelningar
 
-Follow these steps to see what roles are currently assigned to you.
+Följ stegen nedan om du vill se vilka roller som du har tilldelats.
 
-1. In the navigation list, click **Azure Active Directory**.
+1. Klicka på **Azure Active Directory** i navigeringslistan.
 
-1. Click **Users** to open **All users**.
+1. Öppna **Alla användare** genom att klicka på **Användare**.
 
-    ![Azure Active Directory users](../media-draft/4-aad-all-users.png)
+    ![Azure Active Directory-användare](../media-draft/4-aad-all-users.png)
 
-1. Find and click the **LabAdmin-_XXXXXXX_** user name.
+1. Leta upp och klicka på användarnamnet **LabAdmin-_XXXXXXX_**.
 
-    ![Azure Active Directory lab users](../media-draft/4-aad-all-users-lab.png)
+    ![Azure Active Directory-labbanvändare](../media-draft/4-aad-all-users-lab.png)
 
-1. In the **Manage** section, click **Azure resources**.
+1. Klicka på **Azure-resurser** i avsnittet **Hantera**.
 
-    ![Azure resources](../media-draft/4-aad-user-azure-resources.png)
+    ![Azure-resurser](../media-draft/4-aad-user-azure-resources.png)
 
-    On the Azure resources blade, you can see the resources and roles you have access to. Your list will look different.
+    På bladet Azure-resurser ser du de resurser och roller som du har åtkomst till. Din lista ser annorlunda ut.
 
-## List role assignments for a resource group
+## <a name="list-role-assignments-for-a-resource-group"></a>Visa rolltilldelningar för en resursgrupp
 
-Follow these steps to see what roles are assigned at the resource group scope.
+Följ stegen nedan om du vill se vilka roller som har tilldelats till omfånget för en resursgrupp.
 
-1. In the navigation list, click **Resource groups**.
+1. Klicka på **Resursgrupper** i navigeringslistan.
 
-   ![Resource groups](../media-draft/4-resource-groups.png)
+   ![Resursgrupper](../media-draft/4-resource-groups.png)
 
-1. Click the resource group named **FirstUpConsultantsRG1-_XXXXXXX_**.
+1. Klicka på resursgruppen med namnet **FirstUpConsultantsRG1-_XXXXXXX_**.
 
-1. Click **Access control (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
-   On the Access control (IAM) blade, you can see who has access to this resource group. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from a parent scope.
+   På bladet Åtkomstkontroll (IAM) kan du se vem som har åtkomst till den här resursgruppen. Observera att vissa roller är begränsade till **Den här resursen** medan andra är **(Ärvda)** från ett överordnat omfång.
 
-   ![Access control (IAM) for resource group](../media-draft/4-resource-group-access-control.png)
+   ![Åtkomstkontroll (IAM) för resursgrupp](../media-draft/4-resource-group-access-control.png)
 
-## List roles
+## <a name="list-roles"></a>Visa en lista över roller
 
-As you learned in the previous unit, a role is a collection of permissions. Azure has over 70 built-in roles that you can use in your role assignments. Follow these steps to list the roles.
+Som du lärde dig i den föregående kursdelen är en roll en uppsättning behörigheter. Azure har över 70 inbyggda roller som du kan använda i dina rolltilldelningar. Följ stegen nedan för att visa en lista över rollerna.
 
-- At the top of the Access control (IAM) blade, click **Roles** to see a list of all the built-in and custom roles.
+- Klicka på **Roller** längst upp på bladet Åtkomstkontroll (IAM) för att visa en lista över alla inbyggda och anpassade roller.
 
-   ![Roles option](../media-draft/4-roles-option.png)
+   ![Alternativet Roller](../media-draft/4-roles-option.png)
 
-   You can see the number of users and groups that are assigned to each role.
+   Du kan se hur många användare och grupper som är kopplade till varje roll.
 
-   ![Roles list](../media-draft/4-roles-list.png)
+   ![Lista över roller](../media-draft/4-roles-list.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to list the role assignments for yourself in the Azure portal. You also learned how to list the role assignments at different scopes. In the next unit, you take the next step and use RBAC to grant access to a user.
+I den här kursdelen har du lärt dig hur du visar en lista över de roller som du har tilldelats på Azure Portal. Du har också lärt dig hur du visar en lista över rolltilldelningarna i olika omfång. I nästa kursdel ska vi gå vidare och använda rollbaserad åtkomstkontroll (RBAC) för att bevilja åtkomst till en användare.

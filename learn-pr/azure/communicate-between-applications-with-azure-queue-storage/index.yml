@@ -1,0 +1,42 @@
+### YamlMime:Module
+uid: learn.communicate-between-applications-with-azure-queue-storage
+metadata:
+  title: Kommunicera mellan program med Azure Queue Storage
+  description: Implementera mönstret publicera/prenumerera i molnet med Azure Queue Storage.
+  ms.date: 09/24/2018
+  ms.openlocfilehash: 1c74312305f2640abf1628fef5b714f5ea93735c
+  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43362622"
+title: Kommunicera mellan program med Azure Queue Storage
+summary: Implementera mönstret publicera/prenumerera i molnet med Azure Queue Storage.
+abstract: >
+  I den här modulen kommer du att göra följande:
+
+  - Skapa ett Azure Storage-konto med stöd för köer.
+
+  - Skapa en kö med C# och Azure Storage-klientbiblioteket för .NET.
+
+  - Lägga till, hämta och ta bort meddelanden från en kö med C# och Azure Storage-klientbiblioteket för .NET.
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- intermediate
+roles:
+- developer
+products:
+- azure
+- storageQueue
+units:
+- learn.communicate-between-applications-with-azure-queue-storage.1-introduction
+- learn.communicate-between-applications-with-azure-queue-storage.2-create-the-azure-storage-infrastructure
+- learn.communicate-between-applications-with-azure-queue-storage.3-exercise-create-the-azure-storage-infrastructure
+- learn.communicate-between-applications-with-azure-queue-storage.4-identify-a-queue
+- learn.communicate-between-applications-with-azure-queue-storage.5-exercise-identify-a-queue
+- learn.communicate-between-applications-with-azure-queue-storage.6-how-to-programmatically-access-a-queue
+- learn.communicate-between-applications-with-azure-queue-storage.7-exercise-implement-enqueue
+- learn.communicate-between-applications-with-azure-queue-storage.8-exercise-implement-dequeue
+- learn.communicate-between-applications-with-azure-queue-storage.9-summary
+achievement: learn.communicate-between-applications-with-azure-queue-storage.badge

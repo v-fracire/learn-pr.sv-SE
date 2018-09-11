@@ -1,15 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-neural-network-with-dsvm.3-train-tensorflow-model
-title: Train a TensorFlow model
+title: Träna en TensorFlow-modell
 metadata:
-  title: Train a TensorFlow model
-  description: Train a TensorFlow model
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Träna en TensorFlow-modell
+  description: Träna en TensorFlow-modell
+  ms.openlocfilehash: 1c35a39417bbfd9b14018c48a09d83391a58d70d
+  ms.sourcegitcommit: 107578417899e44b5611917dec7bcc21d4c1582e
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43228437"
 durationInMinutes: 20
-content: |
-  [!include[](includes/3-train-tensorflow-model.md)]
+content: '[!include[](includes/3-train-tensorflow-model.md)]'

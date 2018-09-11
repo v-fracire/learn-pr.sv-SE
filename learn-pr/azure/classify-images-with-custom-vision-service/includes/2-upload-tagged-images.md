@@ -1,45 +1,61 @@
-In this unit, you will add images of famous paintings by Picasso, Pollock, and Rembrandt to the Artworks project, and tag the images so the Custom Vision Service can learn to differentiate one artist from another.
+### <a name="exercise-2-upload-tagged-images"></a>Övning 2: Ladda upp taggade bilder
 
-1. Click **Add images** to add images to the project.
+I den här övningen lägger du till bilder med berömda konstverk av Picasso, Pollock och Rembrandt i Artworks-projektet och taggar dem så att Custom Vision Service kan lära sig att skilja mellan olika konstnärer.
+  
+1. Klicka på **Lägg till bilder** för att lägga till bilder i projektet.
 
-    ![Adding images to the Artworks project](../media/2-portal-click-add-images.png)
+    ![Lägga till bilder i Artworks-projektet](../images/portal-click-add-images.png)
 
-1. Click **Browse local files**.
+    _Lägga till bilder i Artworks-projektet_ 
+ 
+1. Klicka på **Bläddra bland lokala filer**.
 
-    ![Browsing for local images](../media/2-portal-click-browse-local-files.png)
+    ![Bläddra bland lokala bilder](../images/portal-click-browse-local-files.png)
 
-    _Browsing for local images_
+    _Bläddra bland lokala bilder_ 
+ 
+1. Bläddra till mappen ”Artists\Picasso” i [resursen som medföljer den här labben](https://a4r.blob.core.windows.net/public/cvs-resources.zip), markera alla filer i mappen och klicka på **Öppna**.
 
-1. Browse to the "Artists\Picasso" folder in the [resources that accompany this module](https://a4r.blob.core.windows.net/public/cvs-resources.zip), select all of the files in the folder, and click **Open**.
+    ![Välja en bild](../images/fe-browse-picasso-01.png)
 
-    ![Selecting an image](../media/2-fe-browse-picasso-01.png)
+    _Välja en bild_ 
+ 
+1. Skriv ”painting” (utan citattecken) i fältet **Lägg till några taggar ...** . Klicka sedan på **+** för att tilldela taggen till bilderna.
 
-1. Type "painting" (without quotation marks) into the **Add some tags...** box. Then click **+** to assign the tag to the images.
+    ![Lägga till taggen ”painting” för bilderna](../images/portal-add-tags-01.png)
 
-    ![Adding a "painting" tag to the images](../media/2-portal-add-tags-01.png)
+    _Lägga till taggen ”painting” för bilderna_ 
 
-1. Repeat Step 4 to add a "Picasso" tag to the images.
+1. Upprepa steg 4 och lägg till taggen ”Picasso” för bilderna.
 
-1. Click **Upload 7 files** to upload the images. Once the upload has finished, click **Done**.
+1. Klicka på **Ladda upp 7 filer** för att ladda upp bilderna. När överföringen är färdig klickar du på **Klart**.
 
-    ![Uploading tagged images](../media/2-upload-picasso-images.png)
+    ![Ladda upp taggade bilder](../images/upload-picasso-images.png)
 
-1. Confirm that the images you uploaded appear in the portal, along with the tags assigned to them.
+    _Ladda upp taggade bilder_ 
 
-    ![The uploaded images](../media/2-portal-tagged-01.png)
+1. Bekräfta att bilderna du laddat upp visas i portalen tillsammans med de taggar du tilldelat.
 
-1. With seven Picasso images, the Custom Vision Service can do a decent job of identifying paintings by Picasso. But if you trained the model right now, it would only understand what a Picasso looks like, and it would not be able to identify paintings by other artists.
+    ![De uppladdade bilderna](../images/portal-tagged-01.png)
 
-	The next step is to upload some paintings by another artist. Click **Add images** and select all of the images in the "Artists\Rembrandt" folder in the module resources. Tag them with the labels "painting" and "Rembrandt" (not "Picasso"), and upload them to the project.
+    _De uppladdade bilderna_ 
 
-    > When you add the tag "painting," you don't have to type it in again. You can select it from the drop-down list attached to the **Add some tags...** box, as shown below. You **will** have to type "Rembrandt" and click **+** to add a "Rembrandt" tag.
+1. Med sju målningar av Picasso kan Custom Vision Service identifiera konstverk av Picasso ganska bra. Men om du skulle träna modellen nu skulle den bara förstå hur målningar av Picasso ser ut och inte kunna identifiera konstverk av andra konstnärer.
 
-    ![Selecting an existing tag](../media/2-select-painting-tag.png)
+    Nästa steg är att ladd upp målningar av en annan konstnär. Klicka på **Lägg till bilder** och markera alla bilder i mappen ”Artists\Rembrandt” i labbresursen. Tagga dem med etiketterna ”painting” och ”Rembrandt” (inte ”Picasso”) och ladda upp dem till projektet.
 
-1. Confirm that the Rembrandt images appear alongside the Picasso images in the project, and that "Rembrandt" appears in the list of tags.
+    > När du lägger till taggen ”painting” behöver du inte skriva in den igen. Du kan välja den från listrutan vid fältet **Lägg till några taggar ...** , se nedan. Du **måste** däremot skriva ”Rembrandt” och klicka på **+** för att lägga till en ”Rembrandt”-tagg.
 
-    ![Picasso and Rembrandt images](../media/2-portal-tagged-02.png)
+    ![Välja en befintlig tagg](../images/select-painting-tag.png)
 
-1. Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Select all of the images in the "Artists\Pollock" folder in the module resources, tag them with the terms "painting" and "Pollock", and upload them to the project.
+    _Välja en befintlig tagg_ 
 
-With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.
+1. Kontrollera att Rembrandt-bilderna visas tillsammans med Picasso-bilderna i projektet och att ”Rembrandt” visas i listan med taggar.
+
+    ![Bilder av Picasso och Rembrandt](../images/portal-tagged-02.png)
+
+    _Bilder av Picasso och Rembrandt_ 
+
+1. Lägg nu till konstverk av den gåtfulle konstnären Jackson Pollock så att Custom Vision Service även ska kunna identifiera konstverk av Pollock. Välj alla bilder i mappen ”Artists\Pollock” i labbresursen, tagga dem med termerna ”painting” och ”Pollock” och ladda upp dem till projektet.
+
+När de taggade bilderna är uppladdade är nästa steg att träna modellen med bilderna så att den kan skilja mellan konstverk målade av Picasso, Rembrandt och Pollock, och avgöra om en tavla är målad av någon av de här konstnärerna.

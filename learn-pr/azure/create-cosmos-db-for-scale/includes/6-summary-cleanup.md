@@ -1,18 +1,18 @@
-This module has shown you how to create an Azure Cosmos DB account that you can use for real-world scenarios like online retail apps. By creating a database with a smart partition key, you'll be able to scale horizontally as your need for data storage grows. You've also learned about request unit needs for your application, and how to set them during account creation so that you can scale up your throughput later, when user demand increases.
+Den här modulen har visat hur du skapar ett Azure Cosmos DB-konto som du kan använda för verkliga scenarier som t.ex. nätbutiksappar. Genom att skapa en databas med en smart partitionsnyckel, kommer du att kunna skala vågrätt när dina behov för att lagra data växer. Du har också lärt dig om behovet av en enhet för programbegäran till ditt program och hur du ställer in den när kontot skapas så att du kan skala upp dataflödet senare, om användarnas efterfrågan ökar.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="cleanup"></a>Rensa
 
-If you plan to continue working on the modules in this learning path, skip the cleanup process. Otherwise, use the following steps to delete your resources to avoid incurring charges for use of the service:
+Om du planerar att fortsätta arbeta med modulerna i den här utbildningen, hoppar du över rensningsprocessen. Annars kan du använda följande steg för att ta bort dina resurser och undvika fler kostnader för användning av tjänsten:
 
-1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
+1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    If the left menu is collapsed, click ![Expand button](../media-draft/6-expand.png) to expand it.
+    Om den vänstra menyn döljs klickar du på ![Knappen Expandera](../media/5-create-a-database-and-collection/expand.png) för att expandera den.
 
-   ![Metrics in the Azure portal](../media-draft/6-delete-resources-select.png)
+   ![Mått i Azure Portal](../media/5-create-a-database-and-collection/delete-resources-select.png)
 
-1. In the new window, select the resource group, and then click **Delete resource group**.
+2. Markera resursgruppen i det nya fönstret och klicka sedan på **Ta bort resursgrupp**.
 
-   ![Metrics in the Azure portal](../media-draft/6-delete-resources.png)
+   ![Mått i Azure Portal](../media/5-create-a-database-and-collection/delete-resources.png)
 
-1. In the new window, type the name of the resource group to delete, and then click **Delete**.
+3. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
+

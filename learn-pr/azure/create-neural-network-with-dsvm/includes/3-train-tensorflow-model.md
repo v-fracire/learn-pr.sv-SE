@@ -1,81 +1,81 @@
-### Train a TensorFlow model
+### <a name="exercise-3-train-a-tensorflow-model"></a>Övning 3: Träna en TensorFlow-modell
 
-In this unit, you will train an image-classification model built with [TensorFlow](https://www.tensorflow.org/) to recognize images that contain hot dogs. Rather than create the model from scratch, which would require vast amounts of computing power and tens or hundreds of thousands of images, you will customize a preexisting model, a practice known as [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning). Transfer learning allows you to achieve high levels of accuracy with as little as a few minutes of training time on a typical laptop or PC and as few as several dozen images.
+I den här övningen kommer du att träna en bildklassificeringsmodell som byggts med [TensorFlow](https://www.tensorflow.org/) för att identifiera bilder som innehåller varmkorvar. I stället för att skapa modellen från grunden, vilket skulle kräva enorma mängder datorkraft och tiotusentals eller hundratusentals bilder kommer du att anpassa en befintlig modell. Det är en metod som kallas för [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning), överförd inlärning. Med överförd inlärning kan du få hög precision efter bara ett par minuters träningstid på en vanlig bärbar eller stationär dator och med så lite som några dussin bilder.
 
-In the context of deep learning, transfer learning involves starting with a deep neural network that is pretrained to perform image classification and adding a layer that customizes the network for your problem domain — for example, to classify images into two groups: those that contain hot dogs, and those that do not. More than 20 pretrained TensorFlow image-classification models are available at <https://github.com/tensorflow/models/tree/master/research/slim#pre-trained-models.> The [Inception](https://arxiv.org/abs/1512.00567) and [ResNet](https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035) models are characterized by higher accuracy and commensurately higher resource requirements, while the MobileNet models trade accuracy for compactness and power efficiency and were developed with mobile devices in mind. All of these models are well known in the deep-learning community and have been used in a number of competitions as well as in real-world applications. You will use one of the MobileNet models as the basis for your neural network in order to strike a reasonable balance between accuracy and training time.
+När det handlar om djupinlärning utgår överförd inlärning från ett djupt neuralt nätverk som har tränats för att utföra bildklassificering. Ett lager som anpassar nätverket efter din problemdomän läggs till; till exempel att dela upp bilder i två grupper: de som innehåller varmkorvar och de som inte gör det. Fler än 20 redan tränade TensorFlow-modeller för bildklassificering är tillgängliga i modellerna<https://github.com/tensorflow/models/tree/master/research/slim#pre-trained-models.> The [Inception](https://arxiv.org/abs/1512.00567) och [ResNet](https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035). Dessa kännetecknas av högre precision och följaktligen även större resursbehov. MobileNet-modellerna å andra sidan kompromissar när det gäller precision, men väger upp i format och energieffektivitet, och dessa har utvecklats med mobila enheter i åtanke. Alla dessa modeller är välkända bland djupinlärningsexperter och de har använts vid ett antal tävlingar samt i verkliga program. Du kommer att använda en av MobileNet-modellerna som grund för ditt neurala nätverk för att uppnå en rimlig balans mellan precision och träningstid.
 
-Training the model involves little more than running a Python script that downloads the base model and adds a layer trained with domain-specific images and labels. The script you need is available on GitHub, and the images you will use were assembled from thousands of public-domain food images available from [Kaggle](https://www.kaggle.com).
+Att träna modellen kräver lite mer än att bara köra ett Python-skript som laddar ned basmodellen och lägger till ett lager som tränats med domänspecifika bilder och etiketter. Skriptet du behöver finns på GitHub och bilderna du kommer att använda sätts samman från tusentals matbilder från den offentliga domänen som finns på [Kaggle](https://www.kaggle.com).
 
-1. In the Data Science VM, click the Terminal icon at the bottom of the screen to open a terminal window.
+1. I Data Science VM klickar du på terminalikonen längst ned på skärmen för att öppna ett terminalfönster.
 
-    ![Launching a terminal window](../media-draft/3-launch-terminal.png)
+    ![Öppna ett terminalfönster](../images/launch-terminal.png)
 
-    _Launching a terminal window_
+    _Öppna ett terminalfönster_
 
-1. Execute the following command in the terminal window to navigate to the "notebooks" folder:
+1. Kör följande kommando i terminalfönstret för att navigera till mappen ”notebooks”:
 
     ```bash
     cd notebooks
     ```
-    This folder is prepopulated with sample Jupyter notebooks curated for the DSVM.
+    Den här mappen innehåller redan exempel på Jupyter-anteckningsböcker som samlats ihop för DSVM.
 
-1. Now use the following command to clone the "TensorFlow for Poets" repository from GitHub:
+1. Använd nu följande kommando för att klona lagringsplatsen för ”TensorFlow för Poets” från GitHub:
 
     ```bash
     git clone https://github.com/googlecodelabs/tensorflow-for-poets-2
     ```
-    > **Tip**: You can copy this line to the clipboard, and then use **Shift+Ins** to paste it into the terminal window.
+    > **Tips**: Du kan kopiera den här raden till Urklipp och sedan använda **Skift + Ins** för att klistra in den i terminalfönstret.
 
-    This repo contains scripts for creating transfer-learning models, invoking a trained model in order to classify an image, and more. It is part of [Google Codelabs](https://codelabs.developers.google.com/), which contains a variety of resources and hands-on labs for software developers interested in learning about TensorFlow and other Google tools and APIs.
+    Den här lagringsplatsen innehåller skript för att skapa modeller för överförd inlärning, anropa en tränad modell för att kunna klassificera en bild och mycket mer. Det är en del av [Google Codelabs](https://codelabs.developers.google.com/), som innehåller en mängd olika resurser och praktiska övningar för programutvecklare som vill lära sig mer om TensorFlow och andra Google-verktyg och API:er.
 
-1. Once cloning is complete, navigate to the folder containing the cloned model:
+1. När kloningen är avslutad navigerar du till mappen som innehåller den klonade modellen:
 
     ```bash
     cd tensorflow-for-poets-2
     ```
 
-1. Use the following command to download the images that will be used to train the model:
+1. Du kan använda följande kommando för att ladda ned de bilder som du ska använda för att träna modellen:
 
     ```bash
     wget https://topcs.blob.core.windows.net/public/tensorflow-resources.zip -O temp.zip; unzip temp.zip -d tf_files; rm temp.zip
     ```
 
-    This command downloads a zip file containing hundreds of food images — half containing hot dogs, and half that do not — and copies them into the subdirectory named "tf_files."
+    Det här kommandot laddar ned en zip-fil som innehåller hundratals matbilder – hälften innehåller varmkorvar och den andra hälften gör det inte – och kopierar dem till undermappen som heter ”tf_files”.
 
-1. Click the File Manager icon at the bottom of the screen to open a File Manager window.
+1. Klicka på filhanteringsikonen längst ned på skärmen för att öppna ett fönster med filhanteraren.
 
-    ![Launching File Manager](../media-draft/3-launch-file-manager.png)
+    ![Starta filhanteraren](../images/launch-file-manager.png)
 
-    _Launching File Manager_
+    _Starta filhanteraren_
 
-1. In File Manager, navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that the folder contains a pair of subdirectories named "hot_dog" and "not_hot_dog." The former contains several hundred images containing hot dogs, while the latter contains an equal number of images that do **not** contain hot dogs. Browse the images in the "hot_dog" folder to get a feel for what they look like. Check out the images in the "not_hot_dog" folder as well.
+1. I filhanteraren navigerar du till mappen ”notebooks/tensorflow-for-poets-2/tf_files”. Bekräfta att mappen innehåller underkatalogerna ”hot_dog” och ”not_hot_dog”. Den förra innehåller flera hundra bilder som innehåller varmkorvar, medan den senare innehåller samma antal bilder som **inte** innehåller varmkorvar. Bläddra bland bilderna i mappen ”hot_dog” för att få en känsla för hur de ser ut. Titta också på bilderna i mappen ”not_hot_dog”.
 
-    > In order to train a neural network to determine whether an image contains a hot dog, you will train it with images that contain hot dogs as well as images that do not contain hot dogs.
+    > För att träna ett neuralt nätverk så att det kan avgöra om en bild innehåller en varmkorv kommer du att träna det med bilder med och utan varmkorvar.
 
-    ![Images in the "hot_dog" folder](../media-draft/3-hot-dog-images.png)
+    ![Bilder i mappen ”hot_dog”](../images/hot-dog-images.png)
 
-    *Images in the "hot_dog" folder*
+    *Bilder i mappen ”hot_dog”*
 
-    Also, confirm that the folder contains a text file named **retrained_labels_hotdog.txt**. This file identifies the subdirectories containing the training images. It is used by the Python script that trains the model. The script enumerates the files in each subdirectory identified in the text file (the text file's name is a parameter passed to the script) and uses those files to train the network.
+    Bekräfta också att mappen innehåller en textfil med namnet **retrained_labels_hotdog.txt**. Den här filen identifierar underkatalogerna som innehåller träningsbilderna. Den används av Python-skriptet som tränar modellen. Skriptet räknar filerna i varje underkatalog som identifierats i textfilen (textfilens namn är en parameter som skickas till skriptet) och använder de filerna för att träna nätverket.
 
-1. Open a second terminal window and navigate to the "notebooks/tensorflow-for-poets-2" folder — the same one that is open in the first terminal window. Then, use the following command to launch [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), which is a set of tools used to visualize TensorFlow models and gain insight into the transfer-learning process:
+1. Öppna ett andra terminalfönster och navigera till mappen ”notebooks/tensorflow-for-poets-2” – samma mapp som är öppen i det första terminalfönstret. Använd sedan följande kommando för att starta [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), vilket är en uppsättning verktyg som används för att visualisera TensorFlow-modeller och få insyn i processen för överförd inlärning:
 
      ```bash
      tensorboard --logdir tf_files/training_summaries
      ```
 
-     > This command will fail if there is already an instance of TensorBoard running. If you are notified that port 6006 is already in use, use a ```pkill -f "tensorboard"``` command to kill the existing process. Then, execute the ```tensorboard``` command again.
+     > Det här kommandot misslyckas om en instans av TensorBoard redan körs. Om du får ett meddelande om att port 6006 redan används använder du ett ```pkill -f "tensorboard"```-kommando för att avsluta den befintliga processen. Kör sedan kommandot ```tensorboard``` igen.
 
-1. Switch back to the original terminal window and execute the following commands:
+1. Växla tillbaka till det ursprungliga terminalfönstret och kör följande kommandon:
 
     ```bash
     IMAGE_SIZE=224;
     ARCHITECTURE="mobilenet_0.50_${IMAGE_SIZE}";
     ```
 
-    These commands initialize environment variables specifying the resolution of the training images and the base model that your neural network will build upon. Valid values for IMAGE_SIZE are 128, 160, 192, and 224. Higher values increase the training time, but also increase the accuracy of the classifier.
+    Dessa kommandon initierar miljövariabler som anger upplösningen för träningsbilderna och basmodellen som det neurala nätverket byggs på. Giltiga värden för IMAGE_SIZE är 128, 160, 192 och 224. Högre värden ökar träningstiden, men ökar också precisionen för klassificeraren.
 
-1. Now execute the following command to start the transfer-learning process — that is, to train the model with the images you downloaded:
+1. Kör nu följande kommando för att starta processen för överförd inlärning – det vill säga för att träna modellen med bilderna du laddat ned:
 
     ```bash
     python scripts/retrain.py \
@@ -91,24 +91,32 @@ Training the model involves little more than running a Python script that downlo
     --validation_percentage=15
     ```
 
-    **retrain.py** is one of the scripts in the repo that you downloaded. It is complex, comprising more than 1,000 lines of code and comments. Its job is to download the model specified with the ```--architecture``` switch and add to it a new layer trained with the images found in subdirectories of the directory specified with the ```--image_dir``` switch. Each image is labeled with the name of the subdirectory in which it is located — in this case, either "hot_dog" or "not_hot_dog" — enabling the modified neural network to classify images input to it as hot-dog images ("hot_dog") or not-hot-dog images ("not_hot_dog"). The output from the training session is a TensorFlow model file named **retrained_graph_hotdog.pb**. The name and location are specified in the ```--output_graph``` switch.
+    **retrain.py** är ett av skripten på lagringsplatsen som du laddade ned. Det är komplext och består av fler än 1 000 rader med kod och kommentarer. Dess uppgift är att ladda ned den angivna modellen med ```--architecture```-växeln och lägga till ett nytt lager som tränats med bilderna i underkatalogerna för den katalog som angetts med ```--image_dir```-växeln. Varje bild är märkt med namnet på underkatalogen där den finns – i det här fallet ”hot_dog” eller ”not_hot_dog” – vilket gör det möjligt för det modifierade neurala nätverket att klassificera bilder som läggs till som bilder av varmkorvar (”hot_dog”) eller bilder som inte innehåller varmkorvar (”not_hot_dog”). Utdata från träningssessionen är en TensorFlow-modellfil med namnet **retrained_graph_hotdog.pb**. Namn och plats anges i ```--output_graph```-växeln.
 
-1. Wait for training to complete; it should take less than five minutes. Then, check the output to determine the accuracy of the model. Your result may vary slightly from the one below because the training process involves a small amount of random estimation.
+1. Vänta tills träningen har slutförts. Det bör ta mindre än fem minuter. Kontrollera sedan resultatet för att fastställa hur exakt modellen är. Resultaten kan variera något från det som visas nedan, eftersom träningsprocessen omfattar en liten mängd slumpmässiga uppskattningar.
 
-      ![Gauging the model's accuracy](../media-draft/3-running-transfer-learning.png)
+      ![Mäta modellens precision](../images/running-transfer-learning.png)
 
-1. Click the browser icon at the bottom of the desktop to open the browser installed in the Data Science VM. Then, navigate to <http://0.0.0.0:6006> to connect to Tensorboard.
+      _Mäta modellens precision_
 
-    ![Launching Firefox](../media-draft/3-launch-firefox.png)
+1. Klicka på webbläsarikonen längst ned på skrivbordet för att öppna webbläsaren som installerats på Data Science VM. Navigera sedan till <http://0.0.0.0:6006> för att ansluta till Tensorboard.
 
-1. Inspect the graph labeled "accuracy_1." The blue line depicts the accuracy achieved over time as the 500 training steps specified with the ```how_many_training_steps``` switch are executed. This metric is important, because it shows how the accuracy of the model evolves as training progresses. Equally important is the distance between the blue and orange lines, which quantifies the amount of overfitting that occurred and should always be minimized. [Overfitting](https://en.wikipedia.org/wiki/Overfitting) means the model is adept at classifying the images it was trained with, but not as adept at classifying other images presented to it. The results here are acceptable, because there is a difference of less than 10% between the orange line (the "training" accuracy achieved with the training images) and the blue line (the "validation" accuracy achieved when tested with images outside the training set).
+    ![Starta Firefox](../images/launch-firefox.png)
 
-    ![The TensorBoard Scalars display](../media-draft/3-tensorboard-scalars.png)
+    _Starta Firefox_
 
-1. Click **GRAPHS** in the TensorBoard menu and inspect the graph shown there. The primary purpose of this graph is to depict the neural network and the layers that comprise it. In this example, "input_1" is the layer that was trained with food images and added to the network. "MobilenetV1" is the base neural network that you started with. It contains many layers which aren't shown. Had you built a deep neural network from scratch, all of the layers would have been diagrammed here. (If you would like to see the layers that comprise the MobileNet, double-click the "MobilenetV1" block in the diagram.) For more information on the Graphs display and the information surfaced there, refer to [TensorBoard: Graph Visualization](https://www.tensorflow.org/programmers_guide/graph_viz).
+1. Granska diagrammet ”accuracy_1”. Den blå linjen visar precisionen som uppnåtts över tid efter det att de 500 träningsstegen som angetts med ```how_many_training_steps```-växeln utförts. Det här mätvärdet är viktigt eftersom det visar hur modellens precision utvecklas i takt med att träningen fortskrider. Lika viktigt är avståndet mellan de blå och orangefärgade linjerna. De beräknar mängden överanpassning som sker och bör alltid minimeras. [Överanpassning](https://en.wikipedia.org/wiki/Overfitting) innebär att modellen är bra på att klassificera bilderna den tränats med, men inte lika bra på att klassificera andra bilder som visas för den. Resultaten här är godtagbara eftersom skillnaden är mindre än 10 % mellan den orangefärgade linjen (”träningsprecisionen” som uppnåtts med träningsbilderna) och den blå linjen (”valideringsprecisionen” som uppnåtts när modellen testats med bilder utanför träningsuppsättningen).
 
-    ![The TensorBoard Graphs display](../media-draft/3-tensorboard-graphs.png)
+    ![TensorBoard Scalars-vyn](../images/tensorboard-scalars.png)
 
-1. Switch back to File Manager and navigate to the "notebooks/tensorflow-for-poets-2/tf_files" folder. Confirm that it contains a file named **retrained_graph_hotdog.pb**. *This file was created during the training process and contains the trained TensorFlow model*. You will use it in the next exercise to invoke the model from the NotHotDog app.
+    _TensorBoard Scalars-vyn_
 
-The script that you executed in Step 10 specified 500 training steps, which strikes a balance between accuracy and the time required for training. If you would like, try training the model again with a higher ```how_many_training_steps``` value such as 1000 or 2000. A higher step count generally results in higher accuracy, but at the expense of increased training time. Watch out for overfitting, which, as a reminder, is represented by the difference between the orange and blue lines in TensorBoard's Scalars display.
+1. Klicka på **DIAGRAM** på TensorBoard-menyn och inspektera diagrammet som visas där. Det primära syftet med det här diagrammet är att skildra det neurala nätverket och lagren som det består av. I det här exemplet är ”input_1” lagret som har tränats med matbilder och lagts till i nätverket. ”MobilenetV1” är det neurala basnätverk som du utgick från. Det innehåller många lager som inte visas. Om du hade skapat ett djupt neuralt nätverk från grunden skulle alla lager ingått i diagrammet här. (Om du vill se de lager som utgör MobileNet dubbelklickar du på blocket MobilenetV1 i diagrammet). Du hittar mer information om diagramvyn och den informationen som visas där i [TensorBoard: diagramvisualisering](https://www.tensorflow.org/programmers_guide/graph_viz).
+
+    ![TensorBoard-diagramvyn](../images/tensorboard-graphs.png)
+
+    _TensorBoard-diagramvyn_
+
+1. Återgå till filhanteraren och navigera till mappen ”notebooks/tensorflow-for-poets-2/tf_files”. Bekräfta att den innehåller en fil med namnet **retrained_graph_hotdog.pb**. *Den här filen skapades under träningsprocessen och innehåller den tränade TensorFlow-modellen*. Du använder den i nästa övning för att anropa modellen från appen NotHotDog.
+
+Skriptet som du körde i steg 10 angav 500 träningssteg, vilket skapar en balans mellan precision och den tid som krävs för träningen. Om du vill kan du prova att träna modellen igen med ett högre ```how_many_training_steps```-värde, till exempel 1 000 eller 2 000. Ett högre antal steg resulterar vanligtvis i högre precision, men på bekostnad av ökad träningstid. Se upp för överanpassning, vilket, som vi redan nämnt, framgår av skillnaden mellan den orangefärgade och den blå linjen i Tensorboard-vyn med skalaxlar.

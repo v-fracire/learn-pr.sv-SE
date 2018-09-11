@@ -1,14 +1,13 @@
-Imagine you work for an escalator company that has invested in IoT technology to monitor its product in the field. You oversee the processing of temperature sensor data from the drive gears of the escalators. You monitor the temperature data and add a data flag to indicate when the gears are too hot. In downstream systems, this data helps determine when maintenance is required.
+Anta att du arbetar för ett företag inom rulltrappor som har investerat i IoT-teknik för att övervaka sin produkt på fältet. Du övervakar bearbetningen av temperatursensordata från drivhjulen i rulltrapporna. Du övervakar temperaturdata och lägger till en dataflagga som visar när drivhjulen blir för varma. I underordnade system kan man med dessa data avgöra när underhåll krävs.
 
-Your company receives sensor data from several locations and from different escalator models. The data arrives in different formats, including batch file uploads, scheduled database pulls, messages on a queue, and incoming data from an event hub. You want to develop a reusable service that can process your temperature data from all these sources.
+Ditt företag tar emot sensordata från flera platser och från olika rulltrappsmodeller. Data tas emot i olika format, inklusive batchfiluppladdningar, schemalagda databashämtningar, meddelanden i en kö och inkommande data från en händelsehubb. Du vill utveckla en återanvändbar tjänst som kan bearbeta dina temperaturdata från alla dessa källor.
 
-When designing a service such as this with traditional enterprise architecture strategies, you would need to consider server infrastructure and maintenance up front: scope out necessary hardware, plan to install it, coordinate with IT to manage it, etc. An alternative to all that work is **serverless computing**. With serverless computing, your cloud provider manages the provisioning and maintenance of the infrastructure letting you focus completely on building the app logic. Azure Functions is a key component of the serverless computing offering from Azure and enables you to run pieces of code or *functions*, written in the programming language of your choice, in the cloud.
+När du utformar en sådan tjänst med traditionella strategier för företagsarkitektur behöver du tänka på serverinfrastruktur och -underhåll direkt: hitta nödvändig maskinvara, planera installation, samordna hantering med IT-avdelningen, osv. Ett alternativ till allt det arbetet är **serverlös databehandling**. Med serverlös databehandling hanterar molnleverantören etablering och underhåll av infrastrukturen så att du kan fokusera helt på att skapa applogiken. Azure Functions är en viktig del av erbjudandet med serverlös databehandling från Azure och gör att du kan köra delar av kod eller *funktioner*, skrivna på det språk du föredrar, i molnet.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att:
 
-In this module, you will:
-
-- Decide if serverless computing is right for your business need.
-- Create an Azure function app in the Azure portal.
-- Execute a function using triggers.
-- Monitor and test your Azure function from the Azure portal .
+- Bestämma om serverlös databehandling passar för din verksamhet.
+- Skapa en Azure-funktionsapp på Azure-portalen.
+- Köra en funktion med utlösare.
+- Övervaka och testa din Azure-funktion från Azure-portalen.

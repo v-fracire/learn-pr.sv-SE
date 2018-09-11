@@ -1,64 +1,50 @@
-There are three different cloud deployment models. A cloud deployment model defines where your data is stored and how your customers interact with it – how do they get to it, and where do the applications run? It also depends on how much of your own infrastructure you want or need to manage.
+Det finns tre olika molndistributionsmodeller. En molndistributionsmodell definierar var dina data lagras och hur dina kunder interagerar med dem – hur kommer de åt dem, och var körs programmen? Vilken modell som passar dig beror också på hur mycket av din egen infrastruktur som du vill eller måste hantera.
 
-Here, you'll explore the different types of deployment methods for your cloud computing resources
+Här ska vi utforska olika typer av distributionsmetoder för dina molnresurser. 
 
-<!-- TODO: Verify video -->
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2yEv7]
+## <a name="public-cloud"></a>Offentligt moln
 
-:::row:::
-    :::column:::
-        ![Public Cloud Icon](../media/4-public-cloud.png)
-    :::column-end:::
-	:::column span="3":::
-        **Public cloud**
+Det här är den vanligaste distributionsmodellen. I detta fall har du ingen lokal maskinvara som du hanterar eller håller uppdaterad – allt körs på molnleverantörens maskinvara. I vissa fall kan du spara ytterligare kostnader genom att dela beräkningsresurser med andra molnanvändare. 
 
-This is the most common deployment model. In this case, you have no local hardware to manage or keep up-to-date – everything runs on your cloud provider’s hardware. In some cases, you can save additional costs by sharing computing resources with other cloud users.
+### <a name="advantages"></a>Fördelar
 
-Some advantages of the public cloud are:
+- Hög skalbarhet – du behöver inte köpa en ny server för att skala upp
+- Priser för användningsbaserad betalning – du betalar bara för det du använder
+- Du slipper bekymra dig om underhåll eller uppdatering av maskinvaran
 
-- High scalability – you don’t have to buy a new server in order to scale
-- Pay-as-you-go pricing – you pay only for what you use
-- You’re not responsible for maintenance or updates of the hardware
-        :::column-end:::
-:::row-end:::
- :::row:::
-    :::column:::
-        ![Private Cloud Icon](../media/4-private-cloud.png)
-    :::column-end:::
-	:::column span="3":::
-        **Private cloud**
+### <a name="disadvantages"></a>Nackdelar
 
-In a private cloud, you create a cloud environment in your own data center and provide self-service access to compute resources to users in your organization. This offers a simulation of a public cloud to your users, but you remain completely responsible for the purchase and maintenance of the hardware and software services you provide.
+- Större säkerhetshot
+- Delad maskinvara
 
-Some reasons teams move away from the private cloud are:
+## <a name="private-cloud"></a>Privat moln
 
-- You have to purchase the hardware for startup and maintenance
-- Private clouds require IT skills and expertise that's hard to come by
-:::column-end:::
-:::row-end:::
- :::row:::
-    :::column:::
-        ![Hybrid Cloud Icon](../media/4-hybrid-cloud.png)
-    :::column-end:::
-	:::column span="3":::
-        **Hybrid cloud**
+Ett privat moln är ofta ett lokalt datacenter som ditt företag hanterar. Det har ingen anslutning till någon av tjänsterna som du kör i molnet. Ett exempel på den här modellen är ett företag som inte har migrerat någonting till molnet och som inte planerar att göra det.
 
-A hybrid cloud combines public and private clouds, allowing you to run your applications in the most appropriate location. For example, you could host a web site in the public cloud and link it to a highly secure database hosted in your private cloud (or on-premises data center).
+### <a name="advantages"></a>Fördelar
 
-This is helpful when you have some things that cannot be put in the cloud, maybe for legal reasons. For example, you may have data that cannot be exposed publicly (such as medical data). Another example is one or more applications that run on old hardware that can’t be updated. In this case, you can keep the old system running locally, and connect it to the public cloud for authorization or storage.
+- Högre säkerhet eftersom allt finns i företagets nätverk
+- Maskinvara/resurser delas inte
 
-Some advantages of a hybrid cloud versus a private cloud are:
+### <a name="disadvantages"></a>Nackdelar
 
-- You can keep any systems running and accessible that use out-of-date hardware or an out-of-date operating system
-- You have flexibility with what you run locally versus in the cloud
+- Egen maskinvara krävs för att komma igång och för underhåll
+- Kräver IT-kunskaper
 
-Some concerns you'll need to watch out for are:
+## <a name="hybrid-cloud"></a>Hybridmoln
 
-- It can be more expensive than selecting one deployment model
-- It can be more complicated to set up and manage
-    :::column-end:::
-:::row-end:::
+Det här är en kombination av det lokala datacentret som hanteras av ditt företag och det offentliga molnet. De två molnen är anslutna och kan utbyta data med varandra. Detta är bra om det finns vissa saker som du inte kan placera i molnet, till exempel av juridiska skäl. Du kanske exempelvis har data som inte kan exponeras offentligt (till exempel medicinska uppgifter). Ett annat exempel är ett eller flera program som körs på äldre maskinvara som inte kan uppdateras. I detta fall kan det gamla systemet fortsätta att köras lokalt och anslutas det till det offentliga molnet för auktorisering eller lagring.
 
-## Summary
+### <a name="advantages"></a>Fördelar
 
-Cloud computing is flexible and gives you the ability to choose how you want to deploy it. The cloud deployment model you choose depends on your budget, and on your security, scalability, and maintenance needs.
+- Du kan fortsätta att köra och använda system med gammal maskinvara eller med ett föråldrat operativsystem
+- Flexibilitet att välja vad du vill köra lokalt och vad du vill köra i molnet
+
+### <a name="disadvantages"></a>Nackdelar
+
+- Kan bli dyrare än om du väljer en distributionsmodell
+- Mer komplicerat att konfigurera och hantera
+
+## <a name="summary"></a>Sammanfattning
+
+Molntjänster är flexibla och ger dig möjlighet att välja hur du vill distribuera dem. Normalt sett beror din distribution på din budget samt dina behov av säkerhet, skalbarhet och underhåll.

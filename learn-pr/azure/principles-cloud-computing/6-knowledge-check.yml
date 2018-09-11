@@ -1,38 +1,56 @@
 ### YamlMime:ModuleUnit
 uid: principles-cloud-computing.6-knowledge-check
 metadata:
-  title: Check your knowledge
-  description: Check your knowledge
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Check your knowledge
-durationInMinutes: 3
+  title: Testa dina kunskaper
+  description: Testa dina kunskaper
+  displayType: one-column
+  ms.openlocfilehash: 1aaf806a4ddb9f81c850a1b3001be824403e29a7
+  ms.sourcegitcommit: 5b967802ae01d5e5985a3e6bcbdba1163ec2f6c9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/27/2018
+  ms.locfileid: "42981311"
+title: Testa dina kunskaper
+durationInMinutes: 2
+content: Vi ska se om du kan identifiera fördelarna med molnbaserad databehandling!
 quiz:
-  title: Knowledge check
+  title: Kunskapskontroll
   questions:
-  - content: You're moving to the cloud. You have legacy applications that require specialized mainframe hardware, but you don't want to own the hardware that runs your newer applications. Which cloud deployment model might you choose? 
+  - content: När du använder en offentlig molnleverantör som Azure måste du betala hela kostnaden för den fysiska maskinvaran i förväg. Sant eller falskt?
     choices:
-    - content: 'Public cloud'
-      incorrectExplanation: Public clouds typically provide modern, commodity hardware. You need a solution that supports both modern hardware and your specialized mainframe hardware.
+    - content: Sant
+      incorrectExplanation: Azure stöder en användningsbaserad prismodell. Det innebär att du hyr maskinvaran och endast betalar för de resurser du använder.
       isCorrect: false
-    - content: 'Private cloud'
-      incorrectExplanation: With a private cloud, you own and operate all your hardware on-premises. 
-      isCorrect: false
-    - content: 'Hybrid cloud'
-      correctExplanation: A hybrid cloud is a public and private cloud combined. You can build your new applications on hardware you rent from the public cloud, while maintaining your specialized mainframe hardware on-premesis.
+    - content: Falskt
+      correctExplanation: Azure stöder en användningsbaserad prismodell. Det innebär att du hyr maskinvaran och endast betalar för de resurser du använder.
       isCorrect: true
-  - content: You're building an application and you want to get it to your users as fast as possible. You don't want to worry about managing the underlying hardware or software, you just want to focus on building, testing, and deploying. Which cloud service type is best for you?
+  - content: Anta att din webbplats hade en trafiktopp under natten. Med en offentlig molnleverantör som Azure är det möjligt att webbplatsen aldrig slutade fungera eftersom dess resurser skalades upp automatiskt.
     choices:
-    - content: 'Infrastructure as a service'
-      incorrectExplanation: With infrastructure as a service, you're responsible for managing the hardware and software. This includes tasks like performing system updates on virtual machines.
-      isCorrect: false
-    - content: 'Platform as a service'
-      correctExplanation: The goal of platform as a service is to help you create an application as fast as possible. The IT management tasks are done for you, so you can focus on writing code.
+    - content: Sant
+      correctExplanation: Molntjänster är elastiska. Det betyder att resurser kan allokeras eller frigöras automatiskt baserat på efterfrågan.
       isCorrect: true
-    - content: 'Software as a service'
-      incorrectExplanation: With software as a service, you use an existing application through a web browser or software application.
+    - content: Falskt
+      incorrectExplanation: Molntjänster är elastiska. Det betyder att resurser kan allokeras eller frigöras automatiskt baserat på efterfrågan.
+      isCorrect: false
+  - content: Anta att du migrerar till molnet och att du vill ha hög skalbarhet och hyra maskinvaran, men att säkerheten inte utgör ett stort problem. Vilken molndistributionsmodell är bäst att använda?
+    choices:
+    - content: Offentligt moln
+      correctExplanation: Ett offentligt moln ägs och drivs av en extern molnleverantör, vilket ger fördelarna med skalbarhet och hyrd maskinvara. Eftersom maskinvaran inte ägs av dig, kan du inte styra vem som har fysisk åtkomst till den.
+      isCorrect: true
+    - content: Privat moln
+      incorrectExplanation: En av de främsta anledningarna till att välja ett privat moln är säkerheten. Med ett privat moln ägs och drivs maskinvaran vanligtvis på plats.
+      isCorrect: false
+    - content: Hybridmoln
+      incorrectExplanation: Ett hybridmoln är en kombination av ett offentligt och privat moln. Eftersom säkerheten inte utgör något stort problem för dig, finns det ingen anledning att flytta något till det privata molnet.
+      isCorrect: false
+  - content: Anta att du skapar ett program och att du vill få ut det till dina användare så fort som möjligt. Du vill inte bekymra dig om hanteringen av den underliggande maskinvaran eller programvaran. Du vill i stället fokusera helt på utvecklingen, testningen och distributionen. Vilken typ av molntjänst passar bäst för dig?
+    choices:
+    - content: IaaS (Infrastructure as a Service)
+      incorrectExplanation: Med IaaS ansvarar du för hanteringen av maskinvaran och programvaran. Detta omfattar uppgifter som att utföra systemuppdateringar på virtuella datorer.
+      isCorrect: false
+    - content: PaaS (Platform as a Service)
+      correctExplanation: Målet med PaaS är att hjälpa dig att skapa ett program så snabbt som möjligt. IT-hanteringsuppgifterna sköts åt dig, så att du kan fokusera på att skriva kod.
+      isCorrect: true
+    - content: SaaS (Software as a Service)
+      incorrectExplanation: Med SaaS använder du ett befintligt program via en webbläsare eller programvara.
       isCorrect: false

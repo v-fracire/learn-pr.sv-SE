@@ -1,10 +1,10 @@
-### Create a NotHotDog app
+### <a name="exercise-4-create-a-nothotdog-app"></a>Övning 4: Skapa en NotHotDog-app
 
-In this unit, you will use [Visual Studio Code](https://code.visualstudio.com/), Microsoft's free, cross-platform source-code editor which is preinstalled in the Data Science VM, to write a NotHotDog app in Python. The app will use [Tkinter](https://wiki.python.org/moin/TkInter), which is a popular GUI framework for Python, to implement its user interface, and it will allow you to select images from your local file system. Then, it will pass those images to the model you trained in the previous exercise and tell you whether they contain a hot dog.
+I den här övningen ska du använda [Visual Studio Code](https://code.visualstudio.com/) – Microsofts kostnadsfria, plattformsoberoende källkodsredigerare som installeras automatiskt i Data Science VM – för att skriva en NotHotDog-app i Python. Det grafiska användargränssnittet bygger på [Tkinter](https://wiki.python.org/moin/TkInter), ett populärt GUI-ramverk som gör det möjligt för dig att välja bilder från det lokala filsystemet. Bilderna skickas till modellen som du tränade i den föregående övningen och du får sedan besked om huruvida det fins en varmkorv på någon av bilderna eller inte.
 
-1. Click **Applications** in the upper-left corner of the desktop and select **Accessories > Visual Studio Code** to start Visual Studio Code. Use Visual Studio Code's **File > Open Folder...** command to open the "notebooks/tensorflow-for-poets-2/tf_files" folder containing the **retrained_graph_hotdog.pb** file created when you trained the model.
+1. Klicka på **Program** i det övre vänstra hörnet av skrivbordet och välj **Tillbehör > Visual Studio Code** för att starta Visual Studio Code. Använd kommandot **File > Open Folder...** (Arkiv > Öppna mapp ...) i Visual Studio Code för att öppna mappen ”notebooks/tensorflow-for-poets-2/tf_files” som innehåller filen **retrained_graph_hotdog.pb** som skapades när du tränade modellen.
 
-1. Create a new file named **classify.py** in the current folder. If Visual Studio Code offers to install the Python extension, click **Install** to install it. Copy the code below to the clipboard and use **Shift+Ins** to paste it into **classify.py**. Then, save the file:
+1. Skapa en ny fil med namnet **classify.py** i den aktuella mappen. Om Visual Studio Code frågar om du vill installera Python-tillägget klickar du på **Installera**. Kopiera koden nedan till Urklipp och använd **Skift+Insert** för att klistra in den i **classify.py**. Spara sedan filen:
 
     ```python
     import tkinter as tk
@@ -75,22 +75,24 @@ In this unit, you will use [Visual Studio Code](https://code.visualstudio.com/),
         run()
     ```
 
-    The key code here is the call to ```subprocess.check_output```, which invokes the trained model by executing a Python script named **label_image.py** found in the "scripts" folder, passing in the image that the user selected. This script came from the repo that you cloned in the previous exercise.
+    Det viktigaste kodavsnittet här är anropet till ```subprocess.check_output```, som anropar den tränade modellen genom att köra Python-skriptet **label_image.py** från mappen ”scripts” och skickar in den bild som användaren har valt. Det här skriptet kommer från den lagringsplats som du klonade i den föregående övningen.
 
-1. Use your favorite search engine to find a few food images — some containing hot dogs and some not. Download these images and store them in the location of your choice in the VM's file system.
+1. Använd en sökmotor för att leta reda på matbilder – några med varmkorv och några utan. Ladda ned bilderna och lagra dem på valfri plats i filsystemet för den virtuella datorn.
 
-1. Use Visual Studio Code's **View > Integrated Terminal** command to open an integrated terminal. Then, execute the following command in the integrated terminal to run the app:
+1. Använd kommandot **View > Integrated Terminal** (Visa > Integrerad terminal) i Visual Studio Code för att öppna den integrerade terminalen. Kör appen genom att ange följande kommando i den integrerade terminalen:
 
      ```bash
      python classify.py
      ```
 
-1. Click the app's **Select** button and pick one of the hot-dog images you downloaded in Step 3. Wait for a message box to appear, indicating whether the image contains a hot dog. Did the model get it correct?
+1. Klicka på knappen **Välj** i appen och välj en bild med en varmkorv (en av bilderna som du laddade ned i steg 3). Vänta tills en meddelanderuta visas med besked om huruvida bilden innehåller varmkorv eller inte. Funkade det?
 
-	> If you see error messages regarding a missing kernel driver in the terminal window when you process an image, you can safely ignore them. They result from the fact that the Data Science VM does not contain a virtual GPU.
+    > Om du får ett felmeddelande om en saknad kerneldrivrutin i terminalfönstret när du bearbetar en bild kan du ignorera detta. Felmeddelandet visas eftersom Data Science VM saknar en virtuell GPU.
 
-    ![Selecting an image](../media-draft/4-select-image.png)
+    ![Välja en bild](../images/select-image.png)
 
-1. Repeat the previous step using an image that doesn't contain a hot dog. Was the model right this time?
+    _Välja en bild_
 
-Continue feeding food images into the app until you're satisfied that it can identify images containing hot dogs. Don't expect it to be right 100% of the time, but do expect it to be right *most* of the time.
+1. Upprepa föregående steg med en bild som inte föreställer en varmkorv. Gjorde modellen rätt den här gången?
+
+Fortsätta mata in matbilder i appen tills du märker att den kan känna igen bilder med varmkorvar. Du kan inte förvänta dig att den alltid ska ha rätt, men den ska *oftast* ha rätt.

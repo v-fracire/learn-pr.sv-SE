@@ -1,12 +1,11 @@
-Imagine a scenario where a busy hair salon has a recurring problem: their customers commonly miss their appointments. The appointments are reserved time slots. If a customer misses an appointment, the salon loses money. To fix this problem, the salon reaches out to you, a software developer. To improve the problem, you decide to send reminder text messages. Every morning, you send a text message to every customer with an appointment that day.
+Föreställ dig ett scenario där en hektisk hårsalong har ett återkommande problem: deras kunder missar ofta sina avtalade tider. De avtalade tiderna är reserverade tidsintervaller. Om en kund missar en avtalad tid förlorar salongen pengar. För att åtgärda problemet kontaktar salongen dig, en programvaruutvecklare. För att förbättra problemet väljer du att skicka påminnelser i form av textmeddelanden. Varje morgon skickar du ett SMS till alla kunder som har en avtalad tid den dagen.
 
-As an Azure developer, you decide to solve this problem using an Azure function. You already know how to implement the logic to send a text message. Now you need to learn how to send the message at a specific time. Luckily, Azure Functions supports a feature called _triggers_. Triggers are used to determine how an Azure function is executed.
+Som Azure-utvecklare bestämmer du dig för att lösa problemet med hjälp av en Azure-funktion. Du vet redan hur du implementerar logik för att skicka ett SMS. Nu ska du lära dig hur du skickar meddelandet vid en viss tidpunkt. Som tur är har Azure-funktioner stöd för en funktion som kallas _utlösare_. Utlösare används för att bestämma hur en Azure-funktion ska utföras.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att göra följande:
 
-In this module, you will:
-
-- Determine which trigger works best for your business needs.
-- Create a timer trigger to invoke a function on a consistent schedule.
-- Create an HTTP trigger to invoke a function when an HTTP request is received.
-- Create a blob trigger to invoke a function when a blob is created or updated in Azure Storage.
+- Avgöra vilken utlösare som fungerar bäst för dina affärsbehov.
+- Skapa en timerutlösare för att anropa en funktion enligt ett konsekvent schema.
+- Skapa en HTTP-utlösare för att anropa en funktion när en HTTP-begäran tas emot.
+- Skapa en blob-utlösare för att anropa en funktion när en blob skapas eller uppdateras i Azure Storage.

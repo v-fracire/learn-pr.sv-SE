@@ -1,40 +1,40 @@
 ### YamlMime:ModuleUnit
 uid: learn.intro-to-azure-networking.2-deploy-to-azure
-title: Deploy your site to Azure
+title: Distribuera din webbplats till Azure
 metadata:
-  title: Deploy your site to Azure
-  description: See what a basic three-tier application might look like on Azure.
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Distribuera din webbplats till Azure
+  description: Se hur ett grundläggande program med tre nivåer kan se ut på Azure.
+  ms.openlocfilehash: 3bbacd16929ffb05448a2d3e60cd37c637275229
+  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43477801"
 durationInMinutes: 7
-content: |
+content: >
   [!include[](includes/2-deploy-to-azure.md)]
 quiz:
-  title: 'Knowledge Check: Deploy your site to Azure'
+  title: 'Kunskapskontroll: Distribuera din webbplats till Azure'
   questions:
-  - content: 'What is an Azure _region_?'
+  - content: Vad är en Azure-_region_?
     choices:
-    - content: 'An Azure data center within a specific geographic location.'
+    - content: Ett Azure-datacenter inom en viss geografisk plats.
       isCorrect: true
-      correctExplanation: 'Azure regions help you deliver your apps and services closest to your users. West US and North Europe are examples.'
-    - content: 'A way of breaking networks into smaller networks.'
+      correctExplanation: Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare. USA, västra och Europa, norra är exempel.
+    - content: Ett sätt att dela upp nätverk till mindre nätverk.
       isCorrect: false
-      incorrectExplanation: 'Azure networks are broken into _subnets_.'
-    - content: 'Firewall rules which define what traffic can flow in and out of Azure.'
+      incorrectExplanation: Azure-nätverk delas upp i _undernät_.
+    - content: Brandväggsregler som definierar vilken trafik som kan flöda in och ut ur Azure.
       isCorrect: false
-      incorrectExplanation: 'You use _network security groups_ to define firewall rules.'
-  - content: 'Which of the following is true about virtual networks?'
+      incorrectExplanation: Du använder _nätverkssäkerhetsgrupper_ för att definiera brandväggsregler.
+  - content: Vilket av följande är sant om virtuella nätverk?
     choices:
-    - content: 'You configure virtual networks through software.'
+    - content: Du konfigurerar virtuella nätverk via programvara.
       isCorrect: true
-      correctExplanation: 'Software enables you to treat a virtual network just like your own network. Azure maintains the physical hardware for you.'
-    - content: 'A virtual network accepts network traffic on all ports. You configure the firewall through virtual machines.'
+      correctExplanation: Programvara gör att du kan hantera ett virtuellt nätverk precis som ditt eget nätverk. Azure underhåller den fysiska maskinvaran åt dig.
+    - content: Ett virtuellt nätverk accepterar nätverkstrafik på alla portar. Du konfigurerar brandväggen via virtuella datorer.
       isCorrect: false
-      incorrectExplanation: 'You can associate your virtual network with a network security group, which acts as a cloud-level firewall.'
-    - content: 'Virtual networks are always reachable from the internet.'
+      incorrectExplanation: Du kan associera ditt virtuella nätverk med en nätverkssäkerhetsgrupp som fungerar som en brandvägg på molnnivå.
+    - content: Virtuella nätverk kan alltid nås från Internet.
       isCorrect: false
-      incorrectExplanation: 'Although a virtual network is reachable from the internet by default, you configure which networks, including private networks, can reach yours.'
+      incorrectExplanation: Även om ett virtuellt nätverk kan nås från Internet som standard konfigurerar du vilka nätverk, inklusive privata nätverk, som kan nå ditt.

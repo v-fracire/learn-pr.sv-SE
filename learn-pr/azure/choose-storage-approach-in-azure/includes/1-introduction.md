@@ -1,8 +1,8 @@
-Data comes in different shapes and sizes, and there isn't one storage solution that fits all. For example, an online retail website has a number of distinct data sets that are all used to run the business: product catalog data, media files like photos and videos, and financial business data. Each data set has different requirements, and it's your job to figure out which storage solution is best. The main factors that determine the best storage solution are: data category, data usage, and performance.
+Data kan ha olika form och storlek, så det finns ingen lagringslösning som passar alla. I en onlinebutik finns till exempel ett antal olika datamängder: data i produktkatalogen, mediefiler som foton och videor samt finansiella affärsdata. Varje datamängd har olika krav och det är ditt jobb att ta reda på vilken lagringslösning som passar bäst. De viktigaste faktorerna när du väljer lagringslösning är datakategorierna, hur data ska användas och vilken prestanda som krävs.
 
-## Learning objectives
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att:
 
-- Identify the different categories of data
-- Determine the usage of your data
-- Determine whether your data requires transactions 
+- identifiera olika datakategorier
+- fastställa hur data kommer att användas
+- avgöra om du behöver använda transaktioner för dina data. 

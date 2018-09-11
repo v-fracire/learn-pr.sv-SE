@@ -1,19 +1,27 @@
-The first step in building an image-classification model with the Custom Vision Service is to create a project. In this unit, you will use the Custom Vision Service portal to create a Custom Vision Service project.
+### <a name="exercise-1-create-a-custom-vision-service-project"></a>Övning 1: Skapa ett Custom Vision Service-projekt
 
-1. Open the [Custom Vision Service portal](https://www.customvision.ai/) in your browser. Then click **Sign In**.
+När du ska skapa en modell för bildklassificering med Custom Vision Service börjar du med att skapa ett projekt. I den här övningen ska du skapa ett Custom Vision Service-projekt med hjälp av Custom Vision Service-portalen.
 
-    ![Signing in to the Custom Vision Service portal](../media/1-portal-sign-in.png)
+1. Öppna [Custom Vision Service-portalen](https://www.customvision.ai/) i webbläsaren. Klicka på **Logga in**. 
+ 
+    ![Logga in på Custom Vision Service-portalen](../images/portal-sign-in.png)
 
-1. If you are asked to sign in, do so using the credentials for your Microsoft account. If you are asked to let this app access your info, click **Yes**, and if prompted, agree to the terms of service.
+    _Logga in på Custom Vision Service-portalen_
 
-1. Click **New Project** to create a new project.
+1. Om du ombeds logga in ska du göra det med autentiseringsuppgifterna för ditt Microsoft-konto. Om du ombeds ge appen åtkomst till din information ska du klicka på **Ja**. Godkänn också tjänstvillkoren om du ombeds göra det.
 
-    ![Creating a Custom Vision Service project](../media/1-portal-click-new-project.png)
+1. Klicka på **Nytt projekt** för att skapa ett nytt projekt.
+  
+    ![Skapa ett Custom Vision Service-projekt](../images/portal-click-new-project.png)
 
-1. In the "New project" dialog, name the project "Artworks," ensure that **General** is selected as the domain, and click **Create project**.
+    _Skapa ett Custom Vision Service-projekt_
 
-    > A domain optimizes a model for specific types of images. For example, if your goal is to classify food images by the types of food they contain or the ethnicity of the dishes, then it might be helpful to select the Food domain. For scenarios that don't match any of the offered domains, or if you are unsure of which domain to choose, select the General domain.
+1. Ge projektet namnet ”Artwork” i dialogrutan New project (Nytt projekt) och se till så att alternativet **General** (Allmänt) är valt som domän. Klicka på **Create project** (Skapa projekt).
 
-   ![Creating a Custom Vision Service project](../media/1-portal-create-project.png)
+    > Med hjälp av domäner kan du optimera modellen för en viss typ av bilder. Om du till exempel vill klassificera matbilder efter vilka typer av maträtter eller vilket kök som visas kan det vara bra att välja domänen Food (Mat). Domänen General (Allmänt) väljer du i de fall där det inte finns någon passande domän eller om du känner dig osäker på vad du ska välja.
 
-The next step is to upload images to the project and assign tags to those images to classify them.
+    ![Skapa ett Custom Vision Service-projekt](../images/portal-create-project.png)
+
+    _Skapa ett Custom Vision Service-projekt_
+
+Nästa steg är att ladda upp bilder till projektet och klassificera bilder genom att tilldela taggar.

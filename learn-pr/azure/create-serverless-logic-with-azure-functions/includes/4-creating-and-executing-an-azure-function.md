@@ -1,38 +1,39 @@
-Now that we have a function app created, let's look at how to build, configure, and execute a function.
+Nu när vi har skapat en funktionsapp ska vi titta på hur du skapar, konfigurerar och kör en funktion.
 
-### Triggers
+### <a name="triggers"></a>Utlösare
 
-Functions are event driven, which means they run in response to an event.
+Funktioner är aktivitetsdrivna, vilket innebär att de körs som svar på en händelse.
 
-The type of event that starts the function is called a **trigger**. You must configure a function with exactly one trigger.
+Den typ av händelse som initierar funktionen kallas för en *utlösare*. Du måste konfigurera en funktion med exakt en utlösare.
 
-Azure supports triggers for the following services.
+Azure har stöd för utlösare för följande tjänster.
 
-| Service                 | Trigger description  |
+| Tjänst                 | Beskrivning av utlösare  |
 |-------------------------|---------|
-| Blob storage            | Start a function when a new or updated blob is detected.       |
-| Cosmos DB               | Start a function when inserts and updates are detected.      |
-| Event Grid              | Start a function when an event is received from Event Grid.       |
-| HTTP                    | Start a function with an HTTP request.      |
-| Microsoft Graph Events  | Start a function in response to an incoming webhook from the Microsoft Graph. Each instance of this trigger can react to one Microsoft Graph resource type.       |
-| Queue storage           | Start a function when a new item is received on a queue. The queue message is provided as input to the function.      |
-| Service Bus             | Start a function in response to messages from a Service Bus queue.       |
-| Timer                   | Start a function on a schedule.       |
-| Webhooks                | Start a function with a webhook request.       |
+| Blob Storage            | Starta en funktion när en ny eller uppdaterad blob identifieras.       |
+| Cosmos DB               | Starta en funktion när infogningar och uppdateringar identifieras.      |
+| Event Grid              | Starta en funktion när en händelse tas emot från Event Grid.       |
+| HTTP                    | Starta en funktion med en HTTP-begäran.      |
+| Microsoft Graph-händelser  | Starta en funktion som svar på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en resurstyp för Microsoft Graph.       |
+| Queue Storage           | Starta en funktion när ett nytt objekt tas emot i en kö. Kömeddelandet anges som indata till funktionen.      |
+| Service Bus             | Starta en funktion som svar på meddelanden från en Service Bus-kö.       |
+| Timer                   | Starta en funktion efter ett schema.       |
+| Webhooks                | Starta en funktion med en webhook-begäran.       |
 
-### Bindings
+### <a name="bindings"></a>Bindningar
 
-Bindings are a declarative way to connect data and services to your function. Bindings know how to talk to different services, which means you don't have to write code in your function to connect to data sources and manage connections. The platform takes care of that complexity for you as part of the binding code. Each binding has a direction - your code reads data from *input* bindings and writes data to *output* bindings. Each function can have zero or more bindings to manage the input and output data processed by the function.
+Bindningar är ett deklarativt sätt att koppla data och tjänster till din funktion. Bindningar vet hur de ska kommunicera med olika tjänster vilket innebär att du inte behöver skriva kod i din funktion för att ansluta till datakällor och hantera anslutningar. Plattformen tar hand om den komplexiteten som en del av bindningskoden. Varje bindning har en riktning – din kod läser data från *indatabindningar* och skriver data till *utdatabindningar*. Varje funktion kan ha noll eller flera bindningar för att hantera indata och utdata som bearbetas av funktionen.
 
-A trigger is a special type of input binding that has the additional capability of initiating execution.
+> [!NOTE]
+> Tekniskt sett är en utlösare en särskild typ av indatabindning som har den ytterligare funktionen att kunna initiera en körning.
 
-Azure provides a [large number of bindings](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings) to connect to different storage and messaging services.
+Azure tillhandahåller ett [stort antal bindningar](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings) för att ansluta till olika lagringsenheter och meddelandetjänster.
 
-### A sample binding definition
+### <a name="a-sample-binding-definition"></a>Definition av en exempelbindning
 
-Let's look at an example of configuring a function with an input binding (trigger) and an output binding. Let's say we want to read data from Blob storage, process it in our function, and then write a message to a queue. You would configure an _input binding_ of type *blob* and an _output binding_ of type *queue*.
+Nu ska vi titta på ett exempel på hur du konfigurerar en funktion med en indatabindning (utlösare) och en utdatabindning. Anta att vi vill läsa data från Blob Storage, bearbeta dem i vår funktion och sedan skriva ett meddelande till en kö. Du konfigurerar en _indatabindning_ av typen *blob* och en _utdatabindning_ av typen *kö*.
 
-Bindings can be defined in the Azure portal, and are stored as JSON files, which you can also edit directly. The following JSON is sample definition of a trigger and binding for a function.
+Bindningar kan definieras på Azure Portal och lagras som JSON-filer som du också kan redigera direkt. Följande JSON är en exempeldefinition av en utlösare och en bindning för en funktion.
 
 ```json
 {
@@ -55,72 +56,72 @@ Bindings can be defined in the Azure portal, and are stored as JSON files, which
 }
 ```
 
-This example shows a function that is triggered by a message being added to a queue named **myqueue-items**. It then sends the return value of the function to the **outTable** table in Azure Table storage. This is a very simple example, we could change the output to be an email using a SendGrid binding, or put an event onto a Service Bus to notify some other component in our architecture, or even have multiple output bindings to push data to various services.
+Det här exemplet visar en funktion som utlöses av ett meddelande som läggs till i en kö med namnet **myqueue-items**. Därefter skickas funktionens returvärde till tabellen **outTable** i Azure Table Storage. Det här är ett väldigt enkelt exempel. Vi kan ändra resultatet till ett e-postmeddelande med hjälp av en SendGrid-bindning eller placera en händelse i en Service Bus för att meddela en annan komponent i vår arkitektur. Vi kan till och med använda flera utdatabindningar för att skicka data till olika tjänster.
 
-## Creating a function in the Azure portal
+## <a name="creating-a-function-in-the-azure-portal"></a>Skapa en funktion i Azure Portal
 
-Azure provides several pre-made function templates for common scenarios.
+Azure tillhandahåller flera fördefinierade funktionsmallar för vanliga scenarier.
 
-### Quickstart templates
+### <a name="quickstart-templates"></a>Snabbstartsmallar
 
-When adding your first function, you are presented with the Quickstart screen. This screen allows you to choose a trigger type (HTTP, Timer, or Data) and programming language (C#, JavaScript, F# or Java). Then, based on your selections, Azure will generate the function code and configuration for you with some sample code provided to display out the input data received in the log.
+När du lägger till din första funktion visas skärmen Snabbstart. På den här skärmen kan du välja en utlösartyp (HTTP, Timer eller Data) och ett programmeringsspråk (C#, JavaScript, F# eller Java). Baserat på dina val genererar Azure sedan funktionskoden och konfigurationen med exempelkod som visar de indata som tas emot i loggen. 
+ 
+### <a name="custom-function-templates"></a>Anpassade funktionsmallar
 
-### Custom function templates
+Valet av snabbstartsmallar ger enkel åtkomst till de vanligaste scenarierna. Azure tillhandahåller dock 30 ytterligare mallar som du kan börja med. De finns från skärmen med listan över mallar när du skapar efterföljande funktioner eller via alternativet **Anpassad funktion** på skärmen Snabbstart.
 
-The selection of Quickstart templates provides easy access to the most common scenarios. However, Azure provides over 30 additional templates you can start with. These can be selected from the template list screen when creating subsequent functions or be selected by using the **Custom function** option on the Quickstart screen.
+- HTTP-utlösare med C#, F# eller JavaScript
+- Timerutlösare med C#, F# eller JavaScript
+- Köutlösare med C#, F# eller JavaScript
+- Service Bus-köutlösare med C#, F# eller JavaScript
+- Cosmos DB-utlösare med C# eller JavaScript
+- IoT Hub (händelsehubb) med C#, F# eller JavaScript
+- ... och många fler
 
-- HTTP trigger w/ C#, F#, or JavaScript
-- Timer trigger w/ C#, F#, or JavaScript
-- Queue trigger w/ C#, F#, or JavaScript
-- Service Bus Queue trigger w/ C#, F#, or JavaScript
-- Cosmos DB trigger w/ C# or JavaScript
-- IoT Hub (Event Hub) w/ C#, F#, or JavaScript
-- ... and many more
+## <a name="navigating-to-your-function-and-files"></a>Navigera till dina funktioner och filer
 
-## Navigating to your function and files
+När du skapar en funktion från en mall skapas flera filer. Om du till exempel väljer att använda snabbstarten Webhook + API med JavaScript skapas en konfigurationsfil, **function.json**, och en källkodsfil, **index.js**. De funktioner som du skapar i en funktionsapp visas under menyalternativet **Funktioner** på portalen för funktionsappen.
 
-When you create a function from a template, several files are created. For example, if you opted to use the Webhook + API Quickstart using JavaScript, the files generated would be a configuration file, **function.json**, and a source code file, **index.js**. The functions you create in a function app appear under the **Functions** menu item in the function app portal.
+När du väljer en funktion i din funktionsapp öppnas en kodredigerare som visar koden för funktionen, som du ser i följande skärmbild.
 
-When you select a function in your function app, a code editor opens and displays the code for your function, as illustrated in the following screenshot.
+![Gränssnittet där du väljer funktionsmallar visar en uppsättning mallar som hjälper dig att snabbt skapa funktioner.](../media-draft/4-file-navigation.png)
 
-![Screenshot of the Azure portal showing the function editor blade, including the expanded View files menu, with the selected "HttpTriggerJS1" function in our app service navigation and the View files menu highlighted.](../media/4-file-navigation.png)
+Som du ser i föregående skärmbild finns det en utfällbar meny till höger som innehåller en flik med namnet **Visa filer**. Om du väljer den här fliken visas filstrukturen bakom din funktion.  
 
-As you can see in the preceding screenshot, there's a flyout menu on the right that includes a tab to **View files**. Selecting this tab shows the file structure that makes up your function.
+## <a name="testing-your-azure-function"></a>Testa Azure-funktionen
 
-## Testing your Azure function
+När du har skapat en funktion vill du antagligen testa den. Du kan göra på ett par olika sätt: manuell körning eller testning från själva Azure Portal.
 
-Once you've created a function, you'll want to test it. There are a couple of approaches: manual execution and testing from within the Azure portal itself.
+### <a name="manual-execution"></a>Manuell körning
 
-### Manual execution
+Du kan starta en funktion genom att manuellt utlösa den konfigurerade utlösaren. Om du till exempel använder en HTTP-utlösare kan du använda ett verktyg som Postman eller cURL för att initiera en HTTP-begäran till URL:en för funktionens slutpunkt som är tillgänglig från HTTP-utlösarens definition (**Hämta funktionens URL**).  
 
-You can start a function by manually triggering the configured trigger. For instance, if you are using an HTTP trigger - you can use a tool such as Postman or cURL to initiate an HTTP request to your function endpoint URL, which is available from the HTTP trigger definition (**Get function URL**).
+### <a name="testing-in-the-azure-portal"></a>Testa på Azure Portal
 
-### Testing in the Azure portal
+Portalen erbjuder även ett bekvämt sätt att testa dina funktioner. På höger sida av kodfönstret finns en utfällbar navigeringsmeny med flikar. Menyn innehåller ett **testobjekt**. Genom att expandera menyn och välja den här fliken får du möjlighet att köra funktionen och visa resultatet på ett annat sätt. När du klickar på **Kör** i det här testfönstret visas resultatet i utdatafönstret, tillsammans med en statuskod. 
 
-The portal also provides a convenient way to test your functions. On the right side of the code window, there is a flyout tabbed navigation menu. This menu contains a **Test** item. Expanding the menu and selecting this tab gives you another way to execute your function and view the result. When you click **Run** in this test window, the results are displayed in the output window, along with a status code.
+## <a name="monitoring-dashboard"></a>Instrumentpanel för övervakning
 
-## Monitoring dashboard
+Det är viktigt att kunna övervaka funktionerna både vid utveckling och i produktion. Azure Portal innehåller en övervakningsinstrumentpanel som är tillgänglig om du aktiverar Application Insights-integration. När du expanderar funktionens nod visas ett **skärmmenyalternativ** på funktionsappens navigeringsmeny. På den här övervakningsinstrumentpanelen kan du snabbt visa historik över funktionskörningar liksom tidsstämpeln, resultatkoden, varaktigheten och åtgärds-ID:t som har lagts till av Application Insights.
 
-The ability to monitor your functions is critical during development and in production. The Azure portal provides a monitoring dashboard available if you turn on the Application Insights integration. In the function app navigation menu, once you expand the function node you'll see a **Monitor** menu item. This monitor dashboard provides a quick way to view the history of function executions and displays the timestamp, result code, duration, and operation ID populated by Application Insights.
+![Skärmbild av övervakningsinstrumentpanelen som startas via menyalternativet **Övervaka** för funktionen och som visar en lista över lyckade och misslyckade anrop till funktionen.](../media-draft/4-monitor-function.png)
 
-![Screenshot of the Azure portal showing an HTTP function Monitor blade with several function results and their corresponding HTTP status codes, with the Module menu item of the function highlighted.](../media/4-monitor-function.png)
+## <a name="streaming-log-window"></a>Fönster för strömmande loggning
 
-## Streaming log window
+Du kan också lägga till loggningsinstruktioner i en funktion för felsökning på Azure Portal. Ett loggningsobjekt skickas till metoderna som anropas för respektive språk och kan användas för att logga information till loggfönstret som visas på en utfällbar flikmeny längst ned i kodfönstret. 
 
-You're also able to add logging statements to your function for debugging in the Azure portal. The called methods for each language are passed a "logging" object, which may be used to log information to the log window located in a tabbed flyout menu located at the bottom of the code window.
-
-The following JavaScript code snippet shows how to log a message using the `context.log` method (the `context` object is passed to the handler).
+Följande JavaScript-kodstycke visar hur du loggar ett meddelande med hjälp av metoden `context.log` (objektet `context` skickas till hanteraren).
 
 ```javascript
   context.log('Enter your logging statement here');
-```
+```  
 
-We could the same thing in C# using the `log.Info` method. In this case, the `log` object is passed ot the C# method processing the function.
+Vi kan göra samma sak i C# med hjälp av metoden `log.Info`. I det här fallet skickas objektet `log` till C#-metoden som bearbetar funktionen.
 
 ```csharp
   log.Info("Enter your logging statement here");
 ```
 
-### Errors and warnings window
+### <a name="errors-and-warnings-window"></a>Fönstret Fel och varningar
 
-You can locate the errors and warnings window tab in the same flyout menu as the log window. This window will show compilation errors and warnings within your code.
+Du kan hitta fliken med fönstret för fel och varningar på samma utfällbara meny som den för loggfönstret. Det här fönstret visar kompileringsfel och varningar i din kod.

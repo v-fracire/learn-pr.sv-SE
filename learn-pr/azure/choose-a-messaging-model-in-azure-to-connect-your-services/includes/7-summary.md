@@ -1,14 +1,13 @@
-In this module, you have explored four different Azure services that allow you to create reliable and resilient distributed applications. Choosing between them is a matter of deciding the type of data that needs to be passed between components (messages or events), and then what features you need to deliver and process the data.
+I den här modulen har du utforskat fyra olika Azure-tjänster som gör det möjligt att skapa pålitliga och motståndskraftiga distribuerade program. Valet mellan dem handlar om att bestämma vilken typ av data som behöver överföras mellan komponenter (meddelanden eller händelser) och sedan vilka funktioner du behöver leverera och bearbeta data.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up"></a>Rensa
 
-While a Storage Account contains data, it incurs a cost against your Azure subscription, although these are likely to be low for small queue with few messages. When you have finished with the queue, remember to remove it in order to avoid unnecessary charges. Because you created all the resources in the same resource group, the easiest way to cleanup your Azure subscription is to remove the resource group which will remove all its contents:
+När ett lagringskonto innehåller data medför det kostnader mot din Azure-prenumeration, men dessa är sannolikt låga för liten kö med få meddelanden. Kom ihåg att ta bort kön för att undvika onödiga kostnader när du är klar med den. Eftersom du skapar alla resurser i samma resursgrupp är det enklast att rensa din Azure-prenumeration genom att ta bort resursgruppen. Då tas allt dess innehåll bort:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name "MusicSharingResourceGroup" -Force
 ```
 
-When you are asked to confirm the delete, answer **Yes**.
+När du uppmanas att bekräfta borttagningen svarar du **Ja**.
 
-The command may take several minutes to complete as resources are deleted.
+Det kan ta flera minuter att köra kommandot och ta bort resurserna.

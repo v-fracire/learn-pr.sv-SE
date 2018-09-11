@@ -1,0 +1,34 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.2-defense-in-depth
+title: Skydd på djupet
+metadata:
+  title: Skydd på djupet
+  description: I den här enheten diskuterar vi hur skydd på djupet går till
+  ms.openlocfilehash: 5a38b6b3200442e32bf80ae8c45f1209b2ec9000
+  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43366492"
+durationInMinutes: 5
+content: >
+  [!include[](includes/2-defense-in-depth.md)]
+quiz:
+  title: Kunskapskontroll – Skydd på djupet
+  questions:
+  - content: Vilket av följande är en lämplig metod att tillämpa på säkerhetsstrategi för skydd på djupet?
+    choices:
+    - content: Frigöra oanvända virtuella datorer för att minska kostnader
+      isCorrect: false
+    - content: Konfigurera aviseringar när CPU-procenten överstiger 90 %
+      isCorrect: false
+    - content: Lagra anslutningssträngar i en konfigurationsfil
+      isCorrect: false
+    - content: Använda Azure App Service som värd för webbprogram
+      isCorrect: true
+  - content: Genom att gå över till molnet gör jag min arkitektur helt säker, och jag kan lämna över allt säkerhetsansvar till min molnleverantör.
+    choices:
+    - content: Sant
+      isCorrect: false
+    - content: Falskt
+      isCorrect: true
