@@ -1,0 +1,33 @@
+<span data-ttu-id="2a3ed-101">Du har skapat och distribuerat ett komplett webbprogram med funktionen Web Apps i Azure App Services.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-101">You've successfully created and deployed a full-featured web application using the Web Apps feature of Azure App Service.</span></span>
+
+<span data-ttu-id="2a3ed-102">I App Services är det enklare att hantera och kontrollera webbappar jämfört med traditionella värdalternativ.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-102">App Service simplifies managing and controlling your web app in comparison to traditional hosting options.</span></span> <span data-ttu-id="2a3ed-103">Med Web Apps krävs mindre tid och arbete för att köra och hantera en webbapp, samtidigt som du har tillgång till avancerade molnfunktioner som automatisk skalning och Git-integrering.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-103">Web Apps can help you reduce the time and effort spent running and managing your web app, and provide advanced cloud features such as auto scaling and Git integration.</span></span>
+
+## <a name="clean-up-resources"></a><span data-ttu-id="2a3ed-104">Rensa resurser</span><span class="sxs-lookup"><span data-stu-id="2a3ed-104">Clean up resources</span></span>
+
+<span data-ttu-id="2a3ed-105">När du är klar med det här programmet kan du följa stegen nedan för att ta bort alla resurser som skapats i självstudien.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-105">When you are done working with this application, you can follow the steps below to delete all resources created during the tutorial.</span></span>
+
+<span data-ttu-id="2a3ed-106">Som du vet innehåller en resursgrupp alla andra resurser som skapas och kopplas till webbappen.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-106">As you know, a resource group associates all the other resources that are created and related to the web app.</span></span> <span data-ttu-id="2a3ed-107">När du rensar upp i Azure behöver du alltså bara ta bort resursgruppen, så tas alla resurser som skapats i den bort automatiskt.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-107">So, cleaning up after yourself on Azure is a matter of deleting the resource group, and hence, all the resources created under that group disappear.</span></span>
+
+<span data-ttu-id="2a3ed-108">Nu ska vi se hur du kan ta bort en resursgrupp med hjälp av Azure Portal:</span><span class="sxs-lookup"><span data-stu-id="2a3ed-108">Let's explore together how you can delete a resource group using the Azure portal:</span></span>
+
+1. <span data-ttu-id="2a3ed-109">Logga in på [Azure Portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="2a3ed-109">Log in to the [Azure portal](https://portal.azure.com).</span></span>
+
+1. <span data-ttu-id="2a3ed-110">Klicka på menyalternativet **Resursgrupper** till vänster på instrumentpanelen.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-110">Locate and click the **Resource groups** menu item on the left-side of the Dashboard.</span></span> <span data-ttu-id="2a3ed-111">Bladet **Resursgrupper** visar en lista över alla resursgrupper som du har skapat på Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-111">The **Resource groups** blade lists all the resource groups that you have created in the Azure portal.</span></span>
+
+1. <span data-ttu-id="2a3ed-112">Leta upp och klicka på namnet på den resursgrupp som du skapade i del 2.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-112">Locate and click the resource group name that you created in Unit #2.</span></span> <span data-ttu-id="2a3ed-113">Du kommer till bladet Webbapp.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-113">The portal navigates you to the web app blade.</span></span>
+
+    ![Resursgrupper](../media-draft/8-resource-groups.png)
+
+1. <span data-ttu-id="2a3ed-115">Bladet **Resursgrupp** öppnas på Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-115">The Azure portal navigates you to the **Resource group** blade.</span></span> <span data-ttu-id="2a3ed-116">Här kan du se en lista över alla resurser som du har skapat i den här modulen under den här resursgruppen.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-116">There, you can see a list of all the resources that you've created during this module under this resource group.</span></span>
+
+    ![Bladet Resursgrupp](../media-draft/8-resource-group-blade.png)
+
+1. <span data-ttu-id="2a3ed-118">Leta upp och klicka på länken **Ta bort resursgrupp** längst upp på bladet.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-118">Locate and click on the **Delete resource group** link at the top of the blade.</span></span>
+
+1. <span data-ttu-id="2a3ed-119">Azure verifierar att du verkligen vill ta bort resursgruppen genom att uppmana dig att ange namnet på den.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-119">Azure verifies that you really want to delete this resource group by asking you to type the name of it.</span></span> <span data-ttu-id="2a3ed-120">Om du vill fortsätta skriver du namnet på resursgruppen.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-120">To proceed, type the name of the resource group.</span></span>
+
+    ![Bekräfta borttagning av resursgrupp](../media-draft/8-resource-group-delete.png)
+
+1. <span data-ttu-id="2a3ed-122">Klicka på knappen **Ta bort** längst ned i bekräftelsefönstret.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-122">Locate and click on the **Delete** button at the bottom of the confirmation window.</span></span>
+
+1. <span data-ttu-id="2a3ed-123">Det tar några sekunder för Azure att rensa resursgruppen och alla relaterade resurser.</span><span class="sxs-lookup"><span data-stu-id="2a3ed-123">Azure takes a few seconds to wipe out the resource group and all the related resources.</span></span>

@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.create-serverless-logic-with-functions.5-add-logic-to-the-function-app
+title: <span data-ttu-id="92564-101">Lägga till logik i funktionsappen</span><span class="sxs-lookup"><span data-stu-id="92564-101">Add logic to the function app</span></span>
+metadata:
+  title: <span data-ttu-id="92564-102">Lägga till logik i funktionsappen</span><span class="sxs-lookup"><span data-stu-id="92564-102">Add logic to the function app</span></span>
+  description: <span data-ttu-id="92564-103">Lägga till affärslogik + utlösare i funktionsappen</span><span class="sxs-lookup"><span data-stu-id="92564-103">Add the business logic + trigger into the Function App</span></span>
+  ms.openlocfilehash: 86ee00e20228d024640a481b340d650707bcb754
+  ms.sourcegitcommit: b1b68b477ab39109c48f227b504a5050cae7a718
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/01/2018
+  ms.locfileid: "43410264"
+durationInMinutes: 10
+content: '[!include[](includes/5-add-logic-to-the-function-app.md)]'

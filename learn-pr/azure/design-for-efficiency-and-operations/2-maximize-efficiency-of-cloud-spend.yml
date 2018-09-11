@@ -1,0 +1,40 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-efficiency-and-operations.2-maximize-efficiency-of-cloud-spend
+title: <span data-ttu-id="d430d-101">Maximera effektiviteten för molnutgifter</span><span class="sxs-lookup"><span data-stu-id="d430d-101">Maximize efficiency of cloud spend</span></span>
+metadata:
+  title: <span data-ttu-id="d430d-102">Maximera effektiviteten för molnutgifter</span><span class="sxs-lookup"><span data-stu-id="d430d-102">Maximize efficiency of cloud spend</span></span>
+  description: <span data-ttu-id="d430d-103">I det här avsnittet kommer vi att diskutera hur du maximerar effektiviteten för dina molnutgifter</span><span class="sxs-lookup"><span data-stu-id="d430d-103">In this unit, we'll discuss how to maximize the efficiency of your cloud expenditures</span></span>
+  ms.openlocfilehash: bfd94387ce2fe981aa01b3f100e2ba98ea1cb145
+  ms.sourcegitcommit: e394fdeec09107310bb48f3cae1745963ae669ca
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/01/2018
+  ms.locfileid: "43452418"
+durationInMinutes: 5
+content: >
+  [!include[](includes/2-maximize-efficiency-of-cloud-spend.md)]
+quiz:
+  title: <span data-ttu-id="d430d-104">Kunskapskontroll – Maximera effektiviteten för molnutgifter</span><span class="sxs-lookup"><span data-stu-id="d430d-104">Knowledge check - Maximize efficiency of cloud spend</span></span>
+  questions:
+  - content: <span data-ttu-id="d430d-105">Vilket av följande är det bästa alternativet för en reserverad instans?</span><span class="sxs-lookup"><span data-stu-id="d430d-105">Which of the following is the best candidate for a reserved instance?</span></span>
+    choices:
+    - content: <span data-ttu-id="d430d-106">En webbapp som distribueras i Azure App Service.</span><span class="sxs-lookup"><span data-stu-id="d430d-106">A web application deployed on Azure App Service.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d430d-107">Azure App Service är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="d430d-107">Azure App Service is a PaaS service, reserved instances can only be used for virtual machines.</span></span>
+    - content: <span data-ttu-id="d430d-108">En virtuell dator för icke-produktion som stängs av automatiskt när den inte används.</span><span class="sxs-lookup"><span data-stu-id="d430d-108">A non-production virtual machine that is automatically shut down in off-hours when not in use.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d430d-109">Eftersom den här virtuella datorn inte körs under den största delen av tiden utnyttjar den inte instansreservationen till fullo och är inte ett bra alternativ för en reserverad instans.</span><span class="sxs-lookup"><span data-stu-id="d430d-109">Since this virtual machine will not be running the majority of the time it will not fully utilize the instance reservation, and is not a good candidate for a reserved instance.</span></span>
+    - content: <span data-ttu-id="d430d-110">En Azure SQL Database-instans.</span><span class="sxs-lookup"><span data-stu-id="d430d-110">An Azure SQL Database instance.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d430d-111">Azure SQL Database är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="d430d-111">Azure SQL Database is a PaaS service, reserved instances can only be used for virtual machines.</span></span>
+    - content: <span data-ttu-id="d430d-112">En databasserver för ett HR-system i ett globalt företag.</span><span class="sxs-lookup"><span data-stu-id="d430d-112">A database server for an HR system for a global business.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d430d-113">På grund av det här systemets allvarlighetsgrad och globala karaktär är det troligt att den skulle köras under den största delen av tiden, vilket gör den till ett bra alternativ för en reserverad instans.</span><span class="sxs-lookup"><span data-stu-id="d430d-113">Because of the criticality and global nature of this system, it is likely that it would be running the majority of the time, making it a great candidate for a reserved instance.</span></span>
+  - content: <span data-ttu-id="d430d-114">Beräkna kostnader i samband med att en virtuell dator stängs av när:</span><span class="sxs-lookup"><span data-stu-id="d430d-114">Compute costs associated with a VM stop accruing when:</span></span>
+    choices:
+    - content: <span data-ttu-id="d430d-115">Du stänger av den virtuella datorn inifrån operativsystemet.</span><span class="sxs-lookup"><span data-stu-id="d430d-115">You shut the virtual machine down from inside the OS.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d430d-116">Om du stänger av operativsystemet för den virtuella datorn är den fortfarande allokerad på Azure-plattformen och fortsätter att ackumulera beräkningskostnader.</span><span class="sxs-lookup"><span data-stu-id="d430d-116">If you shut down the OS of the virtual machine, it is still allocated on the Azure platform and will continue to accrue compute costs.</span></span>
+    - content: <span data-ttu-id="d430d-117">Du klickar på stoppknappen i Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="d430d-117">You click the Stop button in the Azure portal.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d430d-118">När du klickar på stoppknappen frigörs den virtuella datorn från Azure-plattformen och slutar att ackumulera beräkningskostnader.</span><span class="sxs-lookup"><span data-stu-id="d430d-118">Clicking the Stop button will deallocate the virtual machine from the Azure platform and will no longer accrue compute costs.</span></span>

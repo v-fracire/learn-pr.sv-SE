@@ -1,0 +1,28 @@
+### YamlMime:LearningPath
+uid: learn.cloud-foundations
+title: Grundarna om molnet
+summary: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+- solution-architect
+- administrator
+products:
+- Azure
+metadata:
+  title: Grundarna om molnet
+  description: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
+  ms.openlocfilehash: 8d30b79ba6ce00c903ec0961b49fd99b54a523b2
+  ms.sourcegitcommit: 89dccddf7de169aecda3c1657e4354906389ed25
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43324481"
+modules:
+- principles-cloud-computing
+- learn.intro-to-compute
+- learn.intro-to-data-in-azure
+achievement: learn.cloud-foundations.trophy

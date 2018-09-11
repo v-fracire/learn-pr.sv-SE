@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.build-azure-bot-services-bot.1-create-web-app-bot
+title: <span data-ttu-id="486c0-101">Skapa en Azure Web App-robot</span><span class="sxs-lookup"><span data-stu-id="486c0-101">Create an Azure Web App Bot</span></span>
+metadata:
+  title: <span data-ttu-id="486c0-102">Skapa en Azure Web App-robot</span><span class="sxs-lookup"><span data-stu-id="486c0-102">Create an Azure Web App Bot</span></span>
+  description: <span data-ttu-id="486c0-103">Skapa en Azure Web App-robot</span><span class="sxs-lookup"><span data-stu-id="486c0-103">Create an Azure Web App Bot</span></span>
+  ms.openlocfilehash: cb3706783e56cf735c1bee92151da673710b700f
+  ms.sourcegitcommit: 107578417899e44b5611917dec7bcc21d4c1582e
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43229606"
+durationInMinutes: 10
+content: '[!include[](includes/1-create-web-app-bot.md)]'

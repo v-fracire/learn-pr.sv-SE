@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.choose-messaging-model.4-exercise-create-a-storage-queue
+title: <span data-ttu-id="eaf27-101">Skapa en lagringskö</span><span class="sxs-lookup"><span data-stu-id="eaf27-101">Create a storage queue</span></span>
+metadata:
+  title: <span data-ttu-id="eaf27-102">Skapa en lagringskö</span><span class="sxs-lookup"><span data-stu-id="eaf27-102">Create a storage queue</span></span>
+  description: <span data-ttu-id="eaf27-103">Skapa en lagringskö</span><span class="sxs-lookup"><span data-stu-id="eaf27-103">Create a storage queue</span></span>
+  ms.openlocfilehash: 2aec64d85f8262e756ab96d35274a819dcd7e066
+  ms.sourcegitcommit: a29274a7a22a1b88016cd49c067921557992c945
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43315287"
+durationInMinutes: 10
+content: '[!include[](includes/4-exercise-create-a-storage-queue.md)]'

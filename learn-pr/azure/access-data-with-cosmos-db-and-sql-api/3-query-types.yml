@@ -1,0 +1,30 @@
+### YamlMime:ModuleUnit
+uid: learn.access-data-with-cosmos-db-and-sql-api.3-query-types
+metadata:
+  title: <span data-ttu-id="ebf2d-101">Frågetyper</span><span class="sxs-lookup"><span data-stu-id="ebf2d-101">Query types</span></span>
+  description: <span data-ttu-id="ebf2d-102">Lär dig vilka typer av frågor du kan använda i Azure Cosmos DB för att hämta dina data.</span><span class="sxs-lookup"><span data-stu-id="ebf2d-102">Learn what kinds of queries you can use in Azure Cosmos DB to retrieve your data.</span></span>
+  displayType: one-column
+  ms.openlocfilehash: ff680eaf5b935c7849cb2f7965a62e56f99fc208
+  ms.sourcegitcommit: b85a83cbc1a0ae3e2681c4859e999a8296eb4e61
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2018
+  ms.locfileid: "43531025"
+title: <span data-ttu-id="ebf2d-103">Frågetyper</span><span class="sxs-lookup"><span data-stu-id="ebf2d-103">Query types</span></span>
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-query-types.md)]
+quiz:
+  title: <span data-ttu-id="ebf2d-104">Testrubrik</span><span class="sxs-lookup"><span data-stu-id="ebf2d-104">Quiz Title</span></span>
+  questions:
+  - content: <span data-ttu-id="ebf2d-105">Vilken är den enda obligatoriska satsen i en SQL-fråga?</span><span class="sxs-lookup"><span data-stu-id="ebf2d-105">What is the only required clause in a SQL query?</span></span>
+    choices:
+    - content: <span data-ttu-id="ebf2d-106">SELECT p.productId FROM Products p ORDER BY p.productId ASC</span><span class="sxs-lookup"><span data-stu-id="ebf2d-106">SELECT p.productId FROM Products p ORDER BY p.productId ASC</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ebf2d-107">Nej, detta skulle bara returnera produkt-ID:n i stigande ordning.</span><span class="sxs-lookup"><span data-stu-id="ebf2d-107">No, this would only return the product Ids in ascending order.</span></span>
+    - content: <span data-ttu-id="ebf2d-108">SELECT p.id FROM Products p ORDER BY p.productId DESC</span><span class="sxs-lookup"><span data-stu-id="ebf2d-108">SELECT p.id FROM Products p ORDER BY p.productId DESC</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ebf2d-109">Nej, detta skulle bara returnera ID:t i fallande ordning</span><span class="sxs-lookup"><span data-stu-id="ebf2d-109">No, this would only return the id in descending order</span></span>
+    - content: <span data-ttu-id="ebf2d-110">SELECT p.productId, p.description FROM Products p ORDER BY p.productId DESC</span><span class="sxs-lookup"><span data-stu-id="ebf2d-110">SELECT p.productId, p.description FROM Products p ORDER BY p.productId DESC</span></span>
+      isCorrect: true
+      incorrectExplanation: <span data-ttu-id="ebf2d-111">Rätt, detta skulle returnera både produkt-ID och produktbeskrivning i stigande ordning.</span><span class="sxs-lookup"><span data-stu-id="ebf2d-111">Correct, this would return both the product ID and product description in ascending order.</span></span>

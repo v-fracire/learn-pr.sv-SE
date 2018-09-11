@@ -1,30 +1,41 @@
 ### YamlMime:Module
 uid: learn.align-requirements-in-azure
+title: Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
+summary: >
+  Azure har stöd för tre sätt att distribuera molnresurser – offentliga, privata och hybrida moln. Vilket sätt du väljer påverkar flera faktorer för de tjänster du flyttar till Azure, bland annat kostnad, underhållsbehov och säkerhet. I den här modulen ska vi titta på alla tre typerna och hjälpa dig att fatta ett välgrundat beslut om vilken som passar för dina tjänster. Vi ska också snabbt titta på de tjänstmodeller som stöds av Azure och som kan hjälpa dig att avgöra vilka tjänster du ska börja med när du planerar en Azure-distribution.
 metadata:
   title: Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
   description: I den här modulen tar vi upp hur du hittar rätt molntyper och tjänstmodeller i Azure för dina behov.
-  ms.openlocfilehash: d0ecbb485b5354f763f86a57636ffef8518a65fb
-  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.date: 09/24/2018
+  ms.openlocfilehash: 8ae55343de2f969db0b4a093fd4c9360b086b147
+  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/22/2018
-  ms.locfileid: "40446978"
-title: Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
-summary: I den här modulen tar vi upp hur du hittar rätt molntyper och tjänstmodeller i Azure för dina behov. (det här kommer att visas på modulkortet)
-abstract: I den här modulen tar vi upp hur du hittar rätt molntyper och tjänstmodeller i Azure för dina behov.
-cardDescription: Det här är kortbeskrivningen för exempelmodulen (det här visas på prestationsmärket)
+  ms.lasthandoff: 08/30/2018
+  ms.locfileid: "43251675"
+abstract: >
+  I den här modulen kommer du att göra följande:
+
+  - Jämföra de olika molndistributionsmodellerna (offentligt, privat och hybrid).
+
+  - Förstå fördelarna med varje molntjänstsmodell.
+
+  - Avgöra vilken distributions- och tjänstmodell du bör använda för dina tjänster.
+prerequisites: Inget
 iconUrl: http://via.placeholder.com/120x120
 levels:
 - beginner
 roles:
 - solutions-architect
-achievement: learn.placeholder.badge
 products:
 - Azure
+achievement: learn.align-requirements-in-azure.badge
 units:
 - learn.align-requirements-in-azure.1-introduction
 - learn.align-requirements-in-azure.2-public-private-hybrid
-- learn.align-requirements-in-azure.3-public-private-hybrid-quiz
-- learn.align-requirements-in-azure.4-iaas-paas-saas
-- learn.align-requirements-in-azure.5-iaas-paas-saas-quiz
-- learn.align-requirements-in-azure.6-summary
+- learn.align-requirements-in-azure.3-service-models
+- learn.align-requirements-in-azure.4-iaas
+- learn.align-requirements-in-azure.5-paas
+- learn.align-requirements-in-azure.6-saas
+- learn.align-requirements-in-azure.7-knowledge-check
+- learn.align-requirements-in-azure.8-summary

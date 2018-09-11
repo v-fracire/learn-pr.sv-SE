@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.build-a-serverless-web-app.6-add-authentication
+title: <span data-ttu-id="5377f-101">Lägg till autentisering</span><span class="sxs-lookup"><span data-stu-id="5377f-101">Add authentication</span></span>
+metadata:
+  title: <span data-ttu-id="5377f-102">Lägg till autentisering</span><span class="sxs-lookup"><span data-stu-id="5377f-102">Add authentication</span></span>
+  description: <span data-ttu-id="5377f-103">Lägg till autentisering.</span><span class="sxs-lookup"><span data-stu-id="5377f-103">Add authentication.</span></span>
+  ms.openlocfilehash: 8a64428f1a5406359e8ed8e146ba1a50ee787282
+  ms.sourcegitcommit: bf091e3a389138b59573865ca54775e38a4ffa1f
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43154750"
+durationInMinutes: 8
+interactive: bash-editor
+content: '[!include[](includes/6-add-authentication.md)]'
