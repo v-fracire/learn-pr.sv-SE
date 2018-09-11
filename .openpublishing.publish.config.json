@@ -39,7 +39,7 @@
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.se-SE",
+      "url": "https://github.com/Microsoft/templates.docs.msft.sv-SE",
       "branch": "master",
       "branch_mapping": {}
     },
