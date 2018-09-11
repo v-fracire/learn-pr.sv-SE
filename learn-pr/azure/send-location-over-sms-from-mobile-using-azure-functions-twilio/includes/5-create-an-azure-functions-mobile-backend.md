@@ -4,13 +4,13 @@ Nu hämtar appen användarens plats och den är redo att skickas till en Azure-f
 
 1. Lägg till ett nytt projekt i `ImHere`-lösningen genom att högerklicka på lösningen och välja *Lägg till -> Nytt projekt …* .
 
-2. Välj *Visual C# -> Molnet* i trädvyn till vänster och välj sedan *Azure Functions* på panelen i mitten.
+1. Välj *Visual C# -> Molnet* i trädvyn till vänster och välj sedan *Azure Functions* på panelen i mitten.
 
-3. Ange projektnamnet ImHere.Functions och klicka på **OK**.
+1. Ange projektnamnet ImHere.Functions och klicka på **OK**.
 
     ![Dialogrutan Lägg till nytt projekt](../media-drafts/5-add-new-functions-project.png)
 
-4. I konfigurationsdialogrutan **Nytt projekt** låter du Azure Functions-versionen vara *Azure Functions v1 (.NET Framework)*. Välj *HTTP-utlösare*, låt lagringskontot vara inställt som *Lagringsemulator* och ange åtkomstbehörigheter för *Anonym*. Klicka sedan på **OK**.
+1. I konfigurationsdialogrutan **Nytt projekt** låter du Azure Functions-versionen vara *Azure Functions v1 (.NET Framework)*. Välj *HTTP-utlösare*, låt lagringskontot vara inställt som *Lagringsemulator* och ange åtkomstbehörigheter för *Anonym*. Klicka sedan på **OK**.
 
     ![Konfigurationsdialogrutan för Azure Function-projekt](../media-drafts/5-configure-trigger.png)
 
@@ -24,13 +24,13 @@ Azure Functions-projektet har skapats med en HTTP-utlösarfunktion som kallas `F
 
 1. Byt namn på filen i Solution Explorer från Function1.cs till SendLocation.cs. När du uppmanas att byta namn på alla referenser till kodelementet `Function1` klickar du på **Ja**.
 
-2. Byt namn på funktionen i attributet till SendLocation.
+1. Byt namn på funktionen i attributet till SendLocation.
 
     ```cs
     [FunctionName("SendLocation")]
     ```
 
-3. Ta bort innehållet i funktionen, förutom den första raden som skriver ett informationsmeddelande till loggaren.
+1. Ta bort innehållet i funktionen, förutom den första raden som skriver ett informationsmeddelande till loggaren.
 
     ```cs
     public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous,
@@ -48,17 +48,17 @@ När data skickas till Azure-funktionen sker det i JSON-format. Mobilappen seria
 
 1. Skapa ett nytt projekt under `ImHere`-lösningen genom att högerklicka på lösningen och välja *Lägg till -> Nytt projekt …*.
 
-2. Välj *Visual C# -> .NET Standard* i trädvyn till vänster och sedan *Klassbibliotek (.NET Standard)* på panelen i mitten.
+1. Välj *Visual C# -> .NET Standard* i trädvyn till vänster och sedan *Klassbibliotek (.NET Standard)* på panelen i mitten.
 
-3. Ange projektnamnet ImHere.Data och klicka på **OK**.
+1. Ange projektnamnet ImHere.Data och klicka på **OK**.
 
     ![Dialogrutan Lägg till nytt projekt](../media-drafts/5-add-new-net-standard-project.png)
 
-4. Ta bort den automatiskt genererade filen Class1.cs.
+1. Ta bort den automatiskt genererade filen Class1.cs.
 
-5. Skapa en ny klass i `ImHere.Data`-projektet som heter `PostData` genom att högerklicka på projektet och sedan välja *Lägg till -> Klass …*. Ge den nya klassen namnet PostData och klicka på **OK**.
+1. Skapa en ny klass i `ImHere.Data`-projektet som heter `PostData` genom att högerklicka på projektet och sedan välja *Lägg till -> Klass …*. Ge den nya klassen namnet PostData och klicka på **OK**.
 
-6. Lägg till `double`-egenskaper för latitud och longitud, samt en `string[]`-egenskap för telefonnumren att skicka till.
+1. Lägg till `double`-egenskaper för latitud och longitud, samt en `string[]`-egenskap för telefonnumren att skicka till.
 
     ```cs
     public class PostData
@@ -69,7 +69,7 @@ När data skickas till Azure-funktionen sker det i JSON-format. Mobilappen seria
     }
     ```
 
-7. Lägg till en referens till det här projektet både i `ImHere.Functions` och `ImHere` genom att högerklicka på projektet och välja *Lägg till -> Referens …* . Välj *Projekt* i trädvyn till vänster och markera sedan kryssrutan bredvid *ImHere.Data*.
+1. Lägg till en referens till det här projektet både i `ImHere.Functions` och `ImHere` genom att högerklicka på projektet och välja *Lägg till -> Referens …* . Välj *Projekt* i trädvyn till vänster och markera sedan kryssrutan bredvid *ImHere.Data*.
 
     ![Konfigurera projektreferenser](../media-drafts/5-configure-project-references.png)
 
@@ -79,25 +79,25 @@ Parametern `req` i Azure-funktionen innehåller den HTTP-begäran som skapades, 
 
 1. Öppna klassen `SendLocation` i `ImHere.Functions`-projektet.
 
-2. Läs innehållet i HTTP-begäran till ett `PostData`-objekt och lägg till ett using-direktiv för `ImHere.Data`-namnområdet.
+1. Läs innehållet i HTTP-begäran till ett `PostData`-objekt och lägg till ett using-direktiv för `ImHere.Data`-namnområdet.
 
     ```cs
     PostData data = await req.Content.ReadAsAsync<PostData>();
     ```
 
-3. Skapa en Google Maps-URL med hjälp av latitud och longitud från `PostData`-objektet.
+1. Skapa en Google Maps-URL med hjälp av latitud och longitud från `PostData`-objektet.
 
    ```cs
    string url = $"https://www.google.com/maps/search/?api=1&query={data.Latitude},{data.Longitude}";
    ```
 
-4. Logga URL:en.
+1. Logga URL:en.
 
     ```cs
     log.Info($"URL created - {url}");
     ```
 
-5. Returnera en 200-statuskod för att visa att funktionen slutfördes utan fel.
+1. Returnera en 200-statuskod för att visa att funktionen slutfördes utan fel.
 
     ```cs
     return req.CreateResponse(HttpStatusCode.OK);
@@ -125,17 +125,17 @@ Azure Functions kan köras lokalt med ett konto för lokal lagring och lokal Azu
 
 1. Högerklicka på projektet `ImHere.Functions` i Solution Explorer och välj *Ställ in som startprojekt*.
 
-2. På menyn *Felsöka* väljer du *Starta utan felsökning*. Den lokala Azure Functions-körningen startas i ett konsolfönster och startar din funktion, samt lyssnar på en tillgänglig port på `localhost`.
+1. På menyn *Felsöka* väljer du *Starta utan felsökning*. Den lokala Azure Functions-körningen startas i ett konsolfönster och startar din funktion, samt lyssnar på en tillgänglig port på `localhost`.
 
     ![Azure-funktionen körs lokalt](../media-drafts/5-function-running-locally.png)
 
-3. Anteckna vilken port funktionen lyssnar på. Du behöver den i nästa del för att testa mobilappen. I bilden ovan lyssnar funktionen på porten **7071**.
+1. Anteckna vilken port funktionen lyssnar på. Du behöver den i nästa del för att testa mobilappen. I bilden ovan lyssnar funktionen på porten **7071**.
 
     ```sh
     Listening on http://localhost:7071/
     ```
 
-4. Låt funktionen köras så att du kan testa mobilappen i nästa del.
+1. Låt funktionen köras så att du kan testa mobilappen i nästa del.
 
 ## <a name="summary"></a>Sammanfattning
 

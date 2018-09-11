@@ -1,4 +1,4 @@
-I den här övningen fortsätter du med exemplet på ett företag som skapar administrationsverktyg för Linux. Kom ihåg att du tänker använda virtuella Linux-datorer så att potentiella kunder kan testa din programvara. Du har en resursgrupp som är redo och nu är det dags att skapa de virtuella datorerna.
+I den här kursdelen fortsätter du med exemplet på ett företag som skapar administrationsverktyg för Linux. Kom ihåg att du tänker använda virtuella Linux-datorer så att potentiella kunder kan testa din programvara. Du har en resursgrupp som är redo och nu är det dags att skapa de virtuella datorerna.
 
 Företaget har betalat för en monter på en stor Linux-mässa. Du planerar en demonstration med tre terminaler som var och en är ansluten till en separat virtuell Linux-dator. I slutet av varje dag vill du ta bort de virtuella datorerna och återskapa dem, så att de börjar från början varje morgon. Att skapa de virtuella datorerna manuellt efter jobbet när du är trött kan riskera att fel uppstår. Du vill i stället skriva ett PowerShell-skript som skapar de virtuella datorerna automatiskt.
 

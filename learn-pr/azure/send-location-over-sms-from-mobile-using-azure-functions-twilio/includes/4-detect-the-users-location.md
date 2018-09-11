@@ -6,7 +6,7 @@ Alla mobila plattformar har säkerhet kring användarinformation och viss maskin
 
 1. I approjektet `ImHere.UWP` öppnar du filen `Package.appxmanifest`.
 
-2. Gå till fliken **Funktioner** och markera funktionen *Plats*.
+1. Gå till fliken **Funktioner** och markera funktionen *Plats*.
 
     ![Fliken med UWP-funktioner](../media-drafts/4-uwp-location-capability.png)
 
@@ -18,13 +18,13 @@ Det finns två sätt att hämta användarens plats – den senast kända eller d
 
 1. Öppna klassen `MainViewModel` i `ImHere` .NET-standardprojektet.
 
-2. I metoden `SendLocation` gör du ett anrop till den `GetLastKnownLocationAsync` statiska metoden i klassen `Geolocation` i namnområdet `Xamarin.Essentials`.
+1. I metoden `SendLocation` gör du ett anrop till den `GetLastKnownLocationAsync` statiska metoden i klassen `Geolocation` i namnområdet `Xamarin.Essentials`.
 
     ```cs
     Location location = await Geolocation.GetLastKnownLocationAsync();
     ```
 
-3. Uppdatera egenskapen `Message` med användarens plats om den hittas.
+1. Uppdatera egenskapen `Message` med användarens plats om den hittas.
 
     ```cs
     if (location != null)
@@ -51,7 +51,7 @@ Kör appen och klicka på knappen **Send Location** (Skicka plats) för att se p
 
 ![Appen som körs visar användarens plats](../media-drafts/4-running-app-showing-location.png)
 
-> I den här appen används den senaste kända platsen. I en app med produktionskvalitet kan du hämta den aktuella platsen med en tidsgräns, och om ingen hittas i tid återgår du till den senast kända. Du kan läsa mer om det i [Xamarin.Essentials Geolocation.docs](https://docs.microsoft.com/xamarin/essentials/geolocation?tabs=uwp#using-geolocation). Den här appen har inte felhantering. I en app med produktionskvalitet kan du hantera eventuella undantag som sker, exempelvis om platsen inte var tillgänglig och ett undantag uppstod.
+> I den här appen används den senaste kända platsen. I en app med produktionskvalitet kan du hämta den aktuella platsen med en tidsgräns, och om ingen hittas i tid återgår du till den senast kända. Du kan läsa mer om det i [Xamarin.Essentials Geolocation.docs](https://docs.microsoft.com/xamarin/essentials/geolocation?tabs=uwp#using-geolocation). Den här appen har inte någon felhantering. I en app med produktionskvalitet kan du hantera eventuella undantag som sker, exempelvis om platsen inte var tillgänglig.
 
 ## <a name="summary"></a>Sammanfattning
 

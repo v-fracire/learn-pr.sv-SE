@@ -24,12 +24,18 @@ Get-Help <cmdlet-name> -detailed
 I nästa del kommer vi att skapa en resursgrupp med en lokal installation av Azure PowerShell. 
 
 Det görs i fyra steg: 
+
 1. Importera Azure-cmdletarna.
+
 1. Ansluta till Azure-prenumerationen.
+
 1. Skapa resursgruppen.
+
 1. Kontrollera att resursgruppen skapades korrekt (se nedan).
 
-![Steg för att skapa en resurs i Azure med Azure PowerShell](../media-drafts/5-create-resource-overview.png)
+Följande illustration visar en översikt över dessa steg.
+
+![En bild som visar hur du skapar en resursgrupp.](../media/5-create-resource-overview.png)
 
 Varje steg motsvarar en specifik cmdlet.
 

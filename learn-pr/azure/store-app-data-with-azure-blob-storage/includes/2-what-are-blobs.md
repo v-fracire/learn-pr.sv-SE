@@ -6,10 +6,10 @@ Blobar är vanligtvis inte lämpliga för strukturerade data som används ofta. 
 
 Blobar används för att lagra data på många olika sätt i alla typer av program och arkitekturer:
 
-* Appar som behöver kommunicera stora mängder data i ett meddelandesystem som endast stöder små meddelanden kan lagra data i blobar och skicka blob-URL:er i meddelanden.
-* Blob Storage kan användas som ett filsystem för att lagra och dela dokument och andra personliga data.
-* Statiska webbresurser, till exempel bilder, kan lagras i blobar och göras tillgängliga för offentlig nedladdning som om de vore filer på en webbserver.
-* Många Azure-komponenter använder blobar i bakgrunden. Exempelvis lagrar Azure Cloud Shell dina filer och konfigurationer i blobar, och Azure Virtual Machines använder blobar för hårddisklagring.
+- Appar som behöver kommunicera stora mängder data i ett meddelandesystem som endast stöder små meddelanden kan lagra data i blobar och skicka blob-URL:er i meddelanden.
+- Blob Storage kan användas som ett filsystem för att lagra och dela dokument och andra personliga data.
+- Statiska webbresurser, till exempel bilder, kan lagras i blobar och göras tillgängliga för offentlig nedladdning som om de vore filer på en webbserver.
+- Många Azure-komponenter använder blobar i bakgrunden. Exempelvis lagrar Azure Cloud Shell dina filer och konfigurationer i blobar, och Azure Virtual Machines använder blobar för hårddisklagring.
 
 Vissa appar skapar, uppdaterar och tar bort blobar kontinuerligt som en del av deras arbete. Andra använder en liten uppsättning blobar och ändrar dem sällan.
 

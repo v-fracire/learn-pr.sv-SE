@@ -1,4 +1,4 @@
-Nu är den mobila appen färdig och skickar användarens plats samt listan med telefonnummer till en Azure-funktion som kan avserialisera data. I den här utbildningsenheten får du binda Azure-funktionen till Twilio för att skicka SMS.
+Nu är den mobila appen färdig och kan skicka användarens plats samt listan med telefonnummer till en Azure-funktion som kan avserialisera data. I den här kursdelen ska du binda Azure-funktionen till Twilio för att skicka SMS.
 
 Du kan ansluta Azure Functions till andra tjänster, antingen tjänster i Azure eller från tredje part. Sådana anslutningar kallas bindningar och finns i två varianter, in- och utdatabindningar. Indatabindningar levererar data till funktionen och bindningar hämtar data från funktionen och skickar dem till en annan tjänst. Du kan läsa mer om bindningar i [dokumentationen om Azure Functions-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
 
@@ -10,9 +10,9 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
 
 1. Stoppa den lokala körningen av Azure Functions om det fortfarande körs sedan den föregående enheten.
 
-2. Lägg till NuGet-paketet Microsoft.Azure.WebJobs.Extensions.Twilio i projektet `ImHere.Functions`. Det här NuGet-paketet innehåller de klasser som behövs för bindningen.
+1. Lägg till NuGet-paketet Microsoft.Azure.WebJobs.Extensions.Twilio i projektet `ImHere.Functions`. Det här NuGet-paketet innehåller de klasser som behövs för bindningen.
 
-3. Lägg till en ny parameter i den statiska metoden `Run` i den statiska klassen `SendLocation` med namnet `messages`. Den här parametern ska ha typen `ICollector<SMSMessage>`. Du måste lägga till ett användningsdirektiv för namnområdet `Twilio`.
+1. Lägg till en ny parameter i den statiska metoden `Run` i den statiska klassen `SendLocation` med namnet `messages`. Den här parametern ska ha typen `ICollector<SMSMessage>`. Du måste lägga till ett användningsdirektiv för namnområdet `Twilio`.
 
     ```cs
     [FunctionName("SendLocation")]
@@ -23,7 +23,7 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
                                                       TraceWriter log)
     ```
 
-4. Utöka den nya parametern `messages` med attributet `TwilioSms`. Det här attributet har tre parametrar som du måste ange.
+1. Utöka den nya parametern `messages` med attributet `TwilioSms`. Det här attributet har tre parametrar som du måste ange.
 
     | Inställning      |  Värde   | Beskrivning                                        |
     | --- | --- | ---|
@@ -41,7 +41,7 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
                From = "+1xxxxxxxxx")]ICollector<SMSMessage> messages,
     ```
 
-5. Du kan konfigurera inställningarna för Functions-appen lokalt i filen `local.settings.json`. Lägg till SID och autentiseringstoken för ditt Twilio-konto i den här JSON-filen och använd inställningsnamnen som skickades till attributet `TwilioSMS`.
+1. Du kan konfigurera inställningarna för Functions-appen lokalt i filen `local.settings.json`. Lägg till SID och autentiseringstoken för ditt Twilio-konto i den här JSON-filen och använd inställningsnamnen som skickades till attributet `TwilioSMS`.
 
     ```json
     {
@@ -57,7 +57,7 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
 
     Ersätt \<Your SID\> och \<Your Auth Token\> med värdena från instrumentpanelen i Twilio.
 
-    > De här lokala inställningarna används bara vid lokal körning. I en produktionsapp skulle värdena vara autentiseringsuppgifterna för det lokala utvecklings- eller testkontot. När Azure-funktionen har distribuerats till Azure kan du konfigurera värden för produktionsmiljön.
+    > De här lokala inställningarna används bara vid lokal körning. I en produktionsapp skulle dessa värden vara autentiseringsuppgifterna för det lokala utvecklings- eller testkontot. När Azure-funktionen har distribuerats till Azure kan du konfigurera värden för produktionsmiljön.
     > Om du checkar in koden i källkontrollen checkas de här lokala inställningsvärdena också in, så var försiktig så att du inte checkar in faktiska värden om koden är öppen källkod eller på annat sätt offentlig.
 
 ## <a name="create-the-sms-messages"></a>Skapa SMS
@@ -79,7 +79,7 @@ Parametern `ICollector<SMSMessage>` är en samling `SMSMessage`-instanser och an
 
     I meddelandet behövs mottagarens telefonnummer och brödtext som innehåller webbadressen till Google Maps för användarens plats.
 
-2. Logga varje meddelande och Lägg till dem i samlingen `messages`.
+1. Logga varje meddelande och Lägg till dem i samlingen `messages`.
 
     ```cs
     foreach (string toNo in data.ToNumbers)
@@ -124,19 +124,19 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 
 1. Ställ in appen `ImHere.Functions` som startprojekt och starta den utan felsökning.
 
-2. Ställ in appen `ImHere.UWP` som startapp och kör den.
+1. Ställ in appen `ImHere.UWP` som startapp och kör den.
 
-3. Ange ditt eget telefonnummer med internationellt format (+\<landskod\>\<telefonnummer\>) i Xamarin.Forms-appen. Provkonton hos Twilio kan skicka bara skicka meddelanden till verifierade telefonnummer, så om du inte uppgraderar till ett betalkonto eller verifierar flera nummer kan du bara skicka meddelanden till dig själv.
+1. Ange ditt eget telefonnummer med internationellt format (+\<landskod\>\<telefonnummer\>) i Xamarin.Forms-appen. Provkonton hos Twilio kan skicka bara skicka meddelanden till verifierade telefonnummer, så om du inte uppgraderar till ett betalkonto eller verifierar flera nummer kan du bara skicka meddelanden till dig själv.
 
-4. Klicka på knappen **Send Location**. Om meddelandet gick att skicka visas meddelandet ”Location sent successfully” i Xamarin.Forms-appen.
+1. Klicka på knappen **Send Location** (Skicka plats). Om meddelandet skickades visas meddelandet ”Location sent successfully” (Platsen har skickats) i Xamarin.Forms-appen.
 
     ![Meddelandet visas som skickat i Xamarin.Forms-appen](../media-drafts/7-ui-location-sent.png)
 
-5. I konsolloggarna för Azure-funktionen ser du att meddelandet har skapats och skickats. Om ett fel inträffar (som att telefonnumret har fel format) loggas det hit.
+1. I konsolloggarna för Azure-funktionen ser du att meddelandet har skapats och skickats. Om ett fel inträffar (som att telefonnumret har fel format) loggas det hit.
 
     ![Azure-funktionskonsolen visar att meddelandet har skickats](../media-drafts/7-function-message-sent.png)
 
-6. Kontrollera om du har fått meddelandet i telefonen. Följ länken i meddelandet för att se din plats.
+1. Kontrollera om du har fått meddelandet i telefonen. Följ länken i meddelandet för att se din plats.
 
     ![SMS-meddelandet mottaget på en mobiltelefon](../media-drafts/7-message-received.png)
 

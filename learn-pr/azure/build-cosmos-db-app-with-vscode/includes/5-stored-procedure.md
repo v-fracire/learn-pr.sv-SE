@@ -4,13 +4,13 @@ Du måste ofta uppdatera flera dokument i dina databaser samtidigt. Här går vi
 
 I den här lagrade proceduren används OrderId, som innehåller en lista med alla artiklar i ordern, till att beräkna en ordersumma. Ordersumman beräknas genom att artiklarna i ordern summeras, minus eventuell kredit kunden har och med hänsyn till eventuella rabattkoder.
 
-1. I Visual Studio Code, på fliken Azure expanderar du **inlärningsmodulen (SQL)** > **Användare** > **WebCustomers**. Högerklicka sedan på **Lagrade procedurer** och klicka på **Skapa lagringsprocedur**.
+1. I Visual Studio Code på fliken Azure expanderar du **inlärningsmodulen (SQL)** > **Användare** > **WebCustomers**. Högerklicka sedan på **Lagrade procedurer** och klicka på **Skapa lagrad procedur**.
 
 1. I textrutan längst upp på skärmen skriver du *UpdateOrderTotal*. Klicka på Retur för att ge den lagrade proceduren ett namn.
 
 1. Expandera **Lagrade procedurer** och klicka på **UpdateOrderTotal**.
 
-1. En lagrad procedur som hämtar det första objektet tillhandahålls som standard.
+1. En lagrad procedur hämtar som standard det första objektet.
 
 1. Om du vill köra den lagrade proceduren från ditt program, lägger du till följande kod i filen Program.cs.
 
@@ -30,13 +30,13 @@ I den här lagrade proceduren används OrderId, som innehåller en lista med all
     ```
     <!--TODO: Update sproc to take order total and check for available dividend, and use of summer coupon code, and provide updated total-->
 
-1. Kopiera sedan följande kod och klistra in den i slutet av metoden **BasicOperations**.
+1. Kopiera sedan nedanstående kod och klistra in den i slutet av metoden **BasicOperations**.
 
     ```
     await this.RunStoredProcedure("Users", "WebCustomers", yanhe);
     ```
 
-1. I den integrerade terminalen, kör du följande kommando för att köra exemplet med den lagrade proceduren.
+1. I den integrerade terminalen använder du följande kommando för att köra exemplet med den lagrade proceduren.
 
     ```
     dotnet run
@@ -44,10 +44,11 @@ I den här lagrade proceduren används OrderId, som innehåller en lista med all
     Konsolen visar utdata som anger att den lagrade proceduren har slutförts.
 
 ## <a name="clean-up"></a>Rensa
+<!---TODO: Update for sandbox?--->
 
 Om du planerar att fortsätta med modulerna i den här utbildningsvägen kan du hoppa över rensningsprocessen. Annars använder du följande steg för att ta bort dina resurser så att du inte debiteras för användning av tjänsten.
 
-1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
+1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp som du skapade.  
 
     Om den vänstra menyn döljs klickar du på ![Knappen Expandera](../media/5-javascript-programming/expand.png) för att expandera den.
 
@@ -57,8 +58,8 @@ Om du planerar att fortsätta med modulerna i den här utbildningsvägen kan du 
 
    ![Mått i Azure Portal](../media/5-javascript-programming/delete-resources.png)
 
-1. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
+1. I det nya fönstret skriver du namnet på resursgruppen som ska tas bort. Klicka sedan på **Ta bort**.
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här modulen har du skapat ett .NET Core-konsolprogram som skapar, uppdaterar och tar bort användarposter, ställer frågor mot användarna med hjälp av SQL och LINQ samt kör en lagrad procedur för att fråga efter objekt i databasen.
+I den här modulen har du skapat ett .NET Core-konsolprogram som skapar, uppdaterar och tar bort användarposter, ställer frågor till användarna med hjälp av SQL och LINQ, samt kör en lagrad procedur för att fråga efter objekt i databasen.

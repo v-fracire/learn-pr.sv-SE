@@ -4,27 +4,27 @@ Det program du skapar är en plattformsoberoende mobilapp som kommunicerar med e
 
 1. Välj *Arkiv -> Nytt -> Projekt* i Visual Studio.
 
-2. Gå till det vänstra trädet och välj *Visual C# -> Plattformsoberoende*. Välj sedan *Mobilapp (Xamarin.Forms)* från panelen i mitten.
+1. Gå till det vänstra trädet och välj *Visual C# -> Plattformsoberoende*. Välj sedan *Mobilapp (Xamarin.Forms)* från panelen i mitten.
 
-3. Ge lösningen namnet ”ImHere”.
+1. Ge lösningen namnet ”ImHere”.
 
-4. Välj en lämplig plats för lösningen.
+1. Välj en lämplig plats för lösningen.
 
     > Om du kör modulen lokalt i Windows och planerar att utveckla för Android ska du se till att sökvägen är så kort som möjligt. Det finns längdbegränsningar för sökvägar i SDK:t för Android, så rotsökvägen bör vara så kort som möjligt.
 
-5. Klicka på **OK**.
+1. Klicka på **OK**.
 
     ![Dialogrutan Ny lösning](../media-drafts/2-new-solution-dialog.png)
 
-6. I dialogrutan **Ny plattformsoberoende app** väljer du mallen *Tom app*.
+1. I dialogrutan **Ny plattformsoberoende app** väljer du mallen *Tom app*.
 
-7. I den här modulen skapar du en UWP-app, så avmarkera iOS och Android och lämna UWP markerat.
+1. I den här modulen skapar du en UWP-app, så avmarkera iOS och Android och lämna UWP markerat.
 
     > Om du kör det här lokalt kan du låta Android vara markerat eftersom SDK:t för Android installeras i samband med arbetsbelastningen *Mobil utveckling med .NET* i Visual Studio. Om du även vill skapa för iOS måste du parkoppla med en macOS-agent. Du kan läsa mer om det här i [iOS-dokumentationen för Xamarin](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
 
-8. Som *Strategi för delning av kod* väljer du **.NET Standard**.
+1. Som *Strategi för delning av kod* väljer du **.NET Standard**.
 
-9. Klicka på **OK**.
+1. Klicka på **OK**.
 
     ![Dialogrutan Konfigurera ny lösning](../media-drafts/2-configure-solution-dialog.png)
 
@@ -36,13 +36,13 @@ Plattformarna UWP, Android och iOS har ett stort antal liknande funktioner där 
 
 1. Högerklicka på lösningen `ImHere` i lösningsutforskaren i Visual Studio och välj *Hantera NuGet-paket för lösningen*.
 
-2. Välj fliken **Bläddra** och sök efter ”Xamarin.Essentials”. Det här paketet är för närvarande tillgängligt som förhandsversion av NuGet-paketet, så se till att kryssrutan *Inkludera förhandsversioner* är markerad.
+1. Välj fliken **Bläddra** och sök efter ”Xamarin.Essentials”. Det här paketet är för närvarande tillgängligt som förhandsversion av NuGet-paketet, så se till att kryssrutan *Inkludera förhandsversioner* är markerad.
 
-3. Välj NuGet-paketet **Xamarin.Essentials**.
+1. Välj NuGet-paketet **Xamarin.Essentials**.
 
-4. Du kan se alla dina projekt i projektlistan till höger.
+1. Du kan se alla dina projekt i projektlistan till höger.
 
-5. Klicka på knappen **Installera** för att installera NuGet-paketet. Du måste godkänna licensavtalet för att fortsätta.
+1. Klicka på knappen **Installera** för att installera NuGet-paketet. Du måste godkänna licensavtalet för att fortsätta.
 
     ![Lägga till NuGet-paketet Xamarin.Essentials i alla projekt i lösningen](../media-drafts/2-add-essentials-nuget.png)
 
@@ -52,11 +52,11 @@ Plattformarna UWP, Android och iOS har ett stort antal liknande funktioner där 
 
 1. Högerklicka på projektet `ImHere.UWP` i Lösningsutforskaren och välj *Ange som startprojekt*.
 
-2. Ange versionskonfigurationen som **Felsökning**, plattformen som **x86** och att enheten ska köras **Lokalt**.
+1. Ange versionskonfigurationen som **Felsökning**, plattformen som **x86** och att enheten ska köras **Lokalt**.
 
     ![Ställ in x86-felsökningskonfigurationen att köras lokalt](../media-drafts/2-debug-configuration.png)
 
-3. Börja felsöka appen.
+1. Börja felsöka appen.
 
     ![Appen körs](../media-drafts/2-debuging-app.png)
 

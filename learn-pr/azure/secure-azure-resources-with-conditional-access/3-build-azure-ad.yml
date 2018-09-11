@@ -3,13 +3,17 @@ uid: learn.secure-access-azure-ad-multi-factor-authentication.3-build-azure-ad
 metadata:
   title: Skapa din katalog
   description: Lär dig hur du skapar en katalog och använder tillfälliga licenser.
-  ms.openlocfilehash: 8d3ab21e99600f7f4a4ffa907af4701917d8ed16
-  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 500b2fd8cee6c44a749969b42906ea9dbae489e8
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/05/2018
-  ms.locfileid: "43729203"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44230559"
 title: Skapa din katalog
-labOnDemandUrl: https://labondemand.com/Launch/00000000
 durationInMinutes: 15
 content: '[!include[](includes/3-build-azure-ad.md)]'

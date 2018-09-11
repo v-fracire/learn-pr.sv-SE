@@ -13,6 +13,7 @@ Du ska installera PowerShell Core på Ubuntu Linux med (**APT**) och Bash-komman
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
     ```
+
 1. Registrera **Microsoft Ubuntu-lagringsplatsen** så att pakethanteraren kan hitta PowerShell Core-paketet.
 
     ```bash
@@ -48,6 +49,7 @@ Installera därefter **PowerShell Core** på macOS med Homebrew-pakethanteraren.
     ```bash
     brew tap caskroom/cask
     ```
+
 1. Installera PowerShell Core:
 
     ```bash
@@ -74,16 +76,20 @@ Installera Azure PowerShell på Windows med `Install-Module` PowerShell-kommando
 >Om versionsnumret är lägre än 5.0 följer du instruktionerna för att [uppgradera din befintliga Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
 1. Öppna **startmenyn** och skriv **Windows PowerShell**.
-2. Högerklicka på ikonen för **Windows PowerShell** och välj **Kör som administratör**.
-3. I dialogrutan **User Account Control** väljer du **Ja**.
-4. Ange följande kommando och tryck på Enter:
+
+1. Högerklicka på ikonen för **Windows PowerShell** och välj **Kör som administratör**.
+
+1. I dialogrutan **User Account Control** väljer du **Ja**.
+
+1. Ange följande kommando och tryck på Enter:
 
     ```powershell
     Install-Module -Name AzureRM
     ```
-5. Om du blir tillfrågad om du litar på moduler från PSGallery svarar du **Ja** eller **Ja till alla**.
 
-> [!NOTE]
+1. Om du blir tillfrågad om du litar på moduler från PSGallery svarar du **Ja** eller **Ja till alla**.
+
+> [!TIP]
 > Om du får ett felmeddelande som anger att en version av Azure PowerShell-modulen redan är installerad kan du uppdatera till den _senaste_ versionen genom att köra kommandot:
 > 
 > `Update-Module -Name AzureRM`

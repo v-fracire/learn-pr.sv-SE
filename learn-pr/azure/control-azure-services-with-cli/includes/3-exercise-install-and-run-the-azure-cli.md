@@ -1,11 +1,11 @@
 ---
 zone_pivot_groups: platform
-ms.openlocfilehash: 1e6e46f3ed22ce99649f55779ac7838f3838b9b8
-ms.sourcegitcommit: 526b39347ae023619cc4c4add68eff971510e523
+ms.openlocfilehash: 5e0a236b9cf0c3c0b23beb1324f35a34dade2e92
+ms.sourcegitcommit: 926510a198d738c5726081f6d7994fe9b6fc6edb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42938928"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43179836"
 ---
 Nu ska vi installera Azure CLI på din lokala dator och därefter köra ett enkelt kommando för att verifiera installationen. Vilken metod du använder för att installera Azure CLI beror på datorns operativsystem. Välj anvisningarna för ditt operativsystem.
 
@@ -24,11 +24,13 @@ Här ska du installera Azure CLI på **Ubuntu Linux** med (**APT**) och Bash-kom
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
     sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
+
 1. Importera krypteringsnyckeln för Microsoft Ubuntu-lagringsplatsen. Då kan pakethanteraren verifiera att Azure CLI-paketet som du installerar kommer från Microsoft.
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
     ```
+
 1. Installera Azure CLI.
 
     ```bash
@@ -51,11 +53,13 @@ Här installerar du Azure CLI på macOS med Homebrew-pakethanteraren.
     ```bash
     brew update
     ```
+
 1. Installera Azure CLI.
 
     ```bash
     brew install azure-cli
     ```
+
 ::: zone-end
 
 ::: zone pivot="windows"
