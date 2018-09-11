@@ -1,15 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.manage-vms-with-azure-cli-data.10-installing-software
-title: <span data-ttu-id="425fb-101">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="425fb-101">Install software on your VM</span></span>
+title: <span data-ttu-id="4c242-101">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="4c242-101">Install software on your VM</span></span>
 metadata:
-  title: <span data-ttu-id="425fb-102">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="425fb-102">Install software on your VM</span></span>
-  description: <span data-ttu-id="425fb-103">Installera programvara för att köra en webbserver på din virtuella Linux-dator</span><span class="sxs-lookup"><span data-stu-id="425fb-103">Install software to run a web server on your Linux VM</span></span>
-  ms.openlocfilehash: f3668d6b98df9ed15577bbcee26058f269b1a31a
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  title: <span data-ttu-id="4c242-102">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="4c242-102">Install software on your VM</span></span>
+  description: <span data-ttu-id="4c242-103">Installera programvara för att köra en webbserver på din virtuella Linux-dator</span><span class="sxs-lookup"><span data-stu-id="4c242-103">Install software to run a web server on your Linux VM</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 2d7fafecb854715b515cba29f3044b20f4a36a3b
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43838734"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44233829"
 interactive: bash
 durationInMinutes: 5
 content: '[!include[](includes/10-installing-software.md)]'
