@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-data-in-azure.3-how-azure-storage-meets-your-business-storage-needs
+title: <span data-ttu-id="11a1e-101">Så här kan Azure-lagring uppfylla lagringsbehoven på ditt företag</span><span class="sxs-lookup"><span data-stu-id="11a1e-101">How Azure storage can meet your business storage needs</span></span>
+metadata:
+  title: <span data-ttu-id="11a1e-102">Så här kan Azure-lagring uppfylla lagringsbehoven på ditt företag</span><span class="sxs-lookup"><span data-stu-id="11a1e-102">How Azure storage can meet your business storage needs</span></span>
+  description: <span data-ttu-id="11a1e-103">Så här kan Azure-lagring uppfylla lagringsbehoven på ditt företag</span><span class="sxs-lookup"><span data-stu-id="11a1e-103">How Azure storage can meet your business storage needs</span></span>
+  ms.openlocfilehash: 7a6817a6bb27293a33ba698924d2013ff96e78e2
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40444282"
+durationInMinutes: 10
+content: '[!include[](includes/3-how-azure-storage-meets-your-business-storage-needs.md)]'
