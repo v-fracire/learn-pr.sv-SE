@@ -1,2 +1,0 @@
-I den här modulen har du lärt dig att klassificera data, granska hur data ska användas, olika prestandakrav och om du måste utföra transaktioner på dina data. När du tog reda på allt det här om de olika datamängderna i scenariot med onlinebutiken såg du varför vissa Azure-tjänster passar bättre än andra för uppgiften. Nu kan du använda de här färdigheterna när du ska välja tjänst för datalagringen i framtida projekt.
-

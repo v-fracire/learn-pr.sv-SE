@@ -1,1 +1,0 @@
-Azure innehåller flera tjänster för molnberäkningar. Vilken tjänst du bör välja beror på dina affärsbehov. Tänk dock på att funktionerna kan överlappa varandra. I en serverfri arkitektur kan du till exempel använda antingen Azure-containrar eller Azure-funktioner. Vilket beslut som är rätt beror både på tjänstens funktioner och utvecklingsteamets erfarenhet och önskemål.
