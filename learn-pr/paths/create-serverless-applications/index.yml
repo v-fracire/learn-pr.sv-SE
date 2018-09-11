@@ -1,0 +1,27 @@
+### YamlMime:LearningPath
+uid: learn.create-serverless-applications
+metadata:
+  title: Skapa serverlösa program
+  description: Med Azure Functions kan du skapa händelsestyrda system med beräkning på begäran som utlöses av olika externa händelser. Lär dig att använda funktioner för att köra logik på serversidan och skapa serverlösa arkitekturer.
+  ms.date: 09/24/2018
+  ms.openlocfilehash: 632b27e6ae21bbc70ae91dbc93b9c5a2682c4d38
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43824192"
+title: Skapa serverlösa program
+summary: Med Azure Functions kan du skapa händelsestyrda system med beräkning på begäran som utlöses av olika externa händelser. Lär dig att använda funktioner för att köra logik på serversidan och skapa serverlösa arkitekturer.
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+modules:
+- learn.create-serverless-logic-with-functions
+- execute-azure-function-with-triggers
+- learn.build-a-serverless-web-app
+achievement: learn.create-serverless-applications.trophy

@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.create-azure-storage-account.2-decide-how-many-storage-accounts-you-need
+title: <span data-ttu-id="3eac6-101">Bestäm hur många lagringskonton du behöver</span><span class="sxs-lookup"><span data-stu-id="3eac6-101">Decide how many storage accounts you need</span></span>
+metadata:
+  title: <span data-ttu-id="3eac6-102">Bestäm hur många lagringskonton du behöver</span><span class="sxs-lookup"><span data-stu-id="3eac6-102">Decide how many storage accounts you need</span></span>
+  description: <span data-ttu-id="3eac6-103">Bestäm hur många lagringskonton du behöver</span><span class="sxs-lookup"><span data-stu-id="3eac6-103">Decide how many storage accounts you need</span></span>
+  ms.openlocfilehash: 73aed2ed5b271b5f26f46f1349b9c372a237e21a
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43825166"
+durationInMinutes: 10
+content: '[!include[](includes/2-decide-how-many-storage-accounts-you-need.md)]'

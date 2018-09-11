@@ -1,0 +1,27 @@
+### YamlMime:LearningPath
+uid: learn.connect-your-services-together
+metadata:
+  title: Koppla samman dina tjänster
+  description: 'Med Azure kan du skapa program som består av olika komponenter: klientdelar för webbplats, serverdelstjänster och utlösta funktioner som utför tjänster för beräkning på begäran. Azure innehåller även olika kommunikationsstrategier så att dessa olika komponenter kan skicka data till varandra. Lär dig hur du kan använda dessa kommunikationstjänster för att skapa skalbara och effektiva lösningar utifrån testbara komponenter.'
+  ms.date: 09/24/2018
+  ms.openlocfilehash: 10fb00fdb0ac4c8563f1290c9dd5340a42c43942
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43824792"
+title: Koppla samman dina tjänster
+summary: 'Med Azure kan du skapa program som består av olika komponenter: klientdelar för webbplats, serverdelstjänster och utlösta funktioner som utför tjänster för beräkning på begäran. Azure innehåller även olika kommunikationsstrategier så att dessa olika komponenter kan skicka data till varandra. Lär dig hur du kan använda dessa kommunikationstjänster för att skapa skalbara och effektiva lösningar utifrån testbara komponenter.'
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+modules:
+- learn.choose-messaging-model
+- learn.communicate-between-applications-with-azure-queue-storage
+- learn.enable-reliable-messaging-for-big-data-applications-using-azure-event-hubs
+achievement: learn.connect-your-services-together.trophy

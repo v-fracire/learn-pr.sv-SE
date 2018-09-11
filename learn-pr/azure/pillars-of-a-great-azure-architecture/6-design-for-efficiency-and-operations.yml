@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.pillars-of-a-great-azure-architecture.6-design-for-efficiency-and-operations
+title: <span data-ttu-id="8c178-101">Design för effektivitet och drift</span><span class="sxs-lookup"><span data-stu-id="8c178-101">Design for efficiency and operations</span></span>
+metadata:
+  title: <span data-ttu-id="8c178-102">Design för effektivitet och drift</span><span class="sxs-lookup"><span data-stu-id="8c178-102">Design for efficiency and operations</span></span>
+  description: <span data-ttu-id="8c178-103">Design för effektivitet och drift</span><span class="sxs-lookup"><span data-stu-id="8c178-103">Design for efficiency and operations</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 0e23092765f5c8509c27ac2f8be67d6a57961520
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44239535"
+durationInMinutes: 10
+content: >
+  [!include[](includes/6-design-for-efficiency-and-operations.md)]
+quiz:
+  title: <span data-ttu-id="8c178-104">Kunskapskontroll – Design för effektivitet och drift</span><span class="sxs-lookup"><span data-stu-id="8c178-104">Knowledge check - Design for efficiency and operations</span></span>
+  questions:
+  - content: <span data-ttu-id="8c178-105">Vilka är fördelarna med en användningsbaserad kostnadsmodell?</span><span class="sxs-lookup"><span data-stu-id="8c178-105">What are the benefits of a pay-as-you-go cost model?</span></span>
+    choices:
+    - content: <span data-ttu-id="8c178-106">Fullständig insyn i kostnaderna för resurser</span><span class="sxs-lookup"><span data-stu-id="8c178-106">Full transparency into the costs of your resources</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="8c178-107">Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.</span><span class="sxs-lookup"><span data-stu-id="8c178-107">This is a benefit that comes with a pay-as-you-go cost model, but is not the only correct choice.</span></span>
+    - content: <span data-ttu-id="8c178-108">Flexibiliteten att justera resurser och kostnader efter behovet</span><span class="sxs-lookup"><span data-stu-id="8c178-108">The flexibility to adjust your resources and costs to match demand</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="8c178-109">Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.</span><span class="sxs-lookup"><span data-stu-id="8c178-109">This is a benefit that comes with a pay-as-you-go cost model, but is not the only correct choice.</span></span>
+    - content: <span data-ttu-id="8c178-110">Minskad risk vid utvärdering av nya verktyg och tekniker</span><span class="sxs-lookup"><span data-stu-id="8c178-110">Reduced risk when evaluating new tools and technologies</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="8c178-111">Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.</span><span class="sxs-lookup"><span data-stu-id="8c178-111">This is a benefit that comes with a pay-as-you-go cost model, but is not the only correct choice.</span></span>
+    - content: <span data-ttu-id="8c178-112">Allt ovan är fördelar med en användningsbaserad kostnadsmodell</span><span class="sxs-lookup"><span data-stu-id="8c178-112">All of the above are benefits of a pay-as-you-go cost model</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="8c178-113">Allt ovan är fördelar med en användningsbaserad kostnadsmodell</span><span class="sxs-lookup"><span data-stu-id="8c178-113">All of the above are benefits of a pay-as-you-go cost model</span></span>
+  - content: <span data-ttu-id="8c178-114">Vilket av följande är ett exempel på förbättrad driftsffektivitet?</span><span class="sxs-lookup"><span data-stu-id="8c178-114">Which of the following is an example of improving operational efficiency?</span></span>
+    choices:
+    - content: <span data-ttu-id="8c178-115">Automatisering av distributionen av infrastruktur</span><span class="sxs-lookup"><span data-stu-id="8c178-115">Automating the deployment of infrastructure</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="8c178-116">Automatisering av distributionen av infrastruktur är ett bra exempel på förbättring av driftseffektiviteten.</span><span class="sxs-lookup"><span data-stu-id="8c178-116">Automating the deployment of infrastructure is a great example of improving your operational efficiency.</span></span>
+    - content: <span data-ttu-id="8c178-117">Flytta tjänster från PaaS till IaaS</span><span class="sxs-lookup"><span data-stu-id="8c178-117">Moving serivces from PaaS to IaaS</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="8c178-118">Att flytta tjänster från PaaS till IaaS kan ses som ett steg bakåt i verksamhetseffektiviteten, eftersom PaaS-tjänster vanligtvis innebär lägre driftskostnader.</span><span class="sxs-lookup"><span data-stu-id="8c178-118">Moving services fro PaaS to IaaS can be seen as a step backwards in operational efficiency, as PaaS services typically come with reduced operational costs.</span></span>
+    - content: <span data-ttu-id="8c178-119">Dokumentera manuella steg för distributionen av infrastruktur</span><span class="sxs-lookup"><span data-stu-id="8c178-119">Documenting manual steps for the deployment of infrastructure</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="8c178-120">Dokumentation är viktigt för alla arkitekturer men operativa förbättringar följer av att automatisera manuella aktiviteter i stället för att bara dokumentera dem.</span><span class="sxs-lookup"><span data-stu-id="8c178-120">Documentation is important with any architecture, but operational improvement comes with automating the manual activities as opposed to simply documenting them.</span></span>
+    - content: <span data-ttu-id="8c178-121">Flera loggningssystem</span><span class="sxs-lookup"><span data-stu-id="8c178-121">Maintaining multiple logging systems</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="8c178-122">Att ha flera loggningssystem ger ökade driftsomkostnader och mindre möjlighet att korrelera händelser och mått i loggningssystemen.</span><span class="sxs-lookup"><span data-stu-id="8c178-122">Maintaing multiple logging systems comes with increased operational overhead and a reduced ability to correlate events and metrics across the logging systems.</span></span> <span data-ttu-id="8c178-123">Att centralisera till ett enda loggningssystem kan förbättra driftseffektiviteten.</span><span class="sxs-lookup"><span data-stu-id="8c178-123">Centralizing on a single loggin system can improve operational efficiency.</span></span>

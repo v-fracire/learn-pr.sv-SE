@@ -1,14 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.intro-to-azure-networking.5-summary
-title: <span data-ttu-id="83c2a-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="83c2a-101">Summary</span></span>
+title: <span data-ttu-id="9ca22-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="9ca22-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="83c2a-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="83c2a-102">Summary</span></span>
-  description: <span data-ttu-id="83c2a-103">Gå igenom det du har lärt dig och upptäck hur du lär dig mer.</span><span class="sxs-lookup"><span data-stu-id="83c2a-103">Review what you've learned and discover how to learn more.</span></span>
-  ms.openlocfilehash: ed944fc5dceb2d60035f2bfb2e8d5ff22093f3af
-  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  title: <span data-ttu-id="9ca22-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="9ca22-102">Summary</span></span>
+  description: <span data-ttu-id="9ca22-103">Gå igenom det du har lärt dig och upptäck hur du lär dig mer.</span><span class="sxs-lookup"><span data-stu-id="9ca22-103">Review what you've learned and discover how to learn more.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 9c19cc8c28c1ebfef496ada7f26af879972cff5b
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43477667"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44241511"
 durationInMinutes: 3
 content: '[!include[](includes/5-summary.md)]'

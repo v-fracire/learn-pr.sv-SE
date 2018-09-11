@@ -1,0 +1,26 @@
+### YamlMime:ModuleUnit
+uid: learn.sample-module-cloudshell.3-unit-knowledge-check-only
+metadata:
+  title: <span data-ttu-id="cfda3-101">Exempeldel 3 – endast kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="cfda3-101">Sample unit 3 - Knowledge check only</span></span>
+  description: <span data-ttu-id="cfda3-102">Det här är ett exempel på en kursdel som bara innehåller en kunskapskontroll.</span><span class="sxs-lookup"><span data-stu-id="cfda3-102">This is an example of a unit that only contains a knowledge check.</span></span>
+  ms.date: 09/04/2018
+  ms.openlocfilehash: 5a112df167d8656605dda8110cc85b86a5fc3c46
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43730370"
+title: <span data-ttu-id="cfda3-103">Exempeldel 3 – endast kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="cfda3-103">Sample unit 3 - Knowledge check only</span></span>
+durationInMinutes: 11
+content: <span data-ttu-id="cfda3-104">Innehåll är valfritt (ta bort innehållet om du inte behöver det här)</span><span class="sxs-lookup"><span data-stu-id="cfda3-104">Content is optional (if you don't need this, remove content)</span></span>
+quiz:
+  title: <span data-ttu-id="cfda3-105">Testrubrik</span><span class="sxs-lookup"><span data-stu-id="cfda3-105">Quiz Title</span></span>
+  questions:
+  - content: <span data-ttu-id="cfda3-106">Vad den här markdown-filen handlar om:</span><span class="sxs-lookup"><span data-stu-id="cfda3-106">What this markdown file talking about:</span></span>
+    choices:
+    - content: <span data-ttu-id="cfda3-107">Brainstorming om markdown-filformat för test.</span><span class="sxs-lookup"><span data-stu-id="cfda3-107">Brainstorming of markdown file format for quiz.</span></span>
+      correctExplanation: <span data-ttu-id="cfda3-108">Anledningen till att det här svaret stämmer</span><span class="sxs-lookup"><span data-stu-id="cfda3-108">Why this answer is correct</span></span>
+      incorrectExplanation: <span data-ttu-id="cfda3-109">Anledningen till att det här svaret inte stämmer</span><span class="sxs-lookup"><span data-stu-id="cfda3-109">Why this answer is incorrect</span></span>
+      isCorrect: true
+    - content: <span data-ttu-id="cfda3-110">Brainstorming om markdown-filformat för test.</span><span class="sxs-lookup"><span data-stu-id="cfda3-110">Brainstorming of markdown file format for quiz.</span></span> <span data-ttu-id="cfda3-111">Del 2</span><span class="sxs-lookup"><span data-stu-id="cfda3-111">Part 2</span></span>
+      isCorrect: false

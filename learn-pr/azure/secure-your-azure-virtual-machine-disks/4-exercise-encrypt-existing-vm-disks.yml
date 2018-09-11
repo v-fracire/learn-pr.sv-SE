@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.secure-your-azure-virtual-machine-disks.4-exercise-encrypt-existing-vm-disks
+title: <span data-ttu-id="12a17-101">Övning – Kryptera befintliga VM-diskar</span><span class="sxs-lookup"><span data-stu-id="12a17-101">Exercise - Encrypt existing VM disks</span></span>
+metadata:
+  title: <span data-ttu-id="12a17-102">Övning – Kryptera befintliga VM-diskar</span><span class="sxs-lookup"><span data-stu-id="12a17-102">Exercise - Encrypt existing VM disks</span></span>
+  description: <span data-ttu-id="12a17-103">Övning – Kryptera befintliga VM-diskar</span><span class="sxs-lookup"><span data-stu-id="12a17-103">Exercise - Encrypt existing VM disks</span></span>
+  ms.openlocfilehash: 630e832b917306dbeaf0821bf28b0b8100238ac6
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43792196"
+durationInMinutes: 10
+content: '[!include[](includes/4-exercise-encrypt-existing-vm-disks.md)]'

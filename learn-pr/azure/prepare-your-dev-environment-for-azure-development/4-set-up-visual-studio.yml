@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.prepare-azure-dev-environment.4-set-up-visual-studio
+title: <span data-ttu-id="17171-101">Använda Visual Studio</span><span class="sxs-lookup"><span data-stu-id="17171-101">Using Visual Studio</span></span>
+metadata:
+  title: <span data-ttu-id="17171-102">Använda Visual Studio</span><span class="sxs-lookup"><span data-stu-id="17171-102">Using Visual Studio</span></span>
+  description: <span data-ttu-id="17171-103">Använda Visual Studio</span><span class="sxs-lookup"><span data-stu-id="17171-103">Using Visual Studio</span></span>
+  ms.openlocfilehash: 938662a5bc43df547cf6e49f9fec8290956711ab
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43837486"
+durationInMinutes: 5
+content: '[!include[](includes/4-set-up-visual-studio.md)]'

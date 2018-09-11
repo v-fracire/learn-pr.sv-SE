@@ -1,46 +1,51 @@
 ### YamlMime:ModuleUnit
 uid: learn.store-app-data-with-azure-blob-storage.3-design-organization-strategy
-title: <span data-ttu-id="1283e-101">Utforma en strategi för lagringsorganisation</span><span class="sxs-lookup"><span data-stu-id="1283e-101">Design a storage organization strategy</span></span>
+title: <span data-ttu-id="e9896-101">Utforma en strategi för lagringsorganisation</span><span class="sxs-lookup"><span data-stu-id="e9896-101">Design a storage organization strategy</span></span>
 metadata:
-  title: <span data-ttu-id="1283e-102">Utforma en strategi för lagringsorganisation</span><span class="sxs-lookup"><span data-stu-id="1283e-102">Design a storage organization strategy</span></span>
-  description: <span data-ttu-id="1283e-103">Utforma en strategi för lagringsorganisation</span><span class="sxs-lookup"><span data-stu-id="1283e-103">Design a storage organization strategy</span></span>
-  ms.openlocfilehash: 966865b137aaedc45906682cc58fc8a67e68a30c
-  ms.sourcegitcommit: 107578417899e44b5611917dec7bcc21d4c1582e
+  title: <span data-ttu-id="e9896-102">Utforma en strategi för lagringsorganisation</span><span class="sxs-lookup"><span data-stu-id="e9896-102">Design a storage organization strategy</span></span>
+  description: <span data-ttu-id="e9896-103">Utforma en strategi för lagringsorganisation</span><span class="sxs-lookup"><span data-stu-id="e9896-103">Design a storage organization strategy</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 2f38fea8367aeac95b8bd0593b2132f96989700f
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/29/2018
-  ms.locfileid: "43225718"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44234112"
 durationInMinutes: 7
 content: >
   [!include[](includes/3-design-organization-strategy.md)]
 quiz:
-  title: '<span data-ttu-id="1283e-104">Kunskapskontroll: Blob Storage</span><span class="sxs-lookup"><span data-stu-id="1283e-104">Knowledge check: Blob Storage</span></span>'
+  title: '<span data-ttu-id="e9896-104">Kunskapskontroll: Blob Storage</span><span class="sxs-lookup"><span data-stu-id="e9896-104">Knowledge check: Blob Storage</span></span>'
   questions:
-  - content: <span data-ttu-id="1283e-105">Vilken typ av blob är bäst i de flesta lagringsscenarier?</span><span class="sxs-lookup"><span data-stu-id="1283e-105">Which kind of blob is the best fit for most storage scenarios?</span></span>
+  - content: <span data-ttu-id="e9896-105">Vilken typ av blob är bäst i de flesta lagringsscenarier?</span><span class="sxs-lookup"><span data-stu-id="e9896-105">Which kind of blob is the best fit for most storage scenarios?</span></span>
     choices:
-    - content: <span data-ttu-id="1283e-106">Byteblobar</span><span class="sxs-lookup"><span data-stu-id="1283e-106">Byte blobs</span></span>
+    - content: <span data-ttu-id="e9896-106">Byteblobar</span><span class="sxs-lookup"><span data-stu-id="e9896-106">Byte blobs</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="1283e-107">”Byteblobar” är inte en typ av blob.</span><span class="sxs-lookup"><span data-stu-id="1283e-107">"Byte blobs" are not a type of blob.</span></span>
-    - content: <span data-ttu-id="1283e-108">Sidblobar</span><span class="sxs-lookup"><span data-stu-id="1283e-108">Page blobs</span></span>
+      incorrectExplanation: <span data-ttu-id="e9896-107">”Byteblobar” är inte en typ av blob.</span><span class="sxs-lookup"><span data-stu-id="e9896-107">"Byte blobs" are not a type of blob.</span></span>
+    - content: <span data-ttu-id="e9896-108">Sidblobar</span><span class="sxs-lookup"><span data-stu-id="e9896-108">Page blobs</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="1283e-109">Sidblobar är utformade för stora volymer läsningar och skrivningar via direktåtkomst, som när en virtuell Azure-dator lagrar en virtuell hårddisk.</span><span class="sxs-lookup"><span data-stu-id="1283e-109">Page blobs are designed for high volumes of random-access reads and writes, such as when used by an Azure Virtual Machine to store a virtual hard disk.</span></span>
-    - content: <span data-ttu-id="1283e-110">Blockblobar</span><span class="sxs-lookup"><span data-stu-id="1283e-110">Block blobs</span></span>
+      incorrectExplanation: <span data-ttu-id="e9896-109">Sidblobar är utformade för stora volymer läsningar och skrivningar via direktåtkomst, som när en virtuell Azure-dator lagrar en virtuell hårddisk.</span><span class="sxs-lookup"><span data-stu-id="e9896-109">Page blobs are designed for high volumes of random-access reads and writes, such as when used by an Azure Virtual Machine to store a virtual hard disk.</span></span>
+    - content: <span data-ttu-id="e9896-110">Blockblobar</span><span class="sxs-lookup"><span data-stu-id="e9896-110">Block blobs</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="1283e-111">Blockblobar är vanligtvis det bästa valet för allmänna lagringsbehov.</span><span class="sxs-lookup"><span data-stu-id="1283e-111">Block blobs are usually the best choice for general-purpose storage needs.</span></span>
-    - content: <span data-ttu-id="1283e-112">Tilläggsblobar</span><span class="sxs-lookup"><span data-stu-id="1283e-112">Append blobs</span></span>
+      correctExplanation: <span data-ttu-id="e9896-111">Blockblobar är vanligtvis det bästa valet för allmänna lagringsbehov.</span><span class="sxs-lookup"><span data-stu-id="e9896-111">Block blobs are usually the best choice for general-purpose storage needs.</span></span>
+    - content: <span data-ttu-id="e9896-112">Tilläggsblobar</span><span class="sxs-lookup"><span data-stu-id="e9896-112">Append blobs</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="1283e-113">I tilläggsblobar kan du bara lägga till nya data, inte uppdatera eller ta bort befintliga data.</span><span class="sxs-lookup"><span data-stu-id="1283e-113">Append blobs only support appending new data, not updating or deleting existing data.</span></span>
-  - content: <span data-ttu-id="1283e-114">Blobar används för *ostrukturerad* datalagring.</span><span class="sxs-lookup"><span data-stu-id="1283e-114">Blobs provide *unstructured* data storage.</span></span> <span data-ttu-id="1283e-115">Vad innebär *ostrukturerad*?</span><span class="sxs-lookup"><span data-stu-id="1283e-115">What does *unstructured* mean?</span></span>
+      incorrectExplanation: <span data-ttu-id="e9896-113">I tilläggsblobar kan du bara lägga till nya data, inte uppdatera eller ta bort befintliga data.</span><span class="sxs-lookup"><span data-stu-id="e9896-113">Append blobs only support appending new data, not updating or deleting existing data.</span></span>
+  - content: <span data-ttu-id="e9896-114">Blobar används för *ostrukturerad* datalagring.</span><span class="sxs-lookup"><span data-stu-id="e9896-114">Blobs provide *unstructured* data storage.</span></span> <span data-ttu-id="e9896-115">Vad innebär *ostrukturerad*?</span><span class="sxs-lookup"><span data-stu-id="e9896-115">What does *unstructured* mean?</span></span>
     choices:
-    - content: <span data-ttu-id="1283e-116">Blobar kan inte organiseras eller namnges, de är bara bytesamlingar.</span><span class="sxs-lookup"><span data-stu-id="1283e-116">Blobs can't be organized or named, they are only collections of bytes.</span></span>
+    - content: <span data-ttu-id="e9896-116">Blobar kan inte organiseras eller namnges, de är bara bytesamlingar.</span><span class="sxs-lookup"><span data-stu-id="e9896-116">Blobs can't be organized or named, they are only collections of bytes.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="1283e-117">”Ostrukturerad” syftar på typen av data *i* blobarna, inte på hur blobarna organiseras i ett lagringskonto.</span><span class="sxs-lookup"><span data-stu-id="1283e-117">"Unstructured" refers to the nature of the data *in* blobs, not organization of the blobs within a storage account.</span></span>
-    - content: <span data-ttu-id="1283e-118">Det finns inga begränsningar för vilka data du kan lagra i blobar.</span><span class="sxs-lookup"><span data-stu-id="1283e-118">There are no restrictions on the kinds of data you can store in blobs.</span></span>
+      incorrectExplanation: <span data-ttu-id="e9896-117">”Ostrukturerad” syftar på typen av data *i* blobarna, inte på hur blobarna organiseras i ett lagringskonto.</span><span class="sxs-lookup"><span data-stu-id="e9896-117">"Unstructured" refers to the nature of the data *in* blobs, not organization of the blobs within a storage account.</span></span>
+    - content: <span data-ttu-id="e9896-118">Det finns inga begränsningar för vilka data du kan lagra i blobar.</span><span class="sxs-lookup"><span data-stu-id="e9896-118">There are no restrictions on the kinds of data you can store in blobs.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="1283e-119">Blobar inför inte någon typ av datastruktur, så dina appar kan lagra alla slags data i blobar.</span><span class="sxs-lookup"><span data-stu-id="1283e-119">Blobs do not impose any kind of structure on your data, meaning your apps can store any kind of data in blobs.</span></span>
-    - content: <span data-ttu-id="1283e-120">Blobar kan inte innehålla strukturerade data som JSON eller XML.</span><span class="sxs-lookup"><span data-stu-id="1283e-120">Blobs can't contain structured data, like JSON or XML.</span></span>
+      correctExplanation: <span data-ttu-id="e9896-119">Blobar inför inte någon typ av datastruktur, så dina appar kan lagra alla slags data i blobar.</span><span class="sxs-lookup"><span data-stu-id="e9896-119">Blobs do not impose any kind of structure on your data, meaning your apps can store any kind of data in blobs.</span></span>
+    - content: <span data-ttu-id="e9896-120">Blobar kan inte innehålla strukturerade data som JSON eller XML.</span><span class="sxs-lookup"><span data-stu-id="e9896-120">Blobs can't contain structured data, like JSON or XML.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="1283e-121">Blobar *kan* innehålla strukturerade data, men Blob Storage interagerar inte med dem på något sätt.</span><span class="sxs-lookup"><span data-stu-id="1283e-121">Blobs *can* contain structured data, but Blob storage does not interact with it in any way.</span></span> <span data-ttu-id="1283e-122">Det är appens ansvar att känna igen blobinnehållets struktur och hantera data på rätt sätt.</span><span class="sxs-lookup"><span data-stu-id="1283e-122">It is your app's responsibility to recognize the structure of blob contents and handle them appropriately.</span></span>
-    - content: <span data-ttu-id="1283e-123">Data som laddas ned från blobar organiseras slumpmässigt, och du behöver ett särskilt klientbibliotek för att tolka dem.</span><span class="sxs-lookup"><span data-stu-id="1283e-123">Data downloaded from blobs in is organized randomly and requires a special client library to make sense of it.</span></span>
+      incorrectExplanation: <span data-ttu-id="e9896-121">Blobar *kan* innehålla strukturerade data, men Blob Storage interagerar inte med dem på något sätt.</span><span class="sxs-lookup"><span data-stu-id="e9896-121">Blobs *can* contain structured data, but Blob storage does not interact with it in any way.</span></span> <span data-ttu-id="e9896-122">Det är appens ansvar att känna igen blobinnehållets struktur och hantera data på rätt sätt.</span><span class="sxs-lookup"><span data-stu-id="e9896-122">It is your app's responsibility to recognize the structure of blob contents and handle them appropriately.</span></span>
+    - content: <span data-ttu-id="e9896-123">Data som laddas ned från blobar organiseras slumpmässigt, och du behöver ett särskilt klientbibliotek för att tolka dem.</span><span class="sxs-lookup"><span data-stu-id="e9896-123">Data downloaded from blobs in is organized randomly and requires a special client library to make sense of it.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="1283e-124">All blobmanipulering, som att ladda ned blobinnehåll, kan göras direkt via REST-API:t utan något klientbibliotek.</span><span class="sxs-lookup"><span data-stu-id="1283e-124">All blob manipulation, including downloading blob contents, can be accomplished by directly using the REST API without any client library.</span></span> <span data-ttu-id="1283e-125">Data som laddas ned från blobar organiseras inte slumpmässigt.</span><span class="sxs-lookup"><span data-stu-id="1283e-125">Data downloaded from blobs is not organized randomly.</span></span>
+      incorrectExplanation: <span data-ttu-id="e9896-124">All blobmanipulering, som att ladda ned blobinnehåll, kan göras direkt via REST-API:t utan något klientbibliotek.</span><span class="sxs-lookup"><span data-stu-id="e9896-124">All blob manipulation, including downloading blob contents, can be accomplished by directly using the REST API without any client library.</span></span> <span data-ttu-id="e9896-125">Data som laddas ned från blobar organiseras inte slumpmässigt.</span><span class="sxs-lookup"><span data-stu-id="e9896-125">Data downloaded from blobs is not organized randomly.</span></span>
