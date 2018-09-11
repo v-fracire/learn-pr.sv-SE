@@ -1,13 +1,16 @@
 Nu ska vi installera Azure CLI på din lokala dator och därefter köra ett enkelt kommando för att verifiera installationen. Vilken metod du använder för att installera Azure CLI beror på datorns operativsystem. Välj anvisningarna för ditt operativsystem.
 
+> [!NOTE]
+> I den här övningen får du hjälp att installera verktyget Azure CLI lokalt. Resten av modulen använder Azure Cloud Shell så att du kan utnyttja den kostnadsfria prenumerationssupporten i Microsoft Learn. Du kan se den här övningen som en valfri aktivitet och bara läsa anvisningarna om du vill.
+
 ::: zone pivot="linux"
 
 ### <a name="linux"></a>Linux
 
 Här ska du installera Azure CLI på **Ubuntu Linux** med (**APT**) och Bash-kommandoraden.
 
-> [!WARNING]
-> Kommandona nedan är för Ubuntu version 18.04. Om du använder en annan version av Ubuntu måste du lägga till en annan lagringsplats. Mer information finns i [Installera Azure CLI 2.0 med apt](https://docs.microsoft.com/cli/azure/install-azure-cli-apt).
+> [!TIP]
+> Kommandona nedan är för Ubuntu version 18.04. Andra versioner och distributioner av Linux har andra anvisningar. Läs i den [officiella dokumentationen](https://docs.microsoft.com/cli/azure/install-azure-cli) om du använder en annan version av Linux.
 
 1. Ändra din källista så att Microsoft-lagringsplatsen registreras, och så att pakethanteraren kan hitta Azure CLI-paketet.
 
