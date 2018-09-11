@@ -21,15 +21,15 @@ Att välja avbildning är ett av de viktigaste besluten när du skapar en virtue
 
 ## <a name="what-are-containers"></a>Vad är containrar?
 
-Containrar är en virtualiseringsmiljö, men till skillnad från virtuella datorer har de inget operativsystem. I stället refererar de till operativsystemet i den värdmiljö som kör containern. Om fem containrar till exempel körs på en server med en specifik Linux-kernel så körs alla fem containrar på samma kernel. 
+Containrar är en virtualiseringsmiljö, men till skillnad från virtuella datorer har de inget operativsystem. I stället refererar de till operativsystemet i den värdmiljö som kör containern. Om fem containrar till exempel körs på en server med en specifik Linux-kernel så körs alla fem containrar på samma kernel.
 
-Här är ett diagram som jämför program som körs direkt på en virtuell dator jämfört med att köras som containrar.
+I följande illustration visas en jämförelse mellan program som körs direkt på en virtuell dator och program som körs i containrar på en virtuell dator.
 
-![Jämföra appar som körs direkt på en virtuell dator jämfört med containrar](../media/vm-versus-containers.png)
+![En illustration som visar hur operativsystemet är en del av den virtuella datorn och inte en del av containern.](../media/2-vm-versus-containers.png)
 
 Containrar innehåller normalt ett program som du skriver och som innehåller de bibliotek som krävs för att programmet ska kunna köras på värdmiljöns kernel. 
 
-Containrar är menade att vara enkla och utformade för att kunna skapas, skalas ut och stoppas dynamiskt när miljön och behoven ändras.
+Containrar är menade att vara enkla och utformade för att kunna skapas, skalas ut och stoppas dynamiskt. På så sätt kan du svara på ändringar i behovet och snabbt starta om vid krasch eller avbrott i maskinvaran. 
 
 En fördel med att använda containrar är att du kan köra flera isolerade program på en virtuell dator. Eftersom containrar är skyddade och isolerade i sig själva behöver du inte nödvändigtvis separata virtuella datorer för olika arbetsbelastningar.
 

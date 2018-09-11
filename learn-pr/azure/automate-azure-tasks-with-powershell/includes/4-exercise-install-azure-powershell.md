@@ -1,4 +1,4 @@
-I den här övningen installerar du **Azure PowerShell** på den lokala datorn. Välj rätt avsnitt för ditt operativsystem.
+I den här delen installerar du **Azure PowerShell** på den lokala datorn. Välj rätt avsnitt för ditt operativsystem.
 
 ## <a name="linux-and-mac"></a>Linux och Mac
 På Linux och macOS är det första steget att installera **PowerShell Core**.
