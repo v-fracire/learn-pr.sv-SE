@@ -1,51 +1,51 @@
-Suppose your company's trading partners have security policies who require their trading data is protected with strong encryption. You use a B2B application that runs on your Windows servers, and stores data on the server data disk. Now that you're transitioning to the cloud, you need to demonstrate to your trading partners that data stored on your Azure VMs cannot be accessed by unauthorized users, devices, or applications. You need to decide on a strategy for implementing encryption of your B2B data.
+Anta att ditt företags affärspartner har säkerhetsprinciper som kräver att deras affärsdata skyddas med stark kryptering. Du använder ett B2B-program som körs på Windows-servrar och lagrar data på en serverdatadisk. Nu när du övergår till molnet behöver du visa dina affärspartners att de data som lagras på dina virtuella Azure-datorer inte kan nås av obehöriga användare, enheter eller program. Du måste välja en strategi för att implementera kryptering av B2B-data.
 
-Your audit requirements dictate that your encryption keys be managed in-house, and not by any third party. you're also concerned that the performance and manageability of your Azure-based servers is maintained. So before you implement encryption, you want to be sure that there won't be a performance hit.
+Dina granskningskrav kräver att dina krypteringsnycklar måste hanteras lokalt och inte av tredje part. Det är också viktigt för dig att dina Azure-baserade servrar inte förlorar sin prestanda eller hanterbarhet. Så innan du implementerar kryptering vill du vara säker på att det inte påverkar din prestanda.
 
-## What is encryption?
+## <a name="what-is-encryption"></a>Vad är kryptering?
 
-Encryption is about converting meaningful information into something that appears meaningless, such as a random sequence of letters and numbers. The process of encryption uses some form of **key** as part of the algorithm that creates the encrypted data. A key is also needed to perform the decryption. Keys may be **_symmetric_**, where the same key is used for encryption and decryption, or **_asymmetric_**, where different keys are used. An example of the latter is the **public-private** key pairs used in digital certificates.
+Kryptering handlar om hur du konverterar meningsfull information till något som verkar meningslöst, till exempel en slumpmässig sekvens med bokstäver och siffror. Krypteringsprocessen används någon form av **nyckel** som en del av algoritmen som skapar krypterade data och en nyckel behövs också för att utföra dekrypteringen. Nycklar kan vara **_symmetriska_**, där samma nyckel används för kryptering och dekryptering, eller **_asymmetriska_**, där olika nycklar används t.ex **offentliga/privata** nyckelpar som används i digitala certifikat.
 
-### Symmetric encryption
+### <a name="symmetric-encryption"></a>Symmetrisk kryptering
 
-Algorithms that use symmetric keys, such as Advanced Encryption Standard (AES), are typically faster than public key algorithms, and are often used for protecting large data stores. Because there's only one key, procedures must be in place to prevent the key from becoming publicly known.
+Algoritmer som använder symmetriska nycklar, till exempel Standard AES (Advanced Encryption), är normalt snabbare än algoritmer för offentliga nycklar och används ofta för att skydda stora datamängder. Eftersom det finns bara en måste det finnas procedurer för att skydda nyckeln från att komma ut till allmänheten.
 
-### Asymmetric encryption
+### <a name="asymmetric-encryption"></a>Asymmetrisk kryptering
 
-With asymmetric algorithms, only the private key member of the pair must be kept private and secure; as its name suggests, the public key can be made available to anyone without compromising the encrypted data. The downside of public key algorithms, however, is that they're much slower than symmetric algorithms, and cannot be used to encrypt large amounts of data.
+Med asymmetriska algoritmer behöver endast den privata nyckeln i paret vara säker och privat, vilket namnet antyder. Den offentliga nyckeln kan ges till vem som helst utan att riskera krypterade data. Nackdelen med algoritmer med offentlig nyckel är dock att de är mycket långsammare än symmetriska algoritmer och kan inte användas till att kryptera stora datamängder.
 
-## Key management
+## <a name="key-management"></a>Nyckelhantering
 
-In Azure, your encryption keys can either be managed by either Microsoft or the customer. Often the demand for customer-managed keys comes from organizations that need to demonstrate compliance with HIPAA, or other regulations. Such compliance may require that access to keys is logged, and that regular key changes are made and recorded.
+Krypteringsnycklarna i Azure kan antingen hanteras av Microsoft eller av kunden. Behovet av kundhanterade nycklar kommer ofta från organisationer som behöver visa att de efterlever HIPAA och andra bestämmelser. Detta kan kräva att åtkomsten till nycklarna loggas och att regelbundna nyckeländringar sker och registreras.
 
-## Azure disk encryption technologies
+## <a name="azure-disk-encryption-technologies"></a>Diskkrypteringstekniker för Azure
 
-The main encryption-based disk protection technologies for Azure VMs are:
+De viktigaste krypteringsbaserade diskskyddsteknikerna för virtuella Azure-datorer är:
 
-- Storage Service Encryption (SSE)
+- Kryptering för lagringstjänster (SSE)
 - Azure Disk Encryption (ADE)
 
-### Storage Service Encryption
+### <a name="storage-service-encryption"></a>Kryptering för lagringstjänster
 
-Azure Storage Service Encryption (SSE) is an encryption service built into Azure that it used to protect data at rest. The Azure storage platform automatically encrypts data before it's stored to several storage services, including Azure Managed Disks. Encryption is enabled by default using 256-bit AES encryption, and is managed by the storage account administrator.
+Azure Storage Service Encryption (SSE) är en krypteringstjänst som är inbyggd i Azure och som användes till att överföra data i vila. Azure storage-plattformen krypterar automatiskt data innan de lagras till flera lagringstjänster, inklusive Azure Managed Disks. Kryptering är aktiverat som standard med 256-bitars AES-kryptering och hanteras av administratör för lagringskonto.
 
-### Azure Disk Encryption
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Azure Disk Encryption (ADE) is managed by the VM owner. It controls the encryption of Windows and Linux VM-controlled disks, using **BitLocker** on Windows VMs and **DM-Crypt** on Linux VMs. BitLocker Drive Encryption is a data protection feature that integrates with the operating system, and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned computers. Similarly, DM-Crypt encrypts data at rest for Linux before writing to storage.
+Azure Disk Encryption (ADE) hanteras av VM-ägaren och styr kryptering av VM-kontrollerade diskar med Windows och Linux med hjälp av **BitLocker** på virtuella Windows-datorer och **DM-Crypt** på virtuella Linux-datorer. BitLocker-diskkryptering är en funktion för dataskydd som är integrerad med operativsystemet och hanterar hot om datastöld eller exponering från förlorade, stulna eller felaktigt inaktiverade datorer. På samma sätt krypterar DM-Crypt data i vila för Linux innan de skrivs till lagring.
 
-ADE ensures that all data on VM disks are encrypted at rest in Azure storage, and ADE is required for VMs backed up to the Recovery Vault.
+ADE säkerställer att alla data på virtuella datordiskar är krypterade i vila i Azure storage och att ADE krävs för virtuella datorer som är säkerhetskopierade i Recovery-valvet.
 
-With ADE, VMs boot under customer-controlled keys and policies. ADE is integrated with Azure Key Vault for the management of these disk-encryption keys and secrets.
+När du använder ADE så startar virtuella datorer under kundkontrollerade nycklar och principer. ADE är integrerat med Azure Key Vault för hantering av dessa diskkrypteringsnycklar och hemligheter.
 
 > [!NOTE] 
-> ADE does not support the encryption of Basic tier VMs, and you cannot use an on-premises Key Management Service (KMS) with ADE.
+> ADE har inte stöd för kryptering av virtuella datorer på Basic-nivå och du kan inte använda en lokal nyckelhanteringstjänst (KMS) med ADE
 
-## When to use encryption?
+## <a name="when-to-use-encryption"></a>När du ska använda kryptering?
 
-Computer data is at risk when it's in transit (transmitted across the internet or other network), and when it's at rest (saved to a storage device). The at-rest scenario is the primary concern when protecting data on Azure VM disks. For example, someone might download the Virtual Hard Disk (VHD) file associated with an Azure VM, and save it on their laptop. If the VHD is not encrypted, the contents of the VHD are potentially accessible to anyone who can mount the VHD file on their computer.
+Data utsätts för risk i rörelse (vid överföring över internet eller ett annat nätverk) och när de är i vila (sparade på en lagringsenhet). Data i vila är det viktigaste när du skyddar data på diskar för virtuella Azure-datorer. Till exempel, någon kan ladda ner den virtuella hårddiskfilen (VHD) som associeras med en virtuell Azure-dator och spara den på sin dator. Innehållet i den virtuella hårddisken är potentiellt tillgänglig för alla som kan montera VHD-filen på sin dator om den inte är krypterad.
 
-For operating system (OS) disks, data such as passwords are encrypted automatically, so even if the VHD is not itself encrypted, it's not easy for such information to be accessed. Applications may also automatically encrypt their own data. However, even with such protections, if someone with malicious intent were to gain access to a data disk, and the disk itself was not encrypted, they might then be in a position to exploit any known weaknesses in that application's data protection. With disk encryption in place, such exploits are not possible.
+PÅ operativsystemdiskar (OS) krypteras data, till exempel lösenord automatiskt, så att det inte går att få tillgång till sådan information, även om den virtuella hårddisken inte krypteras. Program kan också automatiskt kryptera sina egna data. Men även med detta skydd, om någon med skadliga avsikter får åtkomst till en datadisk och disken inte är krypterad har de möjlighet att exploatera kända svagheter i dessa programs dataskydd. Sådana kryphål är inte möjliga med diskkryptering på plats.
 
-Storage Service Encryption (SSE) is part of Azure itself, and there should be no noticeable performance impact on the VM disk IO when using SSE. Managed disks with SSE are now the default, and there should be no reason to change it. Azure Disk Encryption (ADE) makes use of VM operating system tools (BitLocker and DM-Crypt), so the VM itself has to do some work when encryption or decryption on VM disks is being performed. The impact of this additional VM CPU activity is typically negligible, except in certain situations. For instance, if you have a CPU-intensive application, there may be a case for leaving the OS disk unencrypted to maximize performance. In a situation such as this, you can store application data on a separate encrypted data disk, getting you the performance you need without compromising security.
+Storage Service Encryption (SSE) är en del av Azure, och det bör finnas någon märkbar effekt på prestandan hos en virtuell disks i/o när du använder SSE. Hanterade diskar med SSE nu är standard och det finns ingen anledning att ändra detta. Azure Disk Encryption (ADE) gör att användning av operativsystemsverktyg för virtuella datorer (BitLocker och DM-Crypt), så den virtuella datorn måste delta när kryptering eller dekryptering av en virtuell disk sker. Effekten på den extra processorverksamheten på den virtuella datorn är normalt försumbar, utom i vissa situationer. Till exempel, om du kör ett processorintensivt program kan det finnas anledningar att låta operativsystemdisken förbli okrypterad för maximal funktion. I en situation som denna kan du lagra programdata på en separat krypterad datadisk, så att du får rätt prestanda utan att äventyra säkerheten.
 
-Azure provides two complementary encryption technologies that are used to secure Azure VM disks. These technologies, SSE and ADE, encrypt at different layers, and serve different purposes. Both use AES 256-bit encryption. Using both technologies provides a defence-in-depth protection against unauthorized access to your Azure storage, and to specific VHDs.
+Azure tillhandahåller två kompletterande krypteringstekniker som används för att skydda Virtuella Azure-diskar. Dessa tekniker, SSE och ADE, krypterar olika lager och har olika syften, men båda använder AES-256-bitarskryptering. Med båda teknikerna får du ett djupgående skydd mot obehörig åtkomst till din Azure-lagring och specifika virtuella hårddiskar.

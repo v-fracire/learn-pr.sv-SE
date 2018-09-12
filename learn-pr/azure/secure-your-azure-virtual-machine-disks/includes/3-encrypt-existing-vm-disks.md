@@ -1,60 +1,60 @@
-Suppose your company has decided to implement Azure Disk Encryption (ADE) across all VMs. You need to evaluate how to roll out encryption to existing VM volumes.
+Anta att ditt företag har beslutat att implementera Azure Disk Encryption (ADE) för alla virtuella datorer. Du behöver utvärdera hur du distribuerar kryptering till befintliga virtuella datorvolymer.
 
-Here, we'll look at the requirements for ADE, and the steps involved in encrypting disks on existing Windows VMs.
+Här ska vi titta på kraven för ADE och de steg som behövs för att kryptera diskar på befintliga virtuella Windows-datorer.
 
-## Azure Disk Encryption prerequisites
+## <a name="azure-disk-encryption-prerequisites"></a>Förhandskrav för Azure Disk Encryption
 
-Before you can encrypt your first VM disk, you need to:
+Innan du kan kryptera din första virtuella datordisk så måste du
 
-1. Create a key vault.
-1. Set up an Azure Active Directory (Azure AD) application and service principal.
-1. Set the key vault access policy for the Azure AD app.
-1. Set key vault advanced access policies.
+1. Skapa ett nyckelvalv
+1. Konfigurerar ett Azure AD-program och tjänstens huvudnamn
+1. Ange nyckelvalvets åtkomstprincip för Azure AD-appen
+1. Ställa in avancerade åtkomstprinciper för nyckelvalvet
 
-### Azure Key Vault
+### <a name="azure-key-vault"></a>Azure Key Vault
 
-The encryption keys used by ADE can be stored in Azure Key Vault. Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. This provides highly available and scalable secure storage, in Federal Information Processing Standards (FIPS) 140-2 Level 2 validated Hardware Security Modules (HSMs). Using Key Vault, you keep full control of the keys used to encrypt your data, and you can manage and audit your key usage. You can configure and manage your key vault using the Azure portal, Azure PowerShell, and the Azure CLI.
+De krypteringsnycklar som används av ADE kan lagras i ett Azure Key Vault. Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett säkert sätt. En hemlighet är något som du vill begränsa åtkomst till, till exempel API-nycklar, lösenord eller certifikat. Det ger högt tillgänglig och skalbar och säker lagring i FIPS (Federal Information Processing Standards) 140-2 nivå 2-verifierade Maskinvarusäkerhetsmoduler (HSM). Med Key Vault kan du behålla fullständig kontroll över de nycklar som används för att kryptera dina data och du kan hantera och granska din nyckelanvändning. Du kan konfigurera och hantera ditt nyckelvalv med Azure-portalen, Azure PowerShell och Azure CLI.
 
 >[!NOTE]
-> Azure Disk Encryption requires that your key vault and your VMs are in the same Azure region; this ensures that encryption secrets do not cross regional boundaries.
+> Azure Disk Encryption kräver att ditt Nyckelvalv och dina virtuella datorer finns i samma Azure-region. Det säkerställer att krypteringshemligheter inte korsar regionala gränser.
 
-### Azure AD application and service principal
+### <a name="azure-ad-application-and-service-principal"></a>Azure AD-program och tjänstens huvudnamn
 
-To access or modify resources, such as the encryption configuration for a VM with scripts or code, you must first set up an **Azure Active Directory (AD) application**. Azure AD is a multi-tenant, cloud-based directory, and identity management service. It combines core directory services, application access management, and identity protection into a single solution.
+För att få åtkomst till eller ändra resurser, exempelvis krypteringskonfigurationen för en virtuell dator med skript eller kod så måste du först ställa in ett **Azure Active Directory-program (AD)**. Azure Active Directory (Azure AD) är en molnbaserad katalogtjänst för identitetshantering för flera innehavare som kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en och samma lösning.
 
-You'll also need an Azure **service principal**. Service principals are the service accounts you use to run the script or code. They allow you to assign the specific permissions and scope that are needed to run the task against a particular Azure resource.
+Du behöver också en Azure **tjänsts huvudnamn**. Tjänstens huvudnamn är tjänstkonton du använder för att köra skript eller kod så att du kan tilldela särskilda behörigheter och omfattningar som behövs för att köra uppgiften mot en viss Azure-resurs.
 
-There are two elements in Azure AD: the application object is the **_definition_** of the application (what it does), and the service principal is the **_specific instance_** of the application.
+Det finns två element i Azure AD. Programobjektet är **_definitionen_** av programmet (vad det gör) och tjänstens huvudnamn är den **_specifika instansen_** av programmet.
 
-This approach aligns with the principle of **least privilege**, where the permissions assigned to the app are restricted to the bare minimum required to enable the app to perform its tasks.
+Den här metoden överensstämmer med principen om **lägsta behörighet** där de behörigheter som tilldelats appen är begränsade till det minsta som krävs för att appen ska kunna utföra sina uppgifter.
 
-You can configure and manage Azure AD applications and service principals using the Azure portal, Azure PowerShell, and the Azure CLI.
+Du kan konfigurera och hantera Azure AD-program och tjänstens huvudnamn med Azure-portalen, Azure PowerShell och Azure CLI.
 
-### Key vault access policies
+### <a name="key-vault-access-policies"></a>Åtkomstprinciper för nyckelvalvet
 
-Before you can store encryption keys in a key vault, ADE requires details on the **Client ID** and the **Client Secret** of the Azure AD application that is permitted to write to the key vault.
+Innan du kan lagra krypteringsnycklar i Key Vault, kräver ADE information om det **klient-ID** och den **Klienthemlighet** för Azure Active Directory-programmet som har behörighet att skriva till Key Vault.
 
-You'll also need to provide Azure access to the encryption keys in your key vault, so they are made available to the VM for booting and decrypting the volumes.
+Du behöver också ge Azure åtkomst till krypteringsnycklarna i ditt nyckelvalv så att de görs tillgängliga för den virtuella datorn för start och dekryptering av volymerna.
 
-## Set key vault advanced access policies
+## <a name="set-key-vault-advanced-access-policies"></a>Ställa in avancerade åtkomstprinciper för nyckelvalvet
 
-**Advanced access policies** enable disk encryption on the key vault, and without them, encryption deployments will fail. 
+**Avancerade åtkomstprinciper** aktivera diskkryptering på nyckelvalvet och utan dem så kommer krypteringsdistributioner att misslyckas. 
 
-There are three policies that need to be enabled:
+Det finns tre principer som måste aktiveras:
 
-- **Key Vault for disk encryption**. Required for Azure Disk Encryption.
-- **Key Vault for deployment**. Enables the Microsoft.Compute resource provider to retrieve secrets from the key vault. This policy is needed when you are creating a VM.
-- **Key Vault for template deployment, if needed**. Enables Azure Resource Manager to get secrets from the key vault. This policy is required when you are using Azure Resource Manager templates for VM deployment.
+- **Key Vault för diskkryptering** krävs för Azure Disk Encryption.
+- **Key Vault för distribution av** låter Microsoft.Compute-resursprovidern hämta hemligheter från nyckelvalvet. Den här principen behövs när du skapar en virtuell dator.
+- **Key Vault för malldistribution, vid behov** låter Azure Resource Manager hämta hemligheter från nyckelvalvet. Den här principen är obligatorisk när du använder ARM-mallar för distribution av virtuella datorer.
 
-Key vault access policies can be configured and managed using the Azure portal, Azure PowerShell, or the Azure CLI.
+Nyckelvalvets åtkomstprinciper kan konfigureras och hanteras med hjälp av Azure-portalen, Azure PowerShell eller Azure CLI.
 
-### What is the Azure Disk Encryption prerequisites configuration script
+### <a name="what-is-the-azure-disk-encryption-prerequisites-configuration-script"></a>Vad är förhandskonfigurationsskriptet för Azure Disk Encryption
 
-The **Azure Disk Encryption prerequisites configuration script** sets up all (or as many as you want) of the encryption prerequisites. The script also ensures that your key vault is in the same region as the VM you are going to encrypt. It will create a resource group and key vault, and set the key vault access policy. The script also creates a resource lock on the key vault to help protect it from accidental deletion.
+**Förhandskonfigurationsskriptet för Azure Disk Encryption** konfigurerar alla (eller så många du vill) av förhandskraven för kryptering. Skriptet ser även till att ditt Key Vault befinner sig i samma region som den virtuella datorn du ska kryptera. Det skapar en resursgrupp, ett nyckelvalv och anger nyckelvalvets åtkomstprincip. Skriptet skapar även ett resurslås på nyckelvalvet för att skydda det mot oavsiktlig borttagning.
 
-## Encrypting an existing VM disk
+## <a name="encrypting-an-existing-vm-disk"></a>Kryptera en befintlig virtuell datordisk
 
-There are two steps for encrypting an existing VM disk, when you are using the Azure Disk Encryption prerequisites configuration script:
+Det finns två steg för att kryptera en befintlig virtuell datordisk när du använder **förhandskonfigurationsskriptet för Azure Disk Encryption**:
 
-1. Run the Azure Disk Encryption prerequisites configuration script.
-1. Encrypt the Azure virtual machine in PowerShell.
+1. Kör förhandskonfigurationsskriptet för Azure Disk Encryption.
+1. Kryptera den virtuella Azure-datorn i PowerShell

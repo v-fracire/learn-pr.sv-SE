@@ -1,25 +1,25 @@
-You have assessed your on-premises database to check its compatibility and feature parity against the Azure SQL database. Because the customer base for your online bicycle retail business is limited to one geographical location, you can afford to take your database offline during an off-peak time, for example, the early morning hours.
+Du har utvärderat din lokala databas för att kontrollera databasens kompatibilitet och funktionsparitet med Azure SQL-databasen. Eftersom kundbasen för din webbaserade cykelbutik är begränsad till en geografisk plats har du råd att ta databasen offline under tider med låg belastning till exempel under de tidiga morgontimmarna.
 
-The best approach for database migration in this scenario is to use the Data Migration Assistant, which provides a wizard to guide you through migration steps. In this unit, we'll discuss how the Data Migration Assistant carries out the actual migration.
+Den bästa databasmigreringsmetoden i det här scenariot är att använda Data Migration Assistant, som innehåller en guide som vägleder dig genom migreringsstegen. I den här kursdelen ska vi titta närmare på hur Data Migration Assistant utför själva migreringen.
 
-## Migrate the Database Using Data Migration Assistant
+## <a name="migrate-the-database-using-data-migration-assistant"></a>Migrera databasen med hjälp av Data Migration Assistant
 
-When using the Data Migration Assistant to migrate your database, choose a time frame when there is a zero or minimum transactional activity on your database.
+När du använder Data Migration Assistant för att migrera en databas väljer du en tidsperiod då det inte finns någon eller endast minimal transaktionsaktivitet i databasen.
 
-Before starting with the migration process, fix any errors identified during the assessment stage. The assessment report details the fixes that must be made before proceeding with the actual migration.
+Åtgärda eventuella fel som identifierades under utvärderingen innan du påbörjar migreringen. Utvärderingsrapporterna innehåller information om de korrigeringar som krävs innan du går vidare med själva migreringen.
 
-To reduce the total time taken for a migration, you can change the performance level of the target Azure SQL Database for the period of migration. You can increase the performance to a higher level, such as P15, to reduce the downtime caused by migration. However, to reduce costs, ensure that you return the performance level to its previous value after the migration.
+För att minska den totala migreringstiden kan du ändra prestandanivån för Azure SQL-måldatabasen under migreringsperioden. Du kan öka prestanda till en högre nivå, till exempel P15, för att minska avbrottstiden som orsakas av migreringen. Glöm i så fall inte att återställa prestandanivån till den tidigare nivån efter migreringen för att undvika onödiga kostnader.
 
-The actual migration process involves the following steps:
+Själva migreringsprocessen omfattar följande steg:
 
-1. Creating an empty Azure SQL Database.
+1. Skapa en tom Azure SQL Database.
 
-1. Creating a new migration project.
+1. Skapa ett nytt migreringsprojekt.
 
-1. Defining the source and target servers and databases.
+1. Definiera käll- och målservrarna och databaserna.
 
-1. Selecting the objects to migrate. You don't need to migrate all the objects, however, ensure that you do not leave any dependent objects. For example, if a SQL view accesses a table, and you're migrating the view, ensure that you also migrate the table.
+1. Välja de objekt som ska migreras. Du behöver inte migrera alla objekt, men se till att du inte utelämnar några beroende objekt. Om en vy exempelvis använder en tabell och du migrerar vyn, är det viktigt att du även migrerar tabellen.
 
-1. Deploying the schema. This migrates the structure of the database, but not the data.
+1. Distribuera schemat. När du gör det migreras databasens struktur, men inte dess data.
 
-1. Migrating the data. This migrates the contents of the tables in the database and is the most time-consuming step.
+1. Migrera data. När du gör det migreras innehållet i tabellerna i databasen. Det här är det mest tidskrävande steget.

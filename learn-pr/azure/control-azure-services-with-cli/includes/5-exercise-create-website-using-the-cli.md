@@ -25,8 +25,6 @@ Nu ska vi använda Azure CLI för att skapa en resursgrupp och sedan distribuera
 
 > [!TIP]
 > Du kan också kontrollera att resursen har skapats på Azure Portal. Öppna en webbläsare, logga in på portalen och gå till avsnittet **Resursgrupper**. Den nya resursgruppen bör visas i listan.
-> 
-> ![Använda portalen för att visa resursgrupper](../media-drafts/5-listing-resource-groups.png)
 
 1. Om det finns många objekt i gruppen kan du filtrera returvärdena genom att lägga till ett `--query`-alternativ. Prova det här kommandot:
 

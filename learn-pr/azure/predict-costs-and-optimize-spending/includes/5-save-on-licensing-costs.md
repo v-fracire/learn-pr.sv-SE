@@ -60,7 +60,7 @@ Det är många som inte känner till att SQL Server Developer Edition är en kos
 
 Leta efter SQL Server-avbildningar för Developer Edition på Azure Marketplace och använd dem för utveckling eller testning. Då eliminerar du den extra kostnaden för SQL Server i de här fallen. 
 
-> [!NOTE]
+> [!TIP]
 > Mer information finns i [dokumentationen om prissättning](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
 ## <a name="use-constrained-instance-sizes-for-database-workloads"></a>Använda begränsade instansstorlekar för databasarbetsbelastningar 

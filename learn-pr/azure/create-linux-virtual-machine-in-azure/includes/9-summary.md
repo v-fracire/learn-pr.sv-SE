@@ -1,22 +1,21 @@
-In this module, you learned how to create a Linux VM using the Azure portal. You then connected to the public IP address of the VM and managed it with an SSH connection. 
+I den här modulen har du lärt dig hur du skapar en virtuell Linux-dator med hjälp av Azure-portalen. Därefter anslöt du till den offentliga IP-adressen för den virtuella datorn och hanterade den med en SSH-anslutning. 
 
-You learned that while SSH allows us to interact with the operating system and software of the virtual machine, the portal will enable us to configure the virtual hardware and connectivity. We also could have used PowerShell or the Azure CLI, if a command-line or scriptable environment were preferred.
+Du lärde dig också att du kan interagera med operativsystemet och programvara på den virtuella datorn med hjälp av SSH, och att du kan konfigurera virtuell maskinvara och anslutningar via portalen. Du skulle även kunna använda PowerShell eller Azure CLI om du föredrar kommandorader eller en skriptbar miljö.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up-the-resources"></a>Rensa resurserna
 
-You are charged for VMs while they run and for the storage based on how much you use. Always stop and deallocate VMs when you aren't using them, and when you no longer need the resources, it's a good idea to delete them. To remove all the resources that you created, you can delete them one by one or delete the resource group:
+Du debiteras för virtuella datorer när de körs och för lagring baserat på hur mycket du använder. Du bör alltid stoppa och frigöra virtuella datorer när du inte använder dem, och när du inte längre behöver resurser är det en bra idé att ta bort dem. Om du vill ta bort alla resurser som du har skapat kan du ta bort dem en i taget eller bara ta bort resursgruppen.
 
-1. Sign in to the Azure portal.
+1. Logga in på Azure-portalen.
 
-1. On the left menu, select **All Services**.
+1. Välj **Alla tjänster** på menyn till vänster.
 
-1. Select **Resource Groups**.
+1. Välj **Resursgrupper**.
 
-1. Find the resource group that you created in the first exercise. Click the ellipsis (...) on the right side of the list view.
+1. Hitta resursgruppen som du skapade i den första övningen. Klicka på ellipsen (...) till höger i listvyn.
 
-1. Select **Delete resource group**.
+1. Välj **Ta bort resursgrupp**.
 
-1. On the next screen, enter the resource group name to confirm the deletion.
+1. På nästa skärm anger du resursgruppens namn för att bekräfta borttagningen.
 
-1. Click **Delete**.
+1. Klicka på **Ta bort**.

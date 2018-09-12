@@ -1,17 +1,17 @@
-Modern applications frequently consist of multiple parts running on separate computers and devices, which are in locations around the world. Complex networks with varying reliability and speed can be between these components. A fundamental challenge with these distributed applications is how to communicate reliably between the components.
+Moderna program består ofta av flera delar som körs på separata datorer och enheter som finns på platser över hela världen. Komplexa nätverk med olika tillförlitlighet och hastighet ligger ofta mellan dessa komponenter. En grundläggande utmaning med dessa distribuerade program är att kommunicera på ett tillförlitligt sätt mellan komponenterna.
 
-Suppose you are a cloud developer for Contoso Slices, a global pizza delivery chain. Your employer is upgrading their technology so that users can place orders from the web or their mobile apps. Those orders will be sent to the user's preferred storefront location, where employees will make the pizza. As the dough is rolled out, pizza put in oven, boxed, and put on a delivery vehicle, updates are sent to the user's mobile app. The users even receive location updates as the delivery driver heads toward them. 
+Anta att du är en molnutvecklare för Contoso sektorer, en global pizzakedja. Din arbetsgivare håller på att uppgradera sin teknik så att användarna kan beställa från webben eller sina mobilappar. Beställningarna skickas till användarnas favoritrestaurang där pizzan lagas. Efter hand som degen rullas, pizzan läggs in ugnen, förpackas och levereras skickas uppdateringar till användarens mobilapp. Användaren får till och med platsuppdateringar när föraren kommer närmare. 
 
-Contoso Slices previously created an online ordering system that immediately stored order data in a SQL Server database. Each store had to remember to manually refresh the "web orders" page to find out if they had new orders. In addition, during peak pizza times like televised sporting events, the system would frequently get deadlock exceptions and timeouts. Finally, the previous system lacked central payment processing or any kind of status updates for the user.
+Contoso Slice har tidigare skapat ett onlinesystem för att beställa pizza som lagrar beställningsdata i en SQL Server-databas. Varje butik var tvungen att komma ihåg att uppdatera ”webbeställningarna” manuellt för att se om de hade nya beställningar. Dessutom, när efterfrågan på pizza var stor, till exempel under sportevenemang, råkade systemet ofta ut för systemavbrott och fel. Slutligen saknade systemet ett centralt betalningssystem och stöd för statusuppdateringar för användaren.
 
-For this new, more ambitious project, Contoso hired a cloud architect and plans to use a decoupled architecture. 
+För det här nya, mer ambitiösa projektet anlitade Contoso en molnarkitekt och planerar att använda en fristående arkitektur. 
 
-In this module, we'll learn how Azure Service Bus can help build an application that stays reliable during peak demand. We'll also see how Azure Service Bus helps make it easy to add functionality to our applications. Along the way, we'll be writing the C# code necessary to put these lessons to work. Here, you will see how to use Azure Service Bus topics and queues in a distributed architecture to ensure reliable communications even at times of high demand. You will also write C# code that communicates through Service Bus.
+I den här modulen får vi lära dig hur Azure Service Bus kan hjälpa dig att skapa ett program som är tillförlitligt under belastning. Vi ska också se hur Azure Service Bus gör det enkelt att lägga till funktioner i våra program. Under resans gång kommer vi att använda C# för att omsätta lektionerna i praktiken. Här får du se hur du kan använda ämnen och köer för Azure Service Bus i en distribuerad arkitektur för att säkerställa tillförlitlig kommunikation vid hög efterfrågan. Du får också skriva C#-kod som kommunicerar via Service Bus.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
-- Choose whether to use Service Bus queues, topics, or relays to communicate in a distributed application
-- Configure an Azure Service Bus namespace in an Azure subscription
-- Create a Service Bus **topic** and use it to send and receive messages
-- Create a Service Bus **queue** and use it to send and receive messages
+I den här modulen får du:
+- Välja om du vill använda Service Bus-köer, -ämnen eller -reläer för att kommunicera i ett distribuerat program
+- Konfigurera ett Azure Service Bus-namnområde i en Azure-prenumeration
+- Skapa ett Service Bus **-ämne** och använd det för att skicka och ta emot meddelanden
+- Skapa en Service Bus **-kö** och använd den för att skicka och ta emot meddelanden

@@ -1,94 +1,94 @@
-Suppose you are developing a financial management application for new business startups. You want to ensure that all your customers' data is secured, so you have decided to implement Azure Disk Encryption (ADE) across all OS and data disks on the servers that will host this application. As part of your compliance requirements, you also need to be responsible for your own encryption key management.
+Anta att du utvecklar ett ekonomiprogram för nystartade företag. Du vill skydda kundernas data så du har bestämt dig för att implementera ADE på alla operativsystem och datadiskar på de servrar som ska vara värdar för programmet. Enligt dina efterlevnadskrav måste du också ansvara för din egen krypteringsnyckel.
 
-In this unit, you'll encrypt disks on existing Windows VMs, and manage the encryption keys using your own Azure Key Vault.
+I den här delen får du kryptera diskar på befintliga virtuella Windows-datorer och hantera krypteringsnycklar med ditt eget Azure Key Vault.
 
 > [!IMPORTANT] 
-> This exercise assumes that Azure PowerShell is installed on your computer. Go to [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.7.0) for information on how to install Azure PowerShell.
+> Den här övningen förutsätter att Azure PowerShell är installerat på datorn. Gå till [Installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.7.0) för information om hur du installerar Azure PowerShell.
 
-## Prepare the environment
+## <a name="prepare-the-environment"></a>Förbereda miljön
 
-We'll start by deploying a Windows VM to a new resource group, and then add a data disk to the VM.
+Vi börjar med att distribuera en virtuell Windows-dator på en ny resursgrupp och sedan lägga till en datadisk på den virtuella datorn.
 
-### Deploy Windows VM using the Azure portal
+### <a name="deploy-windows-vm-using-azure-portal"></a>Distribuera en virtuell Windows-dator med hjälp av Azure Portal
 
-Here you'll use the Azure portal to create and deploy a Windows VM. Start by defining the basic VM information:
+Här installerar du Azure-portalen för att skapa och distribuera en virtuell Windows-dator. Starta genom att definiera grundläggande information för den virtuella datorn:
 
-1. In a browser, navigate to the [Azure portal](http://portal.azure.com) and sign in with your normal credentials.
+1. Öppna en webbläsare och gå till [Azure-portalen](http://portal.azure.com) och logga in med dina vanliga autentiseringsuppgifter.
 
-1. In the sidebar, click **Virtual machines**, and then click **Create virtual machine**.
+1. I sidopanelen klickar du på **Virtuella datorer** och sedan på **Skapa virtuell dator**.
 
-1. On the Compute blade, in the **Recommended** section, click **Windows Server**.
+1. På bladet Beräkning i området **Rekommenderas** klickar du på **Windows Server**.
 
-1. In the **Windows Server** blade, click **Windows Server 2016 Datacenter**.
+1. Klicka på **Windows Server 2016 Datacenter** i bladet **Windows Server**.
 
-1. In the **Windows Server 2016 Datacenter** blade, click **Create**.
+1. Klicka på **Skapa** i bladet **Windows Server 2016 Datacenter**.
 
-1. In the **Basics** blade, in the **Name** box, type **moneyappsvr01.**
+1. I bladet **Basic** i rutan **Namn** skriver du **moneyappsvr01.**
 
-1. In the **Username** and **Password boxes**, type a name and password for an administrator account on this server.
+1. I rutorna **Användarnamn** och **Lösenord** skriver du ett namn och lösenord för ett administratörskonto på den här servern.
 
-1. In the **Subscription** box, select your Azure subscription.
+1. Välj din Azure-prenumeration i fältet **Prenumeration**.
 
-1. Under **Resource Group**, select **Create new**. In the box, type **moneyapprg**.
+1. Under **Resursgrupp** väljer du **Skapa ny** och skriver in **moneyapprp**.
 
-1. In the **Location** drop-down list, select a region near you.
+1. Välj en region nära dig i listrutan **Plats**.
 
-1. Click **OK**.
+1. Klicka på **OK**.
 
-### Choose a size for the VM, and start the deployment
+### <a name="choose-a-size-for-the-vm-and-start-the-deployment"></a>Välj storlek för den virtuella datorn och starta distributionen
 
 > [!IMPORTANT]
-> Remember that basic tier VMs do not support ADE.
+> Kom ihåg att virtuella datorer på Basic-nivå inte stöder ADE
 
-1. On the **Choose a size** blade, select a **Standard** SKU, such as **B1s**. Then click **Select**.
+1. På bladet **Välj storlek** väljer du **Standard** SKU, till exempel **B1s** och klickar sedan på **Välj**.
 
-1. On the **Settings** blade, in the **Select public inbound ports** list, click **RDP**. Then scroll down and click **OK**.
+1. På bladet **Inställningar** i **Välj offentliga inkommande portar** klickar du på **RDP** och bläddrar sedan nedåt och klickar på **OK**.
 
-1. On the **Create** blade, click **Create**.
+1. På bladet **API-app** klickar du på **Skapa**.
 
-1. Wait until the VM has deployed before continuing with the exercise.
+1. Vänta tills den virtuella datorn har distribuerats innan du fortsätter med den här övningen.
 
-### Add a data disk to the VM
+### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk i en virtuell dator
 
-1. In the left menu, click **All resources**, and then click **moneyappsvr01**.
+1. I den vänstra menyn klickar du på **Alla resurser** och klickar sedan på **moneyappsvr01**.
 
-1. On the **Virtual machine** blade, under **SETTINGS**, click **Disks**.
+1. På bladet **Virtuella datorer**, under **INSTÄLLNINGAR**, klickar du på **Diskar**.
 
-1. On the **Disks** blade, note that the OS disk encryption status is currently **Not enabled**, and then click **Add data disk**.
+1. Observera, på bladet **Diskar**, att operativsystemdiskens krypteringsstatus för närvarande är **Ej aktiverat** och klicka sedan på **Lägg till datadisk**.
 
-1. Click in the **Name** list, and then click **Create disk**.
+1. Klicka på listan **Namn** och klicka sedan på **Skapa disk**.
 
-1. In the **Create managed disk** blade, in the **Name** box, type **moneyappsvr01_data**.
+1. I bladet **Skapa hanterad disk** i **Namn** skriver du **moneyappsvr01_data**.
 
-1. Under **Resource Group**, select **Use existing**, and in the list, select **moneyapprg**.
+1. Under **Resursgrupp** väljer du **Använd befintlig** och välj sedan **moneyapprg**.
 
-1. Click **Create**.
+1. Klicka på **Skapa**.
 
-1. Wait until the disk has been created before continuing.
+1. Vänta tills disken har skapats innan du fortsätter.
 
-1. On the **Disks** blade, click **Save**. Note that the data disk encryption status is currently **Not enabled**.
+1. På bladet **diskar** klickar du på **Spara**. Observera att datadiskens krypteringsstatus för närvarande är **_Ej aktiverat_**.
 
-## Configure disk encryption prerequisites
+## <a name="configure-disk-encryption-pre-requisites"></a>Konfigurera förhandskrav för diskkryptering
 
-You'll now use the Azure Disk Encryption prerequisites configuration script to configure all the disk encryption prerequisites. This script will create and prepare a key vault in the same region as your VM.
+Du kommer nu använda konfigurationsskriptet för att konfigurera förhandskrav för Azure-diskkryptering. Det här skriptet skapar och förbereder ett nyckelvalv i samma region som den virtuella datorn.
 
-### Prepare the Azure Disk Encryption prerequisite setup script
+### <a name="prepare-the-azure-disk-encryption-prerequisite-setup-script"></a>Förbered konfigurationsskriptet för Azure-diskkryptering
 
-1. Go to the [Azure Disk Encryption prerequisite setup script](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1) GitHub page.
+1. Gå till den GitHub-sidan som innehåller det [nödvändiga konfigurationsskriptet för Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 
-1. On the GibHub page, click **Raw**.
+1. Klicka på **Raw** på GibHub-sidan.
 
-1. Use Ctrl-A to select all the text on the page, and then use Ctrl-C to copy all the text on the page to the clipboard.
+1. Markera all text på sidan genom att använda CTRL-A. Använd sedan CTRL-C och kopiera all text till Urklipp.
 
-1. On your computer, click **Start**, and then browse to **Windows PowerShell ISE**.
+1. Klicka på **Start** på din dator och bläddra till **Windows PowerShell ISE**.
 
-1. Right-click **Windows PowerShell ISE**, and click **Run as administrator**.
+1. Högerklicka på **Windows PowerShell ISE** och klicka på **Kör som administratör**.
 
-1. In the Administrator: Windows PowerShell ISE window, click **View**, and then click **Show Script Pane**.
+1. I fönstret Administratör: Windows PowerShell ISE klickar du på **Visa** och sedan på **Visa skriptfönster**.
 
-1. Paste the copied text into the script pane.
+1. Klistra in den kopierade texten i skriptfönstret.
 
-1. In the script pane, locate the following block of code:
+1. I skriptfönstret letar du reda på följande kodblock:
 
     ```powershell
     [Parameter(Mandatory = $false,
@@ -96,82 +96,82 @@ You'll now use the Azure Disk Encryption prerequisites configuration script to c
     [ValidateNotNullOrEmpty()]
     [string]$aadAppName,
     ```
-1. In the code block, change `$false` to `$true`.
+1. I kodblocket, ändra `$false` till `$true`.
 
-1. Click **File**, then click **Save As**, and navigate to the folder you'd like to use to save the script.
+1. Klicka på **Arkiv**, klicka sedan på **Spara som** och navigera till mappen som du vill använda för att spara skriptet.
 
-1. In the **File name** box, type **ADEPrereqScript.ps1**, and click **Save**.
+1. I textrutan för **filnamn** anger du **ADEPrereqScript.ps1** och klickar på **Spara**.
 
-### Run the Azure Disk Encryption prerequisite setup script
+### <a name="run-the-azure-disk-encryption-prerequisite-setup-script"></a>Kör konfigurationsskriptet för Azure-diskkryptering
 
-1. In the  PowerShell ISE console pane, type the following command, and press **Enter**:
+1. I PowerShell-fönstret anger du följande kommando och trycker på **RETUR**:
 
    ```console
    cd <path to your folder containing ADEPrereqScript.ps1>
    ```
 
-1. In the PowerShell ISE console pane, type the following command, and press **Enter**:
+1. I PowerShell-fönstret anger du följande kommando och trycker på **RETUR**:
 
    ```powershell
    Set-ExecutionPolicy Unrestricted
    ```
 
-   If you get an **Execution Policy Change** dialog box, click either **Yes to all** or **Yes** (if you do not get a _Yes to all_ option).
+   Om dialogrutan **Ändring av körningsprincipen** visas klickar du antingen på **Ja till alla** eller **Ja** (om du inte får alternativet _Ja till alla_).
 
-1. In the  PowerShell ISE console pane, type the following command, and press **Enter**:
+1. I PowerShell-fönstret anger du följande kommando och trycker på **RETUR**:
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-1. Enter your Azure credentials.
+1. Ange dina autentiseringsuppgifter för Azure.
 
-1. Select your **SubscriptionId** string, and copy it to the clipboard.
+1. Välj din **SubscriptionId**-sträng och kopiera den till Urklipp.
 
-1. In the PowerShell ISE, click **File**, and then click **Run**.
+1. Klicka på **Arkiv** i PowerShell ISE och klicka sedan på **Kör**.
 
-1. In the console pane, at the **resourceGroupName:** prompt, type  **moneyapprg**. Then press **Enter**.
+1. I konsolfönstret i **resourceGroupName:** anger du **moneyapprg** och trycker på **RETUR**.
 
-1. In the console pane, at the **keyVaultName:** prompt, type **moneyappkv**. Then press **Enter**.
+1. I konsolfönstret i **keyVaultName:** anger du **moneyapprg** och trycker på **RETUR**.
 
-1. In the console pane, at the **location:** prompt, type the location you used when creating your VM.
+1. I konsolfönstret i **plats:** anger du den plats som du använde när du skapade den virtuella datorn.
 
-1. In the console pane, at the **subscriptionId:** prompt, paste your subscription ID.
+1. I konsolfönstret i **subscriptionId:** klistrar du in ditt prenumerations-ID.
 
-1. The **moneyappkv** key vault will now be created. When this has completed, select the summary text (in green), and copy it to Notepad.
+1. Nyckelvalvet **moneyappkv** kommer nu att skapas. När detta har slutförts väljer du översiktstext (i grönt och kopierar den till Anteckningar.
 
-1. Press **Enter** to continue.
+1. Tryck på **RETUR** för att fortsätta.
 
-1. In the console pane, at the **aadAppName:**  prompt, type **moneyapp**. Then press **Enter**.
+1. I konsolfönstret i **aadAppName:** anger du **moneyapp** och trycker på **RETUR**.
 
-1. The **moneyapp** Azure AD application will now be created. When this has completed, select the summary text (in green), and copy it to Notepad.
+1. Azure AD-programmet **moneyapp** skapas nu. När detta har slutförts väljer du översiktstext (i grönt och kopierar den till Anteckningar.
 
-1. Press **Enter** to continue.
+1. Tryck på **RETUR** för att fortsätta.
 
-### Encrypt your VM disks with PowerShell
+### <a name="encrypt-your-vm-disks-with-powershell"></a>Kryptera dina virtuella datordiskar med PowerShell
 
-Verify the encryption status of the OS and data disks:
+Kontrollera krypteringsstatusen för operativsystemet och datadiskarna:
 
-1. In the PowerShell ISE console pane, type the following command, and press **Enter**:
+1. I PowerShell-fönstret anger du följande kommando och trycker på RETUR:
 
     ```powershell
     $vmName = 'moneyappsvr01'
     ```
 
     > [!NOTE]
-    > The VM name must be enclosed in single quotes.
+    > Namnet på den virtuella datorn måste stå inom enkla citattecken.
 
-1. In the PowerShell ISE script pane, enter the following command, and press **Enter**:
+1. I PowerShell-skriptfönstret anger du följande kommando och trycker på RETUR:
 
     ```powershell
     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
     ```
 
-1. In the **Enable AzureDiskEncryption on the VM** dialog box, click **Yes**, and note the message that encryption may take 10-15 minutes to complete.
+1. I dialogrutan **Aktivera AzureDiskEncryption på den virtuella datorn** dialogrutan klickar du på **Ja** och noterar meddelandet om att krypteringen kan ta 10 – 15 minuter att slutföra.
 
 >[!IMPORTANT]
-> Wait until the command has completed before continuing with this exercise.
+> Vänta tills kommandot har slutförts innan du fortsätter med den här övningen
 
-### Verify the encryption status of your VM disks
+### <a name="verify-the-encryption-status-of-your-vm-disks"></a>Kontrollera krypteringsstatusen för de virtuella datordiskarna
 
-Switch to the Azure portal. On the **Disks** blade for **moneyappsvr01**, note that the disk encryption status for the OS and Data disks is now **Enabled**.
+Växla till Azure-portalen. Observera på bladet **Diskar** för **moneyappsvr01** att statusen för diskkryptering för operativsystemet och datadiskarna nu är **Aktiverad**.

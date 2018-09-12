@@ -1,54 +1,54 @@
-In this unit, you will install Eclipse on your local machine and then install the Azure Toolkit, preparing you for developing Java applications with Azure integration. The installation is quick and simple. At the end of the exercise, you will have everything set up that you need to start your first Java application, taking advantage of the features and services of Azure.
+I den här enheten kommer du att installera Eclipse på din lokala dator och därefter installera Azure Toolkit så att du kan börja utveckla Java-program med Azure-integrering. Installationen går snabbt och enkelt. I slutet av den här övningen har du allt som krävs för att skapa ditt första Java-program och dra nytta av funktionerna och tjänsterna i Azure.
 
-## Install Eclipse IDE
+## <a name="install-eclipse-ide"></a>Installera Eclipse IDE
 
-1. Download the Eclipse version that suits your operating system from http://www.eclipse.org/downloads/packages/installer.
+1. Hämta Eclipse-versionen för ditt operativsystem från http://www.eclipse.org/downloads/packages/installer.
 
-1. Start the Eclipse installer once downloaded.
+1. Starta installationsprogrammet för Eclipse när det har hämtats.
 
-    1. On Windows, double-click the downloaded file.
+    1. I Windows dubbelklickar du på den nedladdade filen.
 
-    1. On macOS and Linux, unzip the installer from the downloaded file. Then start the installer once unzipped.
+    1. I macOS och Linux packar du upp installationsprogrammet från den nedladdade filen. Starta sedan installationsprogrammet när det har packats upp.
 
         > [!NOTE]
-        > The installer may prompt you to install the Java Development Kit, if it is missing.
+        > Du kan uppmanas att installera Java Development Kit om det saknas.
 
-1. Select the packages to install. For Java developers, choose either the Java or Java EE Eclipse IDE option.
+1. Välj de paket som ska installeras. Om du är Java-utvecklare väljer du alternativet Java eller Java EE Eclipse IDE.
 
-1. Select the installation destination on your machine.
+1. Välj installationsmålet på din dator.
 
-1. Launch Eclipse to validate that it installed correctly.
+1. Starta Eclipse för att kontrollera att det har installerats korrekt.
 
-## Install Azure Toolkit for Eclipse
+## <a name="install-azure-toolkit-for-eclipse"></a>Installera Azure Toolkit for Eclipse
 
-Installing the Azure Toolkit is the same across Windows, macOS, and Linux.
+Azure Toolkit installeras på samma sätt i Windows, macOS och Linux.
 
-1. Start Eclipse.
+1. Starta Eclipse.
 
-1. Go to **Help** > **Install New Software...**.
+1. Gå till **Hjälp** > **Installera ny programvara...**.
 
-    The following screenshot shows the menu location of the **Install New Software...** item.
+    På följande skärmbild visas menyplatsen för alternativet **Installera ny programvara...**.
 
-    ![Screenshot of the Install New Software option highlighted within the Help menu of Eclipse.](../media/7-eclipse-install-new-software.png)
+    ![Skärmbild av alternativet Installera ny programvara markerat på Hjälp-menyn i Eclipse.](../media/7-eclipse-install-new-software.png)
 
-1. The **Available Software** dialog will open. In the **Work with:** text box, type `http://dl.microsoft.com/eclipse/` and press Enter.
+1. Dialogrutan **Tillgänglig programvara** öppnas. Gå till textrutan **Arbeta med:**, skriv `http://dl.microsoft.com/eclipse/` och tryck på Retur.
 
-1. In the results, check the **Azure Toolkit for Java** option. Make sure you uncheck the **Contact all update sites during install to find required software** option, if it isn't already.
+1. Markera alternativet **Azure Toolkit för Java** i resultatet. Avmarkera alternativet **Kontakta alla uppdateringsplatser under installationen för att hitta nödvändig programvara** om det inte redan är avmarkerat.
 
-    The following screenshot shows the **Available Software** install configuration as described above.
+    Följande skärmbild visar installationskonfigurationen **Tillgänglig programvara** som beskrivs ovan.
 
-    ![Screenshot of the Available Software window in Eclipse, with boxes highlighting the configuration necessary to find and install the Azure Toolkit for Java.](../media/7-eclipse-download-azure-toolkit-for-java.png)
+    ![Skärmbild av fönstret Tillgänglig programvara i Eclipse med rutor som visar den konfigurationen som krävs för att hitta och installera Azure Toolkit för Java.](../media/7-eclipse-download-azure-toolkit-for-java.png)
 
-1. Click **Next**.
+1. Klicka på **Nästa**.
 
-1. Review and accept the license agreements when prompted, and click **Finish**.
+1. Granska och acceptera licensavtalet när du uppmanas att göra det och klicka sedan på **Slutför**.
 
-1. Eclipse will download and install the Azure Toolkit.
+1. Eclipse laddar ned och installerar Azure Toolkit.
 
-1. Restart Eclipse if required.
+1. Starta om Eclipse om det behövs.
 
-1. Validate installation of Azure Toolkit by verifying that you can find a **Tools** > **Azure** menu option in Eclipse.
+1. Verifiera installationen av Azure Toolkit genom att kontrollera att menyalternativet **Verktyg** > **Azure** visas i Eclipse.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you installed Eclipse for Java, and prepared it to take advantage of the integration with Azure services and products. The installation is quick and straightforward, making Eclipse ideal for the task of Java development with cloud services integration.
+I den här kursdelen har du installerat Eclipse för Java och förberett det för att använda integrering med tjänsterna och produkterna i Microsoft Azure. Installationen är snabb och enkel vilket gör Eclipse perfekt för Java-utveckling med integrering av molntjänster.

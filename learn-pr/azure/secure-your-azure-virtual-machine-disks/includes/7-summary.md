@@ -1,13 +1,14 @@
-Azure provides Storage Service Encryption (SSE) and Azure Disk Encryption (ADE) to secure Azure VM disks. These technologies work together to provide strong 256-bit encryption, as part of a defense-in-depth approach for the protection of Azure VM disks. It's required that you complete the Azure Disk Encryption prerequisites to enable disk encryption. The Azure Disk Encryption prerequisites configuration script can automate this process. When enabling encryption on new VMs, you can use an Azure Resource Manager template. This ensures that your data is encrypted at the point of deployment, leaving no vulnerabilities.
+Azure tillhandahåller Storage Service Encryption (SSE) och Azure Disk Encryption (ADE) för att skydda virtuella Azure-diskar. Dessa tekniker fungerar tillsammans för att ge stark 256-bitars kryptering, som en del av en djupskyddsmetod av Virtuella Azure-diskar. Du måste ha slutfört förhandskraven för Azure Disk Encryption för att aktivera diskkryptering. Konfigurationsskriptet som krävs för Azure Disk Encryption kan automatisera den här processen. När du aktiverar kryptering på nya virtuella datorer kan du använda en ARM-mall så att dina data krypteras vid distributionspunkten och inte lämnar sårbarheter.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
-Running Azure VMs, and the associated storage, incurs costs against your subscription. You'll want to remove unneeded resources to avoid unnecessary charges. The easiest way to clean up your Azure subscription is to remove the resource group; this will also delete all the resources in the group. When you are finished with this module, run the following Azure PowerShell cmdlet:
+## <a name="cleanup"></a>Rensa
+<!---TODO: Do we need to include cleanup for the free education tier?--->
+
+Virtuella Azure-datorer och den associerade lagringen medför kostnader mot din prenumeration. Ta bort de resurser du inte behöver så att du undviker onödiga kostnader. Det enklaste sättet att rensa i din Azure-prenumeration är att ta bort den associerade resursgruppen. Då tas även alla resurser i gruppen bort. När du är färdig med den här modulen kör du följande Azure PowerShell-cmdlet:
 
    ```powershell
    Remove-AzureRmResourceGroup -Name moneyapprg
    ```
 
-When you are asked to confirm the deletion, answer **Yes**. The command may take several minutes to complete as resources are deleted. 
+När du uppmanas att bekräfta borttagningen svarar du **Ja**. Det kan ta flera minuter att köra kommandot och ta bort resurserna. 
 
-If you get a deletion failed message, you may need to remove locks on the key vault before you can delete the resource group.
+Om du får ett meddelande om att borttagningen misslyckades kan du behöva ta bort låsen från nyckelvalvet innan du kan ta bort resursgruppen.
