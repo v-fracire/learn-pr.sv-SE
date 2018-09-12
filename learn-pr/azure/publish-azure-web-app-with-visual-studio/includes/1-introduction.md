@@ -1,19 +1,19 @@
-Imagine you're a software developer for a ski resort. You are launching a new application which will let users view trail maps and purchase lift tickets on your website or their mobile phones. You want to create an ASP.NET web application to complement and advertise the app. Being a Visual Studio developer, you want to use it to create, deploy, and manage your new site.
+Anta att du är programutvecklare för en skidort. Du ska starta ett nytt program som gör att användarna kan visa spårkartor och köpa liftbiljetter på din webbplats eller i sina mobiltelefoner. Du vill skapa ett ASP.NET-webbprogram för att komplettera och annonsera appen. Eftersom du är en Visual Studio-utvecklare, vill du använda Visual Studio för att skapa, distribuera och hantera den nya platsen.
 
-Visual Studio and Azure App Service provide a powerful mechanism for creating, publishing, and maintaining web apps in Azure. Here, you will learn how to use the publishing features built in to Visual Studio to deploy and manage ASP.NET web applications hosted on Azure.
+Visual Studio och Azure App Service tillhandahåller en kraftfull mekanism för att skapa, publicera och underhålla webbappar i Azure. Här kommer du lära dig att använda de inbyggda publiceringsfunktionerna i Visual Studio för att distribuera och hantera ASP.NET-baserade webbprogram som är värdbaserade på Azure.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att:
 
-- Create an ASP.NET web app in Visual Studio 2017 for PC or Mac
-- Publish an ASP.NET web app to Azure with Visual Studio 2017
-- Update an ASP.NET application in Azure using Visual Studio for PC or Mac
+- Skapa en ASP.NET-webbapp i Visual Studio 2017 för PC eller Mac.
+- Publicera en ASP.NET-webbapp i Azure med Visual Studio 2017.
+- Uppdatera ett ASP.NET-program till Azure med Visual Studio för PC eller Mac.
 
-## Prerequisites
+## <a name="prerequisites"></a>Krav
 
-- Knowledge of the Azure cloud environment
-- Familiarity with the Visual Studio user interface
-- Familiarity with web app concepts
-- Basic programming knowledge
-- Basic HTML knowledge
+- Kunskap om Azures molnmiljö
+- Känna till användargränssnittet för Visual Studio
+- Känna till konceptet med webbappar
+- Grundläggande programmeringskunskaper
+- Grundläggande kunskaper i HTML

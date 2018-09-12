@@ -41,5 +41,3 @@ Funktioner har som standard en tidsgräns på 5 minuter. Denna tidsgräns kan ko
 Det andra kännetecknet är körningsfrekvens. Om du räknar med att funktionen ska köras kontinuerligt av flera klienter är det klokt att uppskatta förbrukningen och beräkna kostnaden för att använda funktioner. Det kan vara billigare att lagra tjänsten på en virtuell dator.
 
 När du skalar kan endast en instans av en funktionsapp skapas var tionde sekund, för upp till totalt 200 instanser. Tänk på att varje instans kan hantera flera körningar samtidigt, så det finns ingen tydlig begränsning för hur mycket trafik en instans kan hantera. Olika typer av utlösare har olika skalningskrav, så du bör undersöka ditt val av utlösare och dess begränsningar.
-
-

@@ -1,76 +1,76 @@
-Suppose you have an application for the sales team in your global company. Each team member has a mobile phone where your app will be installed. A web service hosted in Azure implements the business logic for your application and stores information in Azure SQL Database. There is one instance of the web service for each geographical region. You have identified the following purposes for sending messages between the mobile app and the web service:
+Anta att du har ett program för säljteamet i ditt globala företag. Varje teammedlem har en mobiltelefon där din app ska installeras. En webbtjänst på Azure implementerar affärslogiken för ditt program och lagrar information i Azure SQL Database. Det finns en instans av webbtjänsten för varje geografisk region. Du har identifierat följande syften för att skicka meddelanden mellan mobilappen och webbtjänsten:
 
-- Messages that relate to individual sales must be sent only to the web service instance in the user's region.
-- Messages that relate to sales performance must be sent to all instances of the web service.
+- Meddelanden som är relaterade till enskilda försäljningar måste skickas endast till webbtjänstinstansen i användarens region.
+- Meddelanden som är relaterade till försäljningsresultat måste skickas till alla instanser av webbtjänsten.
 
-You have decided to implement a Service Bus queue for the first use case and the Service Bus topic for the second use case.
+Du har valt att implementera en Service Bus-kö för det första användningsfallet och Service Bus-ämnet för det andra.
 
-In this exercise, you will create a Service Bus namespace, which will contain both a queue and a topic with subscriptions.
+I den här övningen skapar du ett Service Bus-namnområde som innehåller både en kö och ett ämne med prenumerationer.
 
-## Create a Service Bus namespace
+## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
 
-In Azure Service Bus, a namespace is a container, with a unique fully qualified domain name, for queues, topics, and relays. You must start by creating the namespace.
+I Azure Service Bus är ett namnområde en container med ett unikt fullständigt kvalificerat domännamn för köer, ämnen och reläer. Du börjar med att skapa namnområdet.
 
-Each namespace also has primary and secondary shared access signature encryption keys. A sending or receiving component must provide these keys when it connects to gain access to the objects within the namespace.
+Varje namnområde har också primära och sekundära krypteringsnycklar för signatur för delad åtkomst (SAS). En skickande eller mottagande komponent måste ange dessa nycklar när den ansluter för att få åtkomst till objekten inom namnområdet.
 
-To create a Service Bus namespace by using the Azure portal, follow these steps:
+Följ de här stegen för att skapa ett Service Bus-namnområde med Azure-portalen:
 
-1. In a browser, navigate to the [Azure portal](https://portal.azure.com/) and log in with your usual Azure account credentials.
+1. I en webbläsare går du till [Azure-portalen](https://portal.azure.com/) och loggar in med dina vanliga autentiseringsuppgifter för Azure-kontot.
 
-1. In the navigation on the left, click **All services**.
+1. I det vänstra navigeringsfönstret klickar du på **Alla tjänster**.
 
-1. In the **All Services** blade, scroll down to the **INTEGRATION** section, and then click **Service Bus**.
+1. I bladet **Alla tjänster** bläddrar du ned till avsnittet **Integrering** och klickar sedan på **Service Bus**.
 
-    ![Create a Service Bus namespace](../media-draft/3-create-namespace-1.png)
+    ![Skapa ett namnområde för Service Bus](../media-draft/3-create-namespace-1.png)
 
-1. In the top left of the **Service Bus** blade, click **Add**.
+1. Längst upp till vänster på bladet **Service Bus** klickar du på **Lägg till**.
 
-1. In the **Name** text box, type a unique name for the namespace. For example "salesteamapp" + *your initials* + *current date*.
+1. Ange ett unikt namn för namnområdet i textrutan **Namn**. Till exempel salesteamapp + *dina initialer* + *aktuellt datum*
 
-1. In the **Pricing tier** drop-down list, select **Standard**.
+1. I listrutan **Prisnivå**, väljer du **Standard**.
 
-1. In the **Subscription** drop-down list, select your subscription.
+1. I listrutan **Prenumeration** väljer du din prenumeration.
 
-1. Under **Resource group**, select **Create new**, and then type **SalesTeamAppRG**.
+1. Under **Resursgrupp** väljer du **Skapa ny** och skriver in **SalesTeamAppRG**.
 
-1. In the **Location** drop-down list, select a location near you, and then click **Create**. Azure creates the new Service Bus namespace.
+1. I listrutan **Plats** väljer du en plats nära dig och klickar sedan på **Skapa**. Azure skapar det nya Service Bus-namnområdet.
 
-    ![Create a Service Bus namespace](../media-draft/3-create-namespace-2.png)
+    ![Skapa ett namnområde för Service Bus](../media-draft/3-create-namespace-2.png)
 
-## Create a Service Bus queue
+## <a name="create-a-service-bus-queue"></a>Skapa en Service Bus-kö
 
-Now that you have a namespace, you can create a queue for messages about individual sales. To do this, follow these steps:
+Nu när du har ett namnområde, kan du skapa en kö för meddelanden om enskild försäljning. Det gör du genom att följa dessa steg:
 
-1. In the **Service Bus** blade, click **Refresh**. The namespace you just created is displayed.
+1. På bladet **Service Bus** klickar du på **Uppdatera**. Det namnområde som du nyss skapade visas.
 
-1. Click the namespace you just created.
+1. Klicka på det namnområde som du nyss skapade.
 
-1. In the top left of the namespace blade, click **+ Queue**.
+1. Längst upp till vänster på namnområdesbladet klickar du på **+ Kö**.
 
-1. In the **Create queue** blade, in the **Name** text box, type **salesmessages**, and then click **Create**. Azure creates the queue in your namespace.
+1. I bladet **Skapa kö** i textrutan **Namn** textrutetypen **salesmessages** och klickar sedan på **Skapa**. Azure skapar kön i ditt namnområde.
 
-    ![Creating a queue](../media-draft/3-create-queue.png)
+    ![Skapa en kö](../media-draft/3-create-queue.png)
 
-## Create a Service Bus topic and subscriptions
+## <a name="create-a-service-bus-topic-and-subscriptions"></a>Skapa ett Service Bus-ämne och prenumerationer
 
-You also want to create a topic that will be used for messages that relate to sales performance. Multiple instances of the business logic web service will subscribe to this topic from different countries. Each message will be delivered to multiple instances.
+Du bör också skapa ett ämne som ska användas för meddelanden som är relaterade till försäljningsresultat. Flera instanser av webbtjänsten för affärslogik kommer att prenumerera på det här ämnet från olika länder. Varje meddelande levereras till flera instanser.
 
-Follow these steps:
+Följ de här stegen:
 
-1. In the **Service Bus Namespace** blade, click **+ Topic**.
+1. På bladet **Service Bus-namnområde** klickar du på **+ Ämne**.
 
-1. In the **Create topic** blade, in the **Name** text box, type **salesperformancemessages**, and then click **Create**. Azure creates the topic in your namespace.
+1. I bladet **Skapa ämne** i textrutan **Namn** textrutetypen **salesperformancemessages** och klicka sedan på **Skapa**. Azure skapar ämnet i ditt namnområde.
 
-    ![Creating a topic](../media-draft/3-create-topic.png)
+    ![Skapa ett ämne](../media-draft/3-create-topic.png)
 
-1. When the topic has been created, in the **Service Bus Namespace** blade, under **Entities**, click **Topics**.
+1. När ämnet har skapats i bladet **Service Bus-namnområde** under **Entiteter**, klickar du på **Ämnen**.
 
-1. In the list of topics, click **salesperformancemessages**, and then click **+ Subscription**.
+1. I listan med ämnen, klickar du på **salesperformancemessages** och klickar sedan på **+ Prenumeration**.
 
-1. In the **Name** text box, type **Americas**, and then click **Create**.
+1. I textrutan **Namn**, typen **Americas** och klickar sedan på **Skapa**.
 
-1. Click **+ Subscription**.
+1. Klicka på **+ Prenumeration**.
 
-1. In the **Name** text box, type **EuropeAndAfrica**, and then click **Create**.
+1. I textrutan **Namn**, typen **EuropeAndAfrica** och klickar sedan på **Skapa**.
 
-You have built the infrastructure required to use Service Bus to increase the resilience of your sales force distributed application. You have created a queue for messages about individual sales and a topic for messages about sales performance. The topic includes multiple subscriptions because messages sent to that topic can be delivered to multiple recipient web services around the world.
+Du har skapat den infrastruktur som krävs för att använda Service Bus för att öka flexibiliteten för din säljstyrkas distribuerade program. Du har skapat en kö för meddelanden om enskild försäljning och ett ämne för meddelanden om försäljningsresultat. Avsnittet innehåller flera prenumerationer eftersom meddelanden som skickas till detta ämne kan levereras till flera mottagande webbtjänster över hela världen.

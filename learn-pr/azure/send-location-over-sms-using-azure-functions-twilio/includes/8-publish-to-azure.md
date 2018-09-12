@@ -1,92 +1,92 @@
-The app and Azure Function are now complete and running locally. In this unit, you publish the function to Azure to run in the cloud.
+Appen och Azure-funktionen är nu färdiga och körs lokalt. Här får du publicera funktionen i Azure för att köra den i molnet.
 
-> In this unit, you will publish your function from Visual Studio. This is a great way to get started for proof-of-concepts, prototypes, and learning, but for a production-quality app you should **not** use this method. You should use some form of CI-based deployment. You can read more about doing this in the [Azure Functions Deployment docs](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment).
+> Här kommer du att publicera din funktion från Visual Studio. Det här är ett bra sätt att komma igång med konceptbeskrivningar, prototyper och utbildningar, men du bör **inte** använda den här metoden för produktionsappar. Du bör använda någon form av CI-baserad distributionen. Du kan läsa mer om hur du gör det i [dokumentationen om Azure Functions-distribution](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment).
 >
 
-## Publishing your app to Azure
+## <a name="publishing-your-app-to-azure"></a>Publicera din app i Azure
 
-Azure functions can be published to Azure from inside Visual Studio.
+Du kan publicera Azure-funktioner i Azure från Visual Studio.
 
-1. Stop the local Azure Functions runtime if it's still running from the previous unit.
+1. Stoppa den lokala körningen av Azure Functions om det fortfarande körs sedan den föregående enheten.
 
-1. Right-click on the `ImHere.Functions` app in the solution explorer and select *Publish...*.
+1. Högerklicka på appen `ImHere.Functions` i lösningsutforskaren och välj *Publicera*.
 
-    ![Right-click publish on the Functions app](../media-drafts/8-right-click-publish.png)
+    ![Högerklicka på Publicera i Functions-appen](../media-drafts/8-right-click-publish.png)
 
-1. From the **Pick a publish target** dialog, select *Azure Function App*, and for **Azure App Service**, select *Create New*. Click **Publish**.
+1. I dialogrutan **Välj ett publiceringsmål** väljer du *Azure-funktionsapp*, och för **Azure App Service** väljer du *Skapa ny*. Klicka på **Publicera**.
 
-    ![Creating a new Azure App Service to publish to](../media-drafts/8-pick-publish-target.png)
+    ![Skapa en ny Azure App Service att publicera i](../media-drafts/8-pick-publish-target.png)
 
-1. Select your Azure account from the drop-down in the top-right corner; if you have more than one Azure accounts and the right one isn't selected.
+1. Välj ditt Azure-konto i listrutan längst uppe till höger om du har fler än ett Azure-konto och det rätta kontot inte redan är valt.
 
-1. Give your Functions app a name. This name needs to be globally unique across all the Functions apps in the whole of Azure, so use something like "ImHere-\<YourName\>".
+1. Ge din Functions-app ett namn. Det här namnet måste vara globalt unikt bland alla Functions-appar i hela Azure, så använd någonting i stil med ”ImHere -\<DittNamn\>”.
 
-1. Select the subscription you want to create this Functions app under.
+1. Välj den prenumeration som Functions-appen ska skapas under.
 
-1. Create a new resource group for this Functions app by clicking the **New...** button next to the **Resource Group** drop-down and giving it a name such as "ImHere". Resource group names need to be unique to your subscription, not globally unique across Azure. Then, click **OK**.
+1. Skapa en ny resursgrupp för den här Functions-appen genom att klicka på knappen **Ny...**  bredvid listrutan **Resursgrupp** och ge den ett namn som ”ImHere”. Resursgruppnamn måste vara unika för din prenumeration, inte globalt i hela Azure. Klicka sedan på **OK**.
 
-    ![Create a new resource group](../media-drafts/8-create-new-resource-group.png)
+    ![Skapa en ny resursgrupp](../media-drafts/8-create-new-resource-group.png)
 
-   Creating a new resource group makes it easier to cleanup later. You can delete the resource group and know that everything you've created for this Functions app will all be deleted at the same time.
+   När du skapar en ny resursgrupp blir det lättare att rensa resurserna senare. När du tar bort resursgruppen vet du att allt du skapat för den här Functions-appen tas bort samtidigt.
 
-1. Create a new hosting plan by clicking the **New...** button next to the **Hosting Plan** drop-down. The App Service plan name will default to your app name with "Plan" on the end. Set the **Location** to the closest location to you and make sure **Size** is set to consumption. Then, click **OK**.
+1. Skapa en ny värdplan genom att klicka på knappen **Ny...**  bredvid listrutan **Värdplan**. Namnet på App Service-planen är som standard appnamnet med ”Plan” i slutet. För **Plats** väljer du den plats som är närmast dig. Se till att **Storlek** är inställt på förbrukning. Klicka sedan på **OK**.
 
-    ![Configure the hosting plan](../media-drafts/8-configure-hosting-plan.png)
+    ![Konfigurera värdplanen](../media-drafts/8-configure-hosting-plan.png)
 
-1. Create a new storage account by clicking the **New...** button next to the **Storage Account** drop-down. A default name will be provided, so keep all the default values and click **OK**.
+1. Skapa ett nytt lagringskonto genom att klicka på knappen **Nytt...**  bredvid listrutan **Lagringskonto**. Ett standardnamn anges, så behåll alla standardvärden och klicka på **OK**.
 
-    ![Create a storage account](../media-drafts/8-create-storage-account.png)
+    ![Skapa ett lagringskonto](../media-drafts/8-create-storage-account.png)
 
-1. Click **Create** to provision all the resources on Azure and publish your Azure Functions app.
+1. Klicka på **Skapa** så etableras alla resurser i Azure och din Azure Functions-app publiceras.
 
-    ![Create the App Service](../media-drafts/8-create-app-service.png)
+    ![Skapa App Service-tjänsten](../media-drafts/8-create-app-service.png)
 
-Provisioning will take a couple of minutes or so to run. The following resources will be provisioned:
+Etableringen kan ta några minuter att köra. Följande resurser etableras:
 
-- A storage account to store the files needed for the Azure Functions app
-- An App Service plan to manage the compute resources needed by the Azure Functions app
-- The App Service that runs the Azure function
+- ett lagringskonto för lagring av filerna som behövs i Azure Functions-appen
+- en App Service-plan för hantering av beräkningsresurserna som behövs i Azure Functions-appen
+- den App Service-tjänst som kör Azure-funktionen.
 
-The function will now be published and available to call at https://<your-app-name>.azurewebsites.net/api/SendLocation.
+Funktionen publiceras nu och är tillgänglig för anrop på https://<ditt-appnamn>.azurewebsites.net/api/SendLocation.
 
-## Configuring your app
+## <a name="configuring-your-app"></a>Konfigurera din app
 
-When the Azure function was running locally, it was using Twilio credentials that were stored in a `local.settings.json` file. As the name suggests, this file is for local settings, not Azure settings. Before the Azure function can be called inside Azure, the `TwilioAccountSid` and `TwilioAuthToken` settings need to be configured.
+När Azure-funktionen kördes lokalt användes Twilio-autentiseringsuppgifter som lagrades i en `local.settings.json`-fil. Precis som namnet antyder är den här filen till för lokala inställningar, inte för Azure-inställningar. Innan du kan anropa Azure-funktionen i Azure måste du konfigurera inställningarna `TwilioAccountSid` och `TwilioAuthToken`.
 
-1. From the Publish tab, click the **Manage Application Settings** option.
+1. Klicka på alternativet **Hantera programinställningar** på fliken Publicera.
 
-    ![The Manage Application Settings option](../media-drafts/8-application-settings-option.png)
+    ![Alternativet Hantera programinställningar](../media-drafts/8-application-settings-option.png)
 
-1. Click the **Add** button to add a new setting. Name it "TwilioAccountSid" and set the value to your Twilio account SID. Repeat this step for your Auth Token using the name "TwilioAuthToken".
+1. Klicka på knappen **Lägg till** för att lägga till en ny inställning. Ge den namnet ”TwilioAccountSid” och ange SID:et för ditt Twilio-konto som värde. Upprepa det här steget för din autentiseringstoken och använd namnet ”TwilioAuthToken”.
 
-    ![Setting the Twilio credentials in the application settings](../media-drafts/8-set-creds-in-app-settings.png)
+    ![Ställa in Twilio-autentiseringsuppgifter i programinställningarna](../media-drafts/8-set-creds-in-app-settings.png)
 
-1. Click **OK**.
+1. Klicka på **OK**.
 
-1. Click **Publish** to republish the Azure Functions app with the new application settings.
+1. Klicka på **Publicera** så att du publicerar om Azure Functions-appen med de nya programinställningarna.
 
-    ![The publish button](../media-drafts/8-publish-application-button.png)
+    ![Knappen Publicera](../media-drafts/8-publish-application-button.png)
 
-## Pointing the mobile app to Azure
+## <a name="pointing-the-mobile-app-to-azure"></a>Se till att mobilappen pekar på Azure
 
-1. From the Publish tab, copy the **Site URL** using the copy button next to the value.
+1. Kopiera **Webbplats-URL** från fliken Publicera med kopieringsknappen bredvid värdet.
 
-    ![Copy the site URL from the publish tab](../media-drafts/8-copy-site-url.png)
+    ![Kopiera webbplatsadressen från fliken Publicera](../media-drafts/8-copy-site-url.png)
 
-1. Open the `MainViewModel` from the `ImHere` project.
+1. Öppna `MainViewModel` från projektet `ImHere`.
 
-1. Update the value of the `baseUrl` field to be the site URL copied from the Publish tab.
+1. Uppdatera värdet för fältet `baseUrl` med webbplatsadressen du kopierade från fliken Publicera.
 
-1. Change the protocol for this value from `http` to `https`. The site URL is always given using HTTP, but you have to use HTTPS to call an Azure function.
+1. Ändra protokollet för det här värdet från `http` till `https`. Webbplatsadressen anges alltid med HTTP, men du måste använda HTTPS när du ska anropa en Azure-funktion.
 
-## Test it out
+## <a name="test-it-out"></a>Testa den
 
-1. Set the `ImHere.UWP` app as the startup app and run it.
+1. Ange appen `ImHere.UWP` som startapp och kör den.
 
-1. Enter a phone number and click the **Send Location** button.
+1. Ange ett telefonnummer och klicka på knappen **Send Location**.
 
-1. You should receive the location as an SMS message.
+1. Du bör få platsen som ett SMS-meddelande.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to publish an Azure Functions project to Azure from inside Visual Studio and configure application settings.
+Nu har du lärt dig hur du publicerar ett Azure Functions-projekt i Azure från Visual Studio och konfigurerar programinställningar.

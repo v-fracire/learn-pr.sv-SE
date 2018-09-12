@@ -1,32 +1,32 @@
-One of the main tasks you'll want to do while running virtual machines is to start and stop them.
+En av de viktigaste åtgärderna du förmodligen vill göra medan de virtuella datorerna körs är att kunna starta och stoppa dem.
 
-## Stopping a VM
+## <a name="stopping-a-vm"></a>Stoppa en virtuell dator
 
-We can stop a running VM with the `vm stop` command. You must pass the name and resource group, or the unique ID for the VM:
+Vi kan stoppa en virtuell dator som körs med kommandot `vm stop`. Du måste skicka namn och resursgrupp eller unikt ID för den virtuella datorn:
 
 ```azurecli
 az vm stop -n SampleVM -g ExerciseResources
 ```
 
-We can verify it has stopped by attempting to ping the public IP address, using `ssh`, or through the `vm get-instance-view` command. This final approach returns the same basic data as `vm show` but includes details about the instance itself. Try typing the following command into Azure Cloud Shell to see the current running state of your VM:
+Vi kan kontrollera att den har stoppats genom att försöka pinga den offentliga IP-adressen med `ssh`, eller med kommandot `vm get-instance-view`. Den sista metoden returnerar samma grundläggande data som `vm show`, men innehåller även information om själva instansen. Försök med att skriva följande kommando i Azure Cloud Shell för att se aktuell körningsstatus för den virtuella datorn:
 
 ```azurecli
 az vm get-instance-view -n SampleVM -g ExerciseResources --query "instanceView.statuses[?starts_with(code, 'PowerState/')].displayStatus" -o tsv
 ```
 
-This command should return `VM stopped` as the result.
+Det här kommandot ska returnera `VM stopped` som ett resultat.
 
-## Starting a VM
+## <a name="starting-a-vm"></a>Starta en virtuell dator
 
-We can do the reverse through the `vm start` command.
+Vi kan göra det omvända med kommandot `vm start`.
 
 ```azurecli
 az vm start -n SampleVM -g ExerciseResources
 ```
 
-This command will start a stopped VM. We can verify it through the `vm get-instance-view` query, which should now return `VM running`.
+Det här kommandot startar en stoppad virtuell dator. Vi kan kontrollera det med frågan `vm get-instance-view`, som nu borde returnera `VM running`.
 
-## Restarting a VM
+## <a name="restarting-a-vm"></a>Starta om en virtuell dator
 
-Finally, we can restart a VM if we have made changes that require a reboot using the `vm restart` command. You can add the `--no-wait` flag if you want the Azure CLI to return immediately without waiting for the VM to reboot.
+Slutligen om vi har gjort ändringar som kräver en omstart, kan vi starta om en virtuell dator med hjälp av kommandot `vm restart`. Du kan lägga till `--no-wait`-flaggan om du vill att Azure CLI ska returneras omedelbart, utan att vänta tills den virtuella datorn har startats om.
 

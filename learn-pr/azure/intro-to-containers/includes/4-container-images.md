@@ -1,126 +1,126 @@
-In the last unit, you worked with pre-created container images to perform some basic Docker operations. In this unit, you will create custom container images, push these images to a public container registry, and run containers from these images.
+I den föregående enheten arbetade du med fördefinierade containeravbildningar för att utföra vissa grundläggande Docker-åtgärder. I den här enheten skapar du anpassade containeravbildningar, överför dessa avbildningar till ett offentligt containerregister och kör containrarna från avbildningarna.
 
-Container images can be created by hand or using what's called a Dockerfile to automate the process. The preferred method is using a Dockerfile, but this unit will demonstrate both methods. Understanding the manual process will help you better understand what's occurring when using a Dockerfile for automation.
+Containeravbildningar kan skapas manuellt eller med hjälp av det som kallas en Dockerfile för att automatisera processen. Den föredragna metoden är att använda en Dockerfile, men den här enheten visar båda metoderna. Avsikten är att en förståelse för den manuella processen hjälper dig att bättre förstå det som händer när du använder en Dockerfile för automatisering.
 
-## Manual image creation
+## <a name="manual-image-creation"></a>Skapa avbildning manuellt
 
-When manually creating a container image, the following actions are taken:
+När du skapar en containeravbildning manuellt vidtas följande åtgärder:
 
-- Start an instance of a container.
-- Establish a terminal session with the container.
-- Modify the container by installing software and making configuration changes.
-- Capturing the container into a new image using the `docker capture` command.
+- Starta en instans av en container.
+- Upprätta en terminalsession med containern.
+- Ändra containern genom att installera programvara och göra ändringar i konfigurationen.
+- Spara containern till en ny avbildning med kommandot `docker capture`.
 
-In this first example, you start an instance of a container that's running Python, create a 'Hello World' application, and then capture the container to a new image.
+I det första exemplet startar du en instans av en container som kör Python, skapar ett hello world-program och sparar sedan containern till en ny avbildning.
 
-First, run a container from the NGINX image. This command looks a bit different from the commands that you ran in the previous unit. Because you want to establish a terminal session with the running container, the `-t` and `-i` arguments are provided. Together, these arguments instruct Docker to allocate a pseudo terminal that will remain in a runnings state. In other words, the `-t` and `-i` arguments create an interactive session with the running container.
+Kör först en container från NGINX-avbildningen. Det här kommandot lite ser annorlunda ut än de kommandon som du körde i den föregående enheten. Eftersom du ska upprätta en terminalsession med den container som körs anges argumenten `-t` och `-i`. Tillsammans instruerar de här argumenten Docker att allokera en pseudoterminal som kommer att finnas kvar i ett körningstillstånd. Med andra ord skapar argumenten `-t` och `-i` en interaktiv session med den container som körs.
 
-You then specify that the `python` container image is used, and the process to run inside of the container is `bash`.
+Du anger sedan att `python`-containeravbildningen används och att den process som ska köras inuti containern är `bash`.
 
 ```bash
 docker run --name python-demo -ti python bash
 ```
 
-After the command is run, your terminal session should switch to the containers pseudo terminal. This can be seen by the terminal prompt, which should have changed to something similar to the following:
+När kommandot har körts bör terminalsessionen växla till containerpseudoterminalen. Detta kan ses utifrån terminalfönstret, som bör ha ändrats till något som liknar följande:
 
-```output
+```bash
 root@d8ccada9c61e:/#
 ```
 
-At this point, you're working inside the container. You should find that working inside a container is much like working inside a virtual or physical system. For instance, you can list, create, and delete files, install software, and make configuration changes. For this simple example, a Python-based 'Hello World' script is created. This can be done with the following command:
+I det här skedet arbetar du inuti container. Arbete i en container påminner om arbete i ett virtuellt eller ett fysiskt system. Exempelvis kan du lista, skapa och ta bort filer, installera programvara och göra ändringar i konfigurationen. För det här enkla exemplet skapas ett Python-baserat hello world-skript. Detta kan göras med följande kommando:
 
 ```bash
 echo 'print("Hello World!")' > hello.py
 ```
 
-To test the script while you're still in the container, run the following command:
+Testa skriptet medan du fortfarande är i containern genom att köra följande kommando:
 
 ```bash
 python hello.py
 ```
 
-This will produce the following output:
+Detta genererar följande utdata:
 
-```output
+```bash
 Hello World!
 ```
 
-When you're satisfied that the script functions as expected, exit out of the container by typing `exit`:
+När du har bekräftat att skriptet fungerar som förväntat stänger du containern genom att skriva `exit`:
 
 ```bash
 exit
 ```
 
-Back in the terminal of your local system, use the `docker ps` command to list all running containers:
+När du är tillbaka i terminalen för det lokala systemet använder du kommandot `docker ps` för att lista alla containrar som körs:
 
 ```bash
 docker ps
 ```
 
-Notice that nothing is running. When you entered `exit` in the running container, the Bash process completed, which then stopped the container. This is the expected behavior and is ok.
+Observera att inget körs. När du angav `exit` i den container som körs slutfördes Bash-processen, vilket sedan stoppade containern. Detta är förväntat beteende och är ok.
 
-```output
+```bash
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
-Use `docker ps` again and include the `-a` argument. This command will return a list of all containers, regardless if they're running.
+Använd `docker ps` igen och inkludera argumentet `-a`. Det här kommandot returnerar en lista över alla containrar, oavsett om de körs.
 
 ```bash
 docker ps -a
 ```
 
-Notice that a container with the name *python-demo* has a status of *Exited*. This container is the stopped instance of the container that you just exited from.
+Observera att en container med namnet *python-demo* har statusen *Exited* (Stängd). Den här containern är den stoppade instansen av den container som du precis stängde.
 
-```output
+```bash
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
 cf6ac8e06fd9        python              "bash"              27 seconds ago      Exited (0) 12 seconds ago                       python-demo
 ```
 
-To create a new container image from this container, use the `docker commit` command. The following example instructs *docker commit* to create an image named *python-custom* from the *python-demo* containers.
+Du kan skapa en ny containeravbildning från den här containern med kommandot `docker commit`. I följande exempel instruerar *docker commit* att en avbildning med namnet *python-customn* ska skapas från *python-demo*-containrarna.
 
 ```bash
 docker commit python-demo python-custom
 ```
 
-After the command completes, you should see output similar to the following:
+När kommandot är klart bör du se utdata som liknar följande:
 
-```output
+```bash
 sha256:91a0cf9aa9857bebcd7ebec3418970f97f043e31987fd4a257c8ac8c8418dc38
 ```
 
-Now run `docker images` to see a list of container images:
+Kör nu `docker images` för att se en lista över containerbildningar:
 
 ```bash
 docker images
 ```
 
-You should now see the custom Python image.
+Du bör nu se den anpassade Python-avbildningen.
 
-```output
+```bash
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 python-custom       latest              1f231e7127a1        6 seconds ago       922MB
 python              latest              638817465c7d        24 hours ago        922MB
 alpine              latest              11cd0b38bc3c        2 weeks ago         4.41MB
 ```
 
-Run a container from the new image. You also need to specify what command or process to run inside of the container. With this example, run `python hello.py`.
+Kör en container från den nya avbildningen. Du behöver även ange vilket kommando eller vilken process som ska köras inuti containern. Med det här exemplet kör du `python hello.py`.
 
 
 ```bash
 docker run python-custom python hello.py
 ```
 
-The container will start and output the 'Hello World' message. The Python process is then complete and the container stops.
+Containern startar och skickar hello world-meddelandet som utdata. Python-processen är sedan klar, och containern stoppas.
 
-```output
+```bash
 Hello World!
 ```
 
-## Automated image creation
+## <a name="automated-image-creation"></a>Skapa en avbildning automatiskt
 
-In the last section, a container image was manually created. While this method works great for one-off or experiential image creation, it's not sustainable in a production environment. Container image creation can be automated using a *Dockerfile* and the `docker build` command. The *docker build* command essentially starts a container, runs the instructions found in the *Dockerfile*, and then captures the results to a new container image.
+I föregående avsnitt skapades en containeravbildning manuellt. Den här metoden fungerar bra för att skapa enskilda eller experimentella avbildningar, men den är inte hållbar i en produktionsmiljö. Det går att automatisera skapandet av containeravbildningar med hjälp av en *Dockerfile* och kommandot `docker build`. Kommandot *docker build* startar i princip en container, kör de instruktioner som finns i *Dockerfile* och sparar sedan resultaten till en ny containeravbildning.
 
-Create a file named *Dockerfile* and enter the following text:
+Skapa en fil med namnet *Dockerfile* och ange följande text:
 
 ```bash
 FROM python
@@ -132,17 +132,17 @@ RUN echo 'print("Hello World!")' > hello.py
 CMD python hello.py
 ```
 
-The *FROM* statement specifies the base image to be used during image creations. The *RUN* statement runs commands inside of the container. *RUN* can be used to install software, make configuration changes, and cleanup the container before the capture event. The *CMD* statement specifies the process that should run when a container is started.
+Instruktionen *FROM* anger den basavbildning som ska användas när avbildningar skapas. Instruktionen *RUN* kör kommandon inuti containern. *RUN* kan användas för att installera programvara, göra ändringar i konfigurationen och rensa containern före överföringshändelsen. Instruktionen *CMD* anger den process som ska köras när en container startas.
 
-Use the `docker build` command to create a new container image using the instructions specified in the Dockerfile.
+Använd kommandot `docker build` för att skapa en ny containeravbildning med hjälp av de instruktioner som anges i Dockerfile.
 
 ```bash
 docker build -t python-dockerfile .
 ```
 
-You should see output similar to the following.
+Du bör se utdata som liknar följande.
 
-```output
+```bash
 Sending build context to Docker daemon  2.048kB
 Step 1/4 : FROM python
  ---> 638817465c7d
@@ -162,62 +162,62 @@ Successfully built 98c39b91770f
 Successfully tagged python-dockerfile:latest
 ```
 
-Use the `docker images` command to return a list of container images.
+Använd kommandot `docker images` för att returnera en lista över containeravbildningar.
 
 ```bash
 docker images
 ```
 
-You should now see the custom image.
+Du bör nu se den anpassade avbildningen.
 
-```output
+```bash
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
 python-dockerfile   latest              98c39b91770f        About a minute ago   922MB
 python              latest              638817465c7d        26 hours ago         922MB
 alpine              latest              11cd0b38bc3c        2 weeks ago          4.41MB
 ```
 
-Use the `docker run` command to run a container from the custom image.
+Använd kommandot `docker run` för att köra en container från den anpassade avbildningen.
 
-Notice here that no arguments have been provided to the `docker run` command. Unlike when you manually create a container image, a Dockerfile allows you to include a command to run when the container starts. In this case, the specified command is `python hello.py`, which causes the container to run the Python script.
+Lägg märkte till att det inte har angetts några argument till kommandot `docker run`. Till skillnad från när du manuellt skapar en containeravbildning gör Dockerfile att du kan inkludera ett kommando som körs när containern startas. I det här fallet är det angivna kommandot `python hello.py`, vilket gör att containern kör Python-skriptet.
 
 ```bash
 docker run python-dockerfile
 ```
 
-After you run the command, you should see the container output.
+När du har kört kommandot bör du se containerutdata.
 
-```output
+```bash
 Hello World!
 ```
 
-## Push the image to a public registry
+## <a name="push-the-image-to-a-public-registry"></a>Överföra avbildningen till ett offentligt register
 
-Docker Hub is a public container registry. In order to push container images to Docker Hub, you must have a Docker account. If needed, visit the [Docker Hub site](https://hub.docker.com/) to register for an account.
+Docker Hub är ett offentligt containerregister. För att kunna överföra containeravbildningar till Docker Hub måste du ha ett Docker-konto. Vid behov kan du besöka [Docker Hub-webbplatsen](https://hub.docker.com/) för att registrera ett konto.
 
-After you have a Docker Hub account, the container image must be tagged with the account name. To do so, use the `docker tag` command.
+När du har ett Docker Hub-konto måste containeravbildningen taggas med kontonamnet. Det gör du med kommandot `docker tag`.
 
-In the following example, the *python-dockerfile* image is tagged with a Docker Hub account name. Replace `<account name>` with your Docker Hub account name.
+I följande exempel är *python-dockerfile*-avbildningen taggad med ett Docker Hub-kontonamn. Ersätt `<account name>` med ditt Docker Hub-kontonamn.
 
 ```bash
 docker tag python-dockerfile <account name>/python-dockerfile
 ```
 
-Next, make sure that you are logged into Docker Hub using the `docker login` command.
+Därefter kontrollerar du att du är inloggad i Docker Hub med hjälp av kommandot `docker login`.
 
 ```bash
 docker login
 ```
 
-Finally push the *python-dockerfile* image to Docker Hub using the `docker push` command. Replace `<account name>` with your Docker Hub account name.
+Slutligen överför *python-dockerfile*-avbildningen till Docker Hub med kommandot `docker push`. Ersätt `<account name>` med ditt Docker Hub-kontonamn.
 
 ```bash
 docker push <account name>/python-dockerfile
 ```
 
-While the container image is being uploaded to Docker Hub, you will see output similar to the following:
+Medan containeravbildningen överförs till Docker Hub visas utdata som liknar följande:
 
-```output
+```bash
 The push refers to repository [docker.io/account/python-dockerfile]
 f39073ca4d5a: Pushed
 9dfcec2738a9: Pushed
@@ -232,8 +232,8 @@ ce6466f43b11: Mounted from account/python
 3b10514a95be: Mounted from account/python
 ```
 
-The container image is now stored in Docker Hub and can be accessed from any Internet-connected machine using `docker pull` or `docker run`.
+Containeravbildningen lagras nu på Docker Hub och kan nås från valfri Internetansluten dator med hjälp av `docker pull` eller `docker run`.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created two container images. The first was created manually and the second was automated using a Dockerfile.
+I den här enheten skapade du två containeravbildningar. Den första skapades manuellt, och den andra automatiserades med hjälp av en Dockerfile.

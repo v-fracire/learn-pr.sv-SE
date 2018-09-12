@@ -1,30 +1,30 @@
 ### YamlMime:ModuleUnit
 uid: learn.migrate-sql-server-relational-data.6-knowledge-check-deploy-fixes-and-migrate-the-database
 metadata:
-  title: Knowledge check
-  description: Knowledge check
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Knowledge check
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.openlocfilehash: f2f28b50832540bb1e767a64256ba7996c1494e7
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43837115"
+title: Kunskapskontroll
 durationInMinutes: 5
 quiz:
-  title: Knowledge check - deploy fixes and migrate the database
+  title: Kunskapstest – Distribuera korrigeringar och migrera databasen
   questions:
-  - content: 'If you need to use your database during the migration process, which of the following migration methods is most suitable?'
+  - content: Vilken av följande migreringsmetoder är mest lämplig om du behöver använda databasen under migreringen?
     choices:
-    - content: Backup your on-premises database and restore it to Azure.
+    - content: Säkerhetskopiera den lokala databasen och återställ den till Azure.
       isCorrect: false
-      incorrectExplanation:  This method would not migrate the most recent changes that were made after you backed-up your on-premises database.
-    - content: Use the Data Migration Assistant.
+      incorrectExplanation: Med den här metoden migreras inte de senaste ändringarna som gjordes efter att du säkerhetskopierade den lokala databasen.
+    - content: Använd Data Migration Assistant.
       isCorrect: false
-      incorrectExplanation: Data Migration Assistant requires you to take your database offline, which is not possible in this scenario.
-    - content: Use replication.
+      incorrectExplanation: Data Migration Assistant kräver att databasen kopplas från, som inte är möjligt i det här scenariot.
+    - content: Använd replikering.
       isCorrect: true
-      correctExplanation:  Correct! If you need your database up and running while migration, you must use transactional replication method.
-    - content: Script your database in Transact SQL and run this against the Azure SQL Database.
+      correctExplanation: Rätt! Om du behöver använda databasen under migreringen måste du använda transaktionsreplikeringsmetoden.
+    - content: Kör ett skript med databasen i Transact SQL och kör det mot Azure SQL-databasen.
       isCorrect: false
-      incorrectExplanation: That's incorrect! Please try again.
+      incorrectExplanation: Det är fel! Försök igen.

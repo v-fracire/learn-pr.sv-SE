@@ -1,24 +1,24 @@
-The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing run-once tasks like build, test, and image rendering in a container instance.
+Eftersom det går snabbt att distribuera containers i Azure Container Instances är det en bra plattform för att köra engångsuppgifter som att skapa, testa och återge avbildningar i en containerinstans.
 
-With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
+Du kan konfigurera en omstartsprincip, så du kan ange att containern ska stoppas när processen är slutförd. Eftersom du faktureras per sekund för containerinstanser debiteras du endast för de beräkningsresurser som används när containern kör dina uppgifter.
 
-## Container restart policies
+## <a name="container-restart-policies"></a>Principer för containeromstart
 
-When you create a container in Azure Container Instances, you can specify one of three restart policy settings:
+När du skapar en container i Azure Container Instances kan ange du en av tre principinställningar för omstarter:
 
-| Restart policy   | Description |
+| Omstartsprincip   | Beskrivning |
 | ---------------- | :---------- |
-| `Always` | Containers in the container group are always restarted. This is the **default** setting applied when no restart policy is specified at container creation. |
-| `Never` | Containers in the container group are never restarted. The containers run at most once. |
-| `OnFailure` | Containers in the container group are restarted only when the process executed in the container fails (when it terminates with a nonzero exit code). The containers are run at least once. |
+| `Always` | Containers i containergruppen startas alltid om. Det här är **standardvärdet** som används om du inte anger någon omstartsprincip när du skapar containern. |
+| `Never` | Containers i containergruppen startas aldrig om. Containers körs högst en gång. |
+| `OnFailure` | Containers i containergruppen startas bara om när processen som körs i containern inte slutförs utan fel (när den avslutas med en annan slutkod än noll). Containers körs minst en gång. |
 
-In the previous unit of this module, a container was created without a specified restart policy. By default, this container received the *Always* restart policy. Because the workload in the container is long running (a web server), this policy makes sense.
+I föregående enhet i den här modulen skapade du en container utan någon angiven omstartsprincip. Som standard fick den här containern omstartsprincipen *Alltid*. Eftersom arbetsbelastningen i containern körs länge (en webbserver) är den här principen lämplig.
 
-## Run to completion
+## <a name="run-to-completion"></a>Kör till slutförande
 
-To see the restart policy in action, create a container instance from the *microsoft/aci-wordcount* image and specify the *OnFailure* restart policy. This example container runs a Python script that analyzes the text of Shakespeare's Hamlet, writes the 10 most common words to STDOUT, and then exits.
+Om du vill se omstartsprincipen i praktiken skapar du en containerinstans från avbildningen *microsoft/aci-wordcount* och anger principen *OnFailure*. Den här exempelcontainern kör ett Python-skript som analyserar texten i Shakespeares Hamlet, skriver ut de 10 vanligaste orden till STDOUT och sedan avslutas.
 
-Run the example container with the following `az container create` command:
+Kör exempelcontainern med kommandot `az container create`:
 
 ```azureclu
 az container create \
@@ -28,9 +28,9 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances starts the container and then stops it when its application (or script, in this case) exits. When Azure Container Instances stops a container whose restart policy is *Never* or *OnFailure*, the container's status is set to **Terminated**.
+Azure Container Instances startar containern och stoppar den när appen (eller skriptet i det här fallet) avslutas. När Azure Container Instances stoppar en container vars omstartsprincip är *Aldrig* eller *OnFailure* sätts containerns status till **Avslutad**.
 
-You can check a container's status with the `az container show` command:
+Du kan kontrollera statusen för en container med kommandot `az container show`:
 
 ```azurecli
 az container show \
@@ -39,13 +39,13 @@ az container show \
     --query containers[0].instanceView.currentState.state
 ```
 
-Once the example container's status shows **Terminated**, you can see its task output by viewing the container logs. Run the **az container logs** command to view the script's output:
+När exempelcontainerns status blir **Avslutad** kan du se utdata för uppgiften i containerloggarna. Kör kommandot **az container logs** för att visa utdata för skriptet:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name mycontainer-restart-demo
 ```
 
-Output:
+Resultat:
 
 ```bash
 [('the', 990),
@@ -60,8 +60,8 @@ Output:
  ('HAMLET', 386)]
 ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created a container instance with a restart policy of *OnFailure*. This configuration works well for containers that run short-lived tasks.
+I den här utbildningsenheten skapade du en containerinstans med omstartsprincipen *OnFailure*. Den här konfigurationen fungerar bra för containers som kör kortvariga aktiviteter.
 
-In the next unit, you will set environment variables in Azure Container Instances.
+I nästa utbildningsenhet ställer du in miljövariabler för Azure Container Instances.

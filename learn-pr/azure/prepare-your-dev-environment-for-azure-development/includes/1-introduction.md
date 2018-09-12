@@ -1,14 +1,14 @@
-Microsoft Azure enables you to quickly and efficiently build, deploy, monitor, and scale cloud hosted solutions. Azure's deployment model is flexible. You could, for example, develop in Visual Studio, commit your code to GitHub, build with Visual Studio Team Services, and then deploy to Azure. Or you could use a different integrated development environment (IDE) like Eclipse, develop on Linux, and even deploy directly from your development machine to the cloud.
+Med Microsoft Azure kan du snabbt och effektivt bygga, distribuera, övervaka och skala molnbaserade lösningar. Azures distributionsmodell är flexibel. Du kan t.ex. utveckla i Visual Studio, checka in koden till GitHub, bygga med Visual Studio Team Services och sedan distribuera till Azure. Eller så kan du använda en annan IDE (Integrated Development Environment) som Eclipse, utveckla på Linux och distribuera direkt från utvecklingsdatorn till molnet.
 
-Using Azure means you use your favorite IDE, you choose from a large range of development languages, from C# to Java to Node.js, and you choose your development operating system. Microsoft provides and supports a wide range of development tools for Windows, Linux, and macOS. 
+Med Azure kan du använda din favorit-IDE och välja bland många olika programmeringsspråk, från C# och Java till Node.js, och du väljer även operativsystemet för utveckling. Microsoft tillhandahåller och stöder en rad olika utvecklingsverktyg för Windows, Linux och macOS. 
 
-In this module, you'll learn how to set up your development environment with several popular IDEs.
+I den här modulen får du lära dig hur du ställer in din utvecklingsmiljö med flera populära IDE:er.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att:
 
-- Set up Visual Studio Code
-- Set up Visual Studio
-- Set up Eclipse for Java development
-- Prepare all environments for Azure development
+- Konfigurera Visual Studio Code
+- Konfigurera Visual Studio
+- Konfigurera Eclipse för Java-utveckling
+- Förbereda alla miljöer för utveckling för Azure

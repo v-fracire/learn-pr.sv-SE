@@ -1,26 +1,26 @@
-Multiple documents in your database frequently need to be updated at the same time. 
+Du måste ofta uppdatera flera dokument i dina databaser samtidigt. 
 
-For your online retail application, when a user places an order and wants to use a coupon code, a credit, or a dividend (or all three at once), you need to query their account for those options, make updates to their account indicating they used them, update the order total, and process the order.
+När en användare gör en beställning i ditt onlinebutiksprogram och vill använda en kupongkod, kredit eller en återbäring (eller alla tre samtidigt) behöver du fråga på användarens konto efter de alternativen, göra uppdateringar av kontot som visar att de har använts, uppdatera beställningens summa och behandla beställningen.
 
-All of these actions need to happen at the same time, within a single transaction. If the user chooses to cancel the order, you want to roll back the changes and not modify their account information, so that their coupon codes, credits, and dividends are available for their next purchase.
+Alla dessa åtgärder måste ske samtidigt, inom en enda transaktion. Om användaren väljer att annullera beställningen så måste du återställa ändringarna och inte ändra kontoinformationen – så att kupongkoder, krediter och återbäringar är tillgängliga för nästa köp.
 
-The way to perform these transactions in Azure Cosmos DB is by using stored procedures and user-defined functions (UDFs). Stored procedures are the only way to ensure ACID (Atomicity, Consistency, Isolation, Durability) transactions because they are run on the server, and are thus referred to as server-side programming. UDFs are also stored on the server and are used during queries to perform computational logic on values or documents within the query. 
+Sättet att utföra dessa transaktioner på i Azure Cosmos DB är genom att använda lagrade procedurer och användardefinierade funktioner (UDF:er). Lagrade procedurer är det enda sättet att säkerställa ACID-transaktioner (atomicitet, konsekvens, isolering, varaktighet) eftersom de körs på servern och därför refereras till som programmering på serversidan. UDF:er lagras också på servern och används vid frågor för att utföra databaserad logik på värden eller dokument i frågan. 
 
-In this module, you'll learn about stored procedures and UDFs, and then run some in the portal.
+I den här modulen får du lära dig om lagrade procedurer och UDF:er och får sedan köra några i portalen.
 
-## Stored procedure basics
+## <a name="stored-procedure-basics"></a>Grunderna om lagrade procedurer
 
-Stored procedures perform complex transactions on documents and properties. Stored procedures are written in JavaScript and are stored in a collection on Azure Cosmos DB. By performing the stored procedures on the database engine and close to the data, you can improve performance over client-side programming.
+Lagrade procedurer utför komplexa transaktioner på dokument och egenskaper. Lagrade procedurer skrivs i JavaScript och lagras i en samling i Azure Cosmos DB. Genom att utföra de lagrade procedurerna på databasmotorn och nära data kan du förbättra prestanda över klientprogrammering.
 
-Stored procedures are the only way to achieve atomic transactions within Azure Cosmos DB; the client-side SDKs do not support transactions.
+Lagrade procedurer är det enda sättet att åstadkomma atomiska transaktioner i Azure Cosmos DB, SDK:er på klientsidan stöder inte transaktioner.
 
-Performing batch operations in stored procedures is also recommended because of the reduced need to create separate transactions.
+Att utföra batchåtgärder i lagrade procedurer rekommenderas också på grund av det minskade behovet att skapa separata transaktioner.
 
 <!--TODO: Ideally I'd like to list some cases where a stored procedure is not the best option.-->
 
-## Stored procedure example
+## <a name="stored-procedure-example"></a>Exempel på lagrad procedur
 
-The following sample is a simple HelloWorld stored procedure that gets the current context and sends a response that displays "Hello, World". Note that the stored procedure has an ID value, just like Azure Cosmos DB documents.
+Följande exempel är en enkel lagrad HelloWorld-procedur som hämtar den aktuella kontexten och skickar ett svar som visar ”Hello, World”. Observera att den lagrade proceduren har ett ID-värde, precis som Azure Cosmos DB-dokument.
 
 ```java
 var helloWorldStoredProc = {
@@ -34,15 +34,15 @@ var helloWorldStoredProc = {
 }
 ```
 
-## User-defined function basics
+## <a name="user-defined-function-basics"></a>Grunderna om användardefinierade funktioner
 
-UDFs are used to extend the Azure Cosmos DB SQL query language grammar and implement custom business logic, such as calculations on properties and documents. UDFs can be called only from inside queries and, unlike stored procedures, they do not have access to the context object, so they cannot read or write documents.
+UDF:er används till att utöka Azure Cosmos DB SQL-frågegrammatiken och implementera anpassad affärslogik som beräkningar i egenskaper och dokument. UDF:er kan bara anropas inifrån frågor och till skillnad från lagrade procedurer så har de inte åtkomst till kontextobjektet, så de kan inte läsa eller skriva dokument.
 
-In an online commerce scenario, a UDF could be used to determine the sales tax to apply to an order total or a percentage discount to apply to products or orders.
+I ett scenario med onlinehandel kan en UDF användas för att fastställa om momsen ska tillämpas på beställningens totalsumma eller om en procentuell rabatt ska tillämpas på produkter eller beställningar.
 
-## User-defined function example
+## <a name="user-defined-function-example"></a>Exempel på en användardefinierad funktion
 
-The following sample creates a UDF to calculate discounts based on an order total, and then it returns the modified order total based on the discount:
+I följande exempel skapas en UDF för att beräkna rabatter baserat på en beställnings totalsumma och sedan returneras den ändrade beställningssumman baserat på rabatten:
 
 ```java
 var discountUdf = {
@@ -62,30 +62,30 @@ var discountUdf = {
 }
 ```
 
-## Create a stored procedure in the portal
+## <a name="create-a-stored-procedure-in-the-portal"></a>Skapa en lagrad procedur i portalen
 
-Let's create a new stored procedure in the portal. The portal automatically populates a simple stored procedure that retrieves the first item in the collection, so we'll run this stored procedure first.
+Nu ska vi skapa en ny lagrad procedur i portalen. Portalen fyller automatiskt i en enkel lagrad procedur som hämtar det första objektet i samlingen, så vi kör den här lagrade proceduren först.
 
-1. In the Data Explorer, click **New Stored Procedure**.
+1. I Datautforskaren klickar du på **Ny lagrad procedur**.
 
-    Data Explorer displays a new tab with a sample stored procedure.
+    Datautforskaren visar en ny flik med ett exempel på lagrad procedur.
 
   <!--TODO: Insert animated .gif of creating the stored procedure.-->
 
-2. In the **Stored Procedure Id** box, enter the name *sample*, click **Save**, and then click **Execute**.
+2. I rutan **ID för lagrad procedur** anger du namnet *sample*, klickar på **Spara** och klickar sedan på **Kör**.
 
 
-3. In the **Input parameters** box, type the name of a partition key, *33218896*, and then click **Execute**. Note that stored procedures work within a single partition.
+3. I rutan **Indataparametrar** skriver du namnet på partitionsnyckeln, *33218896* och klickar sedan på **Kör**. Observera att lagrade procedurer fungerar i en enda partition.
 
-    ![Run a stored procedure in the portal](../media/6-stored-procedure.gif)
+    ![Kör en lagrad procedur i portalen](../media-draft/6-stored-procedure.gif)
 
-    The **Result** pane displays the feed from the first document in the collection.
+    **Resultat**fönstret visar flödet från det första dokumentet i samlingen.
 
-## Create a stored procedure that creates documents
+## <a name="create-a-stored-procedure-that-creates-documents"></a>Skapa en lagrad procedur som skapar dokument
 
-Now, let's create a stored procedure that creates documents.
+Nu ska vi skapa en lagrad procedur som skapar dokument.
 
-1. In the Data Explorer, click **New Stored Procedure**. Name this stored procedure *createDocuments*, click **Save**, and then click **Execute**.
+1. I Datautforskaren klickar du på **Ny lagrad procedur**. Ge den här lagrade proceduren namnet *createDocuments*, klicka på **Spara** och klicka sedan på **Kör**.
 
     ```java
     var createDocumentStoredProc = {
@@ -108,15 +108,15 @@ Now, let's create a stored procedure that creates documents.
 
 <!--TODO: Need to fix code above.-->
 
-2. Enter a partition key value of *3*, and then click **Execute**.
+2. Ange partitionsnyckelvärdet *3* och klicka sedan på **Kör**.
 
-    Data Explorer displays the newly created document. 
+    Datautforskaren visar det nya dokumentet. 
 
-## Create a user-defined function
+## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
 
-Now, let's create a UDF in Data Explorer.
+Nu ska vi skapa en UDF i Datautforskaren.
 
-In the Data Explorer, click **New UDF**. Copy the following code into the window, name the UDF *tax*, and then click **Save**. There's no way to run the UDF from the portal, but we'll use it in a later module.
+Klicka på **Ny UDF** i Datautforskaren. Kopiera följande kod i fönstret, namnet UDF:en *tax* och klicka sedan på **Spara**. Du kan inte köra UDF:en från portalen men vi använder den i en senare modul.
 
 ```java
 function userDefinedFunction(){

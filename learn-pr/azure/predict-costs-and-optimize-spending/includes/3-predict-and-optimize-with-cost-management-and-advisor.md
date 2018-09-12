@@ -1,51 +1,51 @@
-We learned how to estimate your costs before you deploy services on Azure, but what if you already have resources deployed? How do you get visibility into the costs you're already accruing? If we had deployed our previous solution to Azure and now want to make sure that we've sized the virtual machines properly and predict how much our bill will be, how can we do this? Let's look at a few tools on Azure that you can use to help you solve this problem.
+Vi har lärt oss hur du uppskattar dina kostnader innan du distribuerar tjänster i Azure, men hur gör du med resurser som redan har distribuerats? Hur kan du få insyn i de kostnader du redan ådrar dig? Om vi hade distribuerat den tidigare lösningen till Azure, hur kan vi då se till att de virtuella datorerna har rätt storlek och se hur stor fakturan kommer att bli? Nu ska vi titta på några verktyg i Azure som kan lösa det här problemet.
 
-## What is Azure Advisor?
+## <a name="what-is-azure-advisor"></a>Vad är Azure Advisor? 
 
-**Azure Advisor** is a free service built into Azure that provides recommendations on high availability, security, performance, and cost. Advisor analyzes your deployed services and looks for ways to improve your environment across those four areas. We'll focus on the cost recommendations, but you'll want to take some time to review the other recommendations as well.
+**Azure Advisor** är en kostnadsfri tjänst i Azure som ger rekommendationer om hög tillgänglighet, säkerhet, prestanda och kostnader. Advisor analyserar dina distribuerade tjänster och söker efter sätt att optimera miljön med avseende på de här områdena. Här fokuserar vi på kostnadsrekommendationer, men du bör även ta en titt på de andra rekommendationerna.
 
-Advisor makes cost recommendations in the following areas:
+Advisor ger kostnadsrekommendationer inom följande områden: 
 
-1. **Reduce costs by eliminating unprovisioned Azure ExpressRoute circuits.**
-    This identifies ExpressRoute circuits that have been in the provider status of *Not Provisioned* for more than one month and recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
+1. **Minska kostnaderna genom att eliminera avetablerade Azure ExpressRoute-kretsar.** 
+    Den här processen identifierar ExpressRoute-kretsar som haft providerstatusen *Inte etablerad* i mer än en månad, och du rekommenderas att ta bort kretsen om du inte planerar att etablera den hos din anslutningsprovider.
 
-1. **Buy reserved instances to save money over pay-as-you-go.**
-    This will review your virtual machine usage over the last 30 days and determine if you could save money in the future by purchasing reserved instances. Advisor will show you the regions and sizes where you potentially have the most savings and will show you the estimated savings you might achieve from purchasing reserved instances.
+1. **Köpa reserverade instanser, vilket sparar pengar jämfört med användningsbaserad betalning.** 
+    Den här processen granskar din användning av virtuella datorer under de senaste 30 dagarna i syfte att se om du kan spara pengar i framtiden genom att köpa reserverade instanser. Advisor visar i vilka regioner och för vilka storlekar du potentiellt kan spara mest pengar, samt hur mycket du skulle kunna spara genom att köpa reserverade instanser.
+    
+1. **Ange rätt storlek för eller stänga ner underutnyttjade virtuella datorer.** 
+    Den här processen övervakar din användning av virtuella datorer under 14 dagar och identifierar de datorer som används lite. Virtuella datorer vars genomsnittliga processoranvändning är 5 % eller mindre och vars nätverksanvändning är 7 MB eller mindre under minst fyra dagar anses vara virtuella datorer med låg användning. Tröskelvärdet för genomsnittlig processoranvändning kan justeras upp till 20 procent. När du har identifierat de här virtuella datorerna kan du bestämma dig för att ändra storlek på dem vilket minskar dina kostnader.
 
-1. **Right-size or shutdown underutilized virtual machines.**
-    This monitors your virtual machine usage for 14 days and then identifies underutilized virtual machines. Virtual machines whose average CPU utilization is 5 percent or less and network usage is 7 MB or less for four or more days are considered underutilized virtual machines. The average CPU utilization threshold is adjustable up to 20 percent. By identifying these virtual machines, you can decide to resize them to a smaller instance type, reducing your costs.
+Nu ska vi se var du hittar Azure Advisor i portalen. Logga först in på Azure Portal på [https://portal.azure.com](https://portal.azure.com?azure-portal=true). Klicka på **Alla tjänster**. I kategorin **Hanteringsverktyg** ser du **Advisor**. Du kan också skriva **Advisor** i filtreringsrutan så att du bara ser just den tjänsten. 
 
-Let's take a look at where you can find Azure Advisor in the portal. First, sign in to the [Azure portal](https://portal.azure.com?azure-portal=true). Click on **All Services**, and in the **Management Tools** category, you will see **Advisor**. You can also type `Advisor` in the filter box to filter on just that service.
-
-Click on Advisor, and you'll be taken to the Advisor recommendations dashboard where you can see all the recommendations for your subscription. You'll see a box for each category of recommendations.
+Om du klickar på Advisor visas instrumentpanelen för Advisor-rekommendationer där du kan se alla rekommendationer för din prenumeration. Du ser en ruta för varje kategori med rekommendationer. 
 
 > [!NOTE]
-> You might not have any recommendations on cost in Advisor. This could be because assessments have not yet completed or simply because Advisor has no recommendations.
+> Du kanske inte har några rekommendationer kring kostnader i Advisor. Det här kan bero på att utvärderingarna inte är färdiga ännu, eller helt enkelt på att Advisor inte har några rekommendationer att ge.
 
-![Screenshot of the Azure portal showing the Advisor blade with four category boxes for Advisor recommendations: high availability, security, performance, and cost.](../media/3-advisor-recommendations.png)
+![Advisor-rekommendationer](../media-drafts/3-advisor-recommendations.png)
 
-Clicking on the **Cost** box will take you to detailed recommendations where you can see the recommendations that Advisor has.
+När du klickar på **Kostnad** visas detaljerad information om rekommendationerna i Advisor.
 
-![Screenshot of the Azure portal showing the cost recommendations portion of the Advisor blade.](../media/3-advisor-cost-recommendations.png)
+![Kostnadsrekommendationer i Advisor](../media-drafts/3-advisor-cost-recommendations.png)
 
-Clicking on any recommendation will take you to the details for that specific recommendation. Then you'll be able to take a specific action, such as resizing virtual machines to reduce spending.
+Om du klickar på en rekommendation visas detaljerad information om rekommendationen. Sedan kan du utföra en specifik åtgärd, till exempel minska dina kostnader genom att ändra storlek på virtuella datorer.
 
-![Screenshot of the Azure portal showing recommendation details on the Shut down or resize your virtual machine recommendation.](../media/3-advisor-resize-vm.png)
+![Storleksrekommendation för virtuell dator i Advisor](../media-drafts/3-advisor-resize-vm.png)
 
-These recommendations are all places where you might be inefficiently spending money. They're a great place to start and continue to revisit when looking for places to reduce costs. In our example, there's an opportunity for us to save around $700 per month if we take these recommendations. This savings adds up, so be sure to review this periodically for recommendations across all four areas.
+De här rekommendationerna gäller områden där du kanske spenderar pengar ineffektivt. De är ett bra ställe att börja och komma tillbaka till när du letar efter sätt att minska dina kostnader. I vårt exempel kan vi spara ungefär 700 dollar per månad genom att följa rekommendationerna. Sådana besparingar blir betydande med tiden, så gör det till en vana att kontrollera rekommendationerna inom alla fyra områden regelbundet.
 
-## Azure Cost Management
+## <a name="azure-cost-management"></a>Azure Cost Management
 
-Azure Cost Management is another free, built-in Azure tool that can be used to gain greater insights into where your cloud money is going. You can see historical breakdowns of what services you are spending your money on and how it is tracking against budgets that you have set. You can set budgets, schedule reports, and analyze your cost areas.
+Azure Cost Management är ett annat kostnadsfritt verktyg i Azure som du kan använda till att få bättre insikt i vart dina pengar tar vägen i molnet. Du kan se historiska genomgångar av vilka tjänster du spenderar pengar på och hur utgifterna står sig mot de budgetar du har angett. Du kan ange budgetar, schemalägga rapporter och analysera kostnadsområden.
 
-![Screenshot of the Azure portal showing the Cost analysis section of the Cost Management + Billing blade.](../media/3-cost-management.png)
+![Cost Management](../media-drafts/3-cost-management.png)
 
-## Cloudyn
+## <a name="cloudyn"></a>Cloudyn 
 
-Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including Amazon Web Services and Google. Easy-to-understand dashboard reports help with cost allocation and chargebacks. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust. Usage for Azure is free, and there are paid options for premium support and to view data from other clouds.
+Cloudyn är ett dotterbolag till Microsoft som låter dig spåra molnanvändning och utgifter för dina Azure-resurser, och för andra molnproviders som Amazon Web Services och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och återbetalningar. Cost Management hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa. Användningen för Azure är kostnadsfri, och det finns betalda alternativ för premiumsupport och visning av data från andra moln. 
 
-![Screenshot of the Azure portal showing the Cloudyn management dashboard.](../media/3-cloudyn-mgt-dash.png)
+![Instrumentpanelen i Cloudyn](../media-drafts/3-cloudyn-mgt-dash.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-As you can see, there are several tools available for no cost on Azure that you can use to track and predict your cloud spend and identify where your environment may be inefficient from a cost perspective. You'll want to make sure you make it a regular practice to review the reports and recommendations that these tools make available, so you can unlock savings across your cloud footprint. Now let's take a look at some best practices to reduce your infrastructure costs.
+Som du ser finns det flera kostnadsfria verktyg i Azure som du kan använda till att spåra och förutse dina molnutgifter, och se vilka delar i miljön som är ineffektiva ur ett kostnadsperspektiv. Gör det till en vana att granska rapporterna och rekommendationerna i de här verktygen regelbundet så att du kan sänka dina kostnader i molnet. Nu ska vi gå igenom några tips för hur du kan sänka dina infrastrukturkostnader.

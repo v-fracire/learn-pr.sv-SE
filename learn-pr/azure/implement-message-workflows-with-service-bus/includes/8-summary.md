@@ -1,13 +1,12 @@
-In this module, you created a Service Bus namespace, a queue, and a topic in your subscription by using the Azure portal, and you sent and received messages through the queue and the topic.
+I den här modulen skapade du ett Service Bus-namnområde, en kö och ett ämne i din prenumeration med hjälp av Azure-portalen och du skickar och tar emot meddelanden via kön och ämnet.
 
-Service Bus queues and topics are excellent tools that you can use to increase the resilience of communications within a distributed application. By acting as a temporary storage location, they remove the requirement for direct communication between components and handle peaks in demand smoothly. Consider using them whenever you have a component that can communicate with another component in a loosely coupled configuration.
+Service Bus-köer och ämnen är utmärkta verktyg som du kan använda för att öka flexibiliteten för kommunikationen inom ett distribuerat program. Genom att agera som en temporär lagringsplats, undviker de kravet på direkt kommunikation mellan komponenter och hanterar toppar i efterfrågan smidigt. Överväg att använda dem när du har en komponent som kan kommunicera med en annan i en löst kopplade konfiguration.
 
-## Clean up
-<!---TODO: Update for sandbox?--->
+## <a name="clean-up"></a>Rensa
 
-Service Bus queues and topics in your Azure subscription incur a cost, although it is likely to be small when there are few, small messages. The easiest way to clean up your Azure subscription is to remove the resource group that you created during our first exercise. Doing so will also delete all the topics, queues, namespaces, and other resources in the group. When you are finished with this module, take the following steps:
+Service Bus-köer och ämnen i Azure-prenumerationen debiteras en kostnad även om den sannolikt är rätt liten när det finns få, små meddelanden. Det enklaste sättet att rensa i din Azure-prenumeration är att ta bort den resursgrupp du skapade under vår första övning. Då raderas även alla ämnen, köer, namnområden och andra resurser i gruppen. När du är färdig med den här modulen vidtar du följande steg:
 
-1. In the **Azure portal**, in the navigation on the left, click **Resource groups**.
-1. In the list of resource groups, click **SalesTeamRG**.
-1. In the **Resource group** blade, click **Delete resource group**.
-1. In the **TYPE THE RESOURCE GROUP NAME** text box, type **SalesTeamAppRG**, and then click **Delete**. Azure removes the resource group and all its resources.
+1. I **Azure-portalen** i navigeringen på vänster sida, klickar du på **Resursgrupper**.
+1. I listan med resursgrupper klickar du på **SalesTeamRG**.
+1. I bladet **Resursgrupp**, klickar du på **Ta bort resursgrupp**.
+1. I textrutan **Skriv in resursgruppnamnet** skriver du **SalesTeamAppRG** och klickar sedan på **Ta bort**. Det tar bort resursgruppen och alla dess resurser.

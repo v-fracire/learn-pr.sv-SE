@@ -1,9 +1,9 @@
-Using the two documents you added to the database as the target of our queries, let's walk through some query basics. Azure Cosmos DB uses SQL queries, just like SQL Server, to perform query operations. All properties are automatically indexed by default, so all data in the database is instantly available to query.
+Med hjälp av de två dokument du har lagt till i databasen som målet för dina frågor ska vi nu gå igenom lite grundläggande om frågor. Azure Cosmos DB använder SQL-frågor, precis som SQL Server, för att utföra frågeåtgärder. Alla egenskaper indexeras automatiskt som standard, så alla data i databasen är direkt tillgängliga att fråga.
 
-## SQL query basics
-Every SQL query consists of a SELECT clause and optional FROM and WHERE clauses. In addition, you can add other clauses like ORDER BY and JOIN to get the information you need.
+## <a name="sql-query-basics"></a>Grundläggande om SQL-frågor
+Varje SQL-fråga består av en SELECT-sats och valfria FROM- och WHERE-satser. Dessutom kan du lägga till andra satser som ORDER BY och JOIN för att få den information du behöver.
 
-A SQL query has the following format:
+En SQL-fråga har följande format:
 
     SELECT <select_list>
     [FROM <optional_from_specification>]
@@ -11,18 +11,18 @@ A SQL query has the following format:
     [ORDER BY <optional_sort_specification>]
     [JOIN <optional_join_specification>]
 
-## SELECT clause
+## <a name="select-clause"></a>SELECT-satsen
 
-The SELECT clause determines the type of values that will be produced when the query is executed. A value of `SELECT *` indicates that the entire JSON document is returned.
+SELECT-satsen avgör vilken typ av värden som skapas när frågan körs. Värdet `SELECT *` anger att hela JSON-dokumentet returneras.
 
-**Query**
+**Fråga**
 ```
 SELECT *
 FROM Products p
 WHERE p.id ="1"
 ```
 
-**Returns**
+**Returnerar**
 ```
 [
     {
@@ -48,19 +48,19 @@ WHERE p.id ="1"
 ]
 ```
 
-Or, you can limit the output to include only certain properties by including a list of properties in the SELECT clause. In the following query, only the ID, manufacturer, and product description are returned.
+Eller så kan du begränsa utdata till att bara innehålla vissa egenskaper genom att inkludera en lista över egenskaper i SELECT-satsen. I följande fråga returneras bara ID, tillverkare och produktbeskrivning.
 
-**Query**
+**Fråga**
 ```
 SELECT 
     p.id, 
-	p.manufacturer, 
-	p.description
+    p.manufacturer, 
+    p.description
 FROM Products p
 WHERE p.id ="1"
 ```
 
-**Returns**
+**Returnerar**
 ```
 [
     {
@@ -71,28 +71,28 @@ WHERE p.id ="1"
 ]
 ```
 
-## FROM clause
+## <a name="from-clause"></a>FROM-satsen
 
-The FROM clause specifies the data source upon which the query operates. You can make the whole collection the source of the query or you can specify a subset of the collection instead. The FROM clause is optional unless the source is filtered or projected later in the query.
+FROM-satsen anger den datakälla som frågan körs på. Du kan göra hela samlingen till källa för frågan eller så kan du ange en delmängd av frågan. FROM-satsen är valfri om inte källan filtreras eller planeras senare i frågan.
 
-A query such as `SELECT * FROM Products` indicates that the entire Products collection is the source over which to enumerate the query.
+En fråga som `SELECT * FROM Products` indikerar att hela Products-samlingen är källan som frågan ska räknas upp över.
 
-A collection can be aliased, such as `SELECT p.id FROM Products AS p` or simply `SELECT p.id FROM Products p`, where `p` is the equivalent of `Products`. `AS` is an optional keyword to alias the identifier.
+En samling kan ha ett alias, som `SELECT p.id FROM Products AS p` eller bara `SELECT p.id FROM Products p`, där `p` motsvarar `Products`. `AS` är ett valfritt nyckelord som ger identifieraren ett alias.
 
-Once aliased, the original source cannot be bound. For example, `SELECT Products.id FROM Products p` is syntactically invalid because the identifier "Products" cannot be resolved anymore.
+När källan har ett alias kan inte den ursprungliga källan bindas. Till exempel är `SELECT Products.id FROM Products p` syntaktiskt ogiltigt eftersom identifieraren ”Products” inte kan matchas längre.
 
-All properties that need to be referenced must be fully qualified. In the absence of strict schema adherence, this is enforced to avoid any ambiguous bindings. Therefore, `SELECT id FROM Products p` is syntactically invalid because the property `id` is not bound.
+Alla egenskaper som måste refereras måste bara helt kvalificerade. I frånvaron av strikt schemaanslutning tillämpas detta för att undvika tvetydiga bindningar. Därför är `SELECT id FROM Products p` syntaktiskt ogiltigt eftersom egenskapen `id` inte är bunden.
 
-### Subdocuments in a FROM clause
-The source can also be reduced to a smaller subset. For instance, to enumerate only a subtree in each document, the subroot could then become the source, as shown in the following example:
+### <a name="subdocuments-in-a-from-clause"></a>Underdokument i en FROM-sats
+Källan kan också reduceras till en mindre delmängd. För att till exempel endast räkna upp ett underträd i varje dokument kan den underordnade roten sedan bli källan, enligt följande exempel:
 
-**Query**
+**Fråga**
 ```
 SELECT * 
 FROM Products.shipping
 ```
 
-**Results**  
+**Resultat**  
 
 ```
 [
@@ -115,32 +115,32 @@ FROM Products.shipping
 ]
 ```
 
-Although the above example used an array as the source, an object could also be used as the source, which is what's shown in the following example. Any valid JSON value (that's not undefined) that can be found in the source is considered for inclusion in the result of the query. If some products don’t have a `shipping.weight` value, they are excluded in the query result.
+I exemplet ovan används en matris som datakälla men ett objekt kan också användas som källa, vilket visas i följande exempel. Alla giltiga JSON-värden (som inte är odefinierad) som kan hittas i källan tas med i beräkningen att inkluderas i frågeresultatet. Om några produkter inte har ett `shipping.weight`-värde exkluderas de i frågeresultatet.
 
-**Query**
+**Fråga**
 
     SELECT * 
     FROM Products.shipping.weight
 
-**Results**
+**Resultat**
 
     [
         1,
         2
     ]
 
-## WHERE clause
-The WHERE clause specifies the conditions that the JSON documents provided by the source must satisfy in order to be included as part of the result. Any JSON document must evaluate the specified conditions to **true** to be considered for the result. The WHERE clause is optional.
+## <a name="where-clause"></a>WHERE-satsen
+WHERE-satsen anger villkoren som JSON-dokument som tillhandahålls av källan måste uppfylla för att kunna inkluderas som en del av resultatet. Alla JSON-dokument måste utvärdera de angivna villkoren som **sanna** för att övervägas för resultatet. WHERE-satsen är valfri.
 
-The following query requests documents that contain an ID whose value is 1:
+Följande fråga begär dokument som innehåller ett ID vars värde är 1:
 
-**Query**
+**Fråga**
 
     SELECT p.description
     FROM Products p 
     WHERE p.id = "1"
 
-**Results**
+**Resultat**
 
     [
         {
@@ -148,19 +148,19 @@ The following query requests documents that contain an ID whose value is 1:
         }
     ]
 
-## ORDER BY clause
+## <a name="order-by-clause"></a>ORDER BY-satsen
 
-The ORDER BY clause enables you to order the results in ascending or descending order.
+ORDER BY-satsen gör det möjligt för dig att ordna resultatet i stigande eller fallande ordning.
 
-The following ORDER BY query returns the price, description, and product ID for all products, ordered by price, in ascending order:
+Följande ORDER BY-fråga returnerar pris, beskrivning och produkt-ID för alla produkter, ordnade efter pris i stigande ordning:
 
-**Query**
+**Fråga**
 
     SELECT p.price, p.description, p.productId
     FROM Products p
     ORDER BY p.price ASC
 
-**Results**
+**Resultat**
 
 ```
 [
@@ -177,19 +177,19 @@ The following ORDER BY query returns the price, description, and product ID for 
 ]
 ```
 
-## JOIN clause
+## <a name="join-clause"></a>JOIN-satsen
 
-The JOIN clause enables you to perform inner joins with the document and the document subroots. So in the product database, for example, you can join the documents with the shipping data.  
+JOIN-satsen gör det möjligt för dig att utföra inre kopplingar med dokumentet och dokumentets underordnade rötter. Så i produktdatabasen kan du till exempel koppla dokumenten med leveransinformation.  
 
-In the following query, the product IDs are returned for each product that has a shipping method. If you added a third product that didn't have a shipping property, the result would be the same because the third item would be excluded for not having a shipping property.
+I följande fråga returneras produkt-ID:n för varje produkt som har en leveransmetod. Om du har lagt till en tredje produkt som inte har en leveransegenskap skulle resultatet vara samma som det tredje objektet och skulle exkluderas för att det inte har en leveransegenskap.
 
-**Query**
+**Fråga**
 
     SELECT p.productId
     FROM Products p
     JOIN p.shipping
 
-**Results**
+**Resultat**
 
     [
         {
@@ -200,12 +200,12 @@ In the following query, the product IDs are returned for each product that has a
         }
     ]
 
-## Geospatial queries
+## <a name="geospatial-queries"></a>Geospatiala frågor
 
-Geospatial queries enable you to perform spatial queries using GeoJSON points. Using the coordinates in the database, you can calculate the distance between two points and determine whether a point, polygon, or linestring is within another point, polygon, or linestring.
+Med geospatiala frågor kan du utföra spatiala frågor med GeoJSON-punkter. Med koordinaterna i databasen kan du beräkna avståndet mellan två punkter och avgöra om en punkt, polygon eller linjesträng är inom en annan punkt, polygon eller linjesträng.
 
-For product catalog data, this would enable your users to enter their location information and determine whether there were any stores within a 50-mile radius that have the item they're looking for. 
+För produktkatalogdata skulle detta göra det möjligt för dina användare att ange platsinformation och fastställa om det finns några butiker inom 80 km avstånd som har artikeln som användaren letar efter. 
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Being able to quickly query all your data after adding it to Azure Cosmos DB and using familiar SQL query techniques can help you and your customers to explore and gain insights into your stored data.
+Att snabbt kunna fråga alla dina data efter att ha lagt till dem i Azure Cosmos DB och använda välbekanta SQL-frågemetoder kan hjälpa dig och dina kunder för att utforska och få insikter om dina lagrade data.

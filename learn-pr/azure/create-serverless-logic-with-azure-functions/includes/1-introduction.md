@@ -5,6 +5,7 @@ Ditt företag tar emot sensordata från flera platser och från olika rulltrapps
 När du utformar en sådan tjänst med traditionella strategier för företagsarkitektur behöver du tänka på serverinfrastruktur och -underhåll direkt: hitta nödvändig maskinvara, planera installation, samordna hantering med IT-avdelningen, osv. Ett alternativ till allt det arbetet är **serverlös databehandling**. Med serverlös databehandling hanterar molnleverantören etablering och underhåll av infrastrukturen så att du kan fokusera helt på att skapa applogiken. Azure Functions är en viktig del av erbjudandet med serverlös databehandling från Azure och gör att du kan köra delar av kod eller *funktioner*, skrivna på det språk du föredrar, i molnet.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att:
 
 - Bestämma om serverlös databehandling passar för din verksamhet.

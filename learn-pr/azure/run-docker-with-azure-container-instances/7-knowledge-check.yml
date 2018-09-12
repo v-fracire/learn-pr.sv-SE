@@ -1,55 +1,55 @@
 ### YamlMime:ModuleUnit
 uid: learn.run-docker-containers-aci.7-knowledge-check
-title: Knowledge check
+title: Kunskapskontroll
 metadata:
-  title: Knowledge check
-  description: Knowledge check
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.openlocfilehash: 1a5c1fe6d9806846351614beaabe412465e4b0a6
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43837731"
 durationInMinutes: 5
 quiz:
-  title: 'Knowledge Check'
+  title: Kunskapskontroll
   questions:
-  - content: 'If a restart policy is not configured for a container instance, what policy is set by default?'
+  - content: Vilken princip är konfigurerad som standard om en omstartsprincip inte är konfigurerad för en containerinstans?
     choices:
-    - content: Always
-      correctExplanation: The restart policy **Always** is set by default.
+    - content: Alltid
+      correctExplanation: Omstartsprincipen **Alltid** är konfigurerad som standard.
       isCorrect: true
-    - content: Never
+    - content: Aldrig
       isCorrect: false
-      incorrectExplanation: The restart policy **Always** is set by default.
+      incorrectExplanation: Omstartsprincipen **Alltid** är konfigurerad som standard.
     - content: OnFailure
       isCorrect: false
-      incorrectExplanation: The restart policy **Always** is set by default.
-  - content: 'Which of the following is not correct?'
+      incorrectExplanation: Omstartsprincipen **Alltid** är konfigurerad som standard.
+  - content: Vad av följande stämmer inte?
     choices:
-    - content: By default, the values of an environment variable can be seen in the Azure portal and the Azure CLI output.
-      incorrectExplanation: Environment variable values can be seen in the Azure portal and the Azure CLI output.
+    - content: Som standard kan värdena för en miljövariabel visas i Microsoft Azure Portal och i Azure CLI-utdata.
+      incorrectExplanation: Värden för miljövariabler visas på Microsoft Azure-portalen och i Azure CLI-utdata.
       isCorrect: false
-    - content: Environment variables can be converted to secured environment variables.
+    - content: Miljövariabler kan konverteras till säkra miljövariabler.
       isCorrect: true
-      correctExplanation: Environment variables cannot be converted to secured environment variables. In order to do so, the container instance needs to be re-created.
-    - content: Secured environment variables hide values from the Azure portal and the Azure CLI output.
-      incorrectExplanation: Secured environment variables do hide values from the Azure portal and the Azure CLI output.
+      correctExplanation: Miljövariabler kan inte konverteras till säkra miljövariabler. För att du ska kunna göra detta måste du återskapa containerinstansen.
+    - content: Säkra miljövariabler gömmer värden från Microsoft Azure Portal och Azure CLI-utdata.
+      incorrectExplanation: Säkra miljövariabler gömmer värden från Microsoft Azure Portal och Azure CLI-utdata.
       isCorrect: false
-    - content: Environment variables can be used to pass connection strings and other application information to an Azure container instance.
-      incorrectExplanation: Environment variables can be used to pass connection strings and other application information to an Azure container instance.
+    - content: Miljövariabler kan användas för att skicka anslutningssträngar och annan programinformation till en Azure-containerinstans.
+      incorrectExplanation: Miljövariabler kan användas för att skicka anslutningssträngar och annan programinformation till en Azure-containerinstans.
       isCorrect: false
-  - content: 'Which troubleshooting command can be used to see container startup events?'
+  - content: Vilket felsökningskommando kan användas för att se starthändelser för containrar?
     choices:
     - content: az container logs
-      incorrectExplanation: Pulling logs only shows the logs.
+      incorrectExplanation: Hämtar loggar och visar endast loggarna.
       isCorrect: false
     - content: az container attach
       isCorrect: true
-      correctExplanation: az container attach shows container events and logs.
+      correctExplanation: az container attach visar containerhändelser och loggar.
     - content: az container events
-      incorrectExplanation: This is not a valid command for the Azure CLI.
+      incorrectExplanation: Detta är inte ett giltigt Azure CLI-kommando.
       isCorrect: false
     - content: az container exec
-      incorrectExplanation: az container exec is used to run a command on a container instance.
+      incorrectExplanation: az container exec används för att köra ett kommando på en containerinstans.
       isCorrect: false

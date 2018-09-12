@@ -1,30 +1,30 @@
-## Intro to deep learning
+## <a name="intro-to-deep-learning"></a>Introduktion till djupinlärning
 
-The goal of Machine Learning ML is to find features to train a model that transforms input data (such as pictures, time series, or audio) to a given output (for example captions, price values, transcriptions). In traditional data science, features are often hand-picked.
+Målet med Machine Learning (ML) är att hitta funktioner för att ta fram en modell som omvandlar indata (t.ex. bilder, tidsserier eller ljud) till vissa utdata (t.ex. bildtexter, prisvärden, transkriptioner). I traditionella datavetenskap handplockas funktionerna ofta.
 
-![Canonical example of a feed forward deep neural network.](../media/2-image1.PNG)
+![Ett kanoniskt exempel på ett framåtmatande djupt neuralt nätverk.](../media/2-image1.PNG)
 
-In Deep Learning (DL), the process of feature extraction is learned through representing inputs as vectors and transforming them, with a series of clever linear algebra operations, into a given output.  
+I Deep Learning (DL) är funktionsextraheringen en process som lärs in genom att indata representeras som vektorer och transformeras med ett antal smarta linjära algebraåtgärder till givna utdata.  
 
-The model output is then compared against the expected output using an equation called a loss function. The value returned by the loss function of each training input is used to guide the model to extract features that will result in a lower loss value on the next pass.  
+Modellutdata jämförs sedan med förväntade utdata med hjälp av en förlustfunktionsekvation. Värdet som returneras av förlustfunktionen för respektive utbildnings indata används för att hjälpa modellen att extrahera funktioner som resulterar i ett lägre förlustvärde nästa pass.  
  
-The series of matrix operations that we computer as part of the linear algebra component tend to be computationally expensive and are often heavily parallelizable, requiring specialized compute such as Graphics Processing Units GPUs to compute efficiently.
+Den serie av matrisåtgärder som vi beräknar som en del av den linjära algebrakomponenten tenderar att vara beräkningsmässigt expansiv och är ofta tungt parallelliserbar, vilket kräver specialiserad databearbetning, t.ex. grafikprocessorer, för att kunna beräkna effektivt.
 
-## Data Science Virtual Machine
+## <a name="data-science-virtual-machine"></a>Data Science Virtual Machine
 
-![DSVM Options](../media/2-image2.PNG)
+![DSVM-alternativ](../media/2-image2.PNG)
 
-DSVMs are Azure Virtual Machine images, pre-installed, configured, and tested with several popular tools that are commonly used for data analytics, machine learning, and deep learning training.
+DSVM:er är Azure Virtual Machine-avbilder som har förinstallerats, konfigurerats och testats med flera populära verktyg som vanligen används för dataanalys, maskininlärning och utbildning inom djupinlärning.
 
-They provide:
+De tillhandahåller:
 
-- Consistent setup across team, promote sharing and collaboration, Azure scale and management, Near-Zero Setup, full cloud-based desktop for data science.
-- On-demand elastic capacity Ability to run analytics on all Azure hardware configurations with vertical and horizontal scaling. Pay only for what you use, when you use it.
-- Deep Learning with GPUs Readily available GPU clusters with Deep Learning tools already pre-configured. 
+- Enhetlig installation mellan team, vilket underlättar delning och samarbete, skalning och hantering i Azure, minimal konfigurering, helt molnbaserat skrivbord för datavetenskap.
+- Elastisk kapacitet på begäran med möjlighet att köra analyser på alla Azure-maskinvarukonfigurationer med vertikal och horisontell skalning. Betala endast för det du använder, och när du använder det.
+- Djupinlärning med GPU:er, lättillgängliga GPU-kluster med förkonfigurerade djupinlärningsverktyg. 
 
-The DSVM contains several tools for AI including popular GPU editions of deep learning frameworks and tools such as Microsoft R Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, SQL database and many other data science and ML tools.
+DSVM innehåller flera AI-verktyg, t.ex. populära GPU-versioner av djupinlärningsramverk och verktyg som Microsoft R Server Developer Edition, Anaconda Python, Jupyter-anteckningsböcker för Python och R, IDE:er för Python och R, SQL-databaser och många andra verktyg för datavetenskap och ML.
 
-The DSVM can run on Azure GPU NC-series VM instances. These GPUs use discrete device assignment, resulting in performance close to bare-metal, and are well-suited to deep learning problems.
+DSVM kan köras på VM-instanser i Azure GPU NC-serien. Dessa GPU:er använder diskret enhetstilldelning, vilket resulterar i Bare Metal-liknande prestanda och som väl lämpar sig för djupinlärningsproblem.
 
 <!--### Quiz? 
 

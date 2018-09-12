@@ -1,0 +1,67 @@
+### YamlMime:ModuleUnit
+uid: learn.monitor-manage-device-with-iotcentral.6-knowledge-check
+metadata:
+  title: Kunskapskontroll
+  description: Det här är en kunskapskontroll av Azure IoT Central-självstudien
+  displayType: one-column
+  ms.openlocfilehash: b5c63a1b7043c73300b1ed220c5a089da7bf7201
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43796171"
+title: Kunskapskontroll av Azure IoT Central-självstudien
+durationInMinutes: 11
+content: >
+  [!include[](includes/6-knowledge-check.md)]
+quiz:
+  title: Kunskapskontroll av Azure IoT Central-självstudien
+  questions:
+  - content: Var definierar du telemetri i IoT Central?
+    choices:
+    - content: Inställningar
+      isCorrect: false
+    - content: Egenskaper
+      isCorrect: false
+    - content: Mått
+      isCorrect: true
+    - content: Instrumentpanel
+      isCorrect: false
+    - content: Regler
+      isCorrect: false
+  - content: Vilka är de tillgängliga åtgärderna när du konfigurerar regler?
+    choices:
+    - content: E-post
+      isCorrect: false
+    - content: Microsoft Flow
+      isCorrect: false
+    - content: Webhook
+      isCorrect: false
+    - content: Alla alternativ ovan
+      isCorrect: true
+    - content: Inget av ovanstående
+      isCorrect: false
+  - content: Var lägger du till enhetens inbyggda programvara?
+    choices:
+    - content: Mått
+      isCorrect: false
+    - content: Inställningar
+      isCorrect: false
+    - content: Egenskaper
+      isCorrect: true
+    - content: Regler
+      isCorrect: false
+    - content: Instrumentpanel
+      isCorrect: false
+  - content: Hur får du anslutningssträngen för att ansluta enheten till IoT Central?
+    choices:
+    - content: Genom att lägga till en enhet i IoT Central
+      isCorrect: true
+    - content: Genom att tillhandahålla den inbyggda programvaran med MAC-adressen
+      isCorrect: false
+    - content: Genom att anpassa den på egen hand och registrera den i IoT Central
+      isCorrect: false
+    - content: Alla alternativ ovan
+      isCorrect: false
+    - content: Inget av ovanstående
+      isCorrect: false

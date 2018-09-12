@@ -1,15 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.prepare-azure-dev-environment.3-exercise-set-up-visual-studio-code
-title: Install Visual Studio Code and the Azure App Service extension
+title: Installera Visual Studio Code och Azure App Service-tillägget
 metadata:
-  title: Install Visual Studio Code and the Azure App Service extension
-  description: Install Visual Studio Code and the Azure App Service extension
-  ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
+  title: Installera Visual Studio Code och Azure App Service-tillägget
+  description: Installera Visual Studio Code och Azure App Service-tillägget
+  ms.openlocfilehash: 1b4b89fac3f47181d51b711936d96d84275f6dd1
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43838206"
 durationInMinutes: 15
-content: |
-  [!include[](includes/3-exercise-set-up-visual-studio-code.md)]
+content: '[!include[](includes/3-exercise-set-up-visual-studio-code.md)]'

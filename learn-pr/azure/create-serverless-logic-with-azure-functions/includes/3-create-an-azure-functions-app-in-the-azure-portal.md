@@ -16,30 +16,30 @@ Nu ska vi skapa en funktionsapp i Azure Portal.
 
 1. Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true) med ditt Azure-konto.
 
-2. Välj knappen **Skapa en resurs** längst upp till vänster på Azure Portal och sedan **Kom igång > Serverlös funktionsapp** för att öppna bladet Funktionsapp *Skapa*. Du kan också använda alternativet **Compute > Funktionsapp** då samma blad öppnas.
+1. Välj knappen **Skapa en resurs** längst upp till vänster på Azure Portal och sedan **Kom igång > Serverlös funktionsapp** för att öppna bladet Funktionsapp *Skapa*. Du kan också använda alternativet **Compute > Funktionsapp** då samma blad öppnas.
   
   ![Azure Portal med fokus på valet av *Skapa en resurs* följt av Compute och sedan Funktionsapp](../media-draft/3-create-function-app-blade.png)
 
-3. Välj ett globalt unikt appnamn. Det kommer att fungera som bas-URL för din tjänst. Du kan till exempel kalla den **escalator-functions-xxxxxxx**, där kryssen kan ersättas med dina initialer och ditt födelseår. Om den ändå inte är globalt unikt kan du testa vilken kombination som helst. Giltiga tecken är a-z, 0-9 och -.
+1. Välj ett globalt unikt appnamn. Det kommer att fungera som bas-URL för din tjänst. Du kan till exempel kalla den **escalator-functions-xxxxxxx**, där kryssen kan ersättas med dina initialer och ditt födelseår. Om den ändå inte är globalt unikt kan du testa vilken kombination som helst. Giltiga tecken är a-z, 0-9 och -.
 
-4. Välj den Azure-prenumeration som du vill ska vara värd för funktionsappen.
+1. Välj den Azure-prenumeration som du vill ska vara värd för funktionsappen.
 
-5. Skapa en ny resursgrupp som kallas **escalator-functions-group**. Genom att använda en resursgrupp för alla resurser som används i den här modulen blir det lättare att rensa senare.
+1. Skapa en ny resursgrupp som kallas **escalator-functions-group**. Genom att använda en resursgrupp för alla resurser som används i den här modulen blir det lättare att rensa senare.
 
-6. Välj **Windows** som OS.
+1. Välj **Windows** som OS.
 
-7. Välj **Förbrukningsplan** för **Värdplan**. Det är alltså det serverlösa värdalternativet.
+1. Välj **Förbrukningsplan** för **Värdplan**. Det är alltså det serverlösa värdalternativet.
 
-8. Välj den geografiska plats som är närmast dig (eller dina kunder).
+1. Välj den geografiska plats som är närmast dig (eller dina kunder).
 
-9. Skapa ett nytt lagringskonto. Azure ger det ett namn baserat på appnamnet. Du kan ändra det om du vill, men det måste också vara unikt.
+1. Skapa ett nytt lagringskonto. Azure ger det ett namn baserat på appnamnet. Du kan ändra det om du vill, men det måste också vara unikt.
 
-10. Se till att Azure Application Insights är **På** och välj den region som är närmast dig (eller dina kunder).
+1. Se till att Azure Application Insights är **På** och välj den region som är närmast dig (eller dina kunder).
 När du är klar bör konfigurationen se ut som på följande skärmbild.
 
   ![Konfigurationsskärmen Funktionsapp *Skapa* med alla fält konfigurerade enligt instruktionerna ovan.](../media-draft/3-create-function-app-settings.png)
 
-11. Välj **Skapa**. Distributionen kan ta några minuter. Du får ett meddelande när den är klar.
+1. Välj **Skapa**. Distributionen kan ta några minuter. Du får ett meddelande när den är klar.
 
 ## <a name="verify-your-azure-function-app"></a>Verifiera din Azure-funktionsapp
 
@@ -47,7 +47,7 @@ När du är klar bör konfigurationen se ut som på följande skärmbild.
 
   ![Skärmen Resursgrupper på Azure Portal med resursgruppen escalator-functions-group synlig.](../media-draft/3-resource-group.png)
 
-2. Välj **escalator-functions-group**. Du bör se en lista över resurser som liknar följande lista.
+1. Välj **escalator-functions-group**. Du bör se en lista över resurser som liknar följande lista.
   
   ![Alla resurser i gruppen escalator-functions-group, inklusive poster för App Service-plan, lagringskonto, Application Insights och App Service](../media-draft/3-resource-list.png)
 

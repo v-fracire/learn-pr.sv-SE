@@ -1,20 +1,21 @@
-You've created a new Linux virtual machine, changed its size, stopped and started it, and updated the configuration with the Azure CLI.
+Du har skapat en ny virtuell Linux-dator, ändrat dess storlek, stoppat och startat den och uppdaterat konfigurationen med Azure CLI.
 
-<!-- Cleanup sandbox -->
-[!include[](../../../includes/azure-sandbox-cleanup.md)]
+## <a name="cleanup"></a>Rensa
 
-When you are working in your own subscription, you can execute the following Azure CLI command to delete the resource group and all associated resources.
+Nu när vi är klara med den virtuella datorn och inte längre behöver den ska vi ta bort resurserna. Borttagningen är viktig för beräknings- och lagringsresurser som kan fortsätta att debiteras mot ditt konto. 
+
+Du kan ta bort enskilda resurser med kommandot `delete`, men det enklaste sättet att ta bort allt är med `az group delete`. Kör följande kommando i Azure CLI:
 
 ```azurecli
-az group delete --name [resource-group-name] --no-wait
+az group delete --name ExerciseResources --no-wait
 ```
 
-Answer "yes" to the prompt when shown, or use the `--yes` parameter to auto-answer the prompt.
+Svara ”yes” på frågan när den visas, eller använd parametern `--yes` för att svara automatiskt på prompten.
 
-This command deletes all of the resources associated with the resource group, and is guaranteed to deallocate them in the correct order. The `--no-wait` parameter keeps the Azure CLI from blocking while the deletion takes place. Leave it off to wait for the resources to be deleted. Or use the `az group wait -n [resource-group-name] --deleted` command later in your script to wait for the deletion to finish.
+Det här kommandot tar bort alla resurser som är associerade med resursgruppen och garanterar att de frigörs i rätt ordning. Parametern `--no-wait` ser till att Azure CLI inte blockerar under tiden som borttagningen utförs. Lämna den inaktiverad för att vänta tills resurserna har tagits bort. Du kan också använda kommandot `az group wait -n ExerciseResources --deleted` senare i skriptet för att vänta tills borttagningen är klar.
 
 
-## Further reading
+## <a name="further-reading"></a>Ytterligare läsning
 
-- [Azure CLI overview](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
-- [Azure CLI command reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
+- [Översikt över Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+- [Azure CLI-kommandoreferens](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)

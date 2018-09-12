@@ -1,111 +1,111 @@
-Recall that our company processes video content on Windows VMs. A new city has contracted us to process their traffic cameras, but it's a model we've not worked with before. We need to create a new Windows VM and install some proprietary codecs so we can begin processing and analyzing their images.
+Som du kanske minns sysslar vårt företag med bearbetning av videoinnehåll på virtuella Windows-datorer. En ny stad har anlitat oss för att bearbeta deras trafikkameror, men det är en modell som vi inte har arbetat med tidigare. Vi måste skapa en ny virtuell Windows-dator och installerar vissa tillverkarspecifika codec-rutiner så att vi kan börja bearbeta och analysera deras bilder.
 
-## Create a new Windows virtual machine
+## <a name="create-a-new-windows-virtual-machine"></a>Skapa en ny virtuell Windows-dator
 
-We can create Windows VMs with the Azure portal, Azure CLI, or Azure PowerShell. The easiest approach is to the portal because it walks you through the required information and provides hints and helpful messages during the creation.
+Vi kan skapa virtuella Windows-datorer med Azure Portal, Azure CLI eller Azure PowerShell. Den enklaste metoden är portalen eftersom den går igenom den information som krävs och visar tips och användbara meddelanden när vi skapar den virtuella datorn.
 
-1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
 
-1. Click **Create a resource** in the upper left corner of the Azure portal.
+1. Klicka på **Skapa en resurs** uppe till vänster i Azure Portal.
 
-1. In the search box, enter  **Windows Server 2016 Datacenter**  and then click on the link with the same title in the presented list.
+1. Ange **Windows Server 2016 Datacenter** i sökrutan och klicka sedan på länken med samma namn i listan som visas.
 
-1. Click the **Create** button to start configuring the VM.
+1. Klicka på knappen **Skapa** för att börja konfigurera den virtuella datorn.
 
-## Configure the VM settings
+## <a name="configure-the-vm-settings"></a>Konfigurera inställningarna för den virtuella datorn
 
-The VM creation experience in the portal is presented in a "wizard" format to walk you through all the configuration areas for the VM. Clicking the "Next" button will take you to the next configurable section. However, you can move between the sections at will with the tabs running across the top that identify each section.
+När du skapar en virtuell dator på portalen går du igenom en guide som vägleder dig genom alla konfigurationsområden. När du klickar på ”Nästa” kommer du till nästa konfigurerbara avsnitt. Du kan dock förflytta dig mellan avsnitten när du vill med hjälp av flikarna som visas längs överkanten och som identifierar varje avsnitt.
 
-![Create a virtual machine in the Azure portal](../media-drafts/3-azure-portal-create-vm.png)
+![Skapa en virtuell dator på Azure Portal](../media-drafts/3-azure-portal-create-vm.png)
 
-Once you fill in all the required options (identified with red stars), you can skip the remainder of the wizard experience and start creating the VM through the **Review + Create** button at the bottom.
+När du har fyllt i alla obligatoriska alternativ (som visas med röd stjärnor) kan du hoppa över resten av guiden och börja skapa den virtuella datorn via knappen **Granska + Skapa** längst ned.
 
-We'll start with the **Basics** section.
+Vi börjar med avsnittet **Grundläggande inställningar**.
 
-### Configure basic VM settings
+### <a name="configure-basic-vm-settings"></a>Konfigurera grundläggande inställningar för en virtuell dator
 
-1. Select the **Subscription** that should be billed for VM hours.
+1. Välj den **prenumeration** som VM-timmar ska debiteras mot.
 
-1. For **Resource group**, select **Create new** and give the resource group the name **ExerciseResources**.
+1. Välj **Skapa nytt** för **Resursgrupp** och ge resursgruppen namnet **ExerciseResources**.
 
 > [!NOTE]
-> As you change settings and tab out of each field Azure will validate each value automatically and place a green check-mark next to it when it's good. You can hover over error indicators to get more information for issues it discovers.
+> När du ändrar inställningar och flyttar från fälten valideras värdena automatiskt av Azure och en grön bock visas bredvid dem om de är giltiga. Du kan hovra över felindikatorer om du vill ha mer information om problem som identifieras.
 
-1. In the **INSTANCE DETAILS** section, enter a name for your VM, such as "test-vp-vm2" (for Test Video Processor VM #2).
-    - It's best practice to standardize your resource names so you can easily identify their purpose. Windows VM names are a bit limited - they must be between 2 and 15 characters and be comprised of numbers, letters, and dashes.
+1. I avsnittet **INSTANSINFORMATION** anger du ett namn på den virtuella datorn, till exempel ”test-vp-vm2” (för Test Video Processor VM #2).
+    - Det är bästa praxis att standardisera resursnamnen så att du enkelt kan identifiera deras syfte. Namnen på virtuella Windows-datorer är en aning begränsade – de måste vara mellan 2 och 15 tecken och måste bestå av siffror, bokstäver och bindestreck.
 
-1. Select a region close to you.
+1. Välj en region nära dig.
 
-1. Leave **Availability options** as "None". This option is used to ensure the VM is highly available by grouping multiple VMs together a set to deal with planned or unplanned maintenance events or outages.
+1. Lämna **Tillgänglighetsalternativ** som ”Inga”. Det här alternativet säkerställer att den virtuella datorn har hög tillgänglighet genom att gruppera flera virtuella datorer för att underlätta hanteringen av planerade eller oplanerade underhållsåtgärder eller avbrott.
 
-1. Ensure the image is set to "Windows Server 2016 Datacenter". You can open the drop-down list to see all the options available.
+1. Kontrollera att avbildningen är inställd på ”Windows Server 2016 Datacenter”. Du kan öppna listrutan för att visa alla tillgängliga alternativ.
 
-1. In the **VM Disk Type** field, click the drop-down menu to see the options. Ensure that **SSD** is selected.
+1. I fältet **Typ av virtuell datordisk** klickar du på listrutan så att du ser alternativen. Se till att **SSD** är valt.
 
-1. The **Size** field is not directly editable and has a DS1 default size. Click the **Change size** link to explore other VM sizes. The resulting dialog allows you to filter based on # of CPUs, Name, and Disk Type. Select "Standard DS1 v2" (normally the default) when you are done. That will give the VM 1 CPU and 3.5 GB of memory.
+1. Fältet **Storlek** kan inte ändras direkt och har standardstorleken DS1. Klicka på länken **Andra storlek** för att utforska andra storlekar på virtuella datorer. I dialogrutan som visas kan du filtrera baserat på antal processorer, namn och disktyp. Välj ”Standard DS1 v2” (vanligtvis standardinställningen) när du är klar. Med det här alternativet tilldelas den virtuella datorn 1 processor och 3,5 GB minne.
 
     > [!TIP]
-    > You can also just slide the view to the left to get back to the VM settings as it opened a new window off to the right and slid the window over to view it.
+    > Du kan också dra vyn åt vänster för att gå tillbaka till inställningarna för den virtuella datorn eftersom ett nytt fönster öppnades till höger och fönstret placerades över det.
 
-1. In the **ADMINISTRATOR ACCESS** section, set the **Username** field to a username you will use to sign in to the VM.
+1. I fältet **Användarnamn** i avsnittet **ADMINISTRATÖRSÅTKOMST** anger du ett användarnamn som du ska använda för att logga in på den virtuella datorn.
 
-1. In the **Password** field, enter a password that's at least 12 characters long. It must have three of the following: one lower case character, one uppercase character, one number, and one special character that is not '\' or '-'. Use something you will remember or write it down, you will need it later.
+1. I fältet **Lösenord** anger du ett lösenord som är minst 12 tecken långt. Det måste innehålla tre av följande typer av tecken: en gemen, en versal, en siffra och ett specialtecken som inte är '\' eller '-'. Använd något som är enkelt att komma ihåg eller skriv ned det eftersom du behöver det senare.
 
-1. Confirm the **password**.
+1. Bekräfta **lösenordet**.
 
-1. In the **INBOUND PORT RULES** section, open the list and _uncheck_ "None". Since this is a Windows VM, we want to be able to access the desktop using RDP. Scroll the list if necessary until you find RDP (3389) and select it. As the note in the UI indicates, we can also adjust the network ports after we create the VM.
+1. I avsnittet **REGLER FÖR INKOMMANDE PORTAR** öppnar du listan och _avmarkerar_ ”Inga”. Eftersom det här är en virtuell Windows-dator vill vi kunna komma åt skrivbordet via RDP. Bläddra i listan om det behövs tills du hittar RDP (3389) och välj det. Som anmärkningen i användargränssnittet indikerar kan vi även ändra nätverksportarna efter att vi har skapat den virtuella datorn.
 
-    ![Open the port for RDP access on the Windows VM](../media-drafts/3-open-ports.png)
+    ![Öppna porten för RDP-åtkomst på den virtuella Windows-datorn](../media-drafts/3-open-ports.png)
 
-## Configure Disks for the VM
+## <a name="configure-disks-for-the-vm"></a>Konfigurera diskar för den virtuella datorn
 
-1. Click **Next** to move to the Disks section.
+1. Gå till avsnittet Diskar genom att klicka på **Nästa**.
 
-    ![Configure disks for the VM](../media-drafts/3-configure-disks.png)
+    ![Konfigurera diskar för den virtuella datorn](../media-drafts/3-configure-disks.png)
 
-1. Choose "Premium SSD" for the **OS disk type**.
+1. Välj ”Premium SSD” för **OS-disktypen**.
 
-1. Use managed disks so we don't have to work with storage accounts. You can flip the switch in the GUI to see the difference in information that Azure needs if you like.
+1. Använda hanterade diskar så att vi inte behöver arbeta med lagringskonton. Om du vill kan du växla inställningen i det grafiska användargränssnittet för att se skillnaden mellan vilken information Azure behöver.
 
-### Create a data disk
+### <a name="create-a-data-disk"></a>Skapa en datadisk
 
-Recall we will get an OS disk (C:) and Temporary disk (D:). Let's add a data disk as well.
+Som du kanske minns får vi en operativsystemdisk (C:) och en temporär disk (D:). Nu ska vi lägga till en datadisk också.
 
-1. Click the **Create and attach a new disk** link in the **DATA DISKS** section.
+1. Klicka på länken **Create and attach a new disk** (Skapa och koppla en ny disk) i avsnittet **DATADISKAR**.
 
-    ![Create a data disk for the VM in the portal](../media-drafts/3-add-data-disk.png)
+    ![Skapa en datadisk för den virtuella datorn på portalen](../media-drafts/3-add-data-disk.png)
 
-1. You can take all the defaults: Premium SSD, 1023 GB, and None (empty disk); although notice that here is where we could use a snapshot, or Storage Blob to create a VHD.
+1. Du kan använda alla standardvärden: Premium SSD, 1 023 GB och Inget (tom disk). Observera dock att det är här vi skulle kunna använda en ögonblicksbild eller Storage Blob för att skapa en virtuell hårddisk.
 
-1. Click **OK** to create the disk and go back to the **DATA DISKS** section.
+1. Klicka på **OK** för att skapa disken och gå tillbaka till avsnittet **DATADISKAR**.
 
-1. There should now be a new disk in the first row.
+1. En ny disk bör visas på den första raden.
 
-    ![New disk in the VM](../media-drafts/3-new-disk.png)
+    ![Ny disk på den virtuella datorn](../media-drafts/3-new-disk.png)
 
-## Configure the Network
+## <a name="configure-the-network"></a>Konfigurera nätverket
 
-1. Click **Next** to move to the Networking section.
+1. Gå till avsnittet Nätverk genom att klicka på **Nästa**.
 
-1. In a production system where we already have other components, we'd want to utilize an _existing_ virtual network. That way our VM can communicate with the other cloud services in our solution. If there isn't one defined in this location yet, we can create it here and configure the:
-    - **Address space**: the overall IPV4 space available to this network.
-    - **Subnet range**: the first subnet to subdivide the address space - it must fit within the defined address space. Once the VNet is created you can add additional subnets.
+1. I ett produktionssystem där vi redan har andra komponenter vill vi använda ett _befintligt_ virtuellt nätverk. På så sätt kan vår virtuella dator kommunicera med de andra molntjänsterna i vår lösning. Om ingenting har definierats på den här platsen än, kan vi skapa det här och konfigurera:
+    - **Adressutrymme**: Hela IPV4-utrymmet som är tillgängligt för det här nätverket.
+    - **Intervall för undernät**: Det första undernätet som delar in adressutrymmet i underordnade nät – det var giltigt i det definierade adressutrymmet. När det virtuella nätverket har skapats kan du lägga till fler undernät.
 
-1. Let's change the default ranges to use the `172.xxx` IP address space.
-    - Change the **Address space** field to be `172.16.0.0/16` to give it the full range of addresses
-    - Change the **Subnet range** field to be `172.16.1.0/24` to give it 256 IP addresses of the space.
+1. Nu ska vi ändra standardintervallen för att använda `172.xxx`-IP-adressutrymmet.
+    - Ändra fältet **Adressutrymme** till `172.16.0.0/16` så att det tilldelas hela adressintervallet
+    - Ändra fältet **Subnet Range** (Intervall för undernät) till `172.16.1.0/24` för att ge det 256 IP-adresser för utrymmet.
 
 > [!NOTE]
-> By default, Azure will create a virtual network, network interface, and public IP for your VM. It's not trivial to change the networking options after the VM has been created so always double-check the network assignments on services you create in Azure.
+> Som standard skapar Azure ett virtuellt nätverk, ett nätverksgränssnitt och en offentlig IP för din virtuella dator. Det är inte helt okomplicerat att ändra nätverksalternativen i efterhand, när den virtuella datorn har skapats. Därför bör du alltid dubbelkolla nätverkstilldelningarna för tjänster som du skapar i Azure.
 
-## Finish configuring the VM and create the image
+## <a name="finish-configuring-the-vm-and-create-the-image"></a>Slutför konfigurationen av den virtuella datorn och skapa avbildningen
 
-The rest of the options have reasonable defaults and there's no need to change any of them. You can explore the other tabs if you like. The individual options have an `(i)` icon next to them that will show a help bubble to explain the option. This is a great way to learn about the various options you can use to configure the VM.
+Resten av alternativen har rimliga standardinställningar och du behöver inte ändra dem. Utforska de andra flikarna om du vill. De enskilda alternativen visas med en `(i)`-ikon som öppnar en användbar hjälpbubbla som beskriver alternativet. På så sätt kan du enkelt lära dig om de olika alternativen som du kan använda för att konfigurera den virtuella datorn.
 
-1. Click the **Review + create** button at the bottom of the panel.
+1. Klicka på knappen **Granska + skapa** längst ned på panelen.
 
-1. The system will validate your options and give you details about the VM being created.
+1. Alternativen valideras och visar information om den virtuella datorn som skapas.
 
-1. Click **Create** to create and deploy the VM. The Azure dashboard will show the VM that's being deployed. This may take several minutes.
+1. Skapa och distribuera den virtuella datorn genom att klicka på **Skapa**. På instrumentpanelen i Azure ser du den virtuella dator som distribueras. Det här kan ta flera minuter.
 
-While that's deploying, let's look at what we can do with this VM.
+Medan den distribueras ska vi se vad vi kan göra mde den här virtuella datorn.

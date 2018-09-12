@@ -1,106 +1,106 @@
-Your company has decided to manage the video data from their traffic cameras in Azure using VMs. In order to run the multiple codecs, we first need to create the VMs. We also need to connect and interact with the VMs. In this unit, you will learn how to create a VM using the Azure portal. You will configure the VM for remote access, select a VM image, and choose the proper storage option.
+Ditt företag har valt att hantera data som video från sina trafikkameror med virtuella datorer i Azure. För att köra de olika codecarna måste vi först skapa de virtuella datorerna. Vi måste också ansluta till och interagera med de virtuella datorerna. I den här utbildningsenheten får du lära dig att skapa en virtuell dator i Azure Portal. Du kommer att konfigurera den virtuella datorn för fjärråtkomst, välja en VM-avbildning och ett lämpligt lagringsalternativ.
 
-## Introduction to Windows virtual machines in Azure
+## <a name="introduction-to-windows-virtual-machines-in-azure"></a>Introduktion till virtuella Windows-datorer i Azure
 
-Azure VMs are an on-demand scalable cloud computing resource. They're similar to virtual machines that are hosted in Windows Hyper-V. They include processor, memory, storage, and networking resources. You can start and stop virtual machines at will, just like with Hyper-V, and manage them from the Azure portal or with the Azure CLI. You can also use a Remote Desktop Protocol (RDP) client to connect directly to the Windows desktop user interface (UI) and use the VM as if you were signed in to a local Windows computer.
+Virtuella datorer i Azure är databehandlingsresurser som kan skalas om på begäran. De liknar de virtuella datorer som används i Windows Hyper-V. De har processor, minne, lagring och nätverksresurser. Du kan starta och stoppa de virtuella datorerna precis som i Hyper-V, och du kan hantera dem från Azure Portal eller via Azure CLI. Du kan också använda en RDP-klient (Remote Desktop Protocol) och ansluta direkt till Windows-skrivbordet, och använda den virtuella datorn som precis som om du var inloggad på en lokal Windows-dator.
 
-## Creating an Azure VM
+## <a name="creating-an-azure-vm"></a>Skapa en virtuell Azure-dator
 
-VMs can be defined and deployed on Azure in several ways: The Azure portal, a script (using the Azure CLI or Azure PowerShell), or through an Azure Resource Manager template. In all cases, you will need to supply several pieces of information which we'll cover shortly.
+Virtuella datorer kan definieras och distribueras i Azure på flera olika sätt: Azure Portal, ett skript (med hjälp av Azure CLI eller Azure PowerShell) eller via en Azure Resource Manager-mall. I samtliga fall behöver du ange flera typer av information som vi tar upp strax.
 
-The Azure Marketplace also provides pre-configured images that include both an OS and popular software tools installed for specific scenarios.
+Azure Marketplace har också förkonfigurerade avbildningar som innehåller både ett operativsystem och populära programvaruverktyg installerade för specifika scenarier.
 
 ![Azure Marketplace Virtual Machines](../media-drafts/2-marketplace-vm-choices.png)
 
-## Resources used in a Windows VM
+## <a name="resources-used-in-a-windows-vm"></a>Resurser som används på en virtuell Windows-dator
 
-When creating a Windows VM in Azure, you also create resources to host the VM. These resources work together to virtualize a computer and run the Windows operating system. These must either exist (and be selected during VM creation), or they will be created with the VM.
+När du skapar en virtuell Windows-dator i Azure skapar du även resurser för den virtuella datorns värdmiljö. Dessa resurser fungerar tillsammans för att virtualisera en dator och köra operativsystemet Windows. Dessa måste finnas (och väljas när den virtuella datorn skapas) eller så skapas dem med den virtuella datorn.
 
-- A Virtual machine that provides CPU and memory resources.
-- An Azure Storage account to hold the virtual hard disks.
-- Virtual disks to hold the OS, applications, and data.
-- Virtual network (VNet) to connect the VM to other Azure services or your own on-premise hardware.
-- A network interface to communicate with the VNet.
-- A public IP address so you can access the VM. This is optional.
+- En virtuell dator som tillhandahåller CPU- och minnesresurser.
+- Ett Azure Storage-konto för att lagra de virtuella hårddiskarna.
+- Virtuella diskar med operativsystem, program och data.
+- Ett virtuellt nätverk för att ansluta den virtuella datorn till andra Azure-tjänster eller din egen lokala maskinvara.
+- Ett nätverksgränssnitt för att kommunicera med det virtuella nätverket.
+- En offentlig IP-adress så att du kan komma åt den virtuella datorn. Det här är valfritt.
 
-Like other Azure services, you'll need a **Resource Group** to contain the VM (and optionally group these resources together for administration). When you create a new VM, you can either use an existing resource group or create a new one.
+Liksom andra Azure-tjänster behöver du en **resursgrupp** som innehåller den virtuella datorn (och du kan också gruppera resurserna för administration). När du skapar en ny virtuell dator kan du antingen använda en befintlig resursgrupp eller skapa en ny.
 
-## Choose the VM image
+## <a name="choose-the-vm-image"></a>Välja VM-avbildning
 
-Selecting an image is one of the first and most important decisions you'll make when creating a VM. An image is a template that's used to create a VM. These templates include an OS and often other software, such as development tools or web hosting environments.
+Att välja avbildning är ett av de första och viktigaste besluten när du skapar en virtuell dator. En avbildning är mallen som används till att skapa den virtuella datorn. Dessa mallar har ett operativsystem och ofta annan programvara, som utvecklingsverktyg eller värdmiljöer för webben.
 
-Anything that a computer can have installed can be included in an image. You can create a VM from an image that's pre-configured to exactly the tasks you need, such as hosting an ASP.Net Core app.
+Allt som en dator kan ha installerat kan ingå i en avbildning. Du kan skapa en virtuell dator från en avbildning som är förkonfigurerad för just det du behöver göra, som att köra en ASP.Net Core-app.
 
 > [!TIP]
-> You can also create and upload your own images, check the documentation for more information.
+> Du kan även skapa och ladda upp egna avbildningar. I dokumentationen finns mer information.
 
-## Sizing your VM
-Just as a physical machine has a certain amount of memory and CPU power, so does a virtual machine. Azure offers a range of VMs of differing sizes at different price points. The size that you choose will determine the VMs processing power, memory, and max storage capacity.
+## <a name="sizing-your-vm"></a>Ange storlek för den virtuella datorn
+En virtuell dator har en viss mängd minne och processorkraft precis som en fysisk dator. Azure erbjuder virtuella datorer i olika storlekar till olika priser. Den storlek du väljer bestämmer den virtuella datorns bearbetningskraft, minne och maximala lagringskapacitet.
 
 > [!WARNING]
-> There are quota limits on each subscription that can impact VM creation. By default, you cannot have more than 20 virtual _cores_ across all VMs within a region. You can either split up VMs across regions or file an [online request](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to increase your limits.
+> Det finns kvotgränser för varje prenumeration som kan påverka skapandet av den virtuella datorn. Som standard kan du inte ha mer än 20 virtuella _kärnor_ i alla virtuella datorer i en region. Du kan dela upp virtuella datorer i olika regioner eller lämna en [onlinebegäran](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om att höja gränsen.
 
-VM sizes are grouped into categories, starting with the B-series for basic testing and running up to the H-series for massive computing tasks. You should select the size of the VM based on the workload you want to perform. It is possible to change the size of a VM after it's been created, but the VM must be stopped first so it's best to size it appropriately from the start if possible.
+Storlekar på virtuella datorer grupperas i kategorier, från B-serien för grundläggande testning och upp till H-serien för stora databehandlingsuppgifter. Du bör välja storlek av virtuell dator utifrån den arbetsbelastning du vill utföra. Du kan ändra storlek på en virtuell dator när den har skapats men den virtuella datorn måste stoppas först, så det är bäst att välja en lämplig storlek från början, om det är möjligt.
 
-#### Here are some guidelines based on the scenario you are targeting.
+#### <a name="here-are-some-guidelines-based-on-the-scenario-you-are-targeting"></a>Här är några riktlinjer som baseras på scenariot du arbetar med.
 
-| What are you doing? | Consider these sizes
+| Vad gör du? | Överväg dessa storlekar
 |-------|------------------|
-| **General use computing / web** Testing and development, small to medium databases, or low to medium traffic web servers. | B, Dsv3, Dv3, DSv2, Dv2 |
-| **Heavy computational tasks** Medium traffic web servers, network appliances, batch processes, and application servers. | Fsv2, Fs, F |
-| **Large memory usage** Relational database servers, medium to large caches, and in-memory analytics. | Esv3, Ev3, M, GS, G, DSv2, Dv2 |
-| **Data storage and processing** Big Data, SQL, and NoSQL databases which need high disk throughput and IO. | Ls |
-| **Heavy graphics rendering** or video editing, as well as model training and inferencing (ND) with deep learning. | NV, NC, NCv2, NCv3, ND |
-| **High-performance computing (HPC)** If you need the fastest and most powerful CPU virtual machines with optional high-throughput network interfaces. | H |
+| **Allmän databehandling/webb** Testning och utveckling, små till medelstora databaser eller webbservrar med låg till medelhög trafik. | B, Dsv3, Dv3, DSv2, Dv2 |
+| **Tunga databehandlingsuppgifter** Webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar. | Fsv2, Fs, F |
+| **Stor minnesanvändning** Relationsdatabasservrar, medelstora till stora cacheminnen och minnesinterna analyser. | Esv3, Ev3, M, GS, G, DSv2, Dv2 |
+| **Lagring och bearbetning av data** Stordata, SQL- och NoSQL-databaser som behöver högt diskgenomflöde och I/O. | Ls |
+| **Tung grafikrendering** eller videoredigering samt modellträning och inferensjobb (ND) med djupinlärning. | NV, NC, NCv2, NCv3, ND |
+| **Databehandling med höga prestanda (HPC)** Om du behöver virtuella datorer med snabbaste och mest kraftfulla CPU med valfria nätverksgränssnitt för högt genomflöde. | H |
 
-## Choosing storage options
+## <a name="choosing-storage-options"></a>Välja lagringsalternativ
 
-The next set of decisions revolve around storage. First, you can choose the disk technology. Options include a traditional platter-based hard disk drive (HDD) or a more modern solid-state drive (SSD). Just like the hardware you purchase, SSD storage costs more but provides better performance.
+Nästa uppsättning beslut kretsar kring lagring. Först kan du välja diskteknik. Du kan välja en traditionell skivbaserad hårddisk (HDD) eller en modernare Solid State-hårddisk (SSD). Precis som den maskinvara du köper kostar SSD-lagring mer men ger bättre prestanda.
 
 > [!TIP]
-> There are two levels of SSD storage available: standard and premium. Choose Standard SSD disks if you have normal workloads but want better performance. Choose Premium SSD disks if you have I/O intensive workloads or mission-critical systems that need to process data very quickly.
+> Det finns två nivåer av SSD-lagring: standard och premium. Välj Standard SSD-diskar om du har normala arbetsbelastningar men vill ha bättre prestanda. Välj Premium SSD-diskar du har I/O-intensiva arbetsbelastningar eller verksamhetskritiska system som bearbetar data mycket snabbt.
 
-### Mapping storage to disks
+### <a name="mapping-storage-to-disks"></a>Mappning av lagring till diskar
 
-Azure uses Virtual hard disks (VHDs) to represent physical disks for the VM. VHDs replicate the logical format and data of a disk drive but are stored as page blobs in an Azure Storage account. You can choose on a per-disk basis what type of storage it should use (SSD or HDD). This allows you to control the performance of each disk, likely based on the I/O you plan to perform on it.
+Azure använder virtuell hårddiskar (VHD) för att representera fysiska diskar för den virtuella datorn. Virtuella hårddiskar replikerar det logiska formatet och data hos en diskenhet men lagras som sidblobar på ett Azure Storage-konto. Du kan välja, per disk, vilken typ av lagring den ska använda (SSD eller HDD). Det gör att du kan kontrollera varje disks prestanda, troligen baserat på den I/O du planerar att utföra på den.
 
-By default, two virtual hard disks (VHDs) will be created for your Windows VM:
+Som standard skapas två virtuella hårddiskar (VHD) för den virtuella Windows-datorn:
 
-1. The **Operating System disk**. This is your primary or C: drive and has a maximum capacity of 2048 GB.
+1. **operativsystemdisken**. Det här är din primära enhet eller C:-enhet och har en maxkapacitet på 2048 GB.
 
-1. A **Temporary disk**. This provides temporary storage for the OS or any apps. It is configured as the D: drive by default and is sized based on the VM size, making it an ideal location for the Windows paging file.
+1. En **tillfällig disk**. Detta ger tillfällig lagring för operativsystemet eller appar. Den konfigureras som enhet D: som standard och dess storlek baseras på den virtuella datorns storlek, vilket gör det till en perfekt plats för Windows-växlingsfilen.
 
 > [!WARNING]
-> The temporary disk is not persistent. You should only write data to this disk that you are willing to lose at any time.
+> Den tillfälliga disken är inte beständig. Du bör endast skriva data till den här disken som du är beredd att förlora när som helst.
 
-#### What about data?
+#### <a name="what-about-data"></a>Hur är det med data?
 
-You can store data on the C: drive along with the OS, but a better approach is to create dedicated _data disks_. You can create and attach additional disks to the VM. Each disk can hold up to 4095 GB of data, with the maximum amount of storage determined by the VM size you select.
+Du kan lagra data på enhet C: tillsammans med operativsystemet men det är bättre att skapa dedikerade _datadiskar_. Du kan skapa och koppla ytterligare diskar till den virtuella datorn. Varje disk kan lagra upp till 4 095 GB data, där den maximala mängden lagring bestäms av den storlek på virtuell dator du väljer.
 
 > [!NOTE]
-> An interesting capability is to create a VHD image from a real disk. This allows you to easily migrate _existing_ information from an on-premise computer to the cloud.
+> En intressant funktion är att skapa en VHD-avbildning från en riktig disk. Då kan du enkelt migrera _befintlig_ information från en lokal dator till molnet.
 
-### Unmanaged vs. Managed disks
+### <a name="unmanaged-vs-managed-disks"></a>Ohanterade och hanterade diskar
 
-The final storage choice you'll make is whether to use **unmanaged** or **managed** disks.
+Du slutliga lagringsvalet du gör är om du ska använda **ohanterade** eller **hanterade** diskar.
 
-With unmanaged disks, you are responsible for the storage accounts that are used to hold the VHDs that correspond to your VM disks. You pay the storage account rates for the amount of space you use. A single storage account has a fixed rate limit of 20,000 I/O operations/sec. This means that a single storage account is capable of supporting 40 standard virtual hard disks at full throttle. If you need to scale out, then you need more than one storage account, which can get complicated.
+Med ohanterade diskar ansvarar du för lagringskontona som används för att lagra de virtuella hårddiskar som motsvarar dina virtuell dator-diskar. Du betalar lagringskontoavgifter för den mängd utrymme du använder. Ett lagringskonto har en fast gräns på 20 000 I/O-åtgärder/sekund. Det betyder att ett enda lagringskonto kan stödja 40 virtuella standardhårddiskar vid maxkapacitet. Om du behöver skala ut behöver du fler än ett lagringskonto, något som kan vara komplicerat.
 
-Managed disks are the newer and recommended disk storage model. They elegantly solve this complexity by putting the burden of managing the storage accounts onto Azure. You specify the disk type (Premium or Standard) and the size of the disk and Azure creates and manages both the disk _and_ the storage it uses. You don't have to worry about storage account limits, which makes them easier to scale out. They also offer several other benefits:
+Hanterade diskar är den nyare och rekommenderade disklagringsmodellen. De löser elegant den här komplexiteten genom att lägga bördan att hantera lagringskonton på Azure. Du anger disktyp (Premium eller Standard) och storleken på disk och Azure skapar och hanterar både disken _och_ den lagring som disken använder. Du behöver inte oroa dig om lagringskontogränser, vilket gör dem lättare att skala ut. De har också andra fördelar:
 
-- **Increased reliability**: Azure ensures that VHDs associated with high-reliability VMs will be placed in different parts of Azure storage to provide similar levels of resilience.
-- **Better security**: Managed disks are truly managed resources in the resource group. This means they can use role-based access control to restrict who can work with the VHD data.
-- **Snapshot support**: Snapshots can be used to create a read-only copy of a VHD. You have to shut down the owning VM but creating the snapshot only takes a few seconds. Once it's done you can power on the VM and use the snapshot to create a duplicate VM to troubleshoot a production issue or rollback the VM to the point in time that the snapshot was taken.
-- **Backup support**: Managed disks can be automatically backed up to different regions for disaster recovery with Azure Backup all without affecting the service of the VM.
+- **Ökad tillförlitlighet**: Azure ser till att virtuella hårddiskar associerade med virtuella datorer med hög tillförlitlighet placeras i olika delar av Azure Storage för att ge motsvarande återhämtningsnivåer.
+- **Bättre säkerhet**: Hanterade diskar är riktiga hanterade resurser i resursgruppen. Det betyder att de kan använda rollbaserad åtkomstkontroll för att begränsa vilka som kan arbeta med VHD-data.
+- **Stöd för ögonblicksbilder**: Ögonblicksbilder kan användas till att skapa en skrivskyddad kopia av en VHD. Du måste stänga av den ägande virtuella datorn men att skapa ögonblicksbilden tar bara några sekunder. När det är gjort kan du slå på den virtuella datorn och använda ögonblicksbilden till att skapa en dubblett av den virtuella datorn för att felsöka ett produktionsproblem eller återställa den virtuella datorn till den tidpunkt då ögonblicksbilden togs.
+- **Stöd för säkerhetskopiering**: Hanterade diskar kan automatiskt säkerhetskopieras till olika regioner för haveriberedskap med Azure Backup utan att påverka den virtuella datorns tjänst.
 
-## Network communication
+## <a name="network-communication"></a>Nätverkskommunikation
 
-Virtual machines communicate with external resources using a virtual network (VNet). The VNet represents a private network in a single region that your resources communicate on. A virtual network is just like the networks you manage on-premises. You can divide them up with subnets to isolate resources, connect them to other networks (including your on-premises networks), and apply traffic rules to govern inbound and outbound connections.
+Virtuella datorer kommunicerar med externa resurser med ett virtuellt nätverk. Det virtuella nätverket representerar ett privat nätverk i en region som dina resurser kommunicerar på. Ett virtuellt nätverk är precis som de nätverk du hanterar lokalt. Du kan dela upp dem med undernät för att isolera resurser, ansluta dem till andra nätverk (inklusive dina lokala nätverk) och tillämpa trafikregler för att styra inkommande och utgående anslutningar.
 
-### Planning your network
+### <a name="planning-your-network"></a>Planera nätverket
 
-When you create a new VM, you will have the option of creating a new virtual network, or using an existing VNet in your region.
+När du skapar en ny virtuell dator har du möjlighet att skapa ett nytt virtuellt nätverk eller använda ett befintligt i din region.
 
-Having Azure create the network together with the VM is simple but it's likely not ideal for most scenarios. It's better to plan your network requirements _up-front_ for all the components in your architecture and create the VNet structure you will need separately. Then create the VMs and place them into the already-created VNets.
+Det är enkelt att låta Azure skapa nätverket tillsammans med den virtuella datorn men det passar troligen inte de flesta scenarier. Det är bättre att planera dina nätverkskrav _direkt_ för alla komponenter i arkitekturen och skapa strukturen för det virtuella nätverket separat. Skapa sedan de virtuella datorerna och placerad dem i de redan skapade virtuella nätverken.
 
-We'll look more at virtual networks a bit later in this module. Let's apply some of this knowledge and create a VM in Azure.
+Vi tittar mer på virtuella nätverk lite senare i den här modulen. Nu ska vi använda den här kunskapen och skapa en virtuell dator i Azure.

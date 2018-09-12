@@ -22,7 +22,7 @@ I vårt ursprungliga scenario kan vi anta att systemet ska köras på två virtu
 
 Vi kan använda priskalkylatorn i Azure till att se vad lösningen kommer att kosta och sedan exportera vår uppskattning för att dela den med teamet.
 
-> [!NOTE]
+> [!TIP]
 > Se till att du har en ren kalkylator utan några poster i uppskattningen. Om du ser poster i uppskattningen klickar du på papperskorgsikonen för dem så att uppskattningen återställs.
 
 Lägg till följande tjänster på fliken **Produkter** i Azures priskalkylator genom att klicka på dem:
