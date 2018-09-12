@@ -1,34 +1,39 @@
 ### YamlMime:ModuleUnit
 uid: learn.predict-costs-and-optimize-spending.2-estimate-costs-with-the-azure-pricing-calculator
-title: Estimate costs with the Azure pricing calculator
+title: Uppskatta kostnader med priskalkylatorn för Azure
 metadata:
-  title: Estimate costs with the Azure pricing calculator
-  description: In this unit, we'll discuss how to estimate costs with the Azure pricing calculator 
+  title: Uppskatta kostnader med priskalkylatorn för Azure
+  description: Här kommer vi att diskutera hur du uppskattar kostnader med priskalkylatorn för Azure.
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 1d7c1fe08e193a2c03779ffa5ca7bada0e30384d
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44244618"
 durationInMinutes: 20
-content: |
+content: >
   [!include[](includes/2-estimate-costs-with-the-azure-pricing-calculator.md)]
 quiz:
-  title: Estimate costs with the Azure pricing calculator 
+  title: Uppskatta kostnader med priskalkylatorn för Azure
   questions:
-  - content: "In which tab of the Azure pricing calculator will you formulate your estimate?"
+  - content: På vilken flik av priskalkylatorn för Azure kommer du att formulera uppskattningen?
     choices:
-    - content: "Estimate"
+    - content: Uppskattning
       isCorrect: false
-      incorrectExplanation: "This tab has all of your previously saved estimates."
-    - content: "Products"
+      incorrectExplanation: På den här fliken finns alla dina sparade uppskattningar.
+    - content: Produkter
       isCorrect: true
-      correctExplanation: "This tab has all the Azure services listed and is where you'll add or remove services to formulate your estimate."
-  - content: "You can share your estimate through an Excel spreadsheet or through a URL."
+      correctExplanation: På den här fliken listas alla Azure-tjänster, och här kan du lägga till eller ta bort tjänster för att formulera din uppskattning.
+  - content: Du kan dela uppskattningen via ett Excel-kalkylblad eller en URL.
     choices:
     - content: "True"
       isCorrect: true
-      correctExplanation: "Clicking <b>Export</b> at the bottom of the estimate will export an Excel spreadsheet that you can share, or you can click <b>Share</b> to get a URL link that you can share with your team."
+      correctExplanation: Om du klickar på <b>Exportera</b> längst ned i uppskattningen exporteras ett Excel-kalkylblad som du kan dela. Du kan även klicka på <b>Dela</b> för att hämta en URL-länk som kan delas med teamet.
     - content: "False"
       isCorrect: false
-      incorrectExplanation: "Clicking <b>Export</b> at the bottom of the estimate will export an Excel spreadsheet that you can share, or you can click <b>Share</b> to get a URL link that you can share with your team."
+      incorrectExplanation: Om du klickar på <b>Exportera</b> längst ned i uppskattningen exporteras ett Excel-kalkylblad som du kan dela. Du kan även klicka på <b>Dela</b> för att hämta en URL-länk som kan delas med teamet.

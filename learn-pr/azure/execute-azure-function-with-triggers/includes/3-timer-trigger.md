@@ -2,9 +2,9 @@ Det är vanligt att köra en del av logiken med ett angivet intervall. Anta att 
 
 ## <a name="what-is-a-timer-trigger"></a>Vad är en timerutlösare?
 
-En timerutlösare är en utlösare som kör en funktion med ett konsekvent intervall. Om du vill skapa en timerutlösare måste du ange två typer av information. 
+En timerutlösare är en utlösare som kör en funktion med ett konsekvent intervall. Om du vill skapa en timerutlösare måste du ange två typer av information.
 
-1. Ett *tidsstämpelparameternamn*, vilket helt enkelt är en identifierare som får åtkomst till utlösaren i koden. 
+1. Ett *tidsstämpelparameternamn*, vilket helt enkelt är en identifierare som får åtkomst till utlösaren i koden.
 2. Ett *schema*, vilket är ett *CRON-uttryck* som anger intervallet för timern.
 
 ## <a name="what-is-a-cron-expression"></a>Vad är ett CRON-uttryck?
@@ -15,7 +15,7 @@ Ordningen på de sex fälten i Azure är: `{second} {minute} {hour} {day} {month
 
 Ett *CRON-uttryck* som skapar en utlösare som körs var femte minut ut ser exempelvis ut så här:
 
-```
+```log
 0 */5 * * * *
 ```
 
@@ -32,7 +32,7 @@ För att kunna skapa ett *CRON-uttryck* måste du ha en grundläggande förståe
 
 Vi ska gå nu tillbaka till det ursprungliga exemplet på CRON-uttryck. Vi kan förstå det bättre om vi bryter ned ett fält i taget.
 
-```
+```log
 0 */5 * * * *
 ```
 

@@ -1,43 +1,48 @@
 ### YamlMime:ModuleUnit
 uid: learn.predict-costs-and-optimize-spending.4-save-on-infrastructure-costs
-title: Save on infrastructure costs
+title: Sänk dina infrastrukturkostnader
 metadata:
-  title: Save on infrastructure costs
-  description: In this unit, we'll discuss how to save on infrastructure costs 
+  title: Sänk dina infrastrukturkostnader
+  description: Här kommer vi att diskutera hur du kan sänka dina infrastrukturkostnader
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 7de7c9ebfe9743b18d01e4e2c298f97efa227efb
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44244788"
 durationInMinutes: 10
-content: |
+content: >
   [!include[](includes/4-save-on-infrastructure-costs.md)]
 quiz:
-    title: "Save on infrastructure costs"
-    questions:
-    - content: "Which one of these is <b>not</b> a cost-saving solution?"
-      choices:
-      - content: "Deallocate virtual machines in off hours."
-        incorrectExplanation: "Using Azure Reserved Virtual Machine Instances, deallocating virtual machines in off hours, right-sizing underutilized virtual machines, deleting unused virtual machines, and migrating to PaaS or SaaS are all examples of cost-saving solutions."
-        isCorrect: false
-      - content: "Use Azure Reserved Virtual Machine Instances."
-        incorrectExplanation: "Using Azure Reserved Virtual Machine Instances, deallocating virtual machines in off hours, right-sizing underutilized virtual machines, deleting unused virtual machines, and migrating to PaaS or SaaS are all examples of cost-saving solutions."
-        isCorrect: false
-      - content: "Load balance your virtual machines for incoming messages."
-        correctExplanation: "Load balancing is used for performance optimization. Using Azure Reserved Virtual Machine Instances, deallocating virtual machines in off hours, right-sizing underutilized virtual machines, deleting unused virtual machines, and migrating to PaaS or SaaS are all examples of cost-saving solutions."
-        isCorrect: true
-      - content: "Right-size underutilized virtual machines."
-        incorrectExplanation: "Using Azure Reserved Virtual Machine Instances, deallocating virtual machines in off hours, right-sizing underutilized virtual machines, deleting unused virtual machines, and migrating to PaaS or SaaS are all examples of cost-saving solutions."
-        isCorrect: false
-    - content: "The Azure Architecture Center is ________:"
-      choices:
-      - content: "A great place to get ideas for transforming your application, as well as best practices across a wide array of architectures and Azure services."
-        correctExplanation: "The Azure Architecture Center will provide suggestions about ways to improve your app and save money."
-        isCorrect: true
-      - content: "A building on the Microsoft Seattle campus where you can talk about infrastructure."
-        incorrectExplanation: "The Azure Architecture Center is a software product built into Azure that provides suggestions to improve your app."
-        isCorrect: false
-      - content: "A cloud-based museum to Frank Lloyd Wright."
-        incorrectExplanation: "The Azure Architecture Center is a software product built into Azure that provides suggestions to improve your app."
-        isCorrect: false
+  title: Sänk dina infrastrukturkostnader
+  questions:
+  - content: Vilken av följande är <b>inte</b> en kostnadsbesparande lösning?
+    choices:
+    - content: Frigöra virtuella datorer utanför normal arbetstid.
+      incorrectExplanation: Med Azure Reserved Virtual Machine Instances kan virtuella datorer frigöras utanför normal arbetstid, rätt storlek anges för underutnyttjade virtuella datorer, oanvända virtuella datorer tas bort och migrering till PaaS eller SaaS kan genomföras. Dessa är exempel på kostnadsbesparande lösningar.
+      isCorrect: false
+    - content: Använda Azure Reserved Virtual Machine Instances.
+      incorrectExplanation: Med Azure Reserved Virtual Machine Instances kan virtuella datorer frigöras utanför normal arbetstid, rätt storlek anges för underutnyttjade virtuella datorer, oanvända virtuella datorer tas bort och migrering till PaaS eller SaaS kan genomföras. Dessa är exempel på kostnadsbesparande lösningar.
+      isCorrect: false
+    - content: Belastningsutjämna dina virtuella datorer för inkommande meddelanden.
+      correctExplanation: Belastningsutjämning används för prestandaoptimering. Med Azure Reserved Virtual Machine Instances kan virtuella datorer frigöras utanför normal arbetstid, rätt storlek anges för underutnyttjade virtuella datorer, oanvända virtuella datorer tas bort och migrering till PaaS eller SaaS kan genomföras. Dessa är exempel på kostnadsbesparande lösningar.
+      isCorrect: true
+    - content: Ange rätt storlek för underutnyttjade virtuella datorer.
+      incorrectExplanation: Med Azure Reserved Virtual Machine Instances kan virtuella datorer frigöras utanför normal arbetstid, rätt storlek anges för underutnyttjade virtuella datorer, oanvända virtuella datorer tas bort och migrering till PaaS eller SaaS kan genomföras. Dessa är exempel på kostnadsbesparande lösningar.
+      isCorrect: false
+  - content: 'Azure Architecture Center är ________:'
+    choices:
+    - content: En bra plats för att få idéer om hur du omvandlar ditt program, samt metodtips för en mängd olika arkitekturer och Azure-tjänster.
+      correctExplanation: I Azure Architecture Center hittar du förslag på hur du kan förbättra din app och spara pengar.
+      isCorrect: true
+    - content: En byggnad på Microsofts campus i Seattle där du kan diskutera infrastruktur.
+      incorrectExplanation: Azure Architecture Center är en inbyggd programvaruprodukt i Azure som ger förslag på hur du kan förbättra din app.
+      isCorrect: false
+    - content: Ett molnbaserat museum tillägnat Frank Lloyd Wright.
+      incorrectExplanation: Azure Architecture Center är en inbyggd programvaruprodukt i Azure som ger förslag på hur du kan förbättra din app.
+      isCorrect: false

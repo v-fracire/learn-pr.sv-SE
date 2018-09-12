@@ -136,7 +136,7 @@ Den här informationen är också tillgänglig i Azure Portal. En grafisk repres
 ![Vy i Azure Portal över processor- och minnesanvändning för Azure Container Instances](../media-draft/cpu-memory.png)
 
 ## <a name="clean-up"></a>Rensa
-<!---TODO: Do we need to include cleanup for the free education tier?--->
+<!---TODO: Update for sandbox?--->
 
 Detta är den sista utbildningsenheten i modulen för Azure Container Instances. Nu kan du rensa alla resurser du har skapat genom att ta bort resursgruppen. Det gör du med kommandot **az group delete**:
 

@@ -1,15 +1,15 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-computer-vision-service.7-summary
-title: Sammanfattning-och kunskapskontroll
+title: Sammanfattning och kunskapskontroll
 metadata:
-  title: Sammanfattning-och kunskapskontroll
-  description: Sammanfattning-och kunskapskontroll
-  ms.openlocfilehash: b5b474cbfc1f501965805e36d035caf0c5ffbfeb
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  title: Sammanfattning och kunskapskontroll
+  description: Sammanfattning och kunskapskontroll
+  ms.openlocfilehash: c27d2230f4dd2325dd83c189737fc59e0e0368a4
+  ms.sourcegitcommit: e90461bc6f88bca3b53183b476553633f93990a3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43838963"
+  ms.locfileid: "44043635"
 durationInMinutes: 10
 content: >
   [!include[](includes/7-summary.md)]
@@ -40,7 +40,7 @@ quiz:
       isCorrect: false
     - content: Vuxet eller provokativt innehåll
       isCorrect: false
-  - content: Vad gör smart beskärning?
+  - content: Vad är smart beskärning?
     choices:
     - content: Beskär bilder från den övre vänstra kanten
       isCorrect: false

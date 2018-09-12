@@ -1,43 +1,48 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-availability-and-recoverability.4-backup-and-restore
-title: Protect your data with backup and restore
+title: Skydda dina data med säkerhetskopiering och återställning
 metadata:
-  title: Protect your data with backup and restore
-  description: Protect your data with backup and restore
+  title: Skydda dina data med säkerhetskopiering och återställning
+  description: Skydda dina data med säkerhetskopiering och återställning
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: a720cc149f5ef49377473362414a0afc3c73df64
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44232469"
 durationInMinutes: 15
-content: |
+content: >
   [!include[](includes/4-backup-and-restore.md)]
 quiz:
-  title: 'Knowledge Check - Protect your data with backup and restore'
+  title: Kunskapskontroll – Skydda dina data med säkerhetskopiering och återställning
   questions:
-  - content: 'It is important to test restores regularly because:'
+  - content: Det är viktigt att regelbundet testa återställningar eftersom
     choices:
-    - content: 'It allows you to validate the integrity of your backups.'
+    - content: Du kan verifiera integriteten hos dina säkerhetskopior
       isCorrect: false
-      incorrectExplanation: 'Testing restores regularly does allow you to validate the integrity of your backups, but this is not the only correct choice.'
-    - content: 'It allows you to become familiar with the restoration process.'
+      incorrectExplanation: När du testar återställningar regelbundet kan du validera säkerhetskopiornas integritet, men det är inte det enda rätta valet.
+    - content: Du kan bekanta dig med återställningsprocessen
       isCorrect: false
-      incorrectExplanation: 'Testing restores regularly does allow you to become more familiar with the restoration process, but this is not the only correct choice.'
-    - content: 'It can help you to identify gaps in your backup and restore processes.'
+      incorrectExplanation: När du testar återställningar regelbundet kan du bli mer bekant med återställningsprocessen, men det är inte det enda rätta valet.
+    - content: Det kan hjälpa dig att identifiera brister i processen för säkerhetskopiering och återställning
       isCorrect: false
-      incorrectExplanation: 'Testing restores regularly does allow you to identify gaps in your backup and restore processes, but this is not the only correct choice.'
-    - content: 'All of the above.'
+      incorrectExplanation: När du testar återställningar regelbundet kan du identifiera brister i processen för säkerhetskopiering och återställning, men det är inte det enda rätta valet.
+    - content: Alla alternativ ovan
       isCorrect: true
-      correctExplanation: 'All of the above are excellent reasons to regularly test the restoration of your backups.'
-  - content: 'Which of the following does not include automatic regular backup of data?'
+      correctExplanation: Alla alternativ ovan är utmärkta anledningar för att regelbundet testa återställningen av dina säkerhetskopior.
+  - content: Vilket av följande omfattar inte automatisk, regelbunden säkerhetskopiering av data?
     choices:
-    - content: 'Azure Blob storage'
+    - content: Azure Blob Storage
       isCorrect: true
-      correctExplanation: 'Azure Blob storage does not include automatic backups of your data. You will need to implement backups through other methods.'
-    - content: 'Azure Cosmos DB'
+      correctExplanation: Azure Blob Storage innefattar inte automatiska säkerhetskopieringar av dina data. Du måste implementera säkerhetskopior med andra metoder.
+    - content: Cosmos DB
       isCorrect: false
-      incorrectExplanation: 'Azure Cosmos DB does include fully automated, regular backups of your data.'
-    - content: 'Azure SQL Database'
+      incorrectExplanation: Cosmos DB innefattar helt automatiserade, regelbundna säkerhetskopior av dina data.
+    - content: Azure SQL Database
       isCorrect: false
-      incorrectExplanation: 'Azure SQL Database does include fully automated, regular backups of your data.'
+      incorrectExplanation: Azure SQL Database innefattar helt automatiserade, regelbundna säkerhetskopior av dina data.

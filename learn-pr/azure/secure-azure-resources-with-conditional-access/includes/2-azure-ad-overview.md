@@ -11,9 +11,10 @@ När vi skapar katalogen blir vår konto automatiskt en global administratör. K
 Azure AD Premium innehåller funktioner som multifaktorautentisering och principer för villkorsstyrd åtkomst. När dessa funktioner används tillsammans ger de högst kornighet när de skyddar åtkomst till program.
 
 En princip för villkorsstyrd åtkomst består av:
-   * Användare eller grupper
-   * Program som de försöker få åtkomst till
-   * Kontroller som ska uppfyllas, till exempel multifaktorautentisering
+
+- Användare eller grupper
+- Program som de försöker få åtkomst till
+- Kontroller som ska uppfyllas, till exempel multifaktorautentisering
 
 ## <a name="summary"></a>Sammanfattning
 

@@ -4,17 +4,12 @@ title: Använda övervakning och analys för att få åtgärdsinformation
 metadata:
   title: Använda övervakning och analys för att få åtgärdsinformation
   description: I det här avsnittet kommer vi att diskutera hur du använder övervakning och analys för att få åtgärdsinformation
-  ms.date: 09/24/2018
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-  ms.openlocfilehash: ea067302b66dcb00c9fb9b67e30de95dc68e758a
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 5191e8d92a0b316b8a88b7d4ec12bd378b30bbe6
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44230675"
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43826067"
 durationInMinutes: 8
 content: >
   [!include[](includes/3-use-monitoring-and-analytics-to-gain-operational-insights.md)]

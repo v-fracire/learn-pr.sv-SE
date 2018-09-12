@@ -77,7 +77,7 @@ Nu ska vi skapa en ny lagrad procedur i portalen. Portalen fyller automatiskt i 
 
 3. I rutan **Indataparametrar** skriver du namnet på partitionsnyckeln, *33218896* och klickar sedan på **Kör**. Observera att lagrade procedurer fungerar i en enda partition.
 
-    ![Kör en lagrad procedur i portalen](../media-draft/6-stored-procedure.gif)
+    ![Kör en lagrad procedur i portalen](../media/6-stored-procedure.gif)
 
     **Resultat**fönstret visar flödet från det första dokumentet i samlingen.
 

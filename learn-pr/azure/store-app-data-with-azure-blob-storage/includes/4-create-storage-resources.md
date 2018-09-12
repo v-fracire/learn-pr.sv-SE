@@ -23,6 +23,7 @@ Koden vi börjar med kompileras och körs, men delarna som är ansvariga för at
 Vi kan ställa in lagringsinfrastrukturen för vår app.
 
 ### <a name="resource-group-and-storage-account"></a>Resursgrupp och lagringskonto
+<!---TODO: Update for sandbox?--->
 
 Först skapar vi en resursgrupp som ska innehålla alla resurser i den här kursdelen. På slutet kommer vi att ta bort den för att rensa bort allt vi skapat. Vi ska även skapa lagringskontot vår app ska använda för att lagra blobar.
 

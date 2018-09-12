@@ -27,6 +27,7 @@ På grund av alla problem som företaget har haft med programhemligheter, har le
 Till att börja med måste du skapa ett valv och lagra en hemlighet.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+<!---TODO: Update for sandbox?--->
 
 Skapa en resursgrupp med namnet `keyvault-exercise-group` för alla resurser i den här kursdelen. I slutet av den här modulen tar vi bort resursgruppen för att kunna rensa allt på samma gång. Vi använder `eastus` som plats för allt innehåll i den här kursdelen.
 
