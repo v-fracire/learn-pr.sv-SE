@@ -1,19 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-a-windows-vm-in-azure.7-exercise-manage-vm
-title: <span data-ttu-id="b3ae0-101">Konfigurera nätverksinställningar för virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="b3ae0-101">Configure the virtual machine network settings</span></span>
+title: <span data-ttu-id="1ade5-101">Konfigurera nätverksinställningar för virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="1ade5-101">Configure the virtual machine network settings</span></span>
 metadata:
-  title: <span data-ttu-id="b3ae0-102">Konfigurera nätverksinställningar för virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="b3ae0-102">Configure the virtual machine network settings</span></span>
-  description: <span data-ttu-id="b3ae0-103">Konfigurera nätverksinställningar för virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="b3ae0-103">Configure the virtual machine network settings</span></span>
+  title: <span data-ttu-id="1ade5-102">Konfigurera nätverksinställningar för virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="1ade5-102">Configure the virtual machine network settings</span></span>
+  description: <span data-ttu-id="1ade5-103">Konfigurera nätverksinställningar för virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="1ade5-103">Configure the virtual machine network settings</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 035d9f354486eec77f57bc04effc071ca8fe07d8
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 47e8b67ad041d8851c9f0c87c4986116db7dda37
+  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44238396"
+  ms.lasthandoff: 09/10/2018
+  ms.locfileid: "44306727"
 durationInMinutes: 12
+azureSandbox: true
 content: '[!include[](includes/7-exercise-manage-vm.md)]'

@@ -4,12 +4,16 @@ metadata:
   title: Grundarna om molnet
   description: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
   ms.date: 09/24/2018
-  ms.openlocfilehash: 42a739267fee3c7b403b72bfc3a07d631f408c17
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 3ad95f80529f48ab426eda00639f250e2216990f
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43826883"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44247763"
 title: Grundarna om molnet
 summary: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
 prerequisites: Ingen
@@ -27,5 +31,6 @@ modules:
 - learn.azure-services-features
 - learn.intro-to-compute
 - learn.intro-to-data-in-azure
+- learn.introduction-to-security
 - learn.intro-to-azure-networking
 achievement: learn.cloud-foundations.trophy

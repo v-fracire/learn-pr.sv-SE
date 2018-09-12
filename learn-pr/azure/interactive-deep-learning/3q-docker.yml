@@ -1,54 +1,58 @@
 ### YamlMime:ModuleUnit
 uid: learn.interactive-deep-learning.3q-docker
-title: <span data-ttu-id="b7efd-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="b7efd-101">Knowledege Check</span></span>
+title: <span data-ttu-id="35707-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="35707-101">Knowledege Check</span></span>
 metadata:
-  title: <span data-ttu-id="b7efd-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="b7efd-102">Knowledege Check</span></span>
-  description: <span data-ttu-id="b7efd-103">Kunskapskontroll av Docker + djupinlärning</span><span class="sxs-lookup"><span data-stu-id="b7efd-103">Docker + Deep Learning Knowledege Check</span></span>
-  displayType: one-column
-  ms.openlocfilehash: 1327473f4e03e1d186b07e110c14c3439d7acb3b
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  title: <span data-ttu-id="35707-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="35707-102">Knowledege Check</span></span>
+  description: <span data-ttu-id="35707-103">Kunskapskontroll av Docker + djupinlärning</span><span class="sxs-lookup"><span data-stu-id="35707-103">Docker + Deep Learning Knowledege Check</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 083fc6a378cf9502b0f58ec211c17393c2d1ebb2
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43838459"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44245298"
 durationInMinutes: 2
-content: <span data-ttu-id="b7efd-104">Besvara följande för att fortsätta</span><span class="sxs-lookup"><span data-stu-id="b7efd-104">Answer the following to continue</span></span>
+content: <span data-ttu-id="35707-104">Besvara följande för att fortsätta</span><span class="sxs-lookup"><span data-stu-id="35707-104">Answer the following to continue</span></span>
 quiz:
-  title: <span data-ttu-id="b7efd-105">Frågeformulär om Docker + djupinlärning</span><span class="sxs-lookup"><span data-stu-id="b7efd-105">Docker Deep Learning Quiz</span></span>
+  title: <span data-ttu-id="35707-105">Frågeformulär om Docker + djupinlärning</span><span class="sxs-lookup"><span data-stu-id="35707-105">Docker Deep Learning Quiz</span></span>
   questions:
-  - content: <span data-ttu-id="b7efd-106">Vad är CUDA?</span><span class="sxs-lookup"><span data-stu-id="b7efd-106">What is CUDA?</span></span>
+  - content: <span data-ttu-id="35707-106">Vad är CUDA?</span><span class="sxs-lookup"><span data-stu-id="35707-106">What is CUDA?</span></span>
     choices:
-    - content: <span data-ttu-id="b7efd-107">CUDA är en parallell databehandlingsplattform och ett API.</span><span class="sxs-lookup"><span data-stu-id="b7efd-107">CUDA is a parallel computing platform and API.</span></span>
+    - content: <span data-ttu-id="35707-107">CUDA är en parallell databehandlingsplattform och ett API.</span><span class="sxs-lookup"><span data-stu-id="35707-107">CUDA is a parallel computing platform and API.</span></span>
       isCorrect: true
-    - content: <span data-ttu-id="b7efd-108">CUDA är en mycket kraftfull GPU-modell som tillhandahålls av Nvidia och som blivit uppkallad efter en berömd sportbil från 60-talet.</span><span class="sxs-lookup"><span data-stu-id="b7efd-108">CUDA is a super powerful GPU model provided by Nvidia and nicknamed after a famous hotrod from the 60s.</span></span>
+    - content: <span data-ttu-id="35707-108">CUDA är en mycket kraftfull GPU-modell som tillhandahålls av Nvidia och som blivit uppkallad efter en berömd sportbil från 60-talet.</span><span class="sxs-lookup"><span data-stu-id="35707-108">CUDA is a super powerful GPU model provided by Nvidia and nicknamed after a famous hotrod from the 60s.</span></span>
       isCorrect: false
-    - content: <span data-ttu-id="b7efd-109">CUDA är en arkitektur för djupinlärning som används till klassificering av avbildning.</span><span class="sxs-lookup"><span data-stu-id="b7efd-109">CUDA is a deep learning architecture used for image classification.</span></span>
+    - content: <span data-ttu-id="35707-109">CUDA är en arkitektur för djupinlärning som används till klassificering av avbildning.</span><span class="sxs-lookup"><span data-stu-id="35707-109">CUDA is a deep learning architecture used for image classification.</span></span>
       isCorrect: false
-  - content: <span data-ttu-id="b7efd-110">Vad är Docker?</span><span class="sxs-lookup"><span data-stu-id="b7efd-110">What is docker?</span></span>
+  - content: <span data-ttu-id="35707-110">Vad är Docker?</span><span class="sxs-lookup"><span data-stu-id="35707-110">What is docker?</span></span>
     choices:
-    - content: <span data-ttu-id="b7efd-111">Docker är ett ramverk för att träna neurala nätverk.</span><span class="sxs-lookup"><span data-stu-id="b7efd-111">Docker is a framework for training neural networks.</span></span>
+    - content: <span data-ttu-id="35707-111">Docker är ett ramverk för att träna neurala nätverk.</span><span class="sxs-lookup"><span data-stu-id="35707-111">Docker is a framework for training neural networks.</span></span>
       isCorrect: false
-    - content: <span data-ttu-id="b7efd-112">Docker är en öppen plattform för distribuerade program.</span><span class="sxs-lookup"><span data-stu-id="b7efd-112">Docker is an open platform distributed applications.</span></span>
-      correctExplanation: <span data-ttu-id="b7efd-113">Docker är en öppen plattform för utvecklare och systemadministratörer där de kan skapa, leverera och köra distribuerade program på bärbara datorer, virtuella datorer i datacenter eller i molnet.</span><span class="sxs-lookup"><span data-stu-id="b7efd-113">Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.</span></span>
+    - content: <span data-ttu-id="35707-112">Docker är en öppen plattform för distribuerade program.</span><span class="sxs-lookup"><span data-stu-id="35707-112">Docker is an open platform distributed applications.</span></span>
+      correctExplanation: <span data-ttu-id="35707-113">Docker är en öppen plattform för utvecklare och systemadministratörer där de kan skapa, leverera och köra distribuerade program på bärbara datorer, virtuella datorer i datacenter eller i molnet.</span><span class="sxs-lookup"><span data-stu-id="35707-113">Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.</span></span>
       isCorrect: true
-    - content: <span data-ttu-id="b7efd-114">Docker är en plattform för webbappar.</span><span class="sxs-lookup"><span data-stu-id="b7efd-114">Docker is a platform for webapps.</span></span>
+    - content: <span data-ttu-id="35707-114">Docker är en plattform för webbappar.</span><span class="sxs-lookup"><span data-stu-id="35707-114">Docker is a platform for webapps.</span></span>
       isCorrect: false
-  - content: <span data-ttu-id="b7efd-115">Vilken är den största skillnaden mellan Nvidia-Docker och Docker?</span><span class="sxs-lookup"><span data-stu-id="b7efd-115">What is the main difference between Nvidia-Docker and Docker?</span></span>
+  - content: <span data-ttu-id="35707-115">Vilken är den största skillnaden mellan Nvidia-Docker och Docker?</span><span class="sxs-lookup"><span data-stu-id="35707-115">What is the main difference between Nvidia-Docker and Docker?</span></span>
     choices:
-    - content: <span data-ttu-id="b7efd-116">Docker körs på Windows och Nvidia-Docker körs endast på Linux.</span><span class="sxs-lookup"><span data-stu-id="b7efd-116">Docker runs on windows and Nvidia-Docker runs only on linux.</span></span>
+    - content: <span data-ttu-id="35707-116">Docker körs på Windows och Nvidia-Docker körs endast på Linux.</span><span class="sxs-lookup"><span data-stu-id="35707-116">Docker runs on windows and Nvidia-Docker runs only on linux.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="b7efd-117">Det här svaret är korrekt, men det är inte den största skillnaden.</span><span class="sxs-lookup"><span data-stu-id="b7efd-117">While this answer is correct, it is not the main difference.</span></span>
-    - content: <span data-ttu-id="b7efd-118">Nvidia Docker stöder Nvidia-GPU:er medan Docker endast stöder CPU:er</span><span class="sxs-lookup"><span data-stu-id="b7efd-118">Nvidia Docker provides support for Nvidia GPUs where as a Docker supports only CPUs</span></span>
+      incorrectExplanation: <span data-ttu-id="35707-117">Det här svaret är korrekt, men det är inte den största skillnaden.</span><span class="sxs-lookup"><span data-stu-id="35707-117">While this answer is correct, it is not the main difference.</span></span>
+    - content: <span data-ttu-id="35707-118">Nvidia Docker stöder Nvidia-GPU:er medan Docker endast stöder CPU:er</span><span class="sxs-lookup"><span data-stu-id="35707-118">Nvidia Docker provides support for Nvidia GPUs where as a Docker supports only CPUs</span></span>
       isCorrect: true
-    - content: <span data-ttu-id="b7efd-119">Docker stöder alla GPU:er, och Nvidia-Docker är mer förenklat eftersom det endast behöver stödja Nvidia-GPU:er.</span><span class="sxs-lookup"><span data-stu-id="b7efd-119">Docker supports all GPUs Nvidia-Docker is more light weight since it only needs ot support Nvidia GPUs.</span></span>
+    - content: <span data-ttu-id="35707-119">Docker stöder alla GPU:er, och Nvidia-Docker är mer förenklat eftersom det endast behöver stödja Nvidia-GPU:er.</span><span class="sxs-lookup"><span data-stu-id="35707-119">Docker supports all GPUs Nvidia-Docker is more light weight since it only needs ot support Nvidia GPUs.</span></span>
       isCorrect: false
-  - content: <span data-ttu-id="b7efd-120">Vilken är en av de största beroendeutmaningarna när man använder DSVM?</span><span class="sxs-lookup"><span data-stu-id="b7efd-120">What is one of the main dependency challenges faced when using the DSVM?</span></span>
+  - content: <span data-ttu-id="35707-120">Vilken är en av de största beroendeutmaningarna när man använder DSVM?</span><span class="sxs-lookup"><span data-stu-id="35707-120">What is one of the main dependency challenges faced when using the DSVM?</span></span>
     choices:
-    - content: <span data-ttu-id="b7efd-121">DSVM är i en sandbox-miljö och tillhandahåller inte direkt stöd för installation av nya paket.</span><span class="sxs-lookup"><span data-stu-id="b7efd-121">The DSVM is sandboxed and doesn't provide direct support for installing new packages.</span></span>
-      incorrectExplanation: <span data-ttu-id="b7efd-122">DSVM:er är Azure Virtual Machine-avbilder som har förinstallerats, konfigurerats och testats med flera populära verktyg som vanligen används för dataanalys, maskininlärning och utbildning inom djupinlärning och är anpassningsbara.</span><span class="sxs-lookup"><span data-stu-id="b7efd-122">DSVMs are Azure Virtual Machine images, pre-installed, configured, and tested with several popular tools that are commonly used for data analytics, machine learning, and deep learning training, they are customizable.</span></span>
+    - content: <span data-ttu-id="35707-121">DSVM är i en sandbox-miljö och tillhandahåller inte direkt stöd för installation av nya paket.</span><span class="sxs-lookup"><span data-stu-id="35707-121">The DSVM is sandboxed and doesn't provide direct support for installing new packages.</span></span>
+      incorrectExplanation: <span data-ttu-id="35707-122">DSVM:er är Azure Virtual Machine-avbilder som har förinstallerats, konfigurerats och testats med flera populära verktyg som vanligen används för dataanalys, maskininlärning och utbildning inom djupinlärning och är anpassningsbara.</span><span class="sxs-lookup"><span data-stu-id="35707-122">DSVMs are Azure Virtual Machine images, pre-installed, configured, and tested with several popular tools that are commonly used for data analytics, machine learning, and deep learning training, they are customizable.</span></span>
       isCorrect: false
-    - content: <span data-ttu-id="b7efd-123">DSVM stöder endast CNTK och Cognitive Service-beroenden.</span><span class="sxs-lookup"><span data-stu-id="b7efd-123">The DSVM only supports CNTK and Cognitive Service dependencies.</span></span>
-      incorrectExplanation: <span data-ttu-id="b7efd-124">DSVM tillhandahåller stöd som är tillgängligt direkt för många populära ramverk som PyTorch, Chainer och Tensorflow.</span><span class="sxs-lookup"><span data-stu-id="b7efd-124">DSVMs provide out of the box support for many popular frameworks such as PyTorch, Chainer, and Tensorflow.</span></span>
+    - content: <span data-ttu-id="35707-123">DSVM stöder endast CNTK och Cognitive Service-beroenden.</span><span class="sxs-lookup"><span data-stu-id="35707-123">The DSVM only supports CNTK and Cognitive Service dependencies.</span></span>
+      incorrectExplanation: <span data-ttu-id="35707-124">DSVM tillhandahåller stöd som är tillgängligt direkt för många populära ramverk som PyTorch, Chainer och Tensorflow.</span><span class="sxs-lookup"><span data-stu-id="35707-124">DSVMs provide out of the box support for many popular frameworks such as PyTorch, Chainer, and Tensorflow.</span></span>
       isCorrect: false
-    - content: <span data-ttu-id="b7efd-125">Vissa ramverk och paket för djupinlärning kräver olika miljöer, GPU-drivrutiner och binära paket</span><span class="sxs-lookup"><span data-stu-id="b7efd-125">Certain deep learning frameworks and packages require different enviorments, GPU drivers and binary packages</span></span>
+    - content: <span data-ttu-id="35707-125">Vissa ramverk och paket för djupinlärning kräver olika miljöer, GPU-drivrutiner och binära paket</span><span class="sxs-lookup"><span data-stu-id="35707-125">Certain deep learning frameworks and packages require different enviorments, GPU drivers and binary packages</span></span>
       isCorrect: true

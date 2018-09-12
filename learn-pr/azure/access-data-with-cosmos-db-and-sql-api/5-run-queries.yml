@@ -1,19 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.access-data-with-cosmos-db-and-sql-api.5-run-queries
 metadata:
-  title: <span data-ttu-id="ee2ca-101">Köra frågor i Azure Portal</span><span class="sxs-lookup"><span data-stu-id="ee2ca-101">Run queries in the Azure portal</span></span>
-  description: <span data-ttu-id="ee2ca-102">Lär dig hur du kör frågor på data i Azure Cosmos DB med hjälp av Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="ee2ca-102">Learn how to run queries on the data in Azure Cosmos DB by using the Azure portal.</span></span>
+  title: <span data-ttu-id="4b481-101">Köra frågor i Azure Portal</span><span class="sxs-lookup"><span data-stu-id="4b481-101">Run queries in the Azure portal</span></span>
+  description: <span data-ttu-id="4b481-102">Lär dig hur du kör frågor på data i Azure Cosmos DB med hjälp av Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="4b481-102">Learn how to run queries on the data in Azure Cosmos DB by using the Azure portal.</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 682d0f107fdc73f452936324c4f74fe9ecf8c1f5
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 59ef9337ff6f8a32b097dc8b19212da7e70999af
+  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44241164"
-title: <span data-ttu-id="ee2ca-103">Köra frågor i Azure Portal</span><span class="sxs-lookup"><span data-stu-id="ee2ca-103">Run queries in the Azure portal</span></span>
+  ms.lasthandoff: 09/10/2018
+  ms.locfileid: "44310586"
+azureSandbox: true
+title: <span data-ttu-id="4b481-103">Köra frågor i Azure Portal</span><span class="sxs-lookup"><span data-stu-id="4b481-103">Run queries in the Azure portal</span></span>
 durationInMinutes: 10
 content: '[!include[](includes/5-run-queries.md)]'

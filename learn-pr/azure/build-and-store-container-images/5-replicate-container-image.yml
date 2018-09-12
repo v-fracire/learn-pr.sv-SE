@@ -1,20 +1,21 @@
 ### YamlMime:ModuleUnit
 uid: learn.azure-container-registry.image-replication
-interactive: bash
 metadata:
-  title: <span data-ttu-id="58116-101">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="58116-101">Replicate a container image to different Azure regions</span></span>
-  description: <span data-ttu-id="58116-102">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="58116-102">Replicate a container image to different Azure regions</span></span>
+  title: <span data-ttu-id="f7614-101">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="f7614-101">Replicate a container image to different Azure regions</span></span>
+  description: <span data-ttu-id="f7614-102">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="f7614-102">Replicate a container image to different Azure regions</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 336ac37c161be1b7e03b882fe3f74b00216b4e28
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 4b220d2a6229518ae4e2d30689e91080cc59c235
+  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44241201"
-title: <span data-ttu-id="58116-103">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="58116-103">Replicate a container image to different Azure regions</span></span>
+  ms.lasthandoff: 09/10/2018
+  ms.locfileid: "44307713"
+title: <span data-ttu-id="f7614-103">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="f7614-103">Replicate a container image to different Azure regions</span></span>
+interactive: bash
+azureSandbox: true
 durationInMinutes: 5
 content: '[!include[](includes/5-image-replication.md)]'

@@ -1,20 +1,21 @@
 ### YamlMime:ModuleUnit
 uid: learn.manage-vms-with-azure-cli-data.10-installing-software
-title: <span data-ttu-id="4c242-101">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="4c242-101">Install software on your VM</span></span>
+title: <span data-ttu-id="57f6d-101">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="57f6d-101">Install software on your VM</span></span>
 metadata:
-  title: <span data-ttu-id="4c242-102">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="4c242-102">Install software on your VM</span></span>
-  description: <span data-ttu-id="4c242-103">Installera programvara för att köra en webbserver på din virtuella Linux-dator</span><span class="sxs-lookup"><span data-stu-id="4c242-103">Install software to run a web server on your Linux VM</span></span>
+  title: <span data-ttu-id="57f6d-102">Installera programvara på din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="57f6d-102">Install software on your VM</span></span>
+  description: <span data-ttu-id="57f6d-103">Installera programvara för att köra en webbserver på din virtuella Linux-dator</span><span class="sxs-lookup"><span data-stu-id="57f6d-103">Install software to run a web server on your Linux VM</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 2d7fafecb854715b515cba29f3044b20f4a36a3b
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: a40c9efa78d941bd25b14115dd4cba56f56a7638
+  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44233829"
+  ms.lasthandoff: 09/10/2018
+  ms.locfileid: "44308954"
 interactive: bash
+azureSandbox: true
 durationInMinutes: 5
 content: '[!include[](includes/10-installing-software.md)]'
