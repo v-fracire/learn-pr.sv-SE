@@ -1,5 +1,15 @@
 ### YamlMime:LearningPath
 uid: learn.administer-infrastructure-resources-in-azure
+metadata:
+  title: Administrera containrar i Azure
+  description: Lär dig hur du skapar, hanterar, skyddar och skalar virtuella datorresurser.
+  ms.date: 09/24/2018
+  ms.openlocfilehash: f6da192e10561df97e895a8113508182beb9b15b
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43825984"
 title: Administrera infrastrukturresurser i Azure
 summary: Lär dig hur du skapar, hanterar, skyddar och skalar virtuella datorresurser.
 prerequisites: Ingen
@@ -10,18 +20,11 @@ roles:
 - administrator
 products:
 - azure
-metadata:
-  title: Administrera containrar i Azure
-  description: Administrera infrastrukturresurser i Azure
-  ms.openlocfilehash: 05f5f15db78ff64ae0cd781ba46d22048119748e
-  ms.sourcegitcommit: 1aec476e479e92851bc3b5b7795f1200740bc1e5
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43497957"
 modules:
 - learn.introduction-to-azure-virtual-machines
 - learn.create-linux-vm-in-azure
 - learn.create-a-windows-vm-in-azure
 - learn.manage-vms-with-azure-cli
+- learn.configure-the-network-for-your-virtual-machines
+- learn.secure-your-azure-virtual-machine-disks
 achievement: learn.administer-infrastructure-resources-in-azure.trophy
