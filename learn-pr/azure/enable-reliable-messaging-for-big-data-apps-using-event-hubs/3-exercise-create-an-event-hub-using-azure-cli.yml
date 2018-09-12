@@ -9,11 +9,12 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 23e3c2f5c61902f627d2dc1a2c9988b6923df9d9
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: feab26f3a0f86e99175abce72d9d95d384ca9237
+  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44245785"
+  ms.lasthandoff: 09/10/2018
+  ms.locfileid: "44310229"
+azureSandbox: true
 durationInMinutes: 10
 content: '[!include[](includes/3-exercise-create-an-event-hub-using-azure-cli.md)]'

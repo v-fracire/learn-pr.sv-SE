@@ -8,12 +8,13 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 0472bee3dfc46b5836032e089fd9c8bedd5935b0
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 3714937b52b1919eef3948fc0c9022a17c5f4380
+  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44241334"
+  ms.lasthandoff: 09/10/2018
+  ms.locfileid: "44308342"
+azureSandbox: true
 title: Köra komplexa åtgärder på dina data
 durationInMinutes: 10
 content: >
