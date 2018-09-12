@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
-uid: principles-cloud-computing.7-summary
-title: <span data-ttu-id="ecf18-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="ecf18-101">Summary</span></span>
+uid: learn.principles-cloud-computing.7-summary
+title: <span data-ttu-id="f28a2-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f28a2-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="ecf18-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="ecf18-102">Summary</span></span>
-  description: <span data-ttu-id="ecf18-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="ecf18-103">Summary</span></span>
+  title: <span data-ttu-id="f28a2-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f28a2-102">Summary</span></span>
+  description: <span data-ttu-id="f28a2-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f28a2-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: bc2d0815315ec9047b8ed73fd4e27a552c1ed844
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 5c854b5b57ecf9f5e09d30f04bca42e671969d3f
+  ms.sourcegitcommit: 7de323416e472639edcff135bfc7d47bd5715256
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44245604"
+  ms.lasthandoff: 09/11/2018
+  ms.locfileid: "44370565"
 durationInMinutes: 3
 content: '[!include[](includes/7-summary.md)]'

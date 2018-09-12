@@ -1,15 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-azure-resources-with-rbac.4-list-access
 metadata:
-  title: <span data-ttu-id="0d98e-101">Visa åtkomst med hjälp av RBAC och Azure-portalen</span><span class="sxs-lookup"><span data-stu-id="0d98e-101">List access using RBAC and the Azure portal</span></span>
-  description: <span data-ttu-id="0d98e-102">Lär dig hur du visar en lista över rolltilldelningar till dig själv och vid olika omfång i Azure-portalen.</span><span class="sxs-lookup"><span data-stu-id="0d98e-102">Learn how to list the role assignments for yourself and at different scopes in the Azure portal.</span></span>
-  ms.openlocfilehash: e58ea396017591826bda9476ffc1d43bf5211354
-  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
+  title: <span data-ttu-id="a8090-101">Visa åtkomst med hjälp av RBAC och Azure-portalen</span><span class="sxs-lookup"><span data-stu-id="a8090-101">List access using RBAC and the Azure portal</span></span>
+  description: <span data-ttu-id="a8090-102">Lär dig hur du visar en lista över rolltilldelningar till dig själv och vid olika omfång i Azure-portalen.</span><span class="sxs-lookup"><span data-stu-id="a8090-102">Learn how to list the role assignments for yourself and at different scopes in the Azure portal.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 34a51e46763f461c48436f84f3f710199ad92868
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/05/2018
-  ms.locfileid: "43728234"
-title: <span data-ttu-id="0d98e-103">Visa åtkomst med hjälp av RBAC och Azure-portalen</span><span class="sxs-lookup"><span data-stu-id="0d98e-103">List access using RBAC and the Azure portal</span></span>
-labOnDemandUrl: https://labondemand.com/Launch/00000000
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44244091"
+title: <span data-ttu-id="a8090-103">Visa åtkomst med hjälp av RBAC och Azure-portalen</span><span class="sxs-lookup"><span data-stu-id="a8090-103">List access using RBAC and the Azure portal</span></span>
 durationInMinutes: 10
 content: '[!include[](includes/4-list-access.md)]'
