@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-efficiency-and-operations.3-use-monitoring-and-analytics-to-gain-operational-insights
+title: <span data-ttu-id="15b65-101">Använda övervakning och analys för att få åtgärdsinformation</span><span class="sxs-lookup"><span data-stu-id="15b65-101">Use monitoring and analytics to gain operational insights</span></span>
+metadata:
+  title: <span data-ttu-id="15b65-102">Använda övervakning och analys för att få åtgärdsinformation</span><span class="sxs-lookup"><span data-stu-id="15b65-102">Use monitoring and analytics to gain operational insights</span></span>
+  description: <span data-ttu-id="15b65-103">I det här avsnittet kommer vi att diskutera hur du använder övervakning och analys för att få åtgärdsinformation</span><span class="sxs-lookup"><span data-stu-id="15b65-103">In this unit, we'll discuss how to use monitoring and analytics to gain operational insights</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: ea067302b66dcb00c9fb9b67e30de95dc68e758a
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44230675"
+durationInMinutes: 8
+content: >
+  [!include[](includes/3-use-monitoring-and-analytics-to-gain-operational-insights.md)]
+quiz:
+  title: <span data-ttu-id="15b65-104">Kunskapskontroll – Använda övervakning och analys för att få åtgärdsinformation</span><span class="sxs-lookup"><span data-stu-id="15b65-104">Knowledge check - Use monitoring and analytics to gain operational insights</span></span>
+  questions:
+  - content: <span data-ttu-id="15b65-105">Vilket av följande alternativ ska du använda vid felsökning av körningsundantag i dina program?</span><span class="sxs-lookup"><span data-stu-id="15b65-105">Which of the following would you use to troubleshoot run-time exceptions in your application?</span></span>
+    choices:
+    - content: <span data-ttu-id="15b65-106">Service Health</span><span class="sxs-lookup"><span data-stu-id="15b65-106">Service Health</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="15b65-107">Azure Service Health ger dig insikt i hälsotillståndet för Azure-tjänster, men ger inte insikter i ditt program.</span><span class="sxs-lookup"><span data-stu-id="15b65-107">Azure Service Health will give you insight into the health of Azure services, but will not provide insight into your application.</span></span>
+    - content: <span data-ttu-id="15b65-108">Network Watcher</span><span class="sxs-lookup"><span data-stu-id="15b65-108">Network Watcher</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="15b65-109">Azure Network Watcher hjälper dig att felsöka problem med nätverksprestanda, men ger inte insikter i ditt program.</span><span class="sxs-lookup"><span data-stu-id="15b65-109">Azure Network Watcher will help you troubleshoot network performance issues, but will not provide insight into your application.</span></span>
+    - content: <span data-ttu-id="15b65-110">Aktivitetsloggen</span><span class="sxs-lookup"><span data-stu-id="15b65-110">Activity Log</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="15b65-111">I Azure-aktivitetsloggen loggas händelser som har utförts för dina resurser på Azure-plattformen, men ger inte insikter i ditt program.</span><span class="sxs-lookup"><span data-stu-id="15b65-111">Azure Activity Log will log events that have been performed on your resources on the Azure platform, but will not provide insight into your application.</span></span>
+    - content: <span data-ttu-id="15b65-112">Application Insights</span><span class="sxs-lookup"><span data-stu-id="15b65-112">Application Insights</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="15b65-113">Med Application Insights kan du identifiera och diagnostisera problem och få information om användningen av dina webbappar och tjänster, inklusive körningsundantag.</span><span class="sxs-lookup"><span data-stu-id="15b65-113">Application Insights will help you detect & diagnose issues and understand usage for your web apps and services, including run-time exceptions.</span></span>
+  - content: <span data-ttu-id="15b65-114">Vilken av följande tjänster ska du använda för att se vem som tog bort en virtuell dator?</span><span class="sxs-lookup"><span data-stu-id="15b65-114">Which of the following services would you use to identify who deleted a virtual machine?</span></span>
+    choices:
+    - content: <span data-ttu-id="15b65-115">Service Health</span><span class="sxs-lookup"><span data-stu-id="15b65-115">Service Health</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="15b65-116">Azure Service Health ger dig insikt i hälsotillståndet för Azure-tjänster, men ger inte insikter i åtgärder som utförs för dina resurser.</span><span class="sxs-lookup"><span data-stu-id="15b65-116">Azure Service Health will give you insight into the health of Azure services, but will not provide insight into actions performed on your resources.</span></span>
+    - content: <span data-ttu-id="15b65-117">Network Watcher</span><span class="sxs-lookup"><span data-stu-id="15b65-117">Network Watcher</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="15b65-118">Azure Network Watcher hjälper dig att felsöka problem med nätverksprestanda, men ger inte insikter i åtgärder som utförs för dina resurser.</span><span class="sxs-lookup"><span data-stu-id="15b65-118">Azure Network Watcher will help you troubleshoot network performance issues, but will not provide insight into actions performed on your resources.</span></span>
+    - content: <span data-ttu-id="15b65-119">Aktivitetsloggen</span><span class="sxs-lookup"><span data-stu-id="15b65-119">Activity Log</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="15b65-120">I Azure-aktivitetsloggen loggas händelser som har utförts för dina resurser på Azure-plattformen, inklusive borttagning av resurser.</span><span class="sxs-lookup"><span data-stu-id="15b65-120">Azure Activity Log will log events that have been performed on your resources on the Azure platform, including deletion of resources.</span></span>
+    - content: <span data-ttu-id="15b65-121">Application Insights</span><span class="sxs-lookup"><span data-stu-id="15b65-121">Application Insights</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="15b65-122">Application Insights hjälper dig att identifiera och diagnostisera problem och få information om användningen av dina webbappar och tjänster, men ger inte insikter i åtgärder som utförs för dina resurser.</span><span class="sxs-lookup"><span data-stu-id="15b65-122">Application Insights will help you detect & diagnose issues and understand usage for your web apps and services, but will not provide insight into actions performed on your resources.</span></span>

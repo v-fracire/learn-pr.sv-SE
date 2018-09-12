@@ -1,15 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-access-azure-ad-multi-factor-authentication.2-azure-ad-overview
 metadata:
-  title: <span data-ttu-id="69e30-101">Vad är Azure AD?</span><span class="sxs-lookup"><span data-stu-id="69e30-101">What is Azure AD?</span></span>
-  description: <span data-ttu-id="69e30-102">Läs mer om Azure Active Directory och hur det kan hjälpa dig att skydda dina program på ett bättre sätt.</span><span class="sxs-lookup"><span data-stu-id="69e30-102">Learn what Azure Active Directory is and how it can enable you to better secure your applications.</span></span>
-  displayType: one-column
-  ms.openlocfilehash: c8df46b5177810f28328f3744963125b73b776af
-  ms.sourcegitcommit: bb4b1f9e2a7399769ff84199f018abd14a3e73aa
+  title: <span data-ttu-id="4d8ba-101">Vad är Azure AD?</span><span class="sxs-lookup"><span data-stu-id="4d8ba-101">What is Azure AD?</span></span>
+  description: <span data-ttu-id="4d8ba-102">Läs mer om Azure Active Directory och hur det kan hjälpa dig att skydda dina program på ett bättre sätt.</span><span class="sxs-lookup"><span data-stu-id="4d8ba-102">Learn what Azure Active Directory is and how it can enable you to better secure your applications.</span></span>
+  ms.openlocfilehash: 03d7571788ec0e9b2d2be2f9488445791dc5508c
+  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/01/2018
-  ms.locfileid: "43455090"
-title: <span data-ttu-id="69e30-103">Vad är Azure AD?</span><span class="sxs-lookup"><span data-stu-id="69e30-103">What is Azure AD?</span></span>
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43727452"
+title: <span data-ttu-id="4d8ba-103">Vad är Azure AD?</span><span class="sxs-lookup"><span data-stu-id="4d8ba-103">What is Azure AD?</span></span>
 durationInMinutes: 15
 content: '[!include[](includes/2-azure-ad-overview.md)]'
