@@ -76,7 +76,7 @@ Du kör Azure CLI genom att öppna ett bash-gränssnitt (Linux och macOS), eller
 
 1. Starta Azure CLI och verifiera installationen genom att köra versionskontrollen.
 
-    ```bash
+    ```azurecli
     az --version
     ```
 

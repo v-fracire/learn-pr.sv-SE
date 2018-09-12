@@ -2,8 +2,8 @@ När du planerar en lösning i molnet måste du alltid balansera kostnader och p
 
 Vi måste kunna få tydliga svar på flera frågor:
 
-- Vad kommer den här lösningen att kosta detta räkenskapsår? 
-- Finns det någon konfiguration vi kan använda för att spara pengar? 
+- Vad kommer den här lösningen att kosta detta räkenskapsår?
+- Finns det någon konfiguration vi kan använda för att spara pengar?
 - Går det att uppskatta hur en ändring skulle påverka kostnader och prestanda _utan_ att sätta den i produktion?
 
 I den här modulen går vi igenom de verktyg du kan använda för att få svar på de här frågorna.
@@ -17,6 +17,6 @@ I den här modulen kommer du att göra följande:
 - Metodtips för att sänka dina infrastrukturkostnader.
 - Metodtips för att sänka dina licenskostnader.
 
-## <a name="prerequisite"></a>Krav 
+## <a name="prerequisite"></a>Krav
 
-- En förståelse för olika alternativ för infrastrukturkomponenter i Azure. 
+- En förståelse för olika alternativ för infrastrukturkomponenter i Azure.

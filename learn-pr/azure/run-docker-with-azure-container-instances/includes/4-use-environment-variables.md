@@ -1,4 +1,4 @@
-Genom att ställa in miljövariabler i dina containerinstanser kan du skapa en dynamisk konfiguration av programmet eller skriptet som körs av containern. Miljövariablerna anges med hjälp av Azure CLI, PowerShell eller Azure Portal när containern skapas. Säkra miljövariabler används till att förhindra att känslig information visas i utdata från containeråtgärderna.
+Genom att ställa in miljövariabler i dina containerinstanser kan du skapa en dynamisk konfiguration av programmet eller skriptet som körs av containern. Miljövariablerna anges med hjälp av Azure CLI, PowerShell eller Azure-portalen när containern skapas. Säkra miljövariabler används till att förhindra att känslig information visas i utdata från containeråtgärderna.
 
 I den här utbildningsenheten skapar du en Cosmos DB-instans och sedan en Azure Container Instance-körning med anslutningsinformationen för Azure Cosmos DB-instansen som är lagrad som miljövariabler. En app i containern använder variablerna till att skriva och läsa data från Cosmos DB. I den här utbildningsenheten skapar du både en miljövariabel och en säker miljövariabel.
 
@@ -54,7 +54,7 @@ az container show --resource-group myResourceGroup --name aci-demo --query conta
 
 Exempel på utdata:
 
-```bash
+```json
 [
   {
     "name": "COSMOS_DB_ENDPOINT",
@@ -91,7 +91,7 @@ az container show --resource-group myResourceGroup --name aci-demo-secure --quer
 
 Exempel på utdata:
 
-```bash
+```json
 [
   {
     "name": "COSMOS_DB_ENDPOINT",

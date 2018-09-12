@@ -6,20 +6,20 @@ Nu ska vi använda Azure CLI för att skapa en resursgrupp och sedan distribuera
 
 1. Starta Azure CLI och kör inloggningskommandot.
 
-    ```bash
+    ```azurecli
     az login
     ```
     Om du inte ser en inloggningssida för Azure i webbläsaren följer du anvisningarna på kommandoraden och anger en auktoriseringskod på [https://aka.ms/devicelogin](https://aka.ms/devicelogin).
 
 1. Skapa en resursgrupp.
 
-    ```bash
+    ```azurecli
     az group create --location westeurope --name popupResGroup
     ```
 
 1. Kontrollera att resursgruppen har skapats genom att visa alla resursgrupper i en tabell.
 
-    ```bash
+    ```azurecli
     az group list --output table
     ```
 
@@ -28,7 +28,7 @@ Nu ska vi använda Azure CLI för att skapa en resursgrupp och sedan distribuera
 
 1. Om det finns många objekt i gruppen kan du filtrera returvärdena genom att lägga till ett `--query`-alternativ. Prova det här kommandot:
 
-    ```bash
+    ```azurecli
     az group list --query '[?name == popupResGroup]'
     ```
 
@@ -43,13 +43,13 @@ När du kör webbappar med Azure App Service betalar du för de Azure-beräkning
     > [!WARNING]
     > Namnet på appen och planen måste vara _unika_. Lägg därför till ett suffix till namnet och ersätt texten `<unique>` i kommandot nedan med några siffror, dina initialer eller en textsträng så att namnet blir unikt i hela Azure. 
 
-    ```bash
+    ```azurecli
     az appservice plan create --name popupapp-<unique> --resource-group popupResGroup --location westeurope
     ```
 
 1. Kontrollera att serviceplanen har skapats genom att visa alla dina planer i en tabell.
 
-    ```bash
+    ```azurecli
     az appservice plan list --output table
     ```
 
@@ -58,13 +58,13 @@ När du kör webbappar med Azure App Service betalar du för de Azure-beräkning
 Nu ska vi skapa webbappen i din serviceplan. Du kan distribuera koden på samma gång, men i vårt exempel gör vi det i separata steg.
 
 1. Skapa webbappen och ange namnet på planen som du skapade ovan. **Precis som planen måste appnamnet vara unikt. Ersätt därför markören `<unique>` med en textsträng så att namnet blir unikt globalt.**
-    ```bash
+    ```azurecli
     az webapp create --name popupapp-<unique> --resource-group popupResGroup --plan popupapp-<unique>
     ```
 
 1. Kontrollera att appen har skapats genom att visa alla dina appar i en tabell.
 
-    ```bash
+    ```azurecli
     az webapp list --output table
     ```
 
@@ -74,7 +74,7 @@ Nu ska vi skapa webbappen i din serviceplan. Du kan distribuera koden på samma 
 
 1. Det sista steget är att distribuera kod från en GitHub-lagringsplats till webbappen. Vi ska använda en enkel PHP-sida som är tillgänglig på Github-lagringsplatsen för Azure-exempel och som visar ”HelloWorld!” när den körs. Var noga med att använda namnet på webbappen som du skapat.
 
-    ```bash
+    ```azurecli
     az webapp deployment source config --name popupapp-<unique> --resource-group popupResGroup --repo-url "https://github.com/Azure-Samples/php-docs-hello-world" --branch master --manual-integration
     ```
 

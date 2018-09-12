@@ -1,6 +1,6 @@
 Azure CLI är ett kommandoradsprogram som används för att ansluta till Azure och köra administrativa kommandon på Azure-resurser. Det körs i Linux, macOS och Windows och gör att administratörer och utvecklare kan köra sina kommandon via en terminal eller från kommandoraden (eller ett skript) i stället för i en webbläsare. Om du till exempel vill starta om en virtuell dator (VM) använder du ett kommando liknande följande:
 
- ```bash
+ ```azurecli
  az vm restart -g MyResourceGroup -n MyVm
  ```
 
@@ -20,7 +20,7 @@ I Windows installerar du Azure CLI genom att hämta och köra en MSI-fil.
 
 Om du vill använda Azure CLI-kommandona i skript måste du vara medveten om eventuella problem relaterade till ”servergränssnittet” eller miljön som ska användas för att köra skriptet. I ett bash-gränssnitt används exempelvis följande syntax för att ställa in variabler:
 
- ```bash
+ ```azurecli
  variable="value"
  variable=integer
  ```

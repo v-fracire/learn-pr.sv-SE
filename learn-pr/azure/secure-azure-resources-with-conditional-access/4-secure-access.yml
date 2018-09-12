@@ -3,13 +3,17 @@ uid: learn.secure-access-azure-ad-multi-factor-authentication.4-secure-access
 metadata:
   title: Skydda åtkomsten till resurser
   description: Lär dig hur du skapar en regel för villkorsstyrd åtkomst som kräver att användarna utför multifaktorautentisering när de ansluter till Azure-portalen.
-  ms.openlocfilehash: c71aa6f6fed1b0aedcc685ca65de096256c35704
-  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 1ec8ccd703fd78788a835b20217837e80c335b6f
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/05/2018
-  ms.locfileid: "43727605"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44237903"
 title: Skydda åtkomsten till resurser
-labOnDemandUrl: https://labondemand.com/Launch/00000000
 durationInMinutes: 10
 content: '[!include[](includes/4-secure-access.md)]'

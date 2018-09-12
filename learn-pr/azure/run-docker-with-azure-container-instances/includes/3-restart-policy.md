@@ -10,7 +10,7 @@ När du skapar en container i Azure Container Instances kan ange du en av tre pr
 | ---------------- | :---------- |
 | `Always` | Containers i containergruppen startas alltid om. Det här är **standardvärdet** som används om du inte anger någon omstartsprincip när du skapar containern. |
 | `Never` | Containers i containergruppen startas aldrig om. Containers körs högst en gång. |
-| `OnFailure` | Containers i containergruppen startas bara om när processen som körs i containern inte slutförs utan fel (när den avslutas med en annan slutkod än noll). Containers körs minst en gång. |
+| `OnFailure` | Containers i containergruppen startas bara om när processen som körs i containern inte slutförs utan fel (när den avslutas med en annan slutkod än noll). Containrar körs minst en gång. |
 
 I föregående enhet i den här modulen skapade du en container utan någon angiven omstartsprincip. Som standard fick den här containern omstartsprincipen *Alltid*. Eftersom arbetsbelastningen i containern körs länge (en webbserver) är den här principen lämplig.
 
@@ -45,9 +45,9 @@ När exempelcontainerns status blir **Avslutad** kan du se utdata för uppgiften
 az container logs --resource-group myResourceGroup --name mycontainer-restart-demo
 ```
 
-Resultat:
+Utdata:
 
-```bash
+```json
 [('the', 990),
  ('and', 702),
  ('of', 628),

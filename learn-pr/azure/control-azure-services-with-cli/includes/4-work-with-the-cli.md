@@ -8,13 +8,13 @@ Kommandona i CLI är strukturerade i _grupper_ och _undergrupper_. Varje grupp r
 
 Hur hittar jag de kommandon jag behöver? Ett sätt är att använda `az find`. Om du till exempel vill hitta kommandon som hjälper dig att hantera en lagringsblob kan du använda det här find-kommandot:
 
-```bash
+```azurecli
 az find -q blob
 ```
 
 Om du redan vet namnet på det kommando som du vill köra kan du använda argumentet `--help` för att visa mer detaljerad information om kommandot, eller visa en lista över de tillgängliga underkommandona för en kommandogrupp. I vårt lagringsexempel kan du visa en lista med undergrupper och kommandon för hantering av bloblagring så här:
 
-```bash
+```azurecli
 az storage blob --help
 ```
 
@@ -22,21 +22,21 @@ az storage blob --help
 
 När du ska skapa en ny resurs i Azure gör du det vanligen i tre steg: ansluter till Azure-prenumerationen, skapar resursen och kontrollerar att den skapades. Följande illustration visar en översikt över den här processen.
 
-![En bild som visar hur du skapar en Azure-resurs med hjälp av kommandoradsgränssnittet.](../media-drafts/4-create-resources-overview.png)
+![En bild som visar hur du skapar en Azure-resurs med hjälp av kommandoradsgränssnittet.](../media/4-create-resources-overview.png)
 
 Varje steg motsvarar ett eget Azure CLI-kommando.
 
 ### <a name="connect"></a>Ansluta
 
-Eftersom du arbetar med en lokal installation av Azure CLI måste du autentisera dig innan du kan köra Azure-kommandon. Det gör du med Azure CLI-kommandot **login**. 
+Eftersom du arbetar med en lokal installation av Azure CLI måste du autentisera dig innan du kan köra Azure-kommandon. Det gör du med Azure CLI-kommandot **login**.
 
-```bash
+```azurecli
 az login
 ```
 
 Azure CLI öppnar normalt din standardwebbläsare och visar inloggningssidan för Azure. Om det inte fungerar följer du anvisningarna på kommandoraden och anger en auktoriseringskod på [https://aka.ms/devicelogin](https://aka.ms/devicelogin).
 
-När inloggningen är färdig ansluts du till din Azure-prenumeration. 
+När inloggningen är färdig ansluts du till din Azure-prenumeration.
 
 ### <a name="create"></a>Skapa
 
@@ -44,7 +44,7 @@ Du behöver ofta skapa en ny resursgrupp innan du skapar en ny Azure-tjänst, s�
 
 Du skapar en resursgrupp med Azure CLI-kommandot **group create**. Du måste ange ett namn och en plats. Namnet måste vara unikt inom prenumerationen. Platsen avgör var metadata för resursgruppen lagras. Du använder strängar som ”USA, västra”, ”Europa, norra” eller ”västra Indien” för att ange platsen. Du kan också använda konkatenerade ord som usavästra, europanorra eller indienvästra. Den grundläggande syntaxen ser ut så här:
 
-```bash
+```azurecli
 az group create --name <name> --location <location>
 ```
 
@@ -52,12 +52,12 @@ az group create --name <name> --location <location>
 
 För många Azure-resurser har Azure CLI ett **list**-underkommando som visar information om resursen. Azure CLI-kommandot **group list** visar till exempel en lista med dina Azure-resursgrupper. Det här är användbart när du ska kontrollera att resursgruppen har skapats:
 
-```bash
+```azurecli
 az group list
 ```
 
 Du kan göra vyn tydligare genom att formatera utdata som en tabell:
 
-```bash
+```azurecli
 az group list --output table
 ```

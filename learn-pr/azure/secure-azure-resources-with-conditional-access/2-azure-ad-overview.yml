@@ -3,12 +3,17 @@ uid: learn.secure-access-azure-ad-multi-factor-authentication.2-azure-ad-overvie
 metadata:
   title: Vad är Azure AD?
   description: Läs mer om Azure Active Directory och hur det kan hjälpa dig att skydda dina program på ett bättre sätt.
-  ms.openlocfilehash: 03d7571788ec0e9b2d2be2f9488445791dc5508c
-  ms.sourcegitcommit: 56db32ad6f98b7d769f2b1201825d4f6d9b7362d
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 03ea81a35e4ba42a2e996cbec6e7d11851784587
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/05/2018
-  ms.locfileid: "43727452"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44241813"
 title: Vad är Azure AD?
 durationInMinutes: 15
 content: '[!include[](includes/2-azure-ad-overview.md)]'

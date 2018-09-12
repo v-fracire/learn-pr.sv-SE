@@ -39,7 +39,7 @@ az container show \
 
 När du kör kommandot visas containerns fullständiga domännamn (FQDN) och dess etableringsstatus:
 
-```bash
+```output
 FQDN                                    ProvisioningState
 --------------------------------------  -------------------
 aci-demo.eastus.azurecontainer.io       Succeeded

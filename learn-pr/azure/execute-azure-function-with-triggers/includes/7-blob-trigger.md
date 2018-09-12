@@ -44,6 +44,4 @@ Vi kan dela upp det här begreppet i två delar: *samples-workitems* och *{name}
 
 Den sista viktiga informationen om det här konceptet är texten *namn*. *Namn* representerar en parameter i din Azure-funktion som tar emot namnet på den tillagda filen. Om jag till exempel laddar upp en fil med namnet *resume.txt* tar min Azure-funktion emot det värdet som en sträng via en parameter som kallas *namn*.
 
-## <a name="summary"></a>Sammanfattning
-
 En blob-utlösare anropar en Azure-funktion när den ser aktivitet på en viss plats i Azure Storage blob-kontot. Du kan ange platsen som ska övervakas genom att ändra värdet **Sökväg** i Azure-portalen.
