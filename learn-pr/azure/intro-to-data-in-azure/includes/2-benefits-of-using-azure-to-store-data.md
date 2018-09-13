@@ -6,8 +6,6 @@ Azure Storage är en molnbaserad lösning som ger hög säkerhet och utmärkt sk
 
 ## <a name="benefits-of-using-azure-to-store-data"></a>Fördelar med datalagring i Azure
 
-![Fördelar](../media-draft/Benefits.png)
-
 Här är några av fördelarna med Azure Storage:
 
 - **Automatisk säkerhetskopiering och återställning** – den här funktionen minskar risken för dataförlust vid oförutsedda fel eller avbrott.

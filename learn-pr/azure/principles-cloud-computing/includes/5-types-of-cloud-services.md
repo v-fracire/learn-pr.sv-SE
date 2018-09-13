@@ -2,8 +2,7 @@ När man talar om molnbaserad databehandling finns det tre huvudkategorier. Det 
 
 ## <a name="explore-the-three-categories-of-cloud-computing"></a>Utforska de tre kategorierna av molnbaserad databehandling
 
-<!-- TODO: replace video link? -->
-
+<!-- TODO: Verify video -->
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEbs]
 
 ### <a name="infrastructure-as-a-service-iaas"></a>Infrastruktur som en tjänst (IaaS)
