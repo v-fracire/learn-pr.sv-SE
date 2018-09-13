@@ -1,6 +1,6 @@
-### <a name="exercise-3-train-a-tensorflow-model"></a>Övning 3: Träna en TensorFlow-modell
+### <a name="train-a-tensorflow-model"></a>Träna en TensorFlow-modell
 
-I den här övningen kommer du att träna en bildklassificeringsmodell som byggts med [TensorFlow](https://www.tensorflow.org/) för att identifiera bilder som innehåller varmkorvar. I stället för att skapa modellen från grunden, vilket skulle kräva enorma mängder datorkraft och tiotusentals eller hundratusentals bilder kommer du att anpassa en befintlig modell. Det är en metod som kallas för [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning), överförd inlärning. Med överförd inlärning kan du få hög precision efter bara ett par minuters träningstid på en vanlig bärbar eller stationär dator och med så lite som några dussin bilder.
+I den här enheten kommer du att träna en bildklassificeringsmodell som byggts med [TensorFlow](https://www.tensorflow.org/) för att identifiera bilder som innehåller varmkorvar. I stället för att skapa modellen från grunden, vilket skulle kräva enorma mängder datorkraft och tiotusentals eller hundratusentals bilder kommer du att anpassa en befintlig modell. Det är en metod som kallas för [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning), överförd inlärning. Med överförd inlärning kan du få hög precision efter bara ett par minuters träningstid på en vanlig bärbar eller stationär dator och med så lite som några dussin bilder.
 
 När det handlar om djupinlärning utgår överförd inlärning från ett djupt neuralt nätverk som har tränats för att utföra bildklassificering. Ett lager som anpassar nätverket efter din problemdomän läggs till; till exempel att dela upp bilder i två grupper: de som innehåller varmkorvar och de som inte gör det. Fler än 20 redan tränade TensorFlow-modeller för bildklassificering är tillgängliga i modellerna<https://github.com/tensorflow/models/tree/master/research/slim#pre-trained-models.> The [Inception](https://arxiv.org/abs/1512.00567) och [ResNet](https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035). Dessa kännetecknas av högre precision och följaktligen även större resursbehov. MobileNet-modellerna å andra sidan kompromissar när det gäller precision, men väger upp i format och energieffektivitet, och dessa har utvecklats med mobila enheter i åtanke. Alla dessa modeller är välkända bland djupinlärningsexperter och de har använts vid ett antal tävlingar samt i verkliga program. Du kommer att använda en av MobileNet-modellerna som grund för ditt neurala nätverk för att uppnå en rimlig balans mellan precision och träningstid.
 
@@ -8,7 +8,7 @@ Att träna modellen kräver lite mer än att bara köra ett Python-skript som la
 
 1. I Data Science VM klickar du på terminalikonen längst ned på skärmen för att öppna ett terminalfönster.
 
-    ![Öppna ett terminalfönster](../images/launch-terminal.png)
+    ![Öppna ett terminalfönster](../media-draft/3-launch-terminal.png)
 
     _Öppna ett terminalfönster_
 
@@ -44,7 +44,7 @@ Att träna modellen kräver lite mer än att bara köra ett Python-skript som la
 
 1. Klicka på filhanteringsikonen längst ned på skärmen för att öppna ett fönster med filhanteraren.
 
-    ![Starta filhanteraren](../images/launch-file-manager.png)
+    ![Starta filhanteraren](../media-draft/3-launch-file-manager.png)
 
     _Starta filhanteraren_
 
@@ -52,7 +52,7 @@ Att träna modellen kräver lite mer än att bara köra ett Python-skript som la
 
     > För att träna ett neuralt nätverk så att det kan avgöra om en bild innehåller en varmkorv kommer du att träna det med bilder med och utan varmkorvar.
 
-    ![Bilder i mappen ”hot_dog”](../images/hot-dog-images.png)
+    ![Bilder i mappen ”hot_dog”](../media-draft/3-hot-dog-images.png)
 
     *Bilder i mappen ”hot_dog”*
 
@@ -95,27 +95,19 @@ Att träna modellen kräver lite mer än att bara köra ett Python-skript som la
 
 1. Vänta tills träningen har slutförts. Det bör ta mindre än fem minuter. Kontrollera sedan resultatet för att fastställa hur exakt modellen är. Resultaten kan variera något från det som visas nedan, eftersom träningsprocessen omfattar en liten mängd slumpmässiga uppskattningar.
 
-      ![Mäta modellens precision](../images/running-transfer-learning.png)
-
-      _Mäta modellens precision_
+      ![Mäta modellens precision](../media-draft/3-running-transfer-learning.png)
 
 1. Klicka på webbläsarikonen längst ned på skrivbordet för att öppna webbläsaren som installerats på Data Science VM. Navigera sedan till <http://0.0.0.0:6006> för att ansluta till Tensorboard.
 
-    ![Starta Firefox](../images/launch-firefox.png)
-
-    _Starta Firefox_
+    ![Starta Firefox](../media-draft/3-launch-firefox.png)
 
 1. Granska diagrammet ”accuracy_1”. Den blå linjen visar precisionen som uppnåtts över tid efter det att de 500 träningsstegen som angetts med ```how_many_training_steps```-växeln utförts. Det här mätvärdet är viktigt eftersom det visar hur modellens precision utvecklas i takt med att träningen fortskrider. Lika viktigt är avståndet mellan de blå och orangefärgade linjerna. De beräknar mängden överanpassning som sker och bör alltid minimeras. [Överanpassning](https://en.wikipedia.org/wiki/Overfitting) innebär att modellen är bra på att klassificera bilderna den tränats med, men inte lika bra på att klassificera andra bilder som visas för den. Resultaten här är godtagbara eftersom skillnaden är mindre än 10 % mellan den orangefärgade linjen (”träningsprecisionen” som uppnåtts med träningsbilderna) och den blå linjen (”valideringsprecisionen” som uppnåtts när modellen testats med bilder utanför träningsuppsättningen).
 
-    ![TensorBoard Scalars-vyn](../images/tensorboard-scalars.png)
-
-    _TensorBoard Scalars-vyn_
+    ![TensorBoard Scalars-vyn](../media-draft/3-tensorboard-scalars.png)
 
 1. Klicka på **DIAGRAM** på TensorBoard-menyn och inspektera diagrammet som visas där. Det primära syftet med det här diagrammet är att skildra det neurala nätverket och lagren som det består av. I det här exemplet är ”input_1” lagret som har tränats med matbilder och lagts till i nätverket. ”MobilenetV1” är det neurala basnätverk som du utgick från. Det innehåller många lager som inte visas. Om du hade skapat ett djupt neuralt nätverk från grunden skulle alla lager ingått i diagrammet här. (Om du vill se de lager som utgör MobileNet dubbelklickar du på blocket MobilenetV1 i diagrammet). Du hittar mer information om diagramvyn och den informationen som visas där i [TensorBoard: diagramvisualisering](https://www.tensorflow.org/programmers_guide/graph_viz).
 
-    ![TensorBoard-diagramvyn](../images/tensorboard-graphs.png)
-
-    _TensorBoard-diagramvyn_
+    ![TensorBoard-diagramvyn](../media-draft/3-tensorboard-graphs.png)
 
 1. Återgå till filhanteraren och navigera till mappen ”notebooks/tensorflow-for-poets-2/tf_files”. Bekräfta att den innehåller en fil med namnet **retrained_graph_hotdog.pb**. *Den här filen skapades under träningsprocessen och innehåller den tränade TensorFlow-modellen*. Du använder den i nästa övning för att anropa modellen från appen NotHotDog.
 

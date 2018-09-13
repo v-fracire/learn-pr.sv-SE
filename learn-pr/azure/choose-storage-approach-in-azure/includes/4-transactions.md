@@ -10,22 +10,22 @@ När du ska avgöra om du behöver en databas med transaktionsstöd ska du fråg
 
 Transaktioner definieras ofta i termer av fyra olika krav, som kallas för ACID-garantier. ACID står för atomicitet, konsekvens, isolering och varaktighet:
 
-* Atomicitet innebär att alla data uppdateras, eller att alla data återställs till sitt ursprungliga tillstånd.
-* Konsekvens innebär att om det händer något medan transaktionen utförs så blir inte vissa data uppdaterade medan andra inte blir det. Antingen tillämpas hela transaktionen eller ingen del av den.
-* Isolering innebär att en transaktion inte påverkas av en annan transaktion.
-* Varaktighet innebär att ändringar som görs på grund av transaktionen sparas permanent i systemet. Bekräftade data sparas i systemet så att de är tillgängliga i korrekt tillstånd även om systemet måste startas om efter ett fel.
+- Atomicitet innebär att alla data uppdateras, eller att alla data återställs till sitt ursprungliga tillstånd.
+- Konsekvens innebär att om det händer något medan transaktionen utförs så blir inte vissa data uppdaterade medan andra inte blir det. Antingen tillämpas hela transaktionen eller ingen del av den.
+- Isolering innebär att en transaktion inte påverkas av en annan transaktion.
+- Varaktighet innebär att ändringar som görs på grund av transaktionen sparas permanent i systemet. Bekräftade data sparas i systemet så att de är tillgängliga i korrekt tillstånd även om systemet måste startas om efter ett fel.
 
 När en databas har ACID-garantier gäller dessa principer för transaktionerna och du kan vara säker på att dina transaktioner tillämpas konsekvent.
 
 ## <a name="oltp-vs-olap"></a>OLTP eller OLAP
 
-Transaktionsdatabaser kallas ofta för OLTP-system (Online Transaction Processing). OLTP-system har normalt stöd för många användare, korta svarstider, kan hantera stora mängder data, har hög tillgänglighet (vilket innebär få avbrott i driften) och hanterar oftast små eller relativt enkla transaktioner.
+Transaktionsdatabaser kallas ofta för OLTP-system (Online Transaction Processing). OLTP-system stöder ofta många användare, har snabba svarstider och hanterar stora mängder data. De har även hög tillgänglighet (dvs. de har mycket minimal avbrottstid) och hanterar vanligtvis små eller relativt enkla transaktioner.
 
-OLAP-system (Online Analytical Processing) har istället normalt stöd för färre användare, längre svarstider, de kan vara mindre tillgängliga och hanterar ofta stora och komplexa transaktioner.
+OLAP-system (Online Analytical Processing) däremot har normalt stöd för färre användare, har längre svarstider, kan vara mindre tillgängliga och hanterar ofta stora och komplexa transaktioner.
 
 OLTP och OLAP används inte så ofta som förut, men jämförelsen gör det enklare att kategorisera behoven i din app så de är viktiga begrepp att känna till. 
 
-Nu när vi bekantat oss med transaktioner, OLTP och OLAP ska vi gå igenom var och en av datamängderna i scenariot med onlinebutiken och avgöra om du behöver använda transaktioner.
+Nu när vi bekantat oss med transaktioner, OLTP och OLAP ska vi gå igenom var och en av datauppsättningarna i scenariot med onlinebutiken och avgöra om du behöver använda transaktioner.
 
 ### <a name="product-catalog-data"></a>Data i produktkatalogen
 
@@ -33,7 +33,7 @@ Data i produktkatalogen bör lagras i en transaktionsdatabas. När användare l�
 
 ### <a name="photos-and-videos"></a>Foton och videor
 
-Foton och videor i produktkatalogen behöver inget transaktionsstöd. De ändras bara vid uppdateringar och när nya filer läggs till. Även om det finns en relation mellan bilden och faktiska produktdata är inte relationen transaktionsbaserad.
+Foton och videor i produktkatalogen behöver inget transaktionsstöd. Den enda anledningen som en ändring skulle göras för ett foto eller en video är om de har uppdaterats eller om nya filer har lagts till. Även om det finns en relation mellan bilden och faktiska produktdata är inte relationen transaktionsbaserad.
 
 ### <a name="business-data"></a>Affärsdata
 

@@ -1,6 +1,6 @@
-När du tittar på fördelarna med Azure Storage kommer du se att Azure har de bästa alternativen för lagring av din utbildningsportal. Nu ska vi utforska fördelarna och alternativen som är tillgängliga med Azure Storage närmare för att se hur Azure kan uppfylla dina affärsbehov.
+När du tittar på fördelarna med Azure Storage kommer du se att Azure har de bästa alternativen för lagring av din utbildningsportal. Nu ska vi närmare utforska fördelarna och alternativen som finns tillgängliga med Azure Storage för att se hur det passar dina affärsbehov.
 
-## <a name="how-azure-storage-can-meet-your-business-storage-needs"></a>Så kan Azure-lagring uppfylla lagringsbehoven på ditt företag
+## <a name="how-azure-storage-can-meet-your-business-storage-needs"></a>Så kan Azure-lagring uppfylla lagringsbehoven för ditt företag
 
 Azure Storage har flera alternativ som är anpassade för olika typer av datalagring.
 
@@ -61,7 +61,9 @@ När du arbetar med virtuella datorer kan du använda SSD-standarddiskar och HDD
 Azure Storage har tre lagringsnivåer för lagring av blobobjekt:
 
 1. **Frekvent lagringsnivå** – Azures frekventa lagringsnivå är optimerad för att lagra data som används ofta. 
+
 1. **Lågfrekvent lagringsnivå** – Azures lågfrekventa lagringsnivå är optimerad för att lagra data som inte används ofta och som lagras i minst 30 dagar.
+
 1. **Arkivlagringsnivå** – arkivlagringsnivån i Azure är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav. Arkivlagring i Azure är perfekt för lagring av äldre versioner av dina data så att du kan hämta dem om det krävs för granskning eller vid andra aktiviteter som inträffar mer sällan.
 
 ![Archive_Tier](../media-draft/Archive_Storage_Tier.png)
@@ -72,7 +74,7 @@ Azure Storage har funktioner för kryptering och replikering som ger hög säker
 
 #### <a name="encryption-for-storage-services"></a>Kryptering för lagringstjänster
 
-Följande typer av kryptering är tillgängliga för dina resurser:
+Följande krypteringstyper är tillgängliga för dina resurser:
 
 1. **Azure Storage Service Encryption (SSE)** för data i vila hjälper dig att skydda dina data på ett sätt som uppfyller organisationens krav på säkerhet och regelefterlevnad. Azure SSE krypterar data innan de lagras och dekrypterar data innan de hämtas. Krypteringen och dekrypteringen är transparent för användaren.
 1. **Kryptering på klientsidan** är när data redan har krypterats av klientbiblioteken. Azure lagrar data i krypterat tillstånd i vila och dekrypterar sedan när data hämtas.

@@ -1,6 +1,6 @@
-### <a name="exercise-4-create-a-nothotdog-app"></a>Övning 4: Skapa en NotHotDog-app
+### <a name="create-a-nothotdog-app"></a>Skapa en NotHotDog-app
 
-I den här övningen ska du använda [Visual Studio Code](https://code.visualstudio.com/) – Microsofts kostnadsfria, plattformsoberoende källkodsredigerare som installeras automatiskt i Data Science VM – för att skriva en NotHotDog-app i Python. Det grafiska användargränssnittet bygger på [Tkinter](https://wiki.python.org/moin/TkInter), ett populärt GUI-ramverk som gör det möjligt för dig att välja bilder från det lokala filsystemet. Bilderna skickas till modellen som du tränade i den föregående övningen och du får sedan besked om huruvida det fins en varmkorv på någon av bilderna eller inte.
+I den här enheten kommer du att använda [Visual Studio Code](https://code.visualstudio.com/) – Microsofts kostnadsfria, plattformsoberoende källkodsredigerare som installeras automatiskt i Data Science VM – för att skriva en NotHotDog-app i Python. Det grafiska användargränssnittet bygger på [Tkinter](https://wiki.python.org/moin/TkInter), ett populärt GUI-ramverk för Python som gör det möjligt för dig att välja bilder från det lokala filsystemet. Bilderna skickas till modellen som du tränade i den föregående övningen och du får sedan besked om huruvida det fins en varmkorv på någon av bilderna eller inte.
 
 1. Klicka på **Program** i det övre vänstra hörnet av skrivbordet och välj **Tillbehör > Visual Studio Code** för att starta Visual Studio Code. Använd kommandot **File > Open Folder...** (Arkiv > Öppna mapp ...) i Visual Studio Code för att öppna mappen ”notebooks/tensorflow-for-poets-2/tf_files” som innehåller filen **retrained_graph_hotdog.pb** som skapades när du tränade modellen.
 
@@ -89,9 +89,7 @@ I den här övningen ska du använda [Visual Studio Code](https://code.visualstu
 
     > Om du får ett felmeddelande om en saknad kerneldrivrutin i terminalfönstret när du bearbetar en bild kan du ignorera detta. Felmeddelandet visas eftersom Data Science VM saknar en virtuell GPU.
 
-    ![Välja en bild](../images/select-image.png)
-
-    _Välja en bild_
+    ![Välja en bild](../media-draft/4-select-image.png)
 
 1. Upprepa föregående steg med en bild som inte föreställer en varmkorv. Gjorde modellen rätt den här gången?
 

@@ -4,18 +4,17 @@ title: Testa dina kunskaper
 metadata:
   title: Testa dina kunskaper
   description: Visa att du förstår de steg som krävs för att klassificera bilder med Microsoft Custom Vision Service.
-  ms.openlocfilehash: 792c6ece8bd052abcaae40a892b665a4a9d49b3d
-  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
+  ms.openlocfilehash: b217a3b77827db2dc79334d15f430d7289f7ada5
+  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/30/2018
-  ms.locfileid: "43251440"
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43363870"
 durationInMinutes: 10
-content: required
 quiz:
-  title: Använda Microsoft Custom Vision Service för klassificering av bilder
+  title: Använd Microsoft Custom Vision Service för att utföra bildklassificering
   questions:
-  - content: Vad används domäner till när du skapar ett nytt Custom Vision-projekt?
+  - content: Vad används en domän till när du skapar ett nytt Custom Vision Service-projekt?
     choices:
     - content: De hjälper dig att bestämma vad du ska kalla projektet
       isCorrect: false
@@ -37,13 +36,13 @@ quiz:
     - content: Så att du kan kategorisera inlärningsbilderna
       isCorrect: true
       correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-    - content: Så att du ska kunna generera ett ordmoln efter inlärningen
+    - content: Så här skapar du ett ordmoln efter inlärningen
       isCorrect: false
       incorrectExplanation: Custom Vision Service har ingenting att göra med ordmoln.
     - content: Du behöver inte lägga till någon tagg
       isCorrect: false
       incorrectExplanation: Om bildklassificeringen ska fungera behöver du lägga till minst en tagg.
-  - content: Är precision och återkallande relaterade när det gäller att mäta prestanda i en modell?
+  - content: Är precision och återkallande relaterade när det gäller att mäta modellens prestanda?
     choices:
     - content: Nej
       isCorrect: false
@@ -83,24 +82,24 @@ quiz:
     choices:
     - content: Prenumerationsnyckel
       isCorrect: false
-      incorrectExplanation: Inga prenumerationsnycklar används i Custom Vision Service.
+      incorrectExplanation: Ingen prenumerationsnyckel används i Custom Vision Service.
     - content: Förutsägelsenyckel
       isCorrect: true
       correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
     - content: Utbildningsnyckel
       isCorrect: false
-      incorrectExplanation: Utbildningsnycklar används till att träna nya iterationer i modellen, inte till att göra förutsägelser.
+      incorrectExplanation: Utbildningsnyckeln används till att träna nya iterationer på din modell, inte till att göra förutsägelser.
     - content: API-nyckel
       isCorrect: false
-      incorrectExplanation: Inga API-nycklar används i Custom Vision Service.
+      incorrectExplanation: Ingen API-nyckel används i Custom Vision Service.
   - content: Vad mer händer i Custom Vision-portalen när du använder API:t för förutsägelser?
     choices:
     - content: Bilderna taggas om de returneras som okända
       isCorrect: false
       incorrectExplanation: Bilder taggas endast manuellt i portalen, inte automatiskt.
-    - content: Bilderna läses in som otaggade i inlärningsmängden
+    - content: Bilderna läses in som otaggade i inlärningsuppsättningen
       isCorrect: false
-      incorrectExplanation: Bilder måste laddas upp explicit för att ingå i inlärningsmängden.
+      incorrectExplanation: Bilderna måste explicit överföras för att ingå i inlärningsuppsättningen.
     - content: Bilderna visas på fliken Förutsägelser
       isCorrect: true
       correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.

@@ -3,13 +3,12 @@ uid: learn.choose-storage-approach-in-azure.3-operations-and-latency
 metadata:
   title: Åtgärder och svarstider
   description: Åtgärder och svarstider
-  displayType: one-column
-  ms.openlocfilehash: 3d67e7dd28258dc8accc73c36ae7573e143b7c02
-  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
+  ms.openlocfilehash: 27c0f598fbb80ee732a1c83b899cdfdffc0ef35d
+  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/30/2018
-  ms.locfileid: "43252335"
+  ms.lasthandoff: 08/31/2018
+  ms.locfileid: "43363011"
 title: Åtgärder och svarstider
 durationInMinutes: 10
 content: >
@@ -19,12 +18,12 @@ quiz:
   questions:
   - content: Hur skulle du klassificera åtgärdsbehoven i en databas som lagrar användardata i din onlinebutiksapp? Datauppsättningen skulle innehålla leveransinställningar, tidigare ordrar och profilinformation som visas i produktrecensioner.
     choices:
-    - content: Behoven i appen är snabb datahämtning, stora mängder läsningar och skrivningar samt möjligheten att köra frågor mot de olika egenskaperna
+    - content: Behoven i appen är snabb datahämtning, stora mängder läsningar och skrivningar samt möjligheten att köra frågor mot de olika egenskaperna.
       isCorrect: true
       correctExplanation: Användarna skapar och uppdaterar data ofta och appen uppdaterar orderinformation i användardata. Även om kunderna i en onlinebutik inte förväntar sig att kunna köra komplicerade frågor mot sina data, som att se efter om de har en leveransadress i ett visst postnummer, så vill företaget kunna köra frågor för att se hur många användare som tillhör ett visst postnummer. Var därför noga med att komma ihåg alla som ska använda data, inte bara kunderna, när du formulerar dina krav.
-    - content: Behoven i appen är snabb datahämtning, stora mängder läsningar och skrivningar samt möjligheten att köra frågor mot en begränsad uppsättning egenskaper
+    - content: Behoven i appen är snabb datahämtning, stora mängder läsningar och skrivningar samt möjligheten att köra frågor mot en begränsad uppsättning egenskaper.
       isCorrect: false
       correctExplanation: Även om kunderna i en onlinebutik inte förväntar sig att kunna köra komplicerade frågor mot sina data, som att se efter om de har en leveransadress i ett visst postnummer, så vill företaget kunna köra frågor för att se hur många användare som tillhör ett visst postnummer. Därför bör alla egenskaper indexeras och gå att köra frågor mot.
-    - content: Appen klarar sig med långsam datahämtning och skrivskyddade åtgärder
+    - content: Appen klarar sig med långsam datahämtning och skrivskyddade åtgärder.
       isCorrect: false
       incorrectExplanation: Kunderna skapar och uppdaterar sin egen profilinformation, så det måste gå att både läsa och skriva användardata.

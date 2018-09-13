@@ -1,6 +1,6 @@
 Datahanteringen är en extremt viktig del av affärsverksamheten idag. Relationsdatabaser, och mer specifikt Microsoft SQL Server, har i flera årtionden varit de kanske vanligaste verktygen för datahantering. 
 
-Om man vill lägga datahanteringen i molnet _räcker det_ med att använda virtuella datorer i Azure som värdar för de egna Microsoft SQL Server-instanserna. För många är detta den enda rätta lösningen, men Azure erbjuder även en annan metod som ofta är mycket enklare och mer effektiv. Azure SQL Database är ett PaaS-erbjudande (Platform-as-a-Service), vilket betyder att du slipper sköta infrastrukturen och underhållet själv.
+Om man vill lägga datahanteringen i molnet _räcker det_ med att använda virtuella datorer i Azure som värdar för de egna Microsoft SQL Server-instanserna. För många är detta den enda rätta lösningen, men Azure erbjuder även en annan metod som ofta är mycket enklare och mer effektiv. Azure SQL-databaserna är ett PaaS-erbjudande (Platform-as-a-Service), vilket betyder att du slipper sköta infrastrukturen och underhållet själv.
 
 Vi kan försöka göra det hela tydligare med ett exempel. Tänk dig att du är chefsutvecklare på logistikföretaget Contoso Transport.
 
@@ -14,9 +14,9 @@ Nu vill du skapa en snabb prototyp och visa upp den för ditt team. Prototypen i
 
 ## <a name="learning-objectives"></a>Utbildningsmål
 
-Detta får du får lära dig:
+I den här modulen kommer du att lära dig:
 
 - Varför Azure SQL Database är ett fullgott alternativ till en relationsdatabas
-- Vilka konfigurationer och priser som finns för din Azure SQL Database
-- Hur du skapar en Azure SQL Database med portalen
-- Hur du använder Cloud Shell för att ansluta till din Azure SQL Database, lägga till en tabell och arbeta med data
+- Vilka konfigurationer och priser som finns för din Azure SQL-databas
+- Hur du öppnar en Azure SQL-databas från portalen
+- Hur du använder Azure Cloud Shell för att ansluta till din Azure SQL-databas, lägga till en tabell och arbeta med data

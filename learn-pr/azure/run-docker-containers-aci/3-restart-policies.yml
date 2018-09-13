@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.run-docker-containers-aci.3-restart-policy
+interactive: bash
+metadata:
+  title: Styra omstartsbeteendet för Azure Container Instances
+  description: Styra hur containerinstanser startas om.
+  ms.openlocfilehash: b244e3cea5ca80aba22af2252e4f94dd8405bb99
+  ms.sourcegitcommit: d23e6fce3265655449b132f089793bdbc67e76e3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43473013"
+title: Styra omstartsbeteendet
+durationInMinutes: 6
+content: '[!include[](includes/3-restart-policy.md)]'

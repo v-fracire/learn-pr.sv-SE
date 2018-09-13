@@ -1,0 +1,36 @@
+### YamlMime:ModuleUnit
+uid: learn.connect-app-to-azure-storage.10-knowledge-check
+title: Kunskapskontroll
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.openlocfilehash: 83099397375194d754264742692de050de30603c
+  ms.sourcegitcommit: 850ce909966600e7a8d6f89d8bdebbb621416838
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43479616"
+durationInMinutes: 3
+quiz:
+  title: Ansluta till Azure Storage
+  questions:
+  - content: Hur många åtkomstnycklar behöver du för att komma åt ditt Azure-lagringskonto?
+    choices:
+    - content: "1"
+      isCorrect: false
+    - content: "2"
+      isCorrect: true
+    - content: "3"
+      isCorrect: false
+    - content: "4"
+      isCorrect: false
+  - content: Var lagras Azure Storage-anslutningssträngarna normalt sett i din app?
+    choices:
+    - content: Hårdkodade i programkoden
+      isCorrect: false
+    - content: Inom ett konfigurationssystem som exempelvis en konfigurationsfil, en miljövariabel eller en databas
+      isCorrect: true
+    - content: Anges i appen vid körning
+      isCorrect: false
+    - content: Kompileras och bäddas in i appen i form av en resursfil
+      isCorrect: false
