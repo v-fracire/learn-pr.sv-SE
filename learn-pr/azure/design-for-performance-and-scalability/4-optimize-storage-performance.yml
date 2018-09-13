@@ -1,0 +1,40 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.4-optimize-storage-performance
+title: <span data-ttu-id="a36e3-101">Optimera lagringsprestanda</span><span class="sxs-lookup"><span data-stu-id="a36e3-101">Optimize storage performance</span></span>
+metadata:
+  title: <span data-ttu-id="a36e3-102">Optimera lagringsprestanda</span><span class="sxs-lookup"><span data-stu-id="a36e3-102">Optimize storage performance</span></span>
+  description: <span data-ttu-id="a36e3-103">I den här utbildningsenheten går vi igenom hur du kan optimera lagringsprestanda för din arkitektur</span><span class="sxs-lookup"><span data-stu-id="a36e3-103">In this unit we'll discuss how to optimize storage performance for your architecture</span></span>
+  ms.openlocfilehash: 32524382aa06c0a14f56c8faf49a0b4123c945e4
+  ms.sourcegitcommit: 2df436853854bfcb39bc82ee461d7011bf8531ca
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2018
+  ms.locfileid: "43675601"
+durationInMinutes: 5
+content: >
+  [!include[](includes/4-optimize-storage-performance.md)]
+quiz:
+  title: <span data-ttu-id="a36e3-104">Kunskapskontroll – Optimera lagringsprestanda</span><span class="sxs-lookup"><span data-stu-id="a36e3-104">Knowledge Check - Optimize storage performance</span></span>
+  questions:
+  - content: <span data-ttu-id="a36e3-105">Vad är flerspråkig persistens?</span><span class="sxs-lookup"><span data-stu-id="a36e3-105">What is polyglot persistence?</span></span>
+    choices:
+    - content: <span data-ttu-id="a36e3-106">Att använda Azure SQL Database till att lagra alla dina data</span><span class="sxs-lookup"><span data-stu-id="a36e3-106">Using Azure SQL Database to store all of your data</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a36e3-107">Att lagra alla data med en enda teknik är inte definitionen av flerspråkig persistens.</span><span class="sxs-lookup"><span data-stu-id="a36e3-107">Storing all data in a single technology is not the definition of polyglot persistence.</span></span>
+    - content: <span data-ttu-id="a36e3-108">Ett sätt att hålla anslutningar igång för dataöverföring</span><span class="sxs-lookup"><span data-stu-id="a36e3-108">A way to keep connections alive for data transfers</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a36e3-109">Keepalive-överföringar är metoder för att hålla anslutningar aktiva för dataöverföringar och är inte relaterade till flerspråkig persistens.</span><span class="sxs-lookup"><span data-stu-id="a36e3-109">Keepalives are methods of keeping connections alive for data transfers and are not related to polyglot persistence.</span></span>
+    - content: <span data-ttu-id="a36e3-110">Att använda olika lagringstekniker till olika syften i en app</span><span class="sxs-lookup"><span data-stu-id="a36e3-110">The usage of different data storage technologies for different purposes in your application</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="a36e3-111">Flerspråkig persistens avser användning av olika lagringstekniker för olika syften.</span><span class="sxs-lookup"><span data-stu-id="a36e3-111">Polyglot persistence is the usage of different data storage technologies for different purposes.</span></span>
+    - content: <span data-ttu-id="a36e3-112">En metod för att hantera fel i tillfälliga data</span><span class="sxs-lookup"><span data-stu-id="a36e3-112">An approach to deal with transient data faults</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a36e3-113">Även om hantering av fel i tillfälliga data är bra i en programarkitektur, så har det inget att göra med flerspråkig persistens.</span><span class="sxs-lookup"><span data-stu-id="a36e3-113">While dealing with transient data faults is beneficial in an application architecture, it is not related to polyglot persistence.</span></span>
+  - content: <span data-ttu-id="a36e3-114">Du kan använda Redis Cache till att förbättra appens prestanda genom att du lagrar en ögonblicksbild av data i minnet.</span><span class="sxs-lookup"><span data-stu-id="a36e3-114">Redis Cache can be used to improve the performance of your application by storing a snapshot of data in memory.</span></span>
+    choices:
+    - content: <span data-ttu-id="a36e3-115">Sant</span><span class="sxs-lookup"><span data-stu-id="a36e3-115">True</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="a36e3-116">Redis Cache lagrar programdata i minnet, vilket leder till snabba hämtningstider och förbättrade programprestanda när det gäller data som ofta används.</span><span class="sxs-lookup"><span data-stu-id="a36e3-116">Redis Cache will store application data in memory, leading to fast retrieval times and an improvement in application performance related to frequently accessed data.</span></span>
+    - content: <span data-ttu-id="a36e3-117">Falskt</span><span class="sxs-lookup"><span data-stu-id="a36e3-117">False</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a36e3-118">Redis Cache lagrar programdata i minnet, vilket leder till snabba hämtningstider och förbättrade programprestanda när det gäller data som ofta används.</span><span class="sxs-lookup"><span data-stu-id="a36e3-118">Redis Cache will store application data in memory, leading to fast retrieval times and an improvement in application performance related to frequently accessed data.</span></span>
