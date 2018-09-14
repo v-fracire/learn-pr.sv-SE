@@ -1,20 +1,25 @@
 ### YamlMime:ModuleUnit
 uid: learn.choose-storage-approach-in-azure.3-operations-and-latency
 metadata:
-  title: Åtgärder och svarstider
-  description: Åtgärder och svarstider
-  ms.openlocfilehash: 27c0f598fbb80ee732a1c83b899cdfdffc0ef35d
-  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
+  title: Fastställa operativa behov
+  description: Fastställa operativa behov
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 48af5a1e1f4b3d757272f84a089f9964d5a0581e
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/31/2018
-  ms.locfileid: "43363011"
-title: Åtgärder och svarstider
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44232208"
+title: Fastställa operativa behov
 durationInMinutes: 10
 content: >
   [!include[](includes/3-operations-and-latency.md)]
 quiz:
-  title: Åtgärder och svarstider
+  title: Kunskapskontroll
   questions:
   - content: Hur skulle du klassificera åtgärdsbehoven i en databas som lagrar användardata i din onlinebutiksapp? Datauppsättningen skulle innehålla leveransinställningar, tidigare ordrar och profilinformation som visas i produktrecensioner.
     choices:

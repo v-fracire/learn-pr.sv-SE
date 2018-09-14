@@ -24,7 +24,6 @@ Krav och tekniker ändras. För en lokal distribution kan detta innebära att ny
 
 Azure Storage ger dig möjlighet att skapa nya tjänster på några minuter. Med den här flexibiliteten kan du snabbt ändra lagringsservrar utan att behöva göra någon betydande maskinvaruinvestering.
 
-### <a name="other-requirements"></a>Övriga krav
-I tabellen nedan beskrivs vad du kan behöva tänka på angående några andra vanliga krav:
+Följande bild visar skillnaderna mellan en lokal lagring och Azure datalagring.
 
-![Jämförelse](../media-draft/Comparison.png)
+![En bild som visar en jämförelse av lagring på plats och Azure datalagring för flera vanliga affärsbehov.](../media/4-Comparison.png)

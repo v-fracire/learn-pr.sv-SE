@@ -2,7 +2,7 @@
 
 I den här enheten får du fjärransluta till Ubuntu-skrivbordet på den virtuella dator som du skapade i den föregående övningen. För att kunna göra detta behöver du en klient med stöd för [Xfce](https://xfce.org/), en enkel skrivbordsmiljö för Linux. Om du behöver mer bakgrundsinformation och en översikt över hur du ansluter till en Data Science Virtual Machine-dator (DVM) kan du läsa [How to access the Data Science Virtual Machine for Linux](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#how-to-access-the-data-science-virtual-machine-for-linux) (Så här kommer du åt Data Science Virtual Machine för Linux).
 
-1. Om du inte redan har en Xfce-klienten installerad bör du ladda ned [X2Go-klienten](https://wiki.x2go.org/doku.php/download:start) och installera den innan du fortsätter med den här övningen. X2Go är en kostnadsfri och Xfce-lösning med öppen källkod som fungerar på en rad olika operativsystem, inklusive Windows och OS X. Anvisningarna i den här enheten förutsätter att du använder X2Go, men du kan också använda någon annan klient som stöder Xfce.
+1. Om du inte redan har en Xfce-klienten installerad bör du ladda ned [X2Go-klienten](https://wiki.x2go.org/doku.php/download:start) och installera den innan du fortsätter med den här övningen. X2Go är en kostnadsfri och öppen källkod Xfce-lösning som fungerar på en rad olika operativsystem, inklusive Windows- och OS X. Anvisningarna i den här enheten förutsätter att du använder X2Go, men du kan använda valfri klient som stöder Xfce.
 
 1. Gå tillbaka till resursgruppen **data-science-rg** i Azure Portal. Klicka på resursen **data-science-vm** för att öppna den i portalen.
 
@@ -20,7 +20,7 @@ I den här enheten får du fjärransluta till Ubuntu-skrivbordet på den virtuel
 
     ![Starta en ny session](../media-draft/2-new-session-2.png)
 
-1. Ange lösenordet som du skapade i [övning 1](#Exercise1) och klicka sedan på knappen **OK**. Om du får frågan om du litar på serverns värdnyckel svarar du **Ja**. Ignorera eventuella felmeddelanden som säger att SSH-daemon inte kunde startas.
+1. Ange lösenordet du angav i den senaste enheten och klicka sedan på den **OK** knappen. Om du får frågan om du litar på serverns värdnyckel svarar du **Ja**. Ignorera eventuella felmeddelanden som säger att SSH-daemon inte kunde startas.
 
     ![Logga in på den virtuella datorn](../media-draft/2-new-session-3.png)
 
