@@ -1,4 +1,4 @@
-::: zone pivot="csharp" Let's add support to our .NET core application to retrieve a connection string from a configuration file. Vi börjar genom att lägga till nödvändiga installationerna om du vill hantera konfigurationen i en JSON-fil.
+::: zon pivot="csharp" ska vi lägga till stöd för att våra .NET core program att hämta en anslutningssträng från en konfigurationsfil. Vi börjar genom att lägga till nödvändiga installationerna om du vill hantera konfigurationen i en JSON fil.
 
 ## <a name="create-a-json-configuration-file"></a>Skapa en JSON-konfigurationsfil
 
