@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.secure-azure-resources-with-rbac.6-grant-access-powershell
+metadata:
+  title: Bevilja åtkomst med hjälp av RBAC och Azure PowerShell
+  description: Lär dig hur du ger en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp med hjälp av Azure PowerShell.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: f05922f6048219adc45ed0e467861c72cdd3c030
+  ms.sourcegitcommit: 4605f6af0037078761ef50cac6879711c7319635
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/11/2018
+  ms.locfileid: "44344458"
+title: Bevilja åtkomst med hjälp av RBAC och Azure PowerShell
+durationInMinutes: 10
+content: '[!include[](includes/6-grant-access-powershell.md)]'

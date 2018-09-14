@@ -30,7 +30,7 @@ Funktioner är en viktig del av serverlös databehandling, men de är också en 
 
 ## <a name="drawbacks-of-a-serverless-compute-solution"></a>Nackdelar med en serverlös beräkningslösning
 
-Serverlös beräkning är inte alltid rätt lösning för att lagra din affärslogik. Här följer några kännetecken som funktioner har som kan påverka ditt beslut att lagra dina tjänster i beräkning utan server. 
+Serverlös beräkning är inte alltid rätt lösning för att lagra din affärslogik. Här följer några kännetecken som funktioner har som kan påverka ditt beslut att lagra dina tjänster i beräkning utan server.
 
 ### <a name="execution-time"></a>Körningstid
 

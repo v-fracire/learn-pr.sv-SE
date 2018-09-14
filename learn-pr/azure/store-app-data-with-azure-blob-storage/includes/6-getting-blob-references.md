@@ -52,7 +52,7 @@ var blockBlobs = resultSegment.Results.OfType<CloudBlockBlob();
 
 En av funktionerna i vår app kräver att du hämtar en lista över blobar från API:et. Vi använder mönstret som visas ovan för att visa alla blobar i vår container. Vi hittar namnet för varje blob när vi bearbetar listan.
 
-Öppna `BlobStorage.cs` i redigeraren, ersätt `GetNames` med följande kod och spara dina ändringar.
+Ersätt `GetNames` med `BlobStorage.cs` i redigeraren med följande kod och spara dina ändringar.
 
 ```csharp
 public async Task<IEnumerable<string>> GetNames()

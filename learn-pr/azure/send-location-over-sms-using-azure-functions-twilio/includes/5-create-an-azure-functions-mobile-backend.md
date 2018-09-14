@@ -8,11 +8,11 @@ Nu hämtar appen användarens plats och den är redo att skickas till en Azure-f
 
 1. Ange projektnamnet ImHere.Functions och klicka på **OK**.
 
-    ![Dialogrutan Lägg till nytt projekt](../media-drafts/5-add-new-functions-project.png)
+    ![Dialogrutan Lägg till nytt projekt](../media/5-add-new-functions-project.png)
 
 1. I konfigurationsdialogrutan **Nytt projekt** låter du Azure Functions-versionen vara *Azure Functions v1 (.NET Framework)*. Välj *HTTP-utlösare*, låt lagringskontot vara inställt som *Lagringsemulator* och ange åtkomstbehörigheter för *Anonym*. Klicka sedan på **OK**.
 
-    ![Konfigurationsdialogrutan för Azure Function-projekt](../media-drafts/5-configure-trigger.png)
+    ![Konfigurationsdialogrutan för Azure Function-projekt](../media/5-configure-trigger.png)
 
 Det nya projektet skapas och har en standardfunktion som kallas `Function1`.
 
@@ -52,7 +52,7 @@ När data skickas till Azure-funktionen sker det i JSON-format. Mobilappen seria
 
 1. Ange projektnamnet ImHere.Data och klicka på **OK**.
 
-    ![Dialogrutan Lägg till nytt projekt](../media-drafts/5-add-new-net-standard-project.png)
+    ![Dialogrutan Lägg till nytt projekt](../media/5-add-new-net-standard-project.png)
 
 1. Ta bort den automatiskt genererade filen Class1.cs.
 
@@ -71,7 +71,7 @@ När data skickas till Azure-funktionen sker det i JSON-format. Mobilappen seria
 
 1. Lägg till en referens till det här projektet både i `ImHere.Functions` och `ImHere` genom att högerklicka på projektet och välja *Lägg till -> Referens …* . Välj *Projekt* i trädvyn till vänster och markera sedan kryssrutan bredvid *ImHere.Data*.
 
-    ![Konfigurera projektreferenser](../media-drafts/5-configure-project-references.png)
+    ![Konfigurera projektreferenser](../media/5-configure-project-references.png)
 
 ## <a name="read-the-data-sent-to-the-function"></a>Läsa data som skickas till funktionen
 
@@ -127,7 +127,7 @@ Azure Functions kan köras lokalt med ett konto för lokal lagring och lokal Azu
 
 1. På menyn *Felsöka* väljer du *Starta utan felsökning*. Den lokala Azure Functions-körningen startas i ett konsolfönster och startar din funktion, samt lyssnar på en tillgänglig port på `localhost`.
 
-    ![Azure-funktionen körs lokalt](../media-drafts/5-function-running-locally.png)
+    ![Azure-funktionen körs lokalt](../media/5-function-running-locally.png)
 
 1. Anteckna vilken port funktionen lyssnar på. Du behöver den i nästa del för att testa mobilappen. I bilden ovan lyssnar funktionen på porten **7071**.
 

@@ -1,12 +1,13 @@
-Cloud computing provides configurable computing resources and services that can be quickly provisioned with minimal management effort. There are Azure services for almost any business computing need. Do you need an interactive website? A back end for a mobile app? Secure storage for your client data? All of these and more are available. And these resources are available when you need them, and you're typically only charged for the amount you use.
+Molntjänster erbjuder konfigurerbara beräkningsresurser och tjänster som kan etableras snabbt med minimal ansträngning. Det finns Azure-tjänster för nästan alla beräkningsbehov. Behöver du en interaktiv webbplats? En serverdel för en mobilapp? Säker lagring för dina klientdata? Allt detta och mycket mer finns tillgängligt. De här resurserna är tillgängliga när du behöver dem och du debiteras vanligtvis bara för den mängd som du använder.
 
-Hopefully, the cloud is an attractive option, but what if you already have existing on-premises infrastructure? Or you have highly sensitive data that you're not willing or able to store off-site?
+Förhoppningsvis är molnet ett attraktivt alternativ, men vad händer om du redan har en befintlig lokal infrastruktur? Eller om du har mycket känsliga data som du inte vill eller kan lagra externt?
 
-Azure provides several configurations allowing you to blend or transition between on-premises and a solution hosted completely in the cloud.
+Azure erbjuder flera konfigurationer där du kan blanda eller övergå till en lösning som ligger helt i molnet och en lokal lösning.
 
-## Learning objectives
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
 
-- Compare each cloud computing deployment model (public, private, and hybrid).
-- Understand the advantages of each cloud computing service model.
-- Decide which deployment and service model you should use for your services.
+I den här modulen kommer du att göra följande:
+
+- Jämföra de olika molndistributionsmodellerna (offentligt, privat och hybrid).
+- Förstå fördelarna med varje molntjänstsmodell.
+- Avgöra vilken distributions- och tjänstmodell du bör använda för dina tjänster.

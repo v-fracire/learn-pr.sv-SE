@@ -9,7 +9,7 @@ ssh 168.61.54.62 -l aldis
 > 
 > Det beror på att vi ansluter direkt till en IP-adress i stället för till ett värdnamn. Om du svarar ”yes” sparas IP-adressen som en giltig värd för anslutning och anslutningen upprättas.
 
-```
+```output
 The authenticity of host '168.61.54.62 (168.61.54.62)' can't be established.
 RSA key fingerprint is SHA256:hlFnTCAzgWVFiMxHK194I2ap6+5hZoj9ex8+/hoM7rE.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -18,7 +18,7 @@ Warning: Permanently added '168.61.54.62' (RSA) to the list of known hosts.
 
 Sedan visas ett fjärr-shell där du kan ange Linux-kommandon.
 
-```
+```output
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.

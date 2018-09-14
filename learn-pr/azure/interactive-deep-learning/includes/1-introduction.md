@@ -10,4 +10,5 @@ Den här modulen beskriver grunderna för djupinlärning, och i slutet av module
 
 ## <a name="prerequisites"></a>Krav
 
+<!---TODO: Update for sandbox?--->
 - Azure-prenumeration med åtkomst till virtuella datorer i D-serien 

@@ -19,4 +19,3 @@ I den här modulen kommer du att göra följande:
 - Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
 - Kunskaper om grundläggande Azure-begrepp, som exempelvis resursgrupper
 - Erfarenhet av att administrera Azure-resurser med hjälp av Azure-portalen
-- 

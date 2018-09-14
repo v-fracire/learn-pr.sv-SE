@@ -12,7 +12,7 @@ Det bästa med Microsoft Custom Vision Service är hur enkelt det är för en ut
 
 1. Använd kommandot **View** > **Integrated Terminal** (Visa > Integrerad terminal) i Visual Studio Code för att öppna den integrerade terminalen. Läs in alla paket som behövs till appen genom att ange följande kommando i den integrerade terminalen:
 
-    ```
+    ```console
     npm install
     ```
 
@@ -50,7 +50,7 @@ Det bästa med Microsoft Custom Vision Service är hur enkelt det är för en ut
 
 1. Gå tillbaka till den integrerade terminalen i Visual Studio Code och kör följande kommando för att starta appen:
 
-    ```
+    ```console
     npm start
     ```
 

@@ -27,7 +27,7 @@ Fyll i följande distributionsschema och spara som parameter_file.json
 }
 ```
 
-En lista över tillgängliga storlekar för virtuella maskiner finns här [Ubuntu DSVM ARM template](https://azure.microsoft.com/en-us/global-infrastructure/services/?WT.mc_id=blog-learning-abornst).
+En lista över tillgängliga storlekar för virtuella maskiner finns här [Ubuntu DSVM ARM template](https://azure.microsoft.com/global-infrastructure/services/?WT.mc_id=blog-learning-abornst).
 
 
 ### <a name="create-a-resource-group-for-your-dsvm-in-a-region-of-your-choice"></a>Skapa en resursgrupp för din DSVM i en valfri region:
@@ -50,7 +50,7 @@ $ az vm open-port -g [[NAME OF RESOURCE GROUP]] -n [[HOSTNAME OF DSVM]] --port 2
 $ az vm open-port -g [[NAME OF RESOURCE GROUP]] -n [[HOSTNAME OF DSVM]] --port 8888 --priority 901
 ```
 
-Port 8888 är standardporten för Jupyter Notebook [Klicka här](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal?WT.mc_id=blog-medium-abornst) för detaljerade anvisningar om hur du öppnar en port
+Port 8888 är standardporten för Jupyter Notebook [Klicka här](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal?WT.mc_id=blog-medium-abornst) för detaljerade anvisningar om hur du öppnar en port
  
 ## <a name="step-3-connect-to-the-dsvm-with-the-azure-shell"></a>Steg 3 Anslut till din DSVM via Azure Shell 
  

@@ -9,12 +9,13 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 9c4187ec4b1b72632f0ffa9e8a5166f59679e170
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 69170a45d50970a7c806133a876449b67c4fb2a0
+  ms.sourcegitcommit: 496e19edaa5bfde56b43c9e8792fcbe8d2ce9443
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44239099"
+  ms.lasthandoff: 09/13/2018
+  ms.locfileid: "45524241"
+labId: 45995
 durationInMinutes: 10
 quiz:
   title: Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine
@@ -38,7 +39,7 @@ quiz:
       isCorrect: true
     - content: En tjänst som svarar på frågor
       isCorrect: false
-      incorrectExplanation: Den hjälper till med att besvara frågor, men QnA Maker kan även göra annat
+      incorrectExplanation: Den hjälper till med att besvara frågor, men det är inte allt som QnA Maker klarar av.
     - content: En tjänst som genererar nya svar på frågor
       isCorrect: false
       incorrectExplanation: QnA Maker genererar inte nya svar, men använder de svar som den redan har tillgång till.
@@ -86,7 +87,7 @@ quiz:
       incorrectExplanation: Babel används för att kompilera nya versioner av JavaScript för webbläsare som inte stöder den nya syntaxen.
   - content: 'Om du befinner dig i Azure-portalen för Web App-roboten: vilket avsnitt går du till för att lägga till inställningar för QnA Maker?'
     choices:
-    - content: All app service settings (Alla apptjänstinställningar)
+    - content: Alla apptjänstinställningar
       isCorrect: false
       incorrectExplanation: Med den här inställningen kan du ändra inställningarna för apptjänsten som är associerad med webbappen.
     - content: Programinställningar
@@ -100,9 +101,9 @@ quiz:
       incorrectExplanation: I det här avsnittet kan du ansluta roboten till olika tjänster som den kan interagera med.
   - content: Vilket avsnitt i Azure-portalen går du till för att lägga till din robot i Microsoft Teams?
     choices:
-    - content: All app service settings (Alla apptjänstinställningar)
+    - content: Alla apptjänstinställningar
       isCorrect: false
-      incorrectExplanation: Den här inställningen kan du ändra.
+      incorrectExplanation: Den här inställningen låter dig ändra.
     - content: Programinställningar
       isCorrect: false
       incorrectExplanation: Med den här inställningen kan du ange specifika inställningar för webbappen.

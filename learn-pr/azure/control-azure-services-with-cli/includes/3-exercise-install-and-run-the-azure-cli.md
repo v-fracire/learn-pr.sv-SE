@@ -5,7 +5,7 @@ Nu ska vi installera Azure CLI på din lokala dator och därefter köra ett enke
 
 ::: zone pivot="linux"
 
-### <a name="linux"></a>Linux
+## <a name="linux"></a>Linux
 
 Här ska du installera Azure CLI på **Ubuntu Linux** med (**APT**) och Bash-kommandoraden.
 
@@ -37,7 +37,7 @@ Här ska du installera Azure CLI på **Ubuntu Linux** med (**APT**) och Bash-kom
 
 ::: zone pivot="macos"
 
-### <a name="macos"></a>macOS
+## <a name="macos"></a>macOS
 
 Här installerar du Azure CLI på macOS med Homebrew-pakethanteraren.
 
@@ -60,7 +60,7 @@ Här installerar du Azure CLI på macOS med Homebrew-pakethanteraren.
 
 ::: zone pivot="windows"
 
-### <a name="windows"></a>Windows
+## <a name="windows"></a>Windows
 
 Här installerar du Azure CLI på Windows med hjälp av MSI-installationsprogrammet.
 
