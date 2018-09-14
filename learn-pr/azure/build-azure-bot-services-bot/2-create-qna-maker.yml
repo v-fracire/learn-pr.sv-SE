@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.build-azure-bot-services-bot.2-create-qna-maker
+title: <span data-ttu-id="e8704-101">Skapa en kunskapsbas med Microsoft QnA Maker</span><span class="sxs-lookup"><span data-stu-id="e8704-101">Create a knowledge base with Microsoft QnA Maker</span></span>
+metadata:
+  title: <span data-ttu-id="e8704-102">Skapa en kunskapsbas med Microsoft QnA Maker</span><span class="sxs-lookup"><span data-stu-id="e8704-102">Create a knowledge base with Microsoft QnA Maker</span></span>
+  description: <span data-ttu-id="e8704-103">Skapa en kunskapsbas med Microsoft QnA Maker</span><span class="sxs-lookup"><span data-stu-id="e8704-103">Create a knowledge base with Microsoft QnA Maker</span></span>
+  ms.openlocfilehash: 156a3fce397171db747c5e922e83a50a0fbdd205
+  ms.sourcegitcommit: 107578417899e44b5611917dec7bcc21d4c1582e
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/29/2018
+  ms.locfileid: "43230396"
+durationInMinutes: 10
+content: <span data-ttu-id="e8704-104">[!include[](includes/2-create-qna-maker.md)</span><span class="sxs-lookup"><span data-stu-id="e8704-104">[!include[](includes/2-create-qna-maker.md)</span></span>

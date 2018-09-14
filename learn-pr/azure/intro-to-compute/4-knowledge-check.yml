@@ -1,0 +1,40 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-compute.4-knowledge-check
+title: <span data-ttu-id="1acc3-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="1acc3-101">Knowledge check</span></span>
+metadata:
+  title: <span data-ttu-id="1acc3-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="1acc3-102">Knowledge check</span></span>
+  description: <span data-ttu-id="1acc3-103">Kunskapskontroll för modulen ”Introduktion till Azure-beräkning”.</span><span class="sxs-lookup"><span data-stu-id="1acc3-103">Knowledge check for the 'Introduction to Azure compute' module.</span></span>
+  ms.openlocfilehash: b40c4a17311fbd2e767b5619918fba7952ba0822
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40444306"
+durationInMinutes: 7
+content: >
+  [!include[](includes/4-knowledge-check.md)]
+quiz:
+  title: <span data-ttu-id="1acc3-104">Introduktion till Azure-beräkning, kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="1acc3-104">Introduction to Azure compute knowledge check</span></span>
+  questions:
+  - content: <span data-ttu-id="1acc3-105">Anta att ditt astronomiteam är litet och att de – även om medlemmarna i teamet är de främsta astronomerna och datorprogrammerarna – endast har en elementär kunskap om server- och webbadministration.</span><span class="sxs-lookup"><span data-stu-id="1acc3-105">Imagine that your astronomy team is small and that, while the members of your team are top notch astronomers and computer programmers, they have only a rudimentary understanding of server and web administration.</span></span> <span data-ttu-id="1acc3-106">Vilket av följande alternativ ska du välja?</span><span class="sxs-lookup"><span data-stu-id="1acc3-106">Which of the following options should you choose?</span></span>
+    choices:
+    - content: <span data-ttu-id="1acc3-107">Azure Kubernetes Service (AKS)</span><span class="sxs-lookup"><span data-stu-id="1acc3-107">Azure Kubernetes Service (AKS)</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="1acc3-108">Kubernetes kräver avancerade kunskaper om containerorkestrering.</span><span class="sxs-lookup"><span data-stu-id="1acc3-108">Kubernetes requires advanced knowledge about container orchestration.</span></span>
+    - content: <span data-ttu-id="1acc3-109">Service Fabric</span><span class="sxs-lookup"><span data-stu-id="1acc3-109">Service Fabric</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="1acc3-110">Astronomernas arbete behöver varken distribueras brett eller globalt.</span><span class="sxs-lookup"><span data-stu-id="1acc3-110">The work of the astronomers does not need to be widely or globally distributed.</span></span>
+    - content: <span data-ttu-id="1acc3-111">App Service</span><span class="sxs-lookup"><span data-stu-id="1acc3-111">App Service</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="1acc3-112">Eftersom den är helt hanterad och skalar programmen kan teamet fokusera på att skriva sina specialprogram.</span><span class="sxs-lookup"><span data-stu-id="1acc3-112">Because it is fully managed and scales their applications, the team can focus on writing their specialized software.</span></span>
+  - content: <span data-ttu-id="1acc3-113">Anta att ditt astronomiteam har kommit fram till vissa astronomiska beräkningar som tar timmar och till och med dagar att slutföra.</span><span class="sxs-lookup"><span data-stu-id="1acc3-113">Imagine that your astronomy team has come up against certain astronomical calculations that are taking hours and even days to complete.</span></span> <span data-ttu-id="1acc3-114">Parallellkörning verkar inte vara till stor hjälp.</span><span class="sxs-lookup"><span data-stu-id="1acc3-114">Parallel execution does not seem to help much.</span></span> <span data-ttu-id="1acc3-115">Vilket av följande alternativ ska du välja?</span><span class="sxs-lookup"><span data-stu-id="1acc3-115">Which of the following options should you choose?</span></span>
+    choices:
+    - content: <span data-ttu-id="1acc3-116">Cloud Services</span><span class="sxs-lookup"><span data-stu-id="1acc3-116">Cloud Services</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="1acc3-117">Det går inte att köra alla astronomiska beräkningar parallellt, så att distribuera fler virtuella datorer kommer bara att förbättra prestandan marginellt.</span><span class="sxs-lookup"><span data-stu-id="1acc3-117">Not all of the astronomical calculations can be run in parallel so deploying additional VMs can only marginally improve performance.</span></span>
+    - content: <span data-ttu-id="1acc3-118">Azure Batch</span><span class="sxs-lookup"><span data-stu-id="1acc3-118">Azure Batch</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="1acc3-119">Vissa astronomiska beräkningar kräver superdatorfunktioner.</span><span class="sxs-lookup"><span data-stu-id="1acc3-119">Certain astronomical calculations require supercomputer capabilities.</span></span>
+    - content: <span data-ttu-id="1acc3-120">Container Instances</span><span class="sxs-lookup"><span data-stu-id="1acc3-120">Container Instances</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="1acc3-121">Det går inte att köra alla astronomiska beräkningar parallellt, så att distribuera fler behållare kommer bara att förbättra prestandan marginellt.</span><span class="sxs-lookup"><span data-stu-id="1acc3-121">It may be that not all of the astronomical calculations can be run in parallel, so deploying additional containers can only marginally improve performance.</span></span>

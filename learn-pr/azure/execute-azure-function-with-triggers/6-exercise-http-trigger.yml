@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: execute-azure-function-with-triggers.6-exercise-http-trigger
+title: <span data-ttu-id="3ebf5-101">Övning – Köra en Azure-funktion med en HTTP-begäran</span><span class="sxs-lookup"><span data-stu-id="3ebf5-101">Exercise - Execute an Azure function with an HTTP request</span></span>
+metadata:
+  title: <span data-ttu-id="3ebf5-102">Övning – Köra en Azure-funktion med en HTTP-begäran</span><span class="sxs-lookup"><span data-stu-id="3ebf5-102">Exercise - Execute an Azure function with an HTTP request</span></span>
+  description: <span data-ttu-id="3ebf5-103">Övning – Köra en Azure-funktion med en HTTP-begäran</span><span class="sxs-lookup"><span data-stu-id="3ebf5-103">Exercise - Execute an Azure function with an HTTP request</span></span>
+  ms.openlocfilehash: e0b8d9eaacdaef5dec4374cf86e853756d53f2d9
+  ms.sourcegitcommit: 12b4711682dac42f742a944fd9baa0e9dd09cf35
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/22/2018
+  ms.locfileid: "40448921"
+durationInMinutes: 15
+content: '[!include[](includes/6-exercise-http-trigger.md)]'

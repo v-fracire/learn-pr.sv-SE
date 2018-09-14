@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.connect-app-to-azure-storage.5-exercise-add-the-azure-storage-nuget-package
+title: <span data-ttu-id="e7b0d-101">Lägg till Azure Store NuGet-paketet</span><span class="sxs-lookup"><span data-stu-id="e7b0d-101">Add the Azure Store NuGet package</span></span>
+metadata:
+  title: <span data-ttu-id="e7b0d-102">Lägg till Azure Store NuGet-paketet</span><span class="sxs-lookup"><span data-stu-id="e7b0d-102">Add the Azure Store NuGet package</span></span>
+  description: <span data-ttu-id="e7b0d-103">Lägg till Azure Store NuGet-paketet</span><span class="sxs-lookup"><span data-stu-id="e7b0d-103">Add the Azure Store NuGet package</span></span>
+  ms.openlocfilehash: 34458db433db6871cf56f7b4f498568b75bfe120
+  ms.sourcegitcommit: b1b68b477ab39109c48f227b504a5050cae7a718
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/01/2018
+  ms.locfileid: "43414310"
+durationInMinutes: 10
+content: '[!include[](includes/5-exercise-add-the-azure-storage-nuget-package.md)]'
