@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.cosmos-db-app-with-vscode.setup-cosmosdb
 metadata:
-  title: <span data-ttu-id="7154d-101">Konfigurera en Cosmos DB-databas och samling</span><span class="sxs-lookup"><span data-stu-id="7154d-101">Setup your Cosmos DB database and collection</span></span>
-  description: <span data-ttu-id="7154d-102">Konfigurera en Cosmos DB-databas och samling</span><span class="sxs-lookup"><span data-stu-id="7154d-102">Setup your Cosmos DB database and collection</span></span>
+  title: <span data-ttu-id="3a2a1-101">Konfigurera Azure Cosmos DB-kontot</span><span class="sxs-lookup"><span data-stu-id="3a2a1-101">Setup your Azure Cosmos DB account</span></span>
+  description: <span data-ttu-id="3a2a1-102">Konfigurera Azure Cosmos DB-kontot</span><span class="sxs-lookup"><span data-stu-id="3a2a1-102">Setup your Azure Cosmos DB account</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: b9684227e9c78c821d44475bdb8cd5fdcdaf63e4
-  ms.sourcegitcommit: 7de323416e472639edcff135bfc7d47bd5715256
+  ms.openlocfilehash: 793491d1cdae44e7f128cbaa0be25ac0765f2f07
+  ms.sourcegitcommit: 2e31e2186d3bd659d3582edaf79e3581f6b92423
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/11/2018
-  ms.locfileid: "44373022"
-title: <span data-ttu-id="7154d-103">Konfigurera en Cosmos DB-databas och samling</span><span class="sxs-lookup"><span data-stu-id="7154d-103">Setup your Cosmos DB database and collection</span></span>
+  ms.lasthandoff: 09/12/2018
+  ms.locfileid: "44655655"
+title: <span data-ttu-id="3a2a1-103">Konfigurera Cosmos DB-kontot</span><span class="sxs-lookup"><span data-stu-id="3a2a1-103">Setup your Cosmos DB account</span></span>
 durationInMinutes: 5
 interactive: bash
 content: '[!include[](includes/setup-cosmosdb.md)]'
