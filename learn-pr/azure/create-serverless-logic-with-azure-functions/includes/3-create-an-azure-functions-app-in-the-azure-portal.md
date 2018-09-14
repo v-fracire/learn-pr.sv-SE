@@ -32,7 +32,7 @@ Nu ska vi skapa en funktionsapp i Azure Portal.
 
 1. Välj **Windows** som OS.
 
-1. Välj **Förbrukningsplan** för **Värdplan**. Det är alltså det serverlösa värdalternativet.
+1. För **som är värd för planera**väljer **Standardförbrukningsplanen**, vilket är alternativet utan server som värd.
 
 1. Välj den geografiska plats som är närmast dig (eller dina kunder).
 

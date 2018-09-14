@@ -2,7 +2,7 @@
 
 Data Science Virtual Machine för Linux är en VM-avbildning som gör det lättare att komma igång med datavetenskap. Många verktyg har redan skapats, installerats och konfigurerats av oss för att du ska kunna komma igång så snabbt som möjligt. NVIDIA GPU-drivrutinen, [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads) och [NVIDIA CUDA Deep Neural Network](https://developer.nvidia.com/cudnn)-biblioteket (cuDNN) ingår, liksom [Jupyter](http://jupyter.org/), flera exempel på Jupyter Notebook och [TensorFlow](https://www.tensorflow.org/). Alla förinstallerade ramverk är GPU-kompatibla, men fungerar även bra tillsammans med vanliga processorer. I den här enheten ska du skapa en instans av Data Science Virtual Machine (DVSM) för Linux på Azure.
 
-1. Öppna [Azure-portalen](https://portal.azure.com/?azure-portal=true) i webbläsaren. Om du ombeds logga in ska du göra det ditt Microsoft-konto.
+1. Öppna [Azure-portalen](https://portal.azure.com/?azure-portal=true) i webbläsaren.
 
 1. Klicka på **Skapa en resurs** i menyn på vänster sida av portalen och skriv sedan ”data science” (utan citattecken) i sökfältet. Välj **Data Science Virtual Machine for Linux (Ubuntu)** i resultatlistan.
 
@@ -18,9 +18,7 @@ Data Science Virtual Machine för Linux är en VM-avbildning som gör det lätta
 
     ![Välja storlek på den virtuella datorn](../media-draft/1-create-data-science-vm-2.png)
 
-1. På bladet **Inställningar** markerar du **SSH (22)** i listan över ingående portar så att klienterna kan ansluta till den virtuella datorn med hjälp av protokollet [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) på port 22. Klicka sedan på **OK**.
-
-    ![Skapa den virtuella datorn](../media-draft/1-create-data-science-vm-3.png)
+1. I den **inställningar** bladet, acceptera standardinställningarna och klicka på den **OK** knappen.
 
 1. Titta igenom de alternativ som du har valt för den virtuella datorn på bladet **Skapa** och klicka sedan på **Skapa** för att starta framställningen av virtuella datorer.
 
