@@ -1,4 +1,4 @@
-I den här enheten ska du installera Visual Studio på antingen en Windows- eller Mac OS-dator. På Windows måste arbetsbelastningen Azure Development installeras. Och i Visual Studio för Mac gör det inbyggda arbetsflödet Connected Services att du kan skapa appar för Azure App Service. I slutändan kommer du att vara redo att börja skapa program och publicera dem på Azure.
+I den här enheten ska du installera Visual Studio på antingen en Windows- eller Mac OS-dator. På Windows måste arbetsbelastningen Azure Development installeras. Med Visual Studio för Mac gör inbyggda Connected Services-arbetsflödet att du kan skapa appar för Azure App Service. I slutändan kommer du att vara redo att börja skapa program och publicera dem på Azure.
 
 ## <a name="exercise-steps"></a>Övningssteg
 
@@ -8,7 +8,7 @@ Det finns några skillnader mellan att installera Visual Studio på Windows och 
 
 1. Hämta installationsprogrammet för Visual Studio från https://visualstudio.microsoft.com/downloads/.
 
-1. Kör installationsprogrammet så öppnas fönstret för arbetsbelastningar.
+1. Kör installationsprogrammet, så öppnas fönstret arbetsbelastningar.
 
 1. Välj arbetsbelastningen **Azure Development**.
 
@@ -32,7 +32,7 @@ Det finns några skillnader mellan att installera Visual Studio på Windows och 
 
 1. Gå till https://visualstudio.microsoft.com/ och hämta installationsprogrammet för att installera Visual Studio för Mac.
 
-1. Klicka på VisualStudioInstaller.dmg-filen för att montera installationsprogrammet och kör det sedan genom att dubbelklicka på logotypen.
+1. Klicka på filen VisualStudioInstaller.dmg montera installationsprogrammet och sedan köra den genom att dubbelklicka på logotypen.
 
 1. Bekräfta sekretess- och licensvillkoren när de visas.
 

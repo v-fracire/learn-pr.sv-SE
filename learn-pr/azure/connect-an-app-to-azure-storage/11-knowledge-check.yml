@@ -9,33 +9,40 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 85d3e79ced74d9544ea61e835ae361f979129721
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44240844"
 durationInMinutes: 3
 quiz:
   title: Ansluta till Azure Storage
   questions:
-  - content: Hur många åtkomstnycklar behöver du för att komma åt ditt Azure-lagringskonto?
-    choices:
-    - content: "1"
-      isCorrect: false
-    - content: "2"
-      isCorrect: true
-    - content: "3"
-      isCorrect: false
-    - content: "4"
-      isCorrect: false
-  - content: Var lagras Azure Storage-anslutningssträngarna normalt sett i din app?
-    choices:
-    - content: Hårdkodade i programkoden
-      isCorrect: false
-    - content: Inom ett konfigurationssystem som exempelvis en konfigurationsfil, en miljövariabel eller en databas
-      isCorrect: true
-    - content: Anges i appen vid körning
-      isCorrect: false
-    - content: Kompileras och bäddas in i appen i form av en resursfil
-      isCorrect: false
+    - content: Hur många åtkomstnycklar behöver du för att komma åt ditt Azure-lagringskonto?
+      choices:
+        - content: '1'
+          isCorrect: false
+        - content: '2'
+          isCorrect: true
+          correctExplanation: Varje lagringskonto har två åtkomstnycklar. På så sätt kan du följa bästa praxis riktlinjer för att ersätta den nyckel som används av dina program utan kostnad driftavbrott med jämna mellanrum.
+        - content: '3'
+          isCorrect: false
+        - content: '4'
+          isCorrect: false
+    - content: Du kan använda REST API eller Azure-klientbiblioteket programmatisk åtkomst till ett lagringskonto. Vad är den primära fördelen med att använda klientbiblioteket?
+      choices:
+        - content: Kostnad
+          isCorrect: false
+        - content: Tillgänglighet
+          isCorrect: false
+        - content: Lokalisering
+          isCorrect: false
+        - content: Underlätta för dig
+          isCorrect: true
+          correctExplanation: Kod som använder klientbiblioteket är vanligtvis mycket kortare och enklare än kod som använder REST-API. Klienten biblioteket referenser montering begäranden och parsa svar för dig.
+    - content: Vilket av följande är en bra liknelse för åtkomstnycklarna för ett lagringskonto?
+      choices:
+        - content: IP-adress
+          isCorrect: false
+        - content: REST-slutpunkt
+          isCorrect: false
+        - content: Användarnamn och lösenord
+          isCorrect: true
+          correctExplanation: En åtkomstnyckel tillgång identifierar konton och ger dig åtkomst. Detta är mycket lik inloggningsuppgifterna som ett användarnamn och lösenord.
+        - content: Krypteringsalgoritm
+          isCorrect: false

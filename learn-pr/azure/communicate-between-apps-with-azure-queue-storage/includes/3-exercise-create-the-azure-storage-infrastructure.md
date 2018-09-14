@@ -1,31 +1,31 @@
-You've discovered that spikes in traffic can overwhelm our middle-tier. To deal with this, you've decided to add a queue between the front-end and the middle tier in your article-upload application.
+Du har upptäckt att trafiktoppar kan överbelasta mellannivån. För att hantera detta har du bestämt dig för att lägga till en kö mellan klientdelen och mellannivån i ditt program för artikeluppladdning.
 
-The first step in creating a queue is to create the Azure Storage Account that will store our data.
+Det första steget när du skapar en kö är att skapa ett Azure Storage-konto som ska lagra våra data.
 
 <!-- Activate the sandbox -->
 [!include[](../../../includes/azure-sandbox-activate.md)]
 
-## Create a Storage Account with the Azure CLI
+## <a name="create-a-storage-account-with-the-azure-cli"></a>Skapa ett lagringskonto med Azure CLI
 
 > [!TIP] 
-> Normally, you'd start a new project by creating a _resource group_ to hold all the associated resources. In this case, we'll be using the Azure Sandbox which provides a resource group named <rgn>[Sandbox resource group name]</rgn>.
+> Du skulle normalt sett starta ett nytt projekt genom att skapa en _resursgrupp_ för alla associerade resurser. I det här fallet vi ska använda Azure sandbox-miljön som tillhandahåller en resursgrupp med namnet <rgn>[Sandbox resursgruppens namn]</rgn>.
 
-1. In the Cloud shell on the right, select Bash if you are given a choice.
+1. Välj Bash i Cloud Shell till höger om du tillfrågas.
 
-1. Use the `az storage account create` command to create the storage account. You'll need to supply several parameters:
+1. Använd den `az storage account create` kommando för att skapa lagringskontot. Du behöver ange flera parametrar:
 
-| Parameter | Value |
+| Parameter | Värde |
 |-----------|-------|
-| `--name`  | Sets the name. Remember that storage accounts use the name to generate a public URL - so it has to be unique. In addition, the account name must be between 3 and 24 characters, and be composed of numbers and lowercase letters only. We recommend you use the prefix **articles** with a random number suffix but you can use whatever you like. |
-| `-g`        | Supplies the **Resource Group**, use <rgn>[Sandbox resource group name]</rgn> as the value. |
-| `--kind`    | Sets the **Storage Account type** - use _StorageV2_ to create a general-purpose V2 account. |
-| `-l`        | Sets the **Location** independent of the Resource Group owner. It's optional, but you can use it to place the queue in a different region than the Resource Group. |
-| `--sku`     | Sets the **Replication and Storage type**, it defaults to _Standard_RAGRS_. Let's use _Standard_LRS_ which means it's only locally redundant within the data center. |
+| `--name`  | Ställer in namnet. Kom ihåg att lagringskonton använder namnet till att generera en offentlig URL, så det måste vara unikt. Namnet på lagringskontot måste dessutom vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Vi rekommenderar att du använder prefixet **articles** med ett slumptal som suffix, men du kan använda vad du vill. |
+| `-g`        | Lagret den **resursgrupp**, använda <rgn>[Sandbox resursgruppens namn]</rgn> som värde. |
+| `--kind`    | Anger den **typ av Lagringskonto** -Använd _StorageV2_ att skapa ett allmänt V2-konto. |
+| `-l`        | Anger den **plats** oberoende av ägare för resursgruppen. Det här är valfritt, men du kan använda det om du vill placera i kön i en annan region än resursgruppen. |
+| `--sku`     | Anger den **replikering och lagringstyp**, standard _Standard_RAGRS_. Vi använder _Standard_LRS_, vilket innebär att kontot bara är lokalt redundant i datacentret. |
 
 <!-- Resource selection -->
 [!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-Here's an example command line that uses the above parameters. Make sure to change the `--name` and `--location` parameters if you decide to copy/paste this command.
+Här är ett kommandoradsexempel med ovanstående parametrar. Se till att ändra den `--name` och `--location` parametrar om du vill kopiera och klistra in det här kommandot.
 
 ```azurecli
 az storage account create --name [unique-name] -g <rgn>[Sandbox resource group name]</rgn> --kind StorageV2 -l [location-name] --sku Standard_LRS

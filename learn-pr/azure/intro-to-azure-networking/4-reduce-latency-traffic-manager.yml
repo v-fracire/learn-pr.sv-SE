@@ -1,37 +1,33 @@
 ### YamlMime:ModuleUnit
 uid: learn.intro-to-azure-networking.4-reduce-latency-traffic-manager
-title: Minska svarstiden med Traffic Manager
+title: Minska fördröjning med Azure Traffic Manager
 metadata:
-  title: Minska svarstiden med Traffic Manager
+  title: Minska fördröjning med Azure Traffic Manager
   description: Läs om hur Traffic Manager kan minska svarstiden och skapa återhämtning i olika geografiska områden.
-  ms.openlocfilehash: fa64f6d6e7bfe0f991bf15002f24690a2c02f0fd
-  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43477853"
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 durationInMinutes: 7
-content: >
+content: |
   [!include[](includes/4-reduce-latency-traffic-manager.md)]
 quiz:
   title: 'Kunskapskontroll: Minska svarstiden med Traffic Manager'
   questions:
-  - content: Hur minskar Traffic Manager svarstiden?
-    choices:
-    - content: Den väljer enbart de snabbaste nätverken mellan slutpunkter.
-      isCorrect: false
-      incorrectExplanation: Traffic Manager tar inte hänsyn till specifika nätverkshastigheter.
-    - content: Den väljer den slutpunkt som är närmast användarens DNS-server.
-      isCorrect: true
-      correctExplanation: Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.
-    - content: Den cachelagrar innehåll, på ungefär samma sätt som nätverk för innehållsleverans fungerar.
-      isCorrect: false
-      incorrectExplanation: Traffic Manager ser inte den trafik som skickas mellan klienten och servern, och cachelagrar inte heller innehåll.
-  - content: Du bor i England, men din DNS-server finns i Italien. Hur dirigerar Traffic Manager trafik?
-    choices:
-    - content: Den väljer den tjänst som är närmast England.
-      isCorrect: false
-      incorrectExplanation: Traffic Manager använder den _DNS-server_ som är närmast användaren, inte användarens plats, för att dirigera trafik.
-    - content: Den väljer den tjänst som är närmast Italien.
-      isCorrect: true
-      correctExplanation: Traffic Manager använder den _DNS-server_ som är närmast användaren, inte användarens plats, för att dirigera trafik.
+    - content: Hur minska svarstiden i Azure Traffic Manager?
+      choices:
+        - content: Den väljer enbart de snabbaste nätverken mellan slutpunkter.
+          isCorrect: false
+        - content: Den väljer den slutpunkt som är närmast användarens DNS-server.
+          isCorrect: true
+          correctExplanation: Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.
+        - content: 'Den cachelagrar innehåll, på ungefär samma sätt som nätverk för innehållsleverans fungerar.'
+          isCorrect: false
+    - content: 'Anta att du är bosatt i England, men DNS-servern är i Italien. Hur dirigerar Traffic Manager trafik?'
+      choices:
+        - content: Den väljer den tjänst som är närmast England.
+          isCorrect: false
+        - content: Den väljer den tjänst som är närmast Italien.
+          isCorrect: true
+          correctExplanation: Traffic Manager använder den _DNS-server_ som ligger närmast användaren att dirigera trafiken.

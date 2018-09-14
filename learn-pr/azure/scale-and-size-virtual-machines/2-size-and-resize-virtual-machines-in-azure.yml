@@ -1,9 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.scale-and-size-virtual-machines.2-size-and-resize-virtual-machines-in-azure
-title: Size and resize virtual machines in Azure
+title: Storlek och ändra storlek på virtuella datorer i Azure
 metadata:
-  title: Size and resize virtual machines in Azure
-  description: Size and resize virtual machines in Azure
+  title: Storlek och ändra storlek på virtuella datorer i Azure
+  description: Storlek och ändra storlek på virtuella datorer i Azure
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 durationInMinutes: 5
 content: |
   [!include[](includes/2-size-and-resize-virtual-machines-in-azure.md)]

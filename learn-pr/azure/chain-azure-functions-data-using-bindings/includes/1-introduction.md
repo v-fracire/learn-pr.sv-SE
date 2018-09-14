@@ -1,12 +1,12 @@
-Suppose you run a social networking site for professionals. You're allowing your users to upload their headshot images to be posted on their profile. To reduce workload on the web server, you want to create a serverless backend using Azure Functions to process this data. You want to create an image thumbnail and then save it off to permanent storage. 
+Anta att du kör en sociala nätverk plats för experter. Tillåter användarna att överföra sina headshot avbildningar som ska publiceras på sin profil. Om du vill minska belastningen på webbservern, som du vill skapa en serverlös serverdel med Azure Functions för att bearbeta dessa data. Du vill skapa en avbildning miniatyr och spara det ut i det permanenta lagringsutrymmet. 
 
-The power of Azure Functions comes largely from the integrations if offers with a range of data sources and services. These integrations are defined with bindings. Using bindings, developers interact with other data sources and services without worrying about how the data flows to and from their function.
+Kraften i Azure Functions kommer stort sett från integreringar om erbjuder med en mängd datakällor och tjänster. De här integreringarna definieras med bindningar. Med bindningar kan interagera utvecklare med andra datakällor och tjänster utan att behöva bekymra dig om hur data flödar till och från deras funktion.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Explore what types of data sources can be accessed through bindings
-- Read data from Azure Cosmos DB using Azure Functions
-- Store data in Azure Cosmos DB using Azure Functions
-- Send messages to Azure Queue Storage using Azure Functions
+- Utforska vilka typer av data som källor kan nås via bindningar
+- Läsa data från Azure Cosmos DB med Azure Functions
+- Store-data i Azure Cosmos DB med Azure Functions
+- Skicka meddelanden till Azure Queue Storage med Azure Functions

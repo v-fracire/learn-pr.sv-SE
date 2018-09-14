@@ -1,14 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-linux-vm-in-azure.7-manage-vm
-title: Nätverks- och säkerhetsinställningar för virtuell Azure dator
+title: Inställningar för nätverk och säkerhet
 metadata:
-  title: Nätverks- och säkerhetsinställningar för virtuell Azure dator
-  description: Nätverks- och säkerhetsinställningar för virtuell Azure dator
-  ms.openlocfilehash: 07dcd3a8b707ddfec57f5c20a04d8736196c32c4
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43837582"
+  title: Inställningar för nätverk och säkerhet
+  description: Inställningar för nätverk och säkerhet
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 durationInMinutes: 10
-content: '[!include[](includes/7-manage-vm.md)]'
+content: |
+  [!include[](includes/7-manage-vm.md)]

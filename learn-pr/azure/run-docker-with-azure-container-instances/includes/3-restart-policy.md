@@ -10,7 +10,7 @@ När du skapar en container i Azure Container Instances kan ange du en av tre pr
 | ---------------- | :---------- |
 | `Always` | Containers i containergruppen startas alltid om. Det här är **standardvärdet** som används om du inte anger någon omstartsprincip när du skapar containern. |
 | `Never` | Containers i containergruppen startas aldrig om. Containers körs högst en gång. |
-| `OnFailure` | Containers i containergruppen startas bara om när processen som körs i containern inte slutförs utan fel (när den avslutas med en annan slutkod än noll). Containrar körs minst en gång. |
+| `OnFailure` | Containers i containergruppen startas bara om när processen som körs i containern inte slutförs utan fel (när den avslutas med en annan slutkod än noll). Containers körs minst en gång. |
 
 I föregående enhet i den här modulen skapade du en container utan någon angiven omstartsprincip. Som standard fick den här containern omstartsprincipen *Alltid*. Eftersom arbetsbelastningen i containern körs länge (en webbserver) är den här principen lämplig.
 
@@ -20,9 +20,9 @@ Om du vill se omstartsprincipen i praktiken skapar du en containerinstans från 
 
 Kör exempelcontainern med kommandot `az container create`:
 
-```azureclu
+```azurecli
 az container create \
-    --resource-group myResourceGroup \
+    --resource-group <rgn>[Sandbox resource group name]</rgn> \
     --name mycontainer-restart-demo \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure
@@ -34,7 +34,7 @@ Du kan kontrollera statusen för en container med kommandot `az container show`:
 
 ```azurecli
 az container show \
-    --resource-group myResourceGroup \
+    --resource-group <rgn>[Sandbox resource group name]</rgn> \
     --name mycontainer-restart-demo \
     --query containers[0].instanceView.currentState.state
 ```
@@ -42,7 +42,7 @@ az container show \
 När exempelcontainerns status blir **Avslutad** kan du se utdata för uppgiften i containerloggarna. Kör kommandot **az container logs** för att visa utdata för skriptet:
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name mycontainer-restart-demo
+az container logs --resource-group <rgn>[Sandbox resource group name]</rgn> --name mycontainer-restart-demo
 ```
 
 Utdata:

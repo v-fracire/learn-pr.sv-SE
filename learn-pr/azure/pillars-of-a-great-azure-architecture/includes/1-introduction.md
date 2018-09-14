@@ -1,13 +1,13 @@
-Imagine you work for a healthcare provider. How do you instill confidence in your customers that their data is secure? Can your architecture handle a spike in traffic if a media report goes viral? Can your architecture handle the failure of one or more critical components? Are you using resources in the most efficient manner possible?
+Anta att du arbetar för en hälso- och sjukvårdsleverantör. Hur kan du övertyga dina kunder om att deras data är säkra? Kan din arkitektur klara en trafiktopp om en mediarapport blir viral? Kan din arkitektur hantera fel på en eller flera viktiga komponenter? Använder du resurserna på det mest effektiva sättet?
 
-A great architecture helps guide you to design, build, and continuously improve a secure, reliable, and efficient application. In this module, we'll introduce you to the pillars and principles that are essential to a great Azure architecture.
+En bra arkitektur hjälper dig utforma, bygga och kontinuerligt förbättra ett säkert, tillförlitligt och effektivt sätt. I den här modulen presenterar vi de grundpelare och principer som är en förutsättning för en bra Azure-arkitektur.
 
 > [!NOTE]
-> The concepts discussed in this module are not all-inclusive, but represent some of the important considerations when building a solution on the cloud. Microsoft publishes a broad set of patterns, guidelines, and examples on designing applications on Azure. It is highly recommended that you look through the content in the [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) as you start planning and designing your architecture.
+> De begrepp som diskuteras i den här modulen är inte heltäckande, men representerar några viktiga överväganden när du skapar en lösning i molnet. Microsoft publicerar en rad olika mönster, riktlinjer och exempel på hur du skapar program i Azure. Vi rekommenderar starkt att du söker igenom innehållet i den [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) när du börjar planera och utforma din arkitektur.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Identify key pillars for architecting a solution in the cloud
-- Apply key principles for creating a solid architectural foundation
+- Identifiera huvudpelare för att skapa en lösning i molnet
+- Tillämpa viktiga principer en stabil arkitekturgrund

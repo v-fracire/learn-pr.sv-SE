@@ -9,37 +9,31 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 7644faa213e2ea6331e697f016633ae58ff26c47
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44230899"
 durationInMinutes: 15
-content: >
+content: |
   [!include[](includes/2-maximize-efficiency-of-cloud-spend.md)]
 quiz:
   title: Kunskapskontroll – Maximera effektiviteten för molnutgifter
   questions:
-  - content: Vilket av följande är det bästa alternativet för en reserverad instans?
-    choices:
-    - content: En webbapp som distribueras i Azure App Service.
-      isCorrect: false
-      incorrectExplanation: Azure App Service är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.
-    - content: En virtuell dator för icke-produktion som stängs av automatiskt när den inte används.
-      isCorrect: false
-      incorrectExplanation: Eftersom den här virtuella datorn inte körs under den största delen av tiden utnyttjar den inte instansreservationen till fullo och är inte ett bra alternativ för en reserverad instans.
-    - content: En Azure SQL Database-instans.
-      isCorrect: false
-      incorrectExplanation: Azure SQL Database är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.
-    - content: En databasserver för ett HR-system i ett globalt företag.
-      isCorrect: true
-      correctExplanation: På grund av det här systemets allvarlighetsgrad och globala karaktär är det troligt att den skulle köras under den största delen av tiden, vilket gör den till ett bra alternativ för en reserverad instans.
-  - content: 'Beräkna kostnader i samband med att en virtuell dator stängs av när:'
-    choices:
-    - content: Du stänger av den virtuella datorn inifrån operativsystemet.
-      isCorrect: false
-      incorrectExplanation: Om du stänger av operativsystemet för den virtuella datorn är den fortfarande allokerad på Azure-plattformen och fortsätter att ackumulera beräkningskostnader.
-    - content: Du klickar på stoppknappen i Azure Portal.
-      isCorrect: true
-      correctExplanation: När du klickar på stoppknappen frigörs den virtuella datorn från Azure-plattformen och slutar att ackumulera beräkningskostnader.
+    - content: Vilket av följande är det bästa alternativet för en reserverad instans?
+      choices:
+        - content: En webbapp som distribueras i Azure App Service.
+          isCorrect: false
+          incorrectExplanation: Azure App Service är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.
+        - content: En virtuell dator för icke-produktion som stängs av automatiskt när den inte används.
+          isCorrect: false
+          incorrectExplanation: Eftersom den här virtuella datorn inte körs under den största delen av tiden utnyttjar den inte instansreservationen till fullo och är inte ett bra alternativ för en reserverad instans.
+        - content: En Azure SQL Database-instans.
+          isCorrect: false
+          incorrectExplanation: Azure SQL Database är en PaaS-tjänst. Reserverade instanser kan bara användas för virtuella datorer.
+        - content: En databasserver för ett HR-system i ett globalt företag.
+          isCorrect: true
+          correctExplanation: 'På grund av det här systemets allvarlighetsgrad och globala karaktär är det troligt att den skulle köras under den största delen av tiden, vilket gör den till ett bra alternativ för en reserverad instans.'
+    - content: 'Beräkna kostnader i samband med att en virtuell dator stängs av när:'
+      choices:
+        - content: Du stänger av den virtuella datorn inifrån operativsystemet.
+          isCorrect: false
+          incorrectExplanation: Om du stänger av operativsystemet för den virtuella datorn är den fortfarande allokerad på Azure-plattformen och fortsätter att ackumulera beräkningskostnader.
+        - content: Du klickar på stoppknappen i Azure Portal.
+          isCorrect: true
+          correctExplanation: När du klickar på stoppknappen frigörs den virtuella datorn från Azure-plattformen och slutar att ackumulera beräkningskostnader.

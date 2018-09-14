@@ -1,16 +1,15 @@
 ### YamlMime:ModuleUnit
-# Unit uids are manually created by the content author and should follow the format (repo).(module-short-name).(unit-short-name). Keep it easy on yourself and keep the unit-short-name the same as the unit YAML file name.
 uid: learn.classify-user-feedback-with-the-text-analytics-api.2-an-introduction-to-text-analytics
 metadata:
-  title: Sentiment Analysis and the Text Analytics API
-  description: In this unit, we'll talk about field of Text Analytics and set the stage for using Microsoft Cognitive Services to discover sentiment in text from our apps.
-  displayType: two-column
-title: Sentiment Analysis and the Text Analytics API
-# TODO add azure portal
-#interactive: azure-portal
+  title: Attitydanalys och API för textanalys
+  description: 'I den här enheten, vi pratar om fältet för textanalys och att förbereda för att identifiera sentiment in text från våra appar med Microsoft Cognitive Services.'
+  ms.date: 09/24/2018
+  author: AndrewJByrne
+  ms.author: anbyrne
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+title: Attitydanalys och API för textanalys
 azureSandbox: true
 durationInMinutes: 4
 content: |
   [!include[](includes/2-an-introduction-to-text-analytics.md)]
-
-

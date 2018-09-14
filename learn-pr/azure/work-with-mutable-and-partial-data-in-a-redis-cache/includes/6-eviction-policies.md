@@ -1,29 +1,29 @@
-Memory is the most critical resource for Redis because it's an in-memory database. You can run into problems when you begin adding data that exceeds the amount of memory available. Redis supports eviction policies, which indicate how data should be handled when you run out of memory.
+Minne är den viktigaste resursen för Azure Redis Cache, eftersom det är en databas i minnet. Du kan köra får problem när du börjar lägga till data som överskrider mängden tillgängligt minne. Azure Redis Cache stöder avlägsningsprinciper som indikerar hur data ska hanteras när du kör slut på minne.
 
-Here, you'll set an eviction policy to determine what your data should do when you exceed the maximum amount of memory.
+Här kan du ange en Borttagningsprincip för att fastställa vad dina data ska göra om du överskrider den maximala mängden minne.
 
-## What is an eviction policy?
+## <a name="what-is-an-eviction-policy"></a>Vad är en Borttagningsprincip?
 
-An eviction policy is a plan that determines how your data should be managed when you exceed the maximum amount of memory available. For example, using an eviction policy, you could tell Redis to delete a random key to make room for the new data being inserted.
+En Borttagningsprincip är en plan som avgör hur dina data ska hanteras när du överskrider den maximala mängden tillgängligt minne. Till exempel kan med en Borttagningsprincip, du konfigurera Azure Redis Cache och ta bort en slumpmässig nyckel för att göra plats för nya data infogas.
 
-### Types of eviction policies
+### <a name="types-of-eviction-policies"></a>Typer av avlägsningsprinciper
 
-There are six different eviction policies provided by Redis. All of these values perform an action when you attempt to insert data when you're out of memory.
+Det finns sex olika avlägsningsprinciper som tillhandahålls av Azure Redis Cache. Alla dessa värden kan utföra en åtgärd när du försöker infoga data när du är slut på minne.
 
-* **noeviction:** No eviction policy. Returns an error message if you attempt to insert data.
+* **noeviction:** ingen princip för borttagning. Returnerar ett felmeddelande visas om du försöker infoga data.
 
-* **allkeys-lru:** Removes the least recently used key.
+* **allkeys lru:** tar bort minst senast använda nyckeln.
 
-* **allkeys-random:** Removes a random key.
+* **allkeys slumpmässiga:** tar bort en slumpmässig nyckel.
 
-* **volatile-lru:** Removes the least recently used key out of all the keys with an expiration set.
+* **beräkningsbara lru:** tar bort minst senast använda nyckeln utanför alla nycklar med ett förfallodatum.
 
-* **volatile-ttl:** Removes the key with the shortest time to live based on the expiration set for it.
+* **beräkningsbara ttl:** tar bort nyckeln med kortaste time to live utifrån förfallodatum som angetts för den.
 
-* **volatile-random:** Removes a random key that has an expiration set.
+* **beräkningsbara slumpmässiga:** tar bort en slumpmässig nyckel som har en giltighetstid ange.
 
-## How to set an eviction policy
+## <a name="how-to-set-an-eviction-policy"></a>Hur du ställer in en princip för borttagning
 
-Azure provides a simple drop-down menu to set the eviction policy for a Redis Cache. Select **Advanced Settings** and use the **maxmemory-policy** drop-down menu.
+Azure tillhandahåller en enkel nedrullningsbar meny för att ställa in avlägsningsprincipen för Azure Redis Cache. Välj **avancerade inställningar**, och använda den **princip för max. minne** nedrullningsbara menyn.
 
-Since memory is critical to a Redis cache, there is support for eviction policies. An eviction policy determines what should be done with existing data when you're out of memory and attempt to insert new data.
+Eftersom minne är viktiga för Azure Redis Cache, finns det stöd för avlägsningsprinciper. En Borttagningsprincip avgör vad ska göras med befintliga data när du får slut på minne och försök att infoga nya data.

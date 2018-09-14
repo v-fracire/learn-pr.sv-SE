@@ -1,11 +1,11 @@
-Anta att du måste välja ett verktyg för att administrera Azure-resurserna som används för att testa systemet för hantering av kundrelationer (CRM). Viktiga åtgärder som du måste utföra: Skapa resursgrupper och etablera virtuella datorer (VM).
+Anta att du måste välja ett verktyg för att administrera Azure-resurserna som används för att testa systemet för hantering av kundrelationer (CRM). Dina tester måste du skapa resursgrupper och etablera virtuella datorer (VM).
 
-Du behöver något som är enkelt för administratörer att lära sig, men som är kraftfullt nog för att automatisera installationen och konfigurationen av flera virtuella datorer (VM) eller skriva en fullständig programmiljö. Flera olika verktyg finns tillgängliga. Du måste hitta den bästa för din personal och dina aktiviteter.
+Vill du något som är lätt för administratörer att lära dig, men kraftfullt nog för att automatisera installationen och konfigurationen av flera virtuella datorer eller skriva en fullständig programmiljö. Flera olika verktyg finns tillgängliga. Du måste hitta den bästa för din personal och dina aktiviteter.
 
 ## <a name="what-tools-are-available"></a>Vilka verktyg är tillgängliga?
-Azure tillhandahåller tre administrationsverktyg som du kan välja mellan: 
+Azure tillhandahåller tre administrationsverktyg som du kan välja mellan:
 
-- Azure-portalen 
+- Azure-portalen
 - Azure CLI
 - Azure PowerShell
 
@@ -21,7 +21,7 @@ Portalen tillhandahåller inte några sätt att automatisera repetitiva uppgifte
 ## <a name="what-is-the-azure-cli"></a>Vad är Azure CLI?
 Azure CLI är ett plattformsoberoende kommandoradsprogram som används för att ansluta till Azure och köra administrativa kommandon på Azure-resurser. Om du till exempel skulle vilja skapa en virtuell dator skulle du använda ett kommando som följande:
 
-```bash
+```azurecli
 az vm create \
   --resource-group CrmTestingResourceGroup \
   --name CrmUnitTests \
@@ -34,7 +34,7 @@ Azure CLI finns tillgängligt på två sätt: i en webbläsare via Azure Cloud S
 ## <a name="what-is-azure-powershell"></a>Vad är Azure PowerShell?
 Azure PowerShell är en modul som du lägger till i Windows PowerShell eller PowerShell Core så att du kan ansluta till din Azure-prenumeration och hantera resurser. Azure PowerShell kräver PowerShell för att fungera. PowerShell tillhandahåller tjänster som gränssnittsfönster, kommandoparsning och så vidare. Azure PowerShell lägger till Azure-specifika kommandon.
 
-Azure PowerShell tillhandahåller till exempel kommandot **New-AzureRmVM** som skapar en virtuell dator åt dig i din Azure-prenumeration. För att använda det startar du PowerShell-programmet och sedan anger ett kommando så här:
+Till exempel Azure PowerShell tillhandahåller den **New-AzureRmVM** kommando som skapar en virtuell dator åt dig i din Azure-prenumeration. För att använda det startar du PowerShell-programmet och sedan anger ett kommando så här:
 
 ```powershell
 New-AzureRmVm `

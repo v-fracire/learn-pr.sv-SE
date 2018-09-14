@@ -1,5 +1,5 @@
-## Clean up
+## <a name="clean-up"></a>Rensa
 
-Although the Azure Sandbox will clean up your resources automatically for you when you are finished with this module, it is best practice at the end of a project to identify whether or not you still need the resources you created during it. Resources left running can cost you money. 
+Azure-Sandbox ska rensa dina resurser automatiskt åt dig när du är klar med den här modulen, är det bästa praxis i slutet av ett projekt för att identifiera oavsett om du fortfarande behöver de resurser som du skapade under den. Resurser vänstra som körs kan kostar pengar. 
 
-To remove all the resources that you created, you can delete them one-by-one, or just delete the resource group. Deleting a resource group will delete all the resources in the group.
+Om du vill ta bort alla resurser som du har skapat, måste du ta bort dem en i taget eller så tar du bort resursgruppen. Tar bort en resursgrupp tas bort alla resurser i gruppen.

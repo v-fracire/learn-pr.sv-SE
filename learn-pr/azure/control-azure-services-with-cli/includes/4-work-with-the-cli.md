@@ -42,7 +42,7 @@ När inloggningen är färdig ansluts du till din Azure-prenumeration.
 
 Du behöver ofta skapa en ny resursgrupp innan du skapar en ny Azure-tjänst, så vi använder resursgrupper som exempel för att visa hur du kan skapa Azure-resurser via CLI.
 
-Du skapar en resursgrupp med Azure CLI-kommandot **group create**. Du måste ange ett namn och en plats. Namnet måste vara unikt inom prenumerationen. Platsen avgör var metadata för resursgruppen lagras. Du använder strängar som ”USA, västra”, ”Europa, norra” eller ”västra Indien” för att ange platsen. Du kan också använda konkatenerade ord som usavästra, europanorra eller indienvästra. Den grundläggande syntaxen ser ut så här:
+Du skapar en resursgrupp med Azure CLI-kommandot **group create**. Du måste ange ett namn och en plats. Namnet måste vara unikt inom prenumerationen. Platsen avgör var metadata för resursgruppen lagras. Du använder strängar som ”USA, västra”, ”Europa, norra” eller ”Indien, västra” för att ange platsen. Du kan också använda konkatenerade ord som usavästra, europanorra eller indienvästra. Den grundläggande syntaxen ser ut så här:
 
 ```azurecli
 az group create --name <name> --location <location>

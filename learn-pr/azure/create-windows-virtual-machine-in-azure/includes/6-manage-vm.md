@@ -6,10 +6,9 @@ Du har redan sett några av de grundläggande informations- och hanteringsaltern
 
 ## <a name="opening-ports-in-azure-vms"></a>Öppna portar i virtuella Azure-datorer
 
-<!-- TODO: Azure portal is inconsistent here in applying the NSG.
-By default, new VMs are locked down. 
+Nya virtuella datorer är låsta som standard. 
 
-Apps can make outgoing requests, but the only inbound traffic allowed is from the virtual network (e.g. other resources on the same local network), and from Azure's Load Balancer (probe checks). -->
+Appar kan göra utgående förfrågningar, men endast inkommande trafik som tillåts är från det virtuella nätverket (t.ex. andra resurser i samma lokala nätverk) och Azures belastningsutjämnare (hälsoavsökning).
 
 Två steg krävs för att ändra konfigurationen och ge stöd för FTP. När du skapar en ny virtuell dator har du möjlighet att öppna några vanliga portar (RDP, HTTP, HTTPS och SSH). Om du behöver göra andra ändringar i brandväggen måste du dock göra dem själv.
 
@@ -20,19 +19,19 @@ Processen för det här omfattar två steg:
 
 ### <a name="what-is-a-network-security-group"></a>Vad är en nätverkssäkerhetsgrupp?
 
-Virtuella nätverk är grunden för Azure-nätverksmodellen och ger isolering och skydd. Nätverkssäkerhetsgrupper (NSG) är det huvudsakliga verktyget för att tillämpa och styra regler för nätverkstrafik på nätverksnivå. NSG:er är ett valfritt säkerhetslager som tillhandahåller en programvarubrandvägg genom att filtrera inkommande och utgående trafik på det virtuella nätverket. 
+Virtuella nätverk är grunden för Azure-nätverksmodellen och ger isolering och skydd. Nätverkssäkerhetsgrupper (NSG) är det huvudsakliga verktyget för att tillämpa och styra regler för nätverkstrafik på nätverksnivå. Nätverkssäkerhetsgrupper är ett valfritt säkerhetslager som tillhandahåller en programvarubrandvägg som filtrerar inkommande och utgående trafik i det virtuella nätverket. 
 
 Säkerhetsgrupper kan kopplas till ett nätverksgränssnitt (för regler per värd), ett undernät i det virtuella nätverket (om du vill tillämpa på flera resurser) eller båda nivåerna. 
 
 #### <a name="security-group-rules"></a>Regler för säkerhetsgrupper
 
-NGS:er använder _regler_ för att tillåta eller neka trafik genom nätverket. Varje regeln identifierar käll- och måladress (eller intervall), protokoll, port (eller intervall), riktning (inkommande eller utgående), en numerisk prioritet och om trafiken som matchar regeln ska tillåtas eller nekas. Följande bild visar NSG-regler som tillämpas på nivåerna för undernät och gränssnitt.
+Nätverkssäkerhetsgrupper använder _regler_ för att tillåta eller neka trafik i nätverket. Varje regeln identifierar käll- och måladress (eller intervall), protokoll, port (eller intervall), riktning (inkommande eller utgående), en numerisk prioritet och om trafiken som matchar regeln ska tillåtas eller nekas. Följande bild visar NSG-regler som tillämpas på nivåerna för undernät och gränssnitt.
 
 ![En bild som visar nätverkssäkerhetsgrupper arkitektur i två olika undernät. Det finns två virtuella datorer i ett undernät, var och en med sina egna regler för gränssnittet.  Själva undernätet har en uppsättning regler som gäller för båda de virtuella datorerna.](../media/7-nsg-rules.png)
 
 Varje säkerhetsgrupp har en uppsättning standardsäkerhetsregler för att tillämpa standardnätverksregler som beskrivs ovan. Dessa standardregler kan inte ändras men de _kan_ åsidosättas.
 
-#### <a name="how-azure-uses-network-rules"></a>Så använder Azure nätverksregler
+#### <a name="how-azure-uses-network-rules"></a>Så här använder Azure nätverksregler
 
 För inkommande trafik bearbetar Azure den säkerhetsgrupp som är associerad med undernätet först, och sedan den säkerhetsgrupp som är kopplad till nätverksgränssnittet. Utgående trafik bearbetas i omvänd ordning (nätverksgränssnittet först, sedan undernätet).
 

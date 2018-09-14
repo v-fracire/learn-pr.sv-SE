@@ -1,178 +1,178 @@
-Next, let's look at how to create and modify dashboards using the Azure Portal, and by editing the underlying JSON file directly.
+Härnäst ska vi titta på hur du skapar och ändrar instrumentpaneler med hjälp av Azure Portal och genom att redigera den underliggande JSON-filen direkt.
 
-## What is a dashboard?
+## <a name="what-is-a-dashboard"></a>Vad är en instrumentpanel?
 
-A _dashboard_ is a customizable collection of UI tiles displayed in the Azure portal. You add, remove, and position tiles to create the exact view you want, and then save that view as a dashboard. Multiple dashboards are supported, and you can switch between them as needed. You can even share your dashboards with other team members.
+En _instrumentpanel_ består av en anpassningsbar panelsamling i användargränssnittet i Azure-portalen. Du kan lägga till, ta bort och placera panelerna för att skapa den vy du vill ha och sedan spara vyn som en instrumentpanel. Det går att ha flera instrumentpaneler och du kan växla mellan dem efter behov. Du kan även dela instrumentpaneler med andra teammedlemmar.
 
-Dashboards give you considerable flexibility regarding how you manage Azure. For example, you can create dashboards for specific roles within the organization, and then use role-based access control (RBAC) to control who can access that dashboard. Hence, your database administrator would have a dashboard that contains views of the SQL database service, whereas your Azure Active Directory administrator would have views of the users and groups within Azure AD. You can even customize the portal between your production and development environments within the portal - creating a specific dashboard for each environment you are managing.
+Instrumentpaneler ger dig stor flexibilitet för hur du hanterar Azure. Du kan till exempel skapa instrumentpaneler för specifika roller i organisationen och sedan använda rollbaserad åtkomstkontroll (RBAC) för att kontrollera vem som kan komma åt instrumentpanelen. Din databasadministratör kan således ha en instrumentpanel som innehåller vyer för SQL-databastjänsten, medan Azure Active Directory-administratören har vyer för användare och grupper i Azure AD. Du kan även anpassa portalen mellan produktions- och utvecklingsmiljöer i portalen – skapa en specifik instrumentpanel för varje miljö som du hanterar.
 
-Dashboards are stored as JavaScript Object Notation (JSON) files. This means they can be uploaded and downloaded to other computers, or shared with members of the Azure directory. Azure stores dashboards within resource groups, just like virtual machines or storage accounts that you can manage within the portal.
+Instrumentpaneler lagras som JSON-filer (JavaScript Object Notation). Det innebär att de kan laddas upp och laddas ned till andra datorer eller delas med andra i Azure-katalogen. Azure lagrar instrumentpaneler i resursgrupper, precis som virtuella datorer eller lagringskonton som du kan hantera i portalen.
 
 > [!TIP]
-> Because dashboards are JSON files, you can also [customize them programmatically](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically), making them compelling administrative tools. Also, some tile types can be query-based, so they update automatically when the source data changes.
+> Eftersom instrumentpaneler är JSON-filer, du kan också [anpassa dem programmässigt](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically), vilket gör dem övertygande administrativa verktyg. Dessutom kan vissa typer av paneler vara frågebaserade, så uppdateras automatiskt när källdata ändras.
 
-## Explore the default dashboard
+## <a name="explore-the-default-dashboard"></a>Utforska standardinstrumentpanelen
 
-The default dashboard is named "Dashboard". When you log into the portal, you are presented with this dashboard containing five web parts.
+Standardinstrumentpanelen heter ”instrumentpanel”. När du loggar in på portalen visas den här instrumentpanelen och dess fem webbdelar.
 
-![Default Web Parts](../media-draft/8-dashboard-default-webparts.png)
+![Standardwebbdelar](../media-draft/8-dashboard-default-webparts.png)
 
-These default web parts are
+Standardwebbdelarna är
 
-1. All resources
+1. Alla resurser
 
-1. Azure Getting Started
+1. Komma igång med Azure
 
-1. Quickstarts + tutorials
+1. Snabbstarter och självstudier
 
 1. Marketplace
 
 1. Service Health
 
-## Creating and managing dashboards
+## <a name="creating-and-managing-dashboards"></a>Skapa och hantera instrumentpaneler
 
-Along the top of the dashboard are the controls that enable you to create, upload, download, edit, and share a dashboard. You can also switch a dashboard to full screen, clone it, or delete it.
+Överst på instrumentpanelen finns det kontroller för att skapa, ladda upp, ladda ned, redigera och dela en instrumentpanel. Du kan även visa en instrumentpanel i fullskärmsläge samt klona eller ta bort den.
 
-![Customize dashboard controls](../media-draft/8-customise-dashboard-controls.png)
+![Anpassa instrumentpanelskontroller](../media-draft/8-customise-dashboard-controls.png)
 
-- [Select dashboard](#select-dashboard)
-- [Create a new dashboard](#create-new)
-- [Upload and Download](#upload-download)
-- [Edit](#edit-dashboard)
-- [Share](#share-dashboard)
-- [Full screen](#full-screen)
+- [Välj instrumentpanelen](#select-dashboard)
+- [Skapa en ny instrumentpanel](#create-new)
+- [Ladda upp och ned](#upload-download)
+- [Redigera](#edit-dashboard)
+- [Filresurs](#share-dashboard)
+- [Helskärm](#full-screen)
 - [Clone](#clone-dashboard)
-- [Delete](#delete-dashboard)
+- [Ta bort](#delete-dashboard)
 
 <a name="select-dashboard"></a>
 
-## Select dashboard
+## <a name="select-dashboard"></a>Välj instrumentpanelen
 
-To the far left of the toolbar is the **Select Dashboard** drop-down control. Clicking this control enables you to select from dashboards that you have already defined for your account. This control makes it simple for you to define multiple dashboards for different purposes and then switch from one to another and back again, depending on what you are trying to do at the time.
+Längst till vänster i verktygsfältet är den **Markera en instrumentpanel** nedrullningsbar listruta. Klicka på den här kontrollen om du vill välja bland instrumentpaneler som du redan har definierat för ditt konto. Den här kontrollen gör det enkelt för dig att definiera flera instrumentpaneler för olika syften och sedan växla från varandra och tillbaka igen, beroende på vad du försöker göra när.
 
-Note that any dashboards that you create will initially be private; that is, only you can see them. To make a dashboard available across your enterprise, you need to share it. We'll look at that option shortly.
+Observera att alla instrumentpaneler som du skapar först är privata. Det vill säga att bara du kan se dem. Du måste dela en instrumentpanel om du vill göra den tillgänglig för hela företaget. Vi ska titta på det alternativet inom kort.
 
 <a name="create-new"></a>
 
-## Create a new dashboard
+## <a name="create-a-new-dashboard"></a>Skapa en ny instrumentpanel
 
-To create a new dashboard, click **New dashboard**. The dashboard workspace appears, with no tiles present. You can then add, remove and adjust tiles however you like. When you are finished customizing the dashboard, click **Done customizing** to save and switch to that dashboard.
+Om du vill skapa en ny instrumentpanel klickar du på **Ny instrumentpanel**. Arbetsytan för instrumentpanel öppnas utan paneler. Du kan sedan lägga till, ta bort och justera paneler, hur du vill. När du är klar med att anpassa instrumentpanelen klickar du på **Anpassningen är klar** för att spara och växla till den instrumentpanelen.
 
 <a name="upload-download"></a>
 
-## Upload and Download
+## <a name="upload-and-download"></a>Ladda upp och ladda ned
 
-The **Upload** and **Download** buttons enable you to download your current dashboard as a JSON file, customize it, and then distribute it and upload it or have someone else upload that file back to the Azure portal, thereby replacing their current dashboard.
+Med knapparna **Ladda upp** och **Ladda ned** kan du ladda ned din befintliga instrumentpanel som en JSON-fil, anpassa den och sedan distribuera och ladda upp den eller låta någon annan ladda upp filen igen till Azure Portal, så att deras befintliga instrumentpanel ersätts.
 
-If you click **Download**, the current dashboard downloads into your default Downloads folder. Opening the downloaded file then shows the JSON code.
+Om du klickar på **Ladda ned** laddas den aktuella instrumentpanelen ned till din standardmapp för nedladdningar. När du öppnar den nedladdade filen visas JSON-koden.
 
-![Dashboard JSON code](../media-draft/8-dashboard-json-code.png)
+![JSON-kod för instrumentpanel](../media-draft/8-dashboard-json-code.png)
 
-You can then edit that code manually (for example, by changing tile sizes) and then upload it back to Azure by clicking the **Upload** button.
+Du kan sedan redigera koden manuellt (till exempel genom att ändra panelstorlekar) och sedan ladda upp till Azure genom att klicka på knappen **Ladda upp**.
 
 <a name="edit-dashboard"></a>
 
-### Edit a dashboard
+### <a name="edit-a-dashboard"></a>Redigera en instrumentpanel
 
-Although you can edit a dashboard by downloading the JSON file, changing values in the file, and uploading the file back to Azure, that approach isn't intuitive for designing a user interface. To use the GUI to configure your current dashboard you can enter edit mode in several ways:
+Men du kan redigera en instrumentpanel genom att ladda ned JSON-filen, tillbaka ändra värden i filen och ladda upp filen till Azure, att metoden inte är intuitivt för att designa ett användargränssnitt. Om du vill använda det grafiska Användargränssnittet för att konfigurera din aktuella instrumentpanel som du kan ange redigeringsläget på flera olika sätt:
 
-1. Click the **Edit** button
-1. Right-click on the dashboard and click **Edit**. 
-1. Hover over a tile on the dashboard - a `...` menu will appear on the top/right corner with edit options.
+1. Klicka på den **redigera** knappen
+1. Högerklicka på instrumentpanelen och klicka på **redigera**. 
+1. Hovra över en panel på instrumentpanelen – en `...` menyn visas i det övre högra hörnet med redigeringsalternativ för.
 
-The dashboard switches to edit mode.
+Instrumentpanelen övergår till redigeringsläget.
 
-![Edit dashboard](../media-draft/8-edit-dashboard.png)
+![Redigera instrumentpanel](../media-draft/8-edit-dashboard.png)
 
-On the left-hand side appears the Tile Gallery, with several possible tiles. You can filter the Tile Gallery by category and resource type:
+På vänster sida visas panelgalleriet med flera tillgängliga paneler. Du kan filtrera Panelgalleriet efter kategori och resurs-typ:
 
-![Tile Gallery](../media-draft/8-tile-gallery.png)
+![Panelgalleri](../media-draft/8-tile-gallery.png)
 
-Adding tiles is as easy as selecting the tile from the list on the left and then dragging it to the work area. You can then move each tile about, resize it, or change the data that it displays.
+Att lägga till paneler är lika enkelt som att välja panelen i listan till vänster och dra den till arbetsytan. Sedan kan du flytta varje panel till önskad plats, ändra dess storlek eller vilka data som visas.
 
 > [!TIP]
-> One cool feature a lot of people are unaware of is that you can take elements on child blades and put them on your dashboard. Just hover over the item and look for the `...` tile edit menu - this will have a "Pin to Dashboard" option which lets you quickly grab a tile from a service and put it onto the dashboard.
+> En fiffig funktion som en massa personer inte känner till är att du kan ta element på underordnade blad och placerar dem i din instrumentpanel. Bara hovra över objektet och leta efter den `...` ikonen Redigera-menyn – detta har ett ”Fäst på instrumentpanelen”-alternativ som gör att du snabbt hämta en panel från en tjänst och placera den på instrumentpanelen.
 
-The work area in edit mode is divided into squares. Each tile must occupy at least one square, and tiles will snap to the nearest largest set of tile dividers. Any overlapping tiles are moved out of the way. When you make a tile smaller, the surrounding tiles will move back up against it.
+Arbetsytan är indelad i rutor i redigeringsläget. Varje panel måste fylla minst en ruta och panelerna fästs intill närmaste största panelavgränsare. Överlappande paneler flyttas undan. När du gör en panel mindre flyttas omgivande paneler och placeras intill den panelen.
 
-#### Change tile sizes
+#### <a name="change-tile-sizes"></a>Ändra panelstorlekar
 
-Some tiles have a set size, and you can edit their size only programmatically. However, you can edit tiles with a gray bottom right-hand corner by dragging the corner indicator.
+Vissa paneler har en storlek och du kan redigera deras storlek endast programmässigt. Du kan däremot redigera paneler med ett grått hörn längst ned till höger genom att dra hörnindikatorn.
 
-![Resizable tile](../media-draft/8-resizable-tile.png)
+![Panel som kan storleksanpassas](../media-draft/8-resizable-tile.png)
 
-Alternatively, right-click the context menu and specify the size you want.
+Du kan också högerklicka på snabbmenyn och ange önskad storlek.
 
-![Tile size](../media-draft/8-tile-size.png)
+![Panelstorlek](../media-draft/8-tile-size.png)
 
-To create your dashboard, pull tiles from the Tile Gallery onto the workspace and then rearrange them.
+Hämta paneler från Panelgalleriet till arbetsytan och sedan ordna dem för att skapa din instrumentpanel.
 
-#### Change tile settings
+#### <a name="change-tile-settings"></a>Ändra panelinställningar
 
-Some tiles have editable settings. For example, with the clock tile, when you drag it onto the workspace, it opens the **Edit clock** tile. You can then set the time zone, which it displays, and also set whether it displays in 12- or 24-hour format.
+Vissa paneler har inställningar som kan redigeras. När du till exempel drar klockpanelen till arbetsytan öppnas panelen **Redigera klockan**. Här kan du ange den tidszon som visas och välja 12- eller 24-timmarsformat.
 
-![Edit clock](../media-draft/8-edit-clock.png)
+![Redigera klockan](../media-draft/8-edit-clock.png)
 
-For multi-national or transcontinental companies, you can add clocks, each in a different time zone.
+Om ditt företag har verksamhet i flera länder eller på olika kontinenter kan du lägga till klockor – var och en i olika tidszoner.
 
-#### Accepting your edits
+#### <a name="accepting-your-edits"></a>Godkänna redigeringarna
 
-When you have arranged the tiles as you want them, either click **Done customizing**, or right-click and then click **Done customizing**.
+När du är klar med att ordna panelerna kan du klicka på **Anpassningen är klar** eller högerklicka och välja **Anpassningen är klar**.
 
-## Edit a dashboard by changing the JSON file
+## <a name="edit-a-dashboard-by-changing-the-json-file"></a>Redigera en instrumentpanel genom att ändra JSON-filen
 
-You can also edit a dashboard by changing the JSON file. This approach provides more options for changing settings, but you cannot see the changes until you upload the file back into Azure.
+Du kan även redigera en instrumentpanel genom att ändra JSON-filen. Med den här metoden får du fler alternativ för att ändra inställningar, men ändringarna visas inte förrän du har laddat upp filen till Azure igen.
 
-![JSON settings](../media-draft/8-json-code.png)
+![JSON-inställningar](../media-draft/8-json-code.png)
 
-In the example above, to change the size of the tile, edit the **colSpan** and **rowSpan** variables, then save the file and upload it back to Azure. You can also distribute the file to other users.
+I exemplet ovan ändrar du storlek på panelen genom att redigera variablerna **colSpan** och **rowSpan**. Spara sedan filen och ladda upp den till Azure igen. Filen kan även distribueras till andra användare.
 
-## Reset a dashboard
+## <a name="reset-a-dashboard"></a>Återställa en instrumentpanel
 
-You can reset any dashboard to the default style. In edit mode, right-click and select **Reset to default state**. A dialog box will ask you to confirm that you want to reset that dashboard.
+En instrumentpanel kan när som helst återställas till standardtillståndet. Högerklicka och välj **Återställ till standardtillstånd** i redigeringsläget. En dialogruta öppnas där du ombeds bekräfta att du vill återställa instrumentpanelen.
 
 <a name="share-dashboard"></a>
 
-## Share or unshare a dashboard
+## <a name="share-or-unshare-a-dashboard"></a>Dela eller sluta dela en instrumentpanel
 
-When you define a new dashboard, it is private and visible only to your account. To make it visible to others, you need to share a dashboard. However, as with any other Azure resource, you need to specify a resource group (or use an existing resource group) to store shared dashboards in. If you do not have an existing resource group, Azure will create a *dashboards* resource group in whichever location you specify. If you have existing resource groups, you can specify that resource group to store the dashboards.
+När du definierar en ny instrumentpanel är den privat och syns endast på ditt konto. Om du vill göra instrumentpanelen synlig för andra måste du dela den. Som för alla andra Azure-resurser behöver du ange en resursgrupp (eller använda en befintlig resursgrupp) för att lagra delade instrumentpaneler. Om du inte har en resursgrupp skapar Azure en resursgrupp för *instrumentpaneler* på den plats som du anger. Om du har resursgrupper kan du välja en resursgrupp för att lagra instrumentpaneler.
 
-![Sharing and access control 1](../media-draft/8-share-dashboards-default.png)
+![Delning och åtkomstkontroll 1](../media-draft/8-share-dashboards-default.png)
 
-When you have shared the template, you will see a second **Sharing + access control** blade.
+När du har delat mallen visas andra bladet för **Delning och åtkomstkontroll**.
 
-![Sharing and access control 2](../media-draft/8-share-dashboards-access-control.png)
+![Delning och åtkomstkontroll 2](../media-draft/8-share-dashboards-access-control.png)
 
-You can then click **Manage users** to specify the users who have access to that dashboard.
+Nu kan du klicka på **Hantera användare** och ange vilka användare som ska ha åtkomst till instrumentpanelen.
 
-### Switching to a shared dashboard
+### <a name="switching-to-a-shared-dashboard"></a>Växla till en delad instrumentpanel
 
-To switch to a shared dashboard, you click on the list of dashboards, and then click **Browse all dashboards**.
+Om du vill växla till en delad instrumentpanel klickar du på listan över instrumentpaneler och sedan på **Bläddra bland alla instrumentpaneler**.
 
-![Browse all dashboards](../media-draft/8-browse-dashboards.png)
+![Bläddra bland alla instrumentpaneler](../media-draft/8-browse-dashboards.png)
 
-You will now see the **All dashboards** blade, with the names of any shared dashboards displayed. Just click on a dashboard to apply it to the Azure portal.
+Nu visas bladet **Alla instrumentpaneler**, och namnen på alla delade instrumentpaneler visas. Klicka bara på en instrumentpanel för att tillämpa den på Azure-portalen.
 
-![Shared dashboards](../media-draft/8-select-shared-dashboard.png)
+![Delade instrumentpaneler](../media-draft/8-select-shared-dashboard.png)
 
 <a name="full-screen"></a>
 
-## Display a dashboard as a full screen
+## <a name="display-a-dashboard-as-a-full-screen"></a>Visa en instrumentpanel i fullskärmsläge
 
-If you want the largest dashboard real estate, click the **Full screen** button to display your current dashboard without any browser menus. If you have any tiles outside the boundaries of your screen display, slider bars will appear at the right and bottom of your screen.
+Om du vill att den största fastigheten instrumentpanelen, klickar du på den **helskärm** knappen för att visa din aktuella instrumentpanel utan någon Webbläsarmenyer. Om det finns paneler utanför skärmvisningens gränser visas skjutreglage till höger och längst ned på skärmen.
 
-When you have finished working in full-screen mode, press the ESC key or click **Exit Full Screen** next to the Dashboard name at the top of the screen.
+När du är klar med att arbeta i fullskärmsläge trycker du på ESC eller klickar på **Avsluta fullskärmsläge** bredvid instrumentpanelens namn högst upp på skärmen.
 
 <a name="clone-dashboard"></a>
 
-## Clone a dashboard
+## <a name="clone-a-dashboard"></a>Klona en instrumentpanel
 
-Cloning a dashboard creates an instant copy called "Clone of \<dashboard name>" and switches to that copy as the current dashboard. Cloning is also an easy way to create dashboards before sharing them. For example, if you have a dashboard that is almost as you want it, clone it, make the changes that you need, and then share it.
+Kloning av en instrumentpanel skapar en omedelbar kopia som kallas ”klona av \<instrumentpanelens namn >” och växlar till den kopian som den aktuella instrumentpanelen. Det är också ett enkelt sätt att skapa instrumentpaneler innan du delar dem att Kloningen. Till exempel om du har en instrumentpanel som är nästan som du vill klona den, gör de ändringar som du behöver och sedan dela den.
 
 <a name="delete-dashboard"></a>
 
-## Delete a dashboard
+## <a name="delete-a-dashboard"></a>Ta bort en instrumentpanel
 
-Deleting a dashboard removes it from your list of available dashboards. You are prompted to confirm that you want to delete the dashboard, but there is no facility to recover a dashboard that has been deleted.
+När du tar bort en instrumentpanel tas den även bort från listan med tillgängliga instrumentpaneler. Du uppmanas att bekräfta att instrumentpanelen ska tas bort. Det går inte att återställa en instrumentpanel som har tagits bort.
 
-Let's try out some of these options by creating a new dashboard.
+Nu ska vi prova att använda några av dessa alternativ genom att skapa en ny instrumentpanel.

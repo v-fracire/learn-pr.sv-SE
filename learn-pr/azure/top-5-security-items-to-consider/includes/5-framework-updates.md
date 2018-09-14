@@ -1,55 +1,55 @@
-Many developers consider the frameworks and libraries they use to build their software with to be primarily decided by features or personal preference. However, the framework that you choose is an important decision, not only from a design and functionality perspective but also from a _security_ perspective. Choosing a framework with modern security features and keeping it up to date is one of the best ways to ensure your apps are secure.
+Många utvecklare överväga ramverk och bibliotek som de använder för att skapa sin programvara med beslutas främst av funktioner eller smak. Men det ramverk som du väljer är ett viktigt beslut, inte bara ur en design och funktioner och från en _security_ perspektiv. Välja ett ramverk med moderna säkerhetsfunktioner och hålla den uppdaterad är en av de bästa sätten att se till att dina appar är säkra.
 
-## Choose your framework carefully
+## <a name="choose-your-framework-carefully"></a>Välj ditt ramverk noggrant
 
-The most important factor regarding security when choosing a framework is how well supported it is. The best frameworks have stated security arrangements and are supported by large communities who improve and test the framework. No software is 100% bug-free or totally secure, but when a vulnerability is identified, we want to be certain that it will be closed or have a workaround provided quickly.
+Den viktigaste faktorn avseende säkerhet när du väljer ett ramverk stöds hur bra det är. De bästa ramverken ha angett-ordning och stöds av stora grupper som förbättra och testa ramen. Inga program är 100% felfritt eller helt säkra, men när en säkerhetsrisk identifieras vi vill vara säker på att den kommer att avslutas eller har en lösning som tillhandahålls snabbt.
 
-Often "well supported" is synonymous with "modern". Older frameworks tend to either be replaced or eventually fade in popularity. Even if you have significant experience with or or many apps written in an older framework, you'll be better off choosing a modern library that has the features you need. Modern frameworks tend to build on the lessons learned by earlier iterations which makes choosing them for new apps a form of threat surface reduction. You will have one less app to worry about if a vulnerability is discovered in the older framework that your legacy applications are written in.
+Ofta ”bra stöds” är synonyma ”moderna”. Äldre ramverk tenderar att antingen ersättas eller så småningom Tona i större utsträckning. Även om du har betydande erfarenhet eller eller många appar som skrivits i en äldre framework kan du är det bättre att välja en modern bibliotek som har de funktioner du behöver. Moderna ramverk brukar bygger på erfarenheter av tidigare iterationer, vilket gör att välja dem för nya appar en form av attackytan för hot. Du har en mindre app oroa dig om en säkerhetsrisk identifieras i det äldre ramverk för äldre program som är skrivna i.
 
 <!-- TODO: add link; Should we be pointing to other modules? -->
 <!--
 For more information on secure design and reducing threat surface, please see [Design For Security in Azure](../../design-for-security-in-azure/index.yml).
 -->
 
-## Keep your framework updated
+## <a name="keep-your-framework-updated"></a>Håll ditt ramverk som uppdateras
 
-Software development frameworks, such as Java Spring and .NET Core release updates and new versions regularly. These updates include new features, removal of old features, and often security fixes or improvements. When we allow our frameworks to become out of date, it creates "technical debt". The further out of date we get, the harder and riskier it will be to bring our code up to the latest version. In addition, much like the initial framework choice, staying on older versions of the framework open you up to more security threats which have been fixed in newer releases of the framework.
+Utvecklingsramverk för programvara, till exempel Java Spring och .NET Core viktiga uppdateringar och nya versioner regelbundet. Dessa uppdateringar innehåller nya funktioner, ta bort gamla funktioner, och ofta säkerhetskorrigeringar eller förbättringar. När vi tillåter vår ramverk som behövs för att bli inaktuell skapar ”tekniska skulder”. Den ytterligare inaktuell vi få, svårare och riskfyllda blir det att använda vår kod upp till den senaste versionen. Ungefär som dessutom inledande framework-val, med äldre versioner av framework öppnar du upp till flera säkerhetshot som fastställts i nyare versioner av framework.
 
-As an example, from 2016-2017, [over 30 vulnerabilities](https://www.cvedetails.com/product/6117/Apache-Struts.html?vendor_id=45) were found in the Apache Struts framework. These were quickly addressed by the development team, but some companies didn't apply the patches and [paid the price in the form of a data breach](https://www.zdnet.com/article/equifax-confirms-apache-struts-flaw-it-failed-to-patch-was-to-blame-for-data-breach/). **Make sure to keep your frameworks and libraries up to date**.
+Till exempel från 2016-2017 [30 sårbarheter](https://www.cvedetails.com/product/6117/Apache-Struts.html?vendor_id=45) hittades i Apache Struts-ramverket. Dessa snabbt beskrivs i Utvecklingsteamet, men vissa företag kunde inte tillämpas uppdateringarna och [betald priset i form av ett intrång data](https://www.zdnet.com/article/equifax-confirms-apache-struts-flaw-it-failed-to-patch-was-to-blame-for-data-breach/). **Se till att hålla ditt ramverk och bibliotek uppdaterade**.
 
-### How do I update my framework?
+### <a name="how-do-i-update-my-framework"></a>Hur uppdaterar jag mina framework?
 
-Some frameworks, like Java or .NET, require an install and tend to release on a known cadence. It's a good idea to watch for new releases and plan to make a branch of your code to try it out when it's released. As an example, .NET Core maintains a [release notes page](https://github.com/dotnet/core/tree/master/release-notes) which you can check to find the latest versions available.
+Vissa ramverk, som Java eller .NET, kräver en installation och tenderar att släppa på en känd takt. Det är en bra idé att bevaka nya versioner och planerar att göra en gren i din kod att testa den när den släpps. Till exempel .NET Core upprätthåller en [release notes sidan](https://github.com/dotnet/core/tree/master/release-notes) som du kan kontrollera för att hitta de senaste versionerna som är tillgängliga.
 
-More specialized libraries such as JavaScript frameworks, or .NET components can be updated through a package manager. **NPM** and **Bower** are popular choices for web projects and are supported by most IDEs or build tools. In .NET, we use **NuGet** to manage our component dependencies. Much like updating the core framework, branching your code, updating the components and testing is a good technique to validate a new version of a dependency.
+Mer specialiserade bibliotek, till exempel JavaScript-ramverk eller .NET-komponenter kan uppdateras via en pakethanterare. **NPM** och **Bower** är populära alternativ för webbprojekt och stöds av de flesta IDE: er eller skapa verktyg. I .NET, använder vi **NuGet** att hantera vår komponentberoenden. Uppdaterar ramverket är branchning din kod, uppdatera komponenterna och testning liksom en bra teknik för att verifiera en ny version av ett beroende.
 
 > [!NOTE]
-> The `dotnet` command-line tool has an `add package` and `remove package` option to add or remove NuGet packages but doesn't have a corresponding `update package` command. However, it turns out you can run `dotnet add package <package-name>` in your project and it will automatically _upgrade_ the package to the latest version. This is an easy way to update dependencies without having to open the IDE.
+> Den `dotnet` kommandoradsverktyget har en `add package` och `remove package` alternativet att lägga till eller ta bort NuGet-paket men saknar en motsvarande `update package` kommando. Men det har visat sig kan du köra `dotnet add package <package-name>` i ditt projekt och det kommer du att automatiskt _uppgradera_ paketet till den senaste versionen. Det här är ett enkelt sätt att uppdatera beroenden utan att behöva öppna IDE.
 
-## Take advantage of built-in security
+## <a name="take-advantage-of-built-in-security"></a>Dra nytta av inbyggd säkerhet
 
-Always check to see what security features your frameworks offer. **Never** roll your own security if there's a standard technique or capability built in. In addition, rely on proven algorithms and workflows because these have often been scrutinized by a lot of experts, critiqued and strengthened so you can be assured that they are reliable and secure.
+Kontrollera alltid om du vill se vilka säkerhetsfunktioner erbjudandet ramverk. **Aldrig** distribuera egna säkerhet om det finns en standard teknik eller funktion. Dessutom kan förlita dig på beprövade algoritmer och arbetsflöden eftersom de ofta har granskas av experter och är mycket critiqued och förstärka så att du kan lita på att de är tillförlitlig och säker.
 
-The .NET Core framework has countless security features, here are a few core starting places in the documentation.
-* [Authentication -Identity Management](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/index?view=aspnetcore-2.1)
-* [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/index?view=aspnetcore-2.1)
-* [Data Protection](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/index?view=aspnetcore-2.1)
-* [Secure Configuration](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/configuration/index?view=aspnetcore-2.1)
-* [Security Extensibility APIs](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/extensibility/index?view=aspnetcore-2.1)
+.NET Core-ramverket har oräkneliga säkerhetsfunktioner, här är några kärnor från platser i dokumentationen.
+* [Autentisering-Identitetshantering](https://docs.microsoft.com/aspnet/core/security/authentication/index?view=aspnetcore-2.1)
+* [Auktorisering](https://docs.microsoft.com/aspnet/core/security/authorization/index?view=aspnetcore-2.1)
+* [Dataskydd](https://docs.microsoft.com/aspnet/core/security/data-protection/index?view=aspnetcore-2.1)
+* [Konfigureringen av säker](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/index?view=aspnetcore-2.1)
+* [Security utökningsbarhet API: er](https://docs.microsoft.com/aspnet/core/security/data-protection/extensibility/index?view=aspnetcore-2.1)
 
-Each one of these features was written by experts in their field, and then battered with tests to ensure that it works as intended, and only as intended. Other frameworks offer similar features - check with the vendor that provides the framework to find out what they have in each category.
+Var och en av dessa funktioner av experter i sina respektive fält, och sedan battered med tester för att se till att den fungerar som avsett och endast som avsett. Andra ramverk har liknande funktioner – Kontrollera med leverantören som ger möjlighet att ta reda på vad de hade i varje kategori.
 
 > [!WARNING]
-> Writing your own security code, instead of using those provided by your framework, is not only wasting time, it's less secure.
+> Skriva egna kontroller för informationssäkerhet, istället för att använda det som tillhandahålls av din framework är inte bara ha lagt tid, är det mindre säkra.
 
 
-## Azure Security Center
+## <a name="azure-security-center"></a>Azure Security Center
 
-When using Azure to host your web applications Security Center will warn you if your frameworks are out of date as part of the recommendations tab.  Don't forget to look there from time to time to see if there are any warnings related to your apps.
+När du använder Azure som värd för dina webbprogram varnar Security Center dig om ditt ramverk är inaktuell som en del av fliken rekommendationer.  Glöm inte att du ser det då och då för att se om det finns några varningar relaterade till dina appar.
 
-![Azure Security Center recommending a framework upgrade.](../media-draft/ASCFramework.png)
+![Azure Security Center rekommenderar en uppgradering av framework.](../media-draft/ASCFramework.png)
 
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Whenever possible, choose a modern framework to build your apps, always use the built-in security features, and make sure you keep it up to date. These simple rules will help to ensure your application starts on a solid foundation.
+Välj ett moderna ramverk för att skapa dina appar alltid använda de inbyggda säkerhetsfunktionerna och kontrollera att du hålla den uppdaterad när det är möjligt. Dessa enkla regler ser du till ditt program startar på en stabil grund.

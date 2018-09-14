@@ -1,7 +1,7 @@
 Appen och Azure-funktionen är nu färdiga och körs lokalt. Här får du publicera funktionen i Azure för att köra den i molnet.
 
-> Här kommer du att publicera din funktion från Visual Studio. Det här är ett bra sätt att komma igång med konceptbeskrivningar, prototyper och utbildningar, men du bör **inte** använda den här metoden för produktionsappar. Du bör använda någon form av CI-baserad distributionen. Du kan läsa mer om hur du gör det i [dokumentationen om Azure Functions-distribution](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment).
->
+> [!Note]
+> Du kommer att publicera din funktion från Visual Studio. Det här är ett bra sätt att komma igång med konceptbeskrivningar, prototyper och utbildningar, men du bör **inte** använda den här metoden för produktionsappar. Du bör använda någon form av CI-baserad distributionen. Du kan läsa mer om hur du gör det i [dokumentationen om Azure Functions-distribution](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment).
 
 ## <a name="publishing-your-app-to-azure"></a>Publicera din app i Azure
 
@@ -11,11 +11,11 @@ Du kan publicera Azure-funktioner i Azure från Visual Studio.
 
 1. Högerklicka på appen `ImHere.Functions` i lösningsutforskaren och välj *Publicera*.
 
-    ![Högerklicka på Publicera i Functions-appen](../media-drafts/8-right-click-publish.png)
+    ![Högerklicka på Publicera i Functions-appen](../media/8-right-click-publish.png)
 
 1. I dialogrutan **Välj ett publiceringsmål** väljer du *Azure-funktionsapp*, och för **Azure App Service** väljer du *Skapa ny*. Klicka på **Publicera**.
 
-    ![Skapa en ny Azure App Service att publicera i](../media-drafts/8-pick-publish-target.png)
+    ![Skapa en ny Azure App Service att publicera i](../media/8-pick-publish-target.png)
 
 1. Välj ditt Azure-konto i listrutan längst uppe till höger om du har fler än ett Azure-konto och det rätta kontot inte redan är valt.
 
@@ -25,21 +25,21 @@ Du kan publicera Azure-funktioner i Azure från Visual Studio.
 
 1. Skapa en ny resursgrupp för den här Functions-appen genom att klicka på knappen **Ny...**  bredvid listrutan **Resursgrupp** och ge den ett namn som ”ImHere”. Resursgruppnamn måste vara unika för din prenumeration, inte globalt i hela Azure. Klicka sedan på **OK**.
 
-    ![Skapa en ny resursgrupp](../media-drafts/8-create-new-resource-group.png)
+    ![Skapa en ny resursgrupp](../media/8-create-new-resource-group.png)
 
    När du skapar en ny resursgrupp blir det lättare att rensa resurserna senare. När du tar bort resursgruppen vet du att allt du skapat för den här Functions-appen tas bort samtidigt.
 
 1. Skapa en ny värdplan genom att klicka på knappen **Ny...**  bredvid listrutan **Värdplan**. Namnet på App Service-planen är som standard appnamnet med ”Plan” i slutet. För **Plats** väljer du den plats som är närmast dig. Se till att **Storlek** är inställt på förbrukning. Klicka sedan på **OK**.
 
-    ![Konfigurera värdplanen](../media-drafts/8-configure-hosting-plan.png)
+    ![Konfigurera värdplanen](../media/8-configure-hosting-plan.png)
 
 1. Skapa ett nytt lagringskonto genom att klicka på knappen **Nytt...**  bredvid listrutan **Lagringskonto**. Ett standardnamn anges, så behåll alla standardvärden och klicka på **OK**.
 
-    ![Skapa ett lagringskonto](../media-drafts/8-create-storage-account.png)
+    ![Skapa ett lagringskonto](../media/8-create-storage-account.png)
 
 1. Klicka på **Skapa** så etableras alla resurser i Azure och din Azure Functions-app publiceras.
 
-    ![Skapa App Service-tjänsten](../media-drafts/8-create-app-service.png)
+    ![Skapa App Service-tjänsten](../media/8-create-app-service.png)
 
 Etableringen kan ta några minuter att köra. Följande resurser etableras:
 
@@ -55,23 +55,23 @@ När Azure-funktionen kördes lokalt användes Twilio-autentiseringsuppgifter so
 
 1. Klicka på alternativet **Hantera programinställningar** på fliken Publicera.
 
-    ![Alternativet Hantera programinställningar](../media-drafts/8-application-settings-option.png)
+    ![Alternativet Hantera programinställningar](../media/8-application-settings-option.png)
 
 1. Klicka på knappen **Lägg till** för att lägga till en ny inställning. Ge den namnet ”TwilioAccountSid” och ange SID:et för ditt Twilio-konto som värde. Upprepa det här steget för din autentiseringstoken och använd namnet ”TwilioAuthToken”.
 
-    ![Ställa in Twilio-autentiseringsuppgifter i programinställningarna](../media-drafts/8-set-creds-in-app-settings.png)
+    ![Ställa in Twilio-autentiseringsuppgifter i programinställningarna](../media/8-set-creds-in-app-settings.png)
 
 1. Klicka på **OK**.
 
 1. Klicka på **Publicera** så att du publicerar om Azure Functions-appen med de nya programinställningarna.
 
-    ![Knappen Publicera](../media-drafts/8-publish-application-button.png)
+    ![Knappen Publicera](../media/8-publish-application-button.png)
 
 ## <a name="pointing-the-mobile-app-to-azure"></a>Se till att mobilappen pekar på Azure
 
 1. Kopiera **Webbplats-URL** från fliken Publicera med kopieringsknappen bredvid värdet.
 
-    ![Kopiera webbplatsadressen från fliken Publicera](../media-drafts/8-copy-site-url.png)
+    ![Kopiera webbplatsadressen från fliken Publicera](../media/8-copy-site-url.png)
 
 1. Öppna `MainViewModel` från projektet `ImHere`.
 

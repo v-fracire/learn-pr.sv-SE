@@ -1,6 +1,6 @@
-I den föregående enheten arbetade du med fördefinierade containeravbildningar för att utföra vissa grundläggande Docker-åtgärder. I den här enheten skapar du anpassade containeravbildningar, överför dessa avbildningar till ett offentligt containerregister och kör containrarna från avbildningarna.
+Här kan du skapa anpassade avbildningar, överför dessa avbildningar till en offentlig behållarregister och kör behållare från dessa avbildningar.
 
-Containeravbildningar kan skapas manuellt eller med hjälp av det som kallas en Dockerfile för att automatisera processen. Den föredragna metoden är att använda en Dockerfile, men den här enheten visar båda metoderna. Avsikten är att en förståelse för den manuella processen hjälper dig att bättre förstå det som händer när du använder en Dockerfile för automatisering.
+Behållaravbildningar kan skapas manuellt eller använda en Dockerfile för att automatisera processen. Den bästa metoden använder en Dockerfile, men denna enhet visar båda riktningarna. Använder den manuella processen hjälper dig att bättre förstå vad det som händer när du använder en Dockerfile för automation.
 
 ## <a name="manual-image-creation"></a>Skapa avbildning manuellt
 
@@ -11,9 +11,9 @@ När du skapar en containeravbildning manuellt vidtas följande åtgärder:
 - Ändra containern genom att installera programvara och göra ändringar i konfigurationen.
 - Spara containern till en ny avbildning med kommandot `docker capture`.
 
-I det första exemplet startar du en instans av en container som kör Python, skapar ett hello world-program och sparar sedan containern till en ny avbildning.
+I det första exemplet startar du en instans av en container som kör Python, skapar ett Hello World-program och sparar sedan containern till en ny avbildning.
 
-Kör först en container från NGINX-avbildningen. Det här kommandot lite ser annorlunda ut än de kommandon som du körde i den föregående enheten. Eftersom du ska upprätta en terminalsession med den container som körs anges argumenten `-t` och `-i`. Tillsammans instruerar de här argumenten Docker att allokera en pseudoterminal som kommer att finnas kvar i ett körningstillstånd. Med andra ord skapar argumenten `-t` och `-i` en interaktiv session med den container som körs.
+Kör först en container från NGINX-avbildningen. Det här kommandot lite ser annorlunda ut än de kommandon som du körde i den föregående enheten. Eftersom du ska upprätta en terminalsession med den container som körs anges argumenten `-t` och `-i`. De här argumenten instruera tillsammans Docker för att allokera en pseudo terminal som finns kvar i ett fungerande tillstånd. Med andra ord skapar argumenten `-t` och `-i` en interaktiv session med den container som körs.
 
 Du anger sedan att `python`-containeravbildningen används och att den process som ska köras inuti containern är `bash`.
 
@@ -21,13 +21,13 @@ Du anger sedan att `python`-containeravbildningen används och att den process s
 docker run --name python-demo -ti python bash
 ```
 
-När kommandot har körts bör terminalsessionen växla till containerpseudoterminalen. Detta kan ses utifrån terminalfönstret, som bör ha ändrats till något som liknar följande:
+När kommandot har körts bör terminalsessionen växla till containerpseudoterminalen. Detta kan ses av uppmaningen, som bör ha ändrats till något som liknar följande:
 
-```bash
+```output
 root@d8ccada9c61e:/#
 ```
 
-I det här skedet arbetar du inuti container. Arbete i en container påminner om arbete i ett virtuellt eller ett fysiskt system. Exempelvis kan du lista, skapa och ta bort filer, installera programvara och göra ändringar i konfigurationen. För det här enkla exemplet skapas ett Python-baserat hello world-skript. Detta kan göras med följande kommando:
+I det här skedet arbetar du inuti container. Du kan lista, skapa, ta bort filer, installera programvara och göra ändringar i konfigurationen. För det här enkla exemplet skapas ett Python-baserat Hello World-skript. Detta kan göras med följande kommando:
 
 ```bash
 echo 'print("Hello World!")' > hello.py
@@ -41,11 +41,11 @@ python hello.py
 
 Detta genererar följande utdata:
 
-```bash
+```output
 Hello World!
 ```
 
-När du har bekräftat att skriptet fungerar som förväntat stänger du containern genom att skriva `exit`:
+När du är nöjd som skriptet fungerar som förväntat, avsluta behållaren genom att skriva `exit`:
 
 ```bash
 exit
@@ -57,9 +57,9 @@ När du är tillbaka i terminalen för det lokala systemet använder du kommando
 docker ps
 ```
 
-Observera att inget körs. När du angav `exit` i den container som körs slutfördes Bash-processen, vilket sedan stoppade containern. Detta är förväntat beteende och är ok.
+Observera att inget körs. När du angav `exit` i den container som körs slutfördes Bash-processen, vilket sedan stoppade containern. Detta är förväntat beteende.
 
-```bash
+```output
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
@@ -69,9 +69,9 @@ Använd `docker ps` igen och inkludera argumentet `-a`. Det här kommandot retur
 docker ps -a
 ```
 
-Observera att en container med namnet *python-demo* har statusen *Exited* (Stängd). Den här containern är den stoppade instansen av den container som du precis stängde.
+Observera att en container med namnet *python-demo* har statusen *Exited* (Stängd). Den här behållaren är stoppade instansen på den behållare som du precis har avslutats.
 
-```bash
+```output
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
 cf6ac8e06fd9        python              "bash"              27 seconds ago      Exited (0) 12 seconds ago                       python-demo
 ```
@@ -82,9 +82,9 @@ Du kan skapa en ny containeravbildning från den här containern med kommandot `
 docker commit python-demo python-custom
 ```
 
-När kommandot är klart bör du se utdata som liknar följande:
+När kommandot har slutförts bör du se utdata som liknar följande:
 
-```bash
+```output
 sha256:91a0cf9aa9857bebcd7ebec3418970f97f043e31987fd4a257c8ac8c8418dc38
 ```
 
@@ -96,7 +96,7 @@ docker images
 
 Du bör nu se den anpassade Python-avbildningen.
 
-```bash
+```output
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 python-custom       latest              1f231e7127a1        6 seconds ago       922MB
 python              latest              638817465c7d        24 hours ago        922MB
@@ -110,15 +110,15 @@ Kör en container från den nya avbildningen. Du behöver även ange vilket komm
 docker run python-custom python hello.py
 ```
 
-Containern startar och skickar hello world-meddelandet som utdata. Python-processen är sedan klar, och containern stoppas.
+Containern startar och skickar Hello World-meddelandet som utdata. Python-processen är sedan klar, och containern stoppas.
 
-```bash
+```output
 Hello World!
 ```
 
 ## <a name="automated-image-creation"></a>Skapa en avbildning automatiskt
 
-I föregående avsnitt skapades en containeravbildning manuellt. Den här metoden fungerar bra för att skapa enskilda eller experimentella avbildningar, men den är inte hållbar i en produktionsmiljö. Det går att automatisera skapandet av containeravbildningar med hjälp av en *Dockerfile* och kommandot `docker build`. Kommandot *docker build* startar i princip en container, kör de instruktioner som finns i *Dockerfile* och sparar sedan resultaten till en ny containeravbildning.
+I det sista avsnittet skapar du en behållaravbildning manuellt. Den här metoden fungerar för att skapa en oneoff eller experimentella bild, men det är inte hållbar i en produktionsmiljö är. Det går att automatisera skapandet av containeravbildningar med hjälp av en *Dockerfile* och kommandot `docker build`. Den *docker build* kommando startar en behållare, körs anvisningarna finns i den *Dockerfile*, och avbildar sedan resultaten till en ny behållaravbildning.
 
 Skapa en fil med namnet *Dockerfile* och ange följande text:
 
@@ -142,7 +142,7 @@ docker build -t python-dockerfile .
 
 Du bör se utdata som liknar följande.
 
-```bash
+```output
 Sending build context to Docker daemon  2.048kB
 Step 1/4 : FROM python
  ---> 638817465c7d
@@ -170,7 +170,7 @@ docker images
 
 Du bör nu se den anpassade avbildningen.
 
-```bash
+```output
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
 python-dockerfile   latest              98c39b91770f        About a minute ago   922MB
 python              latest              638817465c7d        26 hours ago         922MB
@@ -187,7 +187,7 @@ docker run python-dockerfile
 
 När du har kört kommandot bör du se containerutdata.
 
-```bash
+```output
 Hello World!
 ```
 
@@ -215,9 +215,9 @@ Slutligen överför *python-dockerfile*-avbildningen till Docker Hub med kommand
 docker push <account name>/python-dockerfile
 ```
 
-Medan containeravbildningen överförs till Docker Hub visas utdata som liknar följande:
+Medan behållaravbildningen överförs till Docker Hub, visas utdata som liknar följande:
 
-```bash
+```output
 The push refers to repository [docker.io/account/python-dockerfile]
 f39073ca4d5a: Pushed
 9dfcec2738a9: Pushed
@@ -234,6 +234,4 @@ ce6466f43b11: Mounted from account/python
 
 Containeravbildningen lagras nu på Docker Hub och kan nås från valfri Internetansluten dator med hjälp av `docker pull` eller `docker run`.
 
-## <a name="summary"></a>Sammanfattning
-
-I den här enheten skapade du två containeravbildningar. Den första skapades manuellt, och den andra automatiserades med hjälp av en Dockerfile.
+Nu har du skapat två behållaravbildningar. Den första skapades manuellt, och den andra automatiserades med hjälp av en Dockerfile.

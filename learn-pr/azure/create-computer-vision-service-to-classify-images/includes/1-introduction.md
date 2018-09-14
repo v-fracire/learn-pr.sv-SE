@@ -1,13 +1,15 @@
-End users often post content that may be inappropriate for work in their personal online interactions. As a lead developer at Contoso Beverage Distribution, you are responsible for building and maintaining a line-of-business app that lets your frontline distributors scan and upload images of store shelves where they are restocking. 
+Som en chefsutvecklare på Contoso dryck Distribution du ansvarar för att bygga och underhålla en line-of-business-app som gör att din främsta distributörer skanna och ladda upp bilder av affärerna där de återinsättning.
 
-You need to validate that any images posted by users respect the content rules set by your company. Your goals are clear; the company doesn't want inappropriate content posted to company sites. Given the advancements in Artificial Intelligence, you decide that rewriting this app to include Computer Vision will proactively prevent these types of incidents from occurring. The service you create will identify images and provide many other functionalities to fulfill your company's needs.
+Du vill verifiera att alla avbildningar som publicerats av användare följer med innehåll regler från ditt företag. Företaget vill inte olämpligt innehåll som publiceras på företagets webbplatser. 
 
-## Learning objectives
+Du har för att bestämma om du vill skapa eller köpa en lösning. Det är dyrt att skapa en sofistikerad bild motor för bearbetning och analys. Ett alternativ det för att använda den API för visuellt innehåll från Microsoft. I den här modulen vi utforska funktioner som erbjuds av den här API: et och anropa tjänsten för att bearbeta vissa bilder. 
 
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
 
-- Create a Computer Vision API service
-- Analyze an image and identify its content
-- Generate thumbnails
-- Extract printed text
-- Convert handwritten words into text
+I den här modulen kommer du att göra följande:
+
+- Skapa ett Cognitive Services-konto
+- Få information om visuellt innehåll som hittas i en bild
+- Skapa miniatyrbilder av en avbildning
+- Identifiera och extrahera utskrivna text från en avbildning
+- Identifiera och extrahera handskriven text från en bild

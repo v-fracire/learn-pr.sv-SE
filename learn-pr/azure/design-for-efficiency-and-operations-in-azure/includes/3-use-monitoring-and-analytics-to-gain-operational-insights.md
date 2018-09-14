@@ -1,72 +1,72 @@
-Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and the resources that it depends on. What if you ran an operations team responsible for resources running on Azure? What would you do to ensure you had visibility into the health of your systems? If something happens, who finds out first, your team or your end users? An effective monitoring strategy helps you focus on the health of your application. It also helps you increase your uptime by proactively notifying you of critical issues, so that you can resolve them before they become problems. 
+Övervakning syftar till insamling och analys av data för att avgöra prestanda, hälsa och tillgänglighet för affärsprogram och resurser som dessa program är beroende av. Vad händer om du har ett driftsteam som ansvarar för resurser som körs på Azure? Vad skulle du göra för att säkerställa att du hade insikt i hälsan för dina system? Om det händer något, upptäcks det först av ditt team eller av slutanvändarna? En effektiv övervakningsstrategi hjälper dig att fokusera på hälsan för ditt program. Det hjälper dig även att öka drifttiden genom att meddela dig om kritiska förhållanden så att du kan lösa dem innan de hunnit bli problem. 
 
-When it comes to monitoring and analytics on Azure, we can bundle services into three specific areas of focus: deep application monitoring, deep infrastructure monitoring, and core monitoring. In this unit, we'll take a look through each of these bundles and how Azure services enable these capabilities for your architecture. Even though we've grouped these services together, there are several integration points between them, allowing for sharing of important monitoring data points between them. The following illustration shows the available monitoring services assembled into logical groups.
+När det gäller att övervakning och analys i Azure går det att gruppera tjänsterna i tre fokusområden: djupgående programövervakning, djupgående infrastruktursövervakning samt kärnövervakning. I den här enheten tar vi en titt på vart och ett av dessa fokusområden och hur Azure-tjänster möjliggör dessa funktioner för din arkitektur. Även om vi har grupperat ihop dessa tjänster finns det flera integreringspunkter mellan dem, vilket möjliggör delning av viktiga övervakningsdatapunkter. Följande bild visar de tillgängliga övervakningstjänster som har satts samman i logiska grupper.
 
-![An illustration listing the Azure monitoring and analytics services.](../media/monitoring-products-overview.png)
+![Bild som visar Azure-tjänsterna för övervakning och analys.](../media/monitoring-products-overview.png)
 
-## Core monitoring
+## <a name="core-monitoring"></a>Kärnövervakning
 
-Core monitoring provides fundamental, required monitoring across Azure resources. When we talk about fundamental monitoring, you can think of this as monitoring what is happening with your resources at the Azure fabric level. This area of focus gives you insight into things like the health of the Azure platform, insight into changes being made to your resources, and performance metrics. Using services from this area gives you the ability to monitor the basic pieces you need to keep your application running.
+Kärnövervakning ger grundläggande nödvändig övervakning för alla Azure-resurser. När vi diskuterar grundläggande övervakning kan du betrakta det som övervakning av det som händer med dina resurser på Azure-infrastrukturnivån. Med det här fokusområdet får du insikt i till exempel hälsan för Azure-plattformen, ändringar i dina resurser och prestandamått. Genom att använda tjänster i det här området får du möjlighet att övervaka de grundläggande delarna som du behöver för att hålla igång ditt program.
 
-Azure provides services to give you visibility into four key core monitoring areas: activity logging, the health of services, metrics and diagnostics, and recommendations on best practices. These services are built in to Azure and take little to no configuration to enable and set up. Let's take a closer look.
+Azure tillhandahåller tjänster som ger dig insyn i fyra nyckelområden för kärnövervakning: aktivitetsloggning, hälsan för tjänster, mått och diagnostik samt rekommendationer om bästa praxis. De här tjänsterna är inbyggda i Azure och behöver liten eller ingen konfiguration för att aktiveras. Vi tar en närmare titt.
 
-### Activity logging
+### <a name="activity-logging"></a>Aktivitetsloggning
 
-Activity logging is incredibly important to get information on what is happening with your resources at the Azure fabric level. Every change submitted to the Azure platform is logged to the Azure Activity Log, giving you the ability to trace any action taken on your resources. Activity Log will contain detailed information on activities to help you answer questions like:
+Aktivitetsloggning är mycket viktigt för att få information om vad som händer med dina resurser på Azure-infrastrukturnivån. Varje ändring som skickas till Azure-plattformen loggas i Azure-aktivitetsloggen, vilket ger dig möjlighet att spåra alla åtgärder som vidtas mot dina resurser. Aktivitetsloggen innehåller detaljerad information om aktiviteter som hjälper dig besvara frågor som:
 
-- Who has attached a disk to this virtual machine?
-- When was this machine shut down?
-- Who changed the load balancer configuration?
-- Why did the autoscale operation on my virtual machine scale set fail?
+- Vem har kopplat en disk till den här virtuella datorn?
+- När stängdes den här datorn av?
+- Vem har ändrat lastbalanserarens konfiguration?
+- Varför misslyckades autoskalningsåtgärden på min VM-skalningsuppsättning?
 
-Using Activity Log to answer these types of questions will help you troubleshoot issues, track changes, and provide auditing of what's happening in your Azure environment. Activity Log data is only retained for 90 days and can be archived to a storage account or sent to Azure Log Analytics for longer retention and further analysis.
+Med hjälp av aktivitetsloggen som ger svar på dessa typer av frågor kan du felsöka problem, spåra ändringar och tillhandahålla granskning av det som händer i din Azure-miljö. Aktivitetsloggdata bevaras endast i 90 dagar och kan arkiveras på ett lagringskonto eller skickas till Azure Log Analytics för längre kvarhållning och ytterligare analys.
 
-### Health of cloud services
+### <a name="health-of-cloud-services"></a>Hälsa för molntjänster
 
-At some point, any system can have issues, and that's true for Azure services as well. Staying informed of the health of Azure services will help you understand if and when an issue impacting an Azure service is impacting your environment. What may seem like a localized issue could be the result of a more widespread issue, and Azure Service Health provides this insight. Azure Service Health identifies any issues with Azure services that might affect your application. Service Health also helps you plan for scheduled maintenance.
+Förr eller senare kan vilket system som helst stöta på problem, och det gäller även Azure-tjänster. Att hålla dig informerad om hälsan för Azure-tjänster hjälper dig att förstå om och när ett problem som påverkar en Azure-tjänst även påverkar din miljö. Något som förefaller vara ett lokaliserat problem kan bero på ett mer omfattande problem, och Azure Service Health ger just den insikten. Azure Service Health identifierar eventuella problem med Azure-tjänsterna som kan påverka ditt program. Service Health hjälper dig även att planera för schemalagt underhåll.
 
-### Metrics and diagnostics
+### <a name="metrics-and-diagnostics"></a>Mått och diagnostik
 
-For issues that are more localized in nature, it's important to have visibility into what is happening on your system or service instance. The ability to view metrics and diagnostic information is critical to troubleshoot performance issues and stay notified when something goes wrong. To provide this visibility, Azure services have a common way of showing health, metric, or diagnostic information. Azure Monitor enables core monitoring for Azure services by allowing the collection, aggregation, and visualization of metrics, activity logs, and diagnostic logs.
+För problem som är mer lokaliserade är det viktigt att ha insyn i vad som händer i systemet eller serverinstansen. Möjligheten att visa mått och diagnostikinformation är mycket viktigt för att kunna felsöka prestandaproblem och bli varse om något går fel. För att ge den här insynen har Azure-tjänster ett enhetligt sätt att visa hälsa, mått eller diagnostikinformation. Azure-Monitor aktiverar kärnövervakning för Azure-tjänster genom att tillåta insamling, aggregering och visualisering av mått, aktivitetsloggar och diagnostikloggar.
 
-Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minutes down to 1 minute), so you should use it for time-critical alerts and notifications.
+Det finns mått som tillhandahåller prestandastatistik för olika resurser och även för operativsystemet i en virtuell dator. Du kan visa dessa data med någon av utforskarna i Azure-portalen och skapa aviseringar som baseras på måtten. Azure Monitor ger den snabbaste måttpipelinen (från 5 minuter ned till 1 minut), så du bör använda det för tidskritiska aviseringar och meddelanden.
 
-### Recommendations on best practices
+### <a name="recommendations-on-best-practices"></a>Rekommendationer om bästa praxis
 
-When we think of monitoring, we typically think of the current health of a resource. But even when a resource is healthy, there could be adjustments that would result in greater availability, reduced cost, or improved security. Azure Advisor can help by keeping an eye out for potential performance, cost, high availability, or security issues within your resources. Advisor makes personalized recommendations based on resource configuration and telemetry, providing guidance that most traditional monitoring platforms don't provide.
+Med övervakning menar vi oftast den aktuella hälsan för en resurs. Men även om en resurs är felfri kan det finnas justeringar som skulle resultera i ökad tillgänglighet, minskade kostnader eller bättre säkerhet. Azure Advisor kan hjälpa till genom att hålla utkik efter potentiella problem med prestanda, kostnad, hög tillgänglighet eller säkerhet i dina resurser. Advisor skapar personligt anpassade rekommendationer baserat på resurskonfiguration och telemetri för att ge vägledning som de flesta traditionella övervakningsplattformar inte erbjuder.
 
-## Deep infrastructure monitoring
+## <a name="deep-infrastructure-monitoring"></a>Djupgående infrastruktursövervakning
 
-While the monitoring components we've covered thus far are great at offering insights, they only give visibility to the Azure fabric. For typical IaaS workloads, there's more metrics and diagnostic information to gather from the network or the actual operating systems. Pulling information from SQL Server to ensure it's properly configured, analyzing free disk space across all the servers in your environment, or visualizing the network dependencies between your systems and services are all examples where Log Analytics can provide deep insights.
+De övervakningskomponenter som vi har gått igenom än så länge är väldigt användbara för att ge insikter, men de ger endast insyn i Azure-infrastrukturen. För vanliga IaaS-arbetsbelastningar finns det flera mått och mer diagnostikinformation att samla in från nätverket eller de faktiska operativsystemen. Exempel på områden där Log Analytics kan ge djupa insikter är att hämta information från SQL Server för att kontrollera att den är korrekt konfigurerad, analysera ledigt diskutrymme på alla servrar i din miljö samt visualisera nätverksberoendena mellan dina system och tjänster.
 
-When designing a monitoring strategy, it's important to include every component in the application chain, so you can correlate events across services and resources. For services that support Azure Monitor, they can be easily configured to send their data to a Log Analytics workspace. Virtual machines (both in the cloud and on-premises) can have an agent installed to send data to Log Analytics. You can submit custom data to Log Analytics through the Log Analytics API. The following illustration shows how Log Analytics acts as a central hub for monitoring data. Log Analytics receives monitoring data from your Azure resources and makes it available to consumers for analysis or visualization.
+Vid utformning av en övervakningsstrategi är det viktigt att inkludera alla komponenter i programkedjan så att du kan samordna händelser över tjänster och resurser. För tjänster som stöder Azure Monitor kan de enkelt konfigureras för att skicka sina data till Log Analytics-arbetsytan. Virtuella datorer (både i molnet och lokala) kan ha en agent installerad för att skicka data till Log Analytics. Du kan skicka anpassade data till Log Analytics via Log Analytics-API:et. Bild som visar hur Log Analytics fungerar som ett centralt nav för övervakning av data. Log Analytics tar emot övervakningsdata från dina Azure-resurser och gör dem tillgängliga för konsumenter för analyser och visualisering.
 
-![An illustration showing the role of Log Analytics in resource monitoring.](../media/collecting-data.png)
+![Bild som visar Log Analytics roll för resursövervakning.](../media/collecting-data.png)
 
-With this data in Log Analytics, you can query the raw data for troubleshooting, root cause identification, and auditing purposes. For several known services (SQL Server, Windows Server Active Directory), there are management solutions readily available that visualize monitoring data and uncover compliance with best practices.
+Med dessa data i Log Analytics kan du köra frågor mot rådata för felsöknings-, rotorsaksidentifierings- och granskningsändamål. Det finns flera kända tjänster (SQL Server, Windows Server Active Directory), hanteringslösningar som är tillgängliga som visualisera övervakningsdata och avslöja överensstämmelse med bästa praxis.
 
-Log Analytics allows you to create queries and interact with other systems based on those queries. The most common example is an alert. Maybe you want to receive an email when a system runs out of disk space or a best practice on SQL Server is no longer followed. Log Analytics can send alerts, kick off automation, and even hook into custom APIs for things like integration with IT service management (ITSM).
+Med Log Analytics kan du skapa frågor och interagera med andra system baserat på dessa frågor. Det vanligaste exemplet är en avisering. Du vill kanske få ett e-postmeddelande när ett system får slut på diskutrymme eller när bästa praxis på SQL Server inte längre följs. Log Analytics kan skicka aviseringar, köra igång automatisering och även anslutas till anpassade API:er för ändamål som integrering med hantering av IT-tjänster (ITSM).
 
-## Deep application monitoring
+## <a name="deep-application-monitoring"></a>Djupgående programövervakning
 
-It's important to understand how core services and infrastructure are performing, but you can take your monitoring capabilities even further by looking deep into your applications to identify performance issues, usage trends, and overall availability of services you develop and depend on. By using an application performance management tool, you can better detect and diagnose issues that occur within your web apps and services.
+Visserligen är det viktigt att förstå hur huvudtjänster och infrastrukturen fungerar, men du kan ta dina övervakningsfunktioner till en ny nivå genom att djupt undersöka programmen för att identifiera prestandaproblem, användningstrender och den övergripande tillgängligheten av tjänster som du utvecklar och förlitar dig på. Genom att använda ett verktyg för hantering av programprestanda kan du bättre identifiera och diagnostisera problem som uppstår i dina webbappar och tjänster.
 
-Azure Application Insights allows you to do exactly that. Application Insights provides telemetry collection, query, and visualization capabilities. Little to no code changes are required. You only have to install a small instrumentation package into your application. Application Insights is cross platform, supporting .NET, Node.js, or Java.
+Det är precis vad du kan göra med Azure Application Insights. Application Insights tillhandahåller funktioner för telemetriinsamling, frågor och visualisering. Det behövs få eller inga kodändringar. Du behöver bara installera ett litet instrumentationspaket i ditt program. Application Insights är plattformsoberoende och har stöd för .NET, Node.js och Java.
 
-Even something as simple as how is the response time of the application might be complex to troubleshoot. Is it the web server being overloaded? Is it a specific SQL query that's not optimized? Is the API that you're calling performing slower than usual? Application performance monitoring solutions can help uncover the actual issues that simple metric monitoring can't expose. The following screenshot shows a graphical display of an application’s performance details provided by Azure Application Insights.
+Även något så enkelt som programmets svarstid kan vara komplicerat att felsöka. Är webbservern överbelastad? Är det en specifik SQL-fråga som inte är optimerad? Fungerar det API som du anropar långsammare än vanligt? Lösningar för övervakning av programprestanda kan hjälpa att upptäcka de faktiska problem som enkel måttövervakning inte upptäcker. Följande skärmbild visar en grafisk representation av ett programs prestandainformation som tillhandahålls av Azure Application Insights.
 
-![A screenshot of the user interface of Azure Application Insights.](../media/perfmetrics.png)
+![Skärmbild av användargränssnittet för Azure Application Insights.](../media/perfmetrics.png)
 
-An application performance monitoring solution will help you monitor usage, performance, and availability, allowing you to respond to failure much faster, and should be included in any monitoring strategy.
+Med en lösning för övervakning av programprestanda kan du övervaka användning, prestanda och tillgänglighet och därmed åtgärda fel mycket snabbare. Därför bör en sådan finnas med i alla strategier för övervakning.
 
-## Monitoring at Lamna Healthcare
+## <a name="monitoring-at-lamna-healthcare"></a>Övervakning på Lamna Healthcare
 
-Lamna Healthcare has been revamping their monitoring strategy since moving their resources to the cloud. They're using Monitor for troubleshooting and alerting when performance issues may be impacting their resources. They have notifications configured to send any service health notifications to their operations team for immediate engagement. They have a process in place to regularly review Advisor to ensure the recommendations are implemented into their environment where applicable. 
+Lamna Healthcare har gjort om sin övervakningsstrategi sedan de flyttade sina resurser till molnet. De använder Monitor för felsökning och aviseringar när prestandaproblem kanske påverkar deras resurser. De har konfigurerat så att alla aviseringar om tjänstehälsa skickas till deras driftsteam så att de kan åtgärdas omedelbart. De har en process för att regelbundet granska Advisor för att säkerställa att rekommendationerna implementeras i deras miljö där det är tillämpligt. 
 
-They send log data from all Azure and on-premises resources to a Log Analytics workspace, so they have the ability to search across log sources for event correlation and are using management solutions for Windows Server Active Directory and SQL Server.
+De skicka loggdata från alla Azure och lokala resurser till en Log Analytics-arbetsyta, så att de kan söka i loggkällor för händelsekorrelation och använder hanteringslösningar för Windows Server Active Directory och SQL Server.
 
-Their development team has started integrating Application Insights into their applications, and they've already uncovered two defects that were impacting performance that had previously gone undetected.
+Deras utvecklingsteam har börjat integrera Application Insights i sina program, och de har redan hittat två dittills oidentifierade defekter som påverkade prestanda.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-A good monitoring strategy looks across multiple layers of an architecture, from supporting infrastructure to deep application telemetry. It will help you understand the detailed operation of the different components of your application. It increases your uptime by proactively notifying you of critical issues, so that you can resolve them before they become problems, and allows you to correlate logs and telemetry across systems to uncover issues. We've taken a look at a number of services on Azure that you can leverage in your monitoring strategy.
+En bra övervakningsstrategi söker i flera lager i en arkitektur, från den stöttande infrastrukturen till djupgående programtelemetri. Det hjälper dig att förstå den detaljerade driften av de olika komponenterna i ditt program. Det ökar drifttiden genom att proaktivt meddela dig om kritiska problem så att du kan lösa dem innan de hunnit bli problem. Det gör även att du kan samordna loggar och telemetri över flera system för att identifiera problem. Vi har tittat på ett antal tjänster på Azure som du kan utnyttja i din övervakningsstrategi.

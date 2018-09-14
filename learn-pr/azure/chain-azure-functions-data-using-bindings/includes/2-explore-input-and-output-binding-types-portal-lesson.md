@@ -1,59 +1,53 @@
-Accessing and processing data are key tasks in many software solutions. Consider some of these scenarios:
+Åtkomst till och bearbetning av data är viktiga uppgifter i många programvarulösningar. Överväg att vissa av dessa scenarier:
 
-* You've been asked to implement a way to move incoming data from blob storage to Azure Cosmos DB.
-* You want to post incoming messages to a queue for processing by another component in your enterprise.
-* Your service needs to grab gamer scores from a queue and update an online scoreboard.
+* Du har blivit ombedd att implementera ett sätt att flytta inkommande data från blob storage till Azure Cosmos DB.
+* Vill du skicka inkommande meddelanden till en kö för bearbetning av en annan komponent i ditt företag.
+* Din tjänst måste hämta från spelarna resultat från en kö och uppdatera en online poängtavlan.
 
-All of these examples are about moving data. The data source and destinations differ from scenario to scenario, but the pattern is similar. You connect to a data source, you read and write data. Azure Functions helps you integrate with data and services using bindings. 
+Alla dessa exempel är om hur du flyttar data. Skiljer sig från scenariot till scenariot data källor och mål, men mönstret är liknande. Du kan ansluta till en datakälla du läser och skriver data. Azure Functions kan du integrera med data och tjänster med bindningar. 
 
-## What is a binding?
+## <a name="what-is-a-binding"></a>Vad är en bindning?
 
-In functions, bindings provide a declarative way to connect to data from within your code. They make it easier to integrate with data streams consistently in a function. A trigger defines how a function is invoked. You can only have one trigger, but you can have multiple bindings in a function. This is powerful because you can connect to your data sources without having to hard code the values, like for instance, the *connection string*.
+I funktioner utdatabindningar en deklarativ metod för att ansluta till data från i din kod. De gör det lättare att integrera med dataströmmar konsekvent i en funktion. En utlösare definierar hur en funktion anropas. Du kan bara ha en utlösare, men du kan ha flera bindningar i en funktion. Detta är kraftfulla eftersom du kan ansluta till dina datakällor utan att behöva hårt code värdena, som exempelvis den *anslutningssträngen*.
 
-### Two kinds of bindings
+### <a name="two-kinds-of-bindings"></a>Två typer av bindningar
 
-There are two kinds of bindings you can use for your functions:
+Det finns två typer av bindningar som du kan använda för dina funktioner:
 
-1. **Input binding**
-    An input binding is a connection to a data **source**. Our function reads data from this source.
+1. **Indatabindning** en indatabindning är en anslutning till en **källa**. Vår funktionen läser data från den här källan.
 
-1. **Output binding**
-    An output binding is a connection to a data **destination**. Our function writes data to this destination.
+1. **Utdatabindning** en utdatabindning är en anslutning till en **mål**. Vår funktionen skriver data till denna destination.
 
-### Types of supported bindings
+### <a name="types-of-supported-bindings"></a>Typer av stöds bindningar
 
-The *type* of binding defines where we are reading or sending data. There is a binding to respond to web requests and a large selection of bindings to interact with storage.
+Den *typ* definierar där vi läser eller skickar data för bindningen. Det finns en bindning ska svara på webbförfrågningar och ett stort urval av bindningar för att interagera med lagring.
 
-Here's a list of commonly used bindings:
+Här är en lista över vanliga Bindningar:
 - Blob
-- Queue
+- Kö
 - CosmosDB
 - Event Hubs
-- External Files
-- External Tables
+- Externa filer
+- Externa tabeller
 - HTTP
 
-### Binding properties
+### <a name="binding-properties"></a>Egenskaper för bindning
 
-There are four properties that are required in all bindings. You may have to supply additional properties based on the type of binding and/or storage you are using.
+Det finns fyra egenskaper som krävs i alla bindningar. Du kan behöva ange ytterligare egenskaper som är baserat på vilken typ av bindning och/eller lagring som du använder.
 
-- **Name**
-    The `name` property defines the function parameter through which you access the data. For example, in a queue input binding, this is the name of the function parameter that receives the queue message content. 
+- **Namnet** den `name` definierar egenskapen funktionsparametern genom vilka du komma åt data. Till exempel i en kö-indatabindning är detta namnet på funktionsparametern som tar emot kö meddelandeinnehåll. 
 
-- **Type**
-    The `type` property identifies the type of binding, i.e., the type of data or service we want to interact with.
+- **Typ** den `type` egensapen identifierar typen av bindning, d.v.s., vilken typ av data eller tjänsten som vi vill interagera med.
 
-- **Direction**
-    The `direction` property identifies the direction data is flowing ie. is it an input or output binding?
+- **Riktning** den `direction` egensapen identifierar vilken riktning data flödar ie. är det en inkommande eller utgående bindning?
 
-- **Connection**
-    The `connection` property is the name of an app setting that contains the connection string, not the connection string itself. Bindings use connection strings stored in app settings to enforce the best practice that function.json does not contain service secrets.
+- **Anslutningen** den `connection` egenskapen är namnet på en appinställning som innehåller anslutningssträngen inte anslutningssträngen själva. Bindningar använda anslutningssträngar lagras i appinställningar för att genomdriva det bästa sättet att function.json innehåller inte service hemligheter.
 
-## Create a binding
+## <a name="create-a-binding"></a>Skapa en bindning
 
-Bindings are defined in JSON. A binding is configured in your function's configuration file, which is named `function.json` and lives in the same folder as your function code.
+Bindningar har definierats i JSON. En bindning har konfigurerats i din funktion konfigurationsfil, vilken har namnet `function.json` och finns i samma mapp som funktionskoden.
 
- Let's examine a sample of an *input binding*:
+ Låt oss nu undersöka ett exempel på en *indatabindning*:
 
 ```json
     ...
@@ -67,18 +61,18 @@ Bindings are defined in JSON. A binding is configured in your function's configu
     ...
 ```
 
-To create this binding we:
+Att skapa bindningen vi:
 
-1. Create a binding in our `function.json` file.
+1. Skapa en bindning i vår `function.json` fil.
 
-1. Provide the value for the `name` variable. In this example, the variable will hold the blob data.
+1. Ange värdet för den `name` variabeln. I det här exemplet ska variabeln innehålla blob-data.
 
-1. Provide the storage `type`, in the preceding example, we are using Blob storage.
+1. Skapar lagringsutrymmet `type`, i föregående exempel använder Blob storage.
 
-1. Provide the `path`, which specifies the container and the item name which goes in it. The `path` property is required for Blobs.
+1. Ange den `path`, som anger vilken blobbehållare och objektnamnet som går i den. Den `path` egenskapen krävs för Blobar.
 
-1. Provide the `connection` string setting name defined in the application's settings file. It's used as a lookup to find the connection string to connect to your storage.
+1. Ange den `connection` sträng inställningsnamn som definieras i programmets inställningsfil. Den används som en sökning för att hitta anslutningssträngen för att ansluta till din lagring.
 
-1. Define the `direction` as `in`, it will read data from the Blob.
+1. Definiera den `direction` som `in`, läses data från Blob.
 
-Bindings are used to connect to data into your function. In the example we looked at, we used an input binding to connect user images to be processed by our function as thumbnails.
+Bindningar används för att ansluta till data i din funktion. I det här exemplet vi har tittat på används vi en indatabindning för att ansluta användare avbildningar som ska bearbetas av vår funktion som miniatyrbilder.

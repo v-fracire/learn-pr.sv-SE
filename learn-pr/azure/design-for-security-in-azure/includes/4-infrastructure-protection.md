@@ -1,70 +1,70 @@
-Lamna Healthcare recently experienced a significant outage to a customer-facing web application. An engineer was granted full access to a resource group containing the production web application. This person accidentally deleted the resource group and all child resources, including the database hosting live customer data. 
+Lamna Healthcare hade nyligen ett allvarligt avbrott i en kundinriktad webbapp. En tekniker hade beviljats fullständig åtkomst till en resursgrupp som innehöll själva produktionswebbprogrammet. Teknikern råkade av misstag ta bort hela resursgruppen och alla underordnade resurser, inklusive databasen med alla kunddata. 
 
-Fortunately, the application source code and resources were available in source control and regular database backups were running automatically on a schedule. Therefore the service was reinstated relatively easily. Here, we will explore how this outage could have been avoided by utilizing capabilities on Azure to protect the access to infrastructure.
+Lyckligtvis var programmets källkod och resurser tillgängliga i källkontrollen och regelbundna säkerhetskopieringar kördes automatiskt enligt ett schema. Tjänsten kunde därför återställas relativt enkelt. Här ska vi utforska hur det här avbrottet hade kunnat undvikas med hjälp av funktioner i Azure som skyddar åtkomsten till infrastrukturen.
 
-## Criticality of infrastructure
+## <a name="criticality-of-infrastructure"></a>Den viktiga infrastrukturen
 
-Cloud infrastructure is becoming a critical piece of many businesses. It is critical to ensure people and processes have only the rights they need to get their job done. Assigning incorrect access can result in data loss, data leakage, or cause services to become unavailable. 
+Molninfrastrukturen blir en allt viktigare komponent på många företag. Det är viktigt att användare och processer endast beviljas de behörigheter som de behöver för att utföra sina jobb. Tilldelar felaktig åtkomst kan resultera i dataförlust, data sprids, eller tjänster blir otillgänglig. 
 
-System administrators can be responsible for a large number of users, systems, and permission sets. So correctly granting access can quickly become unmanageable and can lead to a 'one size fits all' approach. This approach can reduce the complexity of administration, but makes it far easier to inadvertently grant more permissive access than required.
+Systemadministratörer kan ansvara för ett stort antal användare, system, och behörighetsuppsättningar. Därför kan det snabbt bli svårt att bevilja åtkomst på ett optimalt sätt, vilket ofta resulterar i en alltför generell standardtillämpning. Den här metoden kan visserligen förenkla administrationen, men gör det betydligt lättare att oavsiktligt bevilja mer omfattande behörigheter än vad som egentligen krävs.
 
-## Role-based access control
+## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Role-based access control (RBAC) offers a slightly different approach. Roles are defined as collections of access permissions. Security principals are mapped to roles directly or through group membership. Separating security principals, access permissions, and resources provides simplified access management and more fine-grained control.
+Rollbaserad åtkomstkontroll (RBAC) fungerar på ett lite annorlunda sätt. Roller definieras som samlingar med åtkomstbehörigheter. Säkerhetsobjekt mappas till roller direkt eller via gruppmedlemskap. Genom att säkerhetsobjekt, åtkomstbehörigheter och resurser hålls åtskilda blir det enklare att hantera och kontrollera åtkomsten.
 
-On Azure, users, groups, and roles are all stored in Azure Active Directory (Azure AD). The Azure Resource Manager API uses role-based access control to secure all resource access management within Azure.
+I Azure lagras användare, grupper och roller i Azure Active Directory (AD Azure). Azure Resource Manager-API:et använder rollbaserad åtkomstkontroll för att skydda all åtkomsthantering för resurser i Azure.
 
-![ACL-based access](../media-draft/ACL_Based_Access.png)
+![ACL-baserad åtkomst](../media-draft/ACL_Based_Access.png)
 
 <!-- ![Role-based access control](../media-draft/Role_Based_Access.png)
  -->
 
-### Roles and management groups
+### <a name="roles-and-management-groups"></a>Roller och hanteringsgrupper
 
-Roles are sets of permissions, like "Read-only" or "Contributor", that users can be granted to access an Azure service instance. Roles can be granted at the individual service instance level, but they also flow down the Azure Resource Manager hierarchy. Roles assigned at a higher scope, like an entire subscription, are inherited by child scopes, like service instances. 
+Roller är en uppsättning behörigheter, som ”skrivskyddad” eller ”bidragsgivare” att användare kan få åtkomst till en Azure-tjänstinstans. Roller kan tilldelas på instansnivå enskild tjänst, men de också flödar nedåt i Azure Resource Manager-hierarkin. Roller som tilldelats för ett högre omfång, t.ex. en hel prenumeration, ärvs av underordnade omfång, t.ex. tjänstinstanser. 
 
-Management groups are an additional hierarchical level recently introduced into the RBAC model. Management groups add the ability to group subscriptions together and apply policy at an even higher level.
+Hanteringsgrupper är en ytterligare hierarkisk nivå som nyligen introducerades i RBAC-modellen. Hanteringsgrupper gör det möjligt att gruppera prenumerationer och att tillämpa principen på en ännu högre nivå.
 
-The ability to flow roles through an arbitrarily defined subscription hierarchy also allows administrators to grant temporary access to an entire environment for authenticated users. For example, an auditor may require temporary read-only access to all subscriptions.
+Möjligheten att sprida roller via en godtyckligt definierad prenumerationshierarki gör dessutom att administratörer kan bevilja tillfällig åtkomst till en hel miljö för autentiserade användare. En granskare kan exempelvis behöva tillfällig skrivskyddad åtkomst till alla prenumerationer.
 
-![Management groups](../media-draft/management_groups.png)
+![Hanteringsgrupper](../media-draft/management_groups.png)
 
-### Privileged Identity Management
+### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-In addition to managing Azure resource access with RBAC, a comprehensive approach to infrastructure protection should consider including the ongoing auditing of role members as their organization changes and evolves. Azure AD Privileged Identity Management (PIM) is an additional paid-for offering that provides oversight of role assignments, self-service, and just-in-time role activation and Azure AD & Azure resource access reviews.
+Förutom att hantera åtkomsten till Azure-resurser med RBAC, bör en heltäckande säkerhetsstrategi för infrastrukturen omfatta regelbunden granskning av rollmedlemmar allt eftersom organisationen förändras och utvecklas. Betaltjänsten Azure AD Privileged Identity Management (PIM) hjälper dig att övervaka rolltilldelningar, självbetjäning och JIT-rollaktivering (Just-In-Time) och innehåller även funktioner för att granska åtkomsten till Azure AD-resurser.
 
-![Privileged identity management](../media-draft/PIM_Dashboard.png)
+![Privileged Identity Management](../media-draft/PIM_Dashboard.png)
 
-## Providing identities to services
+## <a name="providing-identities-to-services"></a>Tilldela identiteter till tjänster
 
-It's often valuable for services to have identities. Often times, and against best practices, credential information is embedded in configuration files. With no security around these configuration files, anyone with access to the systems or repositories can access these credentials and risk exposure.
+Det är ofta bra att tilldela identiteter till tjänster. Ofta, och i strid med bästa praxis, bäddas autentiseringsuppgifter in i konfigurationsfiler. Om dessa konfigurationsfiler inte skyddas kan vem som helst med åtkomst till systemen eller lagringsplatserna komma åt dessa uppgifter eller öka risken för att de exponeras.
 
-Azure AD addresses this problem through two methods: service principals and managed service identities.
+Azure AD åtgärdar problemet med två metoder: tjänsten huvudnamn och hanterade identiteter för Azure-tjänster.
 
-### Service principals
+### <a name="service-principals"></a>Tjänstens huvudnamn
 
-To understand service principals, it's useful to first understand the words **identity** and **principal** as they are used in Identity management world.
+För att förstå tjänstens huvudnamn, det är bra att först förstå orden **identitet** och **huvudnamn** när de används i Identity management världen.
 
-An **identity** is just a thing that can be authenticated. Obviously this includes users with username and password, but it can also include applications or other servers, which might authenticate with secret keys or certificates. As a bonus definition, an **account** is data associated with an identity.
+En **identitet** är bara något som kan autentiseras. Naturligtvis det omfattar även användare med användarnamn och lösenord, men den kan även innehålla program eller andra servrar som kan autentiseras med hemliga nycklar eller certifikat. I detta sammanhang kan det även vara bra att veta att **konto** definieras som data som är associerade med en identitet.
 
-A **principal** is an identity acting with certain roles or claims. Often it is not useful to consider identity and principal separately, but think of using 'sudo' on a bash prompt or on Windows using "run as Administrator". In both of those cases, you are still logged in as the same identity as before, but you've changed the role under which you are executing.
+Ett **huvudnamn** är en identitet som fungerar med vissa roller eller anspråk. I stället för att tänka på identitet och huvudnamn som separata företeelser kan du likna dem vid att använda ”sudo” i en bash-kommandotolk eller i Windows med ”Kör som administratör”. I båda dessa fall kan du fortfarande är inloggad som samma identitet som innan, men du har ändrat rollen som du kör.
 
-So a **Service Principal** is literally named. It is an identity that is used by a service or application. Like other identities, it can be assigned roles. 
+**Tjänstens huvudnamn** namnges alltså rent bokstavligen. Det här är en identitet som används av en tjänst eller ett program. Det kan tilldelas roller som andra identiteter. 
 
-For example, Lamna Healthcare can assign its deployment scripts to run authenticated as a service principal. If that is the only identity that has permission to perform destructive actions, Lamna will have gone a long way toward making sure they don't have a repeat of the accidental resource deletion.
+Lamna Healthcare kan till exempel tilldela sina distributionsskript så att de körs autentiserade som ett huvudnamn för tjänsten. Om det är den enda identitet som har behörighet att utföra skadliga åtgärder gått Lamna långt för att se till att de inte har en upprepning av oavsiktliga resurs togs bort.
 
-### Managed Service Identities
+### <a name="managed-identities-for-azure-resources"></a>Hanterade identiteter för Azure-resurser
 
-The creation of service principals can be a tedious process, and there are a lot of touch points that can make maintaining them difficult. Manage Service Identities (MSI) are much easier and will do most of the work for you. 
+Skapa tjänstens huvudnamn kan vara en tidsödande process och det finns en massa kontaktpunkter som kan göra att underhålla dem. svårt. Hantera identiteter för Azure-resurser är mycket enklare och gör det mesta av arbetet åt dig.
 
-An MSI can be instantly created for any Azure service that supports it (the list is constantly growing). When you create an MSI for a service, you are creating an account on the Azure Active Directory tenant. Azure infrastructure will automatically take care of authenticating the service and managing the account. You can then use that account like any other AD account including securely letting the authenticated service access other Azure resources.
+En hanterad identitet kan skapas direkt för alla Azure-tjänster som stöder den (listan växer hela tiden). När du skapar en hanterad identitet för en tjänst, skapar du ett konto på Azure AD-klient. Azure-infrastrukturen tar automatiskt hand om autentiseringen av tjänsten och hanteringen av kontot. Du kan sedan använda det kontot på samma sätt som andra AD-konton, och på ett säkert sätt ge den autentiserade tjänsten åtkomst till andra Azure-resurser.
 
-Lamna Healthcare takes their identity management a step further and uses MSIs for all supported services that need the ability to perform infrastructure management and deployments.
+Lamna Healthcare sina Identitetshantering ett steg ytterligare och använder hanterade identiteter för alla tjänster som stöds som måste ha möjlighet att utföra hantering av infrastruktur och distributioner.
 
-## Infrastructure protection at Lamna Healthcare
+## <a name="infrastructure-protection-at-lamna-healthcare"></a>Skyddad infrastruktur på Lamna Healthcare
 
-We've seen how Lamna Healthcare has addressed issues from their incident where infrastructure was inadvertently deleted. They've used role-based access control to better manage the security of their infrastructure, and are using managed service identities to keep their credentials out of code and ease administration of the identities needed for their services.
+Vi har sett hur Lamna Healthcare har åtgärdat det tidigare misstaget då företagets infrastruktur oavsiktligt raderades. De har använt rollbaserad åtkomstkontroll för att bättre hantera säkerhet i sin infrastruktur och använder hanterade identiteter för att hålla sina autentiseringsuppgifter från kod och enkel administration av identiteter som behövs för sina tjänster.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-To ensure the availability and integrity of infrastructure, it's important to properly secure your infrastructure. Properly using features such as RBAC and managed service identities will help protect your Azure environment from unauthorized or unintended access, and will enhance the identity security capabilities in your architecture.
+För att säkerställa infrastrukturens tillgänglighet och integritet är det viktigt att den skyddas på rätt sätt. Med funktioner som RBAC och hanterade identiteter hjälper att skydda din Azure-miljö från obehöriga eller oavsiktliga åtkomst och förbättra säkerhetsfunktioner identitet i din arkitektur.

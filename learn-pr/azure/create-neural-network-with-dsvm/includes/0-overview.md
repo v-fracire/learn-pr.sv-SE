@@ -1,4 +1,4 @@
-**Data Science Virtual Machine** för Linux är en VM-avbildning som gör det enklare att komma igång med data science. Många verktyg har redan skapats, installerats och konfigurerats av oss för att du ska kunna komma igång så snabbt som möjligt. NVIDIA GPU-drivrutinen, NVIDIA CUDA och NVIDIA CUDA Deep Neural Network-biblioteket (cuDNN) ingår, liksom Jupyter och TensorFlow. Alla förinstallerade ramverk är GPU-kompatibla, men fungerar även bra tillsammans med vanliga processorer.
+Den **Data Science Virtual Machine** för Linux är en avbildning av virtuell dator som förenklar Kom igång med data science. Flera olika verktyg är redan skapats, installeras och konfigureras för att komma igång snabbt. NVIDIA GPU-drivrutinen, NVIDIA CUDA och NVIDIA CUDA Deep Neural Network-biblioteket (cuDNN) ingår, liksom Jupyter och TensorFlow. Alla förinstallerade ramverk är GPU-kompatibla, men fungerar även bra tillsammans med vanliga processorer.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
 
@@ -9,10 +9,11 @@ I den här modulen kommer du att göra följande:
 - träna upp en TensorFlow-modell att klassificera bilder som innehåller varmkorvar och bilder som INTE innehåller varmkorvar.
 - använda modellen i en Python-app.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 <!---TODO: This is really long, need to make more concise and also add to index.yml--->
+<!---TODO: Update for free sandbox.--->
 
-För att kunna slutföra den här modulen behöver du en Azure-prenumeration och fjärrskrivbordsklienten Xfce. Mer information finns i avsnittet om förutsättningar. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+För att slutföra den här modulen behöver du en Azure-prenumeration och en Xfce remote desktop-klient.
 
  1. **Microsoft Azure-konto**: du behöver ett giltigt och aktivt Azure-konto för den här modulen. Om du inte har ett sådant kan du registrera dig för en [kostnadsfri provperiod](https://azure.microsoft.com/free/)
 

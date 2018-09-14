@@ -1,9 +1,9 @@
-Azure offers three primary ways to set up virtual networking:
+I Azure finns tre primära sätt att skapa virtuella nätverk på:
 
-- Azure virtual networks
-- Azure VPN gateways
+- Azure-nätverk
+- Azure VPN gateway
 - Azure ExpressRoute
 
-Azure virtual networks can connect resources such as virtual machines and virtual machine scale sets within the same region, enabling them to communicate. Azure virtual networks can also connect to specified Azure service endpoints, such as Azure Storage, databases, and web apps.
+Azure-nätverk kan ansluta resurser, till exempel virtuella datorer och VM scale sets för inom samma region, så att de kan kommunicera. Azure-nätverk kan också ansluta till angivna Azure-tjänstslutpunkter, till exempel Azure Storage, databaser och web apps.
 
-Azure VPN gateways can enable communication with on-premises clients or networks over the public Internet, or connect virtual networks in different Azure regions. When you need a highly secure, dedicated route, you can use Azure ExpressRoute. It creates private, high-bandwidth connections to Azure datacenters that achieve the highest levels of reliability and security.
+Azure VPN-gatewayer kan aktivera kommunikation med lokala klienter eller nätverk via det offentliga internet, eller ansluta virtuella nätverk i olika Azure-regioner. När du behöver en mycket säker, dedikerad väg, kan du använda Azure ExpressRoute. Den skapar hög bandbredd privata anslutningar till Azure-datacenter som ger högsta möjliga tillförlitlighet och säkerhet.

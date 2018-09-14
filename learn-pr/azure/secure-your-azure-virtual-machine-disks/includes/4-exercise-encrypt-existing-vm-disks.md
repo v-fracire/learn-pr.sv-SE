@@ -1,17 +1,17 @@
-Anta att du utvecklar ett ekonomiprogram för nystartade företag. Du vill skydda kundernas data så du har bestämt dig för att implementera ADE på alla operativsystem och datadiskar på de servrar som ska vara värdar för programmet. Enligt dina efterlevnadskrav måste du också ansvara för din egen krypteringsnyckel.
+Anta att du utvecklar ett ekonomiprogram för nystartade företag. Du vill kontrollera att dina kunders data är skyddad, så att du har valt att implementera Azure Disk Encryption (ADE) för alla operativsystem och diskar på de servrar som ska vara värd för det här programmet. Enligt dina efterlevnadskrav måste du också ansvara för din egen krypteringsnyckel.
 
-I den här delen får du kryptera diskar på befintliga virtuella Windows-datorer och hantera krypteringsnycklar med ditt eget Azure Key Vault.
+I den här enheten du kryptera diskar på befintliga virtuella Windows-datorer och hantera krypteringsnycklar med din egen Azure Key Vault.
 
 > [!IMPORTANT] 
-> Den här övningen förutsätter att Azure PowerShell är installerat på datorn. Gå till [Installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.7.0) för information om hur du installerar Azure PowerShell.
+> Den här övningen förutsätter att Azure PowerShell är installerat på datorn. Gå till [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.7.0) information om hur du installerar Azure PowerShell.
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
-Vi börjar med att distribuera en virtuell Windows-dator på en ny resursgrupp och sedan lägga till en datadisk på den virtuella datorn.
+Vi börjar genom att distribuera en virtuell Windows-dator till en ny resursgrupp och sedan lägga till en datadisk till den virtuella datorn.
 
-### <a name="deploy-windows-vm-using-azure-portal"></a>Distribuera en virtuell Windows-dator med hjälp av Azure Portal
+### <a name="deploy-windows-vm-using-the-azure-portal"></a>Distribuera Windows virtuell dator med Azure portal
 
-Här installerar du Azure-portalen för att skapa och distribuera en virtuell Windows-dator. Starta genom att definiera grundläggande information för den virtuella datorn:
+Här använder du Azure-portalen att skapa och distribuera en virtuell Windows-dator. Starta genom att definiera grundläggande information för den virtuella datorn:
 
 1. Öppna en webbläsare och gå till [Azure-portalen](http://portal.azure.com) och logga in med dina vanliga autentiseringsuppgifter.
 
@@ -29,7 +29,7 @@ Här installerar du Azure-portalen för att skapa och distribuera en virtuell Wi
 
 1. Välj din Azure-prenumeration i fältet **Prenumeration**.
 
-1. Under **Resursgrupp** väljer du **Skapa ny** och skriver in **moneyapprp**.
+1. Under **resursgrupp**väljer **Skapa ny**. I rutan skriver **moneyapprg**.
 
 1. Välj en region nära dig i listrutan **Plats**.
 
@@ -38,11 +38,11 @@ Här installerar du Azure-portalen för att skapa och distribuera en virtuell Wi
 ### <a name="choose-a-size-for-the-vm-and-start-the-deployment"></a>Välj storlek för den virtuella datorn och starta distributionen
 
 > [!IMPORTANT]
-> Kom ihåg att virtuella datorer på Basic-nivå inte stöder ADE
+> Kom ihåg att basic-nivån virtuella datorer inte stöder ADE.
 
-1. På bladet **Välj storlek** väljer du **Standard** SKU, till exempel **B1s** och klickar sedan på **Välj**.
+1. På den **väljer du en storlek** bladet och välja en **Standard** SKU, till exempel **B1s**. Klicka sedan på **Välj**.
 
-1. På bladet **Inställningar** i **Välj offentliga inkommande portar** klickar du på **RDP** och bläddrar sedan nedåt och klickar på **OK**.
+1. På den **inställningar** bladet i den **Välj offentliga inkommande portar** klickar du på **RDP**. Bläddrar sedan nedåt och klicka på **OK**.
 
 1. På bladet **API-app** klickar du på **Skapa**.
 
@@ -66,25 +66,25 @@ Här installerar du Azure-portalen för att skapa och distribuera en virtuell Wi
 
 1. Vänta tills disken har skapats innan du fortsätter.
 
-1. På bladet **diskar** klickar du på **Spara**. Observera att datadiskens krypteringsstatus för närvarande är **_Ej aktiverat_**.
+1. På bladet **diskar** klickar du på **Spara**. Observera att datadisken krypteringsstatus är för närvarande **inte aktiverat**.
 
-## <a name="configure-disk-encryption-pre-requisites"></a>Konfigurera förhandskrav för diskkryptering
+## <a name="configure-disk-encryption-prerequisites"></a>Konfigurera krävs för kryptering av disk
 
-Du kommer nu använda konfigurationsskriptet för att konfigurera förhandskrav för Azure-diskkryptering. Det här skriptet skapar och förbereder ett nyckelvalv i samma region som den virtuella datorn.
+Du kan nu använda nödvändiga konfigurationsskriptet för Azure Disk Encryption för att konfigurera alla krav för disk-kryptering. Det här skriptet skapar och förbereda key vault i samma region som den virtuella datorn.
 
-### <a name="prepare-the-azure-disk-encryption-prerequisite-setup-script"></a>Förbered konfigurationsskriptet för Azure-diskkryptering
+### <a name="prepare-the-azure-disk-encryption-prerequisite-setup-script"></a>Förbered nödvändiga konfigurationsskriptet för Azure Disk Encryption
 
-1. Gå till den GitHub-sidan som innehåller det [nödvändiga konfigurationsskriptet för Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Gå till den [nödvändiga installationsskriptet för Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1) GitHub-sidan.
 
 1. Klicka på **Raw** på GibHub-sidan.
 
-1. Markera all text på sidan genom att använda CTRL-A. Använd sedan CTRL-C och kopiera all text till Urklipp.
+1. Använd Ctrl-A för att markera all text på sidan och sedan använda Ctrl + C för att kopiera all text på sidan till Urklipp.
 
-1. Klicka på **Start** på din dator och bläddra till **Windows PowerShell ISE**.
+1. Klicka på din dator, **starta**, och bläddra till **Windows PowerShell ISE**.
 
-1. Högerklicka på **Windows PowerShell ISE** och klicka på **Kör som administratör**.
+1. Högerklicka på **Windows PowerShell ISE**, och klicka på **kör som administratör**.
 
-1. I fönstret Administratör: Windows PowerShell ISE klickar du på **Visa** och sedan på **Visa skriptfönster**.
+1. I administratören: Windows PowerShell ISE-fönster, klicka på **visa**, och klicka sedan på **visa Skriptfönster**.
 
 1. Klistra in den kopierade texten i skriptfönstret.
 
@@ -102,15 +102,15 @@ Du kommer nu använda konfigurationsskriptet för att konfigurera förhandskrav 
 
 1. I textrutan för **filnamn** anger du **ADEPrereqScript.ps1** och klickar på **Spara**.
 
-### <a name="run-the-azure-disk-encryption-prerequisite-setup-script"></a>Kör konfigurationsskriptet för Azure-diskkryptering
+### <a name="run-the-azure-disk-encryption-prerequisite-setup-script"></a>Kör de nödvändiga installationsskriptet för Azure Disk Encryption
 
-1. I PowerShell-fönstret anger du följande kommando och trycker på **RETUR**:
+1. I PowerShell ISE-konsolen fönstret, Skriv följande kommando och tryck på **RETUR**:
 
    ```console
    cd <path to your folder containing ADEPrereqScript.ps1>
    ```
 
-1. I PowerShell-fönstret anger du följande kommando och trycker på **RETUR**:
+1. I PowerShell ISE-konsolen fönstret, Skriv följande kommando och tryck på **RETUR**:
 
    ```powershell
    Set-ExecutionPolicy Unrestricted
@@ -118,7 +118,7 @@ Du kommer nu använda konfigurationsskriptet för att konfigurera förhandskrav 
 
    Om dialogrutan **Ändring av körningsprincipen** visas klickar du antingen på **Ja till alla** eller **Ja** (om du inte får alternativet _Ja till alla_).
 
-1. I PowerShell-fönstret anger du följande kommando och trycker på **RETUR**:
+1. I PowerShell ISE-konsolen fönstret, Skriv följande kommando och tryck på **RETUR**:
 
    ```powershell
    Login-AzureRmAccount
@@ -128,11 +128,11 @@ Du kommer nu använda konfigurationsskriptet för att konfigurera förhandskrav 
 
 1. Välj din **SubscriptionId**-sträng och kopiera den till Urklipp.
 
-1. Klicka på **Arkiv** i PowerShell ISE och klicka sedan på **Kör**.
+1. I PowerShell ISE, klickar du på **filen**, och klicka sedan på **kör**.
 
-1. I konsolfönstret i **resourceGroupName:** anger du **moneyapprg** och trycker på **RETUR**.
+1. I konsolfönstret i den **resourceGroupName:** anger **moneyapprg**. Tryck på **RETUR**.
 
-1. I konsolfönstret i **keyVaultName:** anger du **moneyapprg** och trycker på **RETUR**.
+1. I konsolfönstret i den **keyVaultName:** anger **moneyappkv**. Tryck på **RETUR**.
 
 1. I konsolfönstret i **plats:** anger du den plats som du använde när du skapade den virtuella datorn.
 
@@ -140,19 +140,19 @@ Du kommer nu använda konfigurationsskriptet för att konfigurera förhandskrav 
 
 1. Nyckelvalvet **moneyappkv** kommer nu att skapas. När detta har slutförts väljer du översiktstext (i grönt och kopierar den till Anteckningar.
 
-1. Tryck på **RETUR** för att fortsätta.
+1. Tryck på **RETUR** att fortsätta.
 
-1. I konsolfönstret i **aadAppName:** anger du **moneyapp** och trycker på **RETUR**.
+1. I konsolfönstret i den **aadAppName:** anger **moneyapp**. Tryck på **RETUR**.
 
 1. Azure AD-programmet **moneyapp** skapas nu. När detta har slutförts väljer du översiktstext (i grönt och kopierar den till Anteckningar.
 
-1. Tryck på **RETUR** för att fortsätta.
+1. Tryck på **RETUR** att fortsätta.
 
 ### <a name="encrypt-your-vm-disks-with-powershell"></a>Kryptera dina virtuella datordiskar med PowerShell
 
 Kontrollera krypteringsstatusen för operativsystemet och datadiskarna:
 
-1. I PowerShell-fönstret anger du följande kommando och trycker på RETUR:
+1. I PowerShell ISE-konsolen fönstret, Skriv följande kommando och tryck på **RETUR**:
 
     ```powershell
     $vmName = 'moneyappsvr01'
@@ -161,7 +161,7 @@ Kontrollera krypteringsstatusen för operativsystemet och datadiskarna:
     > [!NOTE]
     > Namnet på den virtuella datorn måste stå inom enkla citattecken.
 
-1. I PowerShell-skriptfönstret anger du följande kommando och trycker på RETUR:
+1. I fönstret PowerShell ISE skriptet anger du följande kommando och tryck på **RETUR**:
 
     ```powershell
     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
@@ -170,8 +170,8 @@ Kontrollera krypteringsstatusen för operativsystemet och datadiskarna:
 1. I dialogrutan **Aktivera AzureDiskEncryption på den virtuella datorn** dialogrutan klickar du på **Ja** och noterar meddelandet om att krypteringen kan ta 10 – 15 minuter att slutföra.
 
 >[!IMPORTANT]
-> Vänta tills kommandot har slutförts innan du fortsätter med den här övningen
+> Vänta tills kommandot har slutförts innan du fortsätter med den här övningen.
 
 ### <a name="verify-the-encryption-status-of-your-vm-disks"></a>Kontrollera krypteringsstatusen för de virtuella datordiskarna
 
-Växla till Azure-portalen. Observera på bladet **Diskar** för **moneyappsvr01** att statusen för diskkryptering för operativsystemet och datadiskarna nu är **Aktiverad**.
+Växla till Azure Portal. På den **diskar** bladet för **moneyappsvr01**, Observera att status för diskkryptering för Operativsystemet och datadiskarna är nu **aktiverad**.

@@ -10,7 +10,7 @@ I den här delen ska du använda Azure Portal för att kontrollera att din händ
 
     ![Visa meddelanden från händelsehubb](../media-draft/6-view-messages.png)
 
-1. Programmen SimpleSend och EventProcessorSample har konfigurerats att skicka och ta emot 100 meddelanden. Du ser att händelsehubben har bearbetat 100 meddelanden från SimpleSend-programmet och skickat 100 meddelanden till EventProcessorSample-programmet.
+1. Programmen SimpleSend och EventProcessorSample har konfigurerats att skicka och ta emot 100 meddelanden. Du ser att event hub har bearbetat 100 meddelanden från SimpleSend programmet och har 100 meddelanden till programmet EventProcessorSample.
 
 ## <a name="test-event-hub-resilience"></a>Testa händelsehubbens återhämtning
 
@@ -22,7 +22,6 @@ Följ stegen nedan för att se vad som händer när ett program skickar meddelan
     cd ~
     cd azure-event-hubs/samples/Java/Basic/SimpleSend
     java -jar ./target/simplesend-1.0.0-jar-with-dependencies.jar
-    ENTER
     ```
 
 1. Tryck på Retur när du ser **Överföringen är klar**.
@@ -43,7 +42,6 @@ Vänta minst fem minuter.
     cd ~
     cd azure-event-hubs/samples/Java/Basic/EventProcessorSample
     java -jar ./target/eventprocessorsample-1.0.0-jar-with-dependencies.jar
-    ENTER
     ```
 
 1. När meddelanden slutar att visas i konsolen trycker du på Retur.

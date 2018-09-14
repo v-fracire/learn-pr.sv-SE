@@ -1,26 +1,26 @@
-Azure is Microsoft's cloud computing platform. But before we go further, let's define briefly what cloud computing is.
+Azure är Microsofts plattform för molntjänster. Men innan vi går vidare vi definiera kort vilka cloud computing är.
 
-## What is cloud computing?
+## <a name="what-is-cloud-computing"></a>Vad är molntjänster?
 
-Cloud computing is the delivery of computing services over the Internet using a **pay-as-you-go** pricing model. Put another way, it's a way to rent compute power and storage from someone else's data center.
+Molnbaserad databehandling en leverans av DATABEHANDLINGSTJÄNSTER via Internet med en **användningsbaserad** prismodell. Placera ett annat sätt, är det ett sätt att hyra datorkraft och lagring från någon annans datacenter.
 
-Instead of maintaining CPUs and storage in your data center, you rent them for the time that you need them. You can treat cloud resources like you would your resources in your own data center. When you're done using them, you just give them back. You're billed only for what you use.
+I stället för att underhålla CPU: er och lagring i ditt datacenter, hyr du dem för den tid som du behöver dem. Du kan hantera resurser i molnet som du skulle göra dina resurser i ditt eget datacenter. När du är klar med dem kan du bara ge dem igen. Du faktureras bara för det du använder.
 
-While this is all great, the real value of the cloud is that it enables you to quickly solve your toughest business challenges and bring cutting edge solutions to your users.
+Även om det är allt bra är det verkliga värdet av molnet att den kan du snabbt lösa dina hårdaste affärsutmaningar och hämta banbrytande lösningar till dina användare.
 
-## What can I do on Azure?
+## <a name="what-can-i-do-on-azure"></a>Vad kan jag göra i Azure?
 
-Azure provides over 100 services that enable you to do everything from running your existing applications on virtual machines to exploring new software paradigms such as intelligent bots and mixed reality.
+Azure tillhandahåller över 100 tjänster som hjälper dig med allt från att köra befintliga program på virtuella datorer till att utforska nya programvaruparadigmer som till exempel intelligenta robotar och mixad verklighet.
 
-Many teams start exploring the cloud by moving their existing applications to virtual machines that run in Azure. While migrating your existing apps to VMs is a great start, the cloud is more than just "a different place to run your VMs".
+Många team börja utforska molnet genom att flytta befintliga program till virtuella datorer som kör i Azure. Migrera dina befintliga appar till virtuella datorer är en bra början, är mer än bara ”en annan plats att köra virtuella datorer” i molnet.
 
-For example, Azure provides AI and machine-learning services that can naturally communicate with your users through vision, hearing, and speech. It also provides storage solutions that dynamically grow to accommodate massive amounts of data. Azure services enable solutions that are simply not feasible without the power of the cloud.
+Azure tillhandahåller exempelvis AI och machine learning-tjänster som naturligt kan kommunicera med användarna via syn, hörsel och tal. Det ger också lagringslösningar för dynamiskt hantera stora mängder data. Azure-tjänster aktivera lösningar som helt enkelt inte är möjligt utan kraften i molnet.
 
 > [!TIP]
-> Have you ever attended a hackathon? A hackathon is an event where people from all disciplines get together and use technology to tackle tough business problems. Rather than laying cable and racking servers, you can use Azure as an efficient and low-cost way to let your team explore new ideas. Thousands of innovations are driven by experimentation on Azure. Later, be sure to check the case study discussing how [Study123 expanded learning from school to anywhere](https://microsoft.github.io/techcasestudies/azure%20functions/2017/07/19/Study123AzureFunctions.html) with Azure Functions and Media Services.
+> Har du någonsin gått ett hackathon? Ett hackathon är en händelse där personer från alla områden get tillsammans och använder teknik för att hantera komplexa verksamhetsproblem. I stället om kabel och del servrar, kan du använda Azure som ett effektivt och billigt sätt så att ditt team utforska nya idéer. Tusentals innovationer styrs av experiment i Azure. Senare, måste du kontrollera Fallstudie diskutera hur [Study123 expanderas learning från skolan någonstans](https://microsoft.github.io/techcasestudies/azure%20functions/2017/07/19/Study123AzureFunctions.html) med Azure Functions och Media Services.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Cloud computing enables you to rent compute power and storage instead of buying physical assets such as CPUs and storage.
+Molnbaserad databehandling kan du hyra beräkningskraft och lagring i stället för att köpa fysiskt tillgångar som till exempel CPU: er och lagring.
 
-Azure is Microsoft's cloud computing platform, and it provides many kinds of services that go well beyond what you can do with commodity hardware. These services range from cost-efficient virtual machines and storage that you manage to complete software solutions that we host and manage for you.
+Azure är Microsofts plattform för molntjänster och ger många typer av tjänster som än vad du kan göra med vanlig maskinvara. Dessa tjänster sträcker sig från kostnadseffektiv virtuella datorer och lagring som du hanterar att slutföra programvarulösningar som vi vara värd för och hantera för dig.

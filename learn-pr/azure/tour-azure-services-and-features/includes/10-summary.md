@@ -1,11 +1,11 @@
-We have covered a lot of ground in this module. 
+Vi har täckt många saker i den här modulen. 
 
 > [!div class="checklist"]
-> * You have seen some of the core products in Azure across the main service pillars.
-> * You have learned how to create a free account for Microsoft Azure and how to sign in using that account. 
-> * You reviewed the features of the Azure portal and its customization options. 
-> * You created, customized, and shared a dashboard.
+> * Du har sett några av de grundläggande produkterna i Azure i de huvudsakliga tjänstpelarna.
+> * Du har lärt dig hur du skapar ett kostnadsfritt konto för Microsoft Azure och hur du loggar in med det kontot. 
+> * Du har granskat funktionerna i Azure-portalen och dess anpassningsalternativ. 
+> * Du skapade, anpassade och delade en instrumentpanel.
 
-However, this is just the beginning. Azure has so much to offer you, no matter what role you plan in your organization. If you are a developer, Azure provides an easy way to test new platforms and build sophisticated apps. If you are an administrator, you will use the Azure portal, Azure CLI, or Azure PowerShell tools to administer your cloud-based infrastructure. If you are an architect, you can use Azure to test out new architecture ideas quickly.
+Det här är dock bara början. Azure har så mycket mer att erbjuda dig, oavsett vilken roll som du planerar i din organisation. Om du är en utvecklare, ger Azure dig ett enkelt sätt att testa nya plattformar och skapa avancerade appar. Om du är administratör, kan du använda Azure-portalen, Azure CLI eller Azure PowerShell-verktyg för att administrera din molnbaserade infrastruktur. Om du är en arkitekt, kan du använda Azure för att testa nya arkitekturidéer snabbt.
 
-Keep exploring Azure by selecting one or more paths through the content that's structured specifically for what you want to learn.
+Fortsätt utforska Azure genom att välja en eller flera vägar genom det innehåll som är speciellt strukturerat efter vad du vill lära dig.

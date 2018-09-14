@@ -1,13 +1,12 @@
-Imagine you're building an instant messaging mobile application. Your application allows users to send messages to all members of a specific user-defined group. There's some data that needs to be stored about each user like their username, email, and password. So you decide to use SQL Server to create a relational database for that information. However, the messages themselves need to be sent and accessed quickly and a relational database is too slow for that.
+Anta att du skapar ett mobilt program för snabbmeddelanden. Programmet tillåter användare att skicka meddelanden till alla medlemmar i en viss användardefinierad grupp. Det finns vissa data som behöver lagras om varje användare som sitt användarnamn, e-post och lösenord. Så väljer du att använda SQL Server för att skapa en relationsdatabas för den här informationen. Men själva meddelandena måste skickas och nås snabbt och en relationsdatabas är för långsamma för detta.
 
-You decide to create a Redis cache because of the number of benefits it provides. For example, you'll use transactions to ensure a message with a picture and text are sent together. You'll use data expiration to reset the name of the group chat after an hour. Finally, you'll use eviction policies to make sure the oldest messages are being deleted first when you're running low on memory.
+Du vill skapa en Azure Redis Cache på grund av hur många fördelar. Exempelvis kan du använder transaktioner för att se till att ett meddelande med en bild och texten skickas tillsammans. Du använder data upphör att gälla kan återställa namnet på gruppen chatten efter en timme. Slutligen ska du använda avlägsningsprinciper för att kontrollera att de äldsta meddelandena tas bort först när du slut på minne.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
-- Group multiple operations into a transaction
-- Set an expiration time on your data
-- Manage out of memory conditions
-- Use the cache-aside pattern
+I den här modulen kommer du att göra följande:
 
-
+- Gruppera flera åtgärder i en transaktion
+- Ställer in en förfallotid på dina data
+- Hantera minnet är slut villkor
+- Använda cache-aside-mönstret

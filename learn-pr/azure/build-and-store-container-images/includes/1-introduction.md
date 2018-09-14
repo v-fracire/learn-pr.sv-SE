@@ -1,14 +1,14 @@
-Azure Container Registry is a managed Docker registry service based on the open-source Docker Registry 2.0. Container Registry is a private, hosted in Azure, and allows you to build, store, and manage images for all types of container deployments.
+Azure Container Registry är en hanterad Docker-registertjänst som baseras på Docker Registry 2.0. Container Registry är privat, körs i Azure och gör att du kan skapa, lagra och hantera avbildningar för alla typer av containerdistribution.
 
-Container images can be pushed and pulled with Container Registry using the Docker CLI or the Azure CLI. Azure portal integration allows you to visually inspect the container images in your container registry. In distributed environments, the Container Registry geo-replication feature can be used to distribute container images to multiple Azure datacenters for localized distribution.
+Du kan push-överföra och hämta containeravbildningar i Container Registry med hjälp av Docker CLI eller Azure CLI. Integreringen med Azure-portalen gör att du kan inspektera containeravbildningarna visuellt i containerregistret. I distribuerade miljöer kan du använda funktionen för georeplikering i Container Registry till att distribuera containeravbildningar till olika Azure-datacenter i en lokaliserad distribution.
 
-In addition to storing container images, Azure Container Registry Build can build container images in Azure. Build uses a standard Dockerfile to create and store a container image in Azure Container Registry without the need for local Docker tooling. With Azure Container Registry Build, you can build on demand or fully automate container image builds using DevOps processes and tooling.
+Förutom att lagra containeravbildningar kan du även skapa containeravbildningar i Azure med Azure Container Registry Build. I Build används en vanlig Dockerfile till att skapa och lagra en containeravbildning i Azure Container Registry utan att du behöver några lokala Docker-verktyg. Med Azure Container Registry Build kan du skapa på begäran eller automatisera containeravbildningarna med hjälp av DevOps-processer och verktyg.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att:
 
-- Deploy an Azure container registry
-- Build a container image using Azure Container Registry Build
-- Deploy this container to an Azure container instance
-- Replicate the container image to multiple Azure datacenters
+- Skapa ett Azure-containerregister
+- Skapa en containeravbildning med Azure Container Registry Build
+- Distribuera den här containern till en Azure-containerinstans
+- Replikera containeravbildningen till flera Azure-datacenter

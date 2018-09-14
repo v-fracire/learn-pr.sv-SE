@@ -1,84 +1,84 @@
-You have connected your coffee machine to the Azure IoT Central application, enabling the exchange of data that allows you to monitor and manage your coffee machine. In this unit, you create rules that trigger actions when the water temperature of the coffee machine is outside the normal range. The actions are either emails or mobile notifications depending on whether or not the machine is under warranty. To add Microsoft Flow as an action, you need an Azure subscription. If you do not have an Azure subscription, adding Microsoft Flow as an action is optional.
+Du har anslutit en kaffebryggare till programmet Azure IoT Central, vilket aktiverar utbyte av data som gör att du kan övervaka och hantera kaffebryggaren. I den här enheten, kan du skapa regler som utlösa åtgärder när water kaffe-datorn är utanför det normala intervallet. Åtgärderna är antingen e-postmeddelanden eller mobilmeddelanden beroende på om kaffebryggaren har en gällande garanti. Om du vill lägga till Microsoft Flow som en åtgärd behöver du en Azure-prenumeration. Om du inte har en Azure-prenumeration är det valfritt att lägga till Microsoft Flow som en åtgärd.
 
-## Create rules in IoT Central with Email as the action
-Azure IoT Central has its native email capabilities to send notifications. In this scenario, if the coffee machine is outside the optimal temperature range and is not protected by the warranty, an email is sent by IoT Central to the client’s maintenance department.
+## <a name="create-rules-in-iot-central-with-email-as-the-action"></a>Skapa regler i IoT Central med e-postmeddelanden som åtgärd
+Azure IoT Central har en inbyggd funktion för att skicka meddelanden. I det här scenariot gäller följande: om kaffebryggaren ligger utanför temperaturintervallet och inte har en gällande garanti, skickas ett e-postmeddelande från IoT Central till kundens underhållsavdelning.
 
-Navigate to the **Rules** page for the exercises in this unit. Select **+ New Rule**, then **Telemetry**. Add the following two rules when the coffee machine warranty has expired and the water temperature is outside the optimal range. When you're finished, choose **Save**. 
+Navigera till den **regler** för övningarna i den här enheten. Välj **+ ny regel**, sedan **telemetri**. Lägg till följande två regler när kaffebryggarens garanti har upphört att gälla och vattentemperaturen ligger utanför det optimala intervallet. När du är klar väljer du **Spara**. 
 
 > [!NOTE]
-> When conditions are applied, all statements have to be true for the rules to be executed. If your condition is an "or" statement as in this scenario (e.g. the optimal temperature is less or greater than the predefined values while the warranty has expired), split the statement into two rules as shown here.
+> När villkoren tillämpas måste alla instruktioner vara sanna för att reglerna ska köras. Om villkoret är ett ”eller” uttryck som i upp det här scenariot (t.ex. optimala temperaturen är mindre eller större än de fördefinierade värdena när garantin har gått ut), instruktionen i två regler som visas här.
 
-1. Name the rule: Coffee Maker Water Too Cold (Expired)
+1. Namnge regeln: kaffebryggarens vatten är för kallt (garantin har upphört)
 
-    Add the conditions:      
-    * Device Warranty Expired equals 1
-    * Water Temperature is less than Coffee Makers Min Temperature
+    Lägg till villkor:      
+    * Enhetens garanti har upphört är lika med 1
+    * Water temperaturen är mindre än kaffe skaparna Min temperatur
 
-    ![Using Rule](../images/5-flow-a.png)
+    ![Med hjälp av regel](../images/5-flow-a.png)
 
-1. Name the rule: Coffee Maker Water Too Hot (Expired)
+1. Namnge regeln: kaffebryggarens vatten är för varmt (garantin har upphört)
 
-    Add the conditions:      
-    * Device Warranty Expired equals 1
-    * Water Temperature is greater than Coffee Makers Max Temperature
+    Lägg till villkor:      
+    * Enhetens garanti har upphört är lika med 1
+    * Water temperaturen är större än kaffe skaparna Max temperaturen
 
-1. To add an **Action**, scroll down on the Configure Telemetry Rule panel and choose **+** next to Actions, then choose **Email**.
+1. Att lägga till en **åtgärd**, rulla nedåt i panelen konfigurera telemetri regel och väljer **+** bredvid åtgärder, Välj **e-post**.
 
-1. To define the action, add the email address that you used to sign in to the IoT Central application. Add the notification message when the water temperature is too hot: "Coffee maker's water is too hot. Maintenance is required.  Warranty has expired." Repeat the same steps for when the water temperature is too cold. Add the message: "Coffee maker's water is too cold. Maintenance is required.  Warranty has expired."
+1. Lägg till den e-postadress som du använde för att logga in i programmet IoT Central för att definiera åtgärden. Lägg till aviseringsmeddelandet när vattentemperaturen är för varm: ”Kaffebryggarens vatten är för varmt. Underhåll krävs.  Garanti har upphört att gälla.” Upprepa samma steg för situationen där vattentemperaturen är för kall. Lägg till meddelandet: ”Kaffebryggarens vatten är för kallt. Underhåll krävs.  Garanti har upphört att gälla.”
 
-1. Choose **Save**. Your rule is listed on the Rules page.
+1. Välj **Spara**. Regeln visas på sidan regler.
 
-1. To trigger the rule, set the optimal temperature in Settings outside the range that you specified under Properties. Once you are done with the validation, turn off the rules to avoid flooding your Inbox with emails. 
+1. Utlös regeln genom att ställa in optimala temperaturen i inställningarna för utanför det intervall som du angav under Egenskaper. Inaktivera regler för att undvika att överbelasta din inkorg med e-postmeddelanden när du är klar med verifieringen. 
 
-## Create rules in IoT Central with Microsoft Flow as the action
+## <a name="create-rules-in-iot-central-with-microsoft-flow-as-the-action"></a>Skapa regler i IoT Central med Microsoft Flow som åtgärd
 
-Microsoft Flow automates workflows across many applications. It’s one of the actions that can be triggered when a rule is fired in IoT Central. In this scenario, Microsoft Flow sends a mobile notification to a local technician when the coffee machine reaches certain temperature threshold and is under warranty. Navigate to **Rules** to configure conditions and add a Flow as an action when the rule is fired. 
+Microsoft Flow automatiserar arbetsflöden för många program. Det är en av de åtgärder som kan utlösas när en regel utlöses i IoT Central. I det här scenariot skickar Microsoft Flow ett mobilmeddelande till en lokal tekniker när kaffebryggaren når ett visst tröskelvärde för temperaturen och garantin gäller. Gå till **Regler** och konfigurera villkor och lägg till ett flöde som en åtgärd när regeln utlöses. 
  
 > [!NOTE]
-> This exercise is optional if you do not have an Azure subscription to turn on Microsoft Flow.
+> Den här övningen är valfri om du inte har en Azure-prenumeration och kan aktivera Microsoft Flow.
 
 
-### Extend your IoT Central trial to 30 days
+### <a name="extend-your-iot-central-trial-to-30-days"></a>Förläng din utvärdering med IoT Central och 30 dagar
 
-1. To turn on Microsoft Flow, you need to extend your trial to 30 days. To do so, select **Extend Trial to 30 days** on the Billing page, choose an Azure Active Directory and Azure subscription. An Azure subscription enables you to create instances of Azure services. Azure IoT Central automatically finds all the Azure Subscriptions you have access to, and displays them in the drop-down.
+1. Om du vill aktivera Microsoft Flow, måste du utöka din utvärdering med 30 dagar. Om du vill göra det, Välj **utöka utvärderingsversionen till 30 dagar** på sidan fakturering väljer du en Azure Active Directory och Azure-prenumeration. Med en Azure-prenumeration kan du skapa instanser av Azure-tjänster. Azure IoT Central hittar automatiskt alla Azure-prenumerationer som du har åtkomst till och visar dem i listrutan.
     
-1. If you don’t have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Application Manager** page. Your new subscription appears in the **Azure Subscription** drop-down.
+1. Om du inte har en Azure-prenumeration, kan du skapa ett en på [Registreringssidan för Azure](https://aka.ms/createazuresubscription). När du skapar Azure-prenumeration kan du gå tillbaka till den **Programhanterare** sidan. Din nya prenumeration visas i listrutan **Azure-prenumeration**.
         
 
-### Add the following rules when the coffee machine is under warranty. 
+### <a name="add-the-following-rules-when-the-coffee-machine-is-under-warranty"></a>Lägg till följande regler när kaffebryggaren har en gällande garanti. 
 
-1. Name the rule: Coffee Maker Water Too Cold (Warranty)
+1. Namnge regeln: kaffebryggarens vatten är för kallt (garanti)
 
-    Add the conditions:      
-    * Device Warranty Expired equals 0
-    * Water Temperature is less than Coffee Makers Min Temperature
+    Lägg till villkor:      
+    * Enhetens garanti har upphört är lika med 0
+    * Water temperaturen är mindre än kaffe skaparna Min temperatur
 
-1. Name the rule: Coffee Maker Water Too Hot (Warranty)
+1. Namnge regeln: kaffebryggarens vatten är för varmt (garanti)
 
-    Add the conditions:      
-    * Device Warranty Expired equals 0
-    * Water Temperature is greater than Coffee Makers Max Temperature
+    Lägg till villkor:      
+    * Enhetens garanti har upphört är lika med 0
+    * Water temperaturen är större än kaffe skaparna Max temperaturen
 
-1. After you save the rule conditions, choose Microsoft Flow as a new action when the coffee maker is under warranty. A new tab or window should open in your browser, taking you to Microsoft Flow. You land on an overview page showing an IoT Central connector connecting to a custom action. Choose **Continue**. 
+1. När du har sparat regelvillkoren kan du välja Microsoft Flow som en ny åtgärd när kaffebryggaren har en gällande garanti. En ny flik eller ett fönster bör öppnas i din webbläsare, som tar dig till Microsoft Flow. Du hamnar på en översiktssida som visar en IoT Central-anslutningsapp som ansluter till en anpassad åtgärd. Välj **Fortsätt**. 
 
-    You are taken to the Microsoft Flow designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
+    Du kommer till Microsoft Flow-designverktyget och kan skapa arbetsflödet. Arbetsflödet har en IoT Central-utlösare som redan har programmet och regeln ifyllda.
 
-    At this point, you can add any action you want to your workflow. As an example, let's send a mobile notification. Search for notification, and choose Notifications - Send me a mobile notification.
+    Nu kan du lägga till alla åtgärder du vill i arbetsflödet. Som ett exempel kan vi skicka ett mobilmeddelande. Sök efter meddelandet och välj Meddelanden – Send me a mobile notification (Skicka ett mobilmeddelande).
 
-    In the action, fill in the Text field with what you want your notification to say. You can include Dynamic content from your IoT Central rule, passing along important information such as device ID and name.
+    I åtgärden fyller du i fältet Text med vad du vill att meddelandet ska innehålla. Du kan inkludera dynamiskt innehåll från IoT Central-regeln och skicka med viktig information, till exempel enhets-ID och namn.
     
-    ![Using Microsoft Flow as an action](../images/5-flow-b.png)
+    ![Använda Microsoft Flow som en åtgärd](../images/5-flow-b.png)
 
-1. Once you've set up the workflow in Microsoft Flow, download the [Flow app](https://www.microsoft.com/en-us/p/microsoft-flow/9nkn0p5l9n84?activetab=pivot%3aoverviewtab) from Microsoft Store to your mobile device. Sign in using the same account that you used to set up the flow in the Flow web app. For testing purposes, set the optimal temperature out of range to trigger the rule. 
+1. När du har konfigurerat arbetsflödet i Microsoft Flow laddar du ned [Flow-appen](https://www.microsoft.com/en-us/p/microsoft-flow/9nkn0p5l9n84?activetab=pivot%3aoverviewtab) från Microsoft Store till din mobila enhet. Logga in med samma konto som du använde för att konfigurera flödet i Flow-webbappen. Ställa in optimala temperaturen utanför intervallet för att utlösa regeln i testsyfte. 
 
     > [!NOTE]
-    > Device Property: Device Warranty Expired (1 for expired or 0 for under warranty in the device code) is randomly generated by the device and then sent by the device to the Azure IoT Central application. For testing purposes, if you'd like to control Device Warranty Expired (1 or 0), reboot your coffee machine until you receive the intended warranty state to trigger the action that you're testing. To receive a mobile notification, reboot your coffee machine until you see that Device Warranty Expired is 0 in the console log. 
+    > Enhetsegenskap: Enhetens garanti har upphört (1 för upphört eller 0 för gällande garanti i enhetskoden) genereras slumpmässigt av enheten och skickas sedan av enheten till programmet Azure IoT Central. För testning, om du vill att styra enheten garanti upphört att gälla (1 eller 0), starta om datorn kaffe tills du får tillståndet avsedda garanti för att utlösa den åtgärd som du testar. För att få ett mobilmeddelande, startar du om datorn kaffe tills du ser att enheten garantin inte längre är 0 i konsolloggen för. 
 
-    After several minutes, notifications appear in the Flow mobile app.
+    Efter ett par minuter visas meddelanden i Flow-mobilappen.
 
-    ![Using Microsoft Flow as an action](../images/5-flow-c.png)
+    ![Använda Microsoft Flow som en åtgärd](../images/5-flow-c.png)
 
-## Summary
-You’ve learned to create rules in IoT Central and triggered actions such as an email or a mobile notification through Microsoft Flow when the rule is fired. In this case, when the water temperature of the coffee machine is out of the optimal range, notifications are sent to either a repair technician or the client depending on the status of the warranty. 
+## <a name="summary"></a>Sammanfattning
+Du har lärt dig att skapa regler i IoT Central och utlöst åtgärder som exempelvis ett e-postmeddelande eller ett mobilmeddelande via Microsoft Flow när regeln utlöses. I det här fallet när water kaffe-datorn är utanför det optimala intervallet, skickas meddelanden till en reparation tekniker eller klienten beroende på status för garantin. 
 
 

@@ -1,4 +1,4 @@
-När vi har en uppfattning om hur vi ska lagra data i lagringskonton, containrar och blobar kan vi tänka på de Azure-resurser som vi måste skapa för att appen ska fungera.
+När vi har en uppfattning om hur vi ska lagra data i lagringskonton, behållare och blobar kan vi tänka på de Azure-resurser som vi måste skapa för att appen ska fungera.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 
@@ -6,9 +6,9 @@ Skapande av lagringskonton är en administrativ-/hanteringsaktivitet som utförs
 
 ### <a name="containers"></a>Containrar
 
-Till skillnad från skapande av lagringskonton är skapandet av containrar en enkel aktivitet som kan utföras inifrån en app. Det är inte ovanligt att appar skapar och tar bort containrar som en del av sättet de arbetar.
+Till skillnad från skapande av lagringskonton är skapandet av behållare en enkel aktivitet som kan utföras inifrån en app. Det är inte ovanligt att appar skapar och tar bort behållare som en del av sättet de arbetar.
 
-För appar som förlitar sig på en känd uppsättning av containrar med hårdkodade eller förkonfigurerade namn är den vanliga metoden att låta appen skapa containrarna som behövs vid start eller vid första användning om de inte redan finns. Att låta appen skapa containrar i stället för att göra det som en del av distributionen av appen eliminerar behovet för både appen och distributionsprocessen att känna till namnen på de containrar som appen använder.
+För appar som förlitar sig på en känd uppsättning av behållare med hårdkodade eller förkonfigurerade namn är den vanliga metoden att låta appen skapa behållarna som behövs vid start eller vid första användning om de inte redan finns. Att låta appen skapa behållare i stället för att göra det som en del av distributionen av appen eliminerar behovet för både appen och distributionsprocessen att känna till namnen på behållarna som appen använder.
 
 ## <a name="exercise"></a>Övning
 
@@ -16,22 +16,22 @@ Vi kommer att färdigställa en oavslutat ASP.NET Core-app genom att lägga till
 
 ![Skärmbild av webbappen FileUploader](../media/4-fileuploader-with-files.PNG)
 
-Vår app fungerar som en delad mapp som tar emot filuppladdningar och gör dem tillgängliga för nedladdning. Den använder inte en databas för att organisera blobar &mdash; i stället sanerar den namnen på de uppladdade filerna och använder dem som blobnamn direkt. Alla uppladdade filer lagras i en enskild container.
+Vår app fungerar som en delad mapp som tar emot filuppladdningar och gör dem tillgängliga för nedladdning. Den använder inte en databas för att organisera blobar &mdash; i stället sanerar den namnen på de uppladdade filerna och använder dem som blobnamn direkt. Alla uppladdade filer lagras i en enskild behållare.
 
 Koden vi börjar med kompileras och körs, men delarna som är ansvariga för att lagra och läsa in data är tomma. När vi har slutfört koden kan vi distribuera appen till Azure App Service och testa den.
 
 Vi kan ställa in lagringsinfrastrukturen för vår app.
 
-### <a name="resource-group-and-storage-account"></a>Resursgrupp och lagringskonto
-<!---TODO: Update for sandbox?--->
+### <a name="storage-account"></a>Lagringskonto
 
-Först skapar vi en resursgrupp som ska innehålla alla resurser i den här kursdelen. På slutet kommer vi att ta bort den för att rensa bort allt vi skapat. Vi ska även skapa lagringskontot vår app ska använda för att lagra blobar.
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
-Använd Azure Cloud Shell-terminalen för att skapa resursgruppen och lagringskontot genom att köra följande Azure CLI-kommandon. Du måste ange ett unikt namn för lagringskontot &mdash;. Gör en anteckning om det till senare. Valet av `eastus` för platsen är godtycklig.
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
+
+Använda Azure Cloud Shell-terminalen för att skapa ett lagringskonto. Du måste ange ett unikt namn för lagringskontot &mdash;. Gör en anteckning om det till senare.
 
 ```console
-az group create --name blob-exercise-group --location eastus
-az storage account create --name <your-unique-storage-account-name> --resource-group blob-exercise-group --location eastus --kind StorageV2
+az storage account create --name <your-unique-storage-account-name> --resource-group <rgn>[Sandbox resource group name]</rgn> --location <location-name> --kind StorageV2
 ```
 
 > [!NOTE]
@@ -39,4 +39,4 @@ az storage account create --name <your-unique-storage-account-name> --resource-g
 
 ### <a name="container"></a>Container
 
-Appen som vi kommer att arbeta med i den här modulen använder en enskild container. Vi ska följa regelverket och låta appen skapa containern vid start. Men skapandet av en container kan göras från Azure CLI: kör `az storage container create -h` i Cloud Shell-terminalen om du vill se dokumentationen.
+Appen som vi kommer att arbeta med i den här modulen använder en enskild behållare. Vi ska följa regelverket och låta appen skapa behållaren vid start. Men skapandet av en behållare kan göras från Azure CLI: kör `az storage container create -h` i Cloud Shell-terminalen om du vill se dokumentationen.

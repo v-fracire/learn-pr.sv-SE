@@ -1,8 +1,8 @@
-The Azure Sandbox allows you to create resources in the following locations. Please select the closest of these regions to create your resources in:
+Sandbox-miljön för Azure kan du skapa resurser på följande platser. Välj den närmaste av dessa regioner för att skapa dina resurser i:
 
 - Region A
 - Region B
 - Region C
 
 > [!NOTE]
-> This is a limited set compared to the full list of regions available on the public Azure platform. When you are building in your personal Azure subscription, you will be able to leverage any of the 54 global regions, across 140 countries. Click here to see the [full list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+> Det här är en begränsad uppsättning jämfört med en fullständig lista över regioner som är tillgängliga på offentlig Azure-plattformen. När du skapar i din personliga Azure-prenumeration, kommer du att kunna använda någon av 54 globala regioner över 140 länder/regioner. Klicka här om du vill se den [fullständig lista över Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).

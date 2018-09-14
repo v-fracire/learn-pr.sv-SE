@@ -4,7 +4,7 @@ Nu när vi har skapat en funktionsapp ska vi titta på hur du skapar, konfigurer
 
 Funktioner är aktivitetsdrivna, vilket innebär att de körs som svar på en händelse.
 
-Den typ av händelse som initierar funktionen kallas för en *utlösare*. Du måste konfigurera en funktion med exakt en utlösare.
+Den typ av händelse som initierar funktionen kallas för en **utlösare**. Du måste konfigurera en funktion med exakt en utlösare.
 
 Azure har stöd för utlösare för följande tjänster.
 
@@ -17,15 +17,14 @@ Azure har stöd för utlösare för följande tjänster.
 | Microsoft Graph-händelser  | Starta en funktion som svar på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en resurstyp för Microsoft Graph.       |
 | Queue Storage           | Starta en funktion när ett nytt objekt tas emot i en kö. Kömeddelandet anges som indata till funktionen.      |
 | Service Bus             | Starta en funktion som svar på meddelanden från en Service Bus-kö.       |
-| Timer                   | Starta en funktion efter ett schema.       |
+| Timer                   | Starta en funktion enligt ett schema.       |
 | Webhooks                | Starta en funktion med en webhook-begäran.       |
 
 ### <a name="bindings"></a>Bindningar
 
-Bindningar är ett deklarativt sätt att koppla data och tjänster till din funktion. Bindningar vet hur de ska kommunicera med olika tjänster vilket innebär att du inte behöver skriva kod i din funktion för att ansluta till datakällor och hantera anslutningar. Plattformen tar hand om den komplexiteten som en del av bindningskoden. Varje bindning har en riktning – din kod läser data från *indatabindningar* och skriver data till *utdatabindningar*. Varje funktion kan ha noll eller flera bindningar för att hantera indata och utdata som bearbetas av funktionen.
+Bindningar är ett deklarativt sätt att koppla data och tjänster till din funktion. Bindningar vet hur du prata med olika tjänster, vilket innebär att du inte behöver skriva kod i din funktion för att ansluta till datakällor och hantera anslutningar. Plattformen hand tar om den komplexiteten som en del av bindning koden. Varje bindning har en riktning – din kod läser data från *indatabindningar* och skriver data till *utdatabindningar*. Varje funktion kan ha noll eller flera bindningar för att hantera indata och utdata som bearbetas av funktionen.
 
-> [!NOTE]
-> Tekniskt sett är en utlösare en särskild typ av indatabindning som har den ytterligare funktionen att kunna initiera en körning.
+En utlösare är en särskild typ av indatabindning som har ytterligare funktioner med att starta körning.
 
 Azure tillhandahåller ett [stort antal bindningar](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings) för att ansluta till olika lagringsenheter och meddelandetjänster.
 
@@ -33,7 +32,7 @@ Azure tillhandahåller ett [stort antal bindningar](https://docs.microsoft.com/a
 
 Nu ska vi titta på ett exempel på hur du konfigurerar en funktion med en indatabindning (utlösare) och en utdatabindning. Anta att vi vill läsa data från Blob Storage, bearbeta dem i vår funktion och sedan skriva ett meddelande till en kö. Du konfigurerar en _indatabindning_ av typen *blob* och en _utdatabindning_ av typen *kö*.
 
-Bindningar kan definieras på Azure Portal och lagras som JSON-filer som du också kan redigera direkt. Följande JSON är en exempeldefinition av en utlösare och en bindning för en funktion.
+Bindningar kan definieras i Azure-portalen och lagras som JSON-filer som du kan också redigera direkt. Följande JSON är en exempeldefinition av en utlösare och en bindning för en funktion.
 
 ```json
 {
@@ -64,8 +63,8 @@ Azure tillhandahåller flera fördefinierade funktionsmallar för vanliga scenar
 
 ### <a name="quickstart-templates"></a>Snabbstartsmallar
 
-När du lägger till din första funktion visas skärmen Snabbstart. På den här skärmen kan du välja en utlösartyp (HTTP, Timer eller Data) och ett programmeringsspråk (C#, JavaScript, F# eller Java). Baserat på dina val genererar Azure sedan funktionskoden och konfigurationen med exempelkod som visar de indata som tas emot i loggen. 
- 
+När du lägger till din första funktion visas skärmen Snabbstart. På den här skärmen kan du välja en utlösartyp (HTTP, Timer eller Data) och ett programmeringsspråk (C#, JavaScript, F# eller Java). Baserat på dina val genererar Azure sedan funktionskoden och konfigurationen med exempelkod som visar de indata som tas emot i loggen.
+
 ### <a name="custom-function-templates"></a>Anpassade funktionsmallar
 
 Valet av snabbstartsmallar ger enkel åtkomst till de vanligaste scenarierna. Azure tillhandahåller dock 30 ytterligare mallar som du kan börja med. De finns från skärmen med listan över mallar när du skapar efterföljande funktioner eller via alternativet **Anpassad funktion** på skärmen Snabbstart.
@@ -84,9 +83,9 @@ När du skapar en funktion från en mall skapas flera filer. Om du till exempel 
 
 När du väljer en funktion i din funktionsapp öppnas en kodredigerare som visar koden för funktionen, som du ser i följande skärmbild.
 
-![Gränssnittet där du väljer funktionsmallar visar en uppsättning mallar som hjälper dig att snabbt skapa funktioner.](../media-draft/4-file-navigation.png)
+![Skärmbild av Azure-portalen som visar bladet funktionen redigeraren, inklusive utökad visa filer-menyn med den valda ”HttpTriggerJS1”-funktionen i vår app service-navigering och menyn Visa filer markerat.](../media/4-file-navigation.png)
 
-Som du ser i föregående skärmbild finns det en utfällbar meny till höger som innehåller en flik med namnet **Visa filer**. Om du väljer den här fliken visas filstrukturen bakom din funktion.  
+Som du ser i föregående skärmbild, det finns en utfälld meny till höger som innehåller en flik för att **visa filer**. Om du väljer den här fliken visas filstrukturen bakom din funktion.
 
 ## <a name="testing-your-azure-function"></a>Testa Azure-funktionen
 
@@ -94,27 +93,27 @@ När du har skapat en funktion vill du antagligen testa den. Du kan göra på et
 
 ### <a name="manual-execution"></a>Manuell körning
 
-Du kan starta en funktion genom att manuellt utlösa den konfigurerade utlösaren. Om du till exempel använder en HTTP-utlösare kan du använda ett verktyg som Postman eller cURL för att initiera en HTTP-begäran till URL:en för funktionens slutpunkt som är tillgänglig från HTTP-utlösarens definition (**Hämta funktionens URL**).  
+Du kan starta en funktion genom att manuellt utlösa den konfigurerade utlösaren. Till exempel om du använder en HTTP-utlösare – du kan använda ett verktyg, till exempel Postman eller cURL för att initiera en HTTP-begäran till din funktion slutpunkts-URL, som är tillgänglig från http-utlösarens definition (**hämta Funktionswebbadress**).
 
 ### <a name="testing-in-the-azure-portal"></a>Testa på Azure Portal
 
-Portalen erbjuder även ett bekvämt sätt att testa dina funktioner. På höger sida av kodfönstret finns en utfällbar navigeringsmeny med flikar. Menyn innehåller ett **testobjekt**. Genom att expandera menyn och välja den här fliken får du möjlighet att köra funktionen och visa resultatet på ett annat sätt. När du klickar på **Kör** i det här testfönstret visas resultatet i utdatafönstret, tillsammans med en statuskod. 
+Portalen erbjuder även ett bekvämt sätt att testa dina funktioner. På höger sida av kodfönstret finns en utfällbar navigeringsmeny med flikar. Menyn innehåller ett **testobjekt**. Genom att expandera menyn och välja den här fliken får du möjlighet att köra funktionen och visa resultatet på ett annat sätt. När du klickar på **Kör** i det här testfönstret visas resultatet i utdatafönstret, tillsammans med en statuskod.
 
 ## <a name="monitoring-dashboard"></a>Instrumentpanel för övervakning
 
 Det är viktigt att kunna övervaka funktionerna både vid utveckling och i produktion. Azure Portal innehåller en övervakningsinstrumentpanel som är tillgänglig om du aktiverar Application Insights-integration. När du expanderar funktionens nod visas ett **skärmmenyalternativ** på funktionsappens navigeringsmeny. På den här övervakningsinstrumentpanelen kan du snabbt visa historik över funktionskörningar liksom tidsstämpeln, resultatkoden, varaktigheten och åtgärds-ID:t som har lagts till av Application Insights.
 
-![Skärmbild av övervakningsinstrumentpanelen som startas via menyalternativet **Övervaka** för funktionen och som visar en lista över lyckade och misslyckade anrop till funktionen.](../media-draft/4-monitor-function.png)
+![Skärmbild av Azure-portalen som visar en HTTP-funktionen Monitor-bladet med flera funktionen resultat och deras motsvarande HTTP-statuskoder, med menyalternativet modul för funktionen markerat.](../media/4-monitor-function.png)
 
 ## <a name="streaming-log-window"></a>Fönster för strömmande loggning
 
-Du kan också lägga till loggningsinstruktioner i en funktion för felsökning på Azure Portal. Ett loggningsobjekt skickas till metoderna som anropas för respektive språk och kan användas för att logga information till loggfönstret som visas på en utfällbar flikmeny längst ned i kodfönstret. 
+Du kan också lägga till loggningsinstruktioner i en funktion för felsökning på Azure Portal. Anropade metoder för varje språk skickas ett ”loggning”-objekt som kan användas för att logga information till loggfönstret finns i en flikar utfälld meny som finns längst ned i kodfönstret.
 
 Följande JavaScript-kodstycke visar hur du loggar ett meddelande med hjälp av metoden `context.log` (objektet `context` skickas till hanteraren).
 
 ```javascript
   context.log('Enter your logging statement here');
-```  
+```
 
 Vi kan göra samma sak i C# med hjälp av metoden `log.Info`. I det här fallet skickas objektet `log` till C#-metoden som bearbetar funktionen.
 
@@ -124,4 +123,4 @@ Vi kan göra samma sak i C# med hjälp av metoden `log.Info`. I det här fallet 
 
 ### <a name="errors-and-warnings-window"></a>Fönstret Fel och varningar
 
-Du kan hitta fliken med fönstret för fel och varningar på samma utfällbara meny som den för loggfönstret. Det här fönstret visar kompileringsfel och varningar i din kod.
+Du hittar fliken för fönstret Fel och varningar på samma utfällbara meny som loggfönstret. Det här fönstret visar kompileringsfel och varningar i din kod.

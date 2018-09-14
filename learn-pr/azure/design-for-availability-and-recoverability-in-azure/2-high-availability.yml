@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-availability-and-recoverability.2-high-availability
-title: Build a highly available architecture
+title: Skapa en arkitektur med hög tillgänglighet
 metadata:
-  title: Build a highly available architecture
-  description: Build a highly available architecture
+  title: Skapa en arkitektur med hög tillgänglighet
+  description: Skapa en arkitektur med hög tillgänglighet
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
@@ -14,33 +13,33 @@ durationInMinutes: 20
 content: |
   [!include[](includes/2-high-availability.md)]
 quiz:
-  title: 'Knowledge Check - Build a highly available architecture'
+  title: Knowledge Check – Skapa en arkitektur med hög tillgänglighet
   questions:
-  - content: 'An SLA is important to define for your service because:'
-    choices:
-    - content: 'It helps you determine your backup retention requirements.'
-      isCorrect: false
-      incorrectExplanation: 'Backup retention is important to define, but it is not driven by SLA.'
-    - content: 'It helps you determine the availability of your service that you will commit to your customers.'
-      isCorrect: true
-      correctExplanation: 'Service level agreement is a commitment you are making to your customers for the availability of your service.'
-    - content: 'You can use it to convince your manager to automate virtual machine creation.'
-      isCorrect: false
-      incorrectExplanation: 'While this is a good discussion to have, your SLA will likely not have any impact on the outcome.'
-    - content: 'You use it to define the RBAC settings for your resources.'
-      isCorrect: false
-      incorrectExplanation: 'RBAC settings are important, but they are not related to the SLA of your application.'
-  - content: 'Which of the following is not used in a highly available architecture?'
-    choices:
-    - content: 'Load balancing'
-      isCorrect: false
-      incorrectExplanation: 'Load balancing is typically used in a highly available architecture to distribute load to available systems and remove failed systems from load.'
-    - content: 'Availability zones'
-      isCorrect: false
-      incorrectExplanation: 'Availability zones are used in a highly available architecture to distribute systems across multiple datacenters within a region.'
-    - content: 'Availability sets'
-      isCorrect: false
-      incorrectExplanation: 'Availability sets are used in a highly available architecture to minimize the impact from localized failures and maintenance events.'
-    - content: 'A recovery service vault'
-      isCorrect: true
-      correctExplanation: 'Recovery service vaults provide a destination for backups, but they are not part of a highly available architecture.'
+    - content: 'Serviceavtal (SLA) är viktigt att definiera för tjänsten eftersom:'
+      choices:
+        - content: Det hjälper dig att fastställa krav för kvarhållning av säkerhetskopior.
+          isCorrect: false
+          incorrectExplanation: 'Kvarhållning av säkerhetskopior är viktigt att definiera, men den drivs inte av serviceavtal.'
+        - content: Det hjälper dig att avgöra tillgängligheten för din tjänst som du genomför till dina kunder.
+          isCorrect: true
+          correctExplanation: Serviceavtal är ett åtagande som du gör i dina kunder för tillgängligheten för din tjänst.
+        - content: Du kan använda den för att övertyga din chef att automatisera skapande av virtuella datorer.
+          isCorrect: false
+          incorrectExplanation: Samtidigt som det är bra att ha den diskussionen är det inte sannolikt att serviceavtalet påverkar resultatet.
+        - content: Du kan använda den för att definiera RBAC-inställningar för dina resurser.
+          isCorrect: false
+          incorrectExplanation: 'RBAC-inställningar är viktiga, men de inte är relaterade till serviceavtalet för ditt program.'
+    - content: Vilket av följande används inte i en arkitektur med hög tillgänglighet?
+      choices:
+        - content: Belastningsutjämning
+          isCorrect: false
+          incorrectExplanation: Belastningsutjämning används vanligen i en arkitektur med hög tillgänglighet för att distribuera belastning på tillgängliga system och ta bort misslyckade system från belastningen.
+        - content: Tillgänglighetszoner
+          isCorrect: false
+          incorrectExplanation: Tillgänglighetszoner används i en arkitektur med hög tillgänglighet för att distribuera system till flera datacenter inom en region.
+        - content: Tillgänglighetsuppsättningar
+          isCorrect: false
+          incorrectExplanation: Tillgänglighetsuppsättningar används i en arkitektur med hög tillgänglighet för att minimera påverkan från lokaliserat fel och underhåll.
+        - content: Ett Recovery Service-valv
+          isCorrect: true
+          correctExplanation: 'Recovery service-valv får du ett mål för säkerhetskopior, men de ingår inte i en arkitektur med hög tillgänglighet.'

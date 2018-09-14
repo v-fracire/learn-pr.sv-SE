@@ -1,69 +1,70 @@
-One of the biggest problems with security is being able to see all the areas you need to protect and to find vulnerabilities before hackers do. Azure provides a service which makes this much easier called Azure Security Center.
+En av de största problemen med säkerhet att kunna se vilka områden som du behöver för att skydda och hitta sårbarheter innan hackare gör. Azure tillhandahåller en tjänst som gör det mycket enklare kallas Azure Security Center.
 
-## What is Azure Security Center?
+## <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
-Azure Security Center (ASC) is a monitoring service that provides threat protection across all of your services both in Azure, and on-premises. It can:
+Azure Security Center (ASC) är en övervakningstjänst som ger skydd mot hot i alla dina tjänster både i Azure och lokalt. Det kan:
 
-- Provide security recommendations based on your configurations, resources, and networks.
-- Monitor security settings across on-premises and cloud workloads and automatically apply required security to new services as they come online.
-- Continuously monitor all your services and perform automatic security assessments to identify potential vulnerabilities before they can be exploited.
-- Use machine learning to detect and block malware from being installed in your services and virtual machines. You can also white-list applications to ensure that only the apps you validate are allowed to execute.
-- Analyze and identify potential inbound attacks and help to investigate threats and any post-breach activity which might have occurred.
-- Just-In-Time access control for ports, reducing your attack surface by ensuring the network only allows traffic you require.
+- Ange säkerhetsrekommendationer baserat på dina konfigurationer, resurser och nätverk.
+- Övervaka säkerhetsinställningar i både lokala och molnbaserade arbetsbelastningar och automatiskt tillämpa den begärda på nya tjänster som de är online.
+- Kontinuerligt övervaka alla dina tjänster och utföra automatisk säkerhetsutvärderingar för att identifiera potentiella problem innan de kan utnyttjas.
+- Använda maskininlärning att identifiera och blockera skadlig kod installeras i dina tjänster och virtuella datorer. Du kan också lista för tillåten program så att endast de appar som du verifierar tillåts att köra.
+- Analysera och identifiera eventuella inkommande attacker och bidra till att undersöka hot och alla aktiviteter efter intrång som har inträffat.
+- Just-In-Time-åtkomstkontroll för portar, minska din attackyta genom att kontrollera att nätverket bara tillåter trafik som du behöver.
 
-ASC is part of the [Center for Internet Security](https://www.cisecurity.org/cis-benchmarks/) (CIS) recommendations.
+ASC är en del av den [Center för Internet Security](https://www.cisecurity.org/cis-benchmarks/) (CIS) rekommendationer.
 
-## Activating Azure Security Center
+## <a name="activating-azure-security-center"></a>Aktivera Azure Security Center
 
-Given the benefits of ASC, the security team at your company has decided that it be turned on for all subscriptions at your office. You got an email this morning to turn it on for your applications - so let's look at how to do that.
+Azure Security Center erbjuder enhetlig säkerhetshantering och Avancerat skydd för arbetsbelastningar i hybridmoln och erbjuds på två nivåer: kostnadsfri och Standard. Den kostnadsfria nivån innehåller säkerhetsprinciper, utvärderingar och rekommendationer, medan Standard-nivån ger en robust uppsättning funktioner, inklusive hotinformation.
 
-1. Open the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Azure Security Center** from the left hand menu, if you don't see it there, you can select **All services** and find **Security Center** in the security section as shown below.
+Fördelarna med ASC får har security-teamet på företaget beslutat att det aktiveras för alla prenumerationer på din arbetsplats. Du har fått ett e-postmeddelande i morse att aktivera den för dina program – så vi tittar på hur du gör.
 
-![Open Azure Security Center](../media-draft/ASC-Menu.png)
+1. Öppna den [Azure-portalen](https://portal.azure.com?azure-portal=true) och välj **Azure Security Center** i den vänstra menyn om du inte ser det, kan du välja **alla tjänster** och hitta  **Security Center** i avsnittet security enligt nedan.
 
-2. If you have never opened ASC, the blade will start on the **Getting started** entry which might ask you to upgrade your subscription. Ignore that for now, select **Skip** at the bottom of the page, and then select **Overview**.
-    - This will display the "big security picture" across all the elements available in your subscription.
-    - This has a ton of great information you can explore.
+![Öppna Azure Security Center](../media-draft/ASC-Menu.png)
 
-3. Next, select **Coverage**, under "Policy and Compliance". This will display what subscription elements are being covered (or not covered) by ACS. Here you can turn on ACS for any subscription you have access to. Try switching between the three coverage areas: "Not covered", "Basic coverage" and "Standard coverage".
+2. Om du aldrig har öppnat ASC bladet börjar den **komma igång** post som kan be dig att uppgradera din prenumeration. Ignorera som för tillfället, Välj **hoppa över** längst ned på sidan och välj sedan **översikt**.
+    - ”Big security bild” visas över alla element som finns i din prenumeration.
+    - Detta har massor av bra information som du kan utforska.
 
-4. Subscriptions that are not covered will have a prompt to activate ACS. You can press the "Upgrade Now" button to enable ACS for all the resources in the subscription.
+3. Välj sedan **täckning**, under ”principer och efterlevnad”. Detta visar vad prenumeration element som ska omfattas (eller inte omfattas) av ACS. Här kan du aktivera på ACS för alla prenumerationer som du har åtkomst till. Försök att byta mellan de tre områdena täckning: ”inte motsvarar”, ”grundläggande täckning” och ”standardtäckning”.
 
-![Upgrade Coverage](../media-draft/Upgrade-Now.png)
+4. Prenumerationer som inte omfattas får en uppmaning om att aktivera ACS. Du kan trycka på knappen ”uppgradera nu” för att aktivera ACS för alla resurser i prenumerationen.
 
-### Free vs. Standard pricing tier
+![Uppgradera täckning](../media-draft/Upgrade-Now.png)
 
-While you can use a free Azure subscription tier with ASC, it is limited to assessments and recommendations of Azure resources only. To really leverage ASC, you will need to upgrade to a Standard tier subscription as shown above. You can upgrade your subscription through the "Upgrade Now" button in the **Coverage** blade as noted above. You can also switch to the **Getting Started** blade in the ASC menu which will walk you through changing your subscription level. The pricing and features may change based on the region, you can get a full overview on the [pricing page](https://azure.microsoft.com/en-us/pricing/details/security-center/). 
+### <a name="free-vs-standard-pricing-tier"></a>Kostnadsfri version jämfört med Standard-prisnivå
+
+Du kan använda en kostnadsfri Azure-prenumeration-nivå med ASC, är den begränsad till utvärderingar och rekommendationer för Azure-resurser endast. För att verkligen utnyttja ASC, behöver du uppgradera till en Standard-nivån prenumeration enligt ovan. Du kan uppgradera din prenumeration via knappen ”uppgradera nu” i den **täckning** bladet enligt vad som anges ovan. Du kan också växla till den **komma igång** bladet på menyn ASC som beskriver hur du byter din prenumeration. Priser och funktioner kan ändras baserat på regionen, du kan få en fullständig överblick den [prissättningssidan](https://azure.microsoft.com/en-us/pricing/details/security-center/). 
 
 > [!NOTE]
-> To upgrade a subscription to the Standard tier, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
+> Om du vill uppgradera en prenumeration till standardnivån måste du vara tilldelad rollen som prenumerationsägare, prenumerationsdeltagare eller säkerhetsadministratör.
 
 > [!IMPORTANT]
-> After the 60-day trial period is over, ASC is priced at **$15/node per month** and will be billed to your account.
+> När den 60 dagars utvärderingsperioden är slut, ASC är priset **$15/node per månad** och kommer att debiteras för ditt konto.
 
-## Turning off Azure Security Center
+## <a name="turning-off-azure-security-center"></a>Om du inaktiverar Azure Security Center
 
-For production systems, you will definitely want to keep Azure Security Center turned on so it can monitor all your resources for threats. However, if you are just playing with ASC and turned it on, you will likely want to disable it to ensure you are not charged. Let's do that now.
+För produktionssystem, kommer du definitivt vill behålla Azure Security Center aktiveras så att den kan övervaka alla dina resurser för hot. Men om du bara spelar med ASC och aktiverad, du kommer förmodligen vill inaktivera den för att se till att du inte debiteras. Låt oss göra det nu.
 
-1. Open the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Azure Security Center** from the left hand menu, if you don't see it there, you can select **All services** and find **Security Center** in the security section as shown below.
+1. Öppna den [Azure-portalen](https://portal.azure.com?azure-portal=true) och välj **Azure Security Center** i den vänstra menyn om du inte ser det, kan du välja **alla tjänster** och hitta  **Security Center** i avsnittet security enligt nedan.
 
-![Open Azure Security Center](../media-draft/ASC-Menu.png)
+![Öppna Azure Security Center](../media-draft/ASC-Menu.png)
 
-2. Select **Security Policy** from the left hand menu.
+2. Välj **säkerhetsprincip** från den vänstra menyn.
 
-3. Next, select **Edit settings >**, next to the subscription for which you want to downgrade ASC.
+3. Välj sedan **redigera inställningar >** bredvid den prenumeration som du vill nedgradera ASC.
 
-4. On the next screen select "Pricing Tier" from the left hand menu.
+4. På nästa skärm väljer du ”prisnivå” från den vänstra menyn.
 
-5. A new page will appear that looks like the image below. Click on the box on the left that says "Free (for Azure resources only)".
+5. En ny sida visas som ser ut som på bilden nedan. Klicka på rutan till vänster som säger ”kostnadsfri (för Azure-resurser endast)”.
 
-![Pricing Tier](../media-draft/Pricing-Tier.png)
+![Prisnivå](../media-draft/Pricing-Tier.png)
 
-6. Press the "save" button at the top of the screen.
+6. Tryck på knappen ”Spara” längst upp på skärmen.
 
-You have now downgraded your subscription to the free tier of Azure Security Center.
+Du har nu nedgraderas prenumerationen till den kostnadsfria nivån av Azure Security Center.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-<!-- TODO: need link to module -->
-Congratulations, you have taken your first (and most important) step to securing your application, data and network! <!--If you want to learn more about Azure Security Center, you can go through the **Protect your resources with Azure Security Center** learning module.-->
+<!-- TODO: need link to module --> Grattis, du har vidtagit din första (och viktigaste) steg för att skydda dina program, data och nätverk! <!--If you want to learn more about Azure Security Center, you can go through the **Protect your resources with Azure Security Center** learning module.-->

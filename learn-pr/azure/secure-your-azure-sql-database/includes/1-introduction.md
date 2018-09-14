@@ -1,17 +1,18 @@
-Suppose you work at an online retailer. It's your responsibility to make sure your database is as secure as possible, to protect both your customer data and your business data. 
+Anta att du arbetar på en näthandelsföretagen. Det är ditt ansvar att se till att din databas är så skyddat som möjligt, för att skydda både din kundinformation och dina affärsdata.
 
-Data security is critical when protecting your customer's privacy and your organization’s reputation. Businesses have closed due to financial damage or ruined reputations. Customers have had their data accessed unlawfully because of security breaches exposing their personal details, and again, possibly causing financial harm.  
+Datasäkerhet är viktigt när du skyddar kundens integritet och din organisations rykte. Företag har stängts på grund av finansiella skada eller förstörda rykte. Kunder har haft sina data som öppnas på olagligt sätt på grund av säkerhetsbrott exponera sin personliga information och igen, vilket kan orsaka finansiella skada.
 
-A data breach happens when a hacker has gained access to critical information held in a database. This data is private and often highly sensitive information that is confidential to customers. It could include information to allow identity theft, it may hold passwords that customers use on other sites, or it might include details on associations that could be used to blackmail your customers. 
+Ett data-intrång sker när en hackare har fått åtkomst till kritisk information som lagras i en databas. Dessa data är privata och ofta mycket känslig information som är konfidentiellt till kunder. Den kan innehålla information om du vill tillåta identitetsstöld, den kan innehålla lösenord som kunder använder på andra platser eller den kan innehålla information om associationer som kan användas till att blackmail dina kunder.
 
-In many countries, there's legislation on security breaches that must be adhered to.
+I många länder finns lagstiftning om säkerhetsproblem som måste att respektera.
 
-It's critical to monitor your database for potential threats to make sure you protect your customers' data. We'll look at ways to secure your database by configuring the database firewall, defining authentication levels, encrypting communication, and other techniques for database security. 
+Det är viktigt att övervaka din databas efter potentiella hot att kontrollera att du skydda dina kunders data. Vi ska titta på sätt att skydda databasen genom att konfigurera database-brandvägg, definiera autentiseringsnivåer, kryptera kommunikation och andra tekniker för databassäkerhet.
 
-## Learning objectives
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
 
-- Configure the firewall for the Azure SQL Server database
-- Control user access at the database and Active Directory levels
-- Manage encryption between the client and server
-- Add auditing and threat monitoring to the Azure SQL Server database
+I den här modulen kommer du att göra följande:
+
+- Konfigurera brandväggen för Azure SQL Server-databasen
+- Kontrollera åtkomst på databasen och Active Directory-nivåer
+- Hantera kryptering mellan klient och server
+- Lägg till granskning och hotidentifiering övervakning i Azure SQL Server-databasen

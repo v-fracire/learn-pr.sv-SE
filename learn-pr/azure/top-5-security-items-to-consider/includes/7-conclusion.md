@@ -1,12 +1,12 @@
-In this module, you learned how to safeguard your applications in Azure against common attacks.
+I den här modulen lärde du dig att skydda dina program i Azure mot vanliga attacker.
 
-In this module, we looked at several key security tips:
+I den här modulen vi har tittat på flera viktiga säkerhetstips:
 
 > [!div class="checklist"]
-> * Use Azure Security Center
-> * Verify your application inputs and outputs
-> * Store your secrets into Key Vault
-> * Ensure you are using the latest version of your framework, and using its security features
-> * Verify your program dependencies and libraries are safe to use
+> * Använd Azure Security Center
+> * Verifiera dina program indata och utdata
+> * Store dina hemligheter i Key Vault
+> * Se till att du använder den senaste versionen av ditt ramverk, och använda dess funktioner för säkerhet
+> * Kontrollera dina programberoenden och bibliotek är säkert att använda
 
-By following the five items in this list, you will have taken leaps and strides towards ensuring that your applications are safe and that they remain that way.
+Genom att följa de fem objekten i den här listan kommer du har vidtagit hopp och självservice till att säkerställa att dina program är säkra och att de fortsätter att på så sätt.

@@ -15,7 +15,7 @@ Observera att standardsvarstypen för alla kommandon som vi har gått igenom hit
 az vm list --output table
 ```
 
-Tillsammans med `table` kan du ange `json` (standard), `jsonc` (färglagd JSON) eller `tsv` (tabellavgränsade värden). Prova några varianter med kommandot ovan så ser du skillnaden.
+Tillsammans med `table` kan du ange `json` (standard), `jsonc` (färglagd JSON) eller `tsv` (tabellavgränsade värden). Prova några varianter med kommandot ovan för att se skillnaden.
 
 ## <a name="getting-the-ip-address"></a>Hämta IP-adressen
 

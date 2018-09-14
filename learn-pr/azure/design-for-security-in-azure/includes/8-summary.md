@@ -1,21 +1,21 @@
-We've covered a lot of topics in this module, but rightfully so, as security is such an important part of any architecture. Let's review what we've covered.
+Vi har gått igenom många ämnen i den här modulen, vilket förklaras av att säkerhet är en sådan viktig del av arkitekturen. Vi tar en titt på de områden vi har behandlat.
 
-### Defense in depth
+### <a name="defense-in-depth"></a>Skydd på djupet
 
-We've talked through how to approach security in your architecture through defense in depth. Looking only at firewalls or antimalware alone isn't enough to slow down attackers. Use a layered approach and address security at each layer.
+Vi har gått igenom hur du hanterar säkerheten i din arkitektur med skydd på djupet. Visar endast brandväggar eller program mot skadlig kod enbart räcker inte att angripare körs långsammare. Använd en metod med flera lager med säkerhet på varje lager.
 
-### Identity management
+### <a name="identity-management"></a>Identitetshantering
 
-We've talked through identity management, and how identity becomes an integral piece of the architectural puzzle. Azure AD has a number of features and capabilities to improve the identity security story for your environment.
+Vi har gått igenom identitetshantering och hur integritet är en viktig fråga vad gäller arkitekturen. Azure AD har ett antal funktioner och möjligheter för att förbättra området identitetssäkerhet i din miljö.
 
-### Infrastructure protection
+### <a name="infrastructure-protection"></a>Infrastrukturskydd
 
-Protecting the access to your infrastructure ensures that the resources you create are administered by only those who should be administering them.
+Genom att skydda åtkomst till infrastrukturen ser du till att de resurser du skapar endast administreras av behöriga användare.
 
-### Encryption
+### <a name="encryption"></a>Kryptering
 
-Encryption is often the last layer of defense against access to your data. By using encryption, you make your data unreadable to anyone without the decryption keys. You should identify and classify your data, then align with encryption requirements from your business and any regulations your organization must adhere to.
+Kryptering är ofta den sista försvarslinjen mot åtkomst till dina data. Med hjälp av kryptering kan göra du dina data oläsliga för alla som saknar dekrypteringsnycklarna. Du bör identifiera och klassificera dina data och sedan uppfylla företagets krav gällande datakryptering samt gällande regler och lagar.
 
-### Network security
+### <a name="network-security"></a>Nätverkssäkerhet
 
-Finally, we talked through securing your network. We looked at ways to secure traffic flow between applications and the internet. We described some ways to secure traffic flow amongst applications. And we wrapped up by looking at how to secure traffic flow between users and an application.
+Slutligen gick vi igenom skydd av nätverket. Vi tittade på flera sätt att skydda trafikflödet mellan program och Internet. Vi beskrev några metoder för att skydda trafikflödet mellan program. Och vi avslutade med att titta på hur du skyddar trafikflödet mellan användare och ett program.

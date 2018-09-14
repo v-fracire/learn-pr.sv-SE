@@ -1,8 +1,12 @@
-I den här övningen ska vi skapa en Azure-funktion som anropas var 20:e sekund med hjälp av en timerutlösare.
+I den här enheten, kan vi skapa en app i Azure-funktion som anropas var 20: e sekund med hjälp av en timer som utlösare.
 
-## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
+## <a name="create-an-azure-function-app"></a>Skapa en funktionsapp i Azure
 
-Vi ska börja med att skapa en Azure-funktion på portalen.
+[!include[](../../../includes/azure-sandbox-activate.md)]
+
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
+
+Låt oss börja med att skapa en Azure Function-app i portalen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
 
@@ -12,13 +16,13 @@ Vi ska börja med att skapa en Azure-funktion på portalen.
 
 1. Leta upp och välj **Funktionsapp**. Du kan även använda sökfältet för att hitta mallen.
 
-    ![Välj Funktionsapp](../media-drafts/4-click-function-app.png)
+    ![Skärmbild av Azure-portalen som visar skapa ett Resursblad med Funktionsappen markerat.](../media/4-click-function-app.png)
 
-1. Ange ett unikt **appnamn**.
+1. Ange ett globalt unikt **appnamn**.
 
 1. Välj en **prenumeration**.
 
-1. Skapa en ny **resursgrupp**.
+1. Välj den befintliga **resursgrupp** <rgn>[Sandbox resursgruppens namn]</rgn>.
 
 1. Välj **Windows** som **operativsystem**.
 
@@ -34,15 +38,15 @@ Vi ska börja med att skapa en Azure-funktion på portalen.
 
 ## <a name="create-a-timer-trigger"></a>Skapa en timerutlösare
 
-Nu ska vi skapa en timerutlösare i vår Azure-funktion.
+Nu ska vi skapa en timer som utlösare i vår funktionen.
 
-1. När Azure-funktionen har skapats väljer du **Alla resurser** i det vänstra navigeringsfönstret.
+1. När funktionen har skapats väljer **alla resurser** i det vänstra navigeringsfönstret.
 
-1. Leta upp och välj din Azure-funktion.
+1. Leta upp och välj din funktion.
 
 1. Peka på **Funktioner** och välj plustecknet (+) på det nya bladet.
 
-    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
+    ![Skärmbild av Azure-portalen som visar ett blad för Functions-App med knappen Lägg till (+) för undermeny för funktioner som markerad.](../media/4-hover-function.png)
 
 1. Välj **Timer**.
 
@@ -52,13 +56,13 @@ Nu ska vi skapa en timerutlösare i vår Azure-funktion.
 
 ## <a name="configure-the-timer-trigger"></a>Konfigurera timerutlösaren
 
-Vi har en Azure-funktion med logik som skriver ut ett meddelande till loggfönstret. Vi ska ange timerns schema så att den körs var 20:e sekund.
+Vi har en Azure-funktionsapp med logik för att skriva ut ett meddelande till loggfönstret. Vi ska ange timerns schema så att den körs var 20:e sekund.
 
 1. Välj **Integrera**.
 
 1. Ange följande värde i rutan **Schema**:
 
-    ```
+    ```log
     */20 * * * * *
     ```
 
@@ -68,12 +72,12 @@ Vi har en Azure-funktion med logik som skriver ut ett meddelande till loggfönst
 
 Nu när vi har konfigurerat timern är vi redo att starta den.
 
-1. Välj **TimerTriggerCSharp1**. 
+1. Välj **TimerTriggerCSharp1**.
 
     > [!NOTE]
     > **TimerTriggerCSharp1** är standardnamnet. Det väljs automatiskt när du skapar utlösaren.
 
-1. Välj **Kör**. 
+1. Välj **Kör**.
 
 Du bör nu se ett meddelande i loggfönstret var 20:e sekund.
 
@@ -81,4 +85,4 @@ Du bör nu se ett meddelande i loggfönstret var 20:e sekund.
 
 För att undvika att debiteras för den här funktionen väljer du **Pausa** ovanför loggfönstret för att stoppa timern.
 
-![Pausa](../media-drafts/4-pause-timer.png)
+![Skärmbild av Azure-portalen som visar panelen för en Functions-App loggar utdata med knappen pausa markerad.](../media/4-pause-timer.png)

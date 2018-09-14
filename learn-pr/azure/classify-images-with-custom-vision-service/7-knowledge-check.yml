@@ -4,105 +4,104 @@ title: Testa dina kunskaper
 metadata:
   title: Testa dina kunskaper
   description: Visa att du förstår de steg som krävs för att klassificera bilder med Microsoft Custom Vision Service.
-  ms.openlocfilehash: b217a3b77827db2dc79334d15f430d7289f7ada5
-  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/31/2018
-  ms.locfileid: "43363870"
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 durationInMinutes: 10
 quiz:
   title: Använd Microsoft Custom Vision Service för att utföra bildklassificering
   questions:
-  - content: Vad används en domän till när du skapar ett nytt Custom Vision Service-projekt?
-    choices:
-    - content: De hjälper dig att bestämma vad du ska kalla projektet
-      isCorrect: false
-      incorrectExplanation: Du kan kalla projektet vad som helst. Domänen påverkar inte det.
-    - content: De hjälper dig att bestämma hur du ska strukturera projektet
-      isCorrect: false
-      incorrectExplanation: Projekt har samma struktur när det gäller inlärningsbilder och förutsägelser. Domänen påverkar inte det.
-    - content: De optimerar modellen för en viss typ av bilder
-      isCorrect: true
-      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-    - content: De optimerar organiseringen av dina inlärningsbilder
-      isCorrect: false
-      incorrectExplanation: Inlärningsbilder organiseras med hjälp av taggar. Domänen påverkar inte det.
-  - content: Varför bör du lägga till en tagg när du har laddat upp bilder?
-    choices:
-    - content: Så att du enklare kan organisera bilderna i projektet
-      isCorrect: false
-      incorrectExplanation: Även om taggar gör det enklare att organisera dina bilder är det inte allt de används till.
-    - content: Så att du kan kategorisera inlärningsbilderna
-      isCorrect: true
-      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-    - content: Så här skapar du ett ordmoln efter inlärningen
-      isCorrect: false
-      incorrectExplanation: Custom Vision Service har ingenting att göra med ordmoln.
-    - content: Du behöver inte lägga till någon tagg
-      isCorrect: false
-      incorrectExplanation: Om bildklassificeringen ska fungera behöver du lägga till minst en tagg.
-  - content: Är precision och återkallande relaterade när det gäller att mäta modellens prestanda?
-    choices:
-    - content: Nej
-      isCorrect: false
-      incorrectExplanation: Precision och återkallande är relaterade. Modellen kommer inte att ha bra prestanda om du har hög precision och lågt återkallande.
-    - content: Ja
-      isCorrect: true
-      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-  - content: Hur kan du snabbt testa din modell efter inlärning?
-    choices:
-    - content: Bildfil
-      isCorrect: false
-      incorrectExplanation: Även om tjänsten kan snabbtesta bildfiler är det inte allt du kan göra.
-    - content: Bildadress
-      isCorrect: false
-      incorrectExplanation: Även om tjänsten kan snabbtesta bildadresser är det inte allt du kan göra.
-    - content: Bilders webbsidor
-      isCorrect: false
-      incorrectExplanation: Tjänsten kan inte snabbtesta enskilda webbsidor med bilder.
-    - content: Bildfil och bildadress
-      isCorrect: true
-      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-  - content: Vad gör alternativet ”Ange som standard” på fliken Prestanda?
-    choices:
-    - content: Anger den senaste iterationen av modellen som standarditeration
-      isCorrect: true
-      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-    - content: Anger bildadressens slutpunkt som standardslutpunkt
-      isCorrect: false
-      incorrectExplanation: Slutpunkterna är konstanta oavsett antalet iterationer i modellen.
-    - content: Anger bildfilens slutpunkt som standardslutpunkt
-      isCorrect: false
-      incorrectExplanation: Slutpunkterna är konstanta oavsett antalet iterationer i modellen.
-    - content: Anger det aktuella projektet som standardprojekt
-      isCorrect: false
-      incorrectExplanation: Du måste ange projektet så att slutpunkten vet vilket som ska användas. Projekt-ID:t ingår i webbadressen på fliken Prediction URL (Förutsägelseadress).
-  - content: Vad är namnet på rubriken för förutsägelsenyckeln som ska skickas med slutpunkten för förutsägelsen?
-    choices:
-    - content: Prenumerationsnyckel
-      isCorrect: false
-      incorrectExplanation: Ingen prenumerationsnyckel används i Custom Vision Service.
-    - content: Förutsägelsenyckel
-      isCorrect: true
-      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-    - content: Utbildningsnyckel
-      isCorrect: false
-      incorrectExplanation: Utbildningsnyckeln används till att träna nya iterationer på din modell, inte till att göra förutsägelser.
-    - content: API-nyckel
-      isCorrect: false
-      incorrectExplanation: Ingen API-nyckel används i Custom Vision Service.
-  - content: Vad mer händer i Custom Vision-portalen när du använder API:t för förutsägelser?
-    choices:
-    - content: Bilderna taggas om de returneras som okända
-      isCorrect: false
-      incorrectExplanation: Bilder taggas endast manuellt i portalen, inte automatiskt.
-    - content: Bilderna läses in som otaggade i inlärningsuppsättningen
-      isCorrect: false
-      incorrectExplanation: Bilderna måste explicit överföras för att ingå i inlärningsuppsättningen.
-    - content: Bilderna visas på fliken Förutsägelser
-      isCorrect: true
-      correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
-    - content: Ingenting händer
-      isCorrect: false
-      incorrectExplanation: Bilderna placeras i en viss del av portalen.
+    - content: Vad används en domän till när du skapar ett nytt Custom Vision Service-projekt?
+      choices:
+        - content: De hjälper dig att bestämma vad du ska kalla projektet
+          isCorrect: false
+          incorrectExplanation: Du kan kalla projektet vad som helst. Domänen påverkar inte det.
+        - content: De hjälper dig att bestämma hur du ska strukturera projektet
+          isCorrect: false
+          incorrectExplanation: Projekt har samma struktur när det gäller inlärningsbilder och förutsägelser. Domänen påverkar inte det.
+        - content: De optimerar modellen för en viss typ av bilder
+          isCorrect: true
+          correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+        - content: De optimerar organiseringen av dina inlärningsbilder
+          isCorrect: false
+          incorrectExplanation: Inlärningsbilder organiseras med hjälp av taggar. Domänen påverkar inte det.
+    - content: Varför bör du lägga till en tagg när du har laddat upp bilder?
+      choices:
+        - content: Så att du enklare kan organisera bilderna i projektet
+          isCorrect: false
+          incorrectExplanation: Även om taggar gör det enklare att organisera dina bilder är det inte allt de används till.
+        - content: Så att du kan kategorisera inlärningsbilderna
+          isCorrect: true
+          correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+        - content: Så här skapar du ett ordmoln efter inlärningen
+          isCorrect: false
+          incorrectExplanation: Custom Vision Service har ingenting att göra med ordmoln.
+        - content: Du behöver inte lägga till någon tagg
+          isCorrect: false
+          incorrectExplanation: Om bildklassificeringen ska fungera behöver du lägga till minst en tagg.
+    - content: Är precision och återkallande relaterade när det gäller att mäta modellens prestanda?
+      choices:
+        - content: Nej
+          isCorrect: false
+          incorrectExplanation: Precision och återkallande är relaterade. Modellen kommer inte att ha bra prestanda om du har hög precision och lågt återkallande.
+        - content: Ja
+          isCorrect: true
+          correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+    - content: Hur kan du snabbt testa din modell efter inlärning?
+      choices:
+        - content: Bildfil
+          isCorrect: false
+          incorrectExplanation: Även om tjänsten kan snabbtesta bildfiler är det inte allt du kan göra.
+        - content: Bildadress
+          isCorrect: false
+          incorrectExplanation: Även om tjänsten kan snabbtesta bildadresser är det inte allt du kan göra.
+        - content: Bilders webbsidor
+          isCorrect: false
+          incorrectExplanation: Tjänsten kan inte snabbtesta enskilda webbsidor med bilder.
+        - content: Bildfil och bildadress
+          isCorrect: true
+          correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+    - content: Vad gör alternativet ”Ange som standard” på fliken Prestanda?
+      choices:
+        - content: Anger den senaste iterationen av modellen som standarditeration
+          isCorrect: true
+          correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+        - content: Anger bildadressens slutpunkt som standardslutpunkt
+          isCorrect: false
+          incorrectExplanation: Slutpunkterna är konstanta oavsett antalet iterationer i modellen.
+        - content: Anger bildfilens slutpunkt som standardslutpunkt
+          isCorrect: false
+          incorrectExplanation: Slutpunkterna är konstanta oavsett antalet iterationer i modellen.
+        - content: Anger det aktuella projektet som standardprojekt
+          isCorrect: false
+          incorrectExplanation: 'Du måste ange projektet så att slutpunkten vet vilket som ska användas. Projekt-ID:t ingår i webbadressen på fliken Prediction URL (Förutsägelseadress).'
+    - content: Vad är namnet på rubriken för förutsägelsenyckeln som ska skickas med slutpunkten för förutsägelsen?
+      choices:
+        - content: Prenumerationsnyckel
+          isCorrect: false
+          incorrectExplanation: Ingen prenumerationsnyckel används i Custom Vision Service.
+        - content: Förutsägelsenyckel
+          isCorrect: true
+          correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+        - content: Utbildningsnyckel
+          isCorrect: false
+          incorrectExplanation: 'Utbildningsnyckeln används till att träna nya iterationer på din modell, inte till att göra förutsägelser.'
+        - content: API-nyckel
+          isCorrect: false
+          incorrectExplanation: Ingen API-nyckel används i Custom Vision Service.
+    - content: 'Vad mer händer i Custom Vision-portalen när du använder API:t för förutsägelser?'
+      choices:
+        - content: Bilderna taggas om de returneras som okända
+          isCorrect: false
+          incorrectExplanation: 'Bilder taggas endast manuellt i portalen, inte automatiskt.'
+        - content: Bilderna läses in som otaggade i inlärningsuppsättningen
+          isCorrect: false
+          incorrectExplanation: Bilderna måste explicit överföras för att ingå i inlärningsuppsättningen.
+        - content: Bilderna visas på fliken Förutsägelser
+          isCorrect: true
+          correctExplanation: Bra! Gå vidare till nästa del av labbuppgiften.
+        - content: Ingenting händer
+          isCorrect: false
+          incorrectExplanation: Bilderna placeras i en viss del av portalen.

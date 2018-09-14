@@ -4,14 +4,14 @@ Det finns flera verktyg som skapar ett lagringskonto. Vanligtvis väljer du base
 
 De tillgängliga verktygen är:
 
-- Portalen
-- Kommandoradsgränssnittet (CLI)
+- Azure Portal
+- Azure CLI (kommandoradsgränssnittet)
 - Azure PowerShell
-- Hanteringsklientbiblioteken.
+- Management-klientbibliotek
 
-Portalen har ett grafiskt användargränssnitt med knappbeskrivningar för varje inställning. Detta gör den enkel att använda och användbar för att lära dig mer om alternativen.
+Portalen ger ett grafiskt användargränssnitt med förklaringar för varje inställning. Detta gör det enkelt att använda och användbart för att lära dig mer om alternativen.
 
-Alla de andra verktygen stödjer automatisering. Med CLI och Azure PowerShell kan du skriva skript medan hanteringsbiblioteken gör det möjligt att införliva det du skapar i en klientapp.
+Alla de andra verktygen stödjer automatisering. Azure CLI och Azure PowerShell kan du skriva skript, medan hanteringsbiblioteken gör det möjligt att införliva skapas i en klientapp.
 
 ## <a name="how-to-choose-a-tool"></a>Så väljer du verktyg
 

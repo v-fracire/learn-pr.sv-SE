@@ -14,9 +14,8 @@ I den här modulen kommer du att göra följande:
 - Ansluta till en Azure-prenumeration med hjälp av Azure CLI.
 - Skapa Azure-resurser med Azure CLI.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter  
+## <a name="prerequisites"></a>Förutsättningar  
 
 - Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
 - Kunskaper om grundläggande Azure-begrepp, som exempelvis resursgrupper
 - Erfarenhet av att administrera Azure-resurser med hjälp av Azure-portalen
-- 

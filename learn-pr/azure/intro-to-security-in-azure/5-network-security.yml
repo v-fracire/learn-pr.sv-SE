@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.introduction-to-security.5-network-security
-title: Protect your network
+title: Skydda ditt nätverk
 metadata:
-  title: Protect your network
-  description: In this unit, we'll discuss how to secure your network infrastructure.
+  title: Skydda ditt nätverk
+  description: 'I den här enheten, kommer vi att diskutera hur du skyddar din nätverksinfrastruktur.'
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial

@@ -1,81 +1,83 @@
-As computing environments move from customer-controlled datacenters to cloud datacenters, the responsibility of security also shifts. Security is now a concern shared both by cloud providers and customers. For every application and solution, it's important to understand what your responsibility is and what Azure will handle for you. 
+När beräkningsmiljöer flyttas från kundstyrda datacentra till molndatacentra, övergår också ansvaret för säkerheten. Säkerhet är nu något problem delade både molnleverantörer och kunder. För varje program och en lösning är det viktigt att förstå vad ditt ansvar är och vad du ska hantera med Azure. 
 
-## Share security responsibility with Azure
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEvj]
 
-The first shift is from on-premises datacenters to infrastructure as a service (IaaS). With IaaS, you are leveraging the lowest-level service and asking Azure to create virtual machines (VMs) and virtual networks. At this level, it's still your responsibility to patch and secure your operating systems and software, as well as configure your network to be secure. Contoso Shipping is taking advantage of IaaS when they start using Azure VMs instead of their on-premises physical servers. In addition to the operational advantages, they receive the security advantage of having outsourced concern over protecting the physical parts of the network.
+## <a name="share-security-responsibility-with-azure"></a>Dela security ansvar med Azure
 
-Moving to platform as a service (PaaS) outsources a lot of security concerns. At this level, Azure is taking care of the operating system and of most foundational software like database management systems. Everything is updated with the latest security patches and can be integrated with Azure Active Directory for access controls. PaaS also comes with a lot of operational advantages. Rather than building whole infrastructures and subnets for your environments by hand, you can "point and click" within the Azure portal or run automated scripts to bring complex, secured systems up and down, and scale them as needed. Contoso Shipping uses Azure Event Hubs for ingesting telemetry data from their trucks. They also use a web app with an Azure Cosmos DB back end with their mobile apps. Those services are all examples of PaaS.
+Första övergången är från lokala Datacenter till infrastruktur som en tjänst (IaaS). Du är att använda den lägsta nivån servicen och frågar Azure för att skapa virtuella datorer (VM) och virtuella nätverk med IaaS. På den här nivån är det fortfarande ditt ansvar att korrigera och skydda ditt operativsystem och programvara samt konfigurera nätverket säker. Contoso leverans att utnyttja IaaS när de startar med virtuella Azure-datorer i stället för sina lokala fysiska servrar. Utöver de operativa fördelarna får de security fördelen med utlagd problem över skydda fysiska delar av nätverket.
 
-With software as a service (SaaS), you outsource almost everything. SaaS is software that runs with an internet infrastructure. The code is controlled by the vendor, but configured to be used by the customer. Like so many companies, Contoso Shipping uses Office 365, which is a great example of SaaS!
+Flytta till plattform som en tjänst outsources (PaaS) mycket säkerhetsproblem. På den här nivån Azure tar hand av operativsystemet och mest grundläggande programvara som system för databashantering. Allt uppdateras med de senaste uppdateringarna för säkerhet och kan integreras med Azure Active Directory för åtkomstkontroller. PaaS levereras också med en massa operativa fördelar. I stället för att skapa hela infrastrukturer och undernät för dina miljöer för hand ”peka och klicka på” i Azure portal eller kör automatiserade skript för att ta med komplexa, säker system uppåt och nedåt och skala dem efter behov. Leverans av Contoso använder Azure Event Hubs för att föra in telemetridata från sina lastbilar. De kan också använda en webbapp med en Azure Cosmos DB-serverdelen med sina mobila appar. Dessa tjänster är alla exempel på PaaS.
+
+Du betalar nästan allt med programvara som en tjänst (SaaS). SaaS är programvara som körs med en Internetinfrastruktur. Koden är styrs av leverantören, men konfigurerats för användning av kunden. Precis som många företag använder Contoso leverans Office 365, vilket är ett bra exempel på SaaS!
 
 <!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![shared_responsibility.png](../media-COPIED-FROM-DESIGNFORSECURITY/shared_responsibilities.png)
 
-## A layered approach to security
+## <a name="a-layered-approach-to-security"></a>Säkerhet på flera nivåer
 
-*Defense in depth* is a strategy that employs a series of mechanisms to slow the advance of an attack aimed at acquiring unauthorized access to information. Each layer provides protection so that if one layer is breached, a subsequent layer is already in place to prevent further exposure. Microsoft applies a layered approach to security, both in our physical datacenters and across Azure services. The objective of defense in depth is to protect and prevent information from being stolen by individuals who are not authorized to access it.
+*Skydd på djupet* är en strategi som använder en serie mekanismer till att fördröja en attack som syftar till att få obehörig åtkomst till information. Varje lager ger skydd så att om ett lager har överskrids kan ett lager för efterföljande redan är på plats för att förhindra ytterligare exponering. Microsoft gäller ett lager säkerhet, både i våra fysiska datacenter och mellan olika Azure-tjänster. Målet med djupgående skydd är att skydda och förhindra att information blir stulen av personer som inte har behörighet att komma åt den.
 
-Defense in depth can be visualized as a set of concentric rings, with the data to be secured at the center. Each ring adds an additional layer of security around the data. This approach removes reliance on any single layer of protection and acts to slow down an attack and provide alert telemetry that can be acted upon, either automatically or manually. Let's take a look at each of the layers.
+Djupgående skydd kan visualiseras som en uppsättning av koncentriska ringar, där de data som ska skyddas ligger i mitten. Varje ring är en extra säkerhetsnivå kring datan. Den här metoden innebär att man inte behöver förlita sig på en enda skyddsnivå. Den fördröjer angrepp och aviserar med telemetri som kan åtgärdas, antingen automatiskt eller manuellt. Låt oss ta en titt på var och en av dessa nivåer.
 
 <!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
-![Defense in depth](../media-COPIED-FROM-DESIGNFORSECURITY/defense_in_depth_layers_small.PNG)
+![Skydd på djupet](../media-COPIED-FROM-DESIGNFORSECURITY/defense_in_depth_layers_small.PNG)
 
-### Data
+### <a name="data"></a>Data
 
-In almost all cases, attackers are after data:
+I nästan alla fall är angriparna ute efter data:
 
-- Data stored in a database
-- Data stored on disk inside virtual machines
-- Data stored on an SaaS application such as Office 365
-- Data stored in cloud storage
+- Data som lagras i en databas
+- Data som lagras på en disk i virtuella datorer
+- Data som lagras på ett SaaS-program, till exempel Office 365
+- Data som lagras i molnlagring
 
-It's the responsibility of those storing and controlling access to data to ensure that it's properly secured. Often, there are regulatory requirements that dictate the controls and processes that must be in place to ensure the confidentiality, integrity, and availability of the data.
+Ansvaret för att säkerställa att datan är skyddad ligger hos de som lagrar och styr åtkomsten till den. Det finns ofta regelkrav som bestämmer kontroller och processer som behövs för att säkerställa sekretess, integritet och tillgänglighet för data.
 
-### Application
+### <a name="application"></a>Program
 
-- Ensure applications are secure and free of vulnerabilities.
-- Store sensitive application secrets in a secure storage medium.
-- Make security a design requirement for all application development.
+- Se till att programmen är säker och kostnadsfritt sårbarheter.
+- Store känsliga programhemligheter i en säker lagringsmedium.
+- Kontrollera säkerhet en designkravet för alla programutveckling.
 
-Integrating security into the application development life cycle will help reduce the number of vulnerabilities introduced in code. Encourage all development teams to ensure their applications are secure by default, and that they're making security requirements non-negotiable.
+Om säkerhet introduceras i livscykeln för programutveckling kan antalet säkerhetsrisker i koden minskas. Rekommenderar att alla utvecklingsteam för att säkerställa att programmen är säkert som standard, och som de gör säkerhetskrav icke-negotiable.
 
-### Compute
+### <a name="compute"></a>Beräkning
 
-- Secure access to virtual machines.
-- Implement endpoint protection and keep systems patched and current.
+- Säker åtkomst till virtuella datorer.
+- Implementera endpoint protection och hålla system korrigerad och aktuella.
 
-Malware, unpatched systems, and improperly secured systems open your environment to attacks. The focus in this layer is on making sure your compute resources are secure, and that you have the proper controls in place to minimize security issues.
+Skadlig kod, okorrigerade system och felaktigt skyddade system öppnar din miljö för attacker. Fokus i detta skikt som ligger på att se till att dina beräkningsresurser är säkra och att du har rätt kontroller på plats för att minimera säkerhetsproblem.
 
-### Networking
+### <a name="networking"></a>Nätverk
 
-- Limit communication between resources.
-- Deny by default.
-- Restrict inbound internet access and limit outbound, where appropriate.
-- Implement secure connectivity to on-premises networks.
+- Begränsa kommunikation mellan resurser.
+- Neka som standard.
+- Begränsa inkommande internet-åtkomst och begränsa utgående, där det är lämpligt.
+- Implementera säkra anslutningar till lokala nätverk.
 
-At this layer, the focus is on limiting the network connectivity across all your resources to allow only what is required. By limiting this communication, you reduce the risk of lateral movement throughout your network.
+På den här nivån ligger fokus på att begränsa nätverksanslutningen mellan alla resurser för att möjliggöra bara vad som krävs. Genom att begränsa kommunikationen kan du minska risken för lateral förflyttning i hela nätverket.
 
-### Perimeter
+### <a name="perimeter"></a>Perimeternätverk
 
-- Use distributed denial of service (DDoS) protection to filter large-scale attacks before they can cause a denial of service for end users.
-- Use perimeter firewalls to identify and alert on malicious attacks against your network.
+- Använda datorn för protection service (DDoS) för att filtrera storskaliga attacker innan de kan orsaka en denial of service för slutanvändare.
+- Använd perimeter brandväggar för att identifiera och varna på skadliga attacker mot ditt nätverk.
 
-At the network perimeter, it's about protecting from network-based attacks against your resources. Identifying these attacks, eliminating their impact, and alerting on them is important to keep your network secure.
+I nätverksperimetern handlar det om att skydda sig mot nätverksbaserade attacker mot dina resurser. Att identifiera dessa attacker, eliminerar deras inverkan och varna för dem är viktigt för att skydda ditt nätverk.
 
-### Policies & access
+### <a name="policies--access"></a>Principer och åtkomst
 
-- Control access to infrastructure and change control.
-- Use single sign-on and multi-factor authentication.
-- Audit events and changes.
+- Kontrollera åtkomsten till infrastruktur och ändra kontroll.
+- Använd enkel inloggning och Multi-Factor authentication.
+- Granska ändringar och händelser.
 
-The policy and access layer is all about ensuring identities are secure, access granted is only what is needed, and changes are logged.
+Princip- och åtkomsthantering lagret är allt om att säkerställa identiteter är säkra, åtkomst beviljas är bara det som krävs och ändringar loggas.
 
-### Physical security
+### <a name="physical-security"></a>Fysisk säkerhet
 
-- Physical building security and controlling access to computing hardware within the datacenter is the first line of defense.
+- Är den första försvarslinjen fysiska att bygga in säkerhet och kontrollera åtkomst till maskinvara för databehandling i datacentret.
 
-With physical security, the intent is to provide physical safeguards against access to assets. This ensures that other layers can't be bypassed, and loss or theft is handled appropriately.
+Avsikten är att tillhandahålla fysiska skydd mot åtkomst till tillgångar fysiska säkerheten. Detta säkerställer att andra nivåer inte kan kringgås, samt att förlust eller stöld hanteras korrekt.
 
-We've seen here that Azure helps a lot with your security concerns. But security is still a **shared responsibility**. How much of that responsibility falls on us depends on which model we use with Azure.
+Vi har sett att Azure hjälper mycket med dina säkerhetsfrågor. Men säkerhetsfrågorna är fortfarande en **ansvar som delas**. Hur mycket av det ansvaret infaller oss beror på vilken modell som vi använder med Azure.
 
-We use the *defense in depth* rings as a guideline for considering what protections are adequate for our data and environments.
+Vi använder den *skydd på djupet* ringar som en riktlinje för överväger vilka skydd är lämpliga för våra data och miljöer.

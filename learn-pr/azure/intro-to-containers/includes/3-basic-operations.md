@@ -1,16 +1,14 @@
-Now that you have a functioning container development environment, let's take a quick spin through some basic container operations. This unit doesn't include a complete list of Docker capabilities (not even close). This unit will prepare you to run, list, and delete containers. Throughout the remainder of this module, you will gain additional exposure to container operations.
+Nu när du har en fungerande container-utvecklingsmiljö kan vi titta på kommandon för att köra, lista, och ta bort behållare.
 
-## Run a basic container
+## <a name="create-and-run-a-basic-container"></a>Skapa och köra en grundläggande behållare
 
-Before digging into the details of running and managing containers, let's quickly see just how easy it is to run a container.
-
-Create your first container with the following command.
+Skapa din första container med nedanstående kommando.
 
 ```bash
 docker run alpine echo "Hello World"
 ```
 
-You should see output similar to the following:
+Du bör se utdata som liknar följande:
 
 ```output
 Unable to find image 'alpine:latest' locally
@@ -21,36 +19,32 @@ Status: Downloaded newer image for alpine:latest
 Hello World
 ```
 
-The `docker run` command creates an instance of a container. In this case, the container was created from a container image named `alpine`, which was downloaded to your local system. After the container started, the `echo "Hello World"` command was run inside of the container and the output echoed to your terminal.
+Kommandot `docker run` skapar en instans av en container. I det här fallet har containern skapats från en containeravbildning med namnet `alpine`, som laddades ned till den lokala datorn. När containern startades kördes kommandot `echo "Hello World"` inuti containern och utdatan skickades till din terminal.
 
-At this point, don't worry about the technical details of each of these actions. They will be detailed throughout this module.
+## <a name="get-container-images"></a>Hämta containeravbildningar
 
-## Get container images
+En behållaravbildning innehåller det grundläggande operativsystemet och ytterligare processer, program och konfigurationer. Containeravbildningar lagras i ett register för containeravbildningar. I exemplet ”Hello World” i *alpine* bild hämtades från Docker Hub, vilket är en offentlig container registry.
 
-As you saw in the 'Hello World' example, containers are run from a container image. These images include the container base operating system and any additional processes, applications, and configurations. Container images are stored in a container image registry. In the 'Hello World' example, the *alpine* image was pulled from Docker Hub, which is a public container registry.
-
-Let's see how to search for and download a pre-created container image.
-
-Run the following command to see a list of images that have been downloaded to your system.
+Kör följande kommando för att se en lista med avbildningar som har laddats ned till datorn.
 
 ```bash
 docker images
 ```
 
-If you've been following along, you should see the alpine image. This image was downloaded when the 'Hello World' example was run.
+Om du kör den `docker run alpine` kommandot tidigare, och du bör se alpine bilden i listan.
 
 ```output
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 alpine              latest              11cd0b38bc3c        2 weeks ago         4.41MB
 ```
 
-To search for a container image, use the `docker search` command. For instance, use the following example to list all container images that include `nginx` in the name.
+Använd kommandot `docker search` om du vill söka efter en containeravbildning. Du kan exempelvis använda följande exempel för att lista alla containeravbildningar som innehåller `nginx` i namnet.
 
 ```bash
 docker search nginx
 ```
 
-The output should look similar to the following:
+Resultatet bör se ut ungefär så här:
 
 ```output
 NAME                                                   DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
@@ -81,13 +75,13 @@ ansibleplaybookbundle/nginx-apb                        An APB to deploy NGINX   
 mailu/nginx                                            Mailu nginx frontend                            0                                       [OK]
 ```
 
-If you'd like to pre-download an image prior to running it, use the `docker pull` command. The following example pulls the *nginx* image to your system.
+Om du vill förhandsnedladda en avbildning innan du kör den, använder du kommandot `docker pull`. I följande exempel hämtas avbildningen *nginx* till ditt system.
 
 ```bash
 docker pull nginx
 ```
 
-The output should look similar to the following:
+Resultatet bör se ut ungefär så här:
 
 ```output
 Using default tag: latest
@@ -97,13 +91,13 @@ f2f27ed9664f: Extracting [===============>                                   ]  
 54ff137eb1b2: Download complete
 ```
 
-Run `docker images` again to list all of the images on your system. You'll see that the *nginx* image has been added to your system.
+Kör `docker images` igen för att lista alla avbildningar i systemet. Du kommer att se att avbildningen *nginx* har lagts till i systemet.
 
 ```bash
 docker images
 ```
 
-The output should look similar to the following:
+Resultatet bör se ut ungefär så här:
 
 ```output
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -111,109 +105,107 @@ nginx               latest              c82521676580        26 hours ago        
 alpine              latest              11cd0b38bc3c        2 weeks ago         4.41MB
 ```
 
-## Run containers
+## <a name="run-containers"></a>Köra containrar
 
-Now that you've identified and downloaded the *nginx* image, run a container from the image. When using the Docker CLI to run a container image, use the `docker run` command.
+Nu när du har identifierat och hämtat avbildningen *nginx*, kör du en container från avbildningen. När du använder Docker CLI till att köra en containeravbildning, använder du kommandot `docker run`.
 
-In the following example, the `-d` argument specifies that the container will run in a detached mode. In this configuration, the container runs a specified process. If that process stops or crashes, the container itself is stopped. The `-p 8080:80` argument specifies that network traffic arriving to port 8080 on the container host, your development system in this case, is forwarded to port 80 of the container. Finally, the `ngingx` argument is the name of the container image to run.
+Den `-d` argumentet anger att behållaren körs i ett frånkopplat läge. I den här konfigurationen kör containern en angiven process. Om processen stoppas eller kraschar kommer själva containern att stoppas. Den `-p 8080:80` argumentet anger att nätverkstrafik som kommer till port 8080 på behållarvärd utvecklingssystemet i det här fallet vidarebefordras till port 80 på behållaren. Slutligen är argumentet `ngingx` namnet på containeravbildningen som ska köras.
 
-For a complete list of `docker run` arguments, see the [docker run reference](https://docs.docker.com/engine/reference/run/).
+En fullständig lista med `docker run`-argument finns i [docker run-referensen](https://docs.docker.com/engine/reference/run/).
 
 ```bash
 docker run -d -p 8080:80 nginx
 ```
 
-This operation returns the full container ID.
+Den här åtgärden returnerar ett fullständigt container-ID.
 
 ```output
 bd2424bfe7a5423d7d65efdf0b1622770d59e212db7b82862c3129fb630b5721
 ```
 
-List the running containers on your system using the `docker ps` command.
+En lista med containrar som körs i ditt system med hjälp av kommandot `docker ps`.
 
 ```bash
 docker ps
 ```
 
-You should see a single running container, which is the NGINX container run in the last step. Notice that the container has both an ID and a Name. Either one of these values can be used to manage the container. Take note of the container ID. This value will be used later in the unit.
+Du bör se att en container körs, vilket är NGINX-containern som kördes i det senaste steget. Observera att containern har både ett ID och ett namn. Något av dessa värden kan användas för att hantera containern. Anteckna container-ID:t. Det här värdet kommer att användas senare.
 
 ```output
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
 bd2424bfe7a5        nginx               "nginx -g 'daemon of…"   37 minutes ago      Up 37 minutes       0.0.0.0:8080->80/tcp   gallant_engelbart
 ```
 
-To test the container, open a browser and enter http://localhost:8080 for the address. After it completes, you should see the NGINX default website.
+Testa behållaren genom att öppna en webbläsare och ange `http://localhost:8080` för adressen. När den är klar bör du se NGINX-standardwebbsidan som innehåller ett välkomstmeddelande.
 
-![Microsoft Edge with the NGINX splash screen](../media-draft/3-nginx.png)
+## <a name="delete-containers"></a>Ta bort containrar
 
-## Delete containers
-
-When you're done working with a container, it can be deleted by providing the container name or ID to the `docker rm` command. Try out this operation with the container ID of the container running NGINX. Replace the ID in this example with the ID from your environment.
+Du tar bort en behållare genom att ange dess namn eller ID för den `docker rm` kommando. Försök utföra åtgärden igen med behållar-ID för behållaren som kör NGINX.
 
 ```bash
 docker rm bd2424bfe7a5
 ```
 
-Notice that the container can't be removed because it's in a running state.
+Observera att containern inte kan tas bort eftersom den körs.
 
 ```output
 Error response from daemon: You cannot remove a running container a31c5a5f2a8d6e420435bfcadbe158fa6a26ed29c005a892171505cc0c2861b2. Stop the container before attempting removal or force remove
 ```
 
-Stop the container with the `docker stop` command.
+Stoppa containern med kommandot `docker stop`.
 
 ```bash
 docker stop bd2424bfe7a5
 ```
 
-Notice at this point, if you run `docker ps` to list all containers, the nginx container is not listed.
+Observera att om du i det här läget kör `docker ps` för att visa alla containrar, visas inte nginx-containern.
 
 ```bash
 docker ps
 ```
 
-The output should look similar to the following:
+Resultatet bör se ut ungefär så här:
 
 ```output
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
-To return a list of all containers, including containers in a stopped state, add the `-a` argument to the `docker ps` command.
+Om du vill returnera en lista med alla containrar, inklusive containrar som har stoppats, lägger du till argumentet `-a` i kommandot `docker ps`.
 
 ```bash
 docker ps -a
 ```
 
-The output should look similar to the following:
+Resultatet bör se ut ungefär så här:
 
 ```output
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
 bd2424bfe7a5        nginx               "nginx -g 'daemon of…"   13 seconds ago      Exited (0) 3 seconds ago                       focused_spence
 ```
 
-Try the delete operation again. Replace the ID in this example with the ID from your environment.
+Försök att utföra borttagningen igen. Ersätt ID:t i det här exemplet med ID:t från din miljö.
 
 ```bash
 docker rm bd2424bfe7a5
 ```
 
-This operation returns the container ID.
+Den här åtgärden returnerar container-ID:t.
 
 ```output
 bd2424bfe7a5
 ```
 
-## Delete a container image
+## <a name="delete-a-container-image"></a>Ta bort en containeravbildning
 
-When you're done working with a container image, it can be removed with the `docker rmi` command. If any container (running or stopped) has been started from the container image, the image can't be deleted. The containers first need to be removed. Adding the `-f` argument to the `docker rmi` command will force the removal of all associated containers, and will then remove the container image.
+Du tar bort en behållare avbildningen med hjälp av den `docker rmi` kommando. Om någon container (som körs eller har stoppats) har startats från containeravbildningen, kan inte avbildningen tas bort. Containrarna måste först tas bort. Att lägga till den `-f` argumentet för den `docker rmi` kommando tvingar fram borttagningen av alla associerade behållare och tar sedan bort behållaravbildningen.
 
-Remove the NGINX container image with the following command.
+Ta bort NGINX-containeravbildningen med följande kommando.
 
 ```bash
 docker rmi nginx
 ```
 
-The output should look similar to the following:
+Utdata bör se ut ungefär så här:
 
 ```output
 Untagged: nginx:latest
@@ -223,7 +215,3 @@ Deleted: sha256:119ded3eca5e85ef43ee966e74564c604ccda064d955a8c5ed762e1d5e87f428
 Deleted: sha256:6ece91c2763d826487e707f7b8ec063742ad0ee56cc9e605465cce95550c9a7f
 Deleted: sha256:cdb3f9544e4c61d45da1ea44f7d92386639a052c620d1550376f22f5b46981af
 ```
-
-## Summary
-
-In this unit, you learned about some basic Docker operations. In the next unit, you will create a custom container image.

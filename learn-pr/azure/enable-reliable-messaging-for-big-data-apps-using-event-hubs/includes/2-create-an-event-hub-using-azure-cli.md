@@ -6,9 +6,9 @@ En händelsehubb är en Azure-resurs, så det första steget är att skapa en ny
 
 Azure Event Hubs är en molnbaserad händelsebearbetningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs fungerar som en ytterdörr för en händelsepipeline, där den tar emot inkommande data och lagrar dem tills bearbetningsresurser är tillgängliga.
 
-En entitet som skickar data till händelsehubbarna kallas för en *utgivare* och en entitet som läser data från händelsehubbarna kallas för *konsument* eller *prenumerant*. Azure Event Hubs finns mellan dessa två entiteter för att dela upp produktionen (från utgivare) och konsumtion (till prenumerant) för en händelseström. Denna frånkoppling hjälper till att hantera scenarier när frekvensen för händelseproduktion är mycket högre än konsumtionen.
+En entitet som skickar data till händelsehubbarna kallas för en *utgivare* och en entitet som läser data från händelsehubbarna kallas för *konsument* eller *prenumerant*. Azure Event Hubs finns mellan dessa två entiteter för att dela upp produktionen (från utgivare) och konsumtion (till prenumerant) för en händelseström. Denna frånkoppling hjälper till att hantera scenarier när frekvensen för händelseproduktion är mycket högre än konsumtionen. Följande bild visar rollen för en händelsehubb.
 
-![Utgivare skickar flera händelser till en enda händelsehubb och gör data tillgängliga för prenumeranter](../media-draft/2-event-hub-overview.png "händelsehubböversikt")
+![En bild som visar en Azure-Händelsehubb placeras mellan fyra utgivare och två prenumeranter. Event hub tar emot flera händelser från utgivarna Serialiserar händelserna i dataströmmar och gör dataströmmarna som är tillgängliga för prenumeranter.](../media-draft/2-event-hub-overview.png)
 
 ### <a name="events"></a>Händelser
 

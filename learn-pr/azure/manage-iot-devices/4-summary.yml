@@ -1,0 +1,53 @@
+### YamlMime:ModuleUnit
+uid: learn.manage-iot-devices.4-summary
+metadata:
+  title: Sammanfattning
+  description: Sammanfattning
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+title: Sammanfattning
+durationInMinutes: 7
+content: |
+  [!include[](includes/4-summary.md)]
+quiz:
+  title: Knowledge Check - hantera IoT-enheter som IT-administratör
+  questions:
+    - content: IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning.
+      choices:
+        - content: Sant
+          isCorrect: true
+          correctExplanation: Korrigera.
+        - content: Falskt
+          isCorrect: false
+          incorrectExplanation: Fel.
+    - content: Bästa IoT möjligheten för IT-avdelningen är där följande områden?
+      choices:
+        - content: Aviation
+          isCorrect: false
+          incorrectExplanation: Fel.
+        - content: Datasäkerhet
+          isCorrect: true
+          correctExplanation: Korrigera.
+        - content: Bioengineering
+          isCorrect: false
+          incorrectExplanation: Fel.
+        - content: Fordon
+          isCorrect: false
+          incorrectExplanation: Fel.
+    - content: Där en av principer för delad åtkomst skapas inte som standard?
+      choices:
+        - content: iothubowner
+          isCorrect: false
+          incorrectExplanation: Den här principen skapas som standard.
+        - content: tjänst
+          isCorrect: false
+          incorrectExplanation: Den här principen skapas som standard.
+        - content: Enheten
+          isCorrect: false
+          incorrectExplanation: Den här principen skapas som standard.
+        - content: registryWrite
+          isCorrect: true
+          correctExplanation: Det finns ingen sådan princip som registryWrite.

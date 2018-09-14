@@ -2,37 +2,31 @@
 uid: learn.administer-infrastructure-resources-in-azure
 metadata:
   title: Administrera containrar i Azure
-  description: Lär dig hur du skapar, hanterar, skyddar och skalar virtuella datorresurser.
+  description: 'Lär dig hur du skapar, hanterar, skyddar och skalar virtuella datorresurser.'
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: b2f545d53629e759bbd900df3baccae5b5ab40ab
-  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/10/2018
-  ms.locfileid: "44307764"
 title: Administrera infrastrukturresurser i Azure
-summary: Lär dig hur du skapar, hanterar, skyddar och skalar virtuella datorresurser.
+summary: 'Lär dig hur du skapar, hanterar, skyddar och skalar virtuella datorresurser.'
 prerequisites: Ingen
-iconUrl: http://via.placeholder.com/120x120
+iconUrl: /achievements/administer-infrastructure-resources-in-azure.svg
 levels:
-- beginner
+  - beginner
 roles:
-- administrator
+  - administrator
 products:
-- azure
+  - azure
 modules:
-- learn.introduction-to-azure-virtual-machines
-- learn.create-linux-vm-in-azure
-- learn.create-a-windows-vm-in-azure
-- learn.manage-vms-with-azure-cli
-- learn.scale-and-size-virtual-machines
-- learn.make-your-virtual-machines-highly-available
-- learn.configure-the-network-for-your-virtual-machines
-- learn.add-and-size-disks-in-azure-virtual-machines
-- learn.caching-and-performance-azure-storage-and-disks
-- learn.secure-your-azure-virtual-machine-disks
+  - learn.introduction-to-azure-virtual-machines
+  - learn.create-linux-vm-in-azure
+  - learn.create-a-windows-vm-in-azure
+  - learn.manage-vms-with-azure-cli
+  - learn.scale-and-size-virtual-machines
+  - learn.make-your-virtual-machines-highly-available
+  - learn.configure-the-network-for-your-virtual-machines
+  - learn.add-and-size-disks-in-azure-virtual-machines
+  - learn.caching-and-performance-azure-storage-and-disks
+  - learn.secure-your-azure-virtual-machine-disks
 achievement: learn.administer-infrastructure-resources-in-azure.trophy

@@ -2,45 +2,52 @@ Vårt mål är alltså att flytta en befintlig Linux-server som kör Apache till
 
 ## <a name="create-a-new-linux-virtual-machine"></a>Skapa en ny virtuell Linux-dator
 
-Vi kan skapa en virtuell Linux-dator med Azure-portalen, Azure CLI eller Azure PowerShell. Den enklaste metoden när du börjar med Azure är att använda portalen eftersom den går igenom den information som krävs samt visar tips och användbara meddelanden när vi skapar den virtuella datorn.
+Vi kan skapa virtuella Linux-datorer med Azure-portalen, Azure CLI eller Azure PowerShell. Den enklaste metoden när du börjar med Azure är att använda portalen eftersom den går igenom informationen som krävs och ger tips och användbara meddelanden under skapandet:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
 
-1. Klicka på **Skapa en resurs** uppe till vänster i Azure Portal.
+1. Klicka på **skapa en resurs** i det övre vänstra hörnet i Azure Portal.
 
-1. I sökrutan anger du **Ubuntu Server** för att se de olika versionerna som är tillgängliga. Välj **Ubuntu Server 18.04** från den visade listan.
+1. I sökrutan anger du **Ubuntu Server** för att se de olika versionerna som är tillgängliga. Välj **Ubuntu Server 18.04 LTS** från listan över uppvisade.
 
 1. Klicka på knappen **Skapa** för att börja konfigurera den virtuella datorn.
 
-## <a name="configure-the-vm-settings"></a>Konfigurera inställningarna för den virtuella datorn
+## <a name="configure-the-vm-settings"></a>Konfigurera inställningar för den virtuella datorn
 
-När du skapar en virtuell dator på portalen går du igenom en guide som vägleder dig genom alla konfigurationsområden. När du klickar på ”Nästa” kommer du till nästa konfigurerbara avsnitt. Du kan dock förflytta dig mellan avsnitten när du vill med hjälp av flikarna som visas längs överkanten och som identifierar varje del.
+Upplevelse för virtuell dator när du skapar i portalen visas i formatet guiden leder dig igenom alla Konfigurationsområden för den virtuella datorn. Klicka på den **nästa** knappen tar dig till nästa avsnitt för konfigurerbara. Du kan dock förflytta dig mellan avsnitten när du vill med hjälp av flikarna som visas längs överkanten och som identifierar varje del.
 
-![Skapa en virtuell dator på Azure Portal](../media-drafts/3-azure-portal-create-vm.png)
+![Skärmbild av Azure-portalen som visar första skapa en VM-bladet för en Ubuntu Server-datorn.](../media/3-azure-portal-create-vm.png)
 
-När du har fyllt i alla obligatoriska alternativ (som visas med röd stjärnor) kan du hoppa över resten av guiden och börja skapa den virtuella datorn via knappen **Granska + Skapa** längst ned.
+När du fyller i alla obligatoriska alternativ (som identifieras med en röd asterisk) kan du hoppa över resten av guiden och börja skapa den virtuella datorn via den **granska + skapa** längst ned.
 
 Vi börjar med avsnittet **Grundläggande inställningar**.
 
 ### <a name="configure-basic-vm-settings"></a>Konfigurera grundläggande inställningar för en virtuell dator
 
-1. Välj den **prenumeration** som VM-timmar ska debiteras mot.
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-1. Välj **Skapa nytt** för **Resursgrupp** och ge resursgruppen namnet **ExerciseResources**.
+1. Välj den **prenumeration** som den virtuella datorns körningstimmar ska debiteras mot.
 
-> [!NOTE]
-> När du ändrar inställningar och flyttar från fälten valideras värdena automatiskt av Azure och en grön bock visas bredvid dem om de är giltiga. Du kan hovra över felindikatorerna om du vill ha mer information om problem som identifieras.
+1. För **resursgrupp**väljer **Använd befintlig** och välj resursgruppen med namnet  **<rgn>[Sandbox resursgruppens namn]</rgn>**.
 
-1. I avsnittet **INSTANSINFORMATION** anger du ett namn på den virtuella webbserverdatorn, ”test-web-eus-vm1”. Detta anger miljön (”test”), rollen (”webb”), platsen (”USA, östra”), tjänsten (”vm”) och instansnummer (”1”).
-    - Det är bästa praxis att standardisera resursnamnen så att du snabbt kan identifiera deras syfte. Namnen på virtuella Linux-datorer måste vara mellan 1 och 64 tecken och måste bestå av siffror, bokstäver och bindestreck.
+    > [!NOTE]
+    > När du ändrar inställningar och fliken från varje fält, kommer Azure verifiera varje värde automatiskt och placera en grön bock bredvid den när det är bra. Du kan hovra över felindikatorerna om du vill ha mer information om problem som identifieras.
 
-1. Välj en region nära dig; vi har valt USA, östra.
+#### <a name="select-a-location"></a>Välj en plats
 
-1. Lämna **Tillgänglighetsalternativ** som ”Inga”. Det här alternativet säkerställer att den virtuella datorn har hög tillgänglighet genom att gruppera flera virtuella datorer för att underlätta hanteringen av planerade eller oplanerade underhållsåtgärder eller avbrott.
+<!-- Resource selection -->
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-1. Se till att avbildningen är inställd på ”Ubuntu Server 18.04 LTS”. Du kan öppna listrutan för att visa alla tillgängliga alternativ.
+1. I den **INSTANSINFORMATION** anger ett namn för din webbserver virtuell dator, till exempel **test-web-eus-vm1**. Detta anger miljön (**testa**), rollen (**web**), plats (**USA, östra**), service (**vm**), och antal (instanser**1**).
+    - Det är en bra idé att standardisera ditt resursnamn, så du snabbt kan identifiera deras syfte. Namnen på virtuella Linux-datorer måste vara mellan 1 och 64 tecken och måste bestå av siffror, bokstäver och bindestreck.
 
-1. Fältet **Storlek** kan inte redigeras direkt och har en standardstorlek på **DS2_v3**, vilket är ett av valen för beräkning för generell användning. Det här valet är perfekt för en offentlig webbserver, men klicka på länken **Ändra storlek** om du vill utforska andra storlekar på virtuella datorer. I dialogrutan som visas kan du filtrera baserat på antal processorer, namn och disktyp. Välj samma **DS2_v3**-val, vilket ger dig två virtuella processorer med 8 GB RAM.
+1. Välj en region nära dig. Se till att välja en från de tillgängliga platserna som anges ovan.
+
+1. Lämna **tillgänglighetsalternativ** som **ingen**. Det här alternativet används för att se till att Virtuellt datorn med hög tillgänglighet genom att gruppera flera virtuella datorer som en uppsättning utan planerat eller oplanerat underhåll eller avbrott.
+
+1. Kontrollera att avbildningen är inställd på **Ubuntu Server 18.04 LTS**. Du kan öppna listrutan för att visa alla tillgängliga alternativ.
+
+1. Den **storlek** fältet kan inte direkt ändras och har en **DS2_v3** standardstorlek, som är en av de allmänna databehandling val. Det här valet är perfekt för en offentlig webbserver, men klicka på länken **Ändra storlek** om du vill utforska andra storlekar på virtuella datorer. Resulterande dialogrutan kan du filtrera utifrån **antal processorer**, **namn**, och **disktyp**. Välj samma **DS2_v3** föredrar, vilket ger dig två virtuella processorer med 8 GB RAM.
 
     > [!TIP]
     > Du kan även dra vyn åt vänster för att gå tillbaka till inställningarna för den virtuella datorn eftersom ett nytt fönster öppnades till höger och placerades ovanpå det.
@@ -52,58 +59,57 @@ Vi börjar med avsnittet **Grundläggande inställningar**.
 1. Kopiera SSH-nyckeln från filen med din offentliga nyckel och klistra in den i fältet **Offentlig SSH-nyckel**.
 
 > [!IMPORTANT]
-> När du kopierar den offentliga nyckeln till Azure-portalen ska du se till att inte lägga till några extra blanksteg eller radmatningstecken.
+> När du kopierar den offentliga nyckeln till Azure-portalen, se till att du inte lägga till några extra blanksteg eller radmatning tecken.
 
-1. I avsnittet **REGLER FÖR INKOMMANDE PORTAR** öppnar du listan och _avmarkerar_ ”Inga”. Eftersom det här är en virtuell Linux-dator vill vi kunna komma åt den virtuella datorn med hjälp av SSH via en fjärranslutning. Bläddra i listan om det behövs tills du hittar ssh (22) och välj det. Som anmärkningen i användargränssnittet indikerar kan vi även ändra nätverksportarna efter att vi har skapat den virtuella datorn.
+1. I den **regler för INKOMMANDE PORT** avsnittet, öppna listan och avmarkera **inga offentliga inkommande portar**. Eftersom det här är en virtuell Linux-dator vill vi kunna komma åt den virtuella datorn med hjälp av SSH via en fjärranslutning. Bläddra i listan vid behov tills du hittar **SSH (22)** och markera den. Som anmärkningen i användargränssnittet indikerar kan vi även ändra nätverksportarna efter att vi har skapat den virtuella datorn.
 
-    ![Öppna porten för SSH-åtkomst på den virtuella Linux-datorn](../media-drafts/3-open-ports.png)
+    ![Skärmbild av Azure portal som visar administratörskontot och inställningar för inkommande port enligt så att du öppnar en Linux-VM för SSH-åtkomst.](../media/3-open-ports.png)
 
 ## <a name="configure-disks-for-the-vm"></a>Konfigurera diskar för den virtuella datorn
 
-1. Gå till avsnittet Diskar genom att klicka på **Nästa**.
+1. Klicka på **nästa: diskar >** att flytta till den **diskar** avsnittet.
 
-    ![Konfigurera diskar för den virtuella datorn](../media-drafts/3-configure-disks.png)
+    ![Skärmbild av Azure-portalen som visar avsnittet diskar för att skapa en VM-bladet.](../media/3-configure-disks.png)
 
-1. Välj ”Premium SSD” för **OS-disktypen**.
+1. Välj **Premium SSD** för den **OS disktyp**.
 
 1. Använd hanterade diskar så att vi inte behöver arbeta med lagringskonton. Om du vill kan du växla inställningen i det grafiska användargränssnittet för att se skillnaden mellan vilken information Azure behöver.
 
 ### <a name="create-a-data-disk"></a>Skapa en datadisk
 
-Som du kanske minns får vi en operativsystemdisk (/dev/sda) och en temporär disk (/dev/sdb). Nu ska vi lägga till en datadisk också.
+Kom ihåg att vi får en OS-disk (/ dev/sda) och en temporär disk (/ dev/sdb). Lägg till en datadisk:
 
 1. Klicka på länken **Create and attach a new disk** (Skapa och koppla en ny disk) i avsnittet **DATADISKAR**.
 
-    ![Skapa en datadisk för den virtuella datorn på portalen](../media-drafts/3-add-data-disk.png)
+    ![Skärmbild av Azure-portalen som visar skapa ett nytt blad för disken.](../media/3-add-data-disk.png)
 
-1. Du kan använda alla standardvärden: Premium SSD, 1 023 GB och Inget (tom disk). Observera dock att det är här vi skulle kunna använda en ögonblicksbild eller Storage Blob för att skapa en virtuell hårddisk.
+1. Du kan vidta alla standardvärden: Premium SSD, 1 023 GB och **ingen** (tom disk), även om du se att här där vi kan använda en ögonblicksbild eller Azure Blob storage för att skapa en virtuell Hårddisk.
 
 1. Klicka på **OK** för att skapa disken och gå tillbaka till avsnittet **DATADISKAR**.
 
 1. En ny disk bör visas på den första raden.
 
-    ![Ny disk på den virtuella datorn](../media-drafts/3-new-disk.png)
+    ![Skärmbild av Azure-portalen som visar nya data disk raden för VM-skapandeprocessen.](../media/3-new-disk.png)
 
 ## <a name="configure-the-network"></a>Konfigurera nätverket
 
-1. Gå till avsnittet Nätverk genom att klicka på **Nästa**.
+1. Klicka på **nästa: nätverk >** att flytta till den **nätverk** avsnittet.
 
-1. I ett produktionssystem där vi redan har andra komponenter vill vi använda ett _befintligt_ virtuellt nätverk. På så sätt kan vår virtuella dator kommunicera med de andra molntjänsterna i vår lösning. Om ingenting har definierats på den här platsen än, kan vi skapa det här och konfigurera:
-
-    - **Adressutrymme**: Hela IPV4-utrymmet som är tillgängligt för det här nätverket.
-    - **Intervall för undernät**: Det första undernätet som delar in adressutrymmet i underordnade nät – det var giltigt i det definierade adressutrymmet. När det virtuella nätverket har skapats kan du lägga till fler undernät.
+1. I ett produktionssystem där vi redan har andra komponenter vill vi använda ett _befintligt_ virtuellt nätverk. På så sätt kan våra virtuella datorn kan kommunicera med andra molntjänster i vår lösning. Om ingenting har definierats på den här platsen än kan vi skapa det här och konfigurera:
+    - **Adressutrymme**: den övergripande IPV4-adressutrymmet för det här nätverket.
+    - **Intervall för undernät**: det första undernätet att dela upp adressutrymmet - det måste rymmas inom adressutrymmet för definierade. När det virtuella nätverket har skapats kan du lägga till fler undernät.
 
 > [!NOTE]
-> Som standard skapar Azure ett virtuellt nätverk, ett nätverksgränssnitt och en offentlig IP för din virtuella dator. Det är inte helt okomplicerat att ändra nätverksalternativen i efterhand, när den virtuella datorn har skapats. Därför bör du alltid dubbelkolla nätverkstilldelningarna för tjänster som du skapar i Azure.
+> Som standard skapar Azure ett virtuellt nätverk, ett nätverksgränssnitt och en offentlig IP för din virtuella dator. Det är inte helt enkelt att ändra alternativ för nätverksfunktioner när du har skapat den virtuella datorn, så du måste alltid kontrollera nätverksallokeringarna på tjänster som du skapar i Azure.
 
 ## <a name="finish-configuring-the-vm-and-create-the-image"></a>Slutför konfigurationen av den virtuella datorn och skapa avbildningen
 
-Resten av alternativen har redan lämpliga standardinställningar och du behöver inte ändra dem. Utforska de andra flikarna om du vill. De enskilda alternativen visas med en `(i)`-ikon som öppnar en användbar hjälpbubbla som beskriver alternativet. På så sätt kan du enkelt lära dig om de olika alternativen som du kan använda för att konfigurera den virtuella datorn.
+Resten av alternativen har redan lämpliga standardinställningar och du behöver inte ändra dem. Utforska de andra flikarna om du vill. Enskilda alternativ har en `(i)` ikonen bredvid dem som en hjälp för att förklara alternativet visas. Det här är ett bra sätt att lära dig om de olika alternativen som du kan använda för att konfigurera den virtuella datorn:
 
 1. Klicka på knappen **Granska + skapa** längst ned på panelen.
 
-1. Alternativen valideras och visar information om den virtuella datorn som skapas.
+1. Systemet validerar alternativen och visar information om den virtuella datorn som skapas.
 
 1. Skapa och distribuera den virtuella datorn genom att klicka på **Skapa**. På instrumentpanelen i Azure ser du den virtuella dator som distribueras. Det här kan ta flera minuter.
 
-Medan den distribueras ska vi se vad vi kan göra mde den här virtuella datorn.
+Medan den virtuella datorn distribueras ska vi titta närmare på vad vi kan göra med den.

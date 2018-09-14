@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.pillars-of-a-great-azure-architecture.5-design-for-availability-and-recoverability
-title: Design for availability and recoverability
+title: Design för tillgänglighet och återställning
 metadata:
-  title: Design for availability and recoverability
-  description: Design for availability and recoverability
+  title: Design för tillgänglighet och återställning
+  description: Design för tillgänglighet och återställning
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
@@ -14,33 +13,33 @@ durationInMinutes: 10
 content: |
   [!include[](includes/5-design-for-availability-and-recoverability.md)]
 quiz:
-  title: 'Knowledge check - Design for availability and recoverability'
+  title: Kunskapskontroll – Design för tillgänglighet och återställning
   questions:
-  - content: 'Which of the following need to be considered when determing the SLA you can commit to for customers?'
-    choices:
-    - content: 'The SLA you can provide for services you are directly responsible for managing'
-      isCorrect: false
-      incorrectExplanation: 'This is an important consideration when determining the SLA you can commit to for customers, but is not the only correct choice.'
-    - content: 'The SLA of cloud services that you utilize in your architecture'
-      isCorrect: false
-      incorrectExplanation: 'This is an important consideration when determining the SLA you can commit to for customers, but is not the only correct choice.'
-    - content: 'The SLA of networking services for connectivity to dependencies on-premises'
-      isCorrect: false
-      incorrectExplanation: 'This is an important consideration when determining the SLA you can commit to for customers, but is not the only correct choice.'
-    - content: 'All of the above would need to be considered when determining the SLA you can commit to for customers'
-      isCorrect: true
-      correctExplanation: 'All of the above would need to be considered when determining the SLA you can commit to for customers'
-  - content: 'Which of the following would be impacted by your defined RPO?'
-    choices:
-    - content: 'The frequency of database backups'
-      isCorrect: true
-      correctExplanation: 'Since the recovery point objective is concerned with the amount of data loss that is tolerable, the frequency of backups needs to be within this time window and is directly impacted by your defined RPO.'
-    - content: 'The number of regions that data is replicated to'
-      isCorrect: false
-      incorrectExplanation: 'The number of regions that data is replicated to is an important consideration, but is not impacted by your defined RPO.'
-    - content: 'The number of instances in a database cluster'
-      isCorrect: false
-      incorrectExplanation: 'The number of instances in a database cluster can be an important decision, but is not impacted by your defined RPO.'
-    - content: 'The type of load-balancing technology used in your application'
-      isCorrect: false
-      incorrectExplanation: 'The type of load-balancing technology used in your application can be an important decision, but is not impacted by your defined RPO.'
+    - content: Vilket av följande måste beaktas när du fastställer vilket serviceavtal du kan åta dig gentemot kunder?
+      choices:
+        - content: Det SLA som du kan tillhandahålla för tjänster som du är direkt ansvarig för att hantera
+          isCorrect: false
+          incorrectExplanation: 'Det här är viktigt att överväga när du fastställer det SLA som du kan åta dig för kunder, men det är inte det enda rätta valet.'
+        - content: SLA för molntjänster som du använder i din arkitektur
+          isCorrect: false
+          incorrectExplanation: 'Det här är viktigt att överväga när du fastställer det SLA som du kan åta dig för kunder, men det är inte det enda rätta valet.'
+        - content: SLA för nätverkstjänster för anslutning till lokala beroenden
+          isCorrect: false
+          incorrectExplanation: 'Det här är viktigt att överväga när du fastställer det SLA som du kan åta dig för kunder, men det är inte det enda rätta valet.'
+        - content: Allt ovanstående måste beaktas när du fastställer vilket serviceavtal du kan åta dig gentemot kunder
+          isCorrect: true
+          correctExplanation: Allt ovanstående måste beaktas när du fastställer vilket serviceavtal du kan åta dig gentemot kunder
+    - content: Vilket av följande skulle påverka ditt definierade mål för återställningspunkt?
+      choices:
+        - content: Frekvensen för säkerhetskopior av databasen
+          isCorrect: true
+          correctExplanation: Eftersom målet för återställningspunkten handlar om den mängd dataförlust som är acceptabel så måste säkerhetskopieringsfrekvensen vara inom den tidsperioden och påverkas direkt av ditt definierade mål för återställningspunkten.
+        - content: Antalet regioner som data replikeras till
+          isCorrect: false
+          incorrectExplanation: 'Antalet regioner som data replikeras till är ett viktigt övervägande, men påverkas inte av ditt definierade mål för återställningspunkt.'
+        - content: Antalet instanser i ett databaskluster
+          isCorrect: false
+          incorrectExplanation: 'Antalet instanser i ett databaskluster kan vara ett viktigt beslut, men påverkas inte av ditt definierade mål för återställningspunkt.'
+        - content: Den typ av lastbalanseringsteknik som används i ditt program
+          isCorrect: false
+          incorrectExplanation: 'Typen av lastbalanseringsteknik som används i ditt program kan vara ett vitktigt beslut, men påverkas inte av ditt definierade mål för återställningspunkten.'

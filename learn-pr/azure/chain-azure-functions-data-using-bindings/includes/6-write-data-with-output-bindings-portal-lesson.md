@@ -1,54 +1,40 @@
-Similar to input bindings, there are multiple types of output bindings.
+På liknande sätt som att ange bindningar, det finns flera typer av utdatabindningar.
 
-There are multiple types of output bindings, however not all types support both input and output. You'll use them anytime you want to send or store data. Here, we'll look at the types that support output bindings and when to use them.
+Det finns flera typer av utdatabindningar, men inte alla typer stöder både indata och utdata. Du använder dem när du vill skicka eller lagra data. Här kan ska vi titta på de typer som stöder utdatabindningar och när de ska användas.
 
-## Output binding types
+## <a name="output-binding-types"></a>Utdatatyper för bindning
 
-- **Blob Storage**
-   You can use the blob output binding to write blobs.
+- **BLOB-lagring** du kan använda blob-utdatabindning för att skriva BLOB-objekt.
 
-- **Cosmos DB**
-    The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
+- **Cosmos DB** bindning kan du skriva ett nytt dokument till en Azure Cosmos DB-databas med hjälp av SQL-API för Azure Cosmos DB-utdata.
 
-- **Event Hubs**
-    Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
+- **Händelsehubbar** använda Event Hubs-utdatabindning till skriva händelser till en händelseström. Du måste ha skicka behörighet till en event hub att skriva händelser till den.
 
-- **HTTP**
-    Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request.
+- **HTTP** Använd HTTP-utdatabindning svarar på http-begäran avsändaren. Den här bindningen kräver en HTTP-utlösare och kan du anpassa svaret som är associerade med utlösarens begäran.
 
-- **Microsoft Graph**
-    Microsoft Graph output bindings allow you to write to files in OneDrive, modify Excel data, and send email through Outlook.
+- **Microsoft Graph** utdatabindningar för Microsoft Graph kan du skriva till filer i OneDrive, ändra Excel-data och skicka e-post via Outlook.
 
-- **Mobile Apps**
-    The Mobile Apps output binding writes a new record to a Mobile Apps table.
+- **Mobile Apps** The Mobile Apps utdata bindning skrivningar till en ny post i en tabell med Mobile Apps.
 
-- **Notification Hubs**
-    You can send push notifications with Notification Hubs output bindings.
+- **Meddelandehubbar** du kan skicka push-meddelanden med Notification Hubs utdatabindningar.
 
-- **Queue Storage**
-    Use the Azure Queue storage output binding to write messages to a queue.
+- **Queue Storage** använda den Azure Queue storage-utdatabindning för att skriva meddelanden till en kö.
 
-- **Send Grid**
-    Send emails using SendGrid bindings.
+- **Skicka rutnät** skicka e-postmeddelanden med SendGrid-bindningar.
 
-- **Service Bus**
-    Use Azure Service Bus output binding to send queue or topic messages.
+- **Service Bus** Använd Azure Service Bus-utdatabindning att skicka meddelanden från kön eller ämnet.
 
-- **Table storage**
-    Use an Azure Table storage output binding to write to a table in an Azure Storage account.
+- **Tabellagring** används en Azure Table storage-utdatabindning att skriva till en tabell i ett Azure Storage-konto.
 
-- **Twilio**
-    Send text messages with Twilio.
+- **Twilio** skicka SMS med Twilio.
 
-- **Webhooks**
-    Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request.
+- **Webhooks** Använd HTTP-utdatabindning svarar på http-begäran avsändaren. Den här bindningen kräver en HTTP-utlösare och kan du anpassa svaret som är associerade med utlösarens begäran.
 
+## <a name="how-to-create-an-output-binding"></a>Så här skapar du en utdatabindning?
+För att definiera en bindning indata, måste du definiera den `direction` som `out`.
+Parametrarna för varje typ av bindning kan skilja sig, de som är väl dokumenterat i [Microsofts dokumentation](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings)
 
-## How to create an output binding?
-In order to define a binding an input, you must define the `direction` as `out`.
-The parameters for each type of binding may differ, those are well documented in [Microsoft's Documentation](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings)
+## <a name="combining-input-and-output-bindings"></a>Kombinera indata och utdata bindningar 
+Det går att använda flera bindningar till en enda funktion. På så sätt kan du definiera både inkommande och utgående bindningar.
 
-## Combining input and output bindings 
-it's possible to apply multiple bindings to a single function. This allows you to define both input and output bindings.
-
-And the input and output can even be the same binding type .....
+Och indata och utdata kan även vara samma bindningstypen...

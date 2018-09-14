@@ -1,81 +1,81 @@
-Imagine we want to create a simple bookmark lookup service. Our service is readonly initially. If a user wants to find an entry, they send a request with the ID of the entry and we return the URL. The following diagram explains the flow.
+Anta att vi vill skapa en enkel bokmärke lookup-tjänst. Tjänsten är readonly från början. Om en användare vill hitta en post, de skickar en begäran med ID: T för posten och returnerar vi URL: en. Diagrammet nedan beskriver flödet.
 
-![Flow diagram showing process of finding a bookmark in our Cosmos DB back-end](../media-draft/find-bookmark-flow-small.png)
+![Flow-diagram som visar processen att hitta ett bokmärke i vår Cosmos-DB backend-server](../media-draft/find-bookmark-flow-small.png)
 
-When a user sends us a request with some text, we try to find an entry in our back-end database that contains this text as a key or Id. We return a result that indicates whether we found the entry or not.
+När en användare skickar oss en begäran med lite text, försöker vi hitta en post i vår backend-databas som innehåller den här texten som en nyckel eller -Id. Vi returnera ett resultat som anger om vi hittas posten eller inte.
 
-We need to store data somewhere. In this flowchart, our data store is shown as an Azure Cosmos DB. But, how do we connect to that database from a function and read data? In the world of functions, we configure an *input binding* for that job.  Configuring a binding through the Azure Portal is straightforward. As we'll see shortly, You don't have to write code for tasks such as opening a storage connection. The Azure Functions runtime and binding take care of those tasks for you.
+Vi behöver att lagra data någonstans. I det här flödesschemat visas vår datalager som ett Azure Cosmos DB. Men hur vi ansluta till databasen från en funktion och läsa data? I en värld av funktioner, konfigurerar vi en *indatabindning* för jobbet.  Det är enkelt att konfigurera en bindning via Azure Portal. Som vi ser inom kort har du inte skriva kod för uppgifter, till exempel att öppna en lagringsanslutning. Azure Functions runtime och bindningen hand tar om dessa uppgifter åt dig.
 
 > [!IMPORTANT]
-> We're going to refer to some resources (database, function, bindings, code) that we create here in our next lab. Please keep these resources around at least until you finish this course.
+> Vi kommer att referera till vissa resurser (databasen, funktion, bindningar, kod) som vi skapar här i vårt nästa labb. Håll resurserna runt minst tills du är klar med den här kursen.
 
-As was the case for the preceding module, we'll do everything in the Azure portal.
+Som var fallet för den föregående modulen ska vi göra allt i Azure-portalen.
 
-## Create an Azure Cosmos DB 
+## <a name="create-an-azure-cosmos-db"></a>Skapa ett Azure Cosmos DB 
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com?azure-portal=true) with your Azure account.
+### <a name="create-a-database-account"></a>Skapa ett databaskonto
 
-### Create a database account
+Ett databaskonto är en behållare för att hantera en eller flera databaser. Innan vi kan skapa en databas, som vi behöver skapa ett databaskonto.
 
-A database account is a container for managing one of more databases. Before we can create a database, we need to create a database account.
+1. Logga in på [Azure Portal](https://portal.azure.com/?azure-portal=true).
 
-1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Databases** > **Azure Cosmos DB**.
+2. Välj den **skapa en resurs** knappen hittades på det övre vänstra hörnet i Azure-portalen, sedan väljer **databaser** > **Azure Cosmos DB**.
 
-2. In the **New account** page, enter the settings for the new Azure Cosmos DB account.
- 
-    Setting|Value|Description
+3. På sidan **Nytt konto** anger du inställningarna för det nya Azure Cosmos DB-kontot.
+
+    Inställning|Värde|Beskrivning
     ---|---|---
-    ID|*Enter a unique name*|Enter a unique name to identify this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID.<br><br>The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
-    API|SQL|The API determines the type of account to create. Azure Cosmos DB provides five APIs to suit the needs of your application: SQL (document database), Gremlin (graph database), MongoDB (document database), Azure Table, and Cassandra, each which currently require a separate account. <br><br>Select **SQL**. At this time, the Azure Cosmos DB trigger, input bindings, and output bindings only work with SQL API and Graph API accounts. 
-    Subscription|*Your subscription*|Select Azure subscription that you want to use for this Azure Cosmos DB account.
-    Resource Group|Use existing<br><br>*Then enter [!INCLUDE [resource-group-name](./rg-name.md)], the resource group we created in an earlier unit for this module's resources.*| We're selecting **Use existing**, because we want to group all resources created for this module under the same resource group.
-    Location|Auto-filled once **Use existing** is set. | Select the geographic location in which to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data. In this lab,  the location is pre-determined for us as the location set for the existing resource group.
-    
-Leave all other fields in the **New account** blade at their default values because we're using them in this module.  That includes **Enable geo-redundancy**, **Enable Multi Master**, **Virtual networks**.
+    ID|*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom *documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
+    API|SQL|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API: er så att de passar behoven i ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure Table och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Välj **SQL**. Just nu fungerar Azure Cosmos DB-utlösaren, indatabindningar och utdatabindningar bara med SQL API och Graph API-konton. 
+    Prenumeration|*Din prenumeration*|Välj den Azure-prenumeration som ska användas för det här Azure Cosmos DB-kontot.
+    Resursgrupp|Använd befintlig<br><br>*Välj sedan <rgn>[Sandbox resursgruppens namn]</rgn>, resursgruppen som vi skapade i en tidigare enhet för den här modulen resurser.*| Väljer vi **Använd befintlig**, eftersom vi vill gruppera alla resurser som skapats för den här modulen under samma resursgrupp.
+    Plats|Fylls i automatiskt en gång **Använd befintlig** har angetts. | Välj den geografiska plats som ska vara värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt. I den här övningen bestäms före platsen för oss som platsen för den befintliga resursgruppen.
 
-3. Select **Create** to provision and deploy the database account.
+Lämna andra fält i den **nytt konto** bladet på standardnivå värden eftersom vi använder dem i den här modulen.  Det omfattar **aktivera georedundans**, **aktivera flera Master**, **virtuella nätverk**.
 
-4. Deployment can take some time. So, wait for a **Deployment succeeded** message similar to the following message before proceeding.
+4. Välj **skapa** att etablera och distribuera databaskontot.
+
+5. Distributionen kan ta lite tid. Så vänta tills en **distributionen lyckades** meddelande som liknar följande meddelande innan du fortsätter.
 
 <!-- TODO figure out how to center these image -->
 
-![Notification that database account deployment has completed](../media-draft/db-deploy-success.PNG)
+![Meddelande om att distributionen av databasen har slutförts](../media-draft/db-deploy-success.PNG)
 
-5. Congratulations! You've created and deployed your database account!
+6. Grattis! Du har skapat och distribuerat ditt databaskonto!
 
-6. Select **Go to resource** to navigate to the database account in the portal. We'll add a collection to the database next.
+7. Välj **gå till resurs** att navigera till kontot i portalen. Vi ska lägga till en samling databasen sedan.
 
-### Add a collection
+### <a name="add-a-collection"></a>Lägga till en samling
 
-In Cosmos DB, a *container* holds arbitrary user-generated entities. In a database the supports SQL API, a document-oriented API, a container is a *collection*. Inside a collection, we store documents. Hopefully all will be clearer once we create a collection and add some documents.
+I Cosmos DB, en *behållare* innehåller godtyckliga användargenererade entiteter. I en databas har stöd för SQL-API, en dokumentorienterad API, en behållare är en *samling*. Vi lagrar dokument i en samling. Förhoppningsvis blir alla tydligare när vi skapar en samling och lägger till några dokument.
 
-Let's use the Data Explorer tool in the Azure portal to create a database and collection.
+Nu ska vi använda datautforskarverktyget i Azure-portalen för att skapa en databas och samling.
 
-1. Click **Data Explorer** > **New Collection**.
+1. Klicka på **Datautforskaren** > **Ny samling**.
 
-2. In the **Add collection**, enter the settings for the new collection.
+2. I den **Lägg till samling**, anger du inställningarna för den nya samlingen.
 
     >[!TIP]
-    >The **Add Collection** area is displayed on the far right, you may need to scroll right to see it.
+    >Området **Lägg till samling** visas längst till höger, du kan behöva bläddra åt höger för att se det.
 
-    Setting|Suggested value|Description
+    Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    Database ID|[!INCLUDE [cosmos-db-name](./cosmos-db-name.md)]| Database names must contain from 1 through 255 characters, and they cannot contain /, \\, #, ?, or a trailing space.<br><br>You are free to enter whatever you want here, but we suggest [!INCLUDE [cosmos-db-name](./cosmos-db-name.md)] as the name for the new database, and that's what we'll refer to in this unit. |
-    Collection ID|[!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)]|Enter [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)] as the name for our new collection. Collection IDs have the same character requirements as database names.
-    Storage capacity| Fixed (10 GB)|Use the default value of **Fixed (10 GB)**. This value is the storage capacity of the database.
-    Throughput|400 RU|Change the throughput to 400 request units per second (RU/s). Storage capacity must be set to **Fixed (10 GB)** in order to set throughput to 400 RU/s. If you want to reduce latency, you can scale up the throughput later.
+    Databas-id|[!INCLUDE [cosmos-db-name](./cosmos-db-name.md)]| Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg.<br><br>Du kan välja att ange vad du vill här, men vi rekommenderar [!INCLUDE [cosmos-db-name](./cosmos-db-name.md)] som namn på den nya databasen och som är vad vi ska referera till i den här enheten. |
+    Samlings-ID|[!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)]|Ange [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)] som namn på vår nya samlingen. Samlings-ID har samma teckenkrav gäller som databasnamn.
+    Lagringskapacitet| Fast (10 GB)|Använd standardvärdet för **Fast (10 GB)**. Det här värdet är databasens lagringskapacitet.
+    Dataflöde|400 RU|Ändra genomflödet till 400 begäransenheter per sekund (RU/s). Lagringskapaciteten måste anges till **Fast (10 GB)** för att kunna ställa in dataflöde på 400 RU/s. Du kan skala upp dataflödet senare om du vill minska svarstiden.
     
-3. Click **OK**. The Data Explorer displays the new database and collection. So, now we have a database. Inside the database, we've defined a collection. Next we'll add some data, also known as documents.
+3. Klicka på **OK**. Datautforskaren visar den nya databasen och samlingen. Så nu har vi en databas. Vi har definierat en samling inne i databasen. Därefter lägger vi till vissa data, även känt som dokument.
 
-### Add test data
+### <a name="add-test-data"></a>Lägg till testdata
 
-We've defined a collection in our database called [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)], so what are we intending to store in the collection? Well, the idea is to store a URL and ID in each document, like a list of web page bookmarks. 
+Vi har definierat en samling i vår databas som heter [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)], så det vi tänkt lagra i samlingen? Dessutom är tanken att lagra en URL och -ID i varje dokument, t.ex. en lista över webbsida bokmärken. 
 
-We'll add data to our new collection using Data Explorer.
+Vi lägger till data till vår nya samling med Datautforskaren.
 
-1. In Data Explorer, the new database appears in the Collections pane. Expand the [!INCLUDE [cosmos-db-name](./cosmos-db-name.md)] database, expand the [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)] collection, click **Documents**, and then click **New Document**.
+1. Den nya databasen visas på panelen Samlingar i datautforskaren. Expandera den [!INCLUDE [cosmos-db-name](./cosmos-db-name.md)] databasen, expandera den [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)] samling, klickar du på **dokument**, och klicka sedan på **nytt dokument**.
   
-2. Now add a document to the collection with the following structure. Each document is schema-less JSON file.
+2. Lägg nu till ett dokument i samlingen med följande struktur. Varje dokument är-schemalösa JSON-fil.
 
      ```json
      {
@@ -84,134 +84,131 @@ We'll add data to our new collection using Data Explorer.
      }
      ```
 
-3. Once you've added the json to the **Documents** tab, click **Save**.
+3. När du har lagt till json på fliken **Dokument** klickar du på **Spara**.
 
-When the document is saved, notice that there are more properties than the ones we added. They all begin with an underline (_rid, _self, _etag, _attachments, _ts). These are properties generated by the system to help manage the document. The following table explains briefly what they are.
+När dokumentet sparas, Observera att det finns fler egenskaper än de som vi har lagt till. Alla börjar med ett understreck (_rid, _self, _etag, _attachments, _ts). Det här är egenskaper som genereras av systemet för att hantera dokumentet. I följande tabell beskrivs kortfattat de är.
 
-
-|Property  |Description  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
-|_rid     |     The resource ID (_rid) is a unique identifier that is also hierarchical per the resource stack on the resource model. It is used internally for placement and navigation of the document resource.    |
-|_self     |   The unique addressable URI for the resource.      |
-|_etag     |   Required for optimistic concurrency control.     |
-|_attachments     |  The addressable path for the attachments resource.       |
-|_ts     |    The timestamp of the last update of this resource.    |
+|_rid     |     Resurs-ID (_rid) är en unik identifierare som också är hierarkiska per resurs-stacken på vilken resursmodell. Den används internt för placering och navigeringen i Dokumentresursen.    |
+|_self     |   Den unika adresserbara URI för resursen.      |
+|_etag     |   Krävs för optimistisk samtidighetskontroll.     |
+|_attachments     |  Adresserbara sökväg för resurs för bifogade filer.       |
+|_ts     |    Tidsstämpel för senaste uppdateringen av den här resursen.    |
  
+4. Vi lägger till några dokument i vår samling. För var och en av följande använder den **nytt dokument** kommandot igen för att skapa en post för varje. Glöm inte att klicka på # Save ** för att samla in dina tillägg.
 
-4. Let's add a few more documents into our collection. For each of the following, use the **New Document** command again to create an entry for each. Don't forget to click ##Save** to capture your additions.
-
-|id  |value  |
+|id  |value (värde)  |
 |---------|---------|
 |portal     |  https://portal.azure.com       |
-|learn     |   https://docs.microsoft.com/learn |
+|Lär dig     |   https://docs.microsoft.com/learn |
 |marketplace     |    https://azuremarketplace.microsoft.com/marketplace/apps  |
 |blog | https://azure.microsoft.com/blog |
 
-When you've finished, your collection should look like the following screenshot.
+När du är klar, din samling bör se ut som följande skärmbild.
 
-![Screenshot of the SQL API UI in the portal that shows the list of entries we added to our bookmarks collection.](../media-draft/db-bookmark-coll.PNG)
+![Skärmbild av SQL API-Användargränssnittet i portal som visar en lista över poster som vi har lagt till vår bokmärken-samlingen.](../media-draft/db-bookmark-coll.PNG)
 
-We now have a few entries in our bookmark collection. Our scenario will work as follows. If a request arrives with, for example, "id=docs", we'll look up that ID in our bookmarks collection and return the URL https://docs.microsoft.com/azure. Let's make an Azure function that looks up values in this collection.
+Nu har vi några poster i vår bokmärke-samlingen. Så här fungerar vårt scenario. Om en begäran tas emot med, till exempel ”id = docs”, vi Leta upp detta ID i vår bokmärken samlingen och returnerar URL: en https://docs.microsoft.com/azure. Vi gör en Azure-funktion som hämtar värden i den här samlingen.
 
-## Create our function
+## <a name="create-our-function"></a>Skapa vår funktion
 
-1. Navigate to the function app you created in the preceding unit.
+1. Gå till funktionsappen som du skapade i den föregående enheten.
 
-2. Expand your function app, then hover over the functions collection and select the Add (**+**) button next to **Functions**. This action starts the function creation process. The following animation illustrates this action.
+2. Expandera funktionsappen, och sedan hovra över samlingen funktioner och välj Lägg till (**+**) bredvid knappen **Functions**. Den här åtgärden startar funktionen skapandeprocessen. Följande animeringen illustrerar den här åtgärden.
 
-![Animation of the plus sign appearing when the user hovers over the functions menu item.](../media-draft/func-app-plus-hover-small.gif)
+![Animering av på plustecknet som visas när användaren för muspekaren över menyalternativet funktioner.](../media-draft/func-app-plus-hover-small.gif)
 
-3. The page shows us the complete set of supported triggers. Select **HTTP trigger**, which is the first entry in the following screenshot.
+3. Sidan visar oss en fullständig uppsättning med stöds utlösare. Välj **HTTP-utlösare**, vilket är den första posten i följande skärmbild.
 
-![Screenshot of part of the trigger template selection UI, with the TTP trigger displayed first, in the top left of the image.](../media-draft/trigger-templates-small.PNG)
+![Skärmbild av en del av utlösaren mall markeringen Användargränssnittet med HTTP-utlösaren visas först i upp till vänster i avbildningen.](../media-draft/trigger-templates-small.PNG)
 
-4. Fill out the **New Function** dialog that appears to the right  using the following values.
+4. Fyll i **ny funktion** dialogrutan som visas till höger med hjälp av följande värden.
 
-|Field  |Value  |
+|Fält  |Värde  |
 |---------|---------|
-|Language     | **JavaScript**        |
-|Name     |   [!INCLUDE [func-name-find](./func-name-find.md)]     |
-| Authorization level | **Function** |
+|Språk     | **JavaScript**        |
+|Namn     |   [!INCLUDE [func-name-find](./func-name-find.md)]     |
+| Auktoriseringsnivå | **Funktionen** |
 
-5. Select **Create** to create our function, which opens the index.js file in the code editor and displays a default implementation of the HTTP-triggered function.
+5. Välj **skapa** att skapa vår funktion som öppnas filen index.js i kodredigeraren och visar en standardimplementering av HTTP-utlöst funktion.
 
-You can verify what we have done so far by testing our new function as follows:
+Du kan verifiera vad vi har gjort hittills genom att testa vår nya funktionen enligt följande:
 
-1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**.
+1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)**. Sedan klickar du på **Kopiera**.
 
-2. Paste the function URL you copied into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see a response similar to the following response returned by the function displayed in your browser.  
+2. Klistra in funktionens URL som du kopierade i webbläsarens adressfält. Lägg till frågesträngvärdet `&name=<yourname>` i slutet av den här webbadressen och tryck på knappen `Enter` på tangentbordet för att utföra begäran. Du bör se ett svar som liknar följande svar returnerades av funktionen visas i webbläsaren.  
 
-Now that we have our bare-bones function working, let's turn our attention to reading data from our Azure Cosmos DB, or in our scenario, our [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)] collection.
+Nu när vi har vår utan ben funktionen arbetar vi med adressfälten läsningen av data från våra Azure Cosmos DB eller i vårt scenario, vår [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)] samling.
 
-## Add a Cosmos DB input binding
+## <a name="add-a-cosmos-db-input-binding"></a>Lägg till en Cosmos DB-indatabindning
 
-We want to read data from the database we created, so enter input bindings. As you'll see, we can configure a binding that can talk to our database in just a few steps.
+Vi vill läsa data från databasen som vi har skapat, så ange indatabindningar. Som du ser Konfigurera vi en bindning som kan kommunicera med vår databas med några få steg.
 
-1. Select **Integrate** in the function menu on the left to open the integration tab.
+1. Välj **integrera** i funktionen menyn till vänster och öppna fliken integration.
 
-The template we used created an HTTP trigger and an HTTP output binding for us. Let's add our new Azure Cosmos DB input binding. 
+Vi använde mallen skapats en HTTP-utlösare och en HTTP-utdatabindning för oss. Vi lägger till vår nya Azure Cosmos DB-indatabindning. 
 
-2. Select **+ New Input** under the **Inputs** column. A list of all possible input binding types is displayed.
+2. Välj **+ ny indata** under den **indata** kolumn. En lista över alla typer av möjliga indatabindning visas.
 
-3. Click on **Azure Cosmos DB** from the list and then the **Select** button. This action opens the Azure Cosmos DB input configuration page.
+3. Klicka på **Azure Cosmos DB** i listan och sedan den **Välj** knappen. Den här åtgärden öppnar konfigurationssidan för Azure Cosmos DB indata.
 
-Next, we'll set up a connection to our database.
+Nu ska ange vi en anslutning till databasen.
 
-4. In the field named **Azure Cosmos DB account connection** on this page, click on *new* to the right of the empty field. This action opens the **Connection** dialog, which already has **Azure Cosmos DB account** and your Azure subscription selected. The only thing left to do is to select a database account id.
+4. I fältet med namnet **Azure Cosmos DB-kontoanslutning** på den här sidan, klickar du på *nya* till höger om fältet tomt. Den här åtgärden öppnar den **anslutning** öppnas där du har redan **Azure Cosmos DB-konto** och Azure-prenumerationen har valt. Det enda som återstår är att välja ett databas-id för kontot.
 
-5. In the section, **Create a database account**, you had to supply an ID value. Now find that value in the  *Database Account* dropdown and then click **Select**.
+5. I avsnittet **skapa ett databaskonto**, var du tvungen att ange ett ID-värde. Nu hitta detta värde i den *databaskonto* listrutan och klicka sedan på **Välj**.
 
-A new connection to the database is configured and is shown in the **Azure Cosmos DB account connection** field. If you're curious about what is actually behind this abstract name, just click *show value* to reveal the connection string.
+En ny anslutning till databasen har konfigurerats och visas i den **Azure Cosmos DB-kontoanslutning** fält. Om du är nyfiken på det som faktiskt finns bakom den här abstrakta namn, klicka bara på *Visa värde* att visa anslutningssträngen.
 
-We want to look up a bookmark with a specific ID, so let's tie the ID we receive to the binding.
+Vi vill leta upp ett bokmärke med ett specifikt ID, så vi koppla det ID som vi tar emot till bindningen.
 
-7. In the **Document ID (optional)** field, enter `{id}`. This is known as a *binding expression*. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. Since IDs are unique in our collection, the binding will return either 0 (not found) or 1 (found) documents.
+7. I den **dokument-ID (valfritt)** anger `{id}`. Detta kallas en *bindning uttryck*. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. Eftersom ID: N är unika i vår samlingen, returnerar bindningen 0 (hittades inte) eller 1 (hittade) dokument.
 
-8. Carefully fill out the remaining fields on this page using the values in the following table. At any time, you can click on the information icon to the right of each field name to learn more about the purpose of each field.
+8. Fyll noggrant återstående fält på den här sidan med hjälp av värdena i tabellen nedan. Du kan klicka på informationsikonen till höger om varje fältnamn mer information om syftet med varje fält när som helst.
 
-
-|Setting  |Value  |Description  |
+|Inställning  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Document parameter name     |  **bookmark**       |  The name used to identify this binding in your code.      |
-|Database name     |  [!INCLUDE [cosmos-db-name](./cosmos-db-name.md)]       | The database where data will be read. This is the database name we set earlier in this lesson.        |
-|Collection Name     |  [!INCLUDE [cosmos-db-name](./cosmos-coll-name.md)]        | The collection from which we'll read data. This setting was defined earlier in the lesson. |
-|SQL Query (optional)    |   leave blank       |   We are only retrieving one document at a time based on the ID. So, filtering with the Document ID field is a better than using a SQL Query in this instance. We could craft a SQL Query to return one entry (`SELECT * from b where b.ID = {id}`). That query would indeed return a document, but it would return it in a document collection. Our code would have to manipulate a collection unnecessarily. Use the SQL Query approach when you want to get multiple documents.   |
-|Partition key (optional)     |   leave blank      |  We can accept the default here.       |
+|Dokumentparameternamn     |  **Bokmärke**       |  Namnet används för att identifiera den här bindningen i koden.      |
+|Databasnamn     |  [!INCLUDE [cosmos-db-name](./cosmos-db-name.md)]       | Databasen där data ska läsas. Det här är namnet på databasen som vi angav tidigare i den här lektionen.        |
+|Samlingsnamn     |  [!INCLUDE [cosmos-db-name](./cosmos-coll-name.md)]        | Samlingen som vi ska läsa data. Den här inställningen definierades tidigare i lektionen. |
+|SQL-fråga (valfritt)    |   Lämna tomt       |   Vi endast hämtar ett dokument i taget baseras på ID. Så, filtrering med dokument-ID-fält är bättre än att använda en SQL-fråga i den här instansen. Vi kan skapa en SQL-fråga för att returnera en post (`SELECT * from b where b.ID = {id}`). Frågan verkligen returneras ett dokument, men den skulle gå tillbaka den i en dokumentsamling. Vår kod skulle behöva ändra en samling i onödan. Använda SQL-fråga-metoden när du vill hämta flera dokument.   |
+|Partitionsnyckel (valfritt)     |   Lämna tomt      |  Vi kan acceptera standardinställningarna här.       |
 
-9. Click **Save** to save all changes to this binding configuration. Now that we have our binding defined, it's time to use it in our function.
+9. Klicka på **spara** att spara alla ändringar i den här bindningskonfigurationen. Nu när vi har vår bindningen som har definierats, är det dags att använda den i vår funktion.
 
-## Update function implementation
+## <a name="update-function-implementation"></a>Uppdatera funktionen implementering
 
-1. Click on our function, [!INCLUDE [func-name-find](./func-name-find.md)], to open up *index.js* in the code editor. We've added an input binding to read from our database, so let's update the logic to use this binding.
+1. Klicka på vår funktion [!INCLUDE [func-name-find](./func-name-find.md)], så att du öppnar *index.js* i kodredigeraren. Vi har lagt till en indatabindning att läsa från vår databas, så Låt oss uppdatera logik för att använda den här bindningen.
 
-2. Replace all code in index.js with the code from the following snippet.
+2. Ersätt all kod i index.js med koden från följande kodavsnitt.
 
 [!code-javascript[](../code/find-bookmark-single.js)]
 
-When an HTTP request causes our function to trigger, the `id` query parameter is passed to our Cosmos DB input binding. If it found a document that matches this ID, then the `bookmark` parameter will be set to it. In that case, we construct a response that contains the URL value found in the bookmark document. If no document was found matching this key, we respond with a payload and status code that tells the user the bad news.
+När en HTTP-begäran gör våra funktionen kan utlösa, den `id` Frågeparametern skickas till vår Cosmos DB-indatabindning. Om det finns ett dokument som matchar detta ID kommer `bookmark` parametern anges till den. I så fall kan skapa vi ett svar som innehåller URL-värdet finns i dokumentet bokmärke. Om inga dokument hittades som matchar den här nyckeln, som vi svara med en nyttolast och statuskod som meddelar användaren dåliga nyheter.
 
-## Try it out
+## <a name="try-it-out"></a>Prova
 
-1. As usual, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy** to copy the function's URL.
+1. Som vanligt, klickar du på **<> / hämta Funktionswebbadress** längst upp till höger, Välj **standard (funktionsnyckel)**, och klicka sedan på **kopia** att kopiera funktionen är URL: en.
 
-2. Paste the function URL you copied into your browser's address bar. Add the query string value `&id=docs` to the end of this URL and press the `Enter` key on your keyboard to execute the request. All going well, you should see a response that includes a URL to that resource.
+2. Klistra in funktionens URL som du kopierade i webbläsarens adressfält. Lägg till frågesträngvärdet `&id=docs` i slutet av den här webbadressen och tryck på knappen `Enter` på tangentbordet för att utföra begäran. Alla ska, bör du se ett svar som innehåller en URL till den här resursen.
 
-3. Replace `&id=docs` with `&id=missing` and observe the response.
+3. Ersätt `&id=docs` med `&id=missing` och notera svaret.
 
-4. Replace the previous query string with `&id=` and observe the response.
+4. Ersätt tidigare frågesträngen med `&id=` och notera svaret.
 
 >[!TIP]
->You can also test the function using the **Test** tab in the function portal UI. You can add a query parameter or just supply a request body to get the same results as described in te preceding steps.
+>Du kan också testa funktionen med hjälp av den **testa** flik i funktionen portalens användargränssnitt. Du kan lägga till en frågeparameter eller ange bara en brödtext i begäran för att få samma resultat som beskrivs i föregående steg te.
 
-In this unit, we created our first input binding  manually to read from an Azure Cosmos DB database. The amount of code we wrote to search our database and read data was minimal, thanks to bindings. We did most of our work configuring the binding declaratively and the platform took care of the rest.  
+I den här enheten skapade vi vår första indatabindning manuellt för att läsa från ett Azure Cosmos DB-databasen. Mängden kod som vi nämnt söka i vår databas och läsa data har minimal, tack vare bindningar. Vi gjorde de flesta av vårt arbete som konfigurerar bindningen deklarativt och plattformen tog hand om resten.  
 
-In the next unit, we'll add more data to our bookmark collection through an Azure Cosmos DB output binding.
+I nästa enhet lägger vi till mer data till vår bokmärke samling via ett Azure Cosmos DB-utdatabindning.
 
 > [!TIP]
-> This unit is not intended to be a tutorial on Azure Cosmos DB. If you would like to dive deeper, here are a few resources to get you started:
+> Den här enheten är inte avsedd att vara en självstudiekurs om Azure Cosmos DB. Om du vill fördjupa dig är här några resurser som hjälper dig att komma igång:
 >
->* [Introduction to Azure Cosmos DB: SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
+>* [Introduktion till Azure Cosmos DB: SQL-API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
 >
->* [A technical overview of Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)
+>* [En teknisk översikt över Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)
 >
->* [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)
+>* [Dokumentation om Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)

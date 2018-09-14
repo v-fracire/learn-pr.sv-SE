@@ -1,8 +1,8 @@
-Here, you'll add an expiration time to our data in the Azure Redis Cache.
+Här kan du lägger till en förfallotid i våra data i Azure Redis Cache.
 
-## Add an expiration time
+## <a name="add-an-expiration-time"></a>Lägg till en förfallotid
 
-In the last exercise, we left off with the following code in **Program.cs**.
+I den förra övningen vi slutade med följande kod i **Program.cs**.
 
 ```csharp
 using (RedisClient redisClient = new RedisClient(redisConnectionString))
@@ -24,9 +24,9 @@ using (RedisClient redisClient = new RedisClient(redisConnectionString))
 }
 ```
 
-Let’s add an expiration of 15 seconds to both **MyKey1** and **MyKey2**.
+Lägg till en giltighetstid på 15 sekunder att både **MyKey1** och **MyKey2**.
 
-1. Add the following code before you commit the transaction
+Lägg till följande kod innan du skickar transaktionen:
 
     ```csharp
     //Add an expiration time
@@ -34,26 +34,26 @@ Let’s add an expiration of 15 seconds to both **MyKey1** and **MyKey2**.
     transaction.QueueCommand(c => ((RedisNativeClient)c).Expire("MyKey2", 15));
     ```
 
-    In this code, the **Expire** method is a part of the **RedisNativeClient**. To access the method, we must first cast our object.
+I den här koden i **upphör att gälla** metoden är en del av den **RedisNativeClient**. För att komma åt metoden måste vi först omvandla vår objekt.
 
-## Verify the expiration
+## <a name="verify-the-expiration"></a>Kontrollera förfallodatum
 
-Now that we added the code to expire our data, lets run the program and check that the data is removed from Redis.
+Nu när vi har lagt till kod för att gå ut våra data vi kör programmet och kontrollera att data tas bort från Azure Redis Cache.
 
-1. Run the program.
+1. Kör programmet.
 
     ```bash
     dotnet run
     ```
     
-1. Switch back to the Azure Redis Console in the Azure portal.
+1. Gå tillbaka till Azure Redis Cache-konsolen i Azure-portalen.
 
-1. To verify that the data is still there, issue the following command:
+1. Verifiera att data är kvar, kör du följande kommando:
 
     ```
     get MyKey1
     ```
 
-1. After 15 seconds, issue the command again. You should see that the data is no longer there.
+1. Efter 15 sekunder kan du utfärda kommandot igen. Du bör se att data inte längre finns där.
 
-    ![Screenshot of the Azure Redis console showing the Value of MyKey1 being nil.](../media/6-redis-console-data-expiration.png)
+    ![Skärmbild av konsolen Azure Redis Cache med värdet för MyKey1 som noll](../media/6-redis-console-data-expiration.png)

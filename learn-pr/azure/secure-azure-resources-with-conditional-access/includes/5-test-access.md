@@ -10,7 +10,7 @@ Eftersom du vet att användarna kommer att logga in och komma åt alla sina SaaS
 
 1. Gå till https://myapps.microsoft.com.
 
-1. Logga in som användaren som vi skapade i del 2.
+1. Logga in som användaren som vi skapade i enhet 3.
 
    * Observera att du loggas in på portalen utan att utföra multifaktorautentisering.
 

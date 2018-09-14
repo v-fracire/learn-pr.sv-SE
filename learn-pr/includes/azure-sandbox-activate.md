@@ -1,2 +1,2 @@
 > [!NOTE]
-> Make sure you have activated the Azure Sandbox before proceeding with these instructions.
+> Kontrollera att du har aktiverat Azure sandbox-miljön innan du fortsätter med instruktionerna.

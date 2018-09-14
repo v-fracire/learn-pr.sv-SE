@@ -9,21 +9,18 @@ az [command] [subcommand] [--parameter --parameter]
 Du kan visa en lista över kommandon, underkommandon och parametrar genom att skriva ett partiellt kommando. Om du till exempel skriver `az` på kommandoraden ser du den översta hjälpskärmen, och om du skriver `az vm` får du alla underkommandon för virtuella datorer. Den här metoden kan vara ett bra sätt att utforska Azure CLI-verktyget.
 
 > [!NOTE]
-> Vi använder webbläsarbaserade Azure Cloud Shell för att arbeta med Azure CLI. Om du föredrar att arbeta på din lokala dator kan du även köra alla kommandon vi täcker från kommandoraden om du [installerar Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Vi använder webbläsarbaserade Azure Cloud Shell för att arbeta med Azure CLI. Om du föredrar att arbeta på din lokala dator kan du även köra alla kommandon vi täcker från kommandoraden om du [installerar Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Vi har gått igenom den här aktiviteten i den **kontroll Azure-tjänster med Azure CLI** modulen.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="login-to-azure"></a>Logga in till Azure
 
-Det första du ska göra när du arbetar med Azure CLI är att logga in på ditt Azure-konto. Det gör du med kommandot `login`. Om du använder Cloud Shell finns det en knapp för att logga in på Azure.
+Det första du ska göra när du arbetar med Azure CLI är normalt att logga in på ditt Azure-konto. Det gör du med kommandot `az login`. Kommandot öppnar ett webbläsarfönster och gör att du kan välja det Microsoft-konto du vill använda. Eftersom vi använder Azure-Sandbox det här steget är inte nödvändigt, i stället behöver du aktivera Azure sandbox-miljön.
 
-```azurecli
-az login
-```
-
-Kommandot öppnar ett webbläsarfönster och gör att du kan välja det Microsoft-konto du vill använda.
+<!-- Activate the sandbox -->
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
 ## <a name="working-with-subscriptions"></a>Arbeta med prenumerationer
 
-I den här modulen arbetar vi i en tillfällig prenumeration som har skapats som en spelplan, men du använder vanligtvis en prenumeration från ditt eget konto. Om du har mer än en prenumeration kan du få en tydligt formaterad lista över prenumerationer med instruktionen `az account list --output table`.
+Vi arbetar i en tillfällig prenumeration i den här modulen, men använder du normalt en prenumeration från ditt eget konto. Om du har mer än en prenumeration kan du få en tydligt formaterad lista över prenumerationer med instruktionen `az account list --output table`.
 
 ```
 Name                                  CloudName    SubscriptionId                        State    IsDefault

@@ -2,32 +2,35 @@
 uid: learn.classify-images-with-custom-vision-services
 metadata:
   title: Klassificera bilder med Microsoft Custom Vision Service
-  description: Träna upp Custom Vision Service med en samling bilder av blommor. Sedan kan tjänsten avgöra om nästa bild du skickar innehåller en blomma, eller till och med vilken sorts blomma det är.
+  description: 'Träna upp Custom Vision Service med en samling bilder av blommor. Sedan kan tjänsten avgöra om nästa bild du skickar innehåller en blomma, eller till och med vilken sorts blomma det är.'
   ms.date: 09/24/2018
-  ms.openlocfilehash: e42f009259c03fbe7feb15471ae5a126eb08f010
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43826050"
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 title: Klassificera bilder med Microsoft Custom Vision Service
-summary: Träna upp Custom Vision Service med en samling bilder av blommor. Sedan kan tjänsten avgöra om nästa bild du skickar innehåller en blomma, eller till om med vilken sorts blomma det är.
-abstract: "I den här modulen kommer du att:\n  - Skapa ett Custom Vision Service-projekt \n  - träna upp en Custom Vision Service-modell med taggade bilder  \n  - testa en Custom Vision Service-modell \n  - Skapa appar som använder Custom Vision Service-modeller genom att anropa REST API:er\n"
+summary: 'Träna Custom Vision Service med en samling blommor avbildningar, så att den vet du om nästa bild innehåller ett blommor – eller till och med vilken typ av blommor är.'
+abstract: |
+  I den här modulen kommer du att göra följande:
+  - Skapa ett Custom Vision Service-projekt 
+  - träna upp en Custom Vision Service-modell med taggade bilder  
+  - testa en Custom Vision Service-modell 
+  - Skapa appar som använder Custom Vision Service-modeller genom att anropa REST API:er
 prerequisites: Ingen
-iconUrl: http://via.placeholder.com/120x120
+iconUrl: /learn/achievements/classify-images-with-custom-vision-service.svg
 levels:
-- beginner
+  - beginner
 roles:
-- developer
+  - developer
 products:
-- azure
+  - azure
 units:
-- learn.classify-images-with-custom-vision-services.0-introduction
-- learn.classify-images-with-custom-vision-services.1-create-custom-vision-service-project
-- learn.classify-images-with-custom-vision-services.2-upload-tagged-images
-- learn.classify-images-with-custom-vision-services.3-train-model
-- learn.classify-images-with-custom-vision-services.4-test-model
-- learn.classify-images-with-custom-vision-services.5-build-app
-- learn.classify-images-with-custom-vision-services.6-classify-images
-- learn.classify-images-with-custom-vision-services.7-knowledge-check
+  - learn.classify-images-with-custom-vision-services.0-introduction
+  - learn.classify-images-with-custom-vision-services.1-create-custom-vision-service-project
+  - learn.classify-images-with-custom-vision-services.2-upload-tagged-images
+  - learn.classify-images-with-custom-vision-services.3-train-model
+  - learn.classify-images-with-custom-vision-services.4-test-model
+  - learn.classify-images-with-custom-vision-services.5-build-app
+  - learn.classify-images-with-custom-vision-services.6-classify-images
+  - learn.classify-images-with-custom-vision-services.7-knowledge-check
 achievement: learn.classify-images-with-custom-vision-services.badge

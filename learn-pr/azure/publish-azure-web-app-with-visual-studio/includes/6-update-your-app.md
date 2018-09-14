@@ -1,4 +1,4 @@
-Du har skapat din webbapp och publicerat den på Azure, men vad händer när du vill göra ändringar? Visual Studio kommer ihåg där appen publicerades, vilket gör att det bara krävs två klick för att uppdatera och ändra appen.
+Du har skapat din webbapp och publicerat den på Azure, men vad händer när du vill göra ändringar? Visual Studio kommer ihåg var appen publicerades, vilket gör att det bara krävs två klick för att uppdatera och ändra appen.
 
 ## <a name="explore-the-project-structure"></a>Utforska projektstrukturen
 
@@ -14,7 +14,7 @@ Egenskapsmappen innehåller konfigurationsdata för det ställe som är värd f�
 
 ### <a name="wwwroot"></a>wwwroot
 
-Filen wwwroot innehåller alla dina statiska resurser för din webbplats, till exempel css-, js- och lib-filer och bilder. När du är redo att välja stil och lägga till fler funktioner för webbplatsen är det här du arbetar.
+Mappen wwwroot innehåller alla dina statiska resurser för webbplatsen, som bilder, CSS-, JS- och LIB-filer. När du är redo att välja stil och lägga till fler funktioner för webbplatsen är det här du arbetar.
 
 ### <a name="pages"></a>Sidor
 
@@ -25,7 +25,7 @@ Varje sida på webbplatsen representeras av två kodfiler:
 
 - Den första är en `.cshtml`-fil, som är Razor-kodfilen. Den här filen innehåller HTML för visning och en del C#-logik.
 
-- Den andra filen är en `.cs`-fil, som är C#-code-behind som innehåller klassen `PageModel`. Den här filen gör att du kan fånga upp HTTP-begäranden och utföra viss bearbetning i begärandena innan data skickas till Razor-filen.
+- Den andra filen är en `.cs` -fil som är C# bakomliggande kod som innehåller `PageModel` klass. Den här filen gör att du kan fånga upp HTTP-begäranden och utföra viss bearbetning i begärandena innan data skickas till Razor-filen.
 
 ### <a name="appsettingjson"></a>appsetting.json
 
@@ -33,7 +33,7 @@ Det här är en konfigurationsfil för ASP.NET.
 
 ### <a name="bundleconfigjson"></a>bundleconfig.json
 
-Bundleconfig.json är förbearbetningskonfiguration. Den här filen gör dina .css- och .js-filer mindre när de publiceras.
+Bundleconfig.json är förbearbetningskonfiguration. Den här filen gör dina CSS- och JS-filer mindre när de publiceras.
 
 ### <a name="programcs-and-startupcs"></a>Program.cs och Startup.cs
 
@@ -41,15 +41,15 @@ Program.cs och Startup.cs konfigurerar och startar webbvärden för din webbplat
 
 ## <a name="updating-your-website-using-razor"></a>Uppdatera din webbplats med hjälp av Razor
 
-Vi vill göra några grundläggande ändringar på vår webbplats. För att kunna göra det behöver du ha en grundläggande förståelse för hur du kan använda Razor-mallarna för att anpassa din webbapp.
+Några grundläggande ändringar behöver göras på webbplatsen. För att kunna göra det måste du ha grundläggande kunskaper i att använda Razor-mallarna för att anpassa din webbapp.
 
 ## <a name="what-is-razor"></a>Vad är Razor?
 
-Razor är en ASP.NET-syntax som används för att skapa dynamiska webbplatser med C#. När en server läser en Razor-sida körs C#-koden innan den renderar HTML. På så sätt kan du snabbt skapa dynamiskt innehåll.
+Razor är en ASP.NET-syntax som används för att skapa dynamiska webbsidor med C#. När en server läser en Razor-sida körs C#-koden innan den renderar HTML. På så sätt kan du snabbt skapa dynamiskt innehåll.
 
 Razor använder `@`-direktiv som talar om för ASP.NET hur det ska bearbeta en sida.
 
-Titta till exempel på koden på `Contact.cshtml`-sidan.
+Till exempel ta en titt på koden i den `Contact.cshtml` sidan:
 
 ```aspx-csharp
 @page
@@ -62,11 +62,10 @@ Titta till exempel på koden på `Contact.cshtml`-sidan.
 ...
 ```
 
-Exempel: `@page`-direktivet instruerar ASP.NET att bearbeta den här filen som en Razor-sida.
-`@model`-direktivet instruerar ASP.NET att koppla den här Razor-sidan till en C#-klass som heter `ContactModel`.
+- Den `@page` direktiv talar om ASP.NET att bearbeta den här filen som en Razor-sida.
+- `@model`-direktivet instruerar ASP.NET att koppla den här Razor-sidan till en C#-klass som heter `ContactModel`.
 
-Razor använder också `@`-symbolen som övergång mellan kod och HTML.
-Som i fragmentexemplet ovan: `@{ ... }`. Det här är ett **Razor-kodblock**. Det vill säga kod som _körs men inte renderas_.
+Razor använder också `@`-symbolen som övergång mellan kod och HTML. Om du tittar på fragmentet ovan, ser du `@{ ... }`. Det här är ett **Razor-kodblock**. Det vill säga kod som _körs men inte renderas_.
 
 För att rendera utdata för en kodinstruktion använder vi `@` framför ett C#-uttryck. Det finns två exempel på det i kodblocket ovan i taggarna `<h2>` och `<h3>`.
 
@@ -76,7 +75,7 @@ När du har gjort ändringarna på webbplatsen är det dags att publicera dem ti
 
 1. Högerklicka på projektet i Solution Explorer.
 
-1. Nu bör du se namnet på din webbplats följt av Web Deploy. Om du till exempel gav webbplatsen namnet AlpineSkiHouse42 ser du **AlpineSkiHouse42 - Web Deploy** i de tillgängliga alternativen. Välj det så uppdateras webbplatsen i Azure.
+1. Nu bör du se namnet på din webbplats följt av Web Deploy. Om du har namngett din webbplats AlpineSkiHouse42, ser du **AlpineSkiHouse42 - webbdistribution** i de tillgängliga alternativen. Välj det så uppdateras webbplatsen i Azure.
 
 ## <a name="summary"></a>Sammanfattning
 

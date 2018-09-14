@@ -6,17 +6,17 @@ Att använda bladet **Åtkomstkontroll (IAM)** i Azure Portal skulle ha fungerat
 
 1. Överst i portalen klickar du på **Cloud Shell** för att öppna fönstret Cloud Shell.
 
-    ![Cloud Shell-knapp](../media-draft/6-cloud-shell-button.png)
+    ![Cloud Shell-knapp](../media/6-cloud-shell-button.png)
 
 1. Kontrollera att den är inställd på **PowerShell** i det övre vänstra hörnet i fönstret Cloud Shell. Om den är inställd på **Bash** ändrar du detta till **PowerShell**.
 
     Det kan ta en stund att läsa in den. När det är klart ser det ut ungefär som följande:
 
-    ![Cloud Shell PowerShell](../media-draft/6-cloud-shell-powershell.png)
+    ![Cloud Shell PowerShell](../media/6-cloud-shell-powershell.png)
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-Om du vill bevilja åtkomst till en användare med Azure PowerShell använder du kommandot [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Du måste ange säkerhetsobjekt, rolldefinition och omfång.
+Om du vill bevilja åtkomst till en användare som använder Azure PowerShell, kan du använda kommandot New-AzureRmRoleAssignment. Du måste ange säkerhetsobjekt, rolldefinition och omfång.
 
 Följ dessa steg om du vill tilldela rollen Virtuell datordeltagare till **LabUser-_XXXXXXX_**-användaren i resursgruppsomfånget.
 
@@ -44,7 +44,7 @@ Följ dessa steg om du vill tilldela rollen Virtuell datordeltagare till **LabUs
 
 ## <a name="list-access"></a>Lista för åtkomst
 
-Om du vill kontrollera åtkomsten för resursgruppen använder du kommandot [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) för att visa en lista med rolltilldelningarna.
+Använd kommandot Get-AzureRmRoleAssignment för att lista rolltilldelningar för att kontrollera åtkomsten för resursgruppen.
 
 Följ dessa steg om du vill visa en lista med alla rolltilldelningar för **LabUser-XXXXXXX**-användaren i resursgruppsomfånget.
 
@@ -59,7 +59,7 @@ Följ dessa steg om du vill visa en lista med alla rolltilldelningar för **LabU
     RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/FirstUpConsultantsRG1-XXXXXXX/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
     Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/FirstUpConsultantsRG1-XXXXXXX
     DisplayName        : LabUser-XXXXXXX
-    SignInName         : LabUser-XXXXXXX@xxxxxxxxxxxx.onmicrosoft.com 
+    SignInName         : LabUser-XXXXXXX@xxxxxxxxxxxx.onmicrosoft.com
     RoleDefinitionName : Virtual Machine Contributor
     RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
     ObjectId           : 11111111-1111-1111-1111-111111111111
@@ -71,11 +71,11 @@ Följ dessa steg om du vill visa en lista med alla rolltilldelningar för **LabU
 
     Om du uppdaterar bladet **Åtkomstkontroll (IAM)** för resursgruppen i Azure Portal, ser rolltilldelningen ut så här:
 
-    ![Rolltilldelningar för en användare med resursgruppsomfång](../media-draft/6-cloud-shell-access-control.png)
+    ![Rolltilldelningar för en användare med resursgruppsomfång](../media/6-cloud-shell-access-control.png)
 
 ## <a name="remove-access"></a>Ta bort åtkomst
 
-Om du vill ta bort åtkomst för användare, grupper och program använder du [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) och tar bort en rolltilldelning.
+Om du vill ta bort åtkomst för användare, grupper och program, använder du Remove-AzureRmRoleAssignment för att ta bort en rolltilldelning.
 
 Följ dessa steg om du vill ta bort rolltilldelningen Virtuell datordeltagare för **LabUser-_XXXXXXX_**-användaren i resursgruppsomfånget.
 
@@ -91,8 +91,7 @@ Följ dessa steg om du vill ta bort rolltilldelningen Virtuell datordeltagare f�
 
 1. I PowerShell-fönstret klickar du på knappen Stäng (**X**) för att stänga fönstret.
 
-    ![Knappen Stäng i Cloud Shell](../media-draft/6-cloud-shell-close.png)
-
+    ![Knappen Stäng i Cloud Shell](../media/6-cloud-shell-close.png)
 
 ## <a name="summary"></a>Sammanfattning
 

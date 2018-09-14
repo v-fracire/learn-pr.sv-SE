@@ -1,27 +1,27 @@
-Managing the infrastructure of any type of workload involves configuration tasks. This configuration can be done manually, but manual steps can be labor-intensive, error prone, and inefficient. What if you are assigned to lead a project that required the deployment of hundreds of systems on Azure? How would you build and configure these resources? How long would this take? Could you ensure that each system was configured properly, with no variance between them? By using automation in your architecture design, you can work past these challenges. Let's take a look at some of the ways you can automate on Azure.
+Att hantera infrastrukturen med någon typ av arbetsbelastning innefattar även konfigurationsåtgärder. Den här konfigurationen kan göras manuellt, men manuella steg kan vara arbetskrävande, kan lätt drabbas av fel och vara ineffektiva. Hur gör du om du ska leda ett projekt som kräver distribution av hundratals system i Azure? Hur skulle du skapa och konfigurera de här resurserna? Hur lång tid kommer det att ta? Kan du vara säker på att varje system har konfigurerats korrekt, utan avvikelse mellan dem? Om du använder automatisering i arkitekturutformningen tar du dig förbi dessa svårigheter. Låt oss ta en titt på några av de sätt som du kan automatisera på i Azure.
 
-## Infrastructure as code
+## <a name="infrastructure-as-code"></a>Infrastruktur som kod
 
-When automating the deployment of services and infrastructure, there are two different approaches you can take: imperative and declarative. In an imperative approach, you explicitly state the commands that are executed to produce the outcome you are looking for. With a declarative approach, you specify what you want the outcome to be instead of specifying how you want it done. Both approaches are valuable, so there's no wrong choice. What do these different approaches look like on Azure, and how do you use them?
+När du ska automatisera distributionen av tjänster och infrastruktur finns det två olika metoder som du kan använda: imperativ och deklarativ. I en imperativ metod anger du uttryckligen de kommandon som ska köras för att ge resultatet som du vill ha. I en deklarativ metod anger du vad du vill att resultatet ska bli, i stället för att ange hur du vill att den ska utföras. Båda metoderna är användbara, så det finns inget fel val. Hur ser dessa olika metoder ut i Azure och hur använder du dem?
 
-### Imperative automation
+### <a name="imperative-automation"></a>Imperativ automatisering
 
-Let's start with imperative automation. With imperative automation, we're specifying _how_ things are to be done. This is typically done programmatically through a scripting language or SDK. For Azure resources, we could use the Azure CLI or Azure PowerShell. Let's take a look at an example that uses the Azure CLI to create a storage account.
+Vi börjar med imperativ automatisering. Vid imperativ automatisering anger vi _hur_ saker ska utföras. Detta görs normalt programmatiskt med ett skriptspråk eller en SDK. Vi kan använda Azure CLI eller Azure PowerShell för Azure-resurser. Låt oss ta en titt på ett exempel som använder Azure CLI till att skapa ett lagringskonto.
 
 ```azure-cli
 az group create --name storage-resource-group --location westus
 az storage account create --resource-group storage-resource-group --name mystorageaccount --kind BlobStorage --access-tier hot
 ```
 
-In this example, we're specifying how to create these resources. Execute a command to create a resource group. Execute another command to create a storage account. We're explicitly telling Azure what commands to run to produce the output we need.
+I det här exemplet visar vi hur du skapar dessa resurser. Kör ett kommando för att skapa en resursgrupp. Kör ett annat kommando för att skapa ett lagringskonto. Vi talar uttryckligen om för Azure vilka kommandon som ska köras för att generera de utdata som vi behöver.
 
-With this approach, we're able to fully automate our infrastructure. We can provide areas for input and output, and can ensure that the same commands are executed every time. By automating our resources, we've taken the manual steps out of the process, making resource administration operationally more efficient. There are some downsides to this approach though. Scripts to create resources can quickly become complex as the architecture becomes more complex. Error handling and input validation may need to be added to ensure full execution. Commands may change, requiring ongoing maintenance of the scripts.
+Med den här metoden kan vi automatisera vår infrastruktur till fullo. Vi kan ange områden för indata och utdata och se till att samma kommandon utförs varje gång. Genom att automatisera våra resurser tar vi bort de manuella stegen från processen, vilket gör resursadministrationen mer effektiv. Det finns dock vissa nackdelar med den här metoden. Skript för att skapa resurser kan snabbt bli komplexa när arkitekturen blir mer komplex. Felhantering och verifiering av indata kan behöva läggas till för att säkerställa en fullständig körning. Kommandon kan ändras, vilket kräver löpande underhåll av skripten.
 
-### Declarative automation
+### <a name="declarative-automation"></a>Deklarativ automatisering
 
-With declarative automation, we're specifying _what_ we want our result to be, leaving the details of how it's done to the system we're using. On Azure, declarative automation is done through the use of Azure Resource Manager templates.
+Med deklarativ automatisering anger vi _vad_ vi vill att vårt resultat ska bli och det är upp till systemet att utföra det. I Azure utförs deklarativ automatisering med hjälp av Azure Resource Manager-mallar.
 
-Resource Manager templates are JSON-structured files that specify what we want created. In the example below, we're telling Azure to create a storage account with the names and properties that we specify. The actual steps that are executed to create this storage account are left to Azure. Templates have four sections: parameters, variables, resources, and outputs. Parameters handle input to be used within the template. Variables provide a way to store values for use throughout the template. Resources are the things that are being created, and outputs are a way to provide details to the user of what was created.
+Resource Manager-mallar är JSON-strukturerade filer som anger vad vi vill skapa. I exemplet nedan säger vi till Azure att skapa ett lagringskonto med de namn och egenskaper som vi anger. Vilka faktiska steg som utförs för att skapa lagringskontot är upp till Azure. Mallarna består av fyra delar: parametrar, variabler, resurser och utdata. Parametrarna hanterar de indata som ska användas i mallen. Variabler används till att lagra värden som ska användas i mallen. Resurser är det som skapas och utdatan ger information till användaren om det som har skapats.
 
 ```json
 {
@@ -88,60 +88,60 @@ Resource Manager templates are JSON-structured files that specify what we want c
 }
 ```
 
-Templates can be used to create and manipulate every service on Azure. They can be stored in code repositories and source controlled, and shared across environments to ensure that the infrastructure being developed against matches what's actually in production. They are a great way to automate deployments and help ensure consistency, eliminate deployment misconfigurations, and can increase operational speed.
+Mallar kan användas för att skapa och ändra alla tjänster i Azure. De kan lagras i koddatabaser och källkontrolleras samt delas mellan miljöer för att säkerställa att infrastrukturen som utvecklas matchar vad som faktiskt finns i produktion. De är ett bra sätt att automatisera distributioner på och uppnå konsekvens, eliminera felkonfigurationer samt öka den operativa hastigheten.
 
-Automating your infrastructure deployment is a great first step, but when deploying virtual machines, there's still more work to do. Let's take a look at a couple of approaches to automating configuration post deployment.
+Att automatisera din distribution av infrastrukturen är ett bra första steg, men när du distribuerar virtuella datorer finns det fortfarande mer arbete som ska göras. Låt oss ta en titt på ett par olika sätt att automatisera konfigurationen på efter distributionen.
 
-## VM customization: images vs. post-deployment configuration
+## <a name="vm-customization-images-vs-post-deployment-configuration"></a>Anpassning av virtuella datorer: Avbildningar och konfigurationer efter distributionen
 
-For many virtual machine deployments, the job isn't done when the machine is running. It's likely there's additional configuration that's needed before the VM can actually serve its intended purpose. Additional disks might need formatting, the VM might need to be joined to a domain, maybe an agent for a management software needs to be installed, and most likely the actual workload requires installation and configuration as well.
+I många distributioner av virtuella datorer är jobbet inte slutfört när datorn körs. Det är troligt att det finns fler konfigurationer som behövs innan den virtuella datorn faktiskt kan fungera i avsett syfte. Fler diskar kan behöva formateras, den virtuella datorn kanske måste vara ansluten till en domän, en agent för en hanteringsprogramvara måste kanske vara installerad och troligen kräver även den faktiska arbetsbelastningen att installation och konfiguration utförs.
 
-There are two common strategies applied for the configuration work considered to be part the configuration of the VM itself, both of which have advantages and disadvantages:
+Det finns två vanliga strategier som används för den konfiguration som anses vara en del av konfigurationen av den virtuella datorn. Båda har dock fördelar och nackdelar:
 
-- Custom images
-- Post-deployment scripting
+- Anpassade avbildningar
+- Skript efter distributionen
 
-Custom images are generated by deploying a virtual machine and then configuring or installing software on that running instance. When everything is configured correctly, the machine can be shut down, and an image is created from the VM. The image can then be used as a base for other new virtual machines. Working with custom images can speed up the overall time of your deployment as once the virtual machine is deployed and running, no additional configuration would be needed. If deployment speed is an important factor, custom images are definitely worth exploring.
+Anpassade avbildningar genereras genom att en virtuell dator distribueras och sedan konfigurerar eller installerar man programvara på den instans som körs. När allt har konfigurerats kan datorn stängas av och en avbildning skapas från den virtuella datorn. Avbildningen kan sedan användas som bas för andra nya virtuella datorer. Att arbeta med anpassade avbildningar kan påskynda den totala tiden för distributionen så snart den virtuella datorn har distribuerats och är igång. Ingen ytterligare konfiguration krävs. Om hastigheten för distributionen är en viktig faktor, är anpassade avbildningar definitivt värda att utforska.
 
-Post-deployment scripting typically leverages a basic base image, then relies on scripting or a configuration management platform to do configuration after the VM is deployed. The post-deployment scripting could be done by executing a script on the VM through the Azure Script Extension or by leveraging a more robust solution such as Azure Automation Desired State Configuration (DSC).
+Skript efter distributionen använder vanligtvis en grundläggande basavbildning och förlitar sig sedan på skript eller en hanteringsplattform för konfigurationen till att konfigurera efter att den virtuella datorn har distribuerats. Skript efter distributionen kan utföras genom att köra ett skript på den virtuella datorn via Azure-skripttillägget, eller genom att använda en mer robust lösning som till exempel Azure Automation Desired State Configuration (DSC).
 
-Each approach has some considerations to keep in mind. When using images, you'll need to ensure there's a process to handle image updates, security patches, and inventory management of the images themselves. With post-deployment scripting, build times can be extended since the VM can't be added to live workloads until the build is complete. This may not be a significant issue for standalone systems, but when using services that autoscale (such as virtual machine scale sets), this extended build time can impact how quickly you can scale. With both approaches, you'll want to ensure you address configuration drift; as new configuration is rolled out, you'll need to ensure that existing systems are updated accordingly.
+I varje metod finns några saker du bör tänka på. När du använder avbildningar behöver du se till att det finns en process för att hantera uppdateringar av avbildningar, säkerhetsuppdateringar och lagerhantering av själva avbildningarna. Med skript efter distributionen kan byggtiden bli längre, eftersom den virtuella datorn inte kan läggas till i live-arbetsbelastningar förrän bygget har slutförts. Det kanske inte är något stort problem i fristående system, men när man använder tjänster som automatisk skalning (till exempel skalningsuppsättningar för virtuella datorer), kan den här utökade byggtiden påverka hur snabbt du kan skala. Med båda metoderna måste du hantera konfigurationsförändringar. När en ny konfiguration distribueras måste du se till att befintliga system uppdateras.
 
-Automating resource deployment can be a massive benefit to your environment. The amount of time saved, and error reduced can move your operational capabilities to another level.
+Att automatisera resursdistributionen kan vara en enorm fördel för din miljö. Hur lång tid sparas och fel som minskar kan flytta din operativa funktioner till en annan nivå.
 
-## Automation of operational tasks
+## <a name="automation-of-operational-tasks"></a>Automatisering av operativa uppgifter
 
-Once your solutions are up and running, there are ongoing operational activities that can also be automated. Automating these tasks with Azure Automation reduces manual workloads, enables configuration and update management of compute resources, centralizes shared resources such as schedules, credentials, and certificates, and provides a framework for running any type of Azure task.
+När dina lösningar är igång och körs finns det pågående operativa aktiviteter som också kan automatiseras. Att automatisera dessa uppgifter med Azure Automation minskar manuella arbetsbelastningar, möjliggör konfiguration och uppdateringshantering av beräkningsresurser, centraliserar delade resurser som scheman, autentiseringsuppgifter och certifikat, samt tillhandahåller ett ramverk för att köra alla typer av Azure-uppgifter.
 
-For your Lamna Healthcare work, this might include:
+För Lamna Healthcare kan detta innebära att man:
 
-- Periodically searching for orphaned disks.
-- Installing the latest security patches on VMs.
-- Searching for and shutting down virtual machines in off-hours.
-- Running daily reports and producing a dashboard to report to senior management.
+- Söker regelbundet efter överblivna diskar.
+- Installerar de senaste säkerhetsuppdateringarna på virtuella datorer.
+- Söker efter och stänger av virtuella datorer när de inte används.
+- Kör dagliga rapporter och skapar en instrumentpanel för att rapportera till ledningen.
 
-As a concrete example, suppose you want to run a virtual machine only during business hours. You can write a script to start the VM in the morning and shut it down in the evening. You can configure Azure Automation to run the script at set times. The following illustration shows the role of Azure Automation in this process.
+Anta, som ett konkret exempel, att du vill köra en virtuell dator endast under kontorstid. Du kan skriva ett skript som startar den virtuella datorn på morgonen och stänger av den på kvällen. Du kan konfigurera Azure Automation så att skriptet körs vid angivna tillfällen. Följande bild visar rollen för Azure Automation i den här processen.
 
-![An illustration showing the role of Azure Automation in managing a repetitive business process.](../media/automation-vm-power-state.png)
+![En bild som visar rollen för Azure Automation vid hantering av en återkommande affärsprocess.](../media/automation-vm-power-state.png)
 
-## Automating development environments
+## <a name="automating-development-environments"></a>Automatisera utvecklingsmiljöer
 
-At the other end of the pipeline of your cloud infrastructure are the development machines used by developers to write the applications and services that are the core of your business. You can use Azure DevTest Labs to stamp out VMs with all of the correct tools and repositories that they need. Developers working on multiple services can switch between development environments without having to provision a new machine themselves. These development environments can be shut down when not in use and restarted when they are required again.
+I den andra änden av pipelinen för din molninfrastruktur finns utvecklingsdatorer som används av utvecklare till att skriva de program och tjänster som är kärnan i din verksamhet. Du kan använda Azure DevTest Labs till att utrusta de virtuella datorerna med rätt verktyg och databaser som de behöver. Utvecklare som arbetar med flera tjänster kan växla mellan utvecklingsmiljöerna utan att behöva etablera en ny dator själva. Dessa utvecklingsmiljöer kan stängas av när de inte används och startas om när de behövs igen.
 
-## Automation at Lamna Healthcare
+## <a name="automation-at-lamna-healthcare"></a>Automatisering på Lamna Healthcare
 
-Let's take a look at how Lamna Healthcare has improved by using automation. When you started your journey, infrastructure deployment and server builds were entirely manual. Engineers were deploying everything through the portal. This was introducing variance and errors between test and production environments, and the differences were hindering their ability to detect problems before code hit production.
+Låt oss ta en titt på hur Lamna Healthcare har förbättrats med hjälp av automatisering. När vi började var distributionen av infrastruktur och serverversioner helt manuell. Teknikerna distribuerade allt via portalen. Detta innebar avvikelser och fel mellan test- och produktionsmiljöerna och dessa skillnader försvårade möjligheten att upptäcka problem innan koden nådde produktionen.
 
-They now deploy all their infrastructure through Resource Manager templates. These templates are checked into a GitHub repository, and a code review happens before they are released for deployment. They're also able to build the same infrastructure between dev, test, and production, ensuring they have validated their configuration across all environments.
+De kan nu distribuera all sin infrastruktur via Resource Manager-mallar. Dessa mallar checkas in på en GitHub-lagringsplats och en kodgranskning utförs innan de blir tillgängliga för distribution. De kan också skapa samma infrastruktur mellan utveckling, testning och produktion, för att säkerställa att de har verifierat konfigurationen i alla miljöer.
 
-For most services using virtual machines, they have a standard base image and use DSC to configure the systems post deployment. For web farms where they need the scalability of virtual machine scale sets, they have a fully automated process to check in code and build a new image with all required configuration built in before making it available in their scale sets.
+För de flesta tjänster som använder virtuella datorer finns det en standardbasavbildning och de använder DSC till att konfigurera systemen efter distributionen. Webbservergrupper där de behöver skalbarheten i VM-skalningsuppsättningar har en helt automatiserad process för att checka in kod och skapa en ny avbildning, med all nödvändig konfiguration inbyggd innan den blir tillgänglig i deras skalningsuppsättningar.
 
-They have an Automation job to shut down identified virtual machines in off-hours to reduce costs and have automated their VM patching as well.
+De har ett Automation-jobb som stänger av identifierade virtuella datorer när de inte används för att minska kostnaderna och de har även automatiserat uppdateringen av de virtuella datorerna.
 
-Developers now have a self-service environment in DevTest Labs where they can develop against the latest images and configuration, ensuring that what they develop against matches the configuration in production.
+Utvecklarna har nu en självbetjäningsmiljö i DevTest Labs där de kan arbeta med de senaste avbildningarna och konfigurationen, för att säkerställa att det de utvecklar mot matchar konfigurationen i produktionen.
 
-All of this took some up-front effort, but the benefits have paid off in the long run. They've dramatically reduced error and the effort required by their operations teams to maintain their environments. Developers love that they can easily go provision resources to develop against, eliminating the back and forth to get environments created.
+Allt detta innebar startkostnader, men fördelarna har betalat sig på lång sikt. Det har avsevärt minskat både fel och det arbete som krävs av teamen för att underhålla sina miljöer. Utvecklarna älskar att de enkelt kan etablera resurser för utvecklingen, vilket eliminerar problemen med att hämta miljöer som skapats.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-We've taken a look at a number of ways to bring automation capabilities into your architecture. From deploying infrastructure as code, to improving developer productivity with lab environments, there's a ton of benefit from taking time to automate your environment. Reducing error, reducing variance, and saving operational costs can be a significant benefit to your organization and help take your cloud environment to the next level.
+Vi har tagit en titt på ett antal sätt att få med funktioner för automatisering i din arkitektur. Det finns en mängd fördelar med att automatisera din miljö – från att distribuera infrastruktur som kod, till att förbättra produktiviteten för utvecklarna med labbmiljöer. Att minska felen, minska avvikelser och spara driftskostnader kan vara en stor fördel för din organisation och hjälper dig att ta molnmiljön till nästa nivå.

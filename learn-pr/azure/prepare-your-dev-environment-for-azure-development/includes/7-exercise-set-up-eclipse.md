@@ -1,4 +1,4 @@
-I den här enheten kommer du att installera Eclipse på din lokala dator och därefter installera Azure Toolkit så att du kan börja utveckla Java-program med Azure-integrering. Installationen går snabbt och enkelt. I slutet av den här övningen har du allt som krävs för att skapa ditt första Java-program och dra nytta av funktionerna och tjänsterna i Azure.
+I den här enheten installerar du Eclipse och Azure-verktygen på den lokala datorn. Installationen går snabbt och enkelt. I slutet av den här övningen kommer du har allt du behöver för att skapa ditt första Java-program på Azure.
 
 ## <a name="install-eclipse-ide"></a>Installera Eclipse IDE
 
@@ -8,7 +8,7 @@ I den här enheten kommer du att installera Eclipse på din lokala dator och dä
 
     1. I Windows dubbelklickar du på den nedladdade filen.
 
-    1. I macOS och Linux packar du upp installationsprogrammet från den nedladdade filen. Starta sedan installationsprogrammet när det har packats upp.
+    1. Packa upp installationsprogrammet från den hämta filen och kör det på macOS och Linux.
 
         > [!NOTE]
         > Du kan uppmanas att installera Java Development Kit om det saknas.
@@ -47,8 +47,8 @@ Azure Toolkit installeras på samma sätt i Windows, macOS och Linux.
 
 1. Starta om Eclipse om det behövs.
 
-1. Verifiera installationen av Azure Toolkit genom att kontrollera att menyalternativet **Verktyg** > **Azure** visas i Eclipse.
+1. Verifiera Azure Toolkit-installationen genom att verifiera som du hittar en **verktyg** > **Azure** menyalternativet i Eclipse.
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här kursdelen har du installerat Eclipse för Java och förberett det för att använda integrering med tjänsterna och produkterna i Microsoft Azure. Installationen är snabb och enkel vilket gör Eclipse perfekt för Java-utveckling med integrering av molntjänster.
+I den här enheten, installerat Eclipse och förberett den för att dra nytta av integrering med Azure-tjänster och produkter.

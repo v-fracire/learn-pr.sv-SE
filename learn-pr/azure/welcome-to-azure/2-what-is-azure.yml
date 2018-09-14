@@ -1,9 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.welcome-to-azure.2-what-is-azure
-title: What is Azure?
+title: Vad är Azure?
 metadata:
-  title: What is Azure?
-  description: Learn what cloud computing means and how Azure is more than just a place to run your VMs.
+  title: Vad är Azure?
+  description: Lär dig vad molnbaserad databehandling innebär och hur Azure är mer än bara en plats för att köra virtuella datorer.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 durationInMinutes: 3
 content: |
   [!include[](includes/2-what-is-azure.md)]

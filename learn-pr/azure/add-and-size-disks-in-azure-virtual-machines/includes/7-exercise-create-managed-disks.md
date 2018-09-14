@@ -1,20 +1,19 @@
-In this short exercise, we'll learn how to migrate an existing, unmanaged VHD to a managed VHD. 
+I den här korta övningen lär vi dig att migrera en befintlig, ohanterade VHD till en hanterad virtuell Hårddisk. 
 
-## Sign in to Azure
-<!---TODO: Update for sandbox?--->
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com/?azure-portal=true).
+1. Logga in på [Azure Portal](https://portal.azure.com/?azure-portal=true).
 
-## Migrate our disks to managed disks
+## <a name="migrate-our-disks-to-managed-disks"></a>Migrera våra diskar till managed disks
 
-1. In the Azure portal, in the navigation on the left, select **Virtual machines**.
+1. Azure-portalen i navigeringsfönstret till vänster, Välj **virtuella datorer**.
 
-1. In the list of virtual machines, select our virtual machine,  **MailSenderVM**.
+1. I listan över virtuella datorer, väljer du våra VM **MailSenderVM**.
 
-1. In the **MailSenderVM** pane, under **SETTINGS**, select **Disks**.
+1. I den **MailSenderVM** fönstret under **inställningar**väljer **diskar**.
 
-1. In the **MailSenderVM - Disks** page, select **Migrate to managed disks**.
+1. I den **MailSenderVM - diskar** väljer **migrera till managed disks**.
 
-1. In the **Migrate to managed disks** page, select **Migrate**. Azure stops the VM, migrates the disks, and then restarts the VM. This process may take several minutes.
+1. I den **migrera till managed disks** väljer **migrera**. Azure stoppar den virtuella datorn, migrerar diskar och startar sedan om den virtuella datorn. Den här processen kan ta flera minuter.
 
-We migrated our disks to managed disks in this exercise. By using managed disks, you don't have to configure storage accounts for those disks because Azure manages them for you.
+Vi har migrerat våra diskar till hanterade diskar i den här övningen. Genom att använda hanterade diskar kan du inte konfigurera lagringskonton för diskarna eftersom Azure hanterar dem åt dig.

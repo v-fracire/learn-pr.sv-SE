@@ -1,42 +1,37 @@
-In order to connect to a data source we have to configure an *input binding*. This binding will make it possible to write minimal code to create a message. You don't have to write code for tasks such as opening a storage connection. The Azure Functions runtime and binding take care of those tasks for you.
+För att kunna ansluta till en datakälla som vi måste konfigurera en *indatabindning*. Den här bindningen gör det möjligt att skriva minimal kod för att skapa ett meddelande. Du behöver skriva kod för uppgifter som att öppna en lagringsanslutning. Azure Functions runtime och bindningen hand tar om dessa uppgifter åt dig.
 
-## Input binding types
+## <a name="input-binding-types"></a>Ange bindningstyper
 
-There are multiple types of input, however not all types support both input and output. You'll use them anytime you want to ingest data of that type. Here, we'll look at the types that support input bindings and when to use them.
+Det finns flera typer av indata, men inte alla typer stöder både indata och utdata. Du använder dem när du vill att mata in data av den typen. Här kan ska vi titta på de typer som stöder indatabindningar och när de ska användas.
 
-- **Blob Storage**
-    The blob storage bindings allow you to read from a blob.
+- **BLOB-lagring** blob storage-bindningar kan du läsa från en blob.
 
-- **Cosmos DB**
-    The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
+- **Cosmos DB** för Azure Cosmos DB-indatabindning använder SQL-API för att hämta en eller flera Azure Cosmos DB-dokument och skickar dem till Indataparametern för funktionen. Dokument-ID eller frågeparametrar kan fastställas baserat på utlösare som anropar funktionen.
 
-- **Microsoft Graph**
-    Microsoft Graph input bindings allow you to read files from OneDrive, read data from Excel, and get auth tokens so you can interact with any Microsoft Graph API.
-- **Mobile Apps**
-    The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function.
+- **Microsoft Graph** indatabindningar för Microsoft Graph kan du läsa filer från OneDrive, läsa data från Excel och få auth-token så att du kan interagera med Microsoft Graph API: er.
+- **Mobile Apps** The Mobile Apps-indatabindning läser in en post från mobila tabellslutpunkt och skickar det till din funktion.
 
-- **Table storage**
-    You can read data and work with Azure Table storage.
+- **Tabellagring** du kan läsa data och arbeta med Azure Table storage.
 
-## How to create an input binding?
+## <a name="how-to-create-an-input-binding"></a>Så här skapar du en indatabindning?
 
-In order to define a binding an input, you must define the `direction` as `in`.
-The parameters for each type of binding may differ, those are well documented in [Microsoft's Documentation](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings?azure-portal=true)
+För att definiera en bindning indata, måste du definiera den `direction` som `in`.
+Parametrarna för varje typ av bindning kan skilja sig, de som är väl dokumenterat i [Microsofts dokumentation](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings?azure-portal=true)
 
-## What is a binding expression?
+## <a name="what-is-a-binding-expression"></a>Vad är ett uttryck för bindning?
 
-A binding expression is specialized text in function.json, function parameters, or code that is evaluated when the function is invoked to yield a value. For example, you can use a binding expression to get the current time or retrieve a value from app settings.
+Ett uttryck för bindning är specialiserade text i function.json, funktionsparametrar eller kod som utvärderas när funktionen anropas för att ge ett värde. Du kan till exempel använda en bindning-uttryck för att hämta den aktuella tiden eller hämta ett värde från appen inställningar.
 
-### Types of binding expressions
+### <a name="types-of-binding-expressions"></a>Typer av uttryck för bindning
 
-- App settings
-- Trigger file name
-- Trigger metadata
-- JSON payloads
-- New GUID
-- Current date and time
-- Binding expressions
+- Appinställningar
+- Filnamn för utlösare
+- Utlösaren metadata
+- JSON-nyttolaster
+- Nytt GUID
+- Aktuellt datum och tid
+- Uttryck för bindning
 
-Most expressions are identified by wrapping them in curly braces. However, app setting binding expressions are identified differently from other binding expressions: they are wrapped in percent signs rather than curly braces. For example if the blob output binding path is `%Environment%/newblob.txt` and the Environment app setting value is Development, a blob will be created in the Development container.
+De flesta uttryck identifieras genom att omsluta dem anger mellan klammerparenteser. Men app inställningen bindning uttryck identifieras på olika sätt från andra uttryck för bindning: de placeras i procenttecken snarare än av klammerparenteser. Till exempel om bindningssökväg för blob-utdata är `%Environment%/newblob.txt` och miljö appen Inställningsvärdet är utveckling, skapas en blob i behållaren utveckling.
 
-Input bindings allow us to connect our function to a data source. There are several types of data sources we can connect to and the parameters for each vary. We can use binding expressions in the function.json, function parameters or code, to resolve values from various sources.
+Indatabindningar kan vi ansluta vår funktion till en datakälla. Det finns flera typer av datakällor som vi kan ansluta till och parametrarna för varje kan variera. Vi kan använda bindningen uttryck i function.json, funktionsparametrar eller kod, för att matcha värden från olika källor.

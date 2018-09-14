@@ -10,19 +10,7 @@ Välj DTU om du precis har kommit igång eller bara vill ha ett enkelt och förk
 
 Azure Cloud Shell gör det enkelt att börja arbeta med databaser. Från Cloud Shell har du har åtkomst till Azure CLI, ett kommandoradsgränssnitt som tillhandahåller information om dina Azure-resurser. Cloud Shell tillhandahåller även flera vanliga verktyg, till exempel `sqlcmd`, för att du lättare ska komma igång och jobba med den nya databasen.
 
-## <a name="cleanup"></a>Rensa
-
-Passa på att experimentera lite med din Azure SQL Database-installation. När du är klar är det enklaste sättet att ta bort databasen att ta bort dess överordnade resursgrupp.
-
-1. Klicka på **Resursgrupper** i portalen.
-
-1. Välj **logistics-db-rg**.
-
-1. Klicka på **Ta bort resursgrupp**.
-
-    ![Ta bort resursgruppen](../media-draft/delete-rg.png)
-
-1. Skriv ”logistics-db-rg” på kommandoraden och klicka på **Ta bort**.
+[!include[](../../../includes/azure-sandbox-cleanup.md)]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

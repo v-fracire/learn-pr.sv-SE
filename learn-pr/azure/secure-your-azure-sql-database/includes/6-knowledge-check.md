@@ -1,1 +1,1 @@
-Having a quiz on security can only go so far. Check and monitor your database for security issues routinely. Before taking this quiz, be sure to read the previous units to be as prepared as possible. Be vigilant.
+Med ett frågeformulär om säkerhet kan du bara gå hittills. Kontrollera och övervaka din databas för säkerhetsproblem regelbundet. Innan du tar det här testet bör du läsa de föregående enheterna för att vara som förberetts som möjligt. Vara vaksam.

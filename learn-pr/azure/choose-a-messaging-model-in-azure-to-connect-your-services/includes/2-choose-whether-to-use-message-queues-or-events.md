@@ -4,6 +4,8 @@ Innan du kan välja rätt Azure-teknik, måste du förstå varje enskild kommuni
 
 Det första du ska ta reda på är om en kommunikation skickar **meddelanden** eller **händelser**. Det här är ett grundläggande val som hjälper dig att välja rätt Azure-tjänst att använda.
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yuaw]
+
 ## <a name="what-is-a-message"></a>Vad är ett meddelande?
 I terminologin för distribuerade program har **meddelanden** följande egenskaper:
 

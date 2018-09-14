@@ -9,12 +9,12 @@ Här visar vi hur du hanterar Azure-resurser med Azure PowerShell. Du använder 
 ## <a name="learning-objectives"></a>Utbildningsmål
 I den här modulen kommer du att göra följande:
 
-- Avgöra om Azure PowerShell är rätt verktyg för dina Azure-administrationsuppgifter.
-- Installera Azure PowerShell på Linux, macOS och/eller Windows.
-- Ansluta till en Azure-prenumeration med hjälp av Azure PowerShell.
-- Konfigurera Azure-resurser med Azure PowerShell.
+- Avgöra om Azure PowerShell är rätt verktyg för dina Azure-administrationsuppgifter
+- Installera Azure PowerShell på Linux, macOS och/eller Windows
+- Ansluta till en Azure-prenumeration med hjälp av Azure PowerShell
+- Konfigurera Azure-resurser med Azure PowerShell
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
 - Kunskaper om grundläggande Azure-begrepp, som resursgrupper och virtuella datorer

@@ -4,13 +4,13 @@ Visual Studio och Azure App Service tillhandahåller en kraftfull mekanism för 
 
 ## <a name="learning-objectives"></a>Utbildningsmål
 
-I den här modulen kommer du att:
+I den här modulen kommer du att göra följande:
 
-- Skapa en ASP.NET-webbapp i Visual Studio 2017 för PC eller Mac.
-- Publicera en ASP.NET-webbapp i Azure med Visual Studio 2017.
-- Uppdatera ett ASP.NET-program till Azure med Visual Studio för PC eller Mac.
+- Skapa en ASP.NET-webbapp i Visual Studio 2017 för PC eller Mac
+- Publicera en ASP.NET-webbapp i Azure med Visual Studio 2017
+- Uppdatera ett ASP.NET-program till Azure med Visual Studio för PC eller Mac
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kunskap om Azures molnmiljö
 - Känna till användargränssnittet för Visual Studio

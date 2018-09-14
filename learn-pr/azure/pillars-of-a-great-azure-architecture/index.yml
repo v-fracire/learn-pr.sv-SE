@@ -1,35 +1,33 @@
 ### YamlMime:Module
 uid: learn.pillars-of-a-great-azure-architecture
 metadata:
-  title: Pillars of a great Azure architecture
-  description: Learn how to make your architecture a success on Azure
+  title: Grundpelare för en bra Azure-arkitektur
+  description: Lär dig att skapa en framgångsrik arkitektur i Azure
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-title: Pillars of a great Azure architecture
-summary: You want to build great things on Azure, but you’re not sure exactly what that means. There is a wealth of tools and services at your disposal on Azure, but what’s important to make sure you’re successful? How do you instill confidence in your customers that their data is secure? Could your architecture handle a spike in traffic if a media report goes viral? Could your architecture handle the failure of one or more critical components? Are you using resources in the most efficient manner possible? Using key principles throughout your architecture regardless of technology choice, can help you design, build, and continuously improve your architecture.
+title: Grundpelare för en bra Azure-arkitektur
+summary: 'Du vill skapa fantastiska saker i Azure, men du vet inte riktigt vad det innebär. En mängd verktyg och tjänster står till ditt förfogande i Azure, men vad är viktigt för att det ska gå bra? Hur kan du övertyga dina kunder om att deras data är säkra? Kan din arkitektur klara en trafiktopp om en medierapport blir viral? Kan din arkitektur hantera fel på en eller flera viktiga komponenter? Använder du resurserna på det mest effektiva sättet? Om du använder viktiga principer i hela arkitekturen oavsett val av teknik kan du utforma, skapa och kontinuerligt förbättra arkitekturen.'
 abstract: |
-  In this module, you will:
-  - Identify key pillars for architecting a solution in the cloud
-  - Apply key principles for creating a solid architectural foundation
-prerequisites: None
-#TODO: Update icon URL with real image
-iconUrl: http://via.placeholder.com/120x120
+  I den här modulen kommer du att göra följande:
+  - Identifiera huvudpelare för att skapa en lösning i molnet
+  - Tillämpa viktiga principer en stabil arkitekturgrund
+prerequisites: Ingen
+iconUrl: /learn/achievements/pillars-of-a-great-azure-architecture.svg
 levels:
-- intermediate
+  - intermediate
 roles:
-- solution-architect
+  - solution-architect
 products:
-- azure
+  - azure
 units:
-- learn.pillars-of-a-great-azure-architecture.1-introduction
-- learn.pillars-of-a-great-azure-architecture.2-pillars-of-a-great-azure-architecture
-- learn.pillars-of-a-great-azure-architecture.3-design-for-security
-- learn.pillars-of-a-great-azure-architecture.4-design-for-performance-and-scalability
-- learn.pillars-of-a-great-azure-architecture.5-design-for-availability-and-recoverability
-- learn.pillars-of-a-great-azure-architecture.6-design-for-efficiency-and-operations
-- learn.pillars-of-a-great-azure-architecture.7-summary
+  - learn.pillars-of-a-great-azure-architecture.1-introduction
+  - learn.pillars-of-a-great-azure-architecture.2-pillars-of-a-great-azure-architecture
+  - learn.pillars-of-a-great-azure-architecture.3-design-for-security
+  - learn.pillars-of-a-great-azure-architecture.4-design-for-performance-and-scalability
+  - learn.pillars-of-a-great-azure-architecture.5-design-for-availability-and-recoverability
+  - learn.pillars-of-a-great-azure-architecture.6-design-for-efficiency-and-operations
+  - learn.pillars-of-a-great-azure-architecture.7-summary
 achievement: learn.pillars-of-a-great-azure-architecture.badge

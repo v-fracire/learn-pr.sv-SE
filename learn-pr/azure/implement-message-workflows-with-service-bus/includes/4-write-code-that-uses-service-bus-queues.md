@@ -1,10 +1,10 @@
 Distribuerade program använder köer, till exempel Service Bus-köer, som tillfälliga lagringsplatser för meddelanden som väntar på leverans till en målkomponent. För att skicka och ta emot meddelanden via en kö måste du skriva kod i käll- och målkomponenterna.
 
-Ta Contoso Slices-programmet som exempel. Användaren gör beställningen via en webbplats eller mobilapp. Eftersom dessa körs på kundernas enheter finns det ingen egentlig gräns för hur många beställningar som kan komma in på en gång. Genom att bestämma att mobilappen och webbplatsen placerar beställningarna i en kö kan vi låta serverkomponenten (en webbapp) bearbeta beställningarna från kön i sin egen takt.
+Ta Contoso Slices-programmet som exempel. Användaren gör beställningen via en webbplats eller mobilapp. Eftersom webbplatser och mobila appar körs på enheter för kunden, finns det egentligen ingen gräns för hur många order kunde levereras i på samma gång. Genom att bestämma att mobilappen och webbplatsen placerar beställningarna i en kö kan vi låta serverkomponenten (en webbapp) bearbeta beställningarna från kön i sin egen takt.
 
 Contoso Slices-programmet har faktiskt flera steg för att hantera en ny beställning. Men alla steg är beroende av att betalningen först godkänns, så vi väljer att använda en kö. Den mottagande komponentens första jobb blir att bearbeta betalningen.
 
-Contoso måste i både mobilappen och webbplatsen skriva kod som lägger till ett meddelande i kön. I serverdelswebbappen skriver de kod som plockar upp meddelanden från kön.
+Contoso måste i både mobilappen och webbplatsen skriva kod som lägger till ett meddelande i kön. I backend-webb-app skriver de kod som hämtar meddelanden från kön.
 
 Här lär du dig skriva den koden.
 
@@ -16,54 +16,54 @@ Den viktigaste klassen för köer i biblioteket är klassen `QueueClient`. Du m�
 
 ## <a name="connection-strings-and-keys"></a>Anslutningssträngar och nycklar
 
-Både källkomponenter och målkomponenter behöver två typer av information för att ansluta till en kö i en Service Bus-namnrymd:
+Komponenter för källa och mål-komponenter måste du två typer av information för att ansluta till en kö i Service Bus-namnområde:
 
-- Platsen för Service Bus-namnrymden. Kallas även för **slutpunkt**. Platsen anges som ett fullständigt domännamn inom domänen **servicebus.windows.net**. Till exempel: **pizzaService.servicebus.windows.net**.
+- Platsen för Service Bus-namnområdet, även känt som en **endpoint**. Platsen har angetts som ett fullständigt kvalificerat domännamn i den **servicebus.windows.net** domän. Till exempel: **pizzaService.servicebus.windows.net**.
 - En åtkomstnyckel. Service Bus begränsar åtkomsten till köer, ämnen och reläer genom att kräva en åtkomstnyckel.
 
 De här två typerna av information anges för `QueueClient`-objektet i form av en anslutningssträng. Du kan hämta den rätta anslutningssträngen för namnrymden från Azure-portalen.
 
 ## <a name="calling-methods-asynchronously"></a>Anropa metoder asynkront
 
-Kön i Azure kan finnas hundratals mil från skickande och mottagande komponenter. Även om den är fysiskt nära kan långsamma anslutningar och konkurrens om bandbredden orsaka fördröjningar när en komponent anropar en metod i kön. Därför tillhandahåller ServiceBus-klientbiblioteket `async`-metoder för att interagera med köerna. Genom att använda de här metoderna kan vi undvika att blockera en tråd medan vi väntar på att anrop ska slutföras.
+Kön i Azure kan finnas hundratals mil från skickande och mottagande komponenter. Även om den är fysiskt nära kan långsamma anslutningar och konkurrens om bandbredden orsaka fördröjningar när en komponent anropar en metod i kön. Därför Service Bus-klientbiblioteket gör `async` metoder för att interagera med köer. Genom att använda de här metoderna kan vi undvika att blockera en tråd medan vi väntar på att anrop ska slutföras.
 
 Använd till exempel metoden `QueueClient.SendAsync()` med nyckelordet `await` när ett meddelande ska skickas till en kö.
 
 ## <a name="write-code-that-sends-to-queues"></a>Skriva kod som skickar till köer 
 
-I alla skickande och mottagande komponenter bör du lägga till följande using-uttryck i alla kodfiler som anropar en Service Bus-kö:
+I alla skickade eller tog emot komponent, bör du lägga till följande `using` -uttryck för att en kodfil som anropar en Service Bus-kö:
 
-    ```C#
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.ServiceBus;
-    ```
+```C#
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Azure.ServiceBus;
+```
 
 Skapa sedan ett nytt `QueueClient`-objekt, och skicka anslutningssträngen och köns namn till objektet:
 
-    ```C#
-    queueClient = new QueueClient(TextAppConnectionString, "PrivateMessageQueue");
-    ```
+```C#
+queueClient = new QueueClient(TextAppConnectionString, "PrivateMessageQueue");
+```
 
-Du kan skicka ett meddelande till kön genom att anropa metoden `QueueClient.SendAsync()` och skicka meddelandet i form av en UTF8-kodad sträng:
+Du kan skicka ett meddelande till kön genom att anropa den `QueueClient.SendAsync()` metoden och skicka meddelandet i form av en UTF-8-kodad sträng:
 
-    ```C#
-    string message = "Sure would like a large pepperoni!";
-    var encodedMessage = new Message(Encoding.UTF8.GetBytes(message));
-    await queueClient.SendAsync(encodedMessage);
-    ```
+```C#
+string message = "Sure would like a large pepperoni!";
+var encodedMessage = new Message(Encoding.UTF8.GetBytes(message));
+await queueClient.SendAsync(encodedMessage);
+```
 
 ## <a name="receive-messages-from-queue"></a>Ta emot meddelanden från kön
 
 För att ta emot meddelanden måste du först registrera en meddelandehanterare. Det här är metoden i din kod som anropas när ett meddelande finns tillgängligt i kön.
 
-    ```C#
-    queueClient.RegisterMessageHandler(MessageHandler, messageHandlerOptions);
-    ```
+```C#
+queueClient.RegisterMessageHandler(MessageHandler, messageHandlerOptions);
+```
 
-Utför bearbetningsarbetet. Inom meddelandehanteraren anropar du sedan metoden `QueueClient.CompleteAsync()`, så tas meddelandet bort från kön:
+Utför bearbetningsarbetet. Anropa sedan inom meddelandehanteraren, den `QueueClient.CompleteAsync()` metod för att ta bort meddelandet från kön:
 
-    ```C#
-    await queueClient.CompleteAsync(message.SystemProperties.LockToken);
-    ```
+```C#
+await queueClient.CompleteAsync(message.SystemProperties.LockToken);
+```
     

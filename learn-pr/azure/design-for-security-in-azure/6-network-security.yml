@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-security.6-network-security
-title: Network security
+title: Nätverkssäkerhet
 metadata:
-  title: Network security
-  description: In this unit we'll discuss how to secure your network infrastructure
+  title: Nätverkssäkerhet
+  description: I den här delen ska vi titta närmare på hur du kan skydda din nätverksinfrastruktur
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
@@ -14,33 +13,33 @@ durationInMinutes: 5
 content: |
   [!include[](includes/6-network-security.md)]
 quiz:
-  title: 'Knowledge Check - Network security'
+  title: Kunskapstest – nätverkssäkerhet
   questions:
-  - content: 'Azure NSGs can be used to secure communication between which of the following?'
-    choices:
-    - content: 'Communication between virtual machines and the internet'
-      isCorrect: false
-      incorrectExplanation: 'NSGs can be used to secure this communication flow, but this is not the only correct choice.'
-    - content: 'Communication between virtual machines within a VNet'
-      isCorrect: false
-      incorrectExplanation: 'NSGs can be used to secure this communication flow, but this is not the only correct choice.'
-    - content: 'Communication with systems in an on-premises network'
-      isCorrect: false
-      incorrectExplanation: 'NSGs can be used to secure this communication flow, but this is not the only correct choice.'
-    - content: 'All of the above'
-      isCorrect: true
-      correctExplanation: 'NSGs can be used to secure all of the above communication flows.'
-  - content: 'Which of the following is not a method of protecting internet facing services from network attacks?'
-    choices:
-    - content: 'Azure DDoS'
-      isCorrect: false
-      incorrectExplanation: 'Azure DDoS can be used to protect your internet facing services from a DoS attack. '
-    - content: 'Azure Application Gateway WAF'
-      isCorrect: false
-      incorrectExplanation: 'Application Gateway WAF can be used to protect your internet facing services from attacks such as XSS and SQL injection.'
-    - content: 'Azure Disk Encryption'
-      isCorrect: true
-      correctExplanation: 'Azure Disk Encryption protects your virtual machine VHDs from exposure, but does not provide protection from network based attacks.'
-    - content: 'A network virtual appliance'
-      isCorrect: false
-      incorrectExplanation: 'Network virtual appliances can provide customized network protection for your internet facing resources.'
+    - content: 'Azure NSG: er kan användas för att skydda kommunikationen mellan vilket av följande?'
+      choices:
+        - content: Kommunikation mellan virtuella datorer och internet
+          isCorrect: false
+          incorrectExplanation: 'NSG: er som kan användas för att skydda det här flödet för kommunikation, men detta är inte bara rätt val.'
+        - content: Kommunikation mellan virtuella datorer inom ett virtuellt nätverk
+          isCorrect: false
+          incorrectExplanation: 'NSG: er som kan användas för att skydda det här flödet för kommunikation, men detta är inte bara rätt val.'
+        - content: Kommunikation med system i ett lokalt nätverk
+          isCorrect: false
+          incorrectExplanation: 'NSG: er som kan användas för att skydda det här flödet för kommunikation, men detta är inte bara rätt val.'
+        - content: Alla alternativ ovan
+          isCorrect: true
+          correctExplanation: 'NSG: er kan användas för att skydda alla ovanstående kommunikationsflöden.'
+    - content: Vad av följande är inte en metod för att skydda Internetanslutna tjänster mot nätverksattacker?
+      choices:
+        - content: Azure DDoS
+          isCorrect: false
+          incorrectExplanation: 'Azure DDoS kan användas för att skydda tjänster från en DoS-attack som riktas mot internet. '
+        - content: Azure Application Gateway WAF
+          isCorrect: false
+          incorrectExplanation: 'Application Gateway WAF kan användas för att skydda tjänster från attacker, till exempel XSS och SQL-inmatning som riktas mot internet.'
+        - content: Azure Disk Encryption
+          isCorrect: true
+          correctExplanation: 'Azure Disk Encryption skyddar den virtuella datorn virtuella hårddiskar från exponering, men ger inget skydd mot nätverksbaserade attacker.'
+        - content: En virtuell nätverksinstallation
+          isCorrect: false
+          incorrectExplanation: Virtuella nätverksinstallationer kan ange anpassade nätverksskydd för din internet-riktade resurser.

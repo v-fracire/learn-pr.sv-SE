@@ -1,42 +1,42 @@
-As mentioned earlier, Redis is an in-memory NoSQL database which can be replicated across multiple servers. It is often used as a cache, but can be used as a formal database or even message-broker. 
+Såsom nämnts tidigare är Redis en InMemory-NoSQL-databas som kan replikeras över flera servrar. Det används ofta som en cache, men kan användas som en formell databas eller även meddelandekö. 
 
-It can store a variety of data types and structures and supports a variety of commands you can issue to retrieve cached data or query information about the cache itself. The data you work with is always stored as key/value pairs.
+Det kan lagra olika datatyper och strukturer och stöder en mängd olika kommandon kan du utfärda för att hämta cachelagrade data eller fråga information om cache själva. De data du arbetar med lagras alltid som nyckel/värde-par.
 
-## Executing commands on the Redis cache
+## <a name="executing-commands-on-the-redis-cache"></a>Köra kommandon på Redis-cache
 
-Typically, a client application will use a _client library_ to form requests and execute commands on a Redis cache. You can get a list of client libraries directly from the [Redis clients page](https://redis.io/clients). A popular high-performance Redis client for the .NET language is **StackExchange.Redis**. The package is available through NuGet and can be added to your .NET code using the command line or IDE.
+Vanligtvis ett klientprogram använder en _klientbiblioteket_ att formuläret begäranden och köra kommandon på en Redis-cache. Du kan hämta en lista över klientbibliotek direkt från den [Redis-klientsida](https://redis.io/clients). **StackExchange.Redis** är en populär Redis-klient för höga prestanda för språket .NET. Paketet är tillgänglig via NuGet och kan läggas till i din .NET-kod med hjälp av kommandoraden eller IDE.
 
-### Connecting to your Redis cache with StackExchange.Redis
+### <a name="connecting-to-your-redis-cache-with-stackexchangeredis"></a>Ansluta till din Redis cache med StackExchange.Redis
 
-Recall that we use the host address, port number, and an access key to connect to a Redis server. Azure also offers a _connection string_ for some Redis clients which bundles this data together into a single string.
+Kom ihåg att vi använder värdadressen, portnumret och en åtkomstnyckel för att ansluta till en Redis-server. Azure erbjuder också en _anslutningssträngen_ för vissa Redis-klienter som kombinerar dessa data till en enda sträng.
 
-### What is a connection string?
+### <a name="what-is-a-connection-string"></a>Vad är en anslutningssträng?
 
-A connection string is a single line of text that includes all the required pieces of information to connect and authenticate to a Redis cache in Azure. It will look something like the following (with the **cache-name** and **password-here** fields filled in with real values):
+En anslutningssträng är en enskild rad med text som innehåller alla uppgifter som krävs för att ansluta och autentisera till en Redis-cache i Azure. Den ser ut ungefär så här (med den **cachenamn** och **lösenord här** fylls fälten i verkliga värden):
 
 ```
 [cache-name].redis.cache.windows.net:6380,password=[password-here],ssl=True,abortConnect=False
 ```
 
 > [!TIP]
-> The connection string should be protected in your application. If the application is hosted on Azure, consider using an Azure Key Vault to store the value.
+> Strängen som ska skyddas i ditt program. Om programmet finns på Azure kan du använda ett Azure Key Vault för att lagra värdet.
 
-You can pass this string to **StackExchange.Redis** to create a connection the server. 
+Du kan skicka den här strängen ska **StackExchange.Redis** att skapa en anslutning till servern. 
 
-Notice that there are two additional parameters at the end: 
+Observera att det finns två ytterligare parametrar i slutet: 
 
-- **ssl** - ensures that communication is encrypted.
-- **abortConnection** - allows a connection to be created even if the server is unavailable at that moment.
+- **SSL** -ser till att kommunikationen är krypterad.
+- **abortConnection** -tillåter anslutning skapas även om servern inte är tillgänglig då.
 
-There are several other [optional parameters](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Configuration.md#configuration-options) you can append to the string to configure the client library.
+Det finns flera andra [valfria parametrar](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Configuration.md#configuration-options) du lägga till strängen som du konfigurerar klientbiblioteket.
 
-### Creating a connection
+### <a name="creating-a-connection"></a>Skapa en anslutning
 
-The main connection object in **StackExchange.Redis** is the `StackExchange.Redis.ConnectionMultiplexer` class. This object abstracts the process of connecting to a Redis server (or group of servers). It's optimized to manage connections efficiently and intended to be kept around while you need access to the cache.
+Det huvudsakliga anslutningsobjektet i **StackExchange.Redis** är den `StackExchange.Redis.ConnectionMultiplexer` klass. Det här objektet avlägsnar processen för att ansluta till en Redis-server (eller en grupp servrar). Den har optimerats för att effektivt hantera anslutningar och ska hållas runt när du behöver åtkomst till cachen.
 
-You create a `ConnectionMultiplexer` instance using the static `ConnectionMultiplexer.Connect` or `ConnectionMultiplexer.ConnectAsync` method, passing in either a connection string or a `ConfigurationOptions` object. 
+Du skapar en `ConnectionMultiplexer` instans med statiskhet `ConnectionMultiplexer.Connect` eller `ConnectionMultiplexer.ConnectAsync` metoden och skicka antingen en anslutningssträng eller en `ConfigurationOptions` objekt. 
 
-Here's a simple example:
+Här är ett enkelt exempel:
 
 ```csharp
 using StackExchange.Redis;
@@ -46,41 +46,41 @@ var redisConnection = ConnectionMultiplexer.Connect(connectionString);
     // ^^^ store and re-use this!!!
 ```
 
-Once you have a `ConnectionMultiplexer`, there are 3 primary things you might want to do:
+När du har en `ConnectionMultiplexer`, det finns 3 primära saker som du kanske vill göra:
 
-1. Access a Redis Database. This is what we will focus on here.
-2. Make use of the publisher/subscript features of Redis. This is outside the scope of this module.
-3. Access an individual server for maintenance or monitoring purposes.
+1. Åtkomst till en Redis-databas. Det här är vad vi fokuserar på här.
+2. Kontrollera användningen av utgivare/nedsänkt text-funktioner i Redis. Det här är utanför omfånget för den här modulen.
+3. Åtkomst till en enskild server för underhåll och övervakning.
 
-### Accessing a Redis database
+### <a name="accessing-a-redis-database"></a>Åtkomst till en Redis-databas
 
-The Redis database is represented by the `IDatabase` type. You can retrieve one using the `GetDatabase()` method:
+Redis-databasen som representeras av den `IDatabase` typen. Du kan hämta en med den `GetDatabase()` metoden:
 
 ```csharp
 IDatabase db = redisConnection.GetDatabase();
 ```
 
 > [!TIP]
-> The object returned from `GetDatabase` is a lightweight object, and does not need to be stored. Only the `ConnectionMultiplexer` needs to be kept alive.
+> Det objekt som returneras från `GetDatabase` är ett lightweight-objekt och behöver inte ska lagras. Endast den `ConnectionMultiplexer` måste hållas alive.
 
-Once you have a `IDatabase` object, you can execute methods to interact with the cache. All methods have synchronous and asynchronous versions which return `Task` objects to make them compatible with the `async` and `await` keywords.
+När du har en `IDatabase` objekt kan du köra metoder för att interagera med cacheminnet. Alla metoder har synkrona och asynkrona versioner som returnera `Task` objekt för att göra dem kompatibla med den `async` och `await` nyckelord.
 
-Here is an example of storing a key/value in the cache:
+Här är ett exempel för att lagra nyckel/värde i cacheminnet:
 
 ```csharp
 bool wasSet = db.StringSet("favorite:flavor", "i-love-rocky-road");
 ```
 
-The `StringSet` method returns a `bool` indicating whether the value was set (`true`) or not (`false`). We can then retrieve the value with the `StringGet` method:
+Den `StringSet` metoden returnerar en `bool` som anger om värdet har angetts (`true`) eller inte (`false`). Vi kan sedan hämta värde med den `StringGet` metoden:
 
 ```csharp
 string value = db.StringGet("favorite:flavor");
 Console.WriteLine(value); // displays: ""i-love-rocky-road""
 ```
 
-#### Getting and Setting binary values
+#### <a name="getting-and-setting-binary-values"></a>Hämta och ange binärvärden
 
-Recall that Redis keys and values are _binary safe_. These same methods can be used to store binary data. There are implicit conversion operators to work with `byte[]` types so you can work with the data naturally:
+Kom ihåg att Redis nycklar och värden är _binär säker_. Dessa samma metoder kan användas för att lagra binär data. Det finns implicit konvertering operatörer att arbeta med `byte[]` skriver så att du kan arbeta med data naturligt:
 
 ```csharp
 byte[] key = ...;
@@ -95,49 +95,49 @@ byte[] value = db.StringGet(key);
 ```
 
 > [!TIP]
-> **StackExchange.Redis** represents keys using the `RedisKey` type. This class has implicit conversions to and from both `string` and `byte[]`, allowing both text and binary keys to be used without any complication. Values are represented by the `RedisValue` type. As with `RedisKey`, there are implicit conversions in place to allow you to pass `string` or `byte[]`.
+> **StackExchange.Redis** representerar nycklar med den `RedisKey` typen. Den här klassen har implicita konverteringar till och från både `string` och `byte[]`, vilket gör att både text och binära nycklar som ska användas utan någon complication. Värden representeras av den `RedisValue` typen. Precis som med `RedisKey`, det finns implicita konverteringar på plats så att du kan skicka `string` eller `byte[]`.
 
-#### Other common operations
+#### <a name="other-common-operations"></a>Andra vanliga åtgärder
 
-The `IDatabase` interface includes several other methods to work with the Redis cache. There are methods to work with hashes, lists, sets, and ordered sets.
+Den `IDatabase` gränssnittet innehåller flera andra metoder för att arbeta med Redis-cache. Det finns sätt att arbeta med hashvärden, listor, uppsättningar och sorterade uppsättningar.
 
-Here are some of the more common ones that work with single keys, you can [read the source code](https://github.com/StackExchange/StackExchange.Redis/blob/master/src/StackExchange.Redis/Interfaces/IDatabase.cs) for the interface to see the full list.
+Här är några av de vanligaste som fungerar med enkel nycklar, kan du [läsa källkoden](https://github.com/StackExchange/StackExchange.Redis/blob/master/src/StackExchange.Redis/Interfaces/IDatabase.cs) för gränssnittet för att se hela listan.
 
-| Method | Description |
+| Metod | Beskrivning |
 |--------|-------------|
-| `CreateBatch` | Creates a _group of operations_ that will be sent to the server as a single unit, but not necessarily processed as a unit. |
-| `CreateTransaction` | Creates a group of operations that will be sent to the server as a single unit _and_ processed on the server as a single unit. |
-| `KeyDelete` | Delete the key/value. |
-| `KeyExists` | Returns whether the given key exists in cache. |
-| `KeyExpire` | Sets a time-to-live (TTL) expiration on a key. |
-| `KeyRename` | Renames a key. |
-| `KeyTimeToLive` | Returns the TTL for a key. |
-| `KeyType` | Returns the string representation of the type of the value stored at key. The different types that can be returned are: string, list, set, zset and hash. |
+| `CreateBatch` | Skapar en _för operations_ som kommer att skickas till servern som en enda enhet, men inte nödvändigtvis behandlas som en enhet. |
+| `CreateTransaction` | Skapar en grupp av åtgärder som kommer att skickas till servern som en enda enhet _och_ bearbetas på servern som en enda enhet. |
+| `KeyDelete` | Ta bort nyckel/värde. |
+| `KeyExists` | Returnerar om den angivna nyckeln finns i cacheminnet. |
+| `KeyExpire` | Anger en time to live (TTL) upphör att gälla för en nyckel. |
+| `KeyRename` | Byter namn på en nyckel. |
+| `KeyTimeToLive` | Returnerar TTL-värde för en nyckel. |
+| `KeyType` | Returnerar en strängrepresentation av typen för det värde som lagras i nyckeln. Olika typer som kan returneras: sträng, lista, Ställ in zset och -hash. |
        
-### Executing other commands
+### <a name="executing-other-commands"></a>Köra andra kommandon
 
-The `IDatabase` object has an `Execute` and `ExecuteAsync` method which can be used to pass textual commands to the Redis server. For example:
+Den `IDatabase` objekt har en `Execute` och `ExecuteAsync` metod som kan användas för att skicka kommandon för text till Redis-servern. Exempel:
 
 ```csharp
 var result = db.Execute("ping");
 Console.WriteLine(result.ToString()); // displays: "PONG"
 ```
 
-The `Execute` and `ExecuteAsync` methods return a `RedisResult` object which is a data holder that includes two properties:
+Den `Execute` och `ExecuteAsync` metoderna returnerar en `RedisResult` -objektet som är en data-innehavare som innehåller två egenskaper:
 
-- `Type` which returns a `string` indicating the type of the result - "STRING", "INTEGER", etc.
-- `IsNull` a true/false value to detect when the result is `null`.
+- `Type` vilken returnerar en `string` som anger vilken typ av resultatet - ”STRING”, ”heltal” osv.
+- `IsNull` ett true/false-värde för att upptäcka när resultatet är `null`.
 
-You can then use `ToString()` on the `RedisResult` to get the actual return value.
+Du kan sedan använda `ToString()` på den `RedisResult` för att hämta den faktiska returvärde.
 
-You can use `Execute` to perform any supported commands - for example, we can get all the clients connected to the cache ("CLIENT LIST"):
+Du kan använda `Execute` att utföra vilka kommandon som stöds – till exempel får vi alla klienter som är anslutna till cachen (”klienten lista”):
 
 ```csharp
 var result = await db.ExecuteAsync("client", "list");
 Console.WriteLine($"Type = {result.Type}\r\nResult = {result}");
 ```
 
-This would output all the connected clients:
+Detta skulle mata ut alla anslutna klienter:
 
 ```output
 Type = BulkString
@@ -145,8 +145,8 @@ Result = id=9469 addr=16.183.122.154:54961 fd=18 name=DESKTOP-AAAAAA age=0 idle=
 id=9470 addr=16.183.122.155:54967 fd=13 name=DESKTOP-BBBBBB age=0 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 ow=0 owmem=0 events=r cmd=client numops=17
 ```
 
-### Storing more complex values
-Redis is oriented around binary safe strings, but you can cache off object graphs by serializing them to a textual format - typically XML or JSON. For example, perhaps for our statistics, we have a `GameStats` object which looks like:
+### <a name="storing-more-complex-values"></a>Lagra mer komplexa värden
+Redis är enhetsinriktade runt binära säker strängar, men du kan cachelagra av objektdiagram genom att serialisera dem till ett textformat – vanligtvis XML eller JSON. Exempelvis kanske för vår statistik, har vi en `GameStats` objekt som ser ut så:
 
 ```csharp
 public class GameStat
@@ -177,7 +177,7 @@ public class GameStat
 }
 ```
 
-We could use the **Newtonsoft.Json** library to turn an instance of this object into a string:
+Vi kan använda den **Newtonsoft.Json** -biblioteket för att aktivera en instans av det här objektet till en sträng:
 
 ```csharp
 var stat = new GameStat("Soccer", new DateTime(1950, 7, 16), "FIFA World Cup", 
@@ -188,7 +188,7 @@ string serializedValue = Newtonsoft.Json.JsonConvert.SerializeObject(stat);
 bool added = db.StringSet("event:1950-world-cup", serializedValue);
 ```
 
-We could retrieve it and turn it back into an object using the reverse process:
+Vi kan hämta den och omvandla dem tillbaka till ett objekt med omvänd processen:
 
 ```csharp
 var result = db.StringGet("event:1950-world-cup");
@@ -196,12 +196,12 @@ var stat = Newtonsoft.Json.JsonConvert.DeserializeObject<GameStat>(result.ToStri
 Console.WriteLine(stat.Sport); // displays "Soccer"
 ```
 
-## Cleaning up the connection
-Once you are done with the Redis connection, you can **Dispose** the `ConnectionMultiplexer`. This will close all connections and shutdown the communication to the server.
+## <a name="cleaning-up-the-connection"></a>Rensa anslutningen
+När du är klar med Redis-anslutning, kan du **ta bort** den `ConnectionMultiplexer`. Detta kommer att stänga alla anslutningar och Stäng av kommunikation till servern.
 
 ```csharp
 redisConnection.Dispose();
 redisConnection = null;
 ```
 
-Let's create an application and do some simple work with our Redis cache.
+Nu ska vi skapa ett program och utföra vissa enkel arbete med våra Redis-cache.

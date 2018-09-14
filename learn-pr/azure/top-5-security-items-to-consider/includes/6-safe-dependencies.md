@@ -1,44 +1,44 @@
-A large percentage of code present in modern applications are the libraries and dependencies chosen by you: the developer. This is a common practice that saves time and money. However, the downside is that you are now responsible for this code, even though others wrote it, because you used it in your project. If a researcher (or worse, a hacker) discovers a vulnerability in one of these 3rd party libraries, then the same flaw will likely also be present in your app.
+En stor del av koden som finns i moderna program är de bibliotek och beroenden som du har valt: utvecklaren. Det här är en vanlig metod som sparar tid och pengar. Nackdelen är dock att du är ansvarig för den här koden även om andra skrev det, eftersom du har använt den i projektet. Om en forskare (eller ännu värre hackare) identifierar en sårbarhet i ett av dessa bibliotek med 3 part samma fel troligen kommer också finnas i din app.
 
-Using components with known vulnerabilities is a huge problem in our industry. It is so problematic that is has made the [OWASP top ten list](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) of worst web application vulnerabilities, holding at #9 for several years.
+Med hjälp av komponenter med kända problem är stora problem i vår bransch. Det är så problematiska som har gjort den [OWASP topp tio](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) sämsta web sårbarheter i program, hålls vid #9 i flera år.
 
-## Track known security vulnerabilities
+## <a name="track-known-security-vulnerabilities"></a>Spåra kända säkerhetsproblem
 
-The problem we have is knowing when an issue is discovered. Keeping our libraries and dependencies updated (#4 in our list!) will of course help, but it's a good idea to keep track of identified vulnerabilities that might impact your application.
+Vi har problemet är att veta när ett problem har identifierats. Att hålla våra bibliotek och beroenden kan naturligtvis uppdaterade (#4 i vår lista!), men det är en bra idé att hålla reda på identifierade säkerhetsrisker som kan påverka ditt program.
 
 > [!IMPORTANT]
-> When a system has a known vulnerability, it is much more likely also to have exploits available, code that people can use to attack those systems. If an exploit is made public, it is crucial that any affected systems are updated immediately.
+> När ett system har en känd svaghet, är det mycket mer sannolikt också kryphål tillgänglig, kod som kan användas för att attackera dessa system. Om en exploatering offentliggörs, är det viktigt att de aktuella systemen uppdateras direkt.
 
-**Mitre** is a non-profit organization that maintains the [Common Vulnerabilities and Exposures list](https://cve.mitre.org). This list is a publicly searchable set of known cybersecurity vulnerabilities in apps, libraries, and frameworks. **If you find a library or component in the CVE database, it has known vulnerabilities**.
+**Mitre** är en ideell organisation som underhåller den [Common Vulnerabilities and Exposures lista](https://cve.mitre.org). Den här listan är en offentligt sökbara uppsättning kända cybersäkerhet säkerhetsproblem i appar, bibliotek och ramverk. **Om du hittar ett bibliotek eller en komponent i CVE databasen har det kända säkerhetsrisker**.
 
-Issues are submitted by the security community when a security flaw is found in a product or component. Each published issue is assigned an ID and contains the date discovered, a description of the vulnerability, and references to published workarounds or vendor statements about the issue.
+Problem med skickas av säkerhets-communityn när ett security fel hittas i en produkt eller komponent. Varje publicerad problemet tilldelas ett ID och innehåller datum som identifierats och en beskrivning av säkerhetsproblem, och referenser till publicerade lösningar eller leverantörens instruktioner om problemet.
 
-### How to verify if you have known vulnerabilities in your 3rd party components
+### <a name="how-to-verify-if-you-have-known-vulnerabilities-in-your-3rd-party-components"></a>Så här verifierar du om du har kända säkerhetsrisker i dina 3 part-komponenter
 
-You could put a daily task into your phone to go and check this list, but luckily for us, many tools exist to allow us to verify if our dependencies are vulnerable. You can run these tools against your codebase, or better yet, add them to your CI/CD pipeline to automatically check for issues as part of the development process.
+Du kan placera en daglig aktivitet i din telefon och gå och kontrollera den här listan, men som tur är för oss, många verktyg finns om du vill att vi kan kontrollera om våra beroenden är sårbara. Du kan köra dessa verktyg mot din kodbas eller bättre än, lägga till dem i dina CI/CD-pipeline för att automatiskt söka efter problem som en del av utvecklingsprocessen.
 
-- [OWASP Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check), which has a [Jenkins plugin](https://wiki.jenkins.io/display/JENKINS/OWASP+Dependency-Check+Plugin)
+- [Kontrollera om OWASP beroende](https://www.owasp.org/index.php/OWASP_Dependency_Check), som har en [plugin-programmet Jenkins](https://wiki.jenkins.io/display/JENKINS/OWASP+Dependency-Check+Plugin)
 - [OWASP SonarQube](https://www.owasp.org/index.php/OWASP_SonarQube_Project)
-- [Synk](https://snyk.io), which is free for open source repositories in GitHub
-- [Black Duck](https://www.blackducksoftware.com) which is used by many enterprises
-- [RubySec](https://rubysec.com) an advisory database just for Ruby
-- [Retire.js](https://github.com/retirejs/retire.js/) a tool for verifying if your JavaScript libraries are out of date; can be used as a plugin for various tools, including [Burp Suite](https://www.portswigger.net)
+- [Synk](https://snyk.io), som är kostnadsfritt för lagringsplatser med öppen källkod i GitHub
+- [Svart ankor](https://www.blackducksoftware.com) som används av många företag
+- [RubySec](https://rubysec.com) en rådgivande databas bara för Ruby
+- [Retire.js](https://github.com/retirejs/retire.js/) ett verktyg för att verifiera om JavaScript-bibliotek är inaktuella; kan användas som ett plugin-program för olika verktyg, bland annat [Burp Suite](https://www.portswigger.net)
 
-Some tools made specifically for static code analysis can be used for this as well.
+Vissa verktyg som är särskilt utformade för statiska kodanalys kan användas för det här också.
 
-- [Roslyn Security Guard](https://dotnet-security-guard.github.io)
-- [Puma Scan](https://pumascan.com)
+- [Roslyn Kontrollidentifiering](https://dotnet-security-guard.github.io)
+- [Puma genomsökning](https://pumascan.com)
 - [PT Application Inspector](https://www.ptsecurity.com/ww-en/products/ai/)
 - [Apache Maven Dependency Plugin](http://maven.apache.org/plugins/maven-dependency-plugin/)
-- [Source Clear](https://www.sourceclear.com)
+- [Käll-rensning](https://www.sourceclear.com)
 - [Sonatype](https://ossindex.sonatype.org)
-- [Node Security Platform](https://nodesecurity.io)
+- [Plattform för nod-säkerhet](https://nodesecurity.io)
 - [WhiteSource](https://www.whitesourcesoftware.com/what-is-whitesource/)
 - [Hdiv](https://hdivsecurity.com)
-- [And many more...](https://www.owasp.org/index.php/Source_Code_Analysis_Tools)
+- [Och många fler...](https://www.owasp.org/index.php/Source_Code_Analysis_Tools)
 
-For more information on the risks involved in using vulnerable components visit the [OWASP page](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) dedicated to this topic.
+Mer information om riskerna som använder sårbara komponenter finns på [OWASP sidan](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) specifikt för det här avsnittet.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-When you use libraries or other 3rd party components as part of your application you are also taking on any risks they may have. The best way to reduce this risk is to ensure that you are only using components that have no known vulnerabilities associated with them.
+När du använder bibliotek eller andra 3 part-komponenter som en del av ditt program som du också ta med på eventuella risker kan ha. Det bästa sättet att minska denna risk är att se till att du endast använder komponenter som har inga kända säkerhetsrisker kopplade.

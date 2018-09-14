@@ -1,59 +1,60 @@
-As a technology professional, you likely have expertise in a specific area. Perhaps you're a storage admin or virtualization expert, or maybe you focus on the latest security practices. If you're a student, you may still be exploring what interests you most.
+En teknik som professionella som har du sannolikt expertis i ett visst område. Du kanske är en storage-administratör eller virtualisering experten eller kanske du fokusera på de senaste säkerhetsrutiner. Om du är student, kan du fortfarande att utforska vad som intresserar dig mest.
 
 ::: zone pivot="windows-cloud"
 
-No matter your role, most people get started with the cloud by creating a virtual machine. Here you'll bring up a virtual machine running Windows Server 2016.
+Oavsett din roll börjar de flesta med molnet genom att skapa en virtuell dator. Här kan du sätta upp en virtuell dator som kör Windows Server 2016.
 
 ::: zone-end
 
 ::: zone pivot="linux-cloud"
 
-No matter your role, most people get started with the cloud by creating a virtual machine. Here you'll bring up a virtual machine running Ubuntu 16.04.
+Oavsett din roll börjar de flesta med molnet genom att skapa en virtuell dator. Här kan du sätta upp en virtuell dator som kör Ubuntu 16.04.
 
 ::: zone-end
 
-There are many ways to create a virtual machine on Azure. Here, you'll bring up a Windows or Linux VM using an interactive terminal called Cloud Shell. If you work from the terminal on a daily basis, you know this is often the fastest way to get the job done.
+Det finns många sätt att skapa en virtuell dator på Azure. Här får du ta fram en Windows- eller Linux-dator med en interaktiv terminal kallas Cloud Shell. Om du arbetar från terminalen dagligen, vet du det här är ofta det snabbaste sättet att få jobbet gjort.
 
 ::: zone pivot="windows-cloud"
 
 > [!TIP]
-> Prefer Linux or want to try something new? Select **Linux** from the top of this page to run a Linux VM.
+> Föredrar Linux eller vill du testa något nytt? Välj **Linux** högst upp på sidan för att köra en virtuell Linux-dator.
 
 ::: zone-end
 
 ::: zone pivot="linux-cloud"
 
 > [!TIP]
-> Prefer Windows or want to try something new? Select **Windows** from the top of this page to run a Windows Server VM.
+> Föredrar Windows eller vill du testa något nytt? Välj **Windows** högst upp på sidan för att köra en Windows Server-dator.
 
 ::: zone-end
 
-Let's review some basic terms and get your first virtual machine up and running.
+Nu ska vi gå igenom några grundläggande termer och få din första virtuella dator och drift.
 
-## What is a virtual machine?
+## <a name="what-is-a-virtual-machine"></a>Vad är en virtuell dator?
 
-A virtual machine, or VM, is a software emulation of a physical computer. Because VMs exist as software, dozens, hundreds, or even thousands of Azure VMs can be generated in minutes, then deleted when you don't need them anymore. With low-cost, per-minute billing, you pay only for the compute resources you use, for as long as you are using them. Plus, there are many ways to configure the VMs to fit your needs.
+En virtuell dator eller virtuell dator, är en programvaruemulering av en fysisk dator. Eftersom virtuella datorer finns som programvaran, dussintals, hundratals eller tusentals virtuella Azure-datorer kan skapas på några minuter, sedan tas bort när du inte längre behövs. Med låg kostnad, per minut fakturering betalar du bara för de beräkningsresurser du använder, så länge som du använder dem. Dessutom finns många olika sätt att konfigurera de virtuella datorerna så att de passar dina behov.
 
 ::: zone pivot="windows-cloud"
 
-A snapshot of a running VM is called an _image_. Azure provides images for Windows and several flavors of Linux. You can also create your own preconfigured images to make deployments go faster. Here you'll bring up a Windows Server 2016 VM, provided by Microsoft.
+En ögonblicksbild av en aktiv virtuell dator kallas en _bild_. Azure erbjuder avbildningar för Windows och flera varianter av Linux. Du kan också skapa dina egna förkonfigurerade avbildningar för att göra distributioner gå snabbare. Här kan du öppna en Windows Server 2016 VM, som tillhandahålls av Microsoft.
+
 ::: zone-end
 
 ::: zone pivot="linux-cloud"
 
-A snapshot of a running VM is called an _image_. Azure provides images for Windows and several flavors of Linux. You can also create your own preconfigured images to make deployments go faster. Here you'll bring up an Ubuntu 16.04 VM, provided by Canonical.
+En ögonblicksbild av en aktiv virtuell dator kallas en _bild_. Azure erbjuder avbildningar för Windows och flera varianter av Linux. Du kan också skapa dina egna förkonfigurerade avbildningar för att göra distributioner gå snabbare. Här får du ta fram en Ubuntu 16.04 VM som tillhandahålls av Canonical.
+
 ::: zone-end
 
-## What defines a virtual machine on Azure?
+## <a name="what-defines-a-virtual-machine-on-azure"></a>Vad definierar en virtuell dator på Azure?
 
-A virtual machine is defined by a number of factors, including its size and location. Before you bring up your VM, let's briefly cover what's involved.
+En virtuell dator definieras av ett antal faktorer, inklusive dess storlek och plats. Innan du skapar den virtuella datorn ska vi kortfattat beskriver vad ingår.
 
 :::row:::
     :::column:::
-        **Size**
+        **Storlek**
     :::column-end:::
-    :::column span="3":::
-A VM's _size_ defines its processor speed, amount of memory, initial amount of storage, and expected network bandwidth. Some sizes even include specialized hardware such as GPUs for heavy graphics rendering and video editing.
+    ::: kolumnen span = ”3”::: A VM _storlek_ definierar dess processorhastighet, mängden minne, inledande mängden lagring och förväntade nätverkets bandbredd. Vissa värden är även specialiserad maskinvara, till exempel GPU: er för tung grafikrendering och videoredigering.
     :::column-end:::
 :::row-end:::
 
@@ -61,155 +62,164 @@ A VM's _size_ defines its processor speed, amount of memory, initial amount of s
     :::column:::
         **Region**
     :::column-end:::
-    :::column span="3":::
-Azure is made up of data centers distributed throughout the world. A _region_ is a set of Azure data centers in a named geographic location. Every Azure resource, including virtual machines, is assigned a region. East US and North Europe are examples of regions.
+    ::: kolumnen span = ”3”::: Azure består av Datacenter runtom i världen. En _region_ är en uppsättning Azure-datacenter i en namngiven geografisk plats. Varje Azure-resursen, inklusive virtuella datorer tilldelas en region. Östra USA och Nordeuropa är exempel på regioner.
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        **Network**
+        **Nätverk**
     :::column-end:::
-    :::column span="3":::
-A _virtual network_ is a logically isolated network on Azure. Each virtual machine on Azure is associated with a virtual network. Azure provides cloud-level firewalls for your virtual networks called _network security groups_.
+    ::: kolumnen span = ”3”::: A _virtuellt nätverk_ är ett logiskt isolerat nätverk i Azure. Varje virtuell dator på Azure är associerad med ett virtuellt nätverk. Azure tillhandahåller moln på servernivå brandväggar för dina virtuella nätverk som kallas _nätverkssäkerhetsgrupper_.
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        **Resource groups**
+        **Resursgrupper**
     :::column-end:::
-    :::column span="3":::
-Virtual machines and other cloud resources are grouped into logical containers called _resource groups_. Groups are typically used to organize sets of resources that are deployed together as part of an application or service. You refer to a resource group by its name.
+    ::: kolumnen span = ”3”::: virtuella datorer och andra molnresurser grupperas i en logisk behållare som kallas _resursgrupper_. Grupper används vanligtvis för att organisera uppsättningar av resurser som distribueras tillsammans som en del av ett program eller tjänst. Du referera till en resursgrupp med namnet.
     :::column-end:::
 :::row-end:::
 
-## What is Azure Cloud Shell?
+## <a name="what-is-azure-cloud-shell"></a>Vad är Azure Cloud Shell?
 
-Azure Cloud Shell is a browser-based command-line experience for managing and developing Azure resources. Think of Cloud Shell as an interactive console that you run in the cloud.
+Azure Cloud Shell är en webbläsarbaserad kommandoradsmiljö för att hantera och utveckla Azure-resurser. Tänk på Cloud Shell som en interaktiv konsol som du kör i molnet.
 
-Cloud Shell provides two experiences to choose from: Bash and PowerShell. Both include access to the Azure CLI, the command-line interface for Azure.
+Cloudshell tillhandahåller två upplevelser för att välja mellan: Bash och PowerShell. Båda omfattar tillgång till Azure CLI, kommandoradsgränssnittet för Azure.
 
-You can use any Azure management interface, including the Azure portal, Azure CLI, and Azure PowerShell, to manage any kind of VM. For learning purposes, here you'll use PowerShell if you're creating a Windows VM, or the Azure CLI if you're creating a Linux VM.
+Du kan använda valfri Azure hanteringsgränssnitt, inklusive Azure-portalen, Azure CLI och Azure PowerShell för att hantera alla typer av virtuella datorer. I utbildningssyfte ska här du använda Azure CLI att skapa och hantera en Windows- eller Linux VM.
 
 ::: zone pivot="windows-cloud"
 
-## Create a Windows VM
+## <a name="create-a-windows-vm"></a>Skapa en virtuell Windows-dator
 
-Let's get your Windows VM up and running. First, we create security credentials so you can later log in to your VM.
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
-1. From Cloud Shell on the right side of this page, run these commands to generate a credential object. Replace "Password" with a password you'll remember later.
+Få din virtuella Windows-dator vi igång.
 
-    > [!NOTE]
-    > Choose a password that contains at least 8 characters with a combination of upper and lowercase letters, numbers, and symbols. Don't use a password you use elsewhere.
+<!--
 
-    ```powershell
-    $pass = ConvertTo-SecureString "Password" -AsPlainText -Force
+TODO: Omitted for sandbox. Possibly re-insert later for non-sandbox workflow.
+
+1. From Cloud Shell on the right side of this page, run the `az group create` command to create a resource group named **myResourceGroup** in the East US region.
+
+    ```azurecli
+    az group create \
+      --location eastus \
+      --name myResourceGroup
     ```
-    ```powershell
-    $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $pass)
-    ```
-    **azureuser** specifies the user name. You can change it if you'd like.
- 
-1. Run the `New-AzureRmVm` cmdlet to create your VM.
+-->
 
-    ```powershell
-    New-AzureRmVm `
-      -Image "Win2016Datacenter" `
-      -ResourceGroupName "myResourceGroup" `
-      -Name "myVM" `
-      -Size "Standard_DS2_v2" `
-      -Location "East US" `
-      -VirtualNetworkName "myVnet" `
-      -SubnetName "mySubnet" `
-      -SecurityGroupName "myNetworkSecurityGroup" `
-      -PublicIpAddressName "myPublicIpAddress" `
-      -OpenPorts 80 `
-      -Credential $cred `
-      -Verbose
+1. Kör från Cloud Shell på höger sida av den här sidan i `az vm create` kommando för att skapa den virtuella datorn. Vi rekommenderar att du ändrar lösenordet nedan till en ska lagras.
+
+      > [!NOTE]
+    > Välj ett lösenord som innehåller minst 8 tecken med en kombination av övre och gemena bokstäver, siffror och symboler.
+
+    ```azurecli
+    az vm create \
+      --name myWindowsVM \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --image Win2016Datacenter \
+      --size Standard_DS2_v2 \
+      --admin-username azureuser \
+      --admin-password "Password1234&"
     ```
 
     > [!TIP]
-    > This is a long command. You can use the **Copy** button to copy it. To paste it, right click on the new line in the Cloud Shell window and select **Paste**.
+    > Du kan använda den **kopiera** för att kopiera varje kommando. Om du vill klistra in den, högerklicka på den nya raden i Cloud Shell-fönstret och välj **klistra in**.
 
-    Your VM will take about five minutes to come up. Compare that to the time it takes to purchase, rack, and configure a system in your data center. Quite a difference!
+    Den virtuella datorn tar fyra till fem minuter att få fram. Jämför med den tid det tar att köpa, rack och konfigurera ett system i ditt datacenter. En skillnad!
 
-While you're waiting, let's review the command you just ran.
+Under tiden du väntar vi ska gå igenom kommandot som du körde.
 
-* **Win2016Datacenter** specifies the Windows Server 2016 VM image.
-* The resource group, or the VM's logical container, is named **myResourceGroup**.
-* The VM is named **myVM**. This name identifies the VM in Azure. It also becomes the VM's internal hostname, or computer name.
-* **Standard_DS2_v2** refers to the size of the VM. This size has two virtual CPUs and 7 GB of memory.
-* The VM exists in the **East US** location, or region.
-* The command also assigns a public IP address to the VM. You can configure a VM to be accessible from the Internet or only from the internal network.
-* The network firewall allows inbound traffic on port 80 to allow HTTP traffic to your web server.
-* The credential object specifies your username and password.
-* `-Verbose` is an optional parameter you can provide to get detailed information about the operation, similar to a trace or transaction log. You can use this parameter to learn what's happening during the operation or to troubleshoot failures.
+* Den virtuella datorn **myWindowsVM**. Det här namnet identifierar den virtuella datorn i Azure. Det blir även Virtuellt datorns interna värdnamn eller datornamn.
+* Resursgruppen eller den Virtuella datorns logisk behållare, heter  **<rgn>[Sandbox resursgruppens namn]</rgn>**.
+* **Win2016Datacenter** anger Windows Server 2016 VM-avbildning.
+* **Standard_DS2_v2** refererar till den virtuella datorn storlek. Den här storleken har två virtuella processorer och 7 GB minne.
+* Användarnamnet och lösenordet kan du ansluta till den virtuella datorn senare. Du kan till exempel ansluta via fjärrskrivbord eller WinRM för att arbeta med och konfigurera systemet.
 
-You can also check out this short video about some of the options you have to create and manage VMs.
+Som standard tilldelar Azure offentlig IP-adress till den virtuella datorn. Du kan konfigurera en virtuell dator för att vara tillgänglig från Internet eller från det interna nätverket.
+
+Du kan också Kolla in den här korta videon om några av de alternativ som du måste skapa och hantera virtuella datorer.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yJKx]
 
-When the process completes, you see information in Cloud Shell about your new VM. Here's an example.
+När den virtuella datorn är klar kan se du information om den. Här är ett exempel.
 
 ```console
-ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
-VmId                     : 6684cc9a-ef9f-47dd-92ed-ce1dbcd98396
-Name                     : myVM
-Type                     : Microsoft.Compute/virtualMachines
-Location                 : eastus
-Tags                     : {}
-HardwareProfile          : {VmSize}
-NetworkProfile           : {NetworkInterfaces}
-OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
-ProvisioningState        : Succeeded
-StorageProfile           : {ImageReference, OsDisk, DataDisks}
-FullyQualifiedDomainName : myvm-edce6d.East US.cloudapp.azure.com
+{
+  "fqdns": "",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myWindowsVM",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-1E-1B-3B",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.5",
+  "publicIpAddress": "104.211.9.245",
+  "resourceGroup": "myResourceGroup",
+  "zones": ""
+}
 ```
 
 ::: zone-end
 
 ::: zone pivot="linux-cloud"
 
-## Create a Linux VM
+## <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
 
-Here, you'll bring up an Ubuntu VM using Cloud Shell.
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
+Få din Linux-VM vi igång.
+
+<!--
+
+TODO: Omitted for sandbox. Possibly re-insert later for non-sandbox workflow.
+ 
 1. From Cloud Shell on the right side of this page, run the `az group create` command to create a resource group named **myResourceGroup** in the East US region.
 
     ```azurecli
-    az group create --location eastus --name myResourceGroup
+    az group create \
+      --location eastus \
+      --name myResourceGroup
     ```
+-->
 
-1. Run the `az vm create` command to create your VM.
+1. Kör från Cloud Shell på höger sida av den här sidan i `az vm create` kommando för att skapa den virtuella datorn.
 
     ```azurecli
-    az vm create -n myVM -g myResourceGroup --image UbuntuLTS --size Standard_DS2_v2 --generate-ssh-keys
+    az vm create \
+      --name myLinuxVM \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --image UbuntuLTS \
+      --size Standard_DS2_v2 \
+      --generate-ssh-keys
     ```
 
-Your VM will take about two minutes to come up. Compare that to the time it takes to purchase, rack, and configure a system in your data center. Quite a difference!
+    > [!TIP]
+    > Du kan använda den **kopiera** för att kopiera varje kommando. Om du vill klistra in den, högerklicka på den nya raden i Cloud Shell-fönstret och välj **klistra in**.
 
-While you're waiting, let's review the command you just ran.
+    Den virtuella datorn tar ungefär två minuter för att få fram. Jämför med den tid det tar att köpa, rack och konfigurera ett system i ditt datacenter. En skillnad!
 
-* **UbuntuLTS** specifies the Ubuntu 16.04 LTS VM image.
-* The resource group, or the VM's logical container, is named **myResourceGroup**.
-* The VM is named **myVM**. This name identifies the VM in Azure. It also becomes the VM's internal hostname, or computer name.
-* **Standard_DS2_v2** refers to the size of the VM. This size has two virtual CPUs and 7 GB of memory.
-* The VM exists in the **East US** location, or region.
-* The command also assigns a public IP address to the VM. You can configure a VM to be accessible from the Internet or only from the internal network.
-* The `--generate-ssh-keys` option creates an SSH key pair to enable you to log in to the VM.
+Under tiden du väntar vi ska gå igenom kommandot som du körde.
 
-You can also check out this short video about some of the options you have to create and manage VMs.
+* Den virtuella datorn **myLinuxVM**. Det här namnet identifierar den virtuella datorn i Azure. Det blir även Virtuellt datorns interna värdnamn eller datornamn.
+* Resursgruppen eller den Virtuella datorns logisk behållare, heter  **<rgn>[Sandbox resursgruppens namn]</rgn>**.
+* **UbuntuLTS** anger Ubuntu 16.04 LTS VM-avbildning.
+* **Standard_DS2_v2** refererar till den virtuella datorn storlek. Den här storleken har två virtuella processorer och 7 GB minne.
+* Den `--generate-ssh-keys` alternativ för att skapa en SSH-nyckelpar så att du kan logga in på den virtuella datorn.
+
+Som standard tilldelar Azure offentlig IP-adress till den virtuella datorn. Du kan konfigurera en virtuell dator för att vara tillgänglig från Internet eller från det interna nätverket.
+
+Du kan också Kolla in den här korta videon om några av de alternativ som du måste skapa och hantera virtuella datorer.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yJKx]
 
-When the VM is ready, you see information about it. Here's an example.
+När den virtuella datorn är klar kan se du information om den. Här är ett exempel.
 
 ```console
 {
     "fqdns": "",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myLinuxVM",
     "location": "eastus",
     "macAddress": "00-0D-3A-1D-EB-02",
     "powerState": "VM running",
@@ -222,8 +232,8 @@ When the VM is ready, you see information about it. Here's an example.
 
 ::: zone-end
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-With just a few concepts under your belt, you're able to spin up a VM on Azure in just a few minutes. Many of these concepts, such as a VM's size and firewall rules, are likely familiar to you already.
+Med bara några begrepp när du klarat kan du sätta upp en virtuell dator i Azure på bara några minuter. Många av de här koncepten, till exempel en VM-storlek och brandväggsregler, är redan sannolikt välbekant för dig.
 
-Next, you'll connect to your VM, install a web server, and configure your web server to serve up a basic web site.
+Nu ska du installera en webbserver på den virtuella datorn och konfigurera webbservern för att leverera en grundläggande webbplats.

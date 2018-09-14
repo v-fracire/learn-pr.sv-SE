@@ -1,111 +1,111 @@
-In this exercise, you will create a virtual network in Microsoft Azure. You will then create two virtual machines and use the virtual network to connect the virtual machines to each other and to the Internet.
+I den här övningen skapar du ett virtuellt nätverk i Microsoft Azure. Du kommer sedan att skapa två virtuella datorer och använda det virtuella nätverket för att ansluta de virtuella datorerna till varandra och till internet.
 
-Before you begin this unit, you will need to log into [Azure Cloud Shell](https://shell.azure.com) with your trial subscription credentials. We will use Azure CLI via Azure Cloud Shell to create the resource groups, virtual networks, and virtual machines.
+Innan du börjar den här enheten måste du måste logga in på [Azure Cloud Shell](https://shell.azure.com) med dina autentiseringsuppgifter för utvärderingsprenumeration. Vi använder Azure CLI via Azure Cloud Shell för att skapa resursgrupper, virtuella nätverk och virtuella datorer.
 
-## Create a resource group
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-1. In the **Welcome to Azure Cloud Shell** window, click **Bash (Linux)**.
+1. I den **Välkommen till Azure Cloud Shell** fönstret klickar du på **Bash (Linux)**.
 
-1. In the **you have no storage mounted** window, click **Create Storage**.
+1. I fönstret **Du har ingen lagring monterad** klickar du på **Skapa lagring**.
 
-1. In the Azure PowerShell command-line prompt, type the following code and press Enter. Replace the `<myResourceGroup>` value with a descriptive name to make it easy to remember when you clean up any resources created later. You'll use this name through the reset of this lab.
+1. Azure PowerShell-Kommandotolken, Skriv följande kod och tryck på RETUR. Ersätt den `<myResourceGroup>` värde med ett beskrivande namn som gör det enkelt att komma ihåg när du rensa alla resurser som skapas senare. Du använder det här namnet via återställning av den här övningen.
 
-    ```bash
+    ```azurecli
     az group create --name <myResourceGroup> --location eastus
     ```
 
-## Create a virtual network
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. To create a virtual network, enter the following command and press Enter. Replace the `<myVirtualNetwork>` value with a descriptive name to make it easy to remember
+1. Om du vill skapa ett virtuellt nätverk anger du följande kommando och trycker på Retur. Ersätt den `<myVirtualNetwork>` värde med ett beskrivande namn som gör det enkelt att komma ihåg
 
-    ```bash
+    ```azurecli
     az network vnet create --name <myVirtualNetwork> --resource-group <myResourceGroup> --subnet-name default
     ```
 
-## Create two virtual machines
+## <a name="create-two-virtual-machines"></a>Skapa två virtuella datorer
 
-1. To create the first virtual machine, execute the following command to create a Windows VM with a public IP address that is accessible over port 3389 (Remote Desktop). Name the VM `dataProcStage1`:
+1. Om du vill skapa den första virtuella datorn kör du följande kommando för att skapa en virtuell Windows-dator med en offentlig IP-adress som kan nås via port 3389 (Remote Desktop). Den virtuella datorn namnet `dataProcStage1`:
 
-    ```bash
+    ```azurecli
     az vm create --name dataProcStage1 --resource-group <myResourceGroup> --admin-username "DataAdmin" --image Win2016Datacenter
     ```
 
-1. Supply values for your password at the prompts. Remeber to write this password down as you'll need it later to access the server.
+1. Ange värden för ditt lösenord i meddelanderutorna. Kom ihåg att anteckna det här lösenordet eftersom du behöver dem senare för att få åtkomst till servern.
 
-1. You'll now create the second VM. This VM will not have a public IP adderss. Execute the following command to create a Windows VM **without** a public IP address using an empty string. Name the VM `dataProcStage2`:
+1. Nu ska du skapa den andra virtuella datorn. Den här virtuella datorn har inte en offentlig IP-adress. Kör följande kommando för att skapa en virtuell Windows-dator **utan** offentlig IP-adress med en tom sträng. Den virtuella datorn namnet `dataProcStage2`:
 
-    ```bash
+    ```azurecli
     az vm create -n dataProcStage2 -g <myResourceGroup> --public-ip-address "" --admin-username "DataAdmin" --image Win2016Datacenter
     ```
 
-1. When completed, the output from the second command will return a value for publicIpAddress.  
+1. När du är klar returnerar utdatan från det andra kommandot ett värde för publicIpAddress.  
 
-## Connect to dataProcStage1 using Remote Desktop
+## <a name="connect-to-dataprocstage1-using-remote-desktop"></a>Ansluta till dataProcStage1 med hjälp av fjärrskrivbord
 
-1. On your client computer, press the Windows key and type RDP.
+1. På klientdatorn trycker du på Windows-tangenten och skriver RDP.
 
-1. Ensure that **Remote Desktop Connection** app is selected, and then press Enter.
+1. Se till att **anslutning till fjärrskrivbord** app är markerad och tryck sedan på RETUR.
 
-1. In the **Remote Desktop Connection** dialog box, in the **Computer** field, enter the value of `dataProcStage1`'s PublicIPAddress, and then click **Connect**.
+1. I den **anslutning till fjärrskrivbord** i dialogrutan den **datorn** fältet, anger du värdet för `dataProcStage1`är PublicIPAddress och klicka sedan på **Connect**.
     
-    Instructions to get remote ip if not written down
+    Anvisningar för att få fjärr-ip, om inte nedskrivna
 
-1. In the **Do you trust this remote connection?** dialog box, click **Connect**.
+1. I dialogrutan **Litar du på den här fjärranslutningen?** klickar du på **Anslut**.
 
-1. In the **Windows Security** dialog box, enter the user name and password you used when you created `dataProcStage1`. 
+1. I den **Windows Security** dialogrutan anger du användarnamn och lösenord som du använde när du skapade `dataProcStage1`. 
 
-    Have to change profiles here
+    Ändra profiler här
 
-1. In the **Remote Desktop Connection** dialog box, click **OK**.
+1. I dialogrutan **Anslutning till fjärrskrivbord** klickar du på **OK**.
 
-1. Sign in to the remote computer in Azure.
+1. Logga in på fjärrdatorn i Azure.
 
-1. When the **Networks** message appears, click **No**.
+1. När meddelandet **Nätverk** visas klickar du på **Nej**.
 
-1. Close Server Manager.
+1. Stäng Serverhanteraren.
 
-1. In the remote session, right-click the Windows key and click **Command Prompt**.
+1. I fjärrsessionen, högerklicka på Windows-tangenten och klicka på **kommandotolk**.
 
-1. In the command prompt window, type the following command and press Enter.
-
-    ```cmd
-    ping dataProcStage2 -4
-    ```
-
-1. There should be no response from `dataProcStage2`. This is because by default, Windows Firewall prevents ICMP responses on `dataProcStage2`.
-
-## Connect to dataProcStage2 using Remote Desktop
-
-You'll configure the Windows Firewall on `dataProcStage2` using a new remote desktop seesion. However, you'll not able to access `dataProcStage2` from your desktop. Recall, `dataProcStage2` does not have a public IP address. You will using remote desktop from `dataProcStage1` to connect to `dataProcStage2`.
-
-1. On `dataProcStage1`, press the Windows key and type **RDP**. Select the **Remote Desktop Connection** app and press Enter.
-
-1. In the **Computer** field, enter `dataProcStage2`, and then click **Connect**. Based on the default network configuration`dataProcStage1` is able to resolve the address for `dataProcStage2` using the computer name.
-
-1. In the **Do you trust this remote connection?** dialog box, click **Connect**.
-
-1. In the **Windows Security** dialog box, enter the user name and password you used when you created `dataProcStage2`.
-
-1. In the **Remote Desktop Connection** dialog box, click **OK**. You now sign in to the remote computer in Azure.
-
-1. When the **Networks** message appears, click **No**.
-
-1. Close Server Manager.
-
-1. On `dataProcStage2`, press the Windows key, type **Firewall**, and press Enter. The **Windows Firewall with Advanced Security** console appears.
-
-1. In the left-hand pane, click **Inbound Rules**.
-
-1. In the right-hand pane, scroll down and right-click **File and Printer Sharing (Echo Request - ICMPv4-In)**, and then click **Enable Rule**.
-
-1. Switch back to the `dataProcStage1` console and in the command prompt window, type the following command and press Enter.
+1. I kommandotolkens fönster anger du följande kommando och trycker på Retur.
 
     ```cmd
     ping dataProcStage2 -4
     ```
 
-1. `dataProcStage2` responds with four replies, demonstrating connectivity between the two VMs.
+1. Det bör finnas något svar från `dataProcStage2`. Detta beror på att Windows-brandväggen förhindrar som standard ICMP-svar på `dataProcStage2`.
 
-## Summary
+## <a name="connect-to-dataprocstage2-using-remote-desktop"></a>Ansluta till dataProcStage2 med hjälp av fjärrskrivbord
 
-You have successfully created a virtual network, created two VMs that are attached to that virtual network, connected to one of the VMs and shown network connectivity to the other VM within the same virtual network. You can use Azure Virtual Network to connect resources within the Azure network. However, those resources need to be within the same resource group and subscription. Next, we will look at VPN gateways, which enable you to connect virtual network in different resource groups, subscriptions, and even geographical regions.
+Konfigurerar du Windows-brandväggen på `dataProcStage2` med hjälp av en ny remote desktop seesion. Men du kommer inte att komma åt `dataProcStage2` från skrivbordet. Kom ihåg, `dataProcStage2` inte har en offentlig IP-adress. Du kommer att med hjälp av fjärrskrivbord från `dataProcStage1` att ansluta till `dataProcStage2`.
+
+1. På `dataProcStage1`, tryck på Windows-tangenten och skriv **RDP**. Välj appen **Anslutning till fjärrskrivbord** och tryck på Retur.
+
+1. I den **datorn** anger `dataProcStage2`, och klicka sedan på **Connect**. Baserat på standard-nätverkskonfiguration`dataProcStage1` kan matcha adress för `dataProcStage2` med hjälp av namnet på datorn.
+
+1. I dialogrutan **Litar du på den här fjärranslutningen?** klickar du på **Anslut**.
+
+1. I den **Windows Security** dialogrutan anger du användarnamn och lösenord som du använde när du skapade `dataProcStage2`.
+
+1. I dialogrutan **Anslutning till fjärrskrivbord** klickar du på **OK**. Nu loggar du in på fjärrdatorn i Azure.
+
+1. När meddelandet **Nätverk** visas klickar du på **Nej**.
+
+1. Stäng Serverhanteraren.
+
+1. På `dataProcStage2`, tryck på Windows, nyckeltypen **brandväggen**, och tryck på RETUR. Konsolen **Windows-brandväggen med avancerad säkerhet** visas.
+
+1. I det vänstra fönstret klickar du på **Ingående regler**.
+
+1. I den högra rutan, rulla nedåt och högerklicka på **File and Printer Sharing (ekobegäran - ICMPv4-In)**, och klicka sedan på **Aktivera regel**.
+
+1. Gå tillbaka till den `dataProcStage1` konsolen och i kommandotolksfönstret skriver du följande kommando och tryck på RETUR.
+
+    ```cmd
+    ping dataProcStage2 -4
+    ```
+
+1. `dataProcStage2` svarar med fyra svar, vilket demonstrerar anslutning mellan de två virtuella datorerna.
+
+## <a name="summary"></a>Sammanfattning
+
+Du skapat har ett virtuellt nätverk, skapat två virtuella datorer som är kopplade till det virtuella nätverket, ansluten till någon av de virtuella datorerna och visas nätverksanslutning till den andra virtuella datorn i samma virtuella nätverk. Du kan använda Azure Virtual Network för att ansluta resurser i Azure-nätverket. Dessa resurser måste dock vara i samma resursgrupp och ingå i samma prenumeration. Nu ska ska vi titta på VPN-gatewayer som gör det möjligt att ansluta virtuella nätverk i olika resursgrupper, prenumerationer och även geografiska regioner.

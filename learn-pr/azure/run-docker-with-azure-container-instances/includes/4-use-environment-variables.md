@@ -9,13 +9,13 @@ Skapa en Azure Cosmos DB-instans med kommandot `az Azure Cosmos DB create`. I de
 Kommandot tar några minuter att slutföra:
 
 ```azurecli
-COSMOS_DB_ENDPOINT=$(az cosmosdb create --resource-group myResourceGroup --name aci-cosmos --query documentEndpoint -o tsv)
+COSMOS_DB_ENDPOINT=$(az cosmosdb create --resource-group <rgn>[Sandbox resource group name]</rgn> --name aci-cosmos --query documentEndpoint -o tsv)
 ```
 
 Hämta sedan anslutningsnyckeln för Azure Cosmos DB med kommandot `az cosmosdb list-keys` och lagra den i en variabel med namnet *COSMOS_DB_MASTERKEY*:
 
 ```azurecli
-COSMOS_DB_MASTERKEY=$(az cosmosdb list-keys --resource-group myResourceGroup --name aci-cosmos --query primaryMasterKey -o tsv)
+COSMOS_DB_MASTERKEY=$(az cosmosdb list-keys --resource-group <rgn>[Sandbox resource group name]</rgn> --name aci-cosmos --query primaryMasterKey -o tsv)
 ```
 
 ## <a name="deploy-a-container-instance"></a>Distribuera en containerinstans
@@ -24,7 +24,7 @@ Skapa en Azure-containerinstans med kommandot `az container create`. Observera a
 
 ```azurecli
 az container create \
-    --resource-group myResourceGroup \
+    --resource-group <rgn>[Sandbox resource group name]</rgn> \
     --name aci-demo \
     --image microsoft/azure-vote-front:cosmosdb \
     --ip-address Public \
@@ -35,7 +35,7 @@ az container create \
 När du har skapat containern kan du hämta IP-adressen med kommandot `az container show`:
 
 ```azurecli
-az container show --resource-group myResourceGroup --name aci-demo --query ipAddress.ip --output tsv
+az container show --resource-group <rgn>[Sandbox resource group name]</rgn> --name aci-demo --query ipAddress.ip --output tsv
 ```
 
 Öppna en webbläsare och navigera till containerns IP-adress. Du bör se nedanstående app. När du röstar lagras rösten i Azure Cosmos DB-instansen.
@@ -49,7 +49,7 @@ I föregående övning skapade vi en container med anslutningsinformation för A
 Om du till exempel hämtar information om containern som skapades i föregående övning med kommandot `az container show` visas miljövariablerna i klartext:
 
 ```azurecli
-az container show --resource-group myResourceGroup --name aci-demo --query containers[0].environmentVariables
+az container show --resource-group <rgn>[Sandbox resource group name]</rgn> --name aci-demo --query containers[0].environmentVariables
 ```
 
 Exempel på utdata:
@@ -75,7 +75,7 @@ Kör följande exempel för att skapa en container med namnet *aci-demo-secure* 
 
 ```azurecli
 az container create \
-    --resource-group myResourceGroup \
+    --resource-group <rgn>[Sandbox resource group name]</rgn> \
     --name aci-demo-secure \
     --image microsoft/azure-vote-front:cosmosdb \
     --ip-address Public \
@@ -86,7 +86,7 @@ az container create \
 När containern nu returneras med kommandot `az container show` visas inte miljövariablerna:
 
 ```azurecli
-az container show --resource-group myResourceGroup --name aci-demo-secure --query containers[0].environmentVariables
+az container show --resource-group <rgn>[Sandbox resource group name]</rgn> --name aci-demo-secure --query containers[0].environmentVariables
 ```
 
 Exempel på utdata:

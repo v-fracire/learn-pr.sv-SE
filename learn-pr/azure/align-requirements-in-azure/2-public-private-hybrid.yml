@@ -1,56 +1,44 @@
 ### YamlMime:ModuleUnit
 uid: learn.align-requirements-in-azure.2-public-private-hybrid
-title: Förstå Azure-lösningar för offentliga, privata och hybrida moln
+title: 'Azure-lösningar för offentlig, privat och hybrid cloud'
 metadata:
-  title: Förstå Azure-lösningar för offentliga, privata och hybrida moln
-  description: Förstå Azure-lösningar för offentliga, privata och hybrida moln
+  title: 'Azure-lösningar för offentlig, privat och hybrid cloud'
+  description: 'Azure-lösningar för offentlig, privat och hybrid cloud'
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 0eec668a4ea8cb90fd2aa39fa2a944a635df0a57
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44240708"
 durationInMinutes: 15
-content: >
+content: |
   [!include[](includes/2-public-private-hybrid.md)]
 quiz:
-  title: Azure-lösningar för offentliga, privata och hybrida moln
+  title: 'Azure-lösningar för offentlig, privat och hybrid cloud'
   questions:
-  - content: Vad är den bästa distributionsmodellen i molnet i följande scenario? En SQL Server-databas krävs för ett projekt på kort sikt. IT-avdelningen har inte tillgänglig maskinvara som uppfyller prestandakraven eller resurser för att distribuera den. Projektet startar nästa vecka. När projektet är slutfört behövs inte databasen längre.
-    choices:
-    - content: Offentligt moln
-      correctExplanation: På grund av angelägenhetsgraden och livscykeln för SQL-databasen. Offentligt moln är det bästa alternativet.
-      isCorrect: true
-    - content: Privat moln
-      incorrectExplanation: IT-avdelningen har inte resurser för att distribuera en SQL-server.
-      isCorrect: false
-    - content: Hybridmoln
-      incorrectExplanation: Hybridmoln kan vara ett alternativ. Det finns dock inget krav på att en anslutning mellan privata och offentliga moln finns.
-      isCorrect: false
-  - content: Vad är den bästa distributionsmodellen i molnet i följande scenario? Du skapar flera virtuella datorer i molnet. De virtuella datorerna är anslutna till varandra via ett virtuellt nätverk. De virtuella datorerna har åtkomst till röntgenbildfiler i molnlagringen. En av de virtuella datorerna är en webbserver som är värd för en webbplats på nätet så att kunder har åtkomst till sina poster. Det finns ett VPN-nätverk som ansluter lösningen till ditt lokala datacenter för att kundinformation ska kunna visas med bildfilerna.
-    choices:
-    - content: Offentligt moln
-      incorrectExplanation: Det här är inte en distribution av ett offentligt moln på grund av anslutningen till lokala datacenter.
-      isCorrect: false
-    - content: Privat moln
-      incorrectExplanation: Det här är inte en distribution av ett offentligt moln eftersom de virtuella datorerna och nätverket är i ett offentligt moln.
-      isCorrect: false
-    - content: Hybridmoln
-      correctExplanation: Det här scenariot använder både offentliga och privata moln med en anslutning mellan dem. Det är därför en hybridmolnsdistribution.
-      isCorrect: true
-  - content: Vad är distributionsmodellen i molnet i följande scenario? Du har två datacenter i organisationen. Ett datacenter har en databas som bara kan placeras i ett av datacentren på grund av en förordning. Åtkomst till den här databasen behövs från det andra datacentret. Du skapar ett VPN-nätverk med hjälp av en molnleverantör för att ansluta de två datacentren.
-    choices:
-    - content: Offentligt moln
-      incorrectExplanation: Det här är inte en distribution av ett offentligt moln på grund av de två privata datacentren.
-      isCorrect: false
-    - content: Privat moln
-      correctExplanation: VPN-anslutningen är en resurs i ett offentliga moln. Men det här är en distribution av privat moln eftersom VPN-anslutningen är en privat anslutning mellan två privata datacenter.
-      isCorrect: true
-    - content: Hybridmoln
-      correctExplanation: VPN-anslutningen är en resurs i ett offentliga moln och datacentrena är privata. Men det här är inte en hybridmolnsdistribution eftersom VPN-anslutningen kopplar samman två privata datacenter (inte till det offentliga molnet).
-      isCorrect: false
+    - content: Vilken distributionsmodell för molnet är den bästa matchningen för följande situation? SQL server-databas krävs för ett kortsiktiga projekt. IT-avdelningen har inte tillgång till maskinvara som uppfyller prestandakraven eller resurser för att distribuera den. Projektet startar nästa vecka. När projektet är slutfört behövs inte databasen längre.
+      choices:
+        - content: Offentligt moln
+          correctExplanation: Behovet av en snabb distribution och korta livscykeln för SQL-databasen göra offentliga molnet det bästa alternativet.
+          isCorrect: true
+        - content: Privat moln
+          isCorrect: false
+        - content: Hybridmoln
+          isCorrect: false
+    - content: Vilken distributionsmodell för molnet som beskrivs i följande scenario? Du skapar flera virtuella datorer i molnet. De virtuella datorerna är anslutna till varandra via ett virtuellt nätverk. De virtuella datorerna har åtkomst till röntgenbildfiler i molnlagringen. En av de virtuella datorerna är en webbserver som är värd för en webbplats på nätet så att kunder har åtkomst till sina poster. Det finns ett VPN-nätverk som ansluter lösningen till ditt lokala datacenter för att kundinformation ska kunna visas med bildfilerna.
+      choices:
+        - content: Offentligt moln
+          isCorrect: false
+        - content: Privat moln
+          isCorrect: false
+        - content: Hybridmoln
+          correctExplanation: Det här scenariot använder både offentliga och privata moln med en anslutning mellan dem. Det är därför en hybridmolnsdistribution.
+          isCorrect: true
+    - content: Vilken distributionsmodell för molnet som beskrivs i följande scenario? Din organisationen har två datacenter. Ett datacenter har en databas som bara kan placeras i ett av datacentren på grund av en förordning. Åtkomst till den här databasen behövs från det andra datacentret. Du skapar ett VPN-nätverk med hjälp av en molnleverantör för att ansluta de två datacentren.
+      choices:
+        - content: Offentligt moln
+          isCorrect: false
+        - content: Privat moln
+          correctExplanation: 'VPN-anslutningen är en resurs för offentliga moln. Eftersom VPN är en privat anslutning mellan två privata datacenter, är det dock en distribution av privat moln.'
+          isCorrect: true
+        - content: Hybridmoln
+          isCorrect: false

@@ -1,6 +1,6 @@
-Anta att du är en fotograf och att du har en webbplats där du visar upp dina bilder. Eftersom du är upptagen kan du har inte ett konsekvent uppladdningsschema, men du vill meddela dina följare när du laddar upp en ny bild. Du vill skapa en Azure-funktion för att automatiskt skicka en tweet när du laddar upp en bild till din Azure Storage blob-container.
+Anta att du är en fotograf och att du har en webbplats där du visar upp dina bilder. Eftersom du är upptagen kan du har inte ett konsekvent uppladdningsschema, men du vill meddela dina följare när du laddar upp en ny bild. Du vill skapa en Azure-funktion för att automatiskt skicka en tweet när du laddar upp en bild till din Azure Storage blob-behållare.
 
-Här får du lära dig hur du skapar en blob-utlösare och instruerar den att övervaka en specifik plats i din Azure Storage blob-container.
+Här får du lära dig hur du skapar en blob-utlösare och instruerar den att övervaka en specifik plats i din Azure Storage blob-behållare.
 
 ## <a name="what-is-azure-storage"></a>Vad är Azure Storage?
 

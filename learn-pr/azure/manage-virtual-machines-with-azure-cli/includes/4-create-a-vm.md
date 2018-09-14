@@ -20,9 +20,9 @@ Låt oss börja med det första: `az vm create`. Det här kommandot används fö
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| `resource-group` | Den resursgrupp som ska äga den virtuella datorn |
-| `name` | Namnet på den virtuella datorn – måste vara unikt inom resursgruppen |
-| `image` | Avbildningen av operativsystemet som ska användas för att skapa den virtuella datorn |
+| `resource-group` | Den resursgrupp som ska äga den virtuella datorn. |
+| `name` | Namnet på den virtuella datorn – måste vara unikt inom resursgruppen. |
+| `image` | Avbildningen av operativsystemet för att skapa den virtuella datorn. |
 
 Dessutom är det bra att lägga till flaggan `--verbose` så att du kan följa förloppet när den virtuella datorn skapas. 
 
@@ -31,7 +31,7 @@ Dessutom är det bra att lägga till flaggan `--verbose` så att du kan följa f
 Nu ska vi skapa en ny virtuell Linux-dator. Kör följande kommando i Azure Cloud Shell:
 
 ```azurecli
-az vm create --resource-group ExerciseResources --name SampleVM --image Debian --admin-username aldis --generate-ssh-keys --verbose 
+az vm create --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --image Debian --admin-username aldis --generate-ssh-keys --verbose 
 ```
 
 Det här kommandot skapar en ny **Debian**-baserad virtuell Linux-dator med namnet `SampleVM`. Observera att verktyget Azure CLI blockeras medan den virtuella datorn skapas. Om du inte vill vänta kan du använda alternativet `--no-wait` för att instruera Azure CLI att returnera utdata direkt, till exempel om du kör kommandot i ett skript. Senare i skriptet använder du kommandot `azure vm wait --name [vm-name]` för att vänta tills den virtuella datorn har skapats.
@@ -55,6 +55,8 @@ Vi använder också flaggan `generate-ssh-keys`. Den här parametern används f�
 
 När den virtuella datorn har skapats får du ett JSON-svar som innehåller den virtuella datorns aktuella tillstånd och dess offentliga och privata IP-adresser som tilldelats av Azure:
 
+<!-- TODO: find out the default location! -->
+
 ```json
 {
   "fqdns": "",
@@ -68,6 +70,8 @@ När den virtuella datorn har skapats får du ett JSON-svar som innehåller den 
   "zones": ""
 }
 ```
+
+<!-- TODO: find out the default location! -->
 
 > [!NOTE]
 > Observera att den virtuella datorn har skapats på platsen **usaöstra**. Som standard skapas den virtuella datorn på den plats som identifieras av den ägande regionen. Ibland kan det emellertid vara bra att associera den virtuella datorn med en befintlig region, men låta den starta någon annanstans i världen. Det kan du göra genom att ange parametern `--location` som en del av kommandot `az vm create`.

@@ -1,17 +1,17 @@
-The MEAN stack is a development stack for building and hosting web applications. MEAN is an acronym for MongoDB, Express, AngularJS, and Node.js, the component pieces of this development stack.
+MEAN-stacken är en utvecklingsstack för att skapa och hantera webbprogram. MEAN är en förkortning för MongoDB, Express, AngularJS och Node.js, vilka är komponentdelarna i den här utvecklingsstacken.
 
-## Why would I pick MEAN?
+## <a name="why-would-i-pick-mean"></a>Varför skulle jag välja MEAN?
 
-All of the components of the MEAN stack are reliable, well-understood, and open source, but so are many other development stacks. 
+Alla komponenter i MEAN-stacken är tillförlitliga, väl utvärderade och har öppen källkod, men det gäller även många andra utvecklingsstackar. 
 
-One of the biggest reasons to pick the MEAN stack for web development is if you're familiar with JavaScript. All of the individual components are developed using JavaScript, from the dev-ops tasks of the web hosting runtime and database configuration to developer tasks of web application code and client-side scripting.
+Om du är bekant med JavaScript är det en stark anledning till att välja MEAN-stacken för webbutveckling. Alla enskilda komponenter utvecklas med JavaScript, från dev-ops-uppgifterna i runtime för webbvärdtjänster och databaskonfiguration till utvecklaruppgifter i webbprogramkoden och skript för klientsidan.
 
-Additionally, the components of the MEAN stack are all popular right now. Up-to-date documentation and tutorials for developing with MongoDB, Express, AngularJS, and Node.js are easy to find. The components of the MEAN stack are compatible with modern operating systems, including Windows, macOS, and Linux. 
+Dessutom är alla komponenter i MEAN-stacken populära just nu. Det är enkelt att hitta uppdaterad dokumentation och självstudier för att utveckla med MongoDB, Express, AngularJS och Node.js. Komponenterna i MEAN-stacken är kompatibla med moderna operativsystem såsom Windows, macOS och Linux.
 
-## Why might MEAN not be right for me?
+## <a name="why-might-mean-not-be-right-for-me"></a>Varför är MEAN kanske inte lämpligt för mig?
 
-If your data is highly normalized, you might still benefit from putting your data in MySQL or SQL Server, where the relational database architecture will match your data needs well.
+Om dina data är mycket normaliserade kan du fortfarande få nytta av att lagra data i MySQL eller SQL Server, där relationsdatabasarkitekturen matchar dina databehov väl.
 
-If JavaScript is not your strongest skill, other frameworks and runtimes can serve you well. An alternative like the LAMP stack, which consists of Linux, Apache, MySQL, and PHP (sometimes with Perl or Python instead), might allow you to make more progress with a programming language more familiar to you. This variety of technologies will restrict your JavaScript development to the web application's client-side code.
+Om JavaScript inte dina starkaste kunskaper, kan andra ramverk och körningar fungera du bra. Ett alternativ som LAMP-stacken, som består av Linux, Apache, MySQL och PHP (ibland med Perl eller Python i stället), kan tillåta dig att se mer status med hjälp av ett programmeringsspråk känner till bättre. Mängden olika tekniker begränsar din JavaScript-utveckling till webbprogrammets kod för klientsidan.
 
-You want to pick a development and hosting stack that works well for your skills and the skills of your development and dev-ops team.
+Du bör välja en utvecklings- och värdstack som fungerar bra ihop med dina kunskaper samt kunskaperna i utvecklings- och dev-ops-teamet.

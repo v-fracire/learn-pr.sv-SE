@@ -1,13 +1,13 @@
-Du kan få bättre prestanda genom att välja rätt lagringslösning. Här får du använda det du har lärt dig om data i onlinebutiksscenariot och hitta bästa möjliga Azure-tjänst för varje datamängd. 
+Välja rätt lagringslösningen kan leda till bättre prestanda, lägre kostnader och bättre hanterbarhet. Här kan ska du använda vad du har lärt dig om data i ditt scenario för onlinebutiker och hitta bästa Azure-tjänsten för varje datauppsättning. 
 
 ## <a name="product-catalog-data"></a>Data i produktkatalogen
 
-**Dataklassificering:** halvstrukturerade
+**Dataklassificering:** halvstrukturerade på grund av behovet av att utöka eller ändra schemat för nya produkter
 
 **Åtgärder:**
 
-- Kunderna behöver göra många läsåtgärder och köra frågor mot många olika fält i databasen.
-- I verksamheten behövs många skrivåtgärder eftersom lagret hela tiden förändras.
+- Kunder kräver ett stort antal läsåtgärder, med möjlighet att fråga på många fält i databasen.
+- Verksamheten kräver ett stort antal skrivåtgärder att spåra den ständigt föränderliga lagerplatser.
 
 **Latens och dataflöde:** stort dataflöde och korta svarstider
 
@@ -15,19 +15,21 @@ Du kan få bättre prestanda genom att välja rätt lagringslösning. Här får 
 
 ### <a name="recommended-service-azure-cosmos-db"></a>Rekommenderad tjänst: Azure Cosmos DB
 
-Azure Cosmos DB har i sin struktur stöd för halvstrukturerade data, eller NoSQL-data. Därför är det inga problem med nya fält i Azure Cosmos DB, som fältet ”Bluetooth Enabled” eller andra fält du kan behöva i framtiden.
+Azure Cosmos DB har i sin struktur stöd för halvstrukturerade data, eller NoSQL-data. Stöd för nya fält, till exempel ”Bluetooth-aktiverade”-fältet, eller alla nya fält som du behöver i framtiden, så är ett beroende med Azure Cosmos DB.
 
-Vad gäller drift stödjer Azure Cosmos DB SQL för frågor och varje egenskap indexeras som standard. Det finns stöd för att skapa frågor för att matcha dina kunders behov att filtrera på nästan allt.
-
-Vad gäller svarstid och dataflöde gör Azure Cosmos DB att du kan konfigurera ditt dataflöde. Du kan skala upp för att hantera högre kundefterfrågan under perioder med hög belastning eller skala ned under lugnare perioder för att minska kostnaderna. Eftersom Azure Cosmos DB indexerar alla egenskaper som standard kan du även låta kunderna köra frågor mot samtliga fält.
+Azure Cosmos DB stöder SQL för frågor och varje egenskap indexeras som standard. Du kan skapa frågor så att dina kunder kan filtrera en egenskap i katalogen.
 
 Azure Cosmos DB är även ACID-kompatibelt, så du kan vara säker på att dina transaktioner utförs enligt dessa strikta krav.
 
-Dessutom kan du replikera dina data var som helst i världen med en enda knapptryckning i Azure Cosmos DB. Så om din onlinebutik har många användare i USA, Frankrike och England kan du replikera dina data till dessa datacenter för att minska svarstiderna, eftersom dessa data fysiskt är närmare dina användare. Och även med data som replikeras över hela världen kan du välja en av fem konsekvensnivåer. Du kan bestämma hur du vill kompromissa gällande konsekvens, tillgänglighet, svarstid och dataflöde.
+Dessutom kan du replikera dina data var som helst i världen med en enda knapptryckning i Azure Cosmos DB. Så om din e-handelswebbplats har användare som koncentrerade i USA, Frankrike och England, kan du replikera dina data till dessa Datacenter för att minska svarstiden, som du har fysiskt flyttas data närmare dina användare. 
+
+Även med data som replikeras över hela världen, kan du välja från en av fem konsekvensnivåer. Du kan fastställa rätt balans mellan konsekvens, tillgänglighet, svarstid och dataflöde att genom att välja rätt konsekvensnivå. Du kan skala upp för att hantera högre kundefterfrågan under perioder med hög belastning eller skala ned under lugnare perioder för att minska kostnaderna.
 
 ### <a name="why-not-other-azure-services"></a>Varför inte andra Azure-tjänster?
 
-Andra Azure-tjänster, som Azure Table Storage, Azure HBase i HDInsight och Azure Redis Cache, kan också lagra NoSQL-data. I det här scenariot är Azure Cosmos DB ett bättre alternativ eftersom användarna vill fråga på flera fält. Det beror på Azure Cosmos DB indexerar alla fält som standard, medan de andra är begränsade i vilka data som indexerar, så de har begränsade möjligheter att fråga på valfritt fält i databasen.
+Azure SQL Database är ett utmärkt alternativ för den här datamängden har den inte för behovet av att utöka schemat ad-hoc för nya produkter. Alla data måste följa ett schema i Azure SQL Database. Azure SQL Database kan ge många av fördelarna med Azure Cosmos DB, men den kan inte hantera heterogena data. 
+
+Andra Azure-tjänster, som Azure Table Storage, Azure HBase i HDInsight och Azure Redis Cache, kan också lagra NoSQL-data. I det här scenariot kan användarna fråga på flera fält, så att Azure Cosmos DB är ett bättre alternativ. Azure Cosmos DB indexerar alla fält som standard medan de andra tjänsterna är begränsad i de indexerar data och frågor på icke-indexerade fält blir nedsatt prestanda.
 
 ## <a name="photos-and-videos"></a>Foton och videor
 
@@ -35,7 +37,8 @@ Andra Azure-tjänster, som Azure Table Storage, Azure HBase i HDInsight och Azur
 
 **Åtgärder:**
 
-- Foton och videor behöver bara hämtas per ID.
+- Behöver bara hämtas efter-ID.
+- Kunder kräver ett stort antal läsåtgärder med kort svarstid.
 - Data skapas och uppdateras mer sällan och svarstiderna kan vara längre än för läsåtgärder.
 
 **Latens och dataflöde:** för hämtningar per ID krävs korta svarstider och stort dataflöde. Data kan skapas och uppdateras med längre svarstider än för läsåtgärderna.
@@ -44,13 +47,13 @@ Andra Azure-tjänster, som Azure Table Storage, Azure HBase i HDInsight och Azur
 
 ### <a name="recommended-service-azure-blob-storage"></a>Rekommenderad tjänst: Azure Blob Storage
 
-Azure Blob Storage har stöd för lagring av filer som foton och videor. Dessutom fungerar det med Azure Content Delivery Network (CDN) genom att det mest använda innehållet cachelagras på gränsservrar. Det minskar svarstiderna när bilderna ska visas för användarna.
+Azure Blob Storage har stöd för lagring av filer som foton och videor. Fungerar med Azure CDN Content Delivery Network () genom cachelagring av de mest använda innehållet och lagra dem på edge-servrar. Azure CDN minskar svarstid i som upp dessa avbildningar till dina användare.
 
-När du använder Azure Blob Storage kan du också flytta bilder från frekvent lagringsnivå till lågfrekvent lagring eller arkivlagringsnivå, så att du minskar kostnaderna och kan fokusera dataflödet på de bilder och videor som visas oftast.
+Du kan också flytta avbildningar från nivån för frekvent till lågfrekvent nivå eller arkivnivå lagringsnivå med hjälp av Azure Blob storage, för att minska kostnaderna och fokus dataflöde på de ofta visas bilder och videor.
 
 ### <a name="why-not-other-azure-services"></a>Varför inte andra Azure-tjänster?
 
-Du kan ladda upp bilder till Azure App Service så att samma server som kör appen även används till att visa dina bilder. Det skulle fungera om du inte har så många bilder. Men om du har massor av filer, och en global publik, får du bättre prestanda genom att använda Azure Blob Storage med Azure CDN.
+Du kan överföra dina avbildningar till Azure App Service, så att samma server som kör din app fungerar som värd för upp dina avbildningar. Den här lösningen skulle fungera om du inte har många filer. Men om du har massor av filer, och en global publik, får du bättre prestanda genom att använda Azure Blob Storage med Azure CDN.
 
 ## <a name="business-data"></a>Affärsdata
 
@@ -64,16 +67,16 @@ Du kan ladda upp bilder till Azure App Service så att samma server som kör app
 
 ### <a name="recommended-service-azure-sql-database"></a>Rekommenderad tjänst: Azure SQL Database
 
-Affärsanalytiker kör ofta frågor mot sina affärsdata och de kan oftare SQL än andra frågespråk. Azure SQL Database kan användas som lösning själv, men genom att sammankoppla den med Azure Analysis Services kan dataanalytiker att skapa en semantisk modell över data i SQL-databasen. De kan sedan dela den med användare i verksamheten, så att allt de behöver göra är att ansluta till modellen från vilket BI-verktyg som helst och omedelbart utforska data och få insikter. 
+Affärsanalytiker kör ofta frågor mot sina affärsdata och de kan oftare SQL än andra frågespråk. Azure SQL Database kan användas som lösning själv, men genom att sammankoppla den med Azure Analysis Services kan dataanalytiker att skapa en semantisk modell över data i SQL-databasen. Dataanalytiker kan sedan dela den med användare i verksamheten, så att de bara behöver ansluta till modellen från valfritt business intelligence (BI)-verktyg och utforska data och få insikter direkt. 
 
 ### <a name="why-not-other-azure-services"></a>Varför inte andra Azure-tjänster?
 
 Azure SQL Data Warehouse stöder OLAP-lösningar och SQL-frågor. Men din affärsanalytiker måste köra frågor mellan databaser, vilket SQL Data Warehouse inte har stöd för.
 
-Analysis Services kan användas utöver SQL Database. Men dina affärsanalytiker är mer vana vid SQL än Power BI. Därför vill de ha en databas med stöd för SQL-frågor, något som Analysis Services inte har. Dessutom är de finansiella data du lagrar i företagets datauppsättning relationsbaserad och flerdimensionell. Analysis Services stöder tabelldata som lagrats på själva tjänsten, men inte flerdimensionella data. Om du vill analysera flerdimensionella data i Analysis Services kan du köra frågor direkt mot SQL Database.
+Azure Analysis Services kan användas utöver Azure SQL Database. Men din affärsanalytiker är mer mycket om SQL än i att arbeta med Power BI. Så att de vill ha en databas som har stöd för SQL-frågor som inte har Azure Analysis Services. Dessutom är de finansiella data du lagrar i företagets datauppsättning relationsbaserad och flerdimensionell. Azure Analysis Services stöder tabelldata som lagras på själva tjänsten, men inte multidimensionella data. Du kan använda en direkt fråga till SQL-databasen för att analysera flerdimensionella data med Azure Analysis Services.
 
-Azure Stream Analytics är ett bra när du vill analysera data och omvandla dem till användbara insikter, men fokus ligger på realtidsdata som strömmar in. I det här fallet tittar våra affärsanalytiker bara på historiska data.
+Azure Stream Analytics är ett bra när du vill analysera data och omvandla dem till användbara insikter, men fokus ligger på realtidsdata som strömmar in. I det här scenariot tittar affärsanalytiker på historiska data.
 
 ## <a name="summary"></a>Sammanfattning
 
-Varje datakategori har olika lagringskrav och det är ditt jobb att ta reda på vilken lösning som är bäst. Du bör alltid överväga datakategori, vilka åtgärder som utförs, svarstider och behovet av transaktionsstöd.
+Varje typ av data har olika krav och det är ditt jobb att ta reda på vilken lösning som är bäst. Bör du använda vilken typ av data, de åtgärder som krävs, förväntat svarstid och behovet av transaktionell.

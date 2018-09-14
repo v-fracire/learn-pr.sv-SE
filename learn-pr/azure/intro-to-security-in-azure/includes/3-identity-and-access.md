@@ -1,83 +1,83 @@
-Network perimeters and their firewalls and physical access controls used to be the primary protection for corporate data. But network perimeters have become increasingly porous with the explosion of bring your own device (BYOD), mobile apps, and cloud applications. 
+Nätverket perimetrar och deras brandväggar och fysiska åtkomstkontroller som används för att vara det primära skyddet för företagets data. Men nätverk perimetrar har blivit allt högre grad porös med alltfler ta med din egen enhet (BYOD), mobila appar, program och molnprogram. 
 
-Identity has become the new primary security boundary. Proper authentication and assignment of privileges is critical to maintaining control of your data.
+Identiteten har blivit nya primära säkerhetsgräns. Korrekt autentisering och tilldelning av behörigheter som är viktigt att bibehålla kontrollen över dina data.
 
-Contoso Shipping is addressing these concerns right away. Their new hybrid cloud solution needs to account for mobile apps that have access to secret data when an authorized user is signed in. They also have shipping vehicles sending a constant stream of telemetry data that is critical to optimizing their business.
+Contoso leverans arbetar med dessa problem direkt. Sina nya hybridmolnlösning måste kontot för mobila appar som har åtkomst till hemliga data när en behörig användare är inloggad. De har också produkter skickar en konstant ström av telemetridata som är viktigt att optimera sin verksamhet.
 
-## Single sign-on
+## <a name="single-sign-on"></a>Enkel inloggning
 
-The more identities a user has to manage, the greater the risk of a credential-related security incident. More identities mean more passwords to remember and change. Password policies can vary between applications and, as complexity requirements increase, it makes it more difficult for users to remember them.
+Ju fler identiteter en användare behöver hantera, desto större risk för en säkerhetsincident relaterad till autentiseringsuppgifterna. Fler identiteter innebär flera lösenord för att komma ihåg och ändra. Lösenordsprinciper kan variera mellan program och när kraven på komplexitet ökar, det gör det svårare för användare att komma ihåg dem.
 
-On the other side is the management required for all those identities. Additional strain is placed on help desks as they deal with account lockouts and password reset requests. If a user leaves an organization, tracking down all those identities and ensuring they are disabled can be challenging. If an identity is overlooked, this could allow access when it should have been eliminated.
+Dessutom krävs omfattande hantering av alla dessa identiteter. Det leder även till ökad arbetsbörda för supportavdelningen att hantera kontolåsningar och begäranden för återställning av lösenord. Om en användare lämnar en organisation kan det vara svårt att spåra alla dessa identiteter och se till att de inaktiveras. Om en identitet är förbises möjliggör detta åtkomst när den borde ha tagits bort.
 
-With single sign-on (SSO), users need to remember only one ID and one password. Access across applications is granted to a single identity tied to a user, simplifying the security model. As users change roles or leave an organization, access modifications are tied to the single identity, greatly reducing the effort needed to change or disable accounts. Using single sign-on for accounts will make it easier for users to manage their identities and will increase the security capabilities in your environment.
+Med enkel inloggning (SSO) måste användare att komma ihåg endast ett ID och ett lösenord. Åtkomst för flera program beviljas till en enda identitet som är kopplad till en användare, vilket förenklar säkerhetsmodellen. När användare byter roller eller lämnar en organisation är åtkomständringarna knutna till en enda identitet, vilket avsevärt minskar det arbete som krävs för att ändra eller inaktivera konton. Med hjälp av enkel inloggning för konton som gör det enklare för användarna att hantera identiteter och ökar säkerhetsfunktioner i din miljö.
 
-### SSO with Azure Active Directory
+### <a name="sso-with-azure-active-directory"></a>Enkel inloggning med Azure Active Directory
 
-Azure Active Directory (Azure AD) is a cloud-based identity service. It has built-in support for synchronizing with your existing on-premises Active Directory instance, or it can be used stand-alone.
+Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst. Det har inbyggt stöd för att synkronisera med din befintliga lokala Active Directory-instans, eller den kan användas fristående.
 
-This means that all your applications, whether on-premises, in the cloud (including Office 365), or even mobile can share the same credentials. 
+Det innebär att alla dina program, oavsett om de är lokala, molnbaserade (inklusive Office 365) eller mobila kan dela samma autentiseringsuppgifter. 
 
-Administrators and developers can control access to data and applications using centralized rules and policies configured in Azure AD.
+Administratörer och utvecklare kan styra åtkomst till data och program med hjälp av centraliserade regler och principer som konfigureras i Azure AD.
 
-In addition, Microsoft is uniquely positioned to combine multiple data sources into an intelligent security graph that can provide threat analysis and real-time identity protection to all accounts in Azure Active Directory (even accounts that are synchronized from your on-premises Active Directory instance).
+Microsoft är dessutom vara placerat om du vill kombinera flera datakällor i en intelligent security graph som ger hotanalyser och i realtid identity protection till alla konton i Azure Active Directory (även konton som synkroniseras från din lokala Active Directory-instans).
 
-Contoso Shipping is integrating their existing Active Directory instance with Azure AD. This will make controlling access consistent across the organization. It will also make it a breeze for users to get into their email and Office 365 documents without having to reauthenticate.
+Contoso leverans integrerar sina befintliga Active Directory-instans med Azure AD. Det gör åtkomstkontroll konsekvent i organisationen. Det gör det också enkelt för användare att få sin e-post och Office 365-dokument utan att autentiseras på nytt.
 
-## Multi-factor authentication
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Multi-factor authentication (MFA) provides additional security for your identities by requiring two or more elements for full authentication. These elements fall into three categories:
+Multifaktorautentisering (MFA) ger ökad säkerhet för dina identiteter genom att kräva två eller flera element för fullständig autentisering. De här elementen är indelade i tre kategorier:
 
-- *something you know*
-- *something you possess*
-- *something you are*
+- *något du känner till*
+- *något du har*
+- *något du är*
 
-**Something you know** would be a password or the answer to a security question. **Something you possess** could be a mobile app that receives a notification or a token-generating device. **Something you are** is typically some sort of biometric property, such as a fingerprint or face scan used on many mobile devices.
+**Något du känner** skulle vara ett lösenord eller svaret på en säkerhetsfråga. **Något du har** kan vara en mobil app som tar emot ett meddelande eller en enhet som genererar token. **Något du är** är vanligtvis någon form av biometriska egenskap, till exempel ett fingeravtryck eller ansiktslista genomsökning som används i många mobila enheter.
 
-Using MFA increases security of your identity by limiting the impact of credential exposure. An attacker who has a user's password would also need to have possession of their phone or their face in order to fully authenticate. Authentication with only a single factor verified is insufficient, and the attacker would be unable to use those credentials to authenticate. The benefits this brings to security are huge, and it can't be repeated enough to enable MFA wherever possible.
+Med hjälp av MFA ökar säkerheten för din identitet genom att begränsa effekten av exponering av autentiseringsuppgifter. En angripare som har en användares lösenord skulle även behöva ha tillgång till användarens telefon eller ansikte för att kunna autentisera fullständigt. Angriparen skulle kunna använda dessa autentiseringsuppgifter för att autentisera autentisering med bara en enda faktor som verifierats är otillräcklig. Detta medför stora säkerhetsfördelar, och det är mycket viktigt att multifaktorautentisering aktiveras närhelst det är möjligt.
 
-Azure AD has MFA capabilities built in and will integrate with other third-party MFA providers. It's provided free of charge to any user who has the Global Administrators role in Azure AD, because these are highly sensitive accounts. All other accounts can have MFA enabled by purchasing licenses with this capability and assigning a license to the account.
+Azure AD har MFA-funktioner som är inbyggda och kommer att integrera med andra tredje parts MFA-leverantörer. Den tillhandahålls kostnadsfritt till alla användare som har rollen Global administratör i Azure AD, eftersom de är mycket känsliga konton. Alla andra konton kan ha multifaktorautentisering aktiverat genom att köpa licenser med den här funktionen och tilldela en licens till kontot.
 
-For Contoso Shipping, you decide to enable MFA any time a user is signing in from a non-domain-connected computer. That includes the mobile apps.
+För Contoso leverans, kan du välja att aktivera MFA varje gång en användare loggar in från en dator med icke-domain-anslutna. Det omfattar mobila appar.
 
-## Providing identities to services
+## <a name="providing-identities-to-services"></a>Tilldela identiteter till tjänster
 
-It's often valuable for services to have identities. Often, and against best practices, credential information is embedded in configuration files. With no security around these configuration files, anyone with access to the systems or repositories can access these credentials and risk exposure.
+Det är ofta bra att tilldela identiteter till tjänster. Ofta och mot bästa praxis är autentiseringsuppgifter inbäddad i konfigurationsfiler. Om dessa konfigurationsfiler inte skyddas kan vem som helst med åtkomst till systemen eller lagringsplatserna komma åt dessa uppgifter eller öka risken för att de exponeras.
 
-Azure AD addresses this problem through two methods: service principals and managed service identities.
+Azure AD löser det här problemet med hjälp av två metoder: tjänstens huvudnamn och hanterade tjänstidentiteter.
 
-### Service principals
+### <a name="service-principals"></a>Tjänstens huvudnamn
 
-To understand service principals, it's useful to first understand the words **identity** and **principal**, because they are used in the identity management world.
+För att förstå tjänstens huvudnamn, det är bra att först förstå orden **identitet** och **huvudnamn**, eftersom de används i identity management världen.
 
-An **identity** is just a thing that can be authenticated. Obviously, this includes users with a user name and password, but it can also include applications or other servers, which might authenticate with secret keys or certificates. As a bonus definition, an **account** is data associated with an identity.
+En **identitet** är bara något som kan autentiseras. Naturligtvis är detta omfattar även användare med ett användarnamn och lösenord, men den kan även innehålla program eller andra servrar som kan autentiseras med hemliga nycklar eller certifikat. I detta sammanhang kan det även vara bra att veta att **konto** definieras som data som är associerade med en identitet.
 
-A **principal** is an identity acting with certain roles or claims. Often, it is not useful to consider identity and principal separately, but think of using `sudo` on a bash prompt or on Windows using "run as Administrator." In both those cases, you are still logged in as the same identity as before, but you've changed the role under which you are executing. Groups are often also considered principals because they can have rights assigned.
+Ett **huvudnamn** är en identitet som fungerar med vissa roller eller anspråk. Ofta är det inte praktiskt att tänka på identitets- och huvudnamn separat, men tänk på hur du använder `sudo` på en bash-kommandotolk eller på Windows med hjälp av ”kör som administratör”. I dessa båda fallen kan du fortfarande är inloggad som samma identitet som innan, men du har ändrat rollen som du kör. Grupper betraktas ofta även huvudkonton eftersom de kan ha behörigheten.
 
-So, a **service principal** is literally named. It is an identity that is used by a service or application. Like other identities, it can be assigned roles. 
+Därför en **tjänstens huvudnamn** heter bokstavligt. Det här är en identitet som används av en tjänst eller ett program. Det kan tilldelas roller som andra identiteter. 
 
-### Managed service identities
+### <a name="managed-service-identities"></a>Hanterade tjänstidentiteter
 
-The creation of service principals can be a tedious process, and there are a lot of touch points that can make maintaining them difficult. Managed service identities are much easier and will do most of the work for you. 
+Skapa tjänstens huvudnamn kan vara en tidsödande process och det finns en massa kontaktpunkter som kan göra att underhålla dem. svårt. Hanterade tjänstidentiteter är mycket enklare och gör det mesta av arbetet åt dig. 
 
-A managed service identity can be instantly created for any Azure service that supports it (the list is constantly growing). When you create a managed service identity for a service, you are creating an account on the Azure Active Directory tenant. The Azure infrastructure will automatically take care of authenticating the service and managing the account. You can then use that account like any other Azure AD account, including securely letting the authenticated service access other Azure resources.
+En hanterad tjänstidentitet kan skapas direkt för alla Azure-tjänster som stöder den (listan växer hela tiden). När du skapar en hanterad tjänstidentitet för en tjänst, skapar du ett konto på Azure Active Directory-klient. Azure-infrastrukturen hand automatiskt tar om autentisering av tjänsten och hantera kontot. Du kan sedan använda det kontot som alla andra Azure AD-konto, inklusive på ett säkert sätt att låta tjänsten autentiserad åtkomst till andra Azure-resurser.
 
-## Role-based access control
+## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Roles are sets of permissions, like "Read-only" or "Contributor", that users can be granted to access an Azure service instance. 
+Roller är en uppsättning behörigheter, som ”skrivskyddad” eller ”bidragsgivare” att användare kan få åtkomst till en Azure-tjänstinstans. 
 
-Identities are mapped to roles directly or through group membership. Separating security principals, access permissions, and resources provides simple access management and fine-grained control. Administrators are able to ensure the minimum necessary permissions are granted.
+Identiteter är mappade till roller direkt eller via gruppmedlemskap. Att ange säkerhetsobjekt, behörigheter och resurser ger enkel hantering och detaljerad kontroll. Administratörer kan se till att de minsta nödvändiga behörigheterna har beviljats.
 
-Roles can be granted at the individual service instance level, but they also flow down the Azure Resource Manager hierarchy. Roles assigned at a higher scope, like an entire subscription, are inherited by child scopes, like service instances. 
+Roller kan tilldelas på instansnivå enskild tjänst, men de också flödar nedåt i Azure Resource Manager-hierarkin. Roller som tilldelats för ett högre omfång, t.ex. en hel prenumeration, ärvs av underordnade omfång, t.ex. tjänstinstanser. 
 
 <!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
-![Management groups](../media-draft/3-role-assignment-scope.png)
+![Hanteringsgrupper](../media-draft/3-role-assignment-scope.png)
 
-### Privileged Identity Management
+### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-In addition to managing Azure resource access with role-based access control (RBAC), a comprehensive approach to infrastructure protection should consider including the ongoing auditing of role members as their organization changes and evolves. Azure AD Privileged Identity Management (PIM) is an additional, paid-for offering that provides oversight of role assignments, self-service, and just-in-time role activation and Azure AD and Azure resource access reviews.
+Utöver att hantera Azure-resursåtkomst med rollbaserad åtkomst kontroll (RBAC), en omfattande metod för att infrastrukturen bör inklusive pågående granskning av rollmedlemmar som deras organisation ändringar och utvecklas. Azure AD Privileged Identity Management (PIM) är ett ytterligare, betalat för erbjudande som ger översyn av rolltilldelningar och självbetjäning just-in-time rollaktivering och Azure AD och Azure-resurs-åtkomstgranskningar.
 
 <!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![Privileged identity management](../media-COPIED-FROM-DESIGNFORSECURITY/PIM_Dashboard.png)
 
-Identity allows us to maintain a security perimeter, even outside our physical control. With single sign-on and appropriate role-based access configuration, we can always be sure who has the ability to see and manipulate our data and infrastructure.
+Identitet kan vi underhåller en säkerhetsperimeter även utanför vårt fysisk kontroll. Med enkel inloggning och konfiguration för rätt rollbaserad åtkomst vara vi alltid säker på vem som har möjlighet att se och ändra våra data och infrastruktur.

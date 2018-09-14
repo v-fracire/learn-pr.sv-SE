@@ -14,7 +14,7 @@ Det program du skapar är en plattformsoberoende mobilapp som kommunicerar med e
 
 1. Klicka på **OK**.
 
-    ![Dialogrutan Ny lösning](../media-drafts/2-new-solution-dialog.png)
+    ![Dialogrutan Ny lösning](../media/2-new-solution-dialog.png)
 
 1. I dialogrutan **Ny plattformsoberoende app** väljer du mallen *Tom app*.
 
@@ -26,7 +26,7 @@ Det program du skapar är en plattformsoberoende mobilapp som kommunicerar med e
 
 1. Klicka på **OK**.
 
-    ![Dialogrutan Konfigurera ny lösning](../media-drafts/2-configure-solution-dialog.png)
+    ![Dialogrutan Konfigurera ny lösning](../media/2-configure-solution-dialog.png)
 
 I Visual Studio skapas två projekt åt dig – en UWP-app med namnet `ImHere.UWP` och .NET-standardbiblioteket `ImHere`. Xamarin.Forms-appar består av två delar – ett eller flera plattformsspecifika approjekt och ett (eller flera) .NET-standardbibliotek. De plattformsspecifika approjekten innehåller plattformsspecifik kod som behövs för att köra en app på motsvarande plattform. De här projekten startar sedan en Xamarin.Forms-app som definierats i ett plattformsoberoende .NET-standardbibliotek. Du skapar appen i plattformsoberoende kod, och när den körs översätts de användargränssnitt du skapar till relevanta plattformsspecifika UI-komponenter.
 
@@ -44,7 +44,7 @@ Plattformarna UWP, Android och iOS har ett stort antal liknande funktioner där 
 
 1. Klicka på knappen **Installera** för att installera NuGet-paketet. Du måste godkänna licensavtalet för att fortsätta.
 
-    ![Lägga till NuGet-paketet Xamarin.Essentials i alla projekt i lösningen](../media-drafts/2-add-essentials-nuget.png)
+    ![Lägga till NuGet-paketet Xamarin.Essentials i alla projekt i lösningen](../media/2-add-essentials-nuget.png)
 
     > Om du kör den här modulen lokalt och vill koda för Android måste du göra några ytterligare inställningar. Mer information finns i [Kom igång-dokumentet för Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/get-started?context=xamarin%2Fios&tabs=windows%2Candroid).
 
@@ -54,11 +54,11 @@ Plattformarna UWP, Android och iOS har ett stort antal liknande funktioner där 
 
 1. Ange versionskonfigurationen som **Felsökning**, plattformen som **x86** och att enheten ska köras **Lokalt**.
 
-    ![Ställ in x86-felsökningskonfigurationen att köras lokalt](../media-drafts/2-debug-configuration.png)
+    ![Ställ in x86-felsökningskonfigurationen att köras lokalt](../media/2-debug-configuration.png)
 
 1. Börja felsöka appen.
 
-    ![Appen körs](../media-drafts/2-debuging-app.png)
+    ![Appen körs](../media/2-debuging-app.png)
 
 ## <a name="summary"></a>Sammanfattning
 

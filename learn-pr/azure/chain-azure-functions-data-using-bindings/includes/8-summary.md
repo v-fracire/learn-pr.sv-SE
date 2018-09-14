@@ -1,52 +1,33 @@
-This module was all about integrating data and services into your functions. We started off with a quick tour of the binding types that show up when you add them to a function. We then looked at reading data from an Azure Cosmos DB using an input binding. The platform takes care of managing connection strings and we saw how easy it is to read data in our code using the binding. Finally we focused our attention on writing data different sources with the help of output bindings. This journey is summarized in the following table.
+Den här modulen var allt om att integrera data och tjänster i dina funktioner. Vi igång med en snabb genomgång av bindningstyper som visas när du lägger till dem till en funktion. Vi har tittat sedan vid läsning av data från ett Azure Cosmos DB med hjälp av en indatabindning. Plattformen tar hand om hanteringen anslutningssträngar och vi såg du hur enkelt det är att läsa data i vår kod med hjälp av bindningen. Slutligen fokuserar vi vår kännedom om hur du skriver olika datakällor med hjälp av utdatabindningar. Den här resan summeras i följande tabell.
 
 [!INCLUDE [summary table](./summary-table.md)]
 
-You can apply the approaches you have learned here to add and test bindings in your functions. Here are a few interesting ideas to get more practice with bindings and to build on what you have learned here.
+Du kan använda de metoder som du har lärt dig här att lägga till och testa bindningar i dina funktioner. Här är några intressanta idéer att få mer praxis med bindningar och bygga vidare på det du har lärt dig här.
 
-* Create another function to read from Blob Storage and other input bindings that we haven't used in this module.
+* Skapa en annan funktion för att läsa från Blob Storage och andra indatabindningar som vi inte har använt i den här modulen.
 
-* Create another function to write to more destinations using other supported output binding types.
+* Skapa en annan funktion att skriva till flera mål med hjälp av andra typer av stöds utdata-bindning.
 
-* In the last unit, we introduced a queue and posted messages to it with an output binding. As a next step, consider adding another function that reads the messages in the queue and prints out the **MESSAGE TEXT** to the console with `Console.Log()`.
+* I den sista enheten vi introducerade en kö och skickade meddelanden till den med en utdatabindning. I nästa steg, Överväg att lägga till en annan funktion som läser in meddelanden i kön och skriver ut den **MEDDELANDETEXT** till konsolen med `Console.Log()`.
 
-As we saw in this module, the Azure portal offers easy-to-use features to start building functions and connecting them to data and other services.
+Som vi såg i den här modulen erbjuder Azure-portalen enkel att använda funktioner för att börja skapa funktioner och koppla dem till data och andra tjänster.
 
-## Clean up resources
+[!include[](../../../includes/azure-sandbox-cleanup.md)]
 
-*Resources* in Azure refers to function apps, functions, storage accounts, and so forth. They are grouped into *resource groups*, and you can delete everything in a group by deleting the group.
+## <a name="further-reading"></a>Mer information
 
-You created resources to complete this module. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+Även om detta inte är avsedd att vara en fullständig förteckning, är följande några resurser som rör de ämnen som täcks i den här modulen som kan vara intressant.
 
-1. In the Azure portal, go to the **Resource group** page.
+ * [Azure Functions-dokumentation](https://docs.microsoft.com/azure/azure-functions/)
 
-   To get to that page from the function app page, select the **Overview** tab and then select the link under **Resource group**.
+* [Azure Functions-utmaningen](https://aka.ms/afc)
 
-   To get to that page from the dashboard, select **Resource groups**, and then select the resource group that you used for this module. 
+* [Azure serverlös databehandling Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook/)
 
-> [!NOTE]
-> The default name of the resource group we suggested for this module was [!INCLUDE [resource-group-name](./rg-name.md)] but it is possible that you used another name.
+ * [Använda Queue Storage från Node.js](https://docs.microsoft.com/azure/storage/queues/storage-nodejs-how-to-use-queues)
 
-2. In the **Resource group** page, review the list of included resources, and verify that they are the ones you want to delete.
+ * [Introduktion till Azure Cosmos DB: SQL-API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
 
-3. Select **Delete resource group**, and follow the instructions.
+* [En teknisk översikt över Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)
 
-   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
-
-## Further Reading
-
-While this is not intended to be an exhaustive list, the following are some resources related to the topics covered in this module that you might find interesting.
-
- * [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/)
-
-* [The Azure Functions Challenge](https://aka.ms/afc)
-
-* [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook/)
-
- * [How to use Queue storage from Node.js](https://docs.microsoft.com/azure/storage/queues/storage-nodejs-how-to-use-queues)
-
- * [Introduction to Azure Cosmos DB: SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
-
-* [A technical overview of Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)
-
-* [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)
+* [Dokumentation om Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)

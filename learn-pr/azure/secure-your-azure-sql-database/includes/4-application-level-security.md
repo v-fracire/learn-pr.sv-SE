@@ -1,31 +1,31 @@
-Imagine that a hacker is trying to access your database. Applications that connect to the database are vulnerable spots to attack. Those applications may not be connecting to the database using secure methods.
+Anta att en hackare som försöker få åtkomst till din databas. Program som ansluter till databasen är sårbara punkter för angrepp. Dessa program kan inte ansluta till databasen med säkra metoder.
 
-Databases need their own security, but how the database is accessed can play an important role in data security. Successful database breaches are normally the result of SQL injection attacks. SQL injection attacks are the result of applications not using preferred practices for accessing a database. 
+Databaser behöver sina egna säkerhet, men hur databasen används spelar en viktig roll i datasäkerhet. Databasen överträdelser är vanligtvis resultatet av SQL-inmatningsattacker. SQL-inmatningsattacker är resultatet av program som inte använder prioriterade metoder för att komma åt en databas.
 
-Let's look at techniques to secure your database at the application layer.
+Låt oss titta på tekniker för att skydda din databas på programnivå.
 
-## SQL injection attacks
+## <a name="sql-injection-attacks"></a>SQL-inmatningsattacker
 
-The [OWASP foundation](https://owasp.org) is a not-for-profit organization that is designed to build standards for applications to be trusted. It publishes regularly a list of the top 10 security vulnerabilities.   
+Den [OWASP foundation](https://owasp.org) är en icke-vinstdrivande organisation som har utformats för att skapa standarder för program som ska vara betrodd. Den publicerar regelbundet en lista över de översta 10 säkerhetsproblem.
 
-The most common vulnerability according to the OWASP is injection attacks, which normally take the form of SQL injection attacks. In a SQL injection attack, information that is passed to a SQL statement is modified. These modified queries either return sensitive information, or perform malicious operations on the database.
+De vanligaste sårbarheten enligt OWASP är inmatningsattacker som normalt tar form av SQL-inmatningsattacker. Information som skickas till en SQL-instruktion har ändrats i en SQL-angrepp. Frågorna ändrade antingen returnera känslig information eller utföra skadliga åtgärder på databasen.
 
-Let’s look at the following ASP.NET Core code using ADO.NET to fetch the interactions with a particular customer. 
+Låt oss titta på följande kod för ASP.NET Core med ADO.NET för att hämta samverkan med en viss kund.
 
 ```csharp
 public List<CustomerInteraction> GetCustomerInteractions(string customerId)
 {
     var result = new List<CustomerInteraction>();
 
-    using (var conn = new SqlConnection(ConnectionString))  
-    {  
-        var sql = "select Id, CustomerId, InteractionDate, Details " + 
+    using (var conn = new SqlConnection(ConnectionString))
+    {
+        var sql = "select Id, CustomerId, InteractionDate, Details " +
             "from CustomerInteractions where CustomerId = '" + customerId + "'";
-        
-        using (var command = conn.CreateCommand())  
-        {  
+
+        using (var command = conn.CreateCommand())
+        {
             command.CommandText = sql;
-            conn.Open();  
+            conn.Open();
 
             using (var reader = command.ExecuteReader())
             {
@@ -35,52 +35,53 @@ public List<CustomerInteraction> GetCustomerInteractions(string customerId)
                         result.Add(GetInteractionsFromReader(reader));
                 }
             }
-        }  
+        }
         return result.OrderByDescending(i => i.InteractionDate).ToList();
-    } 
+    }
 }
 ```
 
-The query itself is primed for an SQL attack, as the customerId parameter isn't sanitized before going into the query and so could be modified. The website that is calling the query is passing the customerId parameter on the URL query string as follows:
+Själva frågan är förbereder sig för en SQL-angrepp, som parametern customerId inte är språkoberoende innan du fortsätter i frågan och så kan ändras. Webbplatsen som anropar frågan är skicka parametern customerId på URL-frågesträngen på följande sätt:
 
 .../Home/ViewInteractions?customerId=8c69a607-3c09-45ac-9beb-c59ca2de2385
 
-The problem with this strategy is that the customerId parameter can be modified. For example, you could modify the customerId parameter to put additional information into the query and select data from a different table. 
+Problem med den här strategin är att parametern customerId kan ändras. Du kan till exempel ändra parametern customerId för att placera ytterligare information i frågan och välj data från en annan tabell.
 
 ```sql
-select Id, CustomerId, InteractionDate, Details from CustomerInteractions where CustomerId = '8c69a607-3c09-45ac-9beb-c59ca2de2385' 
+select Id, CustomerId, InteractionDate, Details from CustomerInteractions where CustomerId = '8c69a607-3c09-45ac-9beb-c59ca2de2385'
 ```
 
-It can now be modified to add additional information via a UNION statement to add additional information, by adding the following to the query:
+Du kan nu ändra för att lägga till ytterligare information via en UNION-uttrycket för att lägga till ytterligare information, genom att lägga till följande frågan:
 
 ```sql
-union select Id, Id as CustomerId, getdate() as InteractionDate, CreditCardNumber + '/' + STR(CreditCardExpiryMonth, 2) + '/' + STR(CreditCardExpiryYear, 4) + ' cvv ' + STR(CreditCardCVV, 3) as Details from Customers --    
+union select Id, Id as CustomerId, getdate() as InteractionDate, CreditCardNumber + '/' + STR(CreditCardExpiryMonth, 2) + '/' + STR(CreditCardExpiryYear, 4) + ' cvv ' + STR(CreditCardCVV, 3) as Details from Customers --
 ```
 
-The SQL query is URL-encoded so that the value is accepted as a valid web URL part. The URL is passed to the website and the additional SQL query executed on the database. 
+SQL-frågan är URL-kodade så att värdet accepteras som en giltig URL-webbdel. URL: en skickas till webbplatsen och ytterligare SQL-frågan köras på databasen.
 
 ```sql
 %27+union+select+Id%2C+Id+as+CustomerId%2C+getdate%28%29+as+InteractionDate%2C+CreditCardNumber+%2B+%27%2F%27+%2B+STR%28CreditCardExpiryMonth%2C+2%29+%2B+%27%2F%27+%2B+STR%28CreditCardExpiryYear%2C+4%29+%2B+%27+cvv+%27+%2B+STR%28CreditCardCVV%2C+3%29+as+Details+from+Customers+--
 ```
-This example demonstrates how not sanitizing the information from the site can lead to data security issues.
 
-![An example of a SQL injection attack via a web app](../media-draft/4-view-web-page-after-sql-injection.png)
+Det här exemplet visar hur inte sanitizing information från platsen kan leda till problem med säkerhet.
+
+![Skärmbild av en web browser adressfältet som visar ett exempel på en SQL-inmatning angreppsförsök via en webbapp.](../media-draft/4-view-web-page-after-sql-injection.png)
 
 > [!Note]
-> To find out more about injection attacks, visit the [OWASP Foundation](https://www.owasp.org/). 
+> Om du vill veta mer om inmatningsattacker Besök den [OWASP Foundation](https://www.owasp.org/).
 
-## Avoiding SQL injection attacks
+## <a name="avoiding-sql-injection-attacks"></a>Undvika SQL-inmatningsattacker.
 
-To avoid SQL injection attacks, you should always make sure that any user-entered input is sanitized. User input used as parameters for queries shouldn't be constructed through string concatenation, but passed as actual query parameters.
+Undvik att SQL-inmatningsattacker, bör du alltid kontrollera att alla användarens indata är språkoberoende. Användarindata som används som parametrar för frågor bör inte skapats via strängsammanfogning, men som faktiska Frågeparametrar.
 
-In the following example, you can see how the CustomerId is now passed in as a parameter using the @ symbol. Parameters are defined explicitly and values passed into the query.
+I följande exempel ser du hur CustomerId nu skickas som en parameter med hjälp av den @-tecknet. Parametrar definieras uttryckligen och värden har skickats i frågan.
 
 ```csharp
 using (var command = conn.CreateCommand())
 {
     var sql = "select Id, CustomerId, InteractionDate, Details " +
         "from CustomerInteractions where CustomerId = @CustomerId order by InteractionDate";
-    
+
     command.CommandText = sql;
     var prmCustomerId = command.Parameters.Add("@CustomerId", SqlDbType.UniqueIdentifier);
     prmCustomerId.Value = Guid.Parse(customerId);
@@ -98,51 +99,49 @@ using (var command = conn.CreateCommand())
 }
 ```
 
-The core lines of code are:
+Core-rader med kod är:
 
 ```csharp
     var prmCustomerId = command.Parameters.Add("@CustomerId", SqlDbType.UniqueIdentifier);
     prmCustomerId.Value = Guid.Parse(customerId);
 ```
 
-Using sanitized data input and parameterized queries reduces the chances of SQL injection attacks on your database. 
+Med språkoberoende datainmatning och parameterfrågor minskar risken för SQL-inmatningsattacker i databasen.
 
-Our example used ASP.NET Core to demonstrate the concepts. However, keep in mind that all programming systems that support access to SQL Server have mechanisms to pass parameters into the values for queries.
+Vårt exempel används ASP.NET Core för att illustrera begreppen. Tänk dock på att alla programmeringsspråk system som har stöd för åtkomst till SQL Server har mekanismer för att skicka parametrar till värden för frågor.
 
-## Dynamic data masking
+## <a name="dynamic-data-masking"></a>Dynamisk datamaskning
 
-You might have noticed that some of the information in the database is particularly sensitive; perhaps credit card information. In a real-world system, you would never store credit card information unencrypted. Unfortunately, the credit card information is not encrypted, and you'll need to find another way to hide the data.
+Du kanske har märkt att del av informationen i databasen är särskilt känsliga; kanske kreditkortsinformation. I ett verkligt system, skulle du aldrig lagra kreditkortsinformation okrypterade. Tyvärr kreditkortsinformation är inte krypterad och du behöver hitta ett annat sätt att dölja data.
 
-Let's assume you're building a shopping website, and during the order process the site has to display credit card details. You want to display the first 12 digits blocked out from the user, to appear like xxxx-xxxx-xxxx-1234.
+Anta att du skapar en perioder webbplats och under beställningsprocessen platsen måste Visa kreditkortsinformation. Du vill visa de första 12 siffrorna spärrad från användare, visas t.ex. xxxx-xxxx-xxxx-1234.
 
-This technique is called dynamic data masking. Dynamic data masking allows you to add masks against the columns within your database. 
+Den här metoden kallas dynamisk datamaskning. Dynamisk datamaskning kan du lägga till masker mot kolumner i din databas.
 
-Using the portal, you select the database you want to apply the masks to, and then select the Dynamic Data Masking option from the Security setting.
+1. Med portalen kan du välja den databas du vill tillämpa masker till och välj sedan den **dynamisk Datamaskning** alternativet från den **Security** inställningen.
 
-![Select Dynamic Data Masking.](../media-draft/4-select-dynamic-data-masking.png)
+    Maskning regler skärmen visar en lista över befintliga dynamiska data masker och rekommendationer för kolumner som ska ha en mask för dynamiska data som tillämpas.
 
-The Masking rules screen shows a list of existing dynamic data masks, and recommendations for columns that should potentially have a dynamic data mask applied. 
+    ![Skärmbild av Azure-portalen som visar en lista över rekommenderade masker för de olika databasen kolumner i en exempeldatabas.](../media-draft/4-view-recommended-masked-columns.png)
 
-![List of the recommended masked columns](../media-draft/4-view-recommended-masked-columns.png)
+1. Om du vill lägga till en mask till en kolumn klickar du på den **Lägg till mask** för att lägga till rekommenderade masken till kolumnen.
 
- To add a mask to a column, click the Add mask button to add the recommended mask to the column. 
+    ![Skärmbild av Azure-portalen med rekommenderade maskerade kolumner tillämpas och mask funktioner som används.](../media-draft/4-recommended-masks-applied.png)
 
-![The recommended masked columns once applied](../media-draft/4-recommended-masks-applied.png)
+1. Varje ny mask läggs till i Maskning regellistan. Klicka på den **spara** för att tillämpa masker.
 
-Each new mask will be added to the Masking rules list. Click the Save button to apply the masks.
+När du frågar efter kolumnerna databasadministratörer fortfarande finns i de ursprungliga värdena, men icke-administratörer ser maskerade värdena.
 
-When querying the columns, database administrators will still see the original values, but non-administrators will see the masked values. 
+Du kan låta andra användare att se versionerna som inte är maskeras genom att lägga till dem i SQL-användare uteslutna från maskering av listan.
 
-You can allow other users to see the non-masked versions by adding them to the SQL users excluded from masking list.  
+Du kan se hur maskerade data ser ut när efterfrågas av en icke-administratör.
 
-You can see here what the masked data looks like when queried by a non-administrator.
+![Skärmbild av en databasfråga som visar e-post, telefonnummer, SocialSecurityNumber och CreditCardNumber resultera kolumner som är dolda när de skulle ses av en icke-administratör.](../media-draft/4-sql-query-showing-masks.png)
 
-![List of the recommended masked columns](../media-draft/4-sql-query-showing-masks.png)
+Masker på visas är de som har lagts till baserat på rekommendationer, men du kan lägga till en mask manuellt för. Välj den + Lägg till mask knappen och sedan pop över gör det möjligt att välja schemat, tabellen och den kolumn som ska användas. Sedan definierar du maskeringen som används. Det finns standard masker som kan användas som:
 
-The masks on the displays are ones added based on recommendations, but you can add a mask manually too. Select the + Add mask button, and then the popover will allow you to select the schema, table, and column to use. You then define the masking that is used. There are standard masks that can be used such as:
-
-- Default value, which displays the default value for that data type instead;
-- Credit card value, which only shows the last four digits of the number, converting all other numbers to lower case x’s;
-- Email, which hides the domain name and all but the first character of the email account name; 
-- Number, which specifies a random number between a range of values. For example, on the credit card expiry month and year, you could select random months from 1 to 12 and set the year range from 2018 to 3000; or
-- Custom string. This allows you to set the number of characters exposed from the start of the data, the number of characters exposed from the end of the data, and the characters to repeat for the remainder of the data. 
+- Standardvärdet, vilket visar standardvärdet för den datatypen i stället;
+- Kreditkortvärde, som visar bara de sista fyra siffrorna i numret, konverterar alla andra tal till gemener kryss;
+- E-post, som döljer domänen namnet och alla utom det första tecknet i detta e-kontonamnet.
+- Nummer, som anger ett slumptal mellan ett intervall med värden. Till exempel på kreditkort förfallodatum månaden och året, kan du markera slumpmässiga månader från 1 till 12 och ange årsintervallet från 2018 till 3000; eller
+- Anpassad sträng. På så sätt kan du ange antalet tecken som visas från början av data, hur många tecken som visas från slutet av data och tecknen ska upprepas under resten av data.

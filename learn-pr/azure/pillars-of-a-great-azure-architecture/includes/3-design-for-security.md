@@ -1,47 +1,47 @@
-Your healthcare organization stores personal and potentially sensitive client data. A security incident could expose this sensitive data, which could cause personal embarrassment or financial harm. How do you ensure the integrity of their data and ensure your systems are secure? 
+Din vårdorganisationen lagrar personlig och potentiellt känslig kundinformation. En säkerhetsincident kan avslöja känsliga data, vilket kan orsaka personliga svårigheter eller ekonomisk skada. Hur säkerställer du dataintegriteten och ser till att dina system är säkra? 
 
-Here, we'll talk about how to approach the security of an architecture.
+Här talar vi om hur du hanterar säkerheten för en arkitektur.
 
-## What should I protect?
+## <a name="what-should-i-protect"></a>Vad ska jag skydda?
 
-The data your organization stores is at the heart of your securable assets. This data could be sensitive data about customers, financial information about your organization, or critical line-of-business data supporting your organization. Along with data, securing the infrastructure it exists on, and the identities we use to access it, are also critically important.
+Din organisation datalagren eller hanterar är hjärtat i dina skyddbara tillgångar. Dessa data kan vara känslig information om kunder, ekonomisk information om din organisation eller kritiska affärsdata som stödjer organisationen. Tillsammans med data är det även avgörande att skydda infrastrukturen som data finns på och de identiteter som används för att få åtkomst till dem.
 
-Your data may be subject to additional legal and regulatory requirements depending on where you are located, the type of data you are storing, or the industry that your application operates in. For instance, in the healthcare industry in the US, there is a law called the Health Insurance Portability and Accountability Act (HIPAA). Organizations that store data that is in scope for this law are required to ensure certain safeguards are in place. In Europe, the General Data Protection Regulation (GDPR) lays out the rules of how personal data is protected, and defines individuals' rights related to stored data. Some countries require that certain types of data do not leave their borders.
+Dina data kan omfattas av ytterligare juridiska och bestämmelsemässiga krav beroende på var du finns, vilken typ av data du lagrar eller vilken bransch som ditt program verkar i. Exempel: Inom sjukvården i USA finns det en lag som kallas HIPAA (Health Insurance Portability and Accountability Act). I finansiella branschen, är den Payment Card Industry Data Security Standard bekymrad över hanteringen av kreditkortsuppgifter. Organisationer som lagrar data som är inom omfånget för dessa lagar och standarder krävs för att kontrollera att vissa förutsättningar är uppfyllda för att skydda dessa data. I Europa anger den allmänna dataskyddsförordningen, GDPR, reglerna för hur personuppgifter skyddas och definierar personers rättigheter som rör lagrade data. Vissa länder kräver att vissa typer av data inte lämnar landets gränser.
 
-When a security breach occurs, there can be substantial impacts to the finances and reputation of both organizations and customers. This breaks down the trust customers are willing to instill in your organization, and can impact its long-term health.
+När ett intrång sker kan det leda till betydande effekter för ekonomin och ryktet för både organisationer och kunder. Det bryter ned den förtroende som kunderna har för din organisation och kan påverka tillståndet på lång sikt.
 
-## Defense in depth
+## <a name="defense-in-depth"></a>Skydd på djupet
 
-A multilayered approach to securing your environment will increase the security posture of your environment. Commonly known as _defense in depth_, we can break down the layers as follows:
+En metod med flera lager för att säkra miljön ökar dess säkerhetsposition. Ofta kallade _skydd på djupet_, vi kan bryta ned lagren på följande sätt:
 
 * Data
-* Applications
-* VM/compute
-* Networking
-* Perimeter
-* Policies & access
-* Physical security
+* Program
+* VM/beräkning
+* Nätverk
+* Perimeternätverk
+* Principer och åtkomst
+* Fysisk säkerhet
 
-Each layer focuses on a different area where attacks can happen and creates a depth of protection, should one layer fail or be bypassed by an attacker. If we were to just focus on one layer, an attacker would have unfettered access to your environment should they get through this layer. Addressing security in layers increases the work an attacker must do to gain access to your systems and data. Each layer will have different security controls, technologies, and capabilities that will apply. When identifying the protections to put in place, cost will often be of concern, and will need to be balanced with business requirements and overall risk to the business.
+Varje lager fokuserar på ett område där attacker kan ske och skapar ett djupgående skydd, om ett lager misslyckas eller kringgås av angriparen. Om vi bara skulle fokusera på ett lager skulle angriparna ha ohämmad åtkomst till din miljö om de tar sig igenom det lagret. Att hantera säkerheten i flera lager ökar arbetet som en angripare måste utföra för att få åtkomst till dina system och data. Varje lager skulle ha olika säkerhetskontroller, tekniker och funktioner som gäller. Vid identifiering av vilka skydd som ska tillämpas tas det ofta hänsyn till kostnaden, som måste balanseras mot affärskraven och den övergripande risken för företaget.
 
-![Security layers](../media-draft/security-layers.png)
+![Säkerhetslager](../media-draft/security-layers.png)
 
-There is no single security system, control, or technology that will fully protect your architecture. Security is more than just technology, it's also about people and processes. Creating an environment that looks holistically at security, and making it a requirement by default will help ensure your organization is as secure as possible.
+Det finns inga enskilda system, kontroller eller tekniker som skyddar din arkitektur helt. Säkerhet handlar inte bara om teknik, utan även om personer och processer. Att skapa en miljö som ser holistiskt på säkerhet och gör det till ett krav som standard hjälper till att skydda din organisation så mycket som möjligt.
 
-## Common attacks
+## <a name="common-attacks"></a>Vanliga attacker
 
-At each layer, there are some common attacks that you will want to protect against. These are not all-inclusive, but can give you an idea of how each layer can be attacked and what types of protections you may need to look at.
+På varje lager finns det några vanliga attacker som du vill skydda mot. Dessa är inte heltäckande men kan ge dig en uppfattning om hur varje lager kan angripas och vilka typer av skydd du kan behöva titta på.
 
-* **Data layer**: Encryption key exposure or using weak encryption can leave your data vulnerable should unauthorized access occur.
-* **Application layer**: Malicious code injection and execution are the hallmarks of application-layer attacks. Common attacks include SQL injection and cross-site scripting (XSS).
-* **VM/compute layer**: Malware is a common method of attacking an environment, which involves executing malicious code to compromise a system. Once malware is present on a system, further attacks leading to credential exposure and lateral movement throughout the environment can occur.
-* **Networking layer**: Unnecessary open ports to the Internet are a common method of attack. These could include leaving SSH or RDP open to virtual machines. When open, these could allow brute-force attacks against your systems as attackers attempt to gain access.
-* **Perimeter layer**: Denial-of-service (DoS) attacks are often seen at this layer. These attacks attempt to overwhelm network resources, forcing them to go  offline or making them incapable of responding to legitimate requests.
-* **Policies & access layer**: This is where authentication occurs for your application. This could include modern authentication protocols such as OpenID Connect, OAuth, or Kerberos-based authentication such as Active Directory. Exposed credentials are a risk here and it's important to limit the number of identities permissions of identities. We also want to have monitoring in place to look for possible compromised accounts, such as logins coming from unusual places.
-* **Physical layer**: Unauthorized access to facilities through methods such as door drafting and theft of security badges can be seen at this layer.
+* **Datanivå**: Exponering av krypteringsnyckeln eller användning av en svag kryptering kan göra dina data sårbara för obehörig åtkomst.
+* **Programnivå**: Inmatning och körning av skadlig kod är kännetecknande för attacker på programnivå. Vanliga attacker är SQL-inmatning och skriptkörning över flera webbplatser (XSS).
+* **VM/beräkning-nivå**: Skadlig kod är en vanlig metod för att angripa en miljö, vilket inbegriper körning av skadlig kod för att kompromettera ett system. När den skadliga koden finns i systemet leder vidare attacker till avslöjande av autentiseringsuppgifter och laterala rörelser i hela miljö kan förekomma.
+* **Nätverksnivå**: Onödiga öppna portar till internet är en vanlig attackmetod. Det kan vara att lämna SSH eller RDP öppet för virtuella datorer. När dessa är öppna kan det ske råstyrkeattacker mot dina system när angripare försöker få åtkomst.
+* **Perimeternivå**: DoS-attacker sker ofta på den här nivån. Dessa attacker försöker överbelasta nätverksresurserna och tvinga dem att koppa från eller göra dem oförmögna att svara på legitima begäranden.
+* **Princip- och åtkomstnivå**: Här sker autentiseringen för ditt program. Det här kan inbegripa moderna autentiseringsprotokoll som OpenID Connect, OAuth eller Kerberos-baserad autentisering som Active Directory. Exponerade autentiseringsuppgifter är en risk här och det är viktigt att begränsa antalet identitetsbehörigheter för identiteter. Vi vill även ha övervakning på plats för att leta efter möjliga kapade konton, till exempel inloggningar från ovanliga platser.
+* **Fysisk nivå**: Obehörig åtkomst till resurser genom metoder som ”door drafting” och stöld av säkerhetsmärken kan ske på den här nivån.
 
-## Shared security responsibility
+## <a name="shared-security-responsibility"></a>Delade security ansvar
 
-Revisiting the model of shared responsibility, we can reframe this in the context of security. Depending on the type of service you select, some security protections will be built in to the service, while others will remain your responsibility. Careful evaluation of the services and technologies you select will be necessary, to ensure you are providing the proper security controls for your architecture.
+Gå tillbaka till modell för delat ansvar, kan vi reframe detta i samband med säkerhet. Beroende på vilken typ av tjänst som du har valt kan skapas vissa säkerhetsskydd till tjänsten, medan andra förblir ditt ansvar. Noggrann utvärdering av tjänster och tekniker som du väljer kommer vara nödvändigt att se till att du tillhandahåller säkerhetskontrollerna som är rätt för din arkitektur.
 
-![Shared security responsibilities](../media-draft/shared_responsibilities.png)
+![Delade ansvarsområden](../media-draft/shared_responsibilities.png)

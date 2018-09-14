@@ -1,17 +1,17 @@
-You work at a company that tracks professional sports statistics and provides an API to query results. It helps fans track and review games and scores, both live and historical. Users can also request team statistics using a natural language search, such as, "How many times has John Smith hit a home run against a left-handed pitcher?"
+Du arbetar på ett företag som spårar Sportstatistik och tillhandahåller ett API som frågeresultat. Det hjälper fans att följa och analysera matcher och resultat, både live och bakåt i tiden. Användare kan även begära teamstatistiken med hjälp av en sökning med naturligt språk, till exempel ”hur många gånger har John Smith når en home-körning mot en vänster kanna”?
 
-During times of peak demand, such as during playoffs, response time of your service slows down because the back-end service doesn't have the capacity to meet demand. You want to improve performance for your users and reduce the workload on your back-end and data storage services. Your metrics show that 50% to 80% of the data returned is for read-only or recently requested values. Implementing a cache of commonly used data could improve performance and reduce latency.
+Under tider med hög belastning långsammare till exempel under slutspel, svarstid för din tjänst eftersom backend-tjänst inte har kapacitet för att möta efterfrågan. Du vill förbättra prestanda för dina användare och minska arbetsbelastningen på dina serverdels- och datalagringstjänster. Dina mätvärden visar att mellan 50 % och 80 % av de data som returneras är för skrivskyddade eller nyligen begärda värden. Genom att implementera ett cacheminne för data som används ofta kan du förbättra prestanda och minska svarstiden.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Describe what a Redis cache is and how you can use it for your business needs
-- Create a design and plan to use a Redis cache
-- Provision a Redis cache in Azure
-- Connect an application to the cache
+- Beskriv vilka Redis cache är och hur du kan använda det för dina affärsbehov
+- Skapa en design och planera att använda en Redis-cache
+- Etablera en Redis-cache i Azure
+- Ansluta ett program till cachen
 
-## Prerequisites
+## <a name="prerequisites"></a>Förutsättningar
 
-- Experience with app development
-- Experience using data in apps
+- Erfarenhet av apputveckling
+- Erfarenhet av att använda data i appar

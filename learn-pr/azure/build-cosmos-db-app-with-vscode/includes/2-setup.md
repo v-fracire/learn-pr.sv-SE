@@ -2,25 +2,19 @@ I den här modulen kommer du att skapa en enkel konsolapp med hjälp av den inte
 
 ## <a name="create-a-console-app"></a>Skapa en konsolapp
 
-1. Skapa en mapp där du tänker arbeta.
-
-1. Öppna en kommandotolk och navigera till mappen.
-
-1. Skapa ett nytt .NET Core-konsolprogram
-
-```bash
-dotnet new console 
-```
-
 1. Öppna Visual Studio Code och välj **Arkiv** > **Öppna mapp**.
 
 1. Skapa en ny mapp där det nya C#-projektet ska sparas. Klicka sedan på **Välj mapp**.
 
-1. Se till att filer sparas automatiskt genom att klicka på Arkiv-menyn och kontrollera att Spara Automatisk är aktiverat och inte är tomt.
+1. Se till att filen automatiskt spara aktiveras genom att klicka på Arkiv-menyn och kontrollera **Spara automatiskt** om den är tom.
 
-1. Öppna den integrerade terminalen från Visual Studio Code genom att välja **Visa** > **Integrated Terminal** (Integrerad terminal) på huvudmenyn.
+1. Öppna den integrerade terminalen från Visual Studio Code genom att välja **visa** > **Terminal** på huvudmenyn.
 
-1. Ange **dotnet new console** i terminalfönstret.
+1. Skriv följande kommando i terminalfönstret.
+
+    ```
+    dotnet new console
+    ```
 
     Med det här kommandot skapas en **Program.cs**-fil i mappen med ett enkelt ”Hello World”-program som redan har skrivits, samt en C#-projektfil med namnet **learning module.csproj**.
 
@@ -38,7 +32,7 @@ dotnet new console
 
     Följ anvisningarna för att kopiera och klistra in koden i webbläsaren. Därmed autentiseras din Visual Studio Code-session.
 
-1. Klicka på ikonen ![Utforskaren](../media/2-setup/visual-studio-code-explorer-icon.png) **Utforskar**-ikonen på menyn till vänster och expandera sedan **Azure Cosmos DB**.
+1. Klicka på den ![Azure ikon](../media/2-setup/visual-studio-code-explorer-icon.png) **Azure** -ikonen i menyn till vänster och expanderar sedan **Azure Cosmos DB**.
 
 1. Expandera Azure-prenumerationen > Azure Cosmos DB-kontot. Om du har skapat databasen **Produkter** och samlingen **Kläder** i de föregående modulerna visas de i tillägget.
 
@@ -46,11 +40,11 @@ dotnet new console
 
 1. Nu skapar du en ny databas och samling för dina kunder.
 
-    Högerklicka på ditt konto i Utforskaren och klicka sedan på **Skapa databas**. 
+    Högerklicka på ditt konto i Azure-fönstret och klicka sedan på **Create Database**.
     
     I textrutan högst upp på skärmen anger du **Användare** som databasnamn > **retur** > **Webbkunder** som namn på samlingen > **retur** > **userId** som partitionsnyckel > **retur** > **1000** som inledande genomflödeskapacitet > **retur**.
 
-    ![Visual Studio Code-tillägg för Azure Cosmos DB](../media/2-setup/vs-code-azure-cosmos-db-extension.gif) <!--Retake on fresh machine without the other subscriptions showing-->
+    ![Visual Studio Code-tillägg för Azure Cosmos DB](../media/2-setup/vs-code-azure-cosmos-db-extension.gif) 
 
     Den nya databasen Användare och samlingen Webbkunder visas i Utforskaren.
 
@@ -95,8 +89,6 @@ dotnet new console
     ```
 
 1. Kopiera anslutningssträngen från Azure Cosmos DB-tillägget genom att högerklicka på learning-module-kontot och klicka på **Copy Connection String** (Kopiera anslutningssträng).
-
-    ![Visual Studio Code-tillägg för Azure Cosmos DB](../media/2-setup/vs-code-copy-connection-string.gif) 
 
 1. Klistra in anslutningssträngen i en textfil, kopiera sedan **AccountEndpoint**-delen från textfilen och klistra in den i **accountEndpoint** i App.config.
 

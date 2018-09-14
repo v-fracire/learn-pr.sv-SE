@@ -18,4 +18,4 @@ En princip för villkorsstyrd åtkomst består av:
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här enheten har du lärt dig grunderna om Azure AD och vilka funktioner som är tillgängliga för säker åtkomst till program. Nu när du har klarat av grunderna kör vi igång med Azure AD. Resten av den här modulen innehåller praktiska övningar så att du kan aktivera och testa multifaktorautentisering med villkorsstyrd åtkomst.
+I den här enheten har du lärt dig grunderna om Azure AD och vilka funktioner som är tillgängliga för säker åtkomst till program. Nu när du har grunderna undan den nu sätter vi igång med Azure AD. Resten av den här modulen innehåller praktiska övningar så att du kan aktivera och testa multifaktorautentisering med villkorsstyrd åtkomst.

@@ -4,37 +4,32 @@ title: Distribuera din webbplats till Azure
 metadata:
   title: Distribuera din webbplats till Azure
   description: Se hur ett grundläggande program med tre nivåer kan se ut på Azure.
-  ms.openlocfilehash: 3bbacd16929ffb05448a2d3e60cd37c637275229
-  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43477801"
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 durationInMinutes: 7
-content: >
+content: |
   [!include[](includes/2-deploy-to-azure.md)]
 quiz:
   title: 'Kunskapskontroll: Distribuera din webbplats till Azure'
   questions:
-  - content: Vad är en Azure-_region_?
-    choices:
-    - content: Ett Azure-datacenter inom en viss geografisk plats.
-      isCorrect: true
-      correctExplanation: Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare. USA, västra och Europa, norra är exempel.
-    - content: Ett sätt att dela upp nätverk till mindre nätverk.
-      isCorrect: false
-      incorrectExplanation: Azure-nätverk delas upp i _undernät_.
-    - content: Brandväggsregler som definierar vilken trafik som kan flöda in och ut ur Azure.
-      isCorrect: false
-      incorrectExplanation: Du använder _nätverkssäkerhetsgrupper_ för att definiera brandväggsregler.
-  - content: Vilket av följande är sant om virtuella nätverk?
-    choices:
-    - content: Du konfigurerar virtuella nätverk via programvara.
-      isCorrect: true
-      correctExplanation: Programvara gör att du kan hantera ett virtuellt nätverk precis som ditt eget nätverk. Azure underhåller den fysiska maskinvaran åt dig.
-    - content: Ett virtuellt nätverk accepterar nätverkstrafik på alla portar. Du konfigurerar brandväggen via virtuella datorer.
-      isCorrect: false
-      incorrectExplanation: Du kan associera ditt virtuella nätverk med en nätverkssäkerhetsgrupp som fungerar som en brandvägg på molnnivå.
-    - content: Virtuella nätverk kan alltid nås från Internet.
-      isCorrect: false
-      incorrectExplanation: Även om ett virtuellt nätverk kan nås från Internet som standard konfigurerar du vilka nätverk, inklusive privata nätverk, som kan nå ditt.
+    - content: Vad är en Azure-_region_?
+      choices:
+        - content: Ett Azure-datacenter inom en viss geografisk plats.
+          isCorrect: true
+          correctExplanation: 'Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare. USA, västra och Europa, norra är exempel.'
+        - content: Ett sätt att dela upp nätverk till mindre nätverk.
+          isCorrect: false
+        - content: Brandväggsregler som definierar trafikflödet till och från Azure.
+          isCorrect: false
+    - content: Vilket av följande är sant om virtuella nätverk?
+      choices:
+        - content: Du konfigurerar virtuella nätverk via programvara.
+          isCorrect: true
+          correctExplanation: Programvara gör att du kan hantera ett virtuellt nätverk precis som ditt eget nätverk. Azure underhåller den fysiska maskinvaran åt dig.
+        - content: Ett virtuellt nätverk accepterar nätverkstrafik på alla portar. Du konfigurerar brandväggen via virtuella datorer.
+          isCorrect: false
+        - content: Virtuella nätverk är alltid kan nås från internet.
+          isCorrect: false

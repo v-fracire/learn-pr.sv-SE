@@ -1,32 +1,28 @@
-There are times where you must guarantee that multiple operations execute together. For example, in your instant messaging application, users can send: an individual picture, an individual text message, or a picture and text message together. When the user chooses to send a picture and text message together, we must ensure that other members of the group receive them at the same time. This is important because if a picture and text message are not received together, it’s possible that a separate message could be sent in between the picture and text message, which could make the overall conversation confusing.
+Det finns tillfällen när du måste garantera att flera åtgärder köra tillsammans. Till exempel i programmet för snabbmeddelanden, kan användare skicka en enskild bild, en enskilda SMS eller en bild och text visas tillsammans. När användaren väljer att skicka ett meddelande med bilder och text tillsammans, måste du se till att andra medlemmar i gruppen får dem på samma gång. Detta är viktigt eftersom om en bild och text-meddelande inte är emot tillsammans, är det möjligt att ett separat meddelande kunde skickas mellan bilden och texten visas. Som kan göra övergripande konversationen förvirrande.
 
-Here, we'll look at how to create a transaction in Redis to guarantee multiple operations are executed together.
+Här kan ska vi titta på hur du skapar en transaktion i Azure Redis Cache och garanterar att flera åtgärder utförs tillsammans.
 
-## How to create a transaction
+## <a name="how-to-create-a-transaction"></a>Så här skapar du en transaktion
 
-To create a transaction, you need to have a transaction block. This is a queue that contains the commands that will be executed together. The `MULTI` command is used to create a transaction block and all subsequent commands are queued for atomic execution.
+Du måste ha ett block transaktion för att skapa en transaktion. Det här är en kö som innehåller de kommandon som körs tillsammans. Den `MULTI` används för att skapa en transaktion block och alla efterföljande kommandon ställs i kö för körning av atomiska.
 
-## How to execute a transaction
+## <a name="how-to-execute-a-transaction"></a>Hur du kör en transaktion
 
-To execute the commands in a transaction block, you use the `EXEC` command. This will execute all queued commands and restore the connection state to normal. If you decide you don't want to execute a transaction, you can use the `DISCARD` command, which will clear out the transaction block and set the connection state to normal.
+För att köra kommandona i blocket en transaktion som du använder den `EXEC` kommando. Detta kommer kör alla köade kommandon och återställa anslutningen till normal. Om du inte vill köra en transaktion kan du använda den `DISCARD` kommando, vilket tar bort blockeringen transaktion och ställa in anslutningstillståndet till normal.
 
-One important thing to understand about Redis transactions is that they don't support rollbacks. This means that if a command inside a transaction fails, the remaining commands will still be executed.
+En sak som är viktig att känna till om Azure Redis Cache transaktioner är att de inte stöder återställningar. Det innebär att om ett kommando i en transaktion misslyckas, de resterande kommandona fortfarande körs.
 
-## What is ServiceStack.Redis?
+## <a name="what-is-servicestackredis"></a>What is ServiceStack.Redis?
 
-In the previous module, **Optimize your web application by caching read-only data with Redis** we used the **StackExchange.Redis** client. Here, we're going to try out another popular client, **ServiceStack.Redis**.
-
-**ServiceStack.Redis** is a C# client library for interacting with a Redis cache. This means that instead of using low-level Redis commands, we can use C# classes and methods.
-
-For example, to create a transaction, we normally must use the Redis `MULTI` command. However, using **ServiceStack.Redis** we can create a transaction using the `CreateTransaction()` method.
+**ServiceStack.Redis** är en C#-klientbiblioteket för att interagera med Azure Redis Cache. Detta innebär att i stället för på den låga nivån Azure Redis Cache-kommandon, vi kan använda C#-klasser och metoder. Till exempel istället för att använda den `MULTI` och `EXEC` kommandon för att köra en transaktion med **ServiceStack.Redis** skapar vi en `IRedisTransaction` objekt med hjälp av den `CreateTransaction()` metoden.
 
 ```csharp
 var transaction = redisClient.CreateTransaction();
 ```
 
-## Create a transaction using C# and the ServiceStack.Redis client
+## <a name="create-a-transaction-using-c-and-the-servicestackredis-client"></a>Skapa en transaktion med C# och ServiceStack.Redis-klienten
 
-Here's an example of using **ServiceStack.Redis** to create a transaction that can send a message that includes a picture and text.
+Här är ett exempel på hur du använder **ServiceStack.Redis** att skapa en transaktion som kan skicka ett meddelande som innehåller en bild och text.
 
 ```csharp
 public bool SendPictureAndText(string groupChatID, string text, string pictureURL)
@@ -47,4 +43,4 @@ public bool SendPictureAndText(string groupChatID, string text, string pictureUR
     }
 }
 ```
-Transactions ensure that multiple operations are executed together. You create a transaction using the `MULTI` command, however, using a client library like **ServiceStack.Redis**, you can use the `CreateTransaction()` method.
+Transaktioner se till att flera åtgärder utförs tillsammans. Du skapar en transaktion med hjälp av den `MULTI` kommando. Om du använder ett klientbibliotek som **ServiceStack.Redis**, du kan använda den `CreateTransaction()` metoden.

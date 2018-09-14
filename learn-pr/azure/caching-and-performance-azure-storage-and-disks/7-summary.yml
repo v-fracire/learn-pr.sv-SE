@@ -9,11 +9,43 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: ce5e1852bec8bd2fae48d5abc05ccc41c6ddd368
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44233228"
 durationInMinutes: 3
-content: '[!include[](includes/7-summary.md)]'
+content: |
+  [!include[](includes/7-summary.md)]
+quiz:
+  title: 'Knowledge kontroll: cachelagring och prestanda i Azure storage och diskar'
+  questions:
+    - content: Vilket alternativ för cachelagring är ett bra alternativ för hög åtgärder som till exempel lagra loggfiler?
+      choices:
+        - content: Skrivskyddad
+          isCorrect: false
+          incorrectExplanation: 'Skrivskyddad cachelagring fungerar bra för datadiskar, inklusive TempDB-data. Men det förbättrar inte prestandan för skrivintensiv åtgärder och kan även orsaka en liten minskning i prestanda.'
+        - content: Läs/Skriv
+          isCorrect: false
+          incorrectExplanation: Detta är ett bra alternativ om din app hanterar korrekt skriva cachelagrade data till beständiga diskar vid behov.
+        - content: Ingen
+          isCorrect: true
+          correctExplanation: Skrivintensiv operations Allmänt berättigar inte till från cachelagring. ”Ingen” är förmodligen det bästa valet för en disk som är dedikerad till loggfiler.
+    - content: För vilken typ av disk startar Azure om den virtuella datorn för att kunna ändra typ av cachelagring?
+      choices:
+        - content: Data
+          isCorrect: false
+          incorrectExplanation: Ändra cache-inställningen för en datadisk frånkopplas och återansluts sedan måldisken men om inte den virtuella datorn.
+        - content: Operativsystem (OS)
+          isCorrect: true
+          correctExplanation: Ändra inställningen för cache av OS-disken kräver en omstart av virtuella datorer.
+        - content: Tillfälliga
+          isCorrect: false
+          incorrectExplanation: Du kan inte ändra cachelagringsalternativ på den temporära disken.
+        - content: Zonredundant lagring (ZRS)
+          isCorrect: false
+          incorrectExplanation: Ett premiumlagringskonto stöder inte ZRS.
+    - content: Anta att du använder Azure PowerShell för att hantera en virtuell dator. Du har en lokal objekt som representerar den virtuella datorn och du har gjort flera uppdateringar i det lokala objektet. Vilken PowerShell-cmdlet ska du använda för att tillämpa ändringarna lokalt på den faktiska virtuella datorn?
+      choices:
+        - content: Update-AzureRmVM
+          isCorrect: true
+          correctExplanation: Den här cmdleten uppdaterar tillståndet för en Azure virtuell dator till tillståndet för en virtuell dator-objekt.
+        - content: Set-AzureRmVM
+          isCorrect: false
+        - content: New-AzureRmVM
+          isCorrect: false

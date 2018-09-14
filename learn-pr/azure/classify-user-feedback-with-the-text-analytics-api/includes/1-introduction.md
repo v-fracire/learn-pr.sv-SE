@@ -1,13 +1,10 @@
-If I showed you text written in ALL CAPITAL LETTERS, what emotions would it convey? If a book review I wrote claims that "the ending was unpredictable", is that statement a good or bad thing? How can I find out programmatically what language an email was written in? Text Analytics is about understanding and analyzing unstructured text to answer these kinds of questions. It covers sentiment analysis, key phrase extraction, language detection and more.  
+Om jag visade texten i versaler, vilka känslor skulle det förmedla? Om en bok granskning som jag skrev anspråk som ”slutet har oförutsägbara”, är denna instruktion något bra eller dålig? Hur tar jag reda på programmässigt vilket språk ett e-postmeddelande har skrivits? Textanalys handlar om att förstå och analysera ostrukturerad text för att besvara dessa typer av frågor. Den behandlar attitydanalys, extrahering av diskussionsämne, språkidentifiering och mer.
 
- In this module, we're going to focus our attention on sentiment analysis. We'll learn about the Text Analytics API. This cloud-based service from Microsoft provides advanced natural language processing over raw text. When you've completed the module, you'll have built a solution with Azure Functions that sorts text feedback based on sentiment.
+ I den här modulen vi att fokusera våra uppmärksamhet på attitydanalys. Vi får lära dig om API för textanalys. Den här molnbaserad tjänst från Microsoft tillhandahåller avancerad bearbetning av rå text naturligt språk. När du har slutfört modulen, kommer du har skapat en lösning med Azure Functions som sorterar text feedback baserat på sentiment.
 
-### What you'll learn
+## <a name="what-youll-learn"></a>Detta får du får lära dig
 
-- Learn about Text Analytics API
-- Sign up for a Text Analytics API key
-- Design and build a service with Azure Functions that uses the Text Analytics API to sort text feedback
-- Read and write Azure Queue storage messages in a function app with the help of bindings
-
-
-[!INCLUDE [resource-group-note](./rg-notice.md)]
+- Lär dig mer om API för textanalys
+- Registrera dig för en Text Analytics API-nyckel
+- Utforma och skapa en tjänst med Azure Functions som använder API för textanalys för att sortera text feedback
+- Läsa och skriva Azure Queue storage meddelanden i en funktionsapp med hjälp av bindningar

@@ -1,152 +1,152 @@
-To integrate your on-premises environment with Azure, you need the ability to create an encrypted connection. You can connect over the Internet or over a dedicated link. Here, we'll look at Azure VPN Gateway, which provides an endpoint for incoming connections from on-premises environments.
+Om du vill integrera din lokala miljö med Azure behöver du ha möjlighet att skapa en krypterad anslutning. Du kan ansluta via Internet eller via en dedikerad anslutning. Här ska vi titta på Azure VPN-Gateway, vilket ger en slutpunkt för inkommande anslutningar från lokala miljöer.
 
-You have set up an Azure virtual network and need to ensure that any data transfers from Azure to your site and between Azure virtual networks are encrypted. You also need to know how to connect virtual networks between regions and subscriptions.
+Du har konfigurerat ett Azure-nätverk och se till att alla data som överförs från Azure till din plats och mellan Azure virtuella nätverk som är krypterade. Du måste också veta hur du ansluter virtuella nätverk mellan regioner och prenumerationer.
 
-## What is a VPN gateway?
+## <a name="what-is-a-vpn-gateway"></a>Vad är en VPN-gateway?
 
-An Azure VPN gateway provides an endpoint for incoming encrypted connections from on-premises locations to Azure over the Internet. It can also send encrypted traffic between Azure virtual networks over Microsoft's dedicated network that links Azure datacenters in different regions. This configuration allows you to link virtual machines and services in different regions securely.
+En Azure VPN-gatewayen tillhandahåller en slutpunkt för inkommande krypterade anslutningar från lokala platser till Azure via Internet. Det kan också skicka krypterad trafik mellan Azure-nätverk över Microsofts dedikerat nätverk som länkar Azure-datacenter i olika regioner. Med den här konfigurationen kan du länka virtuella datorer och tjänster i olika regioner på ett säkert sätt.
 
-Each virtual network can have only one VPN gateway. All connections to that VPN gateway share the available network bandwidth.
+Ett virtuellt nätverk kan endast ha en VPN-gateway. Alla anslutningar till den VPN-gatewayen delar den tillgängliga nätverksbandbredden.
 
-Within each virtual network gateway there are two or more virtual machines (VMs). These VMs have been deployed to a special subnet that you specify, called the _gateway subnet_. They contain routing tables for connections to other networks, along with specific gateway services. These VMs and the gateway subnet are similar to a hardened network device. You don't need to configure these VMs directly and should not deploy any additional resources into the gateway subnet.
+Varje virtuell nätverksgateway består av två eller flera virtuella datorer (VM). Dessa virtuella datorer har distribuerats till ett särskilt undernät som du anger, vilket kallas _gatewayundernätet_. De innehåller routningstabeller för anslutningar till andra nätverk, tillsammans med specifika gatewaytjänster. De virtuella datorerna och gatewayundernätet liknar en förstärkt nätverksenhet. Du behöver inte konfigurera de här virtuella datorerna direkt och du bör inte distribuera några ytterligare resurser till gatewayundernätet.
 
-Creating a virtual network gateway can take some time to complete, so it's vital that you plan appropriately. When you create a virtual network gateway, the provisioning process generates the gateway VMs and deploys them to the gateway subnet. These VMs will have the settings that you configure on the gateway.
+Att skapa en virtuell nätverksgateway kan ta lite tid, så det är viktigt att planera på ett lämpligt sätt. När du skapar en virtuell nätverksgateway genererar etableringsprocessen de virtuella gatewaydatorerna och distribuerar dem till gatewayundernätet. De virtuella datorerna har de inställningar som du konfigurerar på gatewayen.
 
-A key setting is the **_gateway type_**, which for a VPN gateway will be of type "vpn". Options for VPN gateways include:
+En viktig inställning är **_gatewaytypen_**, som för en VPN-gateway ska vara av typen ”vpn”. Alternativ för VPN-gatewayer är:
 
-- Network-to-network connections over IPsec/IKE VPN tunneling, linking VPN gateways to other VPN gateways.
+- Nätverk-till-network-anslutningar via IPsec/IKE VPN-tunnel, länka VPN-gatewayer till andra VPN-gatewayer.
 
-- Cross-premises IPsec/IKE VPN tunneling, for connecting on-premises networks to Azure through dedicated VPN devices to create site-to-site connections.
+- Tunnlar mellan IPsec/IKE VPN på olika platser, för anslutning av lokala nätverk till Azure via dedikerade VPN-enheter för att skapa plats-till-plats-anslutningar.
 
-- Point-to-site connections over IKEv2 or SSTP, to link client computers to resources in Azure.
+- Punkt-till-plats-anslutningar via IKEv2 eller SSTP, för att länka klientdatorer till resurser i Azure.
 
-Now, let's look at the factors you need to consider for planning your VPN gateway.
+Nu ska vi titta på de faktorer som du behöver tänka på för att planera din VPN-gateway.
 
-## Plan a VPN gateway
+## <a name="plan-a-vpn-gateway"></a>Planera en VPN-gateway
 
-When you're planning a VPN gateway, there are three architectures to consider:
+När du planerar en VPN-gateway finns tre arkitekturer att tänka på:
 
-- Point to site over the Internet
-- Site to site over the Internet
-- Site to site over a dedicated network, such as Azure ExpressRoute
+- Punkt till plats via internet
+- Plats till plats via internet
+- Plats till plats via ett dedikerat nätverk, till exempel Azure ExpressRoute
 
-### Planning factors
+### <a name="planning-factors"></a>Planera faktorer
 
-Factors that you need to cover during your planning process include:
+Faktorer som du behöver ta med under planeringsprocessen är exempelvis:
 
-- Throughput - Mbps or Gbps
-- Backbone - Internet or private?
-- Availability of a public (static) IP address
-- VPN device compatibility
-- Multiple client connections or a site-to-site link?
-- VPN gateway type
-- Azure VPN Gateway SKU
+- Dataflöde – Mbit/s eller Gbit/s
+- Stamnät – internet eller privat?
+- Tillgängligheten för en offentlig IP-adress (statisk)
+- Kompatibilitet med VPN-enhet
+- Flera klientanslutningar eller länk för plats-till-plats?
+- Typ av VPN-gateway
+- SKU för Azure VPN-gateway
 
-The following table summarizes some of these planning issues. The remainder are discussed later.
+I följande tabell sammanfattas några av dessa planeringsproblem. Övriga frågor diskuteras senare.
 
-|                           |  Point to site            | Site to site                          |  ExpressRoute                 |
+|                           |  Peka på plats            | Plats till plats                          |  ExpressRoute                 |
 | -------------             | -------------             | -------------                         | ---------                     |
-| Azure supported services  | Cloud services and VMs    | Cloud services and VMs                | All supported services        |
-| Typical bandwidth         | Depends on VPN Gateway SKU    | Up to 1 Gbps with aggregation         | From 50 Mbps to 10 Gbps       |
-| Protocols supported       | SSTP and IPsec            | IPsec                                 | Direct connection, VLANs      |
-| Routing                   | RouteBased (dynamic)      | PolicyBased (static) and RouteBased   | BGP                           |
-| Connection resiliency     | Active-passive            | Active-passive or active-active       | Active-active                 |
-| Use case                  | Testing and prototyping   | Dev, test and small-scale production  | Enterprise/mission critical   |
+| Azure-tjänster som stöds  | Cloud Services och virtuella datorer    | Cloud Services och virtuella datorer                | Alla tjänster som stöds        |
+| Vanliga bandbredd         | Beror på VPN-Gateway-SKU    | Upp till 1 Gbit/s med aggregering         | Från 50 Mbit/s till 10 Gbit/s       |
+| Protokoll som stöds       | SSTP och IPsec            | IPsec                                 | Direktanslutning, VLAN      |
+| Routning                   | RouteBased (dynamisk)      | PolicyBased (statisk) och RouteBased   | BGP                           |
+| Anslutningsåterhämtning     | Aktiv-passiv            | aktivt-passivt eller aktivt-aktivt       | aktiv-aktiv                 |
+| Användningsfall                  | Testning och prototyper   | Utveckling, testning och småskalig produktion  | Enterprise-/ verksamhetskritiska   |
 
-### Gateway SKUs
+### <a name="gateway-skus"></a>Gateway-SKU:er
 
-Azure offers the following SKUs for gateway services:
+Azure erbjuder följande SKU:er för gatewaytjänster:
 
-| SKU              |  S2S/network-to-network tunnels | P2S connections  |  Aggregate throughput benchmark   | Use for                         |
+| SKU              |  S2S/nätverk-till-network-tunnlar | P2S-anslutningar  |  Prestandamått för aggregerat dataflöde   | Använd för                         |
 | -------------    | -------------             | -------------    | ---------                         | ---------                       |
-| Basic            | Max 10                    | Max 128          | 100 Mbps                          | Dev/test/POC                    |
-| VpnGw1           | Max 30                    | Max 128          | 650 Mbps                          | Production/critical workloads   |
-| VpnGw2           | Max 30                    | Max 128          | 1 Gbps                            | Production/critical workloads   |
-| VpnGw3           | Max 30                    | Max 128          | 1.25 Gbps                          | Production/critical workloads   |
+| Basic            | Max 10                    | Max 128          | 100 Mbit/s                          | Dev/test/POC                    |
+| VpnGw1           | Max 30                    | Max 128          | 650 Mbit/s                          | Produktion/kritiska arbetsbelastningar   |
+| VpnGw2           | Max 30                    | Max 128          | 1 Gbit/s                            | Produktion/kritiska arbetsbelastningar   |
+| VpnGw3           | Max 30                    | Max 128          | 1,25 Gbit/s                          | Produktion/kritiska arbetsbelastningar   |
 
 > [!Note]
-> It's important that you choose the right SKU. If you have set up your VPN gateway with the wrong one, you'll have to take it down and rebuild the gateway, which can be time consuming.
+> Det är viktigt att du väljer rätt SKU: N. Om du har konfigurerat din VPN-gateway med det fel, måste du ta bort och återskapa gatewayen, som kan ta lång tid.
 
-## Workflow
+## <a name="workflow"></a>Arbetsflöde
 
-When designing a cloud connectivity strategy using virtual private networking on Azure, you should apply the following workflow:
+När du utformar en strategi för molnanslutning med ett virtuellt privat nätverk i Azure bör du använda följande arbetsflöde:
 
-1. Design your connectivity topology, listing the address spaces for all connecting networks.
+1. Utforma din anslutningstopologi och skapa en lista över adressutrymmena för alla anslutningsnätverk.
 
-1. Create an Azure virtual network.
+1. Skapa ett virtuellt Azure-nätverk.
 
-1. Create a VPN gateway for the virtual network.
+1. Skapa en VPN-gateway för det virtuella nätverket.
 
-1. Create and configure connections to on-premises networks or other virtual networks, as required.
+1. Skapa och konfigurera anslutningar till lokala nätverk eller andra virtuella nätverk som krävs.
 
-1. If required, create and configure a point-to-site connection for your Azure VPN gateway.
+1. Om det behövs kan du skapa och konfigurera en punkt-till-plats-anslutning för din Azure VPN-gateway.
 
-### Design considerations
+### <a name="design-considerations"></a>Designöverväganden
 
-When you design your VPN gateways to connect virtual networks, you must consider the following factors:
+När du utformar dina VPN-gatewayer för att ansluta virtuella nätverk behöver du tänka på följande faktorer:
 
-- Subnets cannot overlap
+- Undernät får inte överlappa
 
-    It is vital that a subnet in one location does not contain the same address space as in another location.
+    Det är viktigt att ett undernät på en plats inte innehåller samma adressutrymmet som i en annan plats.
 
-- IP addresses must be unique
+- IP-adresser måste vara unikt
 
-    You cannot have two hosts with the same IP address in different locations, as it will be impossible to route traffic between those two hosts and the network-to-network connection will fail.
+    Du kan inte ha två värdar med samma IP-adress på olika platser, som det omöjligt att dirigera trafik mellan dessa två värdar och nätverk-till-network-anslutningen misslyckas.
 
-- VPN gateways need a gateway subnet called **GatewaySubnet**
+- VPN-gatewayer behöver en gatewayundernät som kallas **GatewaySubnet**
 
-    It must have this name for the gateway to work, and it should not contain any other resources.
+    Det här namnet för att gatewayen ska fungera måste ha och det får inte innehålla andra resurser.
 
-### Create an Azure virtual network
+### <a name="create-an-azure-virtual-network"></a>Skapa en Azure-nätverk
 
-Before you create a VPN gateway, you need to create the Azure virtual network.
+Innan du skapar en VPN-gateway, måste du skapa virtuella Azure-nätverket.
 
-### Create a VPN gateway
+### <a name="create-a-vpn-gateway"></a>Skapa en VPN-gateway
 
-The type of VPN gateway you create will depend on your architecture. Options are:
+Typen av VPN-gateway som du skapar beror på din arkitektur. Alternativen är:
 
-- RouteBased
+- Routningsbaserad
 
-    Route-based VPN devices use any-to-any (wildcard) traffic selectors, and let routing/forwarding tables direct traffic to different IPsec tunnels. Route-based connections are typically built on router platforms where each IPsec tunnel is modeled as a network interface or VTI (virtual tunnel interface).
+    Ruttbaserad VPN-enheter använder trafikväljare för alla-till-alla (med jokertecken) och låt routning/vidarebefordran tabeller dirigera trafik till olika IPsec-tunnlar. Routningsbaserade anslutningar bygger vanligtvis på routerplattformar där varje IPsec-tunnel modelleras som ett nätverksgränssnitt eller ett VTI (virtuellt tunnelgränssnitt).
 
-- PolicyBased
+- Principbaserad
 
-    Policy-based VPN devices use the combinations of prefixes from both networks to define how traffic is encrypted/decrypted through IPsec tunnels. A policy-based connection is typically built on firewall devices that perform packet filtering. IPsec tunnel encryption and decryption are added to the packet filtering and processing engine.
+    Principbaserad VPN-enheter använder kombinationer av prefix från båda nätverken för att definiera hur trafik är krypterad/dekrypteras via IPsec-tunnlar. En principbaserad anslutning bygger vanligtvis på brandväggsenheter som utför paketfiltrering. Kryptering och avkryptering av IPsec-tunnlar läggs till i motorn för paketfiltrering och bearbetning.
 
-## Set up a VPN gateway
+## <a name="set-up-a-vpn-gateway"></a>Konfigurera en VPN-gateway
 
-The steps you need to take will depend on the type of VPN gateway that you are installing. For example, to create a point-to-site VPN gateway by using the Azure portal, you would carry out the following steps:
+Vilka åtgärder du behöver vidta beror på vilken typ av VPN-gateway du installerar. För att skapa en punkt-till-plats VPN-gateway med hjälp av Azure portal, skulle du till exempel har utfört följande steg:
 
-1. Create a virtual network
+1. Skapa ett virtuellt nätverk
 
-2. Add a gateway subnet
+2. Lägga till ett gatewayundernät
 
-3. Specify a DNS server (optional)
+3. Ange en DNS-server (valfritt)
 
-4. Create a virtual network gateway
+4. Skapa en virtuell nätverksgateway
 
-5. Generate certificates
+5. Generera certifikat
 
-6. Add the client address pool
+6. Lägga till klientadresspoolen
 
-7. Configure the tunnel type
+7. Konfigurera Tunneltyp
 
-8. Configure the authentication type
+8. Konfigurera autentiseringstypen
 
-9. Upload the root certificate public certificate data
+9. Ladda upp offentliga certifikatdata från rotcertifikatet
 
-10. Install an exported client certificate
+10. Installera ett exporterat klientcertifikat
 
-11. Generate and install the VPN client configuration package
+11. Skapa och installera VPN-klientkonfigurationspaketet
 
-12. Connect to Azure
+12. Ansluta till Azure
 
-As there are several configuration paths with Azure VPN gateways, each with multiple options, it is not possible to cover every setup in this course. For more information, see the Additional Resources section.
+Eftersom det finns flera vägar för konfigurationen med Azure VPN-gatewayer med flera alternativ, går det inte att täcka alla inställningarna i den här kursen. Mer information finns i avsnittet Ytterligare resurser.
 
-## Configure the gateway
+## <a name="configure-the-gateway"></a>Konfigurera gatewayen
 
-Once your gateway is created, you'll need to configure it.  There are several configuration settings you will need to provide, such as the name, location, DNS server, etc. We will go into these in more detail in the exercise.
+När du har skapat din gateway behöver du konfigurera den.  Det finns flera konfigurationsinställningar som du måste ange till exempel namn, plats, DNS-server, osv. Vi går igenom dessa i detalj i övningen.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Azure VPN gateways are a component in Azure virtual networks that enable point-to-site, site-to-site, or network-to-network connections. Azure VPN gateways enable individual client computers to connect to resources in Azure, extend on-premises networks into Azure, or facilitate connections between virtual networks in different regions and subscriptions.
+Azure VPN gateway är en komponent i Azure-nätverk som gör det möjligt för punkt-till-plats, plats-till-plats eller nätverket till nätverksanslutningar. Azure VPN-gatewayer att enskilda klientdatorer att ansluta till resurser i Azure, utöka lokala nätverk till Azure eller underlätta anslutningar mellan virtuella nätverk i olika regioner och prenumerationer.

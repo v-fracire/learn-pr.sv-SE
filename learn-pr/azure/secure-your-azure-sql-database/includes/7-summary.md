@@ -1,10 +1,10 @@
-In this module, you've seen how security can be applied against the database. Remember, any one security vulnerability still makes your database vulnerable. It's important to make sure you have everything possible to reduce threats to your database. 
+Du har sett hur säkerhet kan användas mot databasen i den här modulen. Kom ihåg att alla en säkerhetsrisk fortfarande gör din databas sårbar. Det är viktigt att kontrollera att du har allt möjligt att minska hot mot din databas.
 
-You've learned how to:
+Du har lärt dig hur du:
 
-- Configure the firewall for the Azure SQL Server database
-- Control user access at the database and Active Directory levels
-- Manage encryption between the client and server
-- Add auditing and threat monitoring to the Azure SQL Server database
+- Konfigurera brandväggen för Azure SQL Server-databasen
+- Kontrollera åtkomst på databasen och Active Directory-nivåer
+- Hantera kryptering mellan klient och server
+- Lägg till granskning och hotidentifiering övervakning i Azure SQL Server-databasen
 
-All of the aspects work together to secure your database. Your customers are important, your reputation is important, and that makes your database security important. 
+Alla aspekter fungerar tillsammans för att skydda din databas. Dina kunder är viktigt, ditt rykte är viktigt och som gör att din database-säkerhet är viktigt.

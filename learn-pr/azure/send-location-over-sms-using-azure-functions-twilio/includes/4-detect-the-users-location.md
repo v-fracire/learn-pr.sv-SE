@@ -8,7 +8,7 @@ Alla mobila plattformar har säkerhet kring användarinformation och viss maskin
 
 1. Gå till fliken **Funktioner** och markera funktionen *Plats*.
 
-    ![Fliken med UWP-funktioner](../media-drafts/4-uwp-location-capability.png)
+    ![Fliken med UWP-funktioner](../media/4-uwp-location-capability.png)
 
 > Om du vill stödja Android eller iOS måste behörigheterna konfigureras på olika sätt. Det beskrivs i [Xamarin.Essentials Geolocation docs](https://docs.microsoft.com/xamarin/essentials/geolocation?tabs=android#getting-started).
 
@@ -49,9 +49,9 @@ async Task SendLocation()
 
 Kör appen och klicka på knappen **Send Location** (Skicka plats) för att se platsen i användargränssnittet.
 
-![Appen som körs visar användarens plats](../media-drafts/4-running-app-showing-location.png)
+![Appen som körs visar användarens plats](../media/4-running-app-showing-location.png)
 
-> I den här appen används den senaste kända platsen. I en app med produktionskvalitet kan du hämta den aktuella platsen med en tidsgräns, och om ingen hittas i tid återgår du till den senast kända. Du kan läsa mer om det i [Xamarin.Essentials Geolocation.docs](https://docs.microsoft.com/xamarin/essentials/geolocation?tabs=uwp#using-geolocation). Den här appen har inte felhantering. I en app med produktionskvalitet kan du hantera eventuella undantag som sker, exempelvis om platsen inte var tillgänglig.
+> I den här appen används den senaste kända platsen. I en app med produktionskvalitet kan du hämta den aktuella platsen med en tidsgräns, och om ingen hittas i tid återgår du till den senast kända. Du kan läsa mer om det i [Xamarin.Essentials Geolocation.docs](https://docs.microsoft.com/xamarin/essentials/geolocation?tabs=uwp#using-geolocation). Den här appen har inte någon felhantering. I en app med produktionskvalitet kan du hantera eventuella undantag som sker, exempelvis om platsen inte var tillgänglig.
 
 ## <a name="summary"></a>Sammanfattning
 

@@ -1,10 +1,11 @@
-Great work! With your first virtual machine under your belt, you now have a sense of how Azure works and how easy it is to bring up a system, configure some software, and tear everything down when it's no longer needed.
+Bra jobbat! Med den första virtuella datorn klarat, du nu har en uppfattning om hur Azure fungerar och hur enkelt det är att ta fram ett system, konfigurera vissa program, och plocka ner allt när det inte längre behövs.
 
-Azure provides services that can help transform the way your organization delivers new features to your users in ways you simply can't do without the power of the cloud.
+Azure tillhandahåller tjänster som kan hjälpa dig att omvandla sättet din organisation innehåller nya funktioner till dina användare på ett sätt som du kan helt enkelt inte kan utföra utan kraften i molnet.
 
-## Continue your Azure journey
+[!include[](../../../includes/azure-sandbox-cleanup.md)]
 
-Microsoft Learn provides learning paths based on your role and interests.
+## <a name="continue-your-azure-journey"></a>Fortsätta resan Azure
 
-A great next step is to check out the
-[Cloud foundations](/learn/paths/cloud-foundations/) learning path. You'll learn the fundamental concepts behind cloud computing and how Azure services such as compute, storage, networking, and security can help you unlock the power of the cloud and create that next great breakthrough idea.
+Microsoft Learn ger utbildningsvägar baserat på rollen och intressen.
+
+En bra nästa steg är att ta en titt på [Cloud grundpelarna](/learn/paths/cloud-foundations/) Utbildningsväg. Du får lära dig de grundläggande principerna databehandling och hur Azure molntjänster, till exempel beräkning, lagring, nätverk och säkerhet kan hjälpa dig att frigöra kraften i molnet och skapa den nästa fantastiska banbrytande idén.

@@ -7,11 +7,10 @@ I den här modulen lär du dig hur du använder villkorsstyrd åtkomst tillsamma
 ## <a name="learning-objectives"></a>Utbildningsmål
 
 I den här modulen kommer du att göra följande:
-- Skapa en testanvändare och en användningsgrupp
-- Aktivera en princip för villkorsstyrd åtkomst som kräver multifaktorautentisering
 
-## <a name="prerequisites"></a>Krav
+- Skapa en testanvändare och en användargrupp.
+- Aktivera en villkorlig åtkomstprincip som kräver Multi-Factor Authentication (MFA).
 
-- Kunskaper om grundläggande Azure-begrepp, som resursgrupper och prenumerationer
-- Åtkomst till en Azure-prenumeration
-- Behörigheter för att skapa en katalog
+## <a name="prerequisites"></a>Förutsättningar
+
+- Kunskaper om grundläggande begrepp för Azure, till exempel resursgrupper och prenumerationer.

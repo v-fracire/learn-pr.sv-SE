@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.the-mojifier.7-create-an-azure-function-project
+metadata:
+  title: Skapa ett Azure Function-projekt
+  description: Skapa och felsöka din första Azure-funktion HTTP-utlösare.
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+labId: 45987
+title: Skapa ett Azure Function-projekt
+durationInMinutes: 10
+content: |
+  [!include[](includes/7-create-an-azure-function-project.md)]

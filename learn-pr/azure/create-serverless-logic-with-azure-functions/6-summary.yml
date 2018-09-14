@@ -9,12 +9,37 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 7f01289f6e6f74cca4daa8e53157514fa982c207
-  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/10/2018
-  ms.locfileid: "44307985"
 azureSandbox: true
 durationInMinutes: 3
-content: '[!include[](includes/6-summary.md)]'
+content: |
+  [!include[](includes/6-summary.md)]
+quiz:
+  title: Kunskapskontroll
+  questions:
+    - content: Vilket av följande bästa definierar logik utan Server?
+      choices:
+        - content: Koden du skriver som körs inte på servrar.
+          isCorrect: false
+        - content: Hantera koden du skriver som körs på servrar.
+          isCorrect: false
+        - content: Koden du skriver som körs på servrar en molntjänstleverantör hanterar.
+          isCorrect: true
+          correctExplanation: 'Serverlösa innebär inte att det finns inga servrar – det betyder bara att utvecklare inte behöver bekymra sig om servrar. I stället hanterar en leverantör, till exempel Azure, servrar.'
+    - content: 'Behållare som grupperar funktioner i en logisk enhet för enklare hantering, distribution och dela resurser anropas?'
+      choices:
+        - content: Resursgrupp
+          isCorrect: false
+        - content: Funktionsapp
+          isCorrect: true
+          correctExplanation: 'En funktionsapp är ett sätt att ordna och hantera dina funktioner gemensamt. En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans med Azure App Service. Alla funktioner i en funktionsapp delar samma prisplanen, kontinuerlig distribution och runtime-versionen.'
+        - content: Funktionen samling
+          isCorrect: false
+    - content: Vi skyddas vår funktion mot okända HTTP-anrop genom att kräva en funktionsspecifika API-nyckel ska skickas med varje anrop. Vilket av följande är rubriken namn i HTTTP begäranden som måste innehålla den här nyckeln?
+      choices:
+        - content: x-functions-key
+          isCorrect: true
+          correctExplanation: 'API: et kan ingå i en fråga variabel med namnet ”code” eller den kan ingå i ett x-functions-key HTTP-huvud'
+        - content: x-requested-with
+          isCorrect: false
+        - content: x-csrf-token
+          isCorrect: false

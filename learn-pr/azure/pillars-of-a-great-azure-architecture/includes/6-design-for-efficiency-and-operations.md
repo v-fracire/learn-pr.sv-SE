@@ -4,20 +4,20 @@ Vi ska titta på några sätt att minimera svinn och förbättra effektiviteten.
 
 ## <a name="importance-of-efficiency-and-operations"></a>Vikten av effektivitet och drift
 
-Effektivitet fokuserar på att identifiera och eliminera svinn i din arbetsmiljö. När det gäller kostnader för molnet handlar det ofta om att mer kapacitet än nödvändigt har avsatts. Utöver detta tillkommer driftskostnader. Dessa driftskostnader tar sig uttryck som spilltid och fler fel. Genom att fokusera på dessa när du utformar din arkitektur kommer du att kunna identifiera och minimera svinn i din miljö.
+Effektivitet fokuserar på att identifiera och eliminera svinn i din arbetsmiljö. När det gäller kostnader för molnet handlar det ofta om att mer kapacitet än nödvändigt har avsatts. Utöver detta tillkommer driftskostnader. Dessa driftskostnader tar sig uttryck i spilltid och fler fel. Genom att fokusera på dessa när du utformar din arkitektur kommer du att kunna identifiera och minimera svinn i din miljö.
 
 Molntjänster kostar pengar vilket gör det viktigt att bara betala för tjänster du använder. Det är anledningen till att molnet är perfekt för att bygga dina program. Du betalar bara för de resurser du använder.
 
-Svinn kan ta sig olika uttryck. Låt oss titta på några exempel:
+Det finns olika typer av svinn. Låt oss titta på några exempel:
 
 * En virtuell dator som alltid är 90 % inaktiv
 * Betala för en licens som ingår i en virtuell dator när en licens redan ägs
 * Spara sällan använda data på ett lagringsmedium som anpassats för frekvent åtkomst
 * Manuellt upprätthålla en version av en icke-produktionsmiljö
 
-I dessa fall används mer pengar än nödvändigt, och de erbjuder alla en möjlighet att minska kostnaderna.
+I dessa fall används mer pengar än nödvändigt, och det öppnar för möjligheter att minska kostnaderna.
 
-Driftsmässigt är det viktigt att ha en genomtänkt strategi för övervakning. Detta hjälpa dig inte bara att identifiera områden med svinn, utan kan också underlätta felsökning av problem och prestandaoptimering av ditt program. Ett angreppssätt på flera nivåer är nödvändigt. Genom att hämta datapunkter från komponenter på varje nivå får du möjlighet att snabbt identifiera värden som ligger utanför angivna ramar och gör att du kan spåra olika utgifter över tid.
+Driftsmässigt är det viktigt att ha en genomtänkt strategi för övervakning. Detta hjälpa dig inte bara att identifiera områden med svinn, utan kan också underlätta felsökning av problem och prestandaoptimering av ditt program. Ett angreppssätt på flera nivåer är nödvändigt. Genom att hämta datapunkter från komponenter på varje nivå får du möjlighet att snabbt identifiera värden som ligger utanför angivna ramar, vilket gör att du kan spåra olika utgifter över tid.
 
 ## <a name="efficiency-best-practices"></a>Metodtips för effektivitet
 

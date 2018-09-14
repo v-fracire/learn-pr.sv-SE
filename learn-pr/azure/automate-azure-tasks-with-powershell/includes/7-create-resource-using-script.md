@@ -87,7 +87,8 @@ När parametrarna inte har namn används deras placering till matchning i skript
 param([int]$size, [string]$location)
 ```
 
-## <a name="how-to-create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
+## <a name="how-to-create-a-linux-virtual-machine"></a>Så här skapar du en Linux-dator
+
 I Azure PowerShell kan du använda cmdleten **New-AzureRmVm** till att skapa en virtuell dator. Cmdleten har många parametrar för alla konfigurationsinställningar för virtuella datorer. De flesta av parametrarna har rimliga standardvärden, så vi behöver bara ange fem saker:
 
 - **ResourceGroupName**: resursgruppen som den nya virtuella datorn ska placeras i.

@@ -1,4 +1,4 @@
-Det är vanligt att köra en del av logiken med ett angivet intervall. Anta att du har en blogg och du lägger märke till att dina prenumeranter inte har läst dina senaste inlägg. Du bestämmer dig för att den bästa åtgärden är att skicka ett e-postmeddelande till dem en gång i veckan för att påminna dem om att gå in på din blogg. Du implementerar den här logiken med hjälp av en Azure-funktion med en _timerutlösare_ som anropar funktionen en gång i veckan.
+Det är vanligt att köra en del av logiken med ett angivet intervall. Anta att du har en blogg och du lägger märke till att dina prenumeranter inte har läst dina senaste inlägg. Du bestämmer dig för att den bästa åtgärden är att skicka ett e-postmeddelande till dem en gång i veckan för att påminna dem om att gå in på din blogg. Du implementerar den här logiken med hjälp av en Azure-funktionsapp med en _timerutlösare_ att anropa din funktion varje vecka.
 
 ## <a name="what-is-a-timer-trigger"></a>Vad är en timerutlösare?
 
@@ -46,8 +46,8 @@ När du sätter ihop alla fält läses uttrycket som ”den första sekunden, va
 
 ## <a name="how-to-create-a-timer-trigger"></a>Skapa en timerutlösare
 
-Du kan skapa en timerutlösare helt i Azure-portalen. I din Azure-funktion väljer du **timerutlösare** i listan med fördefinierade utlösartyper. Ange den logik som du vill köra. Ange ett **tidsstämpelparameternamn** och **CRON-uttrycket**.
+Du kan skapa en timerutlösare helt i Azure-portalen. I Azure-funktionsapp, Välj **timerutlösare** från listan över utlösare mallar. Ange den logik som du vill köra. Ange ett **tidsstämpelparameternamn** och **CRON-uttrycket**.
 
-## <a name="summary"></a>Sammanfattning
+I den här modulen vi att fokusera på portalen, men det är också möjligt att skapa utlösare genom programmering med Core Tools, Visual Studio eller VS Code.
 
-En timerutlösare anropar en Azure-funktion enligt ett konsekvent schema. För att definiera schemat för en timerutlösare skapade vi ett *CRON-uttryck*, vilket är en sträng som motsvarar olika tider.
+En timer som utlösare anropar en Azure function-app på ett konsekvent schema. För att definiera schemat för en timerutlösare skapade vi ett *CRON-uttryck*, vilket är en sträng som motsvarar olika tider.

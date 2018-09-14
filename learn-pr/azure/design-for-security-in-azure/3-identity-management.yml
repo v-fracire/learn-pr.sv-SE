@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-security.3-identity-management
-title: Identity management
+title: Identitetshantering
 metadata:
-  title: Identity management
-  description: In this unit we'll discuss how to protect your identities
+  title: Identitetshantering
+  description: I den här enheten diskuterar vi hur du kan skydda dina identiteter
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
@@ -14,33 +13,33 @@ durationInMinutes: 5
 content: |
   [!include[](includes/3-identity-management.md)]
 quiz:
-  title: 'Knowledge Check - Identity management'
+  title: Kunskapskontroll – Identitetshantering
   questions:
-  - content: 'Which of the following is not a factor in multi-factor authentication?'
-    choices:
-    - content: 'A thumbprint scanner on a mobile device'
-      isCorrect: false
-      incorrectExplanation: 'Biometric elements such as thumbprint scans can be used as factors in multi-factor authentication.'
-    - content: 'A token generated from the Azure Authenticator application'
-      isCorrect: false
-      incorrectExplanation: 'Tokens generated from applications and keyfobs can be used as factors in multi-factor authentication.'
-    - content: 'A password'
-      isCorrect: false
-      incorrectExplanation: 'Passwords can be used as factors in multi-factor authentication.'
-    - content: 'Your shoe size'
-      isCorrect: true
-      correctExplanation: 'Your shoe size is not something that can be used in multi-factor authentication.'
-  - content: 'Which of the following is NOT a benefit SSO provides?'
-    choices:
-    - content: 'Increased complexity assigning permissions to users'
-      isCorrect: true
-      correctExplanation: 'SSO can reduce the complexity needed to assign permissions to users.'
-    - content: 'Fewer IDs and passwords for users to remember'
-      isCorrect: false
-      incorrectExplanation: 'Fewer IDs and passwords for users to remember is a key benefit of SSO.'
-    - content: 'Lower adminmistration effort when users change roles or leave an organization'
-      isCorrect: false
-      incorrectExplanation: 'SSO reduces the amount of administration required to update or disable access when users change roles or leave an organization. This is a key benefit of SSO.'
-    - content: 'Ensures a consistent password policy across applications'
-      isCorrect: false
-      incorrectExplanation: 'By using SSO, users have a single password policy for all accounts. This is a key benefit of SSO.'
+    - content: Vilket av följande är inte en faktor i multifaktorautentisering?
+      choices:
+        - content: Ett tumavtryck som avsöks på en mobil enhet
+          isCorrect: false
+          incorrectExplanation: Biometrisk element kan som söker igenom tumavtryck användas som faktorer i Multi-Factor authentication.
+        - content: En token som genereras från Azure Authenticator-programmet
+          isCorrect: false
+          incorrectExplanation: Token som genererats från program och keyfobs kan användas som faktorer i Multi-Factor authentication.
+        - content: Ett lösenord
+          isCorrect: false
+          incorrectExplanation: Lösenord kan användas som faktorer i Multi-Factor authentication.
+        - content: Din skostorlek
+          isCorrect: true
+          correctExplanation: Storleken på din sko är inte något som kan användas i Multi-Factor authentication.
+    - content: Vilket av följande är inte en förmån enkel inloggning ger?
+      choices:
+        - content: Ökad komplexitet vid tilldelning av behörigheter till användare
+          isCorrect: true
+          correctExplanation: Enkel inloggning kan minska komplexiteten som behövs för att tilldela behörigheter till användare.
+        - content: 'Färre-ID:n och lösenord som användare behöver komma ihåg'
+          isCorrect: false
+          incorrectExplanation: Färre-ID och lösenord för användare att komma ihåg är en viktig fördel med enkel inloggning.
+        - content: Mindre administrationsarbete när användare byter roller eller lämnar en organisation
+          isCorrect: false
+          incorrectExplanation: SSO minskar mängden administration som krävs för att uppdatera eller inaktivera åtkomst när användarna ändrar roller eller lämna en organisation. Det här är en viktig fördel med enkel inloggning.
+        - content: Säkerställer en konsekvent lösenordsprincip mellan program
+          isCorrect: false
+          incorrectExplanation: Användare har en enda lösenordsprincip för alla konton med hjälp av enkel inloggning. Det här är en viktig fördel med enkel inloggning.

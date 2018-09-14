@@ -1,57 +1,57 @@
-Often, the success of a services company is directly related to the service level agreements (SLA) the company has with its customers. Your customers expect the services you provide always to be available and their data kept safe. This is something that Microsoft takes very seriously. Azure provides tools you can use to manage availability, data security, and monitoring, so you know your services are always available for your customers.
+Ett tjänstföretags framgång är ofta direkt relaterad till det serviceavtal företaget har med sina kunder. Kunderna förväntar sig att de tjänster du tillhandahåller alltid är tillgängliga och att deras data alltid är skyddade. Det här är något som Microsoft tar på stort allvar. Azure innehåller verktyg som du kan använda för att hantera tillgänglighet, datasäkerhet och övervakning, så att du vet att dina tjänster alltid är tillgängliga för dina kunder.
 
-Administration of an Azure VM isn't limited to managing the operating system or software that runs on the VM. It helps to know which services Azure provides that ensure service availability and support automation. These services help you to plan your organization's business continuity and disaster recovery strategy.
+Administration av en Azure-dator är inte begränsat till att hantera operativsystem eller program som körs på den virtuella datorn. Det hjälper dig för att veta vilka tjänster som Azure tillhandahåller som garantera tjänstens tillgänglighet och support för automation. Dessa tjänster hjälper dig att planera din organisations affärskontinuitet och haveriberedskap.
 
-Here, we'll cover an Azure service that helps you improve VM availability, streamlines VM management tasks, and keeps your VM data backed up and safe. Let's start by defining availability.
+Här kan upp vi en Azure-tjänst som hjälper att du förbättra tillgängligheten för virtuella datorer, effektiviserar VM-hanteringsuppgifter och ser till att din VM-data som säkerhetskopieras och säker. Vi börjar med att definiera vad tillgänglighet är.
 
-## What is availability?
+## <a name="what-is-availability"></a>Vad är tillgänglighet?
 
-Availability is the percentage of time a service is available for use.
+Tillgänglighet är andelen tid i procent som en tjänst är tillgänglig för användning.
 
-Let's assume you have a website and you want your customers to be able to access information at all times. Your expectation is 100% availability concerning website access.
+Anta att du har en webbplats och att du vill att kunderna ska kunna komma åt informationen hela tiden. Du förväntar dig 100 % tillgänglighet vad gäller åtkomsten till din webbplats.
 
-### Why do I need to think about availability when using Azure?
+### <a name="why-do-i-need-to-think-about-availability-when-using-azure"></a>Varför behöver jag bry mig om tillgänglighet när jag använder Azure?
 
-Azure VMs run on physical servers hosted within Microsoft's data centers. As with most physical devices, there's a chance that there could be a failure. If the physical server fails, the virtual machines hosted on that server will also fail. If this happens, Azure will move the VM to a healthy host server automatically. However, this self-healing migration could take several minutes, during which, the application(s) hosted on that VM will not be available.
+Virtuella datorer i Azure körs på fysiska servrar som finns på Microsofts datacenter. Precis som med de flesta fysiska enheter, finns det en risk att det kan finnas ett fel. Om den fysiska servern slutar fungera, kommer även de virtuella datorer som körs på servern att sluta fungera. Om detta inträffar flyttar Azure automatiskt den virtuella datorn till en felfri värdserver. Den här självåterställande migreringen kan emellertid ta flera minuter, och under den perioden är programmet eller programmen som körs på den virtuella datorn inte tillgängliga.
 
-The VMs could also be affected by periodic updates initiated by Azure itself. These maintenance events range from software updates to hardware upgrades and are required to improve platform reliability and performance. These events usually are performed without impacting any guest VMs, but sometimes the virtual machines will be rebooted to complete an update or upgrade.
+De virtuella datorerna kan också påverkas av regelbundna uppdateringar som initieras av Azure. Dessa underhållshändelser kan gälla allt från programvaruuppdateringar till maskinvaruuppgraderingar och krävs för att förbättra plattformens tillförlitlighet och prestanda. Dessa händelser utförs vanligtvis utan att virtuella gästdatorer påverkas, men ibland behöver de virtuella datorerna startas om för att en uppdatering eller uppgradering ska slutföras.
 
 > [!NOTE]
-> Microsoft does not automatically update your VM's OS or software. You have complete control and responsibility for that. However, the underlying software host and hardware are periodically patched to ensure reliability and high performance at all times.
+> Microsoft uppdateras inte automatiskt Virtuellt datorns OS- eller programvara. Du har fullständig kontroll och fullständigt ansvar för det. Den underliggande programvaruvärden och maskinvaran behöver dock korrigeras med jämna mellanrum för att säkerställa hög tillförlitlighet och höga prestanda hela tiden.
 
-To ensure your services aren't interrupted and avoid a single point of failure, it's recommended to deploy at least two instances of each VM. This feature is called an _availability set_.
+För att säkerställa att dina tjänster inte avbryts och undvika en enskild felpunkt, rekommenderar vi för att distribuera minst två instanser av varje virtuell dator. Den här funktionen kallas en _tillgänglighetsuppsättning_.
 
-### What is an availability set?
+### <a name="what-is-an-availability-set"></a>Vad är en tillgänglighetsuppsättning?
 
-An **availability set** is a logical feature used to ensure that a group of related VMs are deployed so that they aren't all subject to a single point of failure and not all upgraded at the same time during a host operating system upgrade in the data center. VMs placed in an availability set should perform an identical set of functionalities and have the same software installed.
+En **tillgänglighetsuppsättning** är en logisk funktion som används för att se till att en grupp relaterade virtuella datorer distribueras så att de inte alla föremål för en enskild felpunkt och inte alla uppgraderas på samma gång vid en uppgradering av operativsystemet värden i den Datacenter. Virtuella datorer i en tillgänglighetsuppsättning bör utföra en identisk uppsättning funktioner och ha samma programvara installerad.
 
 > [!TIP]
-> Microsoft offers a 99.95% external connectivity service level agreement (SLA) for multiple-instance VMs deployed in an availability set. That means that for the SLA to apply, there must be at least two instances of the VM deployed within an availability set. 
+> Microsoft erbjuder ett serviceavtal (SLA) med 99,95 % garanterad extern anslutning för virtuella datorer med flera instanser som distribuerats i en tillgänglighetsuppsättning. Det innebär att för att serviceavtalet ska gälla måste det finnas minst två instanser av den virtuella datorn i en tillgänglighetsuppsättning. 
 
-You can create availability sets through the Azure portal in the disaster recovery section. Also, you can build them using Resource Manager templates, or any of the scripting or API tools. When you place VMs into an availability set, Azure guarantees to spread them across **Fault Domains** and **Update Domains**.
+Du kan skapa tillgänglighetsuppsättningar via Azure Portal i avsnittet om haveriberedskap. Dessutom kan du skapa dem med hjälp av Resource Manager-mallar eller någon av skript eller API-verktyg. När du lägger till virtuella datorer i en tillgänglighetsuppsättning distribuerar Azure dem mellan **feldomäner** och **uppdateringsdomäner**.
 
-#### What is a fault domain?
+#### <a name="what-is-a-fault-domain"></a>Vad är en feldomän?
 
-A fault domain is a logical group of hardware in Azure that shares a common power source and network switch. You can think of it as a rack within an on-premises datacenter. The first two VMs in an availability set will be provisioned into two different racks so that if the network or the power failed in a rack, only one VM would be affected. Fault domains are also defined for managed disks attached to VMs.
+En feldomän är en logisk grupp av maskinvaran i Azure som delar samma strömkälla och nätverksswitch. Den kan liknas vid ett rack i ett lokalt datacenter. De två första virtuella datorerna i en tillgänglighetsuppsättning etableras i två olika rack så att bara en virtuell dator påverkas i händelse av ett fel i nätverket eller ett strömavbrott. Feldomäner definieras även för hanterade diskar som är anslutna till virtuella datorer.
 
-![Fault domains](../media/5-fault-domains.png)
+![Feldomäner](../media/5-fault-domains.png)
 
-#### What is an update domain?
+#### <a name="what-is-an-update-domain"></a>Vad är en uppdateringsdomän?
 
-An update domain is a logical group of hardware that can undergo maintenance or be rebooted at the same time. Azure will automatically place availability sets into update domains to minimize the impact when the Azure platform introduces host operating system changes. Azure then processes each update domain one at a time.
+En uppdateringsdomän är en logisk grupp med maskinvara som kan underhållas eller startas om samtidigt. Azure placerar automatiskt tillgänglighetsuppsättningar i uppdateringsdomäner för att minimera effekten när Azure-plattformen introducerar värdoperativsystemsändringar. Azure bearbetar sedan varje uppdateringsdomän en i taget.
 
-Availability sets are a powerful feature to ensure the services running in your VMs are always available to your customers. However, they aren't foolproof. What if something happens to the data or the software running on the VM itself? For that, we'll need to look at other disaster recovery and backup techniques.
+Tillgänglighetsuppsättningar är en kraftfull funktion som ser till att de tjänster som körs på dina virtuella datorer alltid är tillgängliga för dina kunder. De är dock inte felsäkra. Vad händer om det uppstår problem med data eller programvaran som körs på den virtuella datorn? För att behöver vi titta i andra haveriberedskap och säkerhetskopiering tekniker.
 
-## Failover across locations
+## <a name="failover-across-locations"></a>Redundansväxling mellan platser
 
-You can also replicate your infrastructure across sites to handle regional failover. **Azure Site Recovery**  replicates workloads from a primary site to a secondary location. If an outage happens at your primary site, you can fail over to a secondary location. This failover allows users to continue to access your applications without interruption. You can then fail back to the primary location once it's up and running again. Azure Site Recovery is about replication of virtual or physical machines; it keeps your workloads available in an outage.
+Du kan också replikera din infrastruktur mellan platser för att hantera regional redundans. **Azure Site Recovery** replikerar arbetsbelastningar från en primär plats till en sekundär plats. Om ett avbrott inträffar på den primära platsen kan du växla över till en sekundär plats. Tack vare den här redundansväxlingen kan användarna fortsätta att komma åt dina program utan avbrott. Du kan sedan växla tillbaka till den primära platsen när den är igång och körs igen. Azure Site Recovery handlar om replikering av virtuella eller fysiska datorer. Tjänsten ser till att dina arbetsbelastningar är tillgängliga i händelse av ett avbrott.
 
-While there are many attractive technical features to Site Recovery, there are at least two significant business advantages:
+Det finns många attraktivt tekniska funktioner till Site Recovery, finns men det minst två viktiga fördelar:
 
-1. Site Recovery enables the use of Azure as a destination for recovery, thus eliminating the cost and complexity of maintaining a secondary physical datacenter.
+1. Site Recovery kan du använda Azure som mål för återställning, vilket eliminerar kostnaden och komplexiteten med att underhålla ett sekundärt fysiska datacenter.
 
-2. Site Recovery makes it incredibly simple to test failovers for recovery drills without impacting production environments. This makes it easy to test your planned or unplanned failovers. After all, you don’t have a good disaster recovery plan if you’ve never tried to failover.
+2. Site Recovery gör det otroligt enkelt att testa redundans för tester utan att påverka produktionsmiljöer. På så vis kan du enkelt testa planerade eller oplanerade redundansväxlingar. Hur vet du om din katastrofåterställningsplan fungerar om du aldrig har provat att redundansväxla?
 
-The recovery plans you create with Site Recovery can be as simple or as complex as your scenario requires. They can include custom PowerShell scripts, Azure Automation runbooks, or manual intervention steps. You can leverage the recovery plans to replicate workloads to Azure, easily enabling new opportunities for migration, temporary bursts during surge periods, or development and testing of new applications.
+Återställningsplaner som du skapar med Site Recovery kan vara så enkla eller så komplext som krävs för ditt scenario. De kan innehålla anpassade PowerShell-skript, Azure Automation-runbooks eller manuella åtgärdssteg. Du kan använda återställningsplaner för att replikera arbetsbelastningar till Azure och enkelt dra nytta av nya möjligheter i fråga om migrering, tillfälliga trafiktoppar eller utveckling och testning av nya program.
 
-Azure Site Recovery works with Azure resources, or Hyper-V, VMware, and physical servers in your on-premises infrastructure and can be a key part of your organization’s business continuity and disaster recovery (BCDR) strategy by orchestrating the replication, failover, and recovery of workloads and applications if the primary location fails.
+Azure Site Recovery fungerar med Azure-resurser, eller Hyper-V, VMware och fysiska servrar i din lokala infrastruktur och kan vara en viktig del av din organisations affärskontinuitet och haveriberedskap (BCDR) genom att samordna replikering, redundans och återställning av arbetsbelastningar och program som om den primära platsen misslyckas.

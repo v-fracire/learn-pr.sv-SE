@@ -28,15 +28,15 @@ Offentliga moln kan distribueras snabbare än en lokal infrastruktur och med en 
 
 Exempel på varför du bör använda ett offentligt moln:
 
-- **Användning av tjänsten på begäran, vid behov eller med prenumeration:** Med en modell på begäran eller med prenumeration betalar du för den del av processorn, lagringen och andra resurser som du använder eller reserverar.
+- **Tjänsten via på begäran eller prenumeration:** modellen på begäran eller en prenumeration kan du betala för del av processor, lagring och andra resurser som du använder eller reservera.
 - **Ingen inledande investering av maskinvara:** Inget krav på att köpa, hantera och underhålla lokal maskinvara och infrastruktur. Molntjänstleverantören har ansvar för all hantering och underhåll av systemet. 
-- **Automatisering:** Etablera resurser snabbt i infrastrukturen med hjälp av en webbportal, skript eller automatiskt. 
-- **Geografisk spridning:** Placera datan där den behövs utan att du behöver ha egna datacentra.
+- **Automation:** snabbt etablera resurser i infrastrukturen med hjälp av en webbportal, skript, eller via automation. 
+- **Geografisk systemdispertionen:** Store data nära dina användare eller i önskad platser utan att behöva underhålla dina egna datacenter.
 - **Minskat maskinvaruunderhåll:** Internetleverantören ansvarar för maskinvaruunderhållet.
 
 ## <a name="private-cloud"></a>Privat moln
 
-Ett privat moln består av beräkningsresurser som uteslutande används av utvalda användare från ett företag eller organisation. Det kan finnas fysiskt i organisationens lokala datacenter eller det kan vara värdbaserat från tredje part. Det privata molnet är inte ett annat namn på ett traditionellt lokalt datacenter. Ett privat moln använder den lokala infrastrukturen och tjänster för att tillhandahålla liknande fördelar som det offentliga molnet. Det använder en abstraktionsplattform för att tillhandahålla *molnliknande* tjänster, till exempel Kubernetes-kluster eller en komplett molnmiljö som Azure Stack. Organisationen är ansvarig för inköp, konfiguration och underhåll av maskinvara. Kommunikationen mellan systemen sker vanligtvis i nätverksinfrastrukturen som företaget äger och underhåller. Det kan exempelvis vara ett privat internt nätverk eller en dedikerad fiberoptisk anslutning mellan byggnader.
+Ett privat moln består av bearbetningsresurser som uteslutande används av användare från ett företag eller organisation. Det kan finnas fysiskt i organisationens lokala datacenter eller det kan vara värdbaserat från tredje part. Det privata molnet är inte ett annat namn på ett traditionellt lokalt datacenter. Ett privat moln använder den lokala infrastrukturen och tjänster för att tillhandahålla liknande fördelar som det offentliga molnet. Det använder en abstraktionsplattform för att tillhandahålla *molnliknande* tjänster, till exempel Kubernetes-kluster eller en komplett molnmiljö som Azure Stack. Organisationen är ansvarig för inköp, konfiguration och underhåll av maskinvara. Kommunikationen mellan systemen sker vanligtvis i nätverksinfrastrukturen som företaget äger och underhåller. Det kan exempelvis vara ett privat internt nätverk eller en dedikerad fiberoptisk anslutning mellan byggnader.
 
 Anta att du arbetar på sjuk- och hälsovårdsföretaget och du har ett program som används i ett av dina datacenter. Driftmiljön kan inte replikeras i det offentliga molnet. Du har fått ett nytt krav om att komma åt data på ett annat av dina datacenter. Den databas som innehåller datan måste vara kvar på den andra platsen på grund av juridiska skäl. Det här scenariot är ett privat moln. Organisationen har två datacentra. Du kan använda en offentlig moln-VPN via Internet för att ansluta dina datacentra. Dock anses scenariot vara ett privat moln, eftersom lösningen är privat i organisationen.
 

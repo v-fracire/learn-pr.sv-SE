@@ -1,59 +1,54 @@
-In this unit, you will install MongoDB on your Ubuntu Linux virtual machine to act as a data store for your upcoming sample web application.
+I den här enheten installerar du MongoDB på din Ubuntu Linux-dator som fungerar som ett datalager för dina kommande exempelwebbappen.
 
-## Connect to the VM
+## <a name="install-mongodb"></a>Installera MongoDB
 
-In order to install MongoDB, you have to connect to the VM using **ssh**. Substitute your admin username and your VM's public IP address from above for the `<vm-admin-username>` and `<vm-public-ip>` placeholders.
+1. Från Cloud Shell, SSH till den virtuella datorn.
 
-```bash
-ssh <vm-admin-username>@<vm-public-ip>
-```
+    ```bash
+    ssh <vm-admin-username>@<vm-public-ip>
+    ```
 
-## Install MongoDB
-
-> [!Important]
-> Ubuntu provides an unofficial package called **mongodb**. This package is not maintained by MongoDB Inc.
-
-1. Import the encryption key for the MongoDB repository. This will allow the package manager to verify that the mongodb packages you install are coming from MongoDB Inc.
+1. Importera krypteringsnyckeln för MongoDB-lagringsplatsen. Då kan pakethanteraren verifiera att de mongodb-paketen som du installerar kommer från MongoDB Inc.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
     ```
 
-    The **sudo** command means that we want to run the specified command with administrative privileges.
+    Kommandot **sudo** innebär att vi vill köra det angivna kommandot med administratörsprivilegier.
 
-1. Register the MongoDB Ubuntu repository so the package manager can locate the mongodb packages.
+1. Registrera MongoDB Ubuntu-lagringsplatsen så att pakethanteraren kan hitta mongodb-paketen.
 
     > [!NOTE]
-    > This command is different for different versions of Ubuntu. To find out which version of Ubuntu you're using, run: `uname -v`.
-    > This command will output something like this: `#21~16.04.1-Ubuntu SMP Fri Aug 10 12:36:09 UTC 2018`.
+    > Det här kommandot är olika för olika versioner av Ubuntu. För att ta reda på vilken version av Ubuntu du använder så kör du: `uname -v`.
+    > Utdata blir ungefär så här: `#21~16.04.1-Ubuntu SMP Fri Aug 10 12:36:09 UTC 2018`.
     >
-    > This output indicates that we're running Ubuntu version 16.04.1.
-    > Refer to the [Install MongoDB Community Edition on Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) documentation to get the exact command for your version.
+    > Den här utdata visar att vi kör Ubuntu version 16.04.1.
+    > I dokumentationen om att [installera MongoDB Community Edition på Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) finns det exakta kommandot för din version.
 
-    On Ubuntu 16.04, we run this command:
+    På Ubuntu 16.04 kör vi det här kommandot:
 
     ```bash
     echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
     ```
 
-1. Reload the package database so we have the latest package information.
+1. Uppdatera paketet databasen så att vi har den senaste paketinformationen.
 
     ```bash
     sudo apt-get update
     ```
 
-1. Install the MongoDB package onto our VM.
+1. Installera MongoDB-paketet till vår virtuella dator.
 
     ```bash
     sudo apt-get install -y mongodb-org
     ```
 
-1. Start the MongoDB service so you can connect to it later.
+1. Starta MongoDB-tjänsten så att du kan ansluta till den senare.
 
     ```bash
     sudo service mongod start
     ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-We now have MongoDB installed on our Ubuntu Linux VM. MongoDB will serve as your backing data store for the information you save and retrieve in your web application.
+Nu har vi MongoDB installerat på vår virtuella Ubuntu Linux-dator. MongoDB fungerar som reservdatalager för den information du sparar och hämtar i ditt webbprogram.

@@ -1,42 +1,42 @@
-Data backup and recovery is a necessary piece of the planning for any good infrastructure. Perhaps it's a bug that erases some data, or maybe you need to retrieve some archived data for auditing purposes. Maintaining a good backup strategy will ensure you aren't scrambling when data or software needs to be restored.
+Säkerhetskopiering och återställning är nödvändiga faktorer i planeringen för en god infrastruktur. Kanske förekommer det en bugg som raderar data, eller så behöver du kanske hämta vissa arkiverade data i granskningssyfte. Genom att upprätthålla en bra strategi för säkerhetskopiering ser du till att inte stå tomhänt när data eller programvara behöver återställas.
 
-**Azure Backup** is a _backup as a service_ offering that protects physical or virtual machines no matter where they reside: on-premises or in the cloud.
+**Azure Backup** är ett erbjudande för _säkerhetskopiering som en tjänst_ som skyddar fysiska eller virtuella datorer oavsett var de finns: lokalt eller i molnet.
 
-Azure Backup can be used for a wide range of data backup scenarios, such as the following:
+Azure Backup kan användas för en rad olika säkerhetskopieringsscenarier för data, till exempel följande:
 
-- Files and folders on Windows OS machines (physical or virtual, local or cloud)
-- Application-aware snapshots (Volume Shadow Copy Service)
-- Popular Microsoft server workloads such as Microsoft SQL Server, Microsoft SharePoint, and Microsoft Exchange
-- Native support for Azure Virtual Machines, both Windows, and Linux
-- Linux and Windows 10 client machines
+- Filer och mappar på datorer med Windows-operativsystemet (fysiska eller virtuella, lokal eller i molnet)
+- Programmedvetna ögonblicksbilder (tjänsten Volume Shadow Copy)
+- Populära Microsoft Server-arbetsbelastningar som Microsoft SQL Server, Microsoft SharePoint och Microsoft Exchange
+- Inbyggt stöd för Azure Virtual Machines, både Windows och Linux
+- Linux- och Windows 10-klientdatorer
 
 ![Azure Backup](../media/6-backup-server.png)
 
-## Advantages of using Azure Backup
+## <a name="advantages-of-using-azure-backup"></a>Fördelarna med att använda Azure Backup
 
-Traditional backup solutions don't always take full advantage of the underlying Azure platform. The result is a solution that tends to be expensive or inefficient. The solution either offers too much or too little storage, does not offer the correct types of storage, or has cumbersome and long-winded administrative tasks. Azure Backup was designed to work in tandem with other Azure services and provides several distinct benefits.
+Traditionella säkerhetskopieringslösningar utnyttjar inte alltid den underliggande Azure-plattformen full ut. Resultatet är en lösning som tenderar att vara dyr eller ineffektiv. Lösningen antingen omfattar lagring av för mycket eller för litet, erbjuder inte rätt typer av lagring eller har besvärlig och long-winded administrativa uppgifter. Azure Backup har utformats för att fungera tillsammans med andra Azure-tjänster och ger flera olika fördelar.
 
-- **Automatic storage management**. Azure Backup automatically allocates and manages backup storage and uses a pay-as-you-use model. You only pay for what you use.
+- **Automatisk lagringshantering**. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Betala endast för det du använder.
 
-- **Unlimited scaling**. Azure Backup uses the power and scalability of Azure to deliver high availability.
+- **Obegränsad skalning**. Azure Backup använder kraften och skalbarheten i Azure för att leverera hög tillgänglighet.
 
-- **Multiple storage options**. Azure Backup offers locally redundant storage where all copies of the data exist within the same region and geo-redundant storage where your data is replicated to a secondary region.
+- **Flera lagringsalternativ**. Azure Backup erbjuder lokalt redundant lagring där alla kopior av data finns i samma region och geo-redundant lagring där dina data replikeras till en sekundär region.
 
-- **Unlimited data transfer**. Azure Backup does not limit the amount of inbound or outbound data you transfer. Azure Backup also does not charge for the data that is transferred.
+- **Obegränsad dataöverföring**. Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför. Azure Backup debiterar inte heller för de data som överförs.
 
-- **Data encryption**. Data encryption allows for secure transmission and storage of your data in Azure.
+- **Datakryptering**. Datakryptering möjliggör säker överföring och lagring av dina data i Azure.
 
-- **Application-consistent backup**. An application-consistent backup means that a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups.
+- **Programkonsekvent säkerhetskopiering**. En programkonsekvent säkerhetskopiering innebär att en återställningspunkt har alla data som krävs för att återställa säkerhetskopian. Azure Backup innehåller programkonsekventa säkerhetskopior.
 
-- **Long-term retention**. Azure doesn't limit the length of time you keep the backup data.
+- **Långsiktig kvarhållning**. Azure begränsar inte hur lång tid du behåller säkerhetskopierade data.
 
-## Using Azure Backup
+## <a name="using-azure-backup"></a>Använda Azure Backup
 
-Azure Backup utilizes several components that you download and deploy to each computer you want to back up. The component that you deploy depends on what you want to protect.
+Azure Backup använder sig av flera komponenter som du hämtar och distribuerar till varje dator som du vill säkerhetskopiera. Den komponent som du distribuerar beror på vad du vill skydda.
 
-- Azure Backup agent
+- Azure Backup-agent
 - System Center Data Protection Manager
 - Azure Backup Server
-- Azure Backup VM extension
+- Azure Backup VM-tillägg
 
-Azure Backup uses a Recovery Services vault for storing the backup data. A vault is backed by Azure Storage blobs, making it a very efficient and economical long-term storage medium. With the vault in place, you can select the machines to back up and define a backup policy (when snapshots are taken and for how long they’re stored).
+Azure Backup använder ett Recovery Services-valv för att lagra säkerhetskopierade data. Ett valv backas upp av Azure Storage-blobbar, vilket gör det till ett mycket effektivt och ekonomiskt långsiktigt lagringsmedium. Med valvet på plats väljer du de datorer som ska säkerhetskopieras och definierar en princip för säkerhetskopiering (när ögonblicksbilder tas och hur länge de lagras).

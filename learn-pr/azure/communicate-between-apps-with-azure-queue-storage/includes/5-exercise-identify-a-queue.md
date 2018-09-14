@@ -1,16 +1,16 @@
-Let's create a client application to work with a queue. Then we'll add our connection string to the code.
+Nu ska vi skapa ett klientprogram som ska arbeta med en kö. Sedan ska vi lägga till vår anslutningssträng i koden.
 
-## Create the application
+## <a name="create-the-application"></a>Skapa programmet
 
-We'll create a .NET Core application that you can run on Linux, macOS, or Windows. Let's name it **QueueApp**. For simplicity, we'll use a single app that will both send and receive messages through our queue.
+Vi skapar nu ett .NET Core-program som du kan köra i Linux, macOS eller Windows. Vi ger det namnet **QueueApp**. Vi gör det enkelt för oss genom att använda en enda app för att både skicka och ta emot meddelanden till och från kön.
 
-1. Use the `dotnet new` command to create a new console app with the name **QueueApp**. You can type commands into the Cloud Shell on the right, or if you are working locally, in a terminal/console window. This creates a simple app with a single source file: `Program.cs`.
+1. Använd kommandot `dotnet new` till att skapa en ny konsolapp med namnet **QueueApp**. Du kan skriva kommandon i Cloud Shell till höger. Om du arbetar lokalt kan du skriva dem i ett terminalfönster. Nu har du skapat en enkel app med en enda källfil: `Program.cs`.
 
     ```azurecli
     dotnet new console -n QueueApp
     ```
 
-1. Switch to the newly created `QueueApp` folder and build the app to verify that all is well.
+1. Växla till den nya mappen `QueueApp` och kompilera appen så att du ser att allting fungerar.
 
     ```azurecli
     cd QueueApp
@@ -20,17 +20,17 @@ We'll create a .NET Core application that you can run on Linux, macOS, or Window
     dotnet build
     ```
 
-## Get your connection string
+## <a name="get-your-connection-string"></a>Hämta anslutningssträngen
 
-Recall that your connection string is available in the Azure portal **Settings > Access keys** section of your storage account.
+Du kan se din anslutningssträng i avsnittet **Inställningar -> Åtkomstnycklar** för lagringskontot i Azure Portal.
 
-You can also retrieve it through the Azure CLI or PowerShell tools. Let's use the Azure CLI command. Remember to replace the `<name>` with the specific name of the storage account you created. You can use `az storage account list` if you need a reminder.
+Du kan också hämta den via verktygen för Azure CLI eller PowerShell. Nu ska vi använda Azure CLI-kommandot. Kom ihåg att byta ut `<name>` mot namnet på lagringskontot du skapade. Du kan använda `az storage account list` om du behöver en påminnelse.
 
 ```azurecli
 az storage account show-connection-string --name <name> --resource-group ExerciseResources
 ```
 
-This command will return a JSON block with your connection string. It will include the storage account name and the account key:
+Det här kommandot returnerar ett JSON-block med anslutningssträngen. Du ser namnet på lagringskontot och åtkomstnyckeln:
 
 ```json
 {
@@ -38,22 +38,22 @@ This command will return a JSON block with your connection string. It will inclu
 }
 ```
 
-## Add the connection string to the application
+## <a name="add-the-connection-string-to-the-application"></a>Lägg till anslutningssträngen i programmet
 
-Finally, let's add the connection string into our app so it can access the storage account.
+Slutligen ska vi lägga till anslutningssträngen i vår app så att den kan komma åt lagringskontot.
 
 > [!WARNING]
-> For simplicity, you will place the connection string in the **Program.cs** file. In a production application, you should store it in a secure location. For server side use, we recommend using Azure Key Vault.
+> Vi gör det enkelt för oss och placerar anslutningssträngen i filen **Program.cs**. I en produktionsmiljö skulle du förvara den på en säker plats. För användning på serversidan rekommenderar vi att du använder Azure Key Vault.
 
-1. Type `code .` in the terminal to open the online code editor. Alternatively, if you are working on your own you can use the IDE of your choice. We recommend Visual Studio Code, which is an excellent cross-platform IDE.
+1. Skriv `code .` i terminalen för att öppna onlinekodredigeraren. Om du arbetar lokalt kan du använda valfri IDE. Vi rekommenderar Visual Studio Code, som är en utmärkt plattformsoberoende IDE.
 
-1. Open the `Program.cs` source file in the project.
+1. Öppna källfilen `Program.cs` i projektet.
 
-1. In the `Program` class, add a `const string` value to hold the connection string. You only need the value (it starts with the text **DefaultEndpointsProtocol**).
+1. Gå till klassen `Program` och lägg till ett värde av typen `const string` för anslutningssträngen. Du behöver bara värdet (det börjar med texten **DefaultEndpointsProtocol**).
 
-1. Save the file. You can click the ellipse "..." in the right corner of the cloud editor, it will also show you the keyboard shortcut.
+1. Spara filen. Du kan klicka på ellipsen ”...” i molnredigerarens högra hörn, då ser du även kortkommandot.
 
-Your code should look something like this (the string value will be unique to your account).
+Koden bör se ut ungefär så här (strängvärdet är unikt för ditt konto).
 
 ```csharp
 ...
@@ -68,4 +68,4 @@ namespace QueueApp
 }
 ```
 
-Now that we have this starter project setup, let's look at how to work with a queue in code. It all starts with _messages_.
+Nu när det här enkla projektet är konfigurerat ska vi titta på hur du arbetar med köer i koden. Det handlar om _meddelanden_.

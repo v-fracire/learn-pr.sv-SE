@@ -9,43 +9,37 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 0e23092765f5c8509c27ac2f8be67d6a57961520
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44239535"
 durationInMinutes: 10
-content: >
+content: |
   [!include[](includes/6-design-for-efficiency-and-operations.md)]
 quiz:
   title: Kunskapskontroll – Design för effektivitet och drift
   questions:
-  - content: Vilka är fördelarna med en användningsbaserad kostnadsmodell?
-    choices:
-    - content: Fullständig insyn i kostnaderna för resurser
-      isCorrect: false
-      incorrectExplanation: Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.
-    - content: Flexibiliteten att justera resurser och kostnader efter behovet
-      isCorrect: false
-      incorrectExplanation: Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.
-    - content: Minskad risk vid utvärdering av nya verktyg och tekniker
-      isCorrect: false
-      incorrectExplanation: Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.
-    - content: Allt ovan är fördelar med en användningsbaserad kostnadsmodell
-      isCorrect: true
-      correctExplanation: Allt ovan är fördelar med en användningsbaserad kostnadsmodell
-  - content: Vilket av följande är ett exempel på förbättrad driftsffektivitet?
-    choices:
-    - content: Automatisering av distributionen av infrastruktur
-      isCorrect: true
-      correctExplanation: Automatisering av distributionen av infrastruktur är ett bra exempel på förbättring av driftseffektiviteten.
-    - content: Flytta tjänster från PaaS till IaaS
-      isCorrect: false
-      incorrectExplanation: Att flytta tjänster från PaaS till IaaS kan ses som ett steg bakåt i verksamhetseffektiviteten, eftersom PaaS-tjänster vanligtvis innebär lägre driftskostnader.
-    - content: Dokumentera manuella steg för distributionen av infrastruktur
-      isCorrect: false
-      incorrectExplanation: Dokumentation är viktigt för alla arkitekturer men operativa förbättringar följer av att automatisera manuella aktiviteter i stället för att bara dokumentera dem.
-    - content: Flera loggningssystem
-      isCorrect: false
-      incorrectExplanation: Att ha flera loggningssystem ger ökade driftsomkostnader och mindre möjlighet att korrelera händelser och mått i loggningssystemen. Att centralisera till ett enda loggningssystem kan förbättra driftseffektiviteten.
+    - content: Vilka är fördelarna med en användningsbaserad kostnadsmodell?
+      choices:
+        - content: Fullständig insyn i kostnaderna för resurser
+          isCorrect: false
+          incorrectExplanation: Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.
+        - content: Flexibiliteten att justera resurser och kostnader efter behovet
+          isCorrect: false
+          incorrectExplanation: Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.
+        - content: Minskad risk vid utvärdering av nya verktyg och tekniker
+          isCorrect: false
+          incorrectExplanation: Det här är en fördel som finns med en användningsbaserad kostnadsmodell men är inte de enda rätta valet.
+        - content: Allt ovan är fördelar med en användningsbaserad kostnadsmodell
+          isCorrect: true
+          correctExplanation: Allt ovan är fördelar med en användningsbaserad kostnadsmodell
+    - content: Vilket av följande är ett exempel på förbättrad driftsffektivitet?
+      choices:
+        - content: Automatisering av distributionen av infrastruktur
+          isCorrect: true
+          correctExplanation: Automatisering av distributionen av infrastruktur är ett bra exempel på förbättring av driftseffektiviteten.
+        - content: Flytta tjänster från PaaS till IaaS
+          isCorrect: false
+          incorrectExplanation: 'Att flytta tjänster från PaaS till IaaS kan ses som ett steg bakåt i verksamhetseffektiviteten, eftersom PaaS-tjänster vanligtvis innebär lägre driftskostnader.'
+        - content: Dokumentera manuella steg för distributionen av infrastruktur
+          isCorrect: false
+          incorrectExplanation: Dokumentation är viktigt för alla arkitekturer men operativa förbättringar följer av att automatisera manuella aktiviteter i stället för att bara dokumentera dem.
+        - content: Flera loggningssystem
+          isCorrect: false
+          incorrectExplanation: Att ha flera loggningssystem ger ökade driftsomkostnader och mindre möjlighet att korrelera händelser och mått i loggningssystemen. Att centralisera till ett enda loggningssystem kan förbättra driftseffektiviteten.

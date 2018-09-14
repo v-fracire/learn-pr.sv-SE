@@ -2,15 +2,14 @@ Med Azure App Service-autentisering kan du använda nyckelfärdig autentisering 
 
 ## <a name="enable-app-service-authentication"></a>Aktivera App Service-autentisering
 
-1. Öppna funktionsappen på Azure Portal.
+1. Öppna appen i den [Azure-portalen](https://portal.azure.com/?azure-portal=true).
 
 1. Välj **Autentisering/auktorisering** under **Plattformsfunktioner**.
 
     ![Välja autentisering och auktorisering](../media/6-authorization.jpg)
 
-
 1. Välj följande värden:
-    
+
     | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | ---|
     | **App Service-autentisering** | På | Aktivera autentisering. |
@@ -22,19 +21,17 @@ Med Azure App Service-autentisering kan du använda nyckelfärdig autentisering 
 1. Visa **Azure Active Directory-inställningar** genom att välja **Azure Active Directory**.
 
     1. Välj **Express** som **Hanteringsläge** och fyll i informationen nedan.
-    
+
         | Inställning      |  Föreslaget värde   | Beskrivning                                        |
         | --- | --- | ---|
         | **Hanteringsläge** | Express, Skapa ny AD-app | Konfigurera automatiskt ett huvudnamn för tjänsten och Azure Active Directory-autentisering. |
         | **Skapa app** | my-serverless-webapp | Ange ett unikt programnamn. |
-    
+
     1. Spara Azure Active Directory-inställningarna genom att klicka på **OK**.
 
     ![Inställningar för autentisering, auktorisering och Azure Active Directory](../media/6-create-aad.png)
 
-
 1. Klicka på **Spara**.
-
 
 ## <a name="modify-the-web-app-to-enable-authentication"></a>Ändra webbappen för att aktivera autentisering
 
@@ -44,17 +41,19 @@ Med Azure App Service-autentisering kan du använda nyckelfärdig autentisering 
     cd ~/functions-first-serverless-web-application/www/dist
     ```
 
-1. Du aktiverar autentisering i funktionsappen genom att lägga till följande kodrad i filen **settings.js**:
-
-    `window.authEnabled = true`
-
-    Gör ändringen och visa resultatet genom att köra följande kommandon eller genom att använda en kommandoradsredigerare som VIM.
+1. Du aktiverar autentisering i din funktionsapp genom att ändra **settings.js**. Öppna filen i Cloud Shell Editor.
 
     ```azurecli
-    echo "window.authEnabled = true" >> settings.js
+    code settings.js
     ```
 
-    Kontrollera att ändringen har gjorts i filen.
+1. Lägg till följande rad i filen.
+
+    ```azurecli
+    window.authEnabled = true
+    ```
+
+1. Bekräfta att ändringen har gjorts i filen.
 
     ```azurecli
     cat settings.js
@@ -66,7 +65,6 @@ Med Azure App Service-autentisering kan du använda nyckelfärdig autentisering 
     az storage blob upload -c \$web --account-name <storage account name> -f settings.js -n settings.js
     ```
 
-
 ## <a name="test-the-application"></a>Testa programmet
 
 1. Öppna programmet i en webbläsare. Klicka på **Logga in** och logga in.
@@ -74,7 +72,6 @@ Med Azure App Service-autentisering kan du använda nyckelfärdig autentisering 
 1. Välj en bildfil och ladda upp den.
 
     ![Inloggningssida](../media/6-aad-auth.png)
-    
 
 ## <a name="summary"></a>Sammanfattning
 

@@ -29,7 +29,7 @@ Nu ska vi använda Azure CLI för att skapa en resursgrupp och sedan distribuera
 1. Om det finns många objekt i gruppen kan du filtrera returvärdena genom att lägga till ett `--query`-alternativ. Prova det här kommandot:
 
     ```azurecli
-    az group list --query '[?name == popupResGroup]'
+    az group list --query "[?name == 'popupResGroup']"
     ```
 
     Frågan är formaterad med **JMESPath**, som är ett standardfrågespråk för JSON-begäranden. Du kan läsa mer om det här kraftfulla filterspråket på <http://jmespath.org/>. Vi tar även upp frågor mer ingående i modulen **Hantera virtuella datorer med Azure CLI**.

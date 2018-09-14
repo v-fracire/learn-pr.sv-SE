@@ -1,9 +1,15 @@
 ### YamlMime:ModuleUnit
 uid: learn.scale-and-size-virtual-machines.3-exercise-resize-a-virtual-machine
-title: Exercise - Resize a virtual machine
+title: Arbeta med – ändra storlek på en virtuell dator
 metadata:
-  title: Exercise - Resize a virtual machine
-  description: Exercise - Resize a virtual machine
+  title: Arbeta med – ändra storlek på en virtuell dator
+  description: Arbeta med – ändra storlek på en virtuell dator
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+azureSandbox: true
 durationInMinutes: 10
 content: |
   [!include[](includes/3-exercise-resize-a-virtual-machine.md)]

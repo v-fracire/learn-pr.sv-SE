@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.the-mojifier.11-deploy-to-azure
+metadata:
+  title: Distribuera till Azure
+  description: Distribuera vår Azure-funktion till molnet och uppdatera slack-konfigurationen om du vill använda den nya produktionsversionen av vår kod.
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+title: Distribuera till Azure
+durationInMinutes: 8
+content: |
+  [!include[](includes/11-deploy-to-azure.md)]

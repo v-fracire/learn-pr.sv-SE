@@ -1,68 +1,67 @@
-In the previous unit, you saw how a serverless function can facilitate the secure uploading of images to Blob storage from a web application. In this module, you create another serverless function to watch for uploaded images and create thumbnails from them.
+I den föregående delen lärde du dig hur du kan använda en serverlös funktion för att på ett säkert sätt ladda upp bilder till Blob Storage från ett webbprogram. I den här modulen ska du skapa en annan serverlös funktion för att bevaka uppladdade bilder och skapa miniatyrbilder från dem.
 
-## Create a Blob storage container for thumbnails
+## <a name="create-a-blob-storage-container-for-thumbnails"></a>Skapa en Blob Storage-container för miniatyrbilder
 
-The full-size images are stored in a container named **images**. You need another container to store thumbnails of those images.
+Bilderna i fullstorlek lagras i en container med namnet **images** (bilder). Du behöver en annan container för att lagra miniatyrbilderna för dessa bilder.
 
-1. Ensure you're still signed in to Cloud Shell (Bash). If you aren't, select **Enter focus mode** to open a Cloud Shell window. 
+1. Kontrollera att du fortfarande är inloggad i Cloud Shell (Bash). Om du inte är det väljer du **Enter focus mode** (Växla till fokusläge) för att öppna ett Cloud Shell-fönster. 
 
-1. Create a new container named **thumbnails** in your Storage account with public access to all blobs.
+1. Skapa en ny container med namnet **thumbnails** (miniatyrbilder) i ditt lagringskonto med offentlig åtkomst till alla blobar.
 
     ```azurecli
     az storage container create -n thumbnails --account-name <storage account name> --public-access blob
     ```
 
+## <a name="create-a-blob-triggered-serverless-function"></a>Skapa en blobutlöst serverlös funktion
 
-## Create a blob-triggered serverless function
+En utlösare definierar hur en funktion anropas. Funktionen du nu ska skapa använder en blob-utlösare. Funktionen anropas automatiskt när en blob (bildfil) laddas upp till containern **images**. En funktion måste ha en utlösare. Utlösare har associerade data, vilket vanligtvis är den nyttolast som utlöst funktionen.
 
-A trigger defines how a function is invoked. The function you create next uses a blob trigger. The function is automatically invoked when a blob (image file) is uploaded to the **images** container. A function must have one trigger. Triggers have associated data, which are usually the payload that triggered the function.
+Bindningar definierar hur en funktion läser eller skriver data i Azure eller tredjepartstjänster. Den här funktionen skapar en miniatyrbild för bilden som utlöser den och sparar miniatyrbilden i containern *thumbnails*.
 
-Bindings define how a function reads or writes data in Azure or third-party services. This function creates a thumbnail version of the image that triggers it and saves the thumbnail in a *thumbnails* container.
+1. Öppna din Functions-app i den [Azure-portalen](https://portal.azure.com/?azure-portal=true).
 
-1. Open your Functions app in the [Azure portal](https://portal.azure.com/?azure-portal=true).
+1. I Funktionsapp-fönstrets vänstra navigeringsfönstret pekar du på **Functions** och klickar på plustecknet (+) för att skapa en ny serverlös funktion. Om en snabbstartssida visas klickar du på **Anpassad funktion** för att visa en lista med funktionsmallar.
 
-1. In the Functions app window's left navigation, point to **Functions** and click the plus sign (+) to create a new serverless function. If a quickstart page appears, click **Custom function** to see a list of function templates.
+1. Leta upp och välj mallen **BlobTrigger**.
 
-1. Find the **BlobTrigger** template and select it.
+1. Använd dessa värden för att skapa en funktion som genererar miniatyrbilder när bilder laddas upp:
 
-1. Use these values to create a function that creates thumbnails as images are uploaded:
-
-    | Setting      |  Suggested value   | Description                                        |
+    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | ---|
-    | **Language** | C# or JavaScript | Choose your preferred language. |
-    | **Name your function** | ResizeImage | Enter this name exactly as shown, so the application can discover the function. |
-    | **Path** | images/{name} | Execute the function when a file appears in the **images** container. |
-    | **Storage account information** | AZURE_STORAGE_CONNECTION_STRING | Use the environment variable previously created with the connection string. |
+    | **Språk** | C# eller JavaScript | Välj det språk du föredrar. |
+    | **Namnge din funktion** | ResizeImage | Ange det här namnet exakt så som det visas så att programmet kan identifiera funktionen. |
+    | **Sökväg** | images/{name} | Kör funktionen när en fil läggs till i containern **images**. |
+    | **Lagringskontoinformation** | AZURE_STORAGE_CONNECTION_STRING | Använd miljövariabeln som skapades tidigare med anslutningssträngen. |
 
-    ![Enter settings for the new function](../media/3-new-function.png)
+    ![Ange inställningarna för den nya funktionen](../media/3-new-function.png)
 
-1. Click **Create** to create the function.
+1. Skapa funktionen genom att klicka på **Skapa**.
 
-1. When the function is created, click **Integrate** to view its trigger, input, and output bindings.
+1. När funktionen har skapats klickar du på **Integrera** för att visa funktionens utlösare, indata och utdatabindningar.
 
-1. Click **New output** to create a new output binding.
+1. Klicka på **Nya utdata** för att skapa en ny utdatabindning.
 
-    ![Select New Output on the Integrate tab](../media/3-new-output.jpg)
+    ![Välj Nya utdata på fliken Integrera](../media/3-new-output.jpg)
 
-1. Select **Azure Blob Storage** and click **Select**. You may have to scroll down to see the **Select** button.
+1. Välj **Azure Blob Storage** och klicka på **Välj**. Du kan behöva rulla ned för att se knappen **Välj**.
 
-    ![Select Azure Blob storage](../media/3-storage-output.jpg)
+    ![Välj Azure Blob Storage](../media/3-storage-output.jpg)
 
-1. Enter the following values:
+1. Ange följande värden:
 
-    | Setting      |  Suggested value   | Description                                        |
+    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | ---|
-    | **Blob parameter name** | thumbnail | The function uses the parameter with this name to write the thumbnail. |
-    | **Use function return value** | No |  |
-    | **Path** | thumbnails/{name} | The thumbnails are written to a container named **thumbnails**. |
-    | **Storage account connection** | AZURE_STORAGE_CONNECTION_STRING | Use the environment variable previously created with the connection string. |
+    | **Blobparameternamn** | thumbnail | Funktionen använder parametern med det här namnet för att skriva miniatyrbilden. |
+    | **Använd funktionsreturvärde** | Nej |  |
+    | **Sökväg** | thumbnails/{name} | Miniatyrbilderna skrivs till en container med namnet **thumbnails**. |
+    | **Lagringskontoanslutning** | AZURE_STORAGE_CONNECTION_STRING | Använd miljövariabeln som skapades tidigare med anslutningssträngen. |
 
-    ![Enter settings for the blob output binding](../media/3-blob-output.png)
+    ![Ange inställningarna för blobutdatabindningen](../media/3-blob-output.png)
 
 ::: zone pivot="javascript"
-1. (JavaScript) Click on **Advanced editor** in the top right corner of the window to reveal the JSON that represents the bindings.
+1. (JavaScript) Klicka på **Avancerad redigerare** i det övre högra hörnet i fönstret för att visa den JSON som representerar bindningarna.
 
-1. (JavaScript) In the `blobTrigger` binding, add a property named `dataType` with a value of `binary`. This configures the binding to pass the blob contents to the function as binary data.
+1. (JavaScript) Lägg till en egenskap med namnet `dataType` med värdet `binary` i `blobTrigger`-bindningen. När du gör det konfigureras bindningen så att blobinnehållet överförs till funktionen som binära data.
 
 ```json
 {
@@ -77,64 +76,65 @@ Bindings define how a function reads or writes data in Azure or third-party serv
 
 ::: zone-end
 
-1. Click **Save** to create the new binding.
+1. Skapa den nya bindningen genom att klicka på **Spara**.
 
 ::: zone pivot="csharp"
-1. (C#) Select the **ResizeImage** function name in the left navigation to open the function's source code.
 
-1. (C#) The function requires a NuGet package called **ImageResizer** to generate the thumbnails. NuGet packages are added to C# functions using a **project.json** file. To create the file, click **View Files** on the right to reveal the files that make up the function.
+1. (C#) Välj funktionsnamnet **ResizeImage** i det vänstra navigeringsfönstret för att öppna källkoden för funktionen.
 
-1. (C#) Click **Add** to add a new file named **project.json**.
+1. (C#) Funktionen kräver ett NuGet-paket med namnet **ImageResizer** för att generera miniatyrbilderna. NuGet-paket läggs till i C#-funktioner med hjälp av en **project.json**-fil. Skapa filen genom att först klicka på **Visa filer** till höger för att visa filerna som funktionen består av.
 
-1. (C#) Copy the contents of the [**/csharp/ResizeImage/project.json**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/project.json) file into the newly created file. Save the file. Packages are automatically restored when the file is updated.
+1. (C#) Klicka på **Lägg till** för att lägga till en ny fil med namnet **project.json**.
 
-    ![project.json file with ImageResizer](../media/3-project-json.png)
+1. (C#) Kopiera innehållet i [**/csharp/ResizeImage/project.json**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/project.json) till den nya filen som skapats. Spara filen. Paket återställs automatiskt när filen uppdateras.
 
-1. (C#) Under **View Files**, select **run.csx**. Replace its content with the content in the [**/csharp/ResizeImage/run.csx**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/run.csx) file.
+    ![project.json-fil med ImageResizer](../media/3-project-json.png)
+
+1. (C#) Under **Visa filer**väljer du **run.csx**. Ersätt dess innehåll med innehållet i filen [**/csharp/ResizeImage/run.csx**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/run.csx).
 
 ::: zone-end
 
 ::: zone pivot="javascript"
-1. (JavaScript) This function requires the `jimp` package from npm to resize the photo. To install the npm package, click on the Functions app name on the left navigation and click **Platform features**.
 
-1. (JavaScript) Click **Console** to reveal a console window.
+1. (JavaScript) Den här funktionen kräver `jimp`-paketet från npm för att ändra storlek på fotot. Du installerar npm-paketet genom att klicka på Funktionsapp-namnet i det vänstra navigeringsfönstret och klicka på **Plattformsfunktioner**.
 
-1. (JavaScript) Run the command `npm install jimp` in the console. It may take a few minutes to complete the operation.
+1. (JavaScript) Öppna ett konsolfönster genom att klicka på **Konsol**.
 
-1. (JavaScript) Click on the **ResizeImage** function name in the left navigation to reveal the function. Replace all the content in the **index.js** file with the content of the [**/javascript/ResizeImage/index.js**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/ResizeImage/index.js) file.
+1. (JavaScript) Kör kommandot `npm install jimp` i konsolen. Det kan ta några minuter att slutföra åtgärden.
+
+1. (JavaScript) Klicka på funktionsnamnet **ResizeImage** i det vänstra navigeringsfönstret för att visa funktionen. Byt ut hela **index.js**-filen mot innehållet i filen [**/javascript/ResizeImage/index-module5.js**](https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/ResizeImage/index.js).
 
 ::: zone-end
 
-1. To expand the logs panel, click **Logs** below the code window.
+1. Expandera loggpanelen genom att klicka på **Loggar** under kodfönstret.
 
-1. Click **Save**. Check the Logs panel to ensure the function is successfully saved and there are no errors.
+1. Klicka på **Spara**. Kontrollera loggpanelen för att bekräfta att funktionen har sparats och att det inte har uppstått några fel.
 
+## <a name="test-the-serverless-function"></a>Testa den serverlösa funktionen
 
-## Test the serverless function
+1. Öppna programmet i en webbläsare. Välj en bildfil och ladda upp den. Uppladdningen slutförs, men eftersom vi inte har lagt till möjligheten att visa bilder ännu så visar inte appen det uppladdade fotot.
 
-1. Open the application in a browser. Select an image file and upload it. The upload completes, but because we haven't added the ability to display images yet, the app doesn't show the uploaded photo.
-
-1. In Cloud Shell, confirm the image was uploaded to the **images** container.
+1. Bekräfta i Cloud Shell att bilden har laddats upp till containern **images**.
 
     ```azurecli
     az storage blob list --account-name <storage account name> -c images -o table
     ```
 
-1. Confirm the thumbnail was created in a container named **thumbnails**.
+1. Kontrollera att miniatyrbilden har skapats i en container med namnet **thumbnails**.
 
     ```azurecli
     az storage blob list --account-name <storage account name> -c thumbnails -o table
     ```
 
-1. Get the URL for the thumbnail.
+1. Hämta URL:en för miniatyrbilden.
 
     ```azurecli
     az storage blob url --account-name <storage account name> -c thumbnails -n <filename> --output tsv
     ```
 
-    Open the URL in a browser and confirm the thumbnail was properly created.
+    Öppna URL:en i en webbläsare och bekräfta att miniatyrbilden har skapats korrekt.
 
-1. Before continuing to the next tutorial, delete all files in the **images** and **thumbnails** containers.
+1. Ta bort alla filer i containrarna **images** och **thumbnails** innan du går vidare till nästa självstudie.
 
     ```azurecli
     az storage blob delete-batch -s images --account-name <storage account name>
@@ -144,6 +144,6 @@ Bindings define how a function reads or writes data in Azure or third-party serv
     az storage blob delete-batch -s thumbnails --account-name <storage account name>
     ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created a serverless function to create a thumbnail when an image is uploaded to a Blob storage container. Next, you will learn how to use Azure Cosmos DB to store and list image metadata.
+I den här delen har du skapat en serverlös funktion som genererar en miniatyrbild varje gång en bild laddas upp till en Blob Storage-container. Därefter får du lära dig hur du använder Azure Cosmos DB för att lagra och lista avbildningens metadata.

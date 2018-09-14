@@ -1,67 +1,74 @@
-The Azure portal allows you to manage, and scale PostgreSQL database servers. You decide to create an Azure Database for PostgreSQL server to store runner performance data. Based on historic captured data volumes, you know your server storage requirements should be set at 10 GB. To support your processing requirements, you need compute Gen 5 support with 1 vCore. You also know that you typically store backups for 25 days.
+Azure-portalen kan du hantera och skala PostgreSQL database-servrar. Du bestämmer dig för att skapa en Azure Database for PostgreSQL-server för att lagra runner prestandadata. Baserat på historisk avbildade datavolymer, vet du dina server-lagringsutrymmen ska vara inställd på 10 GB. För att stödja kraven för bearbetning, måste du beräkna Gen 5 support med 1 virtuell kärna. Du kan också veta att du vanligtvis lagrar säkerhetskopior i 25 dagar.
 
-> [!TIP]
-> All of the exercises you do in Microsoft Learn are free, but once you start exploring on your own, you will need an Azure subscription. If you don't have one yet, take a couple of minutes and create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
-Sign in to [the Azure portal](https://portal.azure.com?azure-portal=true). You'll see Azure resource creation and management menu on your left and the dashboard filling the rest of the screen.
+Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true). Azure-resurs-menyn för skapande och hantering visas på vänster och instrumentpanelen fylla resten av skärmen.
 
-## Create an Azure Database for PostgreSQL server
+## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server
 
-Once signed in you'll see the default Dashboard displayed. You have a couple of options available to you to create an Azure Database for PostgreSQL server. From the Dashboard, you can either:
+När du har loggat in visas standard instrumentpanelen visas. Du har ett par alternativ som är tillgängliga för dig att skapa en Azure Database for PostgreSQL-server. Från instrumentpanelen kan du antingen:
 
-- Select the **All services** option and then search for the **Azure Database for PostgreSQL server** option. This screen will display any configured servers already in your account. From here, you select **Add**, which will take you to the new server creation blade.
+- Välj den **alla tjänster** alternativet och söker sedan efter **Azure Database for PostgreSQL-server**. Den här skärmen visas alla konfigurerade servrar som redan finns i ditt konto. Härifrån kan du välja **Lägg till**, som tar dig till bladet skapa en ny server.
 
-or
+eller
 
-- Select the **Create a resource** option, which will present you with Azure Marketplace resource options. From here, you select the Databases option and choose **Azure Database for PostgreSQL**.
+- Välj den **skapa en resurs** alternativ, vilket visar alternativ för Azure Marketplace. Härifrån kan du välja den **databaser** och väljer **Azure Database for PostgreSQL**.
 
-### Configure the server
+### <a name="configure-the-server"></a>Konfigurera servern
 
-You'll now see the PostgreSQL server create blade, similar to the following illustration.
+PostgreSQL-servern skapa bladet som liknar följande bild visas nu.
 
-![Screenshot of the Azure portal showing the creation blade for a new PostgreSQL database.](../media-draft/4-create-blade.png)
+![Skärmbild av Azure-portalen som visar bladet skapa för en ny databas för PostgreSQL](../media-draft/4-create-blade.png)
+
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
 > [!NOTE]
-> You'll need to remember or write down some details as you create the PostgreSQL server. For example the username and password to access the server. You'll use this information to connect to your server later.
+> Du måste komma ihåg eller Skriv ned viss information när du skapar PostgreSQL-servern. Till exempel det användarnamn och lösenord för att få åtkomst till servern. Du använder den här informationen för att ansluta till servern senare.
 
-1. Choose a unique name for the server. Recall, that then name must be all lowercase and can have numbers and hyphens.
+1. Välj ett unikt namn för servern. Kom ihåg att namnet får bara innehålla gemener och kan ha siffror och bindestreck.
 
-1. Select a subscription, check to be sure this field is set to the subscription you want to use.
+1. Välj en prenumeration. Kontrollera att det här fältet har angetts till den prenumeration som du vill använda.
 
-1. You now have the option to create or reuse an existing resource. To create a new resource, select the **Create new** radio button and enter a name for the new resource group. You'll use this group for the rest of this module. Name the resource something descriptive so that it's easy to delete the resource later.
+1. Nu har du alternativet för att skapa eller återanvända en befintlig resursgrupp. Välj **Använd befintlig** och välj <rgn>[Sandbox resursgruppens namn]</rgn> i listrutan. Du använder den här gruppen för resten av den här modulen.
 
-1. Select the source of your new server. For this lab, you'll leave the option at _Blank_. Recall, you can change the option to _Back up_ if you want to restore and existing server backup.
+1. Välj källa för den nya servern. Den här övningen ska du lämna alternativet inställt på _tom_. Kom ihåg att du kan ändra alternativet för att _säkerhetskopiera_ om du vill återställa en befintlig server-säkerhetskopia.
 
-1. Choose a login name to use as an administrator login for the new server. Recall, the admin login name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Remember or write down the name for future use.
+1. Välj ett inloggningsnamn som ska användas som en administratör logga in för den nya servern. Kom ihåg att inloggningsnamnet för administratören inte får vara azure_superuser, azure_pg_admin, admin, administrator, root, Gäst eller offentlig. Det får inte börja med pg_. Kom ihåg eller Skriv ned namnet för framtida användning.
 
-1. Choose a password to use with the above administrator login name. Recall, our password must include characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.). Remember or write down the password for future use.
+1. Välj ett lösenord ska användas med ovanstående inloggningsnamnet för administratören. Kom ihåg, = att vår lösenord måste innehålla tecken från tre av följande kategorier:
+   - Engelska versala bokstäver
+   - Engelska gemena bokstäver
+   - Siffror (0 till 9)
+   - Icke-alfanumeriska tecken (!, $, #, % och så vidare)
 
-1. Retype the password to confirm your password.
+   Kom ihåg eller Skriv ned lösenordet för framtida användning.
 
-1. Choose a location for your server. You'll want to choose a location closest to you.
+1. Ange lösenordet för att bekräfta ditt lösenord på nytt.
 
-1. You'll now select the version of for your server. Select the latest version of PostgreSQL.
+1. Välj en plats för din server. Du vill välja en plats som är närmast dig.
 
-1. As the second last step, select the **Pricing tier** option.
+1. Nu väljer du versionen av din server. Välj den senaste versionen av PostgreSQL.
 
-    Recall that you need to configure your server with specific storage and compute options.
+1. Näst sista steget, väljer den **prisnivå** alternativet.
 
-    - 10 GB of disc storage
-    - Compute Generation 5 support
-    - Retention period of 25 days
+    Kom ihåg att du måste konfigurera servern med specifika lagringsutrymmen och alternativ:
 
-    Click **Pricing tier** to access the pricing tier blade and make the following changes.
+    - 10 GB disklagring
+    - Compute Generation 5-stöd
+    - Kvarhållningsperiod på 25 dagar
 
-    - Choose the **Basic** option tab.
-    - Choose the **Gen 5 Computation Generation** option.
-    - Choose 1 vCore from the **vCore** slider. Notice how the changes in the slider affect the **Price Summary**.
-    - Choose 10 GB from the **Storage** slider. If you're having trouble sliding to exactly 10 GB, you can use your keyboard's left and right cursor keys to get a precise value.
-    - Choose 25 Days from the **Backup Retention Period** slider.
+    Klicka på **prisnivå** att komma åt prisnivåbladet och gör följande ändringar:
 
-        ![Screenshot of the Azure portal showing the database pricing tier for a new PostgreSQL database.](../media-draft/4-azure-db-pricing-tier.png)
+    - Välj den **grundläggande** på fliken Alternativ.
+    - Välj den **Gen 5 beräkning Generation** alternativet.
+    - Välj 1 virtuell kärna från den **vCore** skjutreglaget. Observera hur ändringar i skjutreglaget påverkar den **Prissammanfattning**.
+    - Välj 10 GB från den **Storage** skjutreglaget. Om du har problem med glidande exakt 10 GB, kan du använda tangenterna vänster och höger markören på tangentbordet för att hämta ett exakt värde.
+    - Välj 25 dagar från det **kvarhållningsperiod** skjutreglaget.
 
-    - Click **OK** once you're satisfied with your selection to commit your selections and close the pricing tier options.
+        ![Skärmbild av Azure-portalen som visar databasprisnivå för en ny databas för PostgreSQL](../media-draft/4-azure-db-pricing-tier.png)
 
-1. All that is left now, is to review the values you entered and click **Create**. Creation can take several minutes. You can select the Notifications icon (a bell) at the top of the Azure portal screen to monitor progress.
+    - Klicka på **OK** när du är nöjd med ditt val att bekräfta dina val och stänga alternativen för prisnivå.
 
-You now have a PostgreSQL server available. In the next unit, you'll see how to create the same server using the Azure CLI.
+1. Allt som återstår nu är att granska de värden som du har angett och klicka på **skapa**. Skapa kan ta flera minuter. Du kan välja meddelandeikonen (en bjällra) högst upp på skärmen för Azure portal för att övervaka förloppet.
+
+Nu har du en PostgreSQL-server som är tillgängliga. I nästa enhet visas hur du skapar samma server med Azure CLI.

@@ -76,7 +76,8 @@ Starta PowerShell och gå till den katalog där du sparade skriptfilen. Använd 
 
 Det kan ta några minuter att slutföra skriptet. När det är klart kontrollerar du att det har körts:
 
-1. Logga in på Azure-portalen i en webbläsare.
+<!---TODO: Update for sandbox?--->
+1. I en webbläsare, logga in på den [Azure-portalen](https://portal.azure.com/?azure-portal=true).
 
 1. Klicka på **Resursgrupper** i det vänstra navigeringsfönstret.
 

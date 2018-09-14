@@ -1,6 +1,6 @@
 Nu när du har lärt dig om vilka typer av frågor du kan skapa ska vi använda Datautforskaren i Azure Portal för att hämta och filtrera dina produktdata.
 
-Observera i fönstret för Datautforskaren att frågan på fliken **Dokument** som standard är inställd på `SELECT * FROM c`. Den här standardfrågan hämtar och visar alla dokument i samlingen.
+I fönstret för Datautforskaren du Observera att som standard frågan på den **dokumentet** fliken är inställd på `SELECT * FROM c` enligt följande bild. Den här standardfrågan hämtar och visar alla dokument i samlingen.
 
 ![Standardfrågan i Datautforskaren är SELECT * FROM c](../media/5-azure-cosmosdb-data-explorer-query.png)
 

@@ -9,40 +9,34 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: a720cc149f5ef49377473362414a0afc3c73df64
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44232469"
 durationInMinutes: 15
-content: >
+content: |
   [!include[](includes/4-backup-and-restore.md)]
 quiz:
   title: Kunskapskontroll – Skydda dina data med säkerhetskopiering och återställning
   questions:
-  - content: Det är viktigt att regelbundet testa återställningar eftersom
-    choices:
-    - content: Du kan verifiera integriteten hos dina säkerhetskopior
-      isCorrect: false
-      incorrectExplanation: När du testar återställningar regelbundet kan du validera säkerhetskopiornas integritet, men det är inte det enda rätta valet.
-    - content: Du kan bekanta dig med återställningsprocessen
-      isCorrect: false
-      incorrectExplanation: När du testar återställningar regelbundet kan du bli mer bekant med återställningsprocessen, men det är inte det enda rätta valet.
-    - content: Det kan hjälpa dig att identifiera brister i processen för säkerhetskopiering och återställning
-      isCorrect: false
-      incorrectExplanation: När du testar återställningar regelbundet kan du identifiera brister i processen för säkerhetskopiering och återställning, men det är inte det enda rätta valet.
-    - content: Alla alternativ ovan
-      isCorrect: true
-      correctExplanation: Alla alternativ ovan är utmärkta anledningar för att regelbundet testa återställningen av dina säkerhetskopior.
-  - content: Vilket av följande omfattar inte automatisk, regelbunden säkerhetskopiering av data?
-    choices:
-    - content: Azure Blob Storage
-      isCorrect: true
-      correctExplanation: Azure Blob Storage innefattar inte automatiska säkerhetskopieringar av dina data. Du måste implementera säkerhetskopior med andra metoder.
-    - content: Cosmos DB
-      isCorrect: false
-      incorrectExplanation: Cosmos DB innefattar helt automatiserade, regelbundna säkerhetskopior av dina data.
-    - content: Azure SQL Database
-      isCorrect: false
-      incorrectExplanation: Azure SQL Database innefattar helt automatiserade, regelbundna säkerhetskopior av dina data.
+    - content: 'Det är viktigt att regelbundet testa återställningar eftersom:'
+      choices:
+        - content: Det kan du verifiera integriteten hos dina säkerhetskopior.
+          isCorrect: false
+          incorrectExplanation: 'När du testar återställningar regelbundet kan du validera säkerhetskopiornas integritet, men det är inte det enda rätta valet.'
+        - content: Det kan du bekanta dig med återställningsprocessen.
+          isCorrect: false
+          incorrectExplanation: 'När du testar återställningar regelbundet kan du bli mer bekant med återställningsprocessen, men det är inte det enda rätta valet.'
+        - content: Det kan hjälpa dig att identifiera brister i din säkerhetskopiering och återställning.
+          isCorrect: false
+          incorrectExplanation: 'Testa återställningar regelbundet tillåter dig att identifiera brister i din säkerhetskopiering och återställning, men detta är inte bara rätt val.'
+        - content: Inget av alternativen ovan.
+          isCorrect: true
+          correctExplanation: Alla alternativ ovan är utmärkta anledningar för att regelbundet testa återställningen av dina säkerhetskopior.
+    - content: Vilket av följande omfattar inte automatisk reguljära säkerhetskopiering av data?
+      choices:
+        - content: Azure Blob Storage
+          isCorrect: true
+          correctExplanation: Azure Blob storage inkluderar inte automatiska säkerhetskopior av dina data. Du måste implementera säkerhetskopior med andra metoder.
+        - content: Azure Cosmos DB
+          isCorrect: false
+          incorrectExplanation: 'Azure Cosmos DB innehåller helt automatiserad, regelbundna säkerhetskopior av dina data.'
+        - content: Azure SQL Database
+          isCorrect: false
+          incorrectExplanation: 'Azure SQL Database innefattar helt automatiserade, regelbundna säkerhetskopior av dina data.'

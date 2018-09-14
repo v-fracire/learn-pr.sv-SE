@@ -1,114 +1,111 @@
-Suppose you run a photo sharing site, with data stored on Azure virtual machines (VMs) running SQL Server and custom applications. You want to make the following adjustments:
+Anta att du kör ett foto dela plats, med data som lagras på Azure-datorer (VM) med SQL Server och anpassade program. Du vill göra följande justeringar:
 
-- You need to change the disk cache settings on a VM.
-- You want to add a new data disk to the VM with caching enabled.
+- Du behöver ändra cacheinställningarna disk på en virtuell dator.
+- Du vill lägga till en ny datadisk till den virtuella datorn med cachelagring aktiverat.
 
-You've decided to make these changes through the Azure portal.
+Du har valt att göra dessa ändringar via Azure portal.
 
-In this exercise, we'll walk through making the changes to a VM that we described above. First, let's sign in to the portal and create a VM.
+I den här övningen ska gå vi igenom med ändringarna till en virtuell dator som vi som beskrivs ovan. Först ska vi logga in på portalen och skapa en virtuell dator.
 
-## Sign in to the Azure portal
-<!---TODO: Update for sandbox?--->
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
-1. Sign in to the [Azure portal](https://portal.azure.com/?azure-portal=true).
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
-## Create a virtual machine
+1. Logga in på [Azure Portal](https://portal.azure.com/?azure-portal=true).
 
-In this step, we're going to create a VM with the following properties:
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-|Property  |Value  |
+I det här steget ska vi skapa en virtuell dator med följande egenskaper:
+
+|Egenskap  |Värde  |
 |---------|---------|
-|Image     |   **Windows Server 2016 Datacenter**      |
-|Name     |   **fotoshareVM**     |
-|Resource group     |   **fotoshare-rg**      |
+|Bild     |   **Windows Server 2016 Datacenter**      |
+|Namn     |   **fotoshareVM**     |
+|Resursgrupp     |   **<rgn>[Sandbox resursgruppens namn]</rgn>**      |
 
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-1. In the left menu of the portal, select **Virtual machines**.
+1. I den vänstra menyn i portalen, väljer **virtuella datorer**.
 
-1. Now select **+ Add** in the top left of the **Virtual machines** screen. This action starts the creation process.
+1. Välj nu **Lägg till** i upp till vänster på den **virtuella datorer** skärmen. Den här åtgärden startar skapandeprocessen.
 
-1. On the **Compute** panel that lists available VM images, type *Windows Server 2016 Datacenter* into the search box.
+1. På den **Compute** panelen som visar en lista över tillgängliga VM-avbildningar, typ *Windows Server 2016 Datacenter* i sökrutan.
 
-1. Select **Windows Server 2016 Datacenter** from the search results, and then select **Create** to start the VM creation process.
+1. Välj **Windows Server 2016 Datacenter** sökresultat och välj sedan **skapa** att starta VM-skapandeprocessen.
 
-1. In the **Basics** panel, in the **Name** box, enter **fotoshareVM**.
+1. I den **grunderna** panelen, verifiera den valda **prenumeration**.
 
-1. In the **Username** and **Password**  boxes, enter a name and password for an administrator account on this server.
+1. För **resursgrupp**, klickar du på **Skapa nytt** och ge den **namn** av `fotoshare-rg` och klicka på **OK**.
 
-1. In the **Subscription** drop-down list, select your Azure subscription.
+1. i den **virtuellt datornamn** anger `fotoshareVM`.
 
-1. Under **Resource Group**, select **Create new**, and in the box, type **fotoshare-rg**.
+1. Under **resursgrupp**väljer **Använd befintlig** och välj <rgn>[Sandbox resursgruppens namn]</rgn>.
 
-1. In the **Location** drop-down list, select a region near you.
+1. I den **plats** listrutan, väljer du en region i listan ovan.
 
-    The following is an example of what the **Basics** configuration looks like when filled out:
+1. För den virtuella datorn **storlek**, du kan lämna rekommenderade standardinställningarna eller klicka på **ändra storleken på** att välja en annan storlek från den **väljer du en storlek** bladet.
 
-    ![Screenshot of VM Basics config filled out.](../media-draft/vm-basics-settings.PNG)
+    > [!NOTE]
+    > Det finns inga alternativ för att konfigurera diskcachelagring just nu, även i den **diskar** fliken Skapa-bladet.
 
-1. Select **OK** to move on to the next step.
+    > [!IMPORTANT]
+    > Kom ihåg att diskcachelagring inte kan ändras för virtuella datorer i L-serien och B-serien. Vi väljer en annan storlek.
 
-You now need to choose a size for the VM, and then start the deployment:
+1. I **ADMINISTRATÖRSKONTOT** anger en **användarnamn** och **lösenord**/**Bekräfta lösenord** för en administratörskonto på den nya virtuella datorn.
+
+1. Följande bild är ett exempel på vad den **grunderna** konfigurationen ser ut när fyllt i. Lämna standardinställningarna för återstående flikar och fält och klicka på **granska + skapa**.
+
+    ![Skärmbild av Azure-portalen som visar skapa en VM-bladet med vissa exempelkonfiguration för grunderna som du har fyllt i enligt beskrivningen.](../media/4-basics-vm.png)
+
+1. När du har granskat din nya VM-inställningarna klickar du på **skapa** att börja distribuera den nya virtuella datorn.
+
+Skapa en virtuell dator kan ta en stund. Vänta tills den virtuella datorn har distribuerats innan du fortsätter med den här övningen. Du får ett meddelande i meddelandehubben när processen är klar.
 
 > [!IMPORTANT]
-> Remember that disk caching can't be changed for L-Series and B-series virtual machines. We'll select a different size.
+> Vi använder den här virtuella datorn i nästa kurs, så Håll den runt ett tag!
 
-1. In the **Choose a size** section, select a **Standard** SKU, such as **F1s**, and then choose **Select**.
+## <a name="view-os-disk-cache-status-in-the-portal"></a>Visa status för cache i portalen på operativsystemdisk
 
-1. Scroll down the **Settings** pane and observe that there is no option to configure disk caching. Let's accept the defaults on this step and choose **OK** at the bottom of the pane.
+När våra virtuella datorn har distribuerats, kan vi bekräfta cachelagringsstatus för OS-disken med följande steg:
 
-1. On the **Create** panel, review the summary, and then choose **Create**.
+1. I den vänstra menyn klickar du på **alla resurser**, och välj sedan den virtuella datorn **fotoshareVM**.
 
-1. VM creation can take a while. Wait until the VM has deployed before continuing with the exercise. You'll get a message in the notification hub when the process is complete.
+1. På den **VM** bladet under **inställningar**väljer **diskar**.
 
-> [!IMPORTANT]
-> We'll use this VM in the next lesson, so keep it around for a while!
+1. På den **diskar** fönstret den virtuella datorn har en disk, OS-disken. Dess cachetyp är för närvarande inställd på standardvärdet **Läs/Skriv**.
 
-## View OS disk cache status in the portal
+![Skärmbild av Azure-portalen som visar avsnittet diskar i en VM-bladet med OS-disken visas och anger att skrivskyddade cachelagring.](../media/4-os-disk-rw.PNG)
 
-Once our VM is deployed, we can confirm the caching status of the OS disk using the following steps:
+## <a name="change-the-cache-settings-of-the-os-disk-in-the-portal"></a>Ändra inställningar för cachelagring av OS-disken i portalen
 
-1. In the left menu, click **All resources**, and then select your VM,  **fotoshareVM**.
+1. På den **diskar** väljer **redigera** i det övre vänstra hörnet på skärmen.
 
-1. On the **Virtual machine** screen, under **SETTINGS**, select **Disks**.
+1. Ändra den **värden CACHELAGRING** värde för OS-disken till **skrivskyddad** med hjälp av nedrullningsbara listan och välj sedan **spara** i det övre vänstra hörnet på skärmen.
 
-1. On the **Disks** pane, the VM has one disk, the OS disk. Its cache type is currently set to the default value of **Read/write**.
+1. Den här uppdateringen kan ta lite tid. Anledningen är att ändra cache-inställningen för en Azure-disk frånkopplas och återansluts sedan måldisken. Om det är operativsystemdisken, startas även den virtuella datorn. När åtgärden har slutförts får du ett meddelande om VM-diskarna har uppdaterats.
 
-![Screenshot of our OS and data disks, both set to Read-only caching.](../media-draft/os-disk-rw.PNG)
+1. När du är klar cachetyp för OS-disken är inställd på **skrivskyddad**.
 
-## Change the cache settings of the OS disk in the portal
+Vi går vidare till data diskkonfigurationen för cache. Om du vill konfigurera en disk, måste du först skapa en.
 
-1. On the **Disks** pane, select **Edit** in the upper left of the screen.
+## <a name="add-a-data-disk-to-the-vm-and-set-caching-type"></a>Lägga till en datadisk till den virtuella datorn och ange cachelagringstyp
 
-1. Change the **HOST CACHING** value for the OS disk to **Read-only** using the drop-down list, and then select **Save** in the upper left of the screen.
+1. Gå tillbaka till den **diskar** vy över våra VM i portalen, gå ahead och välj **Lägg till datadisk**. Ett fel visas omedelbart i den **namn** fält, berätta för oss att fältet inte kan vara tomt. Vi inte har en datadisk ännu, så Låt oss skapa ett.
 
-1. This update takes a while. The reason is that changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is also restarted. You'll get a message similar to the following notification when the update has finished:
+1. Klicka på listan **Namn** och klicka sedan på **Skapa disk**.
 
-    ![Example of notification you receive when the cache setting update has completed.](../media-draft/vm-disk-update-complete.PNG)
+1. I den **skapa hanterad disk** fönstret i den **namn** skriver **fotosharesVM data**.
 
-4. Once complete, the OS disk cache type is set to **Read-only**.
+1. Under **resursgrupp**väljer **Använd befintlig**, och välj <rgn>[Sandbox resursgruppens namn]</rgn>.
 
-Let's move on to data disk cache configuration. To configure a disk, we'll need to first create one.
+1. Lämna övriga fält som standardvärden och klicka på **skapa** längst ned på skärmen.
 
-## Add a data disk to the VM and set caching type
+    Vänta tills disken har skapats innan du fortsätter.
 
-1. Back on the **Disks** view of our VM in the portal, go ahead and select **Add data disk**. An error immediately appears in the **Name** field, telling us that the field can't be empty. We don't have a data disk yet, so let's create one.
+1. Ändra den **värden CACHELAGRING** värde för vår nya datadisken på **skrivskyddad** med hjälp av nedrullningsbara listan och välj sedan **spara** i det övre vänstra hörnet på skärmen.
 
-1. Click in the **Name** list, and then click **Create disk**.
+    Vänta tills den virtuella datorn till den nya datadisken är klar. När du är klar data cache disktypen anges till **skrivskyddad**.
 
-1. In the **Create managed disk** pane, in the **Name** box, type **fotosharesVM-data**.
+I den här övningen använde vi Azure-portalen för att konfigurera cachelagring på en ny virtuell dator, ändra inställningar för cachelagring på en befintlig disk och konfigurera cachelagring på en ny datadisk. I följande skärmbild visas den slutgiltiga konfigurationen:
 
-1. Under **Resource Group**, select **Use existing**, and select **fotoshare-rg** from the drop-down menu.
-
-1. Select **Create** at the bottom of the screen.
-
-1. Wait until the disk has been created before continuing.
-
-1. Change the **HOST CACHING** value for our new data disk to **Read-only** using the drop-down list, and then select **Save** in the upper left of the screen.
-
-1. Wait for the VM to update. Updating takes a while because Azure detaches and reattaches the data disk to change this setting.
-
-1. Once complete, the data disk cache type is set to **Read-only**.
-
-In this exercise, we used the Azure portal to configure caching on a new VM, change cache settings on an existing disk, and configure caching on a new data disk. The following screenshot shows the final configuration: 
-
-![Screenshot of our OS and data disks, both set to Read-only caching.](../media-draft/disks-final-config-portal.PNG)
+![Skärmbild av Azure-portalen som visar den OS-disk och en ny datadisk i avsnittet diskar i vår VM-bladet med båda diskarna som angetts till skrivskyddad cachelagring.](../media/disks-final-config-portal.PNG)

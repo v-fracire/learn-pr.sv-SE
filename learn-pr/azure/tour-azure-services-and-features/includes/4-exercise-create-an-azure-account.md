@@ -1,26 +1,26 @@
-To create and use Azure services, you will eventually need an account. If you already have an Azure account, you can skip this unit and move onto the next one where we will begin to explore the Azure Portal.
+För att skapa och använda Azure-tjänster, måste så småningom ett konto. Om du redan har ett Azure-konto kan du hoppa över denna enhet och gå vidare till nästa där vi kommer att börja utforska Azure-portalen.
 
-If you don't have an account, we will walk through creating a free Azure account now.
+Om du inte har ett konto kan vägleder vi genom att skapa ett kostnadsfritt konto nu.
 
 > [!NOTE]
-> You need a valid credit card for age and identity validation. Your card will _not be charged_ until you decide to upgrade the trial / free account to a full subscription.
+> Du behöver ett giltigt kreditkort för verifiering av ålder och identitet. Ditt kort kommer _inte att debiteras_ tills du väljer att uppgradera utvärdering / kostnadsfria konto till en fullständig prenumeration.
 
-## Sign up for a free account
+## <a name="sign-up-for-a-free-account"></a>Registrera ett kostnadsfritt konto
 
-1. In a web browser, navigate to [azure.microsoft.com](https://azure.microsoft.com?azure-portal=true), and click **Free Account**.
+1. I en webbläsare, navigerar du till [azure.microsoft.com](https://azure.microsoft.com?azure-portal=true), och klicka på **gratiskonto**.
 
-1. On the **Create your Azure free account today** page, click **Start free >** button. 
+1. På sidan **Skapa ditt kostnadsfria Azure-konto i dag** klickar du på knappen **Börja kostnadsfritt >**. 
 
-1. You'll be prompted to sign in with your Microsoft account. Sign in with your Microsoft credentials or create a new free Microsoft account.
+1. Du uppmanas att logga in med ditt Microsoft-konto. Logga in med ditt Microsoft-autentiseringsuppgifter eller skapa ett nytt kostnadsfritt microsoftkonto.
 
-1. On the **About you** page, select your correct country or region, and then enter your first and last names, along with your email address and phone number. Depending on your country, you may see additional fields, such as VAT number. Click **Next** to continue.
+1. På sidan **Om dig** väljer du rätt land eller region och anger uppgifter som för- och efternamn samt e-postadress och telefonnummer. Beroende på vilket land du anger kan du se ytterligare fält, till exempel för momsregistreringsnummer. Klicka på **Nästa** för att fortsätta.
 
-1. On the **Identity verification by phone** screen, select your country code, and type the number of a telephone to which you have immediate access.
+1. På den **identitetsverifiering via telefon** skärmen, Välj landskod och ange ett telefonnummer som du har omedelbar åtkomst till.
 
-1. You have the option of text or callback to obtain a verification code. Click the relevant button, type the code in the **Verification code** box, and click **Verify code**.
+1. Du kan välja mellan att få verifieringskoden via SMS eller motringning. Klicka på motsvarande knapp, skriv in koden i fältet **Verifieringskod** och klicka på **Verifiera kod**.
 
-1. If the verification code is correct, you will now be asked to enter details of a valid credit card. Enter the card number, the expiration date, the CVV number, your name as it is written on the card, the address to which the card is registered, along with the postal or ZIP code, and then click **Next**.
+1. Om verifieringskoden stämmer får du nu ange information om ett giltigt kreditkort. Ange kortnummer, förfallodatum, CVV-nummer, namnet som står på kortet, adressen som kortet är registrerat på samt postnummer och klicka på **Nästa**.
 
-1. Finally, check the box to accept the subscription agreement, privacy statement, and communications policy. The second checkbox is optional. Now click **Sign up**.
+1. Markera slutligen kryssrutan för att godkänna prenumerationsavtalet, sekretesspolicyn och kommunikationspolicyn. Den andra kryssrutan är valfri. Klicka nu på **Registrera**.
 
-You have now successfully set up a free account, and you will be taken to the Azure portal home page. Let's explore that next.
+Du har nu konfigurerat ett kostnadsfritt konto och du kommer att tas till Azure portalens startsida. Låt oss utforska det snart.

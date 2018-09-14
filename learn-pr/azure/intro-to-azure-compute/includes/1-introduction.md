@@ -1,14 +1,14 @@
-Anta att du är en astronomiprofessor vid ett universitet. Du behöver analysera en stor datauppsättning som skapats för ett nytt forskningsprojekt, men du har inte några kostnadsfria servrar som du kan använda för att utföra arbetet. Och om du hade det skulle du behöva ta tiden att installera ett operativsystem och programvara för att utföra arbetet. 
+Anta att du har landat ditt drömjobb som utvecklare på ett nytt utrymme teknik för företag. På dag, du har tilldelats hjälper forskare att analysera en stor datauppsättning som skapats för ett banbrytande forskningsprojekt att utforska water på Mars &mdash; och tid är brådskande. Men det finns ett problem: du behöver inte några kostnadsfria servrar ska utföra arbetet. Och även om de visas, skulle du behöva investera mycket tid på att lägga upp dem och installera programvara.
 
-Du skulle kunna köpa ny utrustning, men budgeten är alltid en viktig faktor och du vill inte köpa mer maskinvara än du behöver. Du kanske inte heller har användning för den nya utrustningen efter att projektet har slutförts. Och tyvärr kan du inte veta hur mycket data som kommer genereras av forskningsprojektet.
+Naturligtvis kan du be att köpa ny utrustning, men din avdelning budget är nära. Dessutom kan vill du inte köpa mer maskinvara än behov, inte bara för att du vill göra en bra bild med ledarskap, utan även eftersom du bara inte vet hur mycket data kommer att genereras av det här projektet.
 
-Det bästa vore om du kunde etablera de resurser du behöver för att göra jobbet utan för mycket administrering, utföra arbetet och sedan ta bort resurserna. Och det vore även bäst om du endast behövde betala för beräkningsresurserna som du behöver när du använder dem.
+Vi rekommenderar du vill kunna hämta de resurser du behöver för att utföra arbete utan att för mycket administration &mdash; och konfigurera dem att göra jobbet helt enkelt. Och mer helst: du kan betala bara för de beräkningsresurser som du behöver när du använder dem.
 
-Det är precis vad vi gör i Azure. Vi kan skapa beräkningsresurser, konfigurera dem för att göra det arbete vi behöver och endast betala för det vi använder.
+Det är precis vad vi gör i Azure. Vi kan skapa beräkningsresurser, konfigurera dem för att göra det arbete vi behöver och endast betala för det vi använder. Är du redo att lära dig mer?
 
 ## <a name="learning-objectives"></a>Utbildningsmål
 
 I den här modulen kommer du att göra följande:
 
-- Identifiera beräkningsalternativ i Azure.
-- Välja beräkningsalternativ som är lämpliga för din verksamhet.
+- Identifiera beräkningsalternativ i Azure
+- Välja beräkningsalternativ som är lämpliga för din verksamhet

@@ -1,1 +1,1 @@
-To help you remember what you've learned, read the two scenarios involving the astronomy team and answer the associated questions.
+Som hjälp för dig att komma ihåg vad du har lärt dig kan du läsa de två scenarierna om astronomiteamet och svara på tillhörande frågor.

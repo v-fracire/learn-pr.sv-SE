@@ -1,48 +1,25 @@
-Raspberry Pi boards have garnered much interest of late for testing theories or
-event making cool things. While the cost on this boards are quite low, some may
-be interested in testing out the Raspberry Pi functionality before investing in
-one.
+Raspberry Pi tavlor har garnered mycket intresse av sen för att testa basreaktionsteorier eller händelse gör coola saker. Kostnaden på den här tavlor är mycket liten, kan vissa vara intressant att testa funktionen Raspberry Pi innan du investerar i en.
 
-Microsoft has built an online Raspberry Pi simulator allowing users to control
-the emulated hardware via code. The emulator portrays a graphic of a Raspberry
-Pi connected to a temperature, humidity, pressure sensor, and a red LED via
-breadboard allowing circuits to be wired together. The displayed side panel
-allows users to enter Node.js JavaScript code to control the LED and collect
-dummy data from the simulated sensor.
+Microsoft har byggt en online [Raspberry Pi Azure IoT Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator?azure-portal=true) så att användarna kan styra emulerade maskinvaran via kod. Emulatorn visar en bild av en Raspberry Pi som är anslutna till en temperatur, fuktighet, tryck sensorn och en röd LAMPAN via breadboard så att kretsar vara kabelanslutna tillsammans. Panelen visas sida kan du ange Node.js JavaScript-kod för att styra LAMPAN och samla in dummy data från den simulerade sensorn.
 
-At first run, the simulator operates a sample temperature capture program which
-is displayed via the command line. The same sample application can also be run
-on a real Pi as the simulator is designed to allow people to test code before
-transferring it to a real device.
+![Raspberry Pi Simulator](../media-draft/RaspberryPiSimulator.png)
 
-## Web simulator
+## <a name="raspberry-pi-azure-iot-online-simulator"></a>Raspberry Pi Azure IoT-Onlinesimulator
 
-There are three areas in the web simulator:
+Vid den första körningen fungerar simulatorn en temperatur capture exempelprogrammet som visas via kommandoraden. Samma exempelprogrammet kan också köras på en verklig Pi som simulatorn är utformat så att användare kan testa kod innan de överförs till en riktig enhet.
 
-1.  Assembly area - The default circuit is that a Pi connects with a BME280
-    sensor and an LED. The area is locked in preview version so currently you
-    cannot do customization.
+Det finns tre områden i web-simulatorn:
 
-2.  Coding area - An online code editor for you to code with Raspberry Pi. The
-    default sample application helps to collect sensor data from BME280 sensor
-    and sends to your Azure IoT Hub. The application is fully compatible with
-    real Pi devices.
+1. **Sammansättningen området**. Det här är där du kan se enhetens status. Som standard är detta en Pi ansluter med en BME280 sensor och en LED ljus. Den här konfigurationen är inte anpassningsbara just nu.
+2. **Koda området**. Kodredigerare online att skapa en app på Raspberry Pi med Node.js. Standard-exempelprogrammet hjälper dig att samla in sensordata från BME280 sensorn och skickar det till Azure IoT Hub.
+3. **Integrerad konsolfönstret**. Det här är där du kan se utdata från din app. Det finns tre funktioner i konsolen:
+    - `run` -Kör exempelkoden (när exemplet körs koden är skrivskyddad).
+    - `Stop` -Stoppar exempelkoden som körs.
+    - `Reset` -Återställer koden.
 
-3.  Integrated console window - It shows the output of your code. At the top of
-    this window, there are three buttons.
-
-    -   **Run** - Run the application in the coding area.
-
-    -   **Reset** - Reset the coding area to the default sample application.
-
-    -   **Fold/Expand** - On the right side there is a button for you to
-        fold/expand the console window.
-
-[Overview image of Pi online simulator](./../media-draft/image1.png)
+Nu när du har en översikt över Raspberry Pi-simulatorn vi kommer att utforska IoT Hub i Azure där du skapar en ny resurs att hämta data från simulatorn.
 
 <!-- Reference links 
 -   Online Raspberry Pi Emulator:
     <https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started>
-
 -   <https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted>-->
-

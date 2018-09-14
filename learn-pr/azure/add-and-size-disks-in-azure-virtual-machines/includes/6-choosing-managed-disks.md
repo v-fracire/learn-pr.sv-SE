@@ -1,44 +1,49 @@
-Applications and services often need to scale with demand. For virtual machines, this means scaling out, or creating additional instances. Creating disks for new instances manually can place a burden on Azure administrators. Instead, we can use **managed disks** to reduce the administration required to create new disks.
+Program och tjänster behöver ofta att skala med begäran. Det innebär skala ut eller skapa ytterligare instanser för virtuella datorer. Skapa diskar för nya instanser placera manuellt belastning på Azure-administratörer. Vi kan i stället använda **hanterade diskar** att minska administrationen som krävs för att skapa nya diskar.
 
-Managed disks handle storage for you "behind the scenes". You specify the disk type and the size of disk you need, and Azure creates and manages the disk for you. 
+Hanterad disklagring för referensen för du ”i bakgrunden”. Du anger disken typ och storleken på disken som du behöver och Azure skapar och hanterar disken åt dig. 
 
-When you're using managed disks, another disk type is available for you to use called **standard SSD**.
+När du använder hanterade diskar, en annan disktypen är tillgängliga för dig att använda kallas **standard SSD**.
 
-## Standard SSDs
+## <a name="standard-ssds"></a>Standard SSD:er
 
-If you recall, with unmanaged disks, you can choose from two types of disk: standard hard disk drives (HDDs) and premium solid-state drives (SSDs).
+Om du kommer ihåg med ohanterade diskar, du kan välja mellan två typer av disk: standard-hårddiskar (HDD) och premium SSD-enheter (solid-state drive).
 
-When you use managed disks, you can choose a third type of disk: standard SSDs. This disk type sits between standard HDDs and premium SSDs from a performance and cost perspective.
+När du använder hanterade diskar kan du välja en tredje typ av disk: standard SSD-enheter. Den här disktyp varandra standard hårddiskar och premium SSD ur en prestanda och kostnader.
 
-You can use standard SSDs with any VM size, including VM sizes that don't support premium storage. In fact, using standard SSDs is the only way to use SSDs with those VMs.
+Du kan använda standard SSD-enheter med alla VM-storlekar, inklusive VM-storlekar som inte har stöd för premiumlagring. I själva verket är använda standard SSD: er det enda sättet att använda SSD: er med dessa virtuella datorer.
 
-## Managed disks in availability sets
+## <a name="managed-disks-in-availability-sets"></a>Hanterade diskar i tillgänglighetsuppsättningar
 
-Sometimes you use several VMs to host your application to handle increased load.
+Ibland kan du använda flera virtuella datorer som värd för ditt program för att hantera ökad belastning.
 
-You can put your VMs into an **availability set** to reduce the chances of customers experiencing an outage. Using an availability set, your VMs are spread across fault domains. A fault domain is a logical group of underlying hardware that shares a common power source and network switch, similar to a rack within an on-premises data center. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This separation in the Azure data center guarantees that there's no single point of failure for all the VMs in the availability set.
+Du kan placera dina virtuella datorer i en **tillgänglighetsuppsättning** att minska risken för kunder som har ett avbrott. Med hjälp av en tillgänglighetsuppsättning, är dina virtuella datorer fördelade över feldomäner. En feldomän är en logisk grupp av underliggande maskinvara som delar samma strömkälla och nätverksswitch, ungefär som ett rack i ett lokalt datacenter. När du skapar virtuella datorer i en tillgänglighetsuppsättning distribuerar Azure-plattformen automatiskt dina virtuella datorer mellan dessa feldomäner. Den här separationen i Azure-datacentret garanterar att det finns ingen enskild felpunkt för alla virtuella datorer i tillgänglighetsuppsättningen.
 
-When you use managed disks, Azure automatically makes sure that each VHD is placed into the same fault domain as its VM. This guarantee removes the possibility that the storage account configuration may include a single point of failure. There's no way to guarantee this separation when you use unmanaged disks.
+När du använder hanterade diskar ser automatiskt Azure till att varje virtuell Hårddisk placeras i samma feldomän som den virtuella datorn. Garantin tar bort risken att konfigurationen av storage-kontot kan innehålla en enskild felpunkt. Det går inte att garantera den här separationen när du använder ohanterade diskar.
 
-## Choosing managed disks
+## <a name="choosing-managed-disks"></a>Välja hanterade diskar
 
-**Do you want to control storage accounts in your subscription?**
+Det finns några aspekter som kan påverka beslutet att skapa dina diskar för virtuella datorer som hanterade diskar i stället för ohanterade diskar.
 
-Managed disks are easy to administer, but you may feel that you can optimize storage or manage costs better by keeping control of storage accounts.
+**Vill du styra storage-konton i din prenumeration?**
 
-**Do you need to use standard SSDs?** 
+Hanterade diskar är enkla att administrera, men om du anser att du kan optimera lagring eller hantera kostnaderna bättre med behåller kontrollen över storage-konton.
 
-If you want to use SSDs with a VM size that does not support premium storage, you have to choose managed disks.
+**Behöver du använda standard SSD-enheter?** 
 
-**Are the VMs in an availability set?** 
+Om du vill använda SSD: er med en VM-storlek som inte har stöd för premium storage kan behöva du väljer hanterade diskar.
 
-It is highly recommended to use managed disks to optimize resilience if your VMs are members of an availability set.
+**Är de virtuella datorerna i en tillgänglighetsuppsättning?** 
 
-## Migrating to managed disks
+Vi rekommenderar starkt att använda hanterade diskar för att optimera flexibilitet om dina virtuella datorer är medlemmar i en tillgänglighetsuppsättning.
 
-You can convert your unmanaged disks to managed disks at any time using one of these two methods:
+## <a name="migrating-to-managed-disks"></a>Migrera till managed disks
 
-- Using the Azure portal. On the Disks page of your virtual machine's settings, you'll find the **Migrate to managed disks** tool. This process will stop the VM, migrate the disks, and then restart the VM for you. You'll experience an interruption in service from the VM while the conversion takes place.
-- Using Azure PowerShell. You can use the `ConvertTo-AzureRmVMManagedDisk` cmdlet to perform the migration. If you choose this method, you must stop and start the VM yourself.
+Du kan konvertera din ohanterade diskar till hanterade diskar när som helst med hjälp av någon av följande två metoder:
 
-Managed disks reduce the administrative workload and have some features, such as standard SSDs, that aren't available for unmanaged disks.
+- Med Azure portal. På sidan diskar i den virtuella datorns inställningar hittar du den **migrera till managed disks** verktyget. Den här processen kommer stoppa den virtuella datorn, migrera diskarna och starta sedan om den virtuella datorn för dig. Du får ett avbrott i tjänsten från den virtuella datorn medan konverteringen sker.
+- Använda Azure PowerShell. Du kan använda den `ConvertTo-AzureRmVMManagedDisk` cmdlet för att utföra migreringen. Om du väljer den här metoden måste du stoppa och starta den virtuella datorn själv.
+  
+> [!Note]
+> Tänk på att migrera från ohanterade diskar till hanterade diskar inte kan ångras. Dessutom tas den ursprungliga lagringskonton som används av den virtuella datorn inte bort automatiskt. Du måste ta bort de ursprungliga Virtuella hårddiskblobbarna för att undvika kostnader uppkommer. 
+
+Hanterade diskar minska det administrativa arbetet och har vissa funktioner, till exempel standard SSD: er som inte är tillgängliga för ohanterade diskar.

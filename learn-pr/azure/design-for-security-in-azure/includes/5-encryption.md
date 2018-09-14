@@ -1,89 +1,89 @@
-Data is an organization’s most valuable and irreplaceable asset, and encryption serves as the last and strongest line of defense in a layered security strategy. Being a healthcare provider, Lamna Healthcare stores large amounts of sensitive data. They recently experienced a breach that exposed the unencrypted sensitive data of patients, and are now fully aware that they have gaps in their data protection capabilities. They want to understand how they could have better used encryption to protect themselves and their patients from this type of incident. Here, we'll take a look at what encryption is, how to approach the encryption of data, and what encryption capabilities are available on Azure.
+Data är en organisations mest värdefulla och oersättliga tillgång och kryptering är den sista och starkaste skyddsbarriären i en skiktbaserad säkerhetsstrategi. Vårdleverantören Lamna Healthcare lagrar stora mängder känsliga data. De råkade nyligen ut för ett intrång där okrypterade känsliga patientdata exponerades och de är nu fullt medvetna om luckorna i företagets dataskyddsfunktioner. De vill veta hur de hade kunnat använda kryptering på ett bättre sätt för att skydda sig själva och sina patienter mot den här typen av incidenter. I det här avsnittet ska vi titta närmare på vad kryptering är, hur du hanterar kryptering av data och vilka krypteringsfunktioner som är tillgängliga i Azure.
 
-## What is encryption?
+## <a name="what-is-encryption"></a>Vad är kryptering?
 
-Encryption is the process of making data unreadable and unusable. To use or read the encrypted data, it must be *decrypted*, which requires the use of a secret key. There are two top-level types of encryption: **Symmetric** and **Asymmetric**.
+Kryptering är en process där data görs oläsliga och oanvändbara. För att krypterade data ska kunna användas eller läsas måste de *dekrypteras*, vilket kräver användning av en hemlig nyckel. Det finns två översta typer av kryptering: **Symmetric** och **assymetrisk**.
 
-Symmetric encryption uses the same key to encrypt and decrypt the data. Consider a desktop password manager application. You enter your passwords and they are encrypted with your own personal key (your key is often derived from your master password). When the data needs to be retrieved, the same key is used and the data is decrypted.
+Vid symmetrisk kryptering används samma nyckel för att kryptera och dekryptera data. Ett exempel kan vara ett lösenordshanteringsprogram. Du anger dina lösenord och de krypteras med din egen personliga nyckel (din nyckel härleds ofta från ditt huvudlösenord). När data behöver hämtas används samma nyckel och informationen dekrypteras.
 
-Asymmetric encryption uses a public key and private key pair. Either key can encrypt but cannot decrypt it's own encrypted data. To decrypt, you need the paired key. Asymmetric encryption is used for things like TLS (used in https), and data signing.
+Vid asymmetrisk kryptering används ett par med en offentlig nyckel och en privat nyckel. Båda nycklarna kan kryptera men kan inte dekryptera sina egna krypterade data. Om du vill dekryptera, måste den parade nyckeln. Asymmetrisk kryptering används för sådant som TLS (används i https) och datasignering.
 
-Both symmetric and asymmetric encryption play a role in properly securing your data. 
+Både symmetrisk och asymmetrisk kryptering är viktigt för att skydda data på rätt sätt. 
 
-Encryption is typically approached in two ways: encryption at rest and encryption in transit.
+Inom kryptering skiljer man på kryptering i vila och kryptering under överföring.
 
-### Encryption at rest
+### <a name="encryption-at-rest"></a>Kryptering i vila
 
-Data at rest is the data that has been stored on a physical medium. This could be data stored on the disk of a server, data stored in a database, or data stored in a storage account. Regardless of the storage mechanism, encryption of data at rest ensures that the stored data is unreadable without the keys and secrets needed to decrypt it. If an attacker was to obtain a hard drive with encrypted data and did not have access to the encryption keys, the attacker would not compromise the data without great difficulty. In such a scenario, an attacker would have to attempt attacks against encrypted data, which are much more complex and resource consuming than accessing unencrypted data on a hard drive.
+Vilande data är data som har lagrats på ett fysiskt medium. Detta kan vara data som lagras på en serverdisk, data som lagras i en databas eller data som lagras i ett lagringskonto. Oavsett lagringsmekanism garanterar krypteringen av vilande data att dessa lagrade data inte kan läsas utan de nycklar och hemligheter som krävs för att dekryptera dem. Om en angripare har att hämta en hårddisk med krypterade data och har inte åtkomst till krypteringsnycklarna, skulle angriparen inte äventyra data utan bra svårt. I ett sådant scenario skulle angriparen vara tvungen att försöka utföra attacker mot krypterade data, vilket är mycket svårare och mer resurskrävande än att komma åt okrypterade data på en hårddisk.
 
-The actual data that is encrypted could vary in its content, usage, and importance to the organization. This could be financial information critical to the business, intellectual property that has been developed by the business, personal data that the business stores about customers or employees, and even the keys and secrets used for the encryption of the data itself.
+Vilka data som krypteras, vad de används för och hur viktiga de är för organisationen kan variera. Det kan röra sig om finansiell information som är viktig för företaget, immateriell egendom som har utvecklats av företaget, personliga data som företaget lagrar om kunder eller anställda eller de nycklar och hemligheter som används för själva datakrypteringen.
 
-![Encryption at rest](../media-draft/encryption-at-rest.png)
+![Kryptering i vila](../media-draft/encryption-at-rest.png)
 
-### Encryption in transit
+### <a name="encryption-in-transit"></a>Kryptering under överföring
 
-Data in transit is the data actively moving from one location to another, such as across the internet or through a private network. Secure transfer can be handled by encrypting the data prior to sending it over a network, or setting up a secure channel to transmit unencrypted data between two systems. Encrypting data in transit protects the data from outside observers and provides a mechanism to transmit data while limiting risk of exposure. 
+Data under överföring är de data som aktivt flyttar från en plats till en annan, till exempel via Internet eller via ett privat nätverk. Säker överföring kan hanteras genom att data krypteras innan de skickas via ett nätverk, eller genom att en säker kanal konfigureras för att skicka okrypterade data mellan två system. Kryptering av data under överföring skyddar data från utomstående observatörer och tillhandahåller en mekanism för överföring av data samtidigt som risken för exponering minskar. 
 
-![Encryption in transit](../media-draft/encryption-in-transit.png)
+![Kryptering under överföring](../media-draft/encryption-in-transit.png)
 
-## Identify and classify data
+## <a name="identify-and-classify-data"></a>Identifiera och klassificera data
 
-Let's revisit the problem Lamna Healthcare is attempting to solve. They have had previous incidents that exposed sensitive data, so there's a gap between what they are encrypting and what they should be encrypting. They need to start by identifying and classifying the types of data they are storing, and align this with the business and regulatory requirements surrounding the storage of data. It's beneficial to classify this data as it relates to the impact of exposure to the organization, its customers, or partners. An example classification could be as follows:
+Nu ska vi gå tillbaka till det problem som Lamna Healthcare försöker lösa. De har tidigare haft problem med exponeringen av känsliga data, vilket indikerar att man inte krypterar de data som borde krypteras. De måste börja med att identifiera och klassificera vilka data som lagras och sedan anpassa lagringen efter de företagskrav och bestämmelser som reglerar lagringen av data. Det kan vara bra att klassificera dessa data i förhållande till hur en exponering påverkar organisationen, dess kunder eller partner. En exempelklassificering skulle kunna se ut så här:
 
-|Data classification|Explanation|
+|Dataklassificering|Förklaring|
 |---|---|
-|Restricted|Data classified as restricted poses significant risk if exposed, altered, or deleted. Strong levels of protection are required for this data. |
-|Private| Data classified as private poses moderate risk if exposed, altered, or deleted. Reasonable levels of protection are required for this data. Data that is not classified as restricted or public will be classified as private.  |
-|Public| Data classified as public poses no risk if exposed, altered, or deleted. No protection is required for this data. |
+|Begränsade|Data som klassificeras som begränsade utgör en stor risk om de exponeras, ändras eller tas bort. Starka skyddsnivåer krävs för dessa data. |
+|Privata| Data som klassificeras som privata utgör en begränsad risk om de exponeras, ändras eller tas bort. Rimliga skyddsnivåer krävs för dessa data. Data som inte har klassificerats som begränsade eller offentliga klassificeras som privata.  |
+|Offentliga| Data som klassificeras som offentliga utgör ingen risk om de exponeras, ändras eller tas bort. Inget skydd krävs för dessa data. |
 
-By taking an inventory of the types of data being stored, they can get a better picture of where sensitive data may be stored and where existing encryption may or may not be happening.
+Genom att inventera de olika typer av data som lagras kan företaget få en bättre bild av var känsliga data lagras och var kryptering förekommer eller inte.
 
-A thorough understanding of the regulatory and business requirements that apply to data the organization stores is also important. The regulatory requirements an organization must adhere to will often drive a large part of the data encryption requirements. For Lamna Healthcare, they are storing sensitive data that falls under the Health Insurance Portability and Accountability Act (HIPAA), which contains requirements on how to handle and store patient data. Other industries may fall under different regulatory requirements. A financial institution may store account information that falls within Payment Card Industry (PCI) standards. An organization doing business in the EU may fall under the General Data Protection Regulation (GDPR), which defines the handling of personal data in the EU. Business requirements may also dictate that any data that could put the organization at financial risk containing competitive information needs to be encrypted.
+En grundlig förståelse av de företagskrav och bestämmelser som gäller för data som organisationen lagrar är också viktigt. De bestämmelser som en organisation måste följa föreskriver i hög utsträckning att data ska krypteras. Lamna Healthcare lagrar känsliga data som regleras av HIPAA (Health Insurance Portability and Accountability Act), som innehåller krav på hur patientdata ska hanteras och lagras. Andra branscher kan omfattas av andra myndighetskrav och bestämmelser. Ett finansinstitut kan lagra kontoinformation som regleras av PCI-standarder (Payment Card Industry). En organisation som gör affärer i EU kan omfattas av den allmänna dataskyddsförordningen (GDPR), som definierar hanteringen av personuppgifter inom EU. Särskilda affärsbehov kan också diktera att data som kan få ekonomiska konsekvenser för organisationen ska krypteras, t.ex. konkurrensinformation.
 
-Once you have the data classified and your requirements defined, you can then take advantage of various tools and technologies to implement and enforce encryption in your architecture.
+När du har klassificerat dina data och definierat dina krav kan du använda olika verktyg och tekniker för att implementera och kräva kryptering i din arkitektur.
 
-## Encryption on Azure
+## <a name="encryption-on-azure"></a>Kryptering i Azure
 
-Let's take a look at some ways that Azure enables you to encrypt data across services.
+Nu ska vi se hur du kan kryptera data i olika tjänster i Azure.
 
-### Encrypting raw storage
+### <a name="encrypting-raw-storage"></a>Kryptera lagring av rådata
 
-Azure Storage Service Encryption for data at rest helps you protect your data to meet your organizational security and compliance commitments. With this feature, the Azure storage platform automatically encrypts your data before persisting it to Azure Managed Disks, Azure Blob storage, Azure Files, or Azure Queue storage, and decrypts the data before retrieval. The handling of encryption, encryption at rest, decryption, and key management in Storage Service Encryption is transparent to applications using the services.
+Med Kryptering för lagringstjänst (SSE) för vilande data kan du skydda dina data i enlighet med säkerhets- och efterlevnadskraven i din organisation. Med den här funktionen krypterar Azures lagringsplattform automatiskt dina data innan de lagras i Azure Managed Disks, Azure Blob Storage, Azure Files eller Azure Queue Storage, och dekrypterar dem innan de hämtas. Hanteringen av kryptering, kryptering i vila, dekryptering och nyckelhantering i Kryptering för lagringstjänst är transparent för program som använder tjänsterna.
 
-For Lamna Healthcare, this means that whenever they are using services that support storage service encryption, their data is encrypted on the physical medium of storage. In the highly unlikely event that access to the physical disk is obtained, data will be unreadable since it has been encrypted as written to the physical disk.
+För Lamna Healthcare innebär det att när de använder tjänster som stöder Kryptering för lagringstjänst, så krypteras deras data på det fysiska lagringsmediet. Om någon obehörig mot förmodan får åtkomst till den fysiska disken är alla data oläsliga eftersom de krypterades när de skrevs till den fysiska disken.
 
-### Encrypting virtual machines
+### <a name="encrypting-virtual-machines"></a>Kryptera virtuella datorer
 
-Storage Service encryption provides low-level encryption protection for data written to physical disk, but how do you protect the virtual hard disks (VHD) of virtual machines? If a malicious attacker gained access to your Azure subscription and exfiltrated the VHDs of your virtual machines, how would you ensure they would be unable to access data stored on the VHD?
+Kryptering av lagringstjänst tillhandahåller krypteringsskydd på låg nivå för data som skrivs till en fysisk disk, men hur skyddar du de virtuella hårddiskarna på virtuella datorer? Om en angripare fick åtkomst till dina Azure-prenumeration och exfiltrated virtuella hårddiskar på virtuella datorer, hur skulle du se till att de skulle kunna komma åt data som lagras på den virtuella Hårddisken?
 
-Azure Disk Encryption (ADE) is a capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. ADE leverages the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets (and you can use Managed Service Identities for accessing key vault).
+Azure Disk Encryption (ADE) är en funktion som hjälper dig att kryptera dina IaaS-baserade virtuella Windows- och Linux-diskar. ADE använder branschstandardfunktionen BitLocker i Windows och DM-Crypt i Linux för att tillhandahålla volymkryptering för operativsystemet och datadiskarna. Lösningen är integrerad med Azure Key Vault och hjälper dig att kontrollera och hantera diskkrypteringsnycklarna och hemligheterna (och du kan använda hanterade tjänstidentiteter för att komma åt nyckelvalvet).
 
- Lamna Healthcare can apply ADE to their virtual machines to be sure any data stored on VHDs is secured to their organizational and compliance requirements. Because boot disks are also encrypted, they can control and audit usage.
+ Lamna Healthcare kan använda ADE med sina virtuella datorer för att säkerställa att data som lagras på virtuella hårddiskar är skyddade och uppfyller företagets organisations- och efterlevnadskrav. Eftersom startdiskar krypteras också, de kan styra och granska användning.
 
-### Encrypting databases
+### <a name="encrypting-databases"></a>Kryptera databaser
 
-Lamna Healthcare has several databases deployed that store data that needs additional protection. They've moved many databases to Azure SQL Database and want to ensure that their data is encrypted within their database. If the data files, log files, or backup files were stolen, they want to ensure they are unreadable without access to the encryption keys.
+Lamna Healthcare har flera distribuerade databaser med data som kräver extra skydd. De har flyttat många databaser till Azure SQL Database och vill vara säkra på att deras data krypteras i deras databas. Om datafiler, loggfiler och säkerhetskopieringsfilerna stals, som de vill säkerställa att de är inte kan läsas utan åtkomst till krypteringsnycklarna.
 
-Transparent data encryption (TDE) helps protect Azure SQL Database and Azure Data Warehouse against the threat of malicious activity. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed Azure SQL Databases.
+Med transparent datakryptering (TDE) kan du skydda Azure SQL Database och Azure Data Warehouse mot skadlig aktivitet. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser.
 
-TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. By default Azure provides a unique encryption key per logical SQL Server and handles all the details. Bring-your-own-key is also supported with keys stored in Azure Key Vault.
+TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln. Som standard tillhandahåller Azure en unik krypteringsnyckel per logisk SQL-server och hanterar all information. BYOK (Bring Your Own Key) stöds även med nycklar som lagras i Azure Key Vault.
 
-Since TDE is enabled by default, Lamna Healthcare can be confident they have the proper protections in place for data stored in their databases.
+Eftersom TDE är aktiverat som standard kan Lamna Healthcare vara säkra på att de har rätt skydd för data som lagras i deras databaser.
 
-### Encrypting secrets
+### <a name="encrypting-secrets"></a>Kryptera hemligheter
 
-We've seen that the encryption services all use keys to encrypt and decrypt data, so how do we ensure that the keys themselves are secure? Lamna Healthcare may also have passwords, connection strings, or other sensitive pieces of information that they need to securely store.
+Vi har sett att krypteringstjänster alla använder nycklar för att kryptera och dekryptera data, så gör vi ser till att nycklarna själva skyddas? Lamna Healthcare kanske också har lösenord, anslutningssträngar eller andra känsliga uppgifter som måste lagras på ett säkert sätt.
 
-Azure Key Vault is a cloud service that works as a secure secrets store. Key Vault allows you to create multiple secure containers, called vaults. These vaults are backed by hardware security modules (HSMs). Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key Vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates, providing the features required for a robust certificate lifecycle management solution. Key Vault is designed to support any type of secret. These secrets could be passwords, database credentials, API keys and, certificates.
+Azure Key Vault är en molntjänst som fungerar som ett säkert lager för hemligheter. Du kan skapa flera säkra containrar, kallade valv, i Key Vault. De här valven stöds av säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vault kontrollerar och loggar dessutom åtkomsten till allt som lagras i valven. Azure Key Vault kan hantera förfrågningar om och förnyelser av TLS-certifikat (Transport Layer Security), och ger tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat. Key Vault har stöd för alla typer av hemligheter. Exempel på sådana hemligheter är lösenord, databasautentiseringsuppgifter, API-nycklar och certifikat.
 
-Because Azure AD identities can be granted access to use Azure Key Vault secrets, applications with MSI enabled can automatically and seamlessly acquire the secrets they need.
+Eftersom Azure AD-identiteter kan beviljas behörighet att använda Azure Key Vault-hemligheter, kan MSI-aktiverade program automatiskt och smidigt hämta de hemligheter som de behöver.
 
-Lamna Healthcare can use Key Vault for the storage of all their sensitive application information, including the TLS certificates they use to secure communication between systems.
+Lamna Healthcare kan använda Key Vault för att lagra all känslig programinformation, inklusive TLS-certifikaten som de använder för att skydda kommunikationen mellan system.
 
-## Encryption at Lamna Healthcare
+## <a name="encryption-at-lamna-healthcare"></a>Kryptering på Lamna Healthcare
 
-Lamna Healthcare has gone through the identification and classification process for all the data they are storing. They've aligned these classifications with the regulatory and business requirements, and realized they have far more data they have to encrypt. They have encrypted all virtual machines that are storing sensitive data, and are encrypting all sensitive patient information they are storing on blob storage. TDE is enabled on all of their databases, so their relational databases meet their encryption requirements regardless of classification. They have also worked across the organization use Key Vault to store all certificates and credential information that applications may need for operation.
+Lamna Healthcare har gått igenom identifierings- och klassificeringsprocessen för alla data som de lagrar. De har jämfört dessa klassificeringar med tillämpliga efterlevnads- och företagskrav och har insett att de måste kryptera betydligt större mängder data. De har krypterat alla virtuella datorer som lagrar känsliga data, och krypterar all känslig patientinformation som lagras i bloblagring. TDE är aktiverat på alla sina databaser så att deras relationsdatabaser uppfylla sina krypteringskrav oavsett klassificering. De använder även Key Vault i hela organisationen för att lagra alla certifikat och autentiseringsuppgifter som olika program kan behöva för att fungera.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Encryption is often the last layer of defense from attackers, and is an important piece of a layered approach to securing your architecture. Azure provides built in capabilities and services to encrypt and protect data from unintended exposure. Protection of customer data stored within Azure Services is of paramount importance to Microsoft and should be included in any architecture design. Foundational services such as Azure Storage, Azure Virtual Machines, Azure SQL Database, and Azure Key Vault can help secure your environment through encryption.
+Kryptering är ofta den sista skyddsbarriären mot angripare och är en viktig del i en skiktbaserad strategi för att skydda din arkitektur. Azure tillhandahåller inbyggda funktioner och tjänster som krypterar data och skyddar data mot oavsiktlig exponering. Skydd av kunddata som lagras i Azure-tjänster har högsta prioritet för Microsoft och ska integreras i all arkitekturdesign. Grundläggande tjänster som Azure Storage, Azure Virtual Machines, Azure SQL Database och Azure Key Vault hjälper dig att skydda din miljö genom kryptering.

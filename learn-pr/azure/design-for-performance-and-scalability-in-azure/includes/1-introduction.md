@@ -1,16 +1,16 @@
-Whether you're running a public-facing application that has to handle massive amounts of traffic or an internal business API that handles critical data for internal systems, your users expect a system that performs well. Scaling your system to handle load, identifying network bottlenecks, and optimizing your storage performance are important things you can do to ensure your users have the best experience. In this module, we'll talk through details of how to make your application perform at its best.
+Oavsett om du kör ett offentligt program som hanterar stora mängder trafik eller ett internt affärs-API som hanterar kritiska data för interna system förväntar sig användarna ett system som fungerar väl. För att säkerställa att användarna får en så bra användarupplevelse som möjligt kan du bland annat skala ditt system för att hantera belastningen, identifiera nätverksflaskhalsar och optimera lagringsprestanda. I den här modulen kommer vi att gå igenom hur du får ditt program att prestera på bästa möjliga sätt.
 
-As we learn about architecting our cloud solutions for performance and scalability, we'll see how one fictional Azure customer puts these principles to work. Lamna Healthcare is a national healthcare provider with several thousand physicians and clinicians across multiple facilities throughout the country. Their IT organization has recently undertaken an effort to reduce their datacenter footprint and move the majority of their IT systems to Azure. They have a mixture of in-house developed applications, open source, and off-the-shelf applications, with varying architectures and technology platforms. They want to make their journey to the cloud successful, and would like to learn what they need to focus on to help make it possible.
+Samtidigt som vi visar dig hur vi har utformat våra molnlösningar för prestanda och skalbarhet kommer vi att se hur en påhittad Azure-kund använder dessa principer i sitt arbete. Lamna Healthcare är en nationell vårdgivare med flera tusen läkare och kliniker över hela landet. IT-avdelningen har nyligen vidtagit åtgärder för att minska sina fotavtryck för minnesanvändning och flytta merparten av sina IT-system till Azure. De har en blandning av internt utvecklade program, öppen källkod och startklara program med olika arkitekturer och teknikplattformar. De vill att övergången till molnet ska lyckas och vill veta vad de behöver för att fokusera på att göra det möjligt.
 
 > [!NOTE]
-> The concepts discussed in this module are not all-inclusive, but represent some of the important considerations when building a solution on the cloud. Microsoft publishes a broad set of patterns, guidelines, and examples on designing applications on Azure. It is highly recommended that you look through the content in the [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) as you start planning and designing your architecture.
+> De begrepp som diskuteras i den här modulen är inte heltäckande, men representerar några viktiga överväganden när du skapar en lösning i molnet. Microsoft publicerar en rad olika mönster, riktlinjer och exempel på hur du skapar program i Azure. Vi rekommenderar starkt att du söker igenom innehållet i den [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) när du börjar planera och utforma din arkitektur.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Learn how scaling up and scaling out allows you to dynamically adjust capacity to your workload.
-- Learn how to optimize network performance.
-- Learn how to optimize storage and database performance.
+- Lär dig hur du skalar upp och skala ut för att dynamiskt justera kapaciteten efter arbetsbelastningen.
+- Lär dig hur du optimerar prestandan i nätverket.
+- Lär dig hur du optimerar prestandan för lagring och databaser.
 
-Let's get started!
+Nu sätter vi igång!

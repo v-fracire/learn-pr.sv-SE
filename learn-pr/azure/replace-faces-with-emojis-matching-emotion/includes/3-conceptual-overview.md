@@ -1,10 +1,10 @@
-Before we delve too deep into the implementations let’s first answer some higher level questions.
+Innan vi delve i implementeringarna vi först besvara några frågor med högre nivå.
 
-## How to calculate the emotion of a face?
+## <a name="how-to-calculate-the-emotion-of-a-face"></a>Hur du beräknar känslan hos ett ansikte?
 
-Calculating emotion is one of the easiest parts of the application. We use the [FaceAPI](https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=mojifier-sandbox-ashussai), part of the Azure Cognitive Services offering.
+Beräkning av känslo är en av de mest tillgängliga delarna av programmet. Vi använder den [FaceAPI](https://azure.microsoft.com/services/cognitive-services/face/)ingår i erbjudandet Azure Cognitive Services.
 
-The FaceAPI takes as input an image and returns information about the image, including if it detected any faces, the locations of the faces in the image and if requested it will also calculate and return the emotions of the faces as well, like so:
+FaceAPI tar som indata för en bild och returnerar information om bilden, inklusive om den identifieras alla ansikten platserna för ansikten i bild och om så krävs det beräknar och returnerar känslor i ansikten, t.ex:
 
 ```json
 {
@@ -19,15 +19,15 @@ The FaceAPI takes as input an image and returns information about the image, inc
 }
 ```
 
-Take for instance this image:
+Ta till exempel den här bilden:
 
-![Example Face](/media-drafts/example-face.jpg)
+![Exempel ansikte](/media-drafts/example-face.jpg)
 
-To process this image, you would make a POST request to an API endpoint like this:
+Du kan göra en POST-begäran till en API-slutpunkt så här för att bearbeta den här bilden:
 
-    https://<region>.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=false&returnFaceLandmarks=false&returnFaceAttributes=emotion
+https://xxxxxxxxx.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=false&returnFaceLandmarks=false&returnFaceAttributes=emotion
 
-We provide the image in the body like so:
+Vi ger avbildningen i brödtexten t.ex:
 
 ```json
 {
@@ -35,15 +35,17 @@ We provide the image in the body like so:
 }
 ```
 
-> **Note**
+> **Obs!**
 >
-> The API by default doesn’t return the emotion, you need to explicitly specify the query param `returnFaceAttributes=emotion`
+> API: et som standard inte returnerar känslan, måste du uttryckligen ange fråga param `returnFaceAttributes=emotion`
 
-The API is authenticated by the use of a secret key; we need to send this key with the header
+Användning av en hemlig nyckel autentiserar API: et Vi måste skicka den här nyckeln med rubriken.
 
-    Ocp-Apim-Subscription-Key: <your-subscription-key>
+```
+Ocp-Apim-Subscription-Key: <your-subscription-key>
+```
 
-The API with the query params above would return a JSON like so:
+API: et med det ovanstående fråga parametrar kommer att returnera en JSON som detta:
 
 ```json
 [
@@ -70,37 +72,37 @@ The API with the query params above would return a JSON like so:
 ]
 ```
 
-It returns an array of results, one per face detected in the image. For each face, it returns the size/location of the face as `faceRectangle` and the emotions represented as a number from 0 to 1 as `faceAttributes`.
+Den returnerar en matris med resultat, en per ansikte som identifierats i avbildningen. För varje ansikte returnerar storlek/plats av ansikte som `faceRectangle` och känslor visas som ett tal från 0 till 1 som `faceAttributes`.
 
-> **Tip**
+> **Tips**
 >
-> You can start playing around with Cognitive Services even _without_ having an Azure account, simply go to [this page](https://azure.microsoft.com/try/cognitive-services/?api=face-api&WT.mc_id=mojifier-sandbox-ashussai) and enter your email address to get trial access.
+> Du kan börja spela med Cognitive Services även _utan_ med ett Azure-konto, gå till [den här sidan](https://azure.microsoft.com/try/cognitive-services/?api=face-api&WT.mc_id=mojifier-sandbox-ashussai) och ange din e-postadress för att få utvärderingsperioden.
 
-## How to map an emotion to an emoji?
+## <a name="how-to-map-an-emotion-to-an-emoji"></a>Hur du mappar en känsla till en emoji?
 
-Imagine there were only two emotions, fear and happiness, with values ranging from 0 to 1. Then every face could be plotted in a 2D _emotional space_ based on the emotion of the user, like so:
+Anta att det finns bara två känslor, rädsla och lycka, med värden mellan 0 och 1. Sedan varje ansikte kunde ritas i en 2D _känslomässig utrymme_ baserat på känslan hos användaren, t.ex:
 
-![Euclidean Distance 1](/media-drafts/graph-1.jpg)
+![Euclidean avståndet 1](/media-drafts/graph-1.jpg)
 
-Imagine then that we also figured out the emotional point for each emoji, and plotted those on the 2D emotional space as well. Then if we calculate the distance between your face and all the other emojis in this 2D emotional space we can figure out the closest emoji to your emotion, like so:
+Tänk dig sedan att vi också tyckte känslomässig utgångspunkten för varje emoji och ritas på 2D känslomässig utrymme samt. Om vi beräknar avståndet mellan ansiktet och alla andra emojis här 2D känslomässig vi kan ta reda på den närmaste emoji att din känslo t.ex:
 
-![Euclidean Distance 2](/media-drafts/graph-2.png)
+![Euclidean avståndet 2](/media-drafts/graph-2.png)
 
-This calculation is called the `euclidian distance`, and this is precisely what we used but not in 2D emotional space, in an 8D emotional space with (anger, contempt, disgust, fear, happiness, neutral, sadness, surprise).
+Den här beräkningen kallas den `euclidian distance`, och det här är vad vi använt men inte i 2D känslomässig utrymme i en känslomässig utrymme 8 D med (ilska, förakt, avsky, rädsla, lycka, neutral, sorg, överraskning).
 
-> **Tip**
+> **Tips**
 >
-> To make like easier we used the npm package called euclidean-distance, <https://www.npmjs.com/package/euclidean-distance>.
+> Att göra som enklare vi använde npm-paket kallas euclidean avstånd, <https://www.npmjs.com/package/euclidean-distance>.
 
-## Shared Code
+## <a name="shared-code"></a>Delad kod
 
-The sample starter project comes with a shared folder with code that already handles a lot of the use cases above.
+Starter exempelprojektet levereras med en delad mapp med kod som hanterar redan mycket användningsfallen ovan.
 
-### EmotivePoint
+### <a name="emotivepoint"></a>EmotivePoint
 
-If you look closely at the `EmotivePoint` class in `shared/emmotive-point.ts` you will notice a few things
+Om du titta på den `EmotivePoint` klassen i `shared/emmotive-point.ts` ser du några saker.
 
-The contructor takes as input an object containing emotive information and stores as local member variables, like so:
+Konstruktorn tar som indata för ett objekt som innehåller emotive information och som lokala Medlemsvariabler, t.ex:
 
 ```typescript
  constructor({
@@ -124,7 +126,7 @@ The contructor takes as input an object containing emotive information and store
   }
 ```
 
-It also has a function called distance which we can use to calcualte the euclidian distance between two emotive points, like so:
+Det har också en funktion som kallas avståndet som vi kan använda för att beräkna euclidian avståndet mellan två emotive punkter, t.ex:
 
 ```typescript
   distance(other) {
@@ -134,7 +136,7 @@ It also has a function called distance which we can use to calcualte the euclidi
   }
 ```
 
-We therefore can create two emotive points and calculate how close they are like so:
+Vi därför kan du skapa två emotive punkter och beräkna hur nära de är t.ex:
 
 ```typescript
 let a = new EmotivePoint({
@@ -146,18 +148,18 @@ let b = new EmotivePoint({
 let distance = a.distance(b);
 ```
 
-### Face
+### <a name="face"></a>Ansikte
 
-Another helper class is the `Face` class, this combines a few different properties including the `EmotivePoint` of a face and also the rectangle defining the face in the image, we use the `Rect` class for that.
+En annan hjälparklass är den `Face` klassen; det kombinerar ett par olika egenskaper, inklusive den `EmotivePoint` av ett ansikte och rektangeln definiera ansiktet i bilden; vi använder den `Rect` klass för som.
 
-If you look closely at the `Face` class constructor in `shared/face.ts` you will notice this line of code:
+Om du titta på den `Face` klass-konstruktorn i `shared/face.ts` visas den här raden med kod:
 
 ```typescript
 this.moji = this.chooseMoji(this.emotivePoint);
 ```
 
-`emotivePoint` is the emotive point of the face itself.
-`chooseMoji` returns an appropriate emoji based on the emotivePoint of the face.
+`emotivePoint` är den emotive ansiktet själva.
+`chooseMoji` Returnerar en lämplig emoji baserat på emotivePoint av de står inför.
 
 ```typescript
   chooseMoji(point) {
@@ -175,12 +177,12 @@ this.moji = this.chooseMoji(this.emotivePoint);
   }
 ```
 
-`MOJIS` is the list of emotive points for all the emojis, we'll discuss how to generate these in the next lecture.
+`MOJIS` är listan emotive återställningspunkter för alla emojis kommer vi att diskutera hur du skapar dessa i nästa föreläsning.
 
-The `chooseMoji` fucntion simply caclualtes the distance between this face and all the emojies, returning the closest one.
+Den `chooseMoji` funktionen beräknar avståndet mellan den här ansikte och alla emojis, returnerar det närmaste.
 
-# Summary
+# <a name="summary"></a>Sammanfattning
 
-For each emoji we calcualte a point in _emotional_ space, this is called _calibration_ and we will cover this in the next chapter.
+För varje emoji vi beräkna en punkt i _känslomässig_ utrymme, det här kallas _kalibrering_ och vi igenom detta mer i nästa kapitel.
 
-Then using the Azure Face API we get a list of faces in an images with the emotional point of each face. Then using the euclidian distance algorithm to find the closest emoji to each face.
+Använda Ansikts-API i Azure, vi får en lista över ansikten i bilder med känslomässig punkt i varje ansikte. Sedan använder euclidian avståndet algoritmen för att hitta den närmaste emoji att varje ansikte.

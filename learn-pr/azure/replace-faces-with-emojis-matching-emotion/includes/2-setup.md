@@ -1,97 +1,61 @@
-First things first we need to make sure you are setup with a few accounts and have the sample code working locally.
+Första sakerna först vi måste se till att du har konfigurerat några konton och har starter-koden som klonas lokalt.
 
-## Create an Azure Account
+## <a name="create-an-azure-account"></a>Skapa ett Azure-konto
 
-You will need an accout on Azure. If you don’t already have one then you can signup and get a free years worth of services by following this link:
+Du behöver ett konto på Azure. Om du inte redan har en så kan du registrera dig och få en kostnadsfri år leverantör av tjänster genom att följa den här länken:
 
-[Crate Azure Account](https://azure.microsoft.com/free)
+[Skapa Azure-konto](https://azure.microsoft.com/free)
 
-## Create a Slack Workspace
+## <a name="create-a-slack-workspace"></a>Skapa en Slack-arbetsyta
 
-To create a slack command you need admin privillages on a slack workspace.
+Om du vill skapa ett slack-kommando, behöver du administratörsrättigheter på en slack-arbetsyta.
 
-So you eiher need to make sure you have admin privillages on an existing workspace or create a brand new slack workspace, like so:
+Så du antingen måste du kontrollera att du har administratörsrättigheter på en befintlig arbetsyta eller skapa en helt ny slack arbetsyta som det:
 
-[Crate Slack Account](https://slack.com/create)
+[Skapa Slack arbetsyta](https://slack.com/create)
 
-## Clone the starter code
+## <a name="clone-the-starter-code"></a>Klona starter-koden
 
-This module is designed so you follow a set of instructions step by step.
+För att få ut bäst av den här modulen kan rekommenderar jag att du klonar starter-koden och följa de stegvisa anvisningarna.
 
-We'll provide all the code you need to write in order to create a completed application.
+Vi ger den kod som du behöver för att slutföra programmet samt vissa inledande bootstrap-kod att komma igång.
 
-We do provide some initial bootstrap code to get you started, so to begin you must clone this _stater_ code to your local computer.
-
-> TODO - Where is the code going?
+Att börja klona detta _stater_ kod till din lokala dator.
 
 ```bash
-git clone [github-url]
+git clone https://github.com/jawache/mojifier-slack.git
 ```
 
-Then install the required pacakges using:
+Sedan installera de nödvändiga paketen med:
 
 ```bash
 npm install
 ```
 
-> We recommend you follow this module step by step. However if you become stuck and need help then you can find the completed code in the `completed` branch, like so:
+Vi rekommenderar att du följer den här modulen steg för steg. Men om du kör fast och behöver sedan du hittar den färdiga koden i den `completed` gren, t.ex:
 
 ```bash
 git checkout completed
 ```
 
-We will be coding up our application in `TypeScript`. NodeJS does not know how to run TypeScript, so as we develop we need to convert our `TypeScript` code to `JavaScript`. All the required tooling was installed int he step above so to convert the TypeScript run the command:
+Vi ska skriva våra program med hjälp av `TypeScript`. NodeJS inte vet hur du **kör** `TypeScript`, så när vi utvecklar vi måste konvertera vår `TypeScript` koda till `JavaScript`. Alla nödvändiga verktyg och utföra konverteringen har installerats i ovanstående steg för att konvertera den `TypeScript` kör du följande kommando:
 
 ```bash
 npm run build
 ```
 
-If the avove command ran success fully next to the `*.ts` files you should now also see `*.js` and `*.map` files.
+Om ovanstående kommando har körts har vid den `*.ts` filer, bör nu även se `*.js` och `*.map` filer.
 
-> NOTE: Keep this command running in a terminal shell, this will continuously watch for any changed to the TypeScript file and convert them to JavaScript files.
+> **Obs!**
 >
-> If for some reason the files are not getting converted then check the console output in the terminal window, there may be errors in your TypeScript code.
+> Håll det här kommandot som körs i en terminal shell, detta söker efter ändringar i TypeScript-filer och konverterar dem till JavaScript-filer.
+>
+> Om du av någon anledning filerna inte är komma konverteras du sedan kontrollera konsolens utdata i terminalfönstret genom finnas det fel i TypeScript-kod.
 
-## Install the Azure Command Line Tools
+## <a name="install-visual-studio-code--azure-functions-extention"></a>Installera Visual Studio Code och Azure Functions-tillägg
 
-We will be interacting with Azure usin the Azure CLI, follow the instructions here to install the tool locally on your computer: https://docs.microsoft.com/cli/azure/install-azure-cli
+Det finns många sätt som du kan interagera med Azure, i den här modulen som vi interagerar med Azure med hjälp av Visual Studio Code och Azure Functions Extension associerade plugin-programmet.
 
-Once installed, try loging in with your Azure credentials.
+1. Ladda ned och installera visual studio code från https://code.visualstudio.com/
 
-```bash
-az login -o table
-```
-
-The above command will open a browser window, you may need to authenticate, once authetication is complete you the browser will close and the terminal will print some output, like so:
-
-```bash
-You have logged in. Now let us find all the subscriptions to which you have access...
-```
-
-## Install the Azure Functions Runtime
-
-We will be hosting our code on the Azure Functions service.
-
-In order to run and debug Azure Functions locally we also need to install the Function Tools, instructions can be found here: https://docs.microsoft.com/azure/azure-functions/functions-run-local
-
-<!-- ## Install Visual Studio Code & Azure Functions Extension
-
-There are many ways you can interact with Azure, in this module we will be interacting with Azure using Visual Studio Code and the associated Azure Functions Extensions plugin.
-
-1. Download and install visual studio code from https://code.visualstudio.com/
-
-2. Install the Azure Functions Code Extensions by following the instructions here: https://code.visualstudio.com/tutorials/functions-extension/getting-started -->
-
-<!-- ## Install the Azure CLI
-
-We will also be using the Azure Command Line Interface, install it using the most appropriate method for your OS using the information here:
-
-[Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-
-## Install the Function Tools CLI
-
-In order to run and debug Azure Functions locally we also need to install the Function Tools, instructions can be found here:
-
-[Install Function CLI](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
-
-> Please install the V2 version of the Functon Tools -->
+2. Installera Azure Functions Code-tillägg genom att följa instruktionerna här: https://code.visualstudio.com/tutorials/functions-extension/getting-started

@@ -1,26 +1,26 @@
-Queues hold messages - packets of data whose shape is known to the sender application and receiver application. The sender creates the queue and adds a message. The receiver retrieves a message, processes it, and then deletes the message from the queue. The following illustration shows a typical flow of this process.
+Köer innehåller meddelanden - datapaket vars form känns avsändarprogram och mottagarprogram. Avsändaren skapar kön och lägger till ett meddelande. Mottagaren hämtar ett meddelande, bearbetar det och tar sedan bort meddelandet från kön. Följande illustration visar en översikt över en vanlig sådan process.
 
-![An illustration showing a typical message flow through the Azure Queue.](../media/6-message-flow.png)
+![En bild som visar ett vanligt meddelandeflöde via Azure Queue.](../media/6-message-flow.png)
 
-Notice that `get` and `delete` are separate operations. This arrangement handles potential failures in the receiver and implements a concept called _at-least-once delivery_. After the receiver gets a message, that message remains in the queue but is invisible for 30 seconds. If the receiver crashes or experiences a power failure during processing, then it will never delete the message from the queue. After 30 seconds, the message will reappear in the queue and another instance of the receiver can process it to completion.
+Observera att `get` och `delete` är separata åtgärder. Den här strukturen hanterar potentiella fel i mottagaren och implementerar ett begrepp som kallas _leverans minst en gång_. När mottagaren får ett meddelande finns meddelandet kvar i kön men är osynligt i 30 sekunder. Om mottagaren kraschar eller utsätts för ett strömavbrott under bearbetningen tar den aldrig bort meddelandet från kön. Efter 30 sekunder visas meddelandet i kön igen, och då kan en annan instans av mottagaren bearbeta det så att det slutförs.
 
-## The Azure Storage Client Library for .NET
+## <a name="the-azure-storage-client-library-for-net"></a>Azure Storage-klientbiblioteket för .NET
 
-The **Azure Storage Client Library for .NET** provides types to represent each of the objects you need to interact with:
+**Azure Storage-klientbiblioteket för .NET** tillhandahåller typer för att representera vart och ett av de objekt som du behöver för att interagera med:
 
-- `CloudStorageAccount` represents your Azure storage account.
-- `CloudQueueClient` represents Azure Queue storage.
-- `CloudQueue` represents one of your queue instances.
-- `CloudQueueMessage` represents a message.
+- `CloudStorageAccount` representerar ditt Azure Storage-konto.
+- `CloudQueueClient` representerar Azure Queue-lagring.
+- `CloudQueue` representerar en av dina köinstanser.
+- `CloudQueueMessage` representerar ett meddelande.
 
-You will use these classes to get programmatic access to your queue. The library has both synchronous and asynchronous methods; you should prefer to use the asynchronous versions to avoid blocking the client app.
+Du använder de här klasserna för att få programmatisk åtkomst till din kö. Biblioteket har både synkrona och asynkrona metoder. Du bör använda de asynkrona versionerna för att undvika blockering i klientapparna.
 
 > [!NOTE]
-> The Azure Storage Client Library for .NET is available in the **WindowsAzure.Storage** NuGet package. You can install it through an IDE, Azure CLI, or through PowerShell `Install-Package WindowsAzure.Storage`.
+> Azure Storage-klientbiblioteket för .NET finns i **WindowsAzure.Storage** NuGet-paketet. Du kan installera det via IDE, Azure CLI eller PowerShell `Install-Package WindowsAzure.Storage`.
 
-## How to connect to a queue
+## <a name="how-to-connect-to-a-queue"></a>Ansluta till en kö
 
-To connect to a queue, you first create a `CloudStorageAccount` with your connection string. The resulting object can then create a `CloudQueueClient`, which in turn can open a `CloudQueue` instance. The basic code flow is shown below.
+Om du vill ansluta till en kö måste du först skapa ett `CloudStorageAccount` med anslutningssträngen. Objektet kan sedan skapa en `CloudQueueClient`, vilket i sin tur kan öppna en `CloudQueue`-instans. Det grundläggande kodflödet visas nedan.
 
 ```csharp
 CloudStorageAccount account = CloudStorageAccount.Parse(connectionString);
@@ -30,15 +30,15 @@ CloudQueueClient client = account.CreateCloudQueueClient();
 CloudQueue queue = client.GetQueueReference("myqueue");
 ```
 
-Creating a `CloudQueue` doesn't necessarily mean the _actual_ storage queue exists. However, you can use this object to create, delete, and check for an existing queue. As mentioned above, all methods support both synchronous and asynchronous versions, but we will only be using the `Task`-based asynchronous versions.
+Att skapa en `CloudQueue` innebär inte nödvändigtvis att den _faktiska_ lagringskön finns, men du kan använda det här objektet för att skapa, ta bort och söka efter en befintlig kö. Som nämnts ovan kan alla metoder användas med både synkrona och asynkrona versioner, men vi kommer endast att använda de `Task`-baserade asynkrona versionerna.
 
-## How to create a queue
+## <a name="how-to-create-a-queue"></a>Så skapar du en resurs
 
-You will use a common pattern for queue creation: the sender application should always be responsible for creating the queue. This keeps your application more self-contained and less dependent on administrative set-up. 
+Du ska använda ett vanligt mönster för att skapa en kö: avsändarprogrammet ska alltid ansvara för att skapa kön. Detta gör programmet mer självständigt och mindre beroende av den administrativa strukturen. 
 
-To make the creation simple, the client library exposes a `CreateIfNotExistsAsync` method that will create the queue if necessary, or return `false` if the queue already exists. 
+Klientbiblioteket underlättar skapandet genom att exponera en `CreateIfNotExistsAsync`-metod som skapar kön om det behövs, eller returnerar `false` om kön redan finns. 
 
-Typical code is shown below.
+Den typiska koden visas nedan.
 
 ```csharp
 CloudQueue queue;
@@ -48,13 +48,13 @@ await queue.CreateIfNotExistsAsync();
 ```
 
 > [!NOTE]
-> You must have `Write` or `Create` permissions for the storage account to use this API. This is always true if you use the **Access Key** security model, but you can lock down permissions to the account with other approaches that will only allow read operations against the queue.
+> Du måste ha `Write`- eller `Create`-behörighet till lagringskontot för att kunna använda detta API. Detta gäller alltid om du använder säkerhetsmodellen med **åtkomstnyckel**, men du kan låsa behörigheterna till kontot med andra metoder som enbart tillåter läsåtgärder mot kön.
 
-## How to send a message
+## <a name="how-to-send-a-message"></a>Så skickar du ett meddelande
 
-To send a message, you instantiate a `CloudQueueMessage` object. The class has a few overloaded constructors that load your data into the message. We will use the constructor that takes a `string`. After creating the message, you use a `CloudQueue` object to send it.
+För att skicka ett meddelande instansierar du ett `CloudQueueMessage`objekt. Klassen har några överlagrade konstruktorer som läser in dina data i meddelandet. Vi använder den konstruktor som tar en `string`. När meddelandet har skapats använder du ett `CloudQueue`-objekt för att skicka det.
 
-Here's a typical example:
+Här är ett vanligt exempel:
 
 ```csharp
 var message = new CloudQueueMessage("your message here");
@@ -66,11 +66,11 @@ await queue.AddMessageAsync(message);
 ```
 
 > [!NOTE]
-> While the total queue size can be up to 500 TB, the individual messages in it can only be up to 64 KB in size (48 KB when using Base64 encoding). If you need a larger payload you can combine queues and blobs – passing the URL to the actual data (stored as a Blob) in the message. This approach would allow you to enqueue up to 200 GB for a single item.
+> Den totala köstorleken kan vara upp till 500 TB, men enskilda meddelanden i kön kan endast vara upp till 64 kB stora (48 kB om du använder Base64-kodning). Om du behöver en större nyttolast kan du kombinera köer och blobbar, och skicka webbadressen till de faktiska data (som lagras som en blob) i meddelandet. Med den metoden kan du ha upp till 200 GB för ett enskilt objekt i kön.
 
-## How to receive and delete a message
+## <a name="how-to-receive-and-delete-a-message"></a>Så tar du emot och tar bort ett meddelande
 
-In the receiver, you get the next message, process it, and then delete it after processing succeeds. Here's a simple example:
+I mottagaren tar du emot nästa meddelande, bearbetar det och tar sedan bort det efter att bearbetningen är klar. Här är ett enkelt exempel:
 
 ```C#
 CloudQueue queue;
@@ -87,4 +87,4 @@ if (message != null)
 }
 ```
 
-Let's now apply this new knowledge to our application!
+Nu ska vi använda de nya kunskaperna på vårt program!

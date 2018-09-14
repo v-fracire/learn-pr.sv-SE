@@ -1,76 +1,76 @@
-The following is a high-level illustration of what we're going to build in this exercise.
+Följande är en övergripande bild av vad vi ska skapa i den här övningen.
 
-![Visual representation of default HTTP trigger, showing HTTP request and response as well as respective req and res binding parameters.](../media-draft/default-http-trigger-visual-small.PNG)
+![Visuell representation av standard HTTP-utlösare, som visar HTTP-begäran och svar samt respektive req och res bindande parametrar.](../media-draft/default-http-trigger-visual-small.PNG)
 
-We'll create a function that will start when it receives an HTTP request and will respond to each request by sending back a message. The parameters `req` and `res` are the trigger binding and output binding respectively. Let's get going!
+Vi ska skapa en funktion som startar när den får en HTTP-begäran och svarar på varje begäran genom att skicka tillbaka ett meddelande. Parametrarna `req` och `res` är utlösaren bindningen och utdata bindning respektive. Dags att sätta igång!
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com?azure-portal=true) with your Azure account.
+### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-### Create a function app
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
-Let's create a function app that we'll use throughout this entire module. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-[!INCLUDE [resource-group-note](./rg-notice.md)]
+Nu ska vi skapa en funktionsapp som vi använder under hela den här hela modulen. En funktionsapp kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution och dela resurser.
 
-1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
-1. Set the function app properties as follows:
+1. Logga in på [Azure Portal](https://portal.azure.com/?azure-portal=true).
+1. Välj den **skapa en resurs** knappen hittades på det övre vänstra hörnet i Azure-portalen, sedan väljer **Compute** > **Funktionsapp**.
+1. Ange funktionen egenskaper enligt följande:
 
-
-    | Property      | Suggested value  | Description                                        |
+    | Egenskap      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
-    | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
-    | **Resource Group**|  [!INCLUDE [resource-group-name](./rg-name.md)] | Name for the new resource group in which to create your function app. | 
-    | **OS** | Windows | The operating system that hosts the function app.  |
-    | **Hosting** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you only pay for the time your functions run.   |
-    | **Location** | West Europe | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
-    | **Storage account** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. This dialog populates the field with a unique name that is derived from the name you gave the app. However, feel free to use a different name or even an existing account. |
+    | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
+    | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
+    | **Resursgrupp**|  Välj **Använd befintlig** och välj <rgn>[Sandbox resursgruppens namn]</rgn> | Namnet på resursgruppen som funktionsappen ska skapas i. | 
+    | **OS** | Windows | Det operativsystem som är värd för funktionsappen.  |
+    | **Som är värd för** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I **standardförbrukningsplanen** läggs resurser till dynamiskt när de behövs i funktionerna. För den här typen av [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) värdtjänster betalar du bara för den tid som dina funktioner körs.   |
+    | **Plats** | Välj listan | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
+    | **Lagringskonto** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Den här dialogrutan fylls fältet med ett unikt namn som härleds från namnet du gav appen. Dock passa på att använda ett annat namn eller även ett befintligt konto. |
 
 
-3. Select **Create** to provision and deploy the function app.
+3. Välj **Skapa** för att etablera och distribuera funktionsappen.
 
-4. Select the Notification icon in the upper-right corner of the portal and watch for a **Deployment in progress** message similar to the following message.
+4. Välj meddelandeikonen i det övre högra hörnet i portalen och titta efter en **distribution pågår** meddelande som liknar följande meddelande.
 
-![Notification that function app deployment is in progress](../media-draft/func-app-deploy-progress-small.PNG)
+![Meddelande om att funktionen app-distribution pågår](../media-draft/func-app-deploy-progress-small.PNG)
 
-5. Deployment can take some time. So, stay in the notification hub and  watch for a **Deployment succeeded** message similar to the following message.
+5. Distributionen kan ta lite tid. Så Håll dig i meddelandehubben och håll utkik efter en **distributionen lyckades** meddelande som liknar följande meddelande.
 
-![Notification that function app deployment has completed](../media-draft/func-app-deploy-success-small.PNG)
+![Meddelande om att funktionen app-distribution har slutförts](../media-draft/func-app-deploy-success-small.PNG)
 
-6. Congratulations! You've created and deployed your function app. Select **Go to resource** to view your new function app.
+6. Grattis! Du har skapat och distribuerat din funktionsapp. Välj **Gå till resurs** att visa den nya funktionsappen.
 
 >[!TIP]
->If you are having trouble finding your function apps in the portal, find out how to [add Function Apps to your favorites in the portal](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#favorite).
+>Om du har problem med att hitta dina funktionsappar i portalen, Lär dig hur du [lägga till Funktionsappar i dina Favoriter på portalen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#favorite).
 
-### Create a function
+### <a name="create-a-function"></a>Skapa en funktion
 
-Now that we have a function app, it's time to create a function. A function is activated through a trigger. In this module, we'll use an HTTP trigger.
+Nu när vi har en funktionsapp är det dags att skapa en funktion. En funktion aktiveras via en utlösare. I den här modulen använder vi en HTTP-utlösare.
 
-1. Expand your new function app, then hover over the functions collection and select the Add (**+**) button next to **Functions**. This action starts the function creation process. The following animation illustrates this action.
+1. Expandera din nya funktionsapp och sedan hovra över samlingen funktioner och välj Lägg till (**+**) bredvid knappen **Functions**. Den här åtgärden startar funktionen skapandeprocessen. Följande animeringen illustrerar den här åtgärden.
 
-![Animation of the plus sign appearing when the user hovers over the functions menu item.](../media-draft/func-app-plus-hover-small.gif)
+![Animering av på plustecknet som visas när användaren för muspekaren över menyalternativet funktioner.](../media-draft/func-app-plus-hover-small.gif)
 
-2. In the **Get started quickly** page, select **WebHook + API**, select a language for your function, and click **Create this function**.
+2. I den **Kom igång snabbt** väljer **WebHook + API**, Välj ett språk för funktionen och klicka på **skapa den här funktionen**.
 
-3. A function is created in your chosen language using the template for an HTTP triggered function. In this exercise, we'll create a JavaScript function.
+3. En funktion skapas i ditt valda språk med hjälp av mallen för en HTTP-utlöst funktion. I den här övningen ska skapa vi en JavaScript-funktion.
 
-### Try it out
+### <a name="try-it-out"></a>Prova
 
-Let's test what we have so far by doing the following:
+Nu ska vi testa vad vi har hittills genom att göra följande:
 
-1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**.
+1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)**. Sedan klickar du på **Kopiera**.
 
-2. Paste the function URL you copied into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see a response similar to the following response returned by the function displayed in your browser.  
+2. Klistra in funktionens URL som du kopierade i webbläsarens adressfält. Lägg till frågesträngvärdet `&name=<yourname>` i slutet av den här webbadressen och tryck på knappen `Enter` på tangentbordet för att utföra begäran. Du bör se ett svar som liknar följande svar returnerades av funktionen visas i webbläsaren.  
 
-Nice work! You have now added a HTTP-triggered function to your function app and tested to make sure it is working as expected!
+Bra jobbat! Du har nu lagt till en HTTP-utlöst funktion till din funktionsapp och testats för att kontrollera att den fungerar som förväntat!
 
-![Screenshot of response message of a successful call to our function.](../media-draft/default-http-trigger-response-small.PNG)
+![Skärmbild av svarsmeddelandet av ett genomfört anrop till vår funktion.](../media-draft/default-http-trigger-response-small.PNG)
 
-As you can see from this exercise so far, you have to select a trigger type when creating a function. Every function has one, and only one trigger. In this example, we're using an HTTP trigger, which means our function starts when it receives an HTTP request. The default implementation, shown in the following screenshot in JavaScript, responds with the value of a parameter *name* it received in the query string  or body of the request. If no string was provided, the function responds with a message asking whoever is calling to supply a name value.
+Du måste välja en Utlösartyp när du skapar en funktion som du ser i den här övningen hittills. Varje funktion har en och endast en utlösare. I det här exemplet använder vi en HTTP-utlösare, vilket innebär att vår funktion startar när den får en HTTP-förfrågan. Standardimplementeringen som visas i följande skärmbild i JavaScript, svarar med värdet för en parameter *namn* it som tas emot i frågesträngen eller brödtexten i begäran. Om ingen sträng har angetts, svarar funktionen med ett meddelande som ber den ringer för att ange ett namnvärde.
 
-![Screenshot of default JavaScript implementation of a HTTP-triggered Azure function.](../media-draft/default-http-trigger-implementation-small.PNG)
+![Skärmbild av JavaScript standardimplementering av en Azure HTTP-utlöst funktion.](../media-draft/default-http-trigger-implementation-small.PNG)
 
-All of this code is in the *index.js* file in this function's folder. Let's look briefly at the function's other file, the *function.json* config file. This configuration data is shown in the following JSON listing.
+All den här koden är i den *index.js* fil i mappen för den här funktionen. Nu ska vi titta kort på funktionen användarens andra filer i *function.json* konfigurationsfilen. Den här konfigurationsdata visas i följande JSON-lista.
 
 ```json
 {
@@ -91,40 +91,40 @@ All of this code is in the *index.js* file in this function's folder. Let's look
 }
 ```
 
-As you can see, this function has a trigger binding named **req** of type `httpTrigger` and an output binding named **res**  of type `HTTP`. In the preceding code for our function, we saw how we accessed the payload of the incoming HTTP request through our **req** parameter. Similarly, we sent an HTTP response simply by setting our **res** parameter. Bindings really do take care of some of the heavy lifting for us!
+Som du ser den här funktionen har en utlösare-bindning med namnet **req** av typen `httpTrigger` och en utdatabindning som heter **res** av typen `HTTP`. I föregående kod för vår funktion, som vi såg hur vi nås nyttolasten för inkommande HTTP-begäran via vår **req** parametern. På samma sätt kan vi har skickat ett HTTP-svar genom att ange vår **res** parametern. Bindningar verkligen ta hand om några av tunga jobb för oss!
 
 >[!TIP]
->You can see index.js and function.json by expanding the **View Files** menu on the right of the function panel in the Azure portal.  
+>Du kan se index.js och function.json genom att expandera den **visa filer** menyn till höger på panelen funktion i Azure-portalen.  
 
-### Explore binding types
+### <a name="explore-binding-types"></a>Utforska bindningstyper
 
-1. Notice under the function entry there is a set of menu items as shown in the following screenshot.
+1. Observera under registerposten funktionen det finns en uppsättning menyobjekt som visas i följande skärmbild.
 
-![Screenshot showing menu items under a function in the Function Apps blade.](../media-draft/func-menu-small.PNG)
+![Skärmbild som visar menyalternativ under en funktion i bladet Funktionsappar.](../media-draft/func-menu-small.PNG)
 
-2. Select the Integrate menu item to open the integration tab for our function. If you have been following along with this unit, the integrate tab should look very similar to the following screenshot.
+2. Välj menyalternativet integrera för att öppna fliken integration för vår funktion. Om du har följt tillsammans med den här enheten, bör fliken integrera likna mycket på följande skärmbild.
 
-![Screenshot showing integrate UI or tab.](../media-draft/func-integrate-tab-small.PNG)
+![Skärmbild som visar integrera Användargränssnittet eller flik.](../media-draft/func-integrate-tab-small.PNG)
 
-Notice that we have already defined a trigger and an output binding as shown in this screenshot. You can also see that we can't add more than one trigger. In fact, to change the trigger for our function we would have to first delete the trigger and create a new one.
+Observera att vi har redan definierats en utlösare och en utdatabindning som visas i den här skärmbilden. Du kan också se att vi inte kan lägga till mer än en utlösare. Om du vill ändra en utlösare för vår funktionen skulle vi i själva verket har först ta bort utlösaren och skapa en ny.
 
-On the other hand, the **Inputs** and **Outputs** sections of this form display a plus `+` sign to add more bindings.
+Å andra sidan i **indata** och **utdata** avsnitt i det här formuläret visar en plus `+` logga för att lägga till flera bindningar.
 
-3. Select **+ New Input** under the **Inputs** column. A list of all possible input binding types is displayed as shown in the following screenshot.
+3. Välj **+ ny indata** under den **indata** kolumn. En lista över alla typer av möjliga indatabindning visas enligt följande skärmbild.
 
-![Screenshot showing the list of possible input bindings.](../media-draft/func-input-bindings-selector-small.PNG)
+![Skärmbild som visar listan över möjliga indatabindningar.](../media-draft/func-input-bindings-selector-small.PNG)
 
-Take a moment to consider each of these input bindings and how you might use them in a solution. There are a lot to choose from. This list may even have changed by the time you read this module as we continue to support more data sources.
+Ta en stund att tänka på var och en av dessa indatabindningar och hur du kan använda dem i en lösning. Det finns många att välja bland. Den här listan kan även ha ändrats av när du läser den här modulen när vi fortsätter att stödja fler datakällor.
 
-4. Select **Cancel** to dismiss this list.
+4. Välj **Avbryt** att stänga den här listan.
 
-5. Select **+ New Output** under the **Outputs** column. A list of all possible output binding types is displayed as shown in the following screenshot.
+5. Välj **+ nya utdata** under den **utdata** kolumn. En lista över alla typer av eventuella utdata-bindning visas enligt följande skärmbild.
 
-![Screenshot showing the list of possible output bindings.](../media-draft/func-output-bindings-selector-small.PNG)
+![Skärmbild som visar listan över möjliga utdatabindningar.](../media-draft/func-output-bindings-selector-small.PNG)
 
-Again, you have lots of options here, as shown by the need for a scroll bar to the right in this screenshot.
+Igen, du har många olika alternativ här, som visas av behovet av att en rullningslist till höger i den här skärmbilden.
 
 >[!TIP]
->To learn more details about the bindings that are supported, check out the [list of supported bindings](https://docs.microsoft.com/azure/azure-functions/functions-versions) in the Azure Functions documentation.
+>Om du vill veta mer om de bindningar som stöds, Kolla in den [listan över stöds bindningar](https://docs.microsoft.com/azure/azure-functions/functions-versions) i Azure Functions-dokumentationen.
 
-So far we've learned how to create a function app and add a function to it. We've seen a simple function in action that runs when an HTTP request is made to it. We've also explored the portal UI and types of input and output binding that are available to our functions. In the next unit, we'll use an input binding to read text from a a database.
+Hittills har vi lärt dig hur du skapar en funktionsapp och lägga till en funktion i den. Vi har sett en enkel funktion i åtgärd som körs när en HTTP-begäran skickas till den. Vi har också utforskat av portalens användargränssnitt och typer av indata och utdata-bindning som är tillgängliga för våra funktioner. I nästa enhet använder vi en indatabindning för att läsa text från en en-databas.

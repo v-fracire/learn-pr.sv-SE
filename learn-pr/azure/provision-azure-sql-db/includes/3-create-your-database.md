@@ -53,7 +53,7 @@ Låt oss titta närmare på standardsorteringen **SQL_Latin1_General_CP1_CI_AS**
 - **Latin1_General** står för västeuropeiska språk.
 - **CP1** står för teckentabellen 1252, en populär teckenkodning för det latinska alfabetet.
 - **CI** betyder att ingen hänsyn tas till skiftläget. ”HEJ” är alltså jämställt med ”hej”.
-*- **AS** betyder att jämförelser är accentkänsliga. Exempelvis jämförs inte ”résumé” som samma sak som ”resume”.
+- **AS** betyder att hänsyn tas till användningen av accenter. Som exempel kan nämnas att ”résumé” inte är samma sak som ”resume”.
 
 Eftersom du inte har några särskilda krav på hur data sorteras och jämförs kan du välja standardsortering.
 
@@ -61,11 +61,17 @@ Eftersom du inte har några särskilda krav på hur data sorteras och jämförs 
 
 Här får du konfigurera en egen databas, vilket även innefattar att skapa den logiska servern. Du väljer inställningar som stöder en logistikapp. I praktiken kan man välja inställningar som stöder typ av app som du håller på att skapa.
 
-1. [Logga in på Azure-portalen](https://portal.azure.com?azure-portal=true).
+Över tid om du inser du du behöver ytterligare beräkningskraft för att hålla jämna steg med efterfrågan, kan du justera Prestandaalternativ eller växla mellan DTU och vCore prestanda modeller.
+
+[!include[](../../../includes/azure-sandbox-activate.md)]
+
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
+
+1. Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true).
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen. Välj **Databaser** och välj sedan **SQL Database**.
 
-   ![Skapa en Azure SQL Database från portalen](../media-draft/create-db.png)
+   ![Skärmbild av Azure-portalen som visar skapa ett Resursblad med avsnittet databaser har valts och skapa en resurs, databaser och SQL Database knappar som markerad.](../media-draft/create-db.png)
 
 1. Gå till **Server**, klicka på **Konfigurera inställningarna**, fyll i formuläret och klicka sedan på **Välj**. Här får du lite hjälp med att fylla i formuläret:
 
@@ -84,10 +90,10 @@ Här får du konfigurera en egen databas, vilket även innefattar att skapa den 
 
     | Inställning      | Värde |
     | ------------ | ----- |
-    | **Databasnamn** | **Logistik** | 
+    | **Databasnamn** | **Logistik** |
     | **Prenumeration** | Din prenumeration |
-    | **Resursgrupp** | **logistics-db-rg** | 
-    | **Välj källa** | **Tom databas** | 
+    | **Resursgrupp** |  Använd den befintliga gruppen <rgn>[Sandbox resursgruppens namn]</rgn> |
+    | **Välj källa** | **Tom databas** |
     | **Vill du använda elastisk SQL-pool?** | **Inte nu** |
     | **Sortering** | **SQL_Latin1_General_CP1_CI_AS** |
 
@@ -95,16 +101,13 @@ Här får du konfigurera en egen databas, vilket även innefattar att skapa den 
 
 1. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-   ![Övervaka distributionsprocessen](../media-draft/notifications-progress.png)
-
 När processen slutförs, klickar du på **Fäst på instrumentpanelen** för att fästa din databasserver på instrumentpanelen så du får snabb åtkomst till den när du behöver den.
-   ![Fäst servern på instrumentpanelen](../media-draft/notifications-complete.png)
+
+   ![Skärmbild av Azure-portalen som visar menyn meddelanden med PIN-koden till instrumentpanelen knapp från ett senaste meddelande distribution är markerat.](../media-draft/notifications-complete.png)
 
 ## <a name="set-the-server-firewall"></a>Konfigurera serverns brandvägg
 
 Din Azure SQL-databas är nu aktiverad och igång. Du har många alternativ för att ytterligare konfigurera, skydda, övervaka och felsöka din nya databas.
-
-Anta att du efter ett tag inser att du behöver ytterligare beräkningskraft för att hålla jämna steg med efterfrågan. Du kan då justera prestandaalternativen eller byta mellan modellerna DTU och Virtuell kärna.
 
 Du kan också ange vilka system som ska få åtkomst till databasen via brandväggen. Brandväggen förhindrar först all åtkomst till databasservern från system utanför Azure.
 
@@ -114,14 +117,12 @@ Nu ska vi aktivera utvecklingsdatorn för att få åtkomst till databasen via br
 
 1. Gå till översiktsbladet i logistikdatabasen. Om du har fäst databasen sedan tidigare kan du klicka på panelen **Logistik** på instrumentpanelen för att komma dit.
 
-    ![Logistik-panelen](../media-draft/logistics-tile.png)
-
 1. Klicka på **Konfigurera serverns brandvägg**.
 
-    ![Konfigurera serverns brandvägg](../media-draft/set-server-firewall.png)
+    ![Skärmbild av Azure-portalen som visar bladet för översikt över en SQL-databas med knappen Set server brandväggen markerad.](../media-draft/set-server-firewall.png)
 
 1. Klicka på **Lägg till klient-IP** och klicka därefter på **Spara**.
 
-    ![Lägga till klientens IP-adress](../media-draft/add-client-ip.png)
+    ![Skärmbild av Azure-portalen som visar en SQL-databas i brandväggen inställningsbladet med knappen Lägg till klientens IP-markerat.](../media-draft/add-client-ip.png)
 
 I nästa del får du prova på några praktiska övningar med den nya databasen och Azure Cloud Shell. Du kommer att få ansluta till databasen, skapa en tabell, lägga till exempeldata och köra några SQL-uttryck.

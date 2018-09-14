@@ -1,27 +1,27 @@
 ### YamlMime:Module
 uid: learn.ci-cd-pipelines-azure-devops
-title: Build Continuous Integration/Continuous Deployment pipelines using Azure DevOps
-summary: Learn how to quickly build out Continuous Integration/Continuous Deployment (CI/CD) pipelines into Azure for your apps.
-abstract: This module shows how you can use Azure DevOps Projects to quickly build out your CI/CD pipelines into Azure. It starts with creating an Azure DevOps project in the language and technology of your choice. This will create a VSTS account and a VSTS Team Project with a sample app in the git repo. It will also create a build and release pipeline that takes the sample app, builds it and deploys it into infrastructure it provisions for you up in Azure. Next it covers replacing the sample app with your app code. And finally, this module covers how to customize the build and release pipelines.
-cardDescription: Learn how to quickly build out Continuous Integration/Continuous Deployment (CI/CD) pipelines into Azure for your apps.
-iconUrl: http://via.placeholder.com/120x120
-levels:
-- intermediate
-roles:
-- developer
-products:
-- azure
 metadata:
-  title: Build Continuous Integration/Continuous Deployment pipelines using Azure DevOps
-  description: Learn how to quickly build out Continuous Integration/Continuous Deployment (CI/CD) pipelines into Azure for your apps.
+  title: Skapa pipeliner för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps
+  description: Lär dig hur du snabbt bygga ut pipelines för kontinuerlig integrering/kontinuerlig distribution (CI/CD) till Azure för dina appar.
   author: lnyswonger
   ms.date: 09/24/2018
   ms.author: luken
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+title: Skapa pipeliner för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps
+summary: Lär dig hur du snabbt bygga ut pipelines för kontinuerlig integrering/kontinuerlig distribution (CI/CD) till Azure för dina appar.
+abstract: 'Den här modulen visar hur du kan använda Azure DevOps-projekt för att snabbt bygga ut dina CI/CD-pipelines i Azure. Det börjar med att skapa ett Azure DevOps-projekt i det språk och den teknik du föredrar. Detta skapar ett VSTS-konto och ett VSTS-Teamprojekt med en exempelapp i git-lagringsplats. Dessutom skapas en skapa och släpp-pipeline som använder exempelappen, bygger den och distribuerar den i infrastrukturen som etableras för dig in i Azure. Den behandlar bredvid ersätta exempelappen med din Appkod. Och slutligen den här modulen beskriver hur du anpassar build and release-pipelines.'
+prerequisites: Ingen
+iconUrl: /learn/achievements/ci-cd-pipelines-azure-devops.svg
+levels:
+  - intermediate
+roles:
+  - developer
+products:
+  - azure
 units:
-- learn.ci-cd-pipelines-azure-devops.1-getting-started-with-azure-devops-projects
-- learn.ci-cd-pipelines-azure-devops.2-replacing-sample-code-with-your-own-code
-- learn.ci-cd-pipelines-azure-devops.3-customizing-your-ci-cd-pipelines
-- learn.ci-cd-pipelines-azure-devops.4-summary-and-cleanup
+  - learn.ci-cd-pipelines-azure-devops.1-getting-started-with-azure-devops-projects
+  - learn.ci-cd-pipelines-azure-devops.2-replacing-sample-code-with-your-own-code
+  - learn.ci-cd-pipelines-azure-devops.3-customizing-your-ci-cd-pipelines
+  - learn.ci-cd-pipelines-azure-devops.4-summary-and-cleanup
 achievement: learn.ci-cd-pipelines-azure-devops.badge

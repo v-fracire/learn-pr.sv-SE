@@ -2,35 +2,33 @@
 uid: learn.intro-to-data-in-azure
 metadata:
   title: Introduktion till data i Azure
-  description: I den här modulen kommer vi att utforska fördelarna med Azure Storage jämfört med lokal lagring.
+  description: I den här modulen kommer vi att utforska fördelarna med Azure datalagring jämfört med den lokala lagringen.
   ms.date: 09/24/2018
-  ms.openlocfilehash: f88854bb3e05794983d7fbce01fb64cbd7912788
-  ms.sourcegitcommit: f6df5a988f64643099a0ffa283a522f8864c0070
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43853972"
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 title: Introduktion till data i Azure
-summary: I den här modulen kommer vi att utforska fördelarna med Azure Storage jämfört med lokal lagring.
-abstract: >
+summary: I den här modulen kommer vi att utforska fördelarna med Azure datalagring jämfört med den lokala lagringen.
+abstract: |
   I den här modulen kommer du att göra följande:
-    - Lär dig om fördelarna med Azure Storage
-    - Lär dig hur Azure Storage kan uppfylla dina affärsbehov
-    - Jämför Azure Storage med lokal lagring
+  - Enkät lagringsalternativ för data i Azure
+  - Utforska hur Azure data lagring kan uppfylla dina affärsbehov
+  - Jämför Azure datalagring med lagring på plats
 prerequisites: Ingen
-iconUrl: http://via.placeholder.com/120x120
+iconUrl: /learn/achievements/intro-to-data-in-azure.svg
 levels:
-- beginner
+  - beginner
 roles:
-- developer
+  - developer
 products:
-- azure
-- azure-storage
+  - azure
+  - azure-storage
 units:
-- learn.intro-to-data-in-azure.1-introduction
-- learn.intro-to-data-in-azure.2-benefits-of-using-azure-to-store-data
-- learn.intro-to-data-in-azure.3-how-azure-storage-meets-your-business-storage-needs
-- learn.intro-to-data-in-azure.4-comparison-azure-and-on-prem-storage
-- learn.intro-to-data-in-azure.5-knowledge-check
-- learn.intro-to-data-in-azure.6-summary
+  - learn.intro-to-data-in-azure.1-introduction
+  - learn.intro-to-data-in-azure.2-benefits-of-using-azure-to-store-data
+  - learn.intro-to-data-in-azure.3-how-azure-storage-meets-your-business-storage-needs
+  - learn.intro-to-data-in-azure.4-comparison-azure-and-on-prem-storage
+  - learn.intro-to-data-in-azure.5-knowledge-check
+  - learn.intro-to-data-in-azure.6-summary
 achievement: learn.intro-to-data-in-azure.badge

@@ -1,199 +1,249 @@
-Let's assume you're running an online business, and you're publishing your database to Azure. By default, an Azure SQL Server database will be accessible to any Azure application or service running within Azure. Even if you only allow services within Azure to connect, you should still restrict connections to the database to approved applications and services. 
+Anta att du kör ett onlineföretag och du publicerar din databas till Azure. Som standard blir en Azure SQL Server-databas som är tillgängliga för alla Azure-program eller tjänster som körs i Azure. Även om du tillåter bara tjänster inom Azure för att ansluta, ska du fortfarande begränsa anslutningar till databasen till godkända program och tjänster.
 
-In this unit, we'll look at how to restrict access to the Azure SQL database via IP address ranges. 
+I den här enheten, ska vi titta på hur du begränsar åtkomsten till Azure SQL-databas via IP-adressintervall.
 
-## Overview
+## <a name="overview"></a>Översikt
 
-A new Azure SQL database will, by default, only allow Azure services to connect to it. This configuration doesn’t mean a connecting service can gain access to the database contents, only that it can try to authenticate against the database. Requiring a service to authenticate is safer than unrestricted public internet access. You should still restrict access to your database to only the applications and services that need it.
+En ny Azure SQL-databas, som standard kan Azure-tjänster att ansluta till den. Den här konfigurationen innebär inte en anslutande tjänst kan få tillgång till innehållet i databasen som som den kan försöka att autentisera mot databasen. Kräver en tjänst för att autentisera är säkrare än obegränsad tillgång till internet. Du bör fortfarande begränsa åtkomsten till databasen för att endast program och tjänster som behöver den.
 
-For example, you may have an ASP.NET Core application talking to an Azure SQL database. It's the ASP.NET Core application that should access your Azure SQL Server database. Let’s look at how we would restrict the network access to the database from the web application.
+Du kan till exempel ha ett ASP.NET Core-program som pratar med en Azure SQL database. Det är det ASP.NET Core-program som ska få åtkomst till din Azure SQL Server-databas. Nu ska vi titta på hur vi skulle begränsa nätverksåtkomst till databasen från webbprogrammet.
 
-## Restricting network access to the database
+## <a name="restricting-network-access-to-the-database"></a>Begränsa nätverksåtkomst till databasen
 
-You restrict network access to your database by only allowing access from a specific IP address range. 
+Du kan begränsa nätverksåtkomst till din databas genom att bara tillåta åtkomst från ett specifikt IP-adressintervall.
 
-![Restricting access by limiting IP access](../media-draft/2-setting-ip-address-ranges-on-firewall.png)
+![Skärmbild av Azure-portalen som visar servern skapande av brandväggsregeln med en beskrivs IP-begränsning konfiguration som har lagts till.](../media-draft/2-setting-ip-address-ranges-on-firewall.png)
 
-To create a server firewall rule, you'll enter a rule name, the starting IP address, and the ending IP address. Then click Save to record the changes. Only the IP addresses listed in the rules you create will have access to the database. 
+1. Om du vill skapa en brandväggsregel så anger du en **REGELNAMN**, **första IP-** adress, och **slut-IP** adress.
+1. Klicka sedan på **spara** innehåller ändringarna.
 
-## Locking down access at the database level 
+Endast de IP-adresser som anges i regler som du skapar har åtkomst till databasen.
 
-Let's assume you're running an Azure SQL Server failover group. With a failover group, the secondary servers are normally located at different regions. If the main server goes offline, the server firewall rules may no longer apply. Server firewall rules are set up per server hosting the database. Setting up a firewall rule at the database level will ensure that your rules replicate to the backup databases.
+## <a name="locking-down-access-at-the-database-level"></a>Låsa åtkomsten på databasnivå
 
-To create a database firewall rule, connect to the database using either SQL Server Management Studio or SQL Operations Studio and create a new query. You'll create a database rule using the following convention, where you pass in the rule name, the starting IP address, and the ending IP address.
+Anta att du kör en redundansgrupp för Azure SQL Server. Med en redundansgrupp finns de sekundära servrarna normalt på olika regioner. Om huvudservern kopplas från, gäller inte längre brandväggsregler för servern. Brandväggsregler för servern anges per server som värd för databasen. Konfigurera en brandväggsregel på databasnivå säkerställer att dina regler replikera för säkerhetskopiering av databas.
+
+Anslut till databasen med SQL Server Management Studio eller SQL Operations Studio för att skapa en brandväggsregel för databasen, och skapa en ny fråga. Du ska skapa en regel för databasen med hjälp av enligt följande konvention där du skickar in Regelnamnet, den första IP-adressen och den sista IP-adressen.
 
 ```sql
 EXECUTE sp_set_database_firewall_rule N'<Rule Name>', '<From IP Address>', '<To IP Address>'
 ```
 
-For example, to restrict access to the database from the IP address range 10.21.2.33 – 10.21.2.54, you'll use a rule similar to the following SQL:
+Om du vill begränsa åtkomsten till databasen från IP-adressintervallet 10.21.2.33 – 10.21.2.54, kommer du till exempel använda en regel som liknar följande SQL:
 
 ```sql
 EXECUTE sp_set_database_firewall_rule N'Web Apps Firewall Rule', '10.21.2.33', '10.21.2.54'
-```  
+```
 
-## Enabling Transparent Data Encryption (TDE)
+## <a name="enabling-transparent-data-encryption-tde"></a>Aktivera Transparent datakryptering (TDE)
 
-### What is Transparent Data Encryption?
-Transparent Data Encryption (TDE)  performs real-time encryption and decryption of the database, backup files, and log files.
+### <a name="what-is-transparent-data-encryption"></a>Vad är Transparent datakryptering?
 
-When new Azure SQL databases are created, they'll have TDE enabled by default.
+Transparent datakryptering (TDE) utför i realtid kryptering och dekryptering av databasen, säkerhetskopior och loggfiler.
 
-It's important to check that data encryption hasn’t been turned off, and older Azure SQL Server databases may not have TDE enabled. 
+När nya Azure SQL-databaser skapas, har de TDE aktiverat som standard.
 
-To verify and enable TDE:
-1. Select the database in the portal.
-1. Select the 'Transparent data encryption' option.
-1. In the data encryption option, select 'On'.
-1. Click 'Save'.
+Det är viktigt att kontrollera att datakryptering inte har stängts av och äldre Azure SQL Server-databaser kanske inte har TDE aktiverat.
 
-## Create a secure connection to the server
+Kontrollera och aktivera transparent Datakryptering:
 
-Your applications should connect to your databases in a secure manner. You use a connection string with the right level of security to create a secure connection. These connections need to be encrypted to reduce the likelihood of a man-in-the-middle attack.
+1. Välj databasen i portalen.
+1. Välj alternativet för Transparent datakryptering.
+1. Välj 'På' i alternativet för kryptering av data.
+1. Klicka på ”Spara”.
 
-Let's look at how to get the connection string for a database.
+## <a name="create-a-secure-connection-to-the-server"></a>Skapa en säker anslutning till servern
 
-Using the portal, navigate to your SQL Server. Select the database you wish to gain access to.
+Dina program ska ansluta till dina databaser på ett säkert sätt. Du kan använda en anslutningssträng med rätt nivå av säkerhet för att skapa en säker anslutning. Dessa anslutningar ska krypteras för att minska sannolikheten för en man-in-the-middle-attack.
 
-Select the *Show Database Connection Strings* option. 
+Nu ska vi titta på hur du kan hämta anslutningssträngen för en databas.
 
-Now, from the available options, select the tab that matches your programming language and copy the displayed connection string. You'll have to complete the password, as it is kept secret and not displayed here. 
+Med hjälp av portalen, navigera till din SQL-Server. Välj den databas du vill få åtkomst till.
 
-![Restricting access by limiting IP access](../media-draft/2-viewing-connection-strings.png) 
+Välj den *visa Databasanslutningssträngar* alternativet.
 
-It's important to protect the connection string from outside eyes. Connection strings should be stored in Azure Key Vault, not in your project, version control, or continuous integration systems. 
+Nu bland de tillgängliga alternativen väljer du fliken som matchar programmeringsspråk och kopiera anslutningssträngen visas. Du måste slutföra lösenord, som den förblir hemlig och inte visas här.
 
-### What is the Azure Key Vault?
+![Skärmbild av Azure-portalen som visar avsnittet databas anslutningen strängar med ADO.NET valt och det tillhandahållna värdet-fältet markerat.](../media-draft/2-viewing-connection-strings.png)
 
-The Azure Key Vault is a tool used to securely store credentials and other keys and secrets. These secrets can be protected either by software or hardware.
+Det är viktigt att skydda anslutningssträngen från utanför ögon. Anslutningssträngar ska lagras i Azure Key Vault, inte i ditt projekt, versionskontroll eller system för kontinuerlig integration.
 
-## Open the correct ports for server access
+### <a name="what-is-the-azure-key-vault"></a>Vad är Azure Key Vault?
 
-Your Azure database allows outbound communication over port 1433. If you don’t have access to this port, talk to your network administrators to allow network traffic.
+Azure Key Vault är ett verktyg som används för att på ett säkert sätt lagra autentiseringsuppgifter och andra nycklar och hemligheter. Dessa hemligheter kan skyddas genom programvara eller maskinvara.
 
-## Restrict server access with Azure virtual networks
+## <a name="open-the-correct-ports-for-server-access"></a>Öppna rätt portar för serveråtkomst
 
-### What is a virtual network?
+Din Azure-databas tillåter utgående kommunikation via port 1433. Om du inte har åtkomst till den här porten kan prata med nätverksadministratörerna att tillåta nätverkstrafik.
 
-A virtual network is a logically isolated network created within the Azure network. You can use a virtual network to control what Azure resources can connect to other resources. 
+## <a name="restrict-server-access-with-azure-virtual-networks"></a>Begränsa åtkomst med Azure-nätverk
 
-Imagine you're running a web application that connects to a database. You'll use subnets to isolate different parts of the network. A subnet is a part of a network based upon a range of IP addresses. 
+### <a name="what-is-a-virtual-network"></a>Vad är ett virtuellt nätverk?
 
-To configure these subnets, you'll create a virtual network and then subdivide the network into subnets. The web application will operate on one subnet and the database on another subnet. Each subnet will have its own rules for communicating to and from the other network. These rules give you the ability to restrict access from the database to the web application.
+Ett virtuellt nätverk är ett logiskt isolerat nätverk som skapats i Azure-nätverket. Du kan använda ett virtuellt nätverk för att styra vad Azure-resurser kan ansluta till andra resurser.
 
-### What is a network security group?
-A network security group defines rules, which allow or deny network traffic to and from source and destination addresses. Each subnet will have a network security group assigned to it. 
+Anta att du kör ett program som ansluter till en databas. Du använder undernät för att isolera olika delar av nätverket. Ett undernät är en del av ett nätverk baserat på ett intervall med IP-adresser.
 
-The diagram below shows an example of the groupings that are created. The web subnet allows access to the internet, but only for HTTP connections. The database subnet only allows access from the web subnet. Setting up the virtual network adds restrictions about how services can be accessed, and acts as a firewall around hosted services. 
+Om du vill konfigurera dessa undernät måste du skapa ett virtuellt nätverk och sedan dela upp nätverket i undernät. Webbprogrammet ska användas i ett undernät och databasen på ett annat undernät. Varje undernät har sina egna regler för kommunikation till och från andra nätverk. De här reglerna ger dig möjlighet att begränsa åtkomst från databasen till webbprogrammet.
 
-![Virtual Network for a web application with a connected database](../media-draft/2-virtualnetwork-overview.png) 
- 
-The next example assumes you're using virtual machines that will act as your web hosts and connect to your database. Let’s look at how to create a virtual network to set up this planned infrastructure. 
+### <a name="what-is-a-network-security-group"></a>Vad är en nätverkssäkerhetsgrupp?
 
-1. From the Azure portal, select the Create a resource link. 
+En nätverkssäkerhetsgrupp definierar regler som tillåter eller nekar nätverkstrafik till och från käll-och mål. Varje undernät har en nätverkssäkerhetsgrupp som är tilldelade till den.
 
-2. From the Marketplace, select Virtual network. For the virtual network, if it requests to select a deployment model, select Resource Manager, and then click the Create button.
+Diagrammet nedan visar ett exempel på grupperingar som har skapats. Web-undernät tillåter åtkomst till internet, men endast för HTTP-anslutningar. Databas-undernät tillåter endast åtkomst från undernätet på webben. Hur du konfigurerar det virtuella nätverket lägger till begränsningar om hur tjänster kan nås och fungerar som en brandvägg runt värdbaserade tjänster.
 
-3. Enter the name for the virtual network and an address space that can be used. An address space is a way of outlining a range of IP addresses. In our example, 172.16.0.0/16 refers to a range of addresses from 172.16.0.0 to 172.16.255.255. 
-   An address space that is not already in use will be recommended. Where a IP address is detected from this range, it will be defined as being on this subnet.
+![Virtuellt nätverk för ett webbprogram med anslutna databasen](../media-draft/2-virtualnetwork-overview.png)
 
-4. Select your subscription and either create or select a resource group. 
-   
-5. Enter the name of the subnet that you will create and its address range.
-   
-6. Click the Create button to create the virtual network.
+I nästa exempel förutsätter att du använder virtuella datorer som ska fungera som webbvärdar för dina- och ansluta till databasen. Nu ska vi titta på hur du skapar ett virtuellt nätverk för att ställa in den här planerade infrastrukturen.
 
-![Create a virtual network.](../media-draft/2-create-virtual-network-settings.png)  
+1. Azure-portalen väljer du den **skapa en resurs** länk.
+1. Azure Marketplace, Välj **nätverk** > **virtuellt nätverk**. Om det begär Välj en distributionsmodell, Välj **Resource Manager**
+1. Klicka på knappen **Skapa**.
+1. Ange den **namn** för det virtuella nätverket.
+1. Ange en **adressutrymme** som kan användas. Ett adressutrymme är ett sätt att beskriver ett intervall med IP-adresser. I vårt exempel `172.16.0.0/16` refererar till ett adressintervall från 172.16.0.0 till 172.16.255.255.
 
-You'll receive a notification once the virtual network is created. Click on the *Go to resource* button. 
+   Ett adressutrymme som inte redan rekommenderas. Om en IP-adress har identifierats från det här intervallet, kommer att anges som i det här undernätet.
 
-You'll now be taken to the virtual network settings. Select the Subnets configuration section. At this point, you'll have the subnet you created when you set up the initial network, called web_subnet. 
+1. Välj Azure **prenumeration**.
+1. Välj eller skapa en ny **resursgrupp**.
+1. Ange den **namn** för det undernät som du skapar.
+1. Ange en **adressintervall**.
+1. Klicka på den **skapa** för att skapa det virtuella nätverket.
 
-You need to create another subnet that will represent the IP addresses for the database servers. Click on the + Subnet button to start the process of adding a new subnet for the database. 
+![Skärmbild av Azure-portalen som visar skapa ett virtuellt nätverk-blad med konfigurationen som beskrivs.](../media-draft/2-create-virtual-network-settings.png)
 
-![Create the database subnet](../media-draft/2-create-database-subnet.png) 
- 
-Enter a name for the subnet. In the above example you called it database_subnet. You'll see that the address range is again populated with a range that isn't in conflict with other subnets in the system.
+Du får ett meddelande när det virtuella nätverket har skapats. Klicka på den **gå till resurs** knappen i meddelandet.
 
-Network security group is a core setting that you'll need to apply to the subnet. For now, leave this setting blank. Later you'll create the network security group and come back and set this value.
+Du kommer nu till bladet virtuellt nätverk. Välj den **inställningar** > **undernät** konfigurationsavsnittet. Nu har du det undernät du skapade när du ställer in det inledande nätverk som kallas web_subnet.
 
-Click the **OK** button to save the subnet. 
+Du måste skapa ett nytt undernät som ska representera IP-adresser för databasservrar.
 
-## Creating a network security group
+1. Klicka på den __+ undernät__ för att starta processen med att lägga till ett nytt undernät för databasen.
 
-Select + Create a resource and select Network security group. The job of the network security group is to act as a firewall, and it controls the flow of traffic in and out of a subnet. You'll create two network security groups. One is the web application subnet, and the other is for the database subnet. 
+1. Ange en **namn** för undernätet. I exemplet ovan kallas vi den database_subnet.
 
-If asked to select a deployment model after clicking + Create a resource, select Azure Resource Manager.
- 
-Select the Create button and name of the network security group, the subscription, and resource group and location. 
-   
-![Define the network security group for the web subnet.](../media-draft/2-define-nsg-for-web-subnet.png) 
+1. Granska den **adressintervall (CIDR-block)**. Du ser att adressintervallet fylls återigen med ett intervall som inte är i konflikt med andra undernät i systemet.
 
-After the network security group has been created, it's then time to set up the inbound and outbound traffic rules for the security group. 
+1. **Nätverkssäkerhetsgrupp** är en core-inställning som du behöver tillämpa till undernätet. Lämna inställningen tom för tillfället. Du kommer senare skapa nätverkssäkerhetsgruppen och gå tillbaka och ange det här värdet.
 
-Select the network security group, and on the Overview display you'll see the list of inbound and outbound rules that have been created. There are default rules already created that are used for internal Azure access. While these rules can't be deleted, you can create additional rules with a higher priority that will take precedence over these rules. 
+1. Klicka på den **OK** för att spara undernätet.
 
-![Restricting access by limiting IP access](../media-draft/2-view-web-apps-security-group-rules.png)  
+![Skärmbild av Azure-portalen som visar bladet Lägg till undernät med beskrivs konfigurationen.](../media-draft/2-create-database-subnet.png)
 
-To select new rules, select Inbound security rules for the network security group and then select the + Add button. From here, you can configure the details for the network security rules. 
+## <a name="creating-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-By default, you'll see the advanced view to configure the rule, but by clicking the Basic button, you'll be able to select the protocol you want to allow. 
+En uppgift för nätverkssäkerhetsgruppen är att fungera som en brandvägg och den styr flödet av trafik in och ut ur ett undernät. Du ska skapa två nätverkssäkerhetsgrupper. En är web application undernätet och den andra är för databas-undernätet.
 
-You want to allow access to HTTP services from the internet. To filter for the HTTP protocol, you'll select the Source as Service Tag, and then set the Source service tag to Internet. Set the port ranges values to 80,443 to represent the ports that are used to access this service. Port 80 is used for HTTP, and port 443 is used for HTTPS access. Select TCP for the Protocol, and set Action to Allow. 
+1. Välj **skapa en resurs** och välj **nätverk** > **nätverkssäkerhetsgrupp**. Om du uppmanas att välja en distributionsmodell, Välj Resource Manager.
+1. Ange en **namn** för nätverkssäkerhetsgruppen.
+1. Välj din Azure-prenumeration, resursgrupp och önskad plats.
+1. Klicka på knappen **Skapa**.
 
-Give the rule a Priority value of 100. The lower the number, the more important the rule is.
+![Skärmbild av Azure-portalen som visar säkerhetsgruppen web valt för web-undernätet.](../media-draft/2-define-nsg-for-web-subnet.png)
 
-![Add an inbound security rule for the web subnet.](../media-draft/2-add-inbound-security-rule-for-web-nsg.png)  
+När nätverkssäkerhetsgruppen har skapats, men det är sedan dags att konfigurera regler för inkommande och utgående trafik för säkerhetsgruppen.
 
-Now it’s time to set up the network security group settings for the database. For the database, you are going to set up a single incoming rule that allows for SQL requests from the IP range of the web applications subnet, and then deny other incoming and outgoing traffic. This will allow you to control access to the database and make sure that only database requests get through to the system from the website, and that no other access to the database is allowed. 
+1. Välj den nya nätverkssäkerhetsgruppen.
+1. På den **översikt** visning, visas listan över inkommande och utgående regler som har skapats. Det finns standard regler som redan har skapat och som används för intern åtkomst i Azure.
 
-Click on the + Create a resource to link a resource and again create a network security group that uses Resource Manager as the deployment model. This time you'll create one for the database. Click the Create button to create the new network security group.
+    > [!NOTE]
+    > Även om dessa regler inte kan tas bort, kan du skapa ytterligare regler med högre prioritet som har högre prioritet än reglerna.
 
-![Create the database network security group.](../media-draft/2-create-database-network-security-group.png)  
+![Skärmbild av Azure-portalen som visar förkonfigurerade inkommande och utgående säkerhetsregler för en grupp.](../media-draft/2-view-web-apps-security-group-rules.png)
 
-You'll need to wait until the network security group is created. Once done, select the Go to resource option to start configuring the rules for the network security group you created.
+1. Skapa nya regler för att välja den **ingående säkerhetsregler** för nätverkssäkerhetsgruppen.
+1. Klicka på knappen **Lägg till**. Härifrån kan konfigurera du informationen för nätverkets säkerhetsregler.
 
-For the network security group, the main focus is to allow database requests from the web application subnet only. You need to set up incoming TCP requests on port 1433 from the IP range of the web subnet. 
+    > [!NOTE]
+    > Som standard visas den avancerade vyn för att konfigurera regeln, men genom att klicka på den **grundläggande** knappen, kommer du att kunna välja det protokoll som du vill tillåta.
 
-On the Inbound security rules, select the + Add button to create a new rule. In this case, you want to only allow access from the web application subnet. You'll create an inbound rule that sets the Source to IP Addresses. 
+1. Du vill tillåta åtkomst till HTTP-tjänster från internet. Om du vill filtrera efter HTTP-protokollet, väljer du **Tjänsttagg** som den **källa** värde.
+1. Kontrollera att den **Källtjänsttagg** är inställd på **Internet**.
+1. Ange porten-intervall för värden som ska `80,443` som representerar de portar som används för att få åtkomst till den här tjänsten. (Används port 80 för HTTP och port 443 används för HTTPS-åtkomst.)
+1. Välj **TCP** i **Protokoll**.
+1. Ange **åtgärd** till **Tillåt**.
+1. Ge regeln ett **prioritet** värdet för `100`.
 
-When the Source IP addresses/CIDR ranges are displayed, enter the CIDR range from the web subnet that was created earlier. For the destination port ranges, enter 1433 to indicate Azure SQL Server access only. You want to allow access and give it a priority and appropriate rule name.  Click Add to add the rule. 
+    > [!NOTE]
+    > Ju lägre nummer, de viktigaste regeln är.
 
-![Restricting access by limiting IP access](../media-draft/2-create-inbound-rule-for-db-security-group.png)  
+![Skärmbild av Azure-portalen som visar bladet Lägg till inkommande regel med den angivna konfigurationen och källtjänsttagg (Internet) och målport intervall (80,443) fält som är markerat.](../media-draft/2-add-inbound-security-rule-for-web-nsg.png)
 
-The basic security rules are now in place to limit access to the database system. What is left is to assign the network security groups to the subnets. 
+Nu är det dags att konfigurera inställningarna för nätverkssäkerhetsgrupper för databasen. För databasen är ska ställa in en inkommande regel som tillåter för SQL-förfrågningar från IP-adressintervall för undernätet för web-program och neka andra inkommande och utgående trafik. Detta kommer att du kan styra åtkomsten till databasen och se till att endast databasförfrågningar får i systemet från webbplatsen och att inga andra åtkomst till databasen tillåts.
 
-Open the virtual network you created earlier. Select Subnets, and then select the web subnet. Select the Network security group option, and then select the network security group that was created specifically for the web. 
+1. Klicka på den **skapa en resurs** igen för att skapa en ny **nätverk** > **nätverkssäkerhetsgrupp** som använder Resource Manager som distributionsmodell.
 
-![Setting the network security group for the subnet](../media-draft/2-define-nsg-for-web-subnet.png)  
+    Nu ska du skapa en för databasen.
 
-Select the Save option and the network security group will be applied against the subnet. 
+1. Ange en **namn** för nätverkssäkerhetsgruppen.
+1. Välj din Azure-prenumeration, resursgrupp och önskad plats.
+1. Klicka på den **skapa** för att skapa nya nätverkssäkerhetsgruppen.
 
-You want to repeat the same process for the database subnet. Navigate back to the subnets, select the database subnet, and then set its network security group to the network security group for the database. 
+    ![Skärmbild av Azure-portalen som visar skapa network security group-bladet med en exempelkonfiguration.](../media-draft/2-create-database-network-security-group.png)
 
-![Setting the network security group for the database](../media-draft/2-define-nsg-for-db-subnet.png)  
+    Du måste vänta tills nätverkssäkerhetsgruppen har skapats.
 
-Select Save to save the changes. 
+1. När klar, väljer den **gå till resurs** alternativet i meddelandet för att börja konfigurera regler för nätverkssäkerhetsgruppen som du skapade.
 
-Now that you've configured access, it is a matter of applying the virtual networks and subnets against the database server and web servers. 
+Huvudfokus är att Databasbegäranden från web application undernätet endast för den nya nätverkssäkerhetsgruppen. Du måste konfigurera inkommande TCP-begäranden på port 1433 från web-undernätets IP-adressintervall.
 
-Let’s begin with the database server. Select the database, and from the database select the Firewalls and virtual networks configuration setting. 
+1. I den **ingående säkerhetsregler** inställningar, Välj den **Lägg till** för att skapa en ny regel. I det här fallet vill tillåta åtkomst från undernätet på web-program.
+1. Skapar du en inkommande regel som anger den **källa** till **IP-adresser**.
+1. När den **käll-IP-adresser/CIDR-intervall** är visas, ange CIDR-intervall från web-undernätet som du skapade tidigare.
+1. För den **målportsintervall**, ange `1433` att ange endast Azure SQL Server-åtkomst.
+1. Ange den **protokollet** till **TCP** att ytterligare begränsa inkommande anslutningar.
+1. Vill du **Tillåt** komma åt för **åtgärd**.
+1. Ge den en **prioritet** av `100`.
+1. **Namn på** säkerhetsregeln på rätt sätt.
+1. Klicka på **Lägg till** att lägga till regeln.
 
-On the left, you'll see details about the configuration. You have a number of settings at play here. First, turn Allow access to Azure services to OFF. This is to ensure that only the services that you want to use are enabled. 
-You'll also notice that it shows a Client IP address. The Client IP address is the IP address of your computer connecting to the Azure SQL Server database. You could have added a Client IP to the rule name list. This is useful if you want to connect SQL Server Management Studio or SQL Operations Studio to your server. It will add a rule that indicates which IP addresses can connect. You won’t be doing that in this case, but you'll be setting up the virtual network. 
+![Skärmbild av Azure-portalen som visar bladet Lägg till inkommande regel med konfigurationen som beskrivs.](../media-draft/2-create-inbound-rule-for-db-security-group.png)
 
-Click on + Add existing virtual network, and you will be presented with an options screen to enter the details for the new rule. Enter the name of the rule you would like to use, and select the subscription that you were using. Most importantly, select the virtual network that you are using, then select the subnet with the appropriate network security group rules for database access. 
+Grundläggande säkerhetsregler finns nu att begränsa åtkomsten till databassystem. Det som återstår är att tilldela nätverket säkerhetsgrupper till undernät.
 
-![Select the Add existing virtual network option.](../media-draft/2-select-add-existing-virtual-network.png) 
+1. Öppna det virtuella nätverket som du skapade tidigare. Välj den **inställningar** > **undernät** avsnittet.
+1. Välj webb-undernät som skapades tidigare.
+1. Välj den **nätverkssäkerhetsgrupp** alternativet och nätverkssäkerhetsgruppen som skapats specifikt för webben.
+1. Klicka på **spara** och nätverkssäkerhetsgruppen används mot undernätet.
 
-After you have configured all the settings, select the Enable button. It will then apply the database to the subnet within your virtual network. 
+    ![Skärmbild av Azure-portalen som visar en tillämpad nätverkssäkerhetsgruppen för undernätet web](../media-draft/2-define-nsg-for-web-subnet.png)
 
-Once the database subnet is configured, you will perform similar steps with the web server. Regardless of how you've configured your application, it is a matter of ensuring that the web applications use the subnet for web access. 
+Du vill upprepa samma steg för databas-undernätet.
 
-If you have a single virtual machine or a load balancer with virtual machines in a scale set, make sure that they are using the web subnet so they have access to the database. When you create resources such as virtual machines, make sure that their virtual network and subnets are configured to control the information that goes in and out of those services.
+1. Gå tillbaka till undernät.
+1. Välj databas-undernät
+1. Ställ in dess **nätverkssäkerhetsgrupp** till nätverkssäkerhetsgruppen för databasen.
+1. Klicka på **Spara** för att spara ändringarna.
 
-![Select the Add existing virtual network option.](../media-draft/2-configure-virtual-machine-with-subnet.png) 
+    ![Skärmbild av Azure-portalen som visar en tillämpad nätverkssäkerhetsgrupp som valts för databas-undernätet.](../media-draft/2-define-nsg-for-db-subnet.png)
 
-Once the subnets are applied to both the database and the virtual machines running the web apps, then the appropriate configuration will be in place. Then there is tighter access between your apps and database.
+Nu när du har konfigurerat åtkomst, är det bara några av de virtuella nätverk och undernät mot databasservern och webbservrar.
 
-Network security is the first core point of protection. Making sure that only the apps and services that should connect to the database do connect to the database will make your system more secure. 
+Vi börjar med databasservern.
+
+1. Välj databasen.
+1. Från databasen, Välj den **brandväggar och virtuella nätverk** konfigurationsinställning.
+
+Till vänster visas information om konfigurationen. Du har ett antal inställningar på play här.
+
+1. Först aktiverar **Tillåt åtkomst till Azure-tjänster** till **OFF**. Detta är att säkerställa att endast de tjänster som du vill använda är aktiverade.
+
+    Du ser också att den visar en klient-IP-adress. Klient-IP-adressen är IP-adressen för datorn som ansluter till Azure SQL Server-databasen. Du skulle kunna lägga en klientens IP-adress i namnlistan för regeln. Detta är användbart om du vill ansluta SQL Server Management Studio eller SQL Operations Studio till servern. Den lägger till en regel som anger vilka IP-adresser kan ansluta. Du kommer inte att göra som i det här fallet, men du kan ställa in det virtuella nätverket.
+
+1. Klicka på **Lägg till befintligt virtuellt nätverk**, och du kommer att visas en skärm för alternativ för att ange information för den nya regeln.
+
+1. Ange den **namn** i regeln som du vill använda.
+1. Välj den prenumeration som du använde.
+1. Viktigast av allt, Välj det virtuella nätverket som du använder.
+1. Välj undernätet med de lämpliga reglerna för nätverkssäkerhetsgrupper för databasåtkomst.
+1. När du har konfigurerat alla inställningar, Välj den **aktivera** knappen. Den gäller sedan databasen till undernät inom ditt virtuella nätverk.
+
+När databasen undernätet har konfigurerats kan utföra du liknande steg med webbservern. Oavsett hur du har konfigurerat ditt program kan handlar det för att säkerställa att webbprogram använder undernätet för webbåtkomst.
+
+Om du har en virtuell dator eller en belastningsutjämnare med virtuella datorer i en skalningsuppsättning kan du kontrollera att de använder webb-undernät så att de har åtkomst till databasen. När du skapar resurser, till exempel virtuella datorer kan du se till att deras virtuellt nätverk och undernät är konfigurerade för att styra vilken information som går till och från dessa tjänster.
+
+![Skärmbild av Azure-portalen som visar steg på bladet inställningar för att skapa en ny virtuell dator där de virtuella nätverk och undernät värdena har angetts.](../media-draft/2-configure-virtual-machine-with-subnet.png)
+
+När undernäten kan användas i både databasen och de virtuella datorerna som kör web apps kan vara vilken konfiguration på plats. Sedan är närmare åtkomst mellan appar och databas.
+
+Nätverkssäkerhet är den första punkten core skydd. Se till att endast program och tjänster som ska ansluta till databasen ansluter till databasen gör systemet säkrare.

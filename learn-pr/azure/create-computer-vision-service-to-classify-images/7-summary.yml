@@ -1,48 +1,47 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-computer-vision-service.7-summary
-title: Summary and knowledge check
+title: Sammanfattning-och kunskap
 metadata:
-  title: Summary and knowledge check
-  description: Summary and knowledge check
+  title: Sammanfattning-och kunskap
+  description: Sammanfattning-och kunskap
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
+  author: AndrewJByrne
+  ms.author: marouill
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-durationInMinutes: 10
+durationInMinutes: 5
 content: |
   [!include[](includes/7-summary.md)]
 quiz:
-  title: 'Computer Vision quiz'
+  title: 'Knowledge kontroll: behandla bilder med tjänsten för visuellt innehåll'
   questions:
-  - content: "What kind of famous images won't be identified with Computer Vision?"
-    choices:
-    - content: 'Landmarks '
-      isCorrect: false
-    - content: 'Celebrities'
-      isCorrect: false
-    - content: 'Movies'
-      isCorrect: true
-  - content: 'Which visual features can we elect to receive when analyzing images?'
-    choices:
-    - content: 'Shapes'
-      isCorrect: true
-    - content: 'Image categorization'
-      isCorrect: false
-    - content: 'Tags'
-      isCorrect: false
-    - content: 'Textual description'
-      isCorrect: false
-    - content: 'Faces'
-      isCorrect: false
-    - content: 'Colors'
-      isCorrect: false
-    - content: 'Adult and suggestive content'
-      isCorrect: false
-  - content: 'What does smart cropping do?'
-    choices:
-    - content: 'Crops pictures from the top left'
-      isCorrect: false
-    - content: 'Crops pictures based on regions of interest (faces, objects in focus, others)'
-      isCorrect: true
+    - content: 'När du analyserar en avbildning med hjälp av den API för visuellt innehåll, kan du ange visual funktionen typer ska returneras.  Vilket av följande är en giltig visual funktionstyp när du anropar åtgärden ”analysera”?'
+      choices:
+        - content: 'Filmer '
+          isCorrect: false
+          incorrectExplanation: Filmer är inte en giltig visual funktionstyp.
+        - content: Djur
+          isCorrect: false
+          incorrectExplanation: Djur är inte en giltig visual funktionstyp.
+        - content: Kändisar
+          isCorrect: true
+          correctExplanation: De två visual funktion typer som du kan ange är kändisar och landmärken.
+    - content: Vilket av följande beskriver vad *smart beskärning* har när du genererar en miniatyrbild med den `generateThumbnail` åtgärden?
+      choices:
+        - content: Den Beskär bilder från upp till vänster.
+          isCorrect: false
+          incorrectExplanation: 'Beskär en bild från upp till vänster kan resultera i att du tar bort en betydande del av avbildningen, även kallat region of interest.'
+        - content: Det Datacenter miniatyrbilden på ”region of interest”.
+          isCorrect: true
+          correctExplanation: 'Om parametern ''smartCropping'' stämmer, gäller API: et smart beskärning för att centrera miniatyrbilden på region of interest. I annat fall Beskär den bara till center.'
+    - content: Du integrerar den API för visuellt innehåll i din lösning. Du skapade en cognitives services-konto för tjänsten för visuellt innehåll i regionen eastus. Vilket av följande är den korrekta adressen som du kan komma åt den `ocr` åtgärden?
+      choices:
+        - content: eastus2.api.cognitive.microsoft.com/vision/v1.0/ocr
+          isCorrect: false
+          incorrectExplanation: 'Du inte registrera dig för en åtkomstnyckel att göra förfrågningar från den här regionen. Kom ihåg att slutpunkten anger den region som du valde när du registrerade dig, tjänstens URL och en resurs som används på begäran.'
+        - content: eastus.api.cognitive.microsoft.com/vision/v1.0/describe
+          isCorrect: false
+          incorrectExplanation: Den här adressen skickar en begäran till resursen i entiteter.
+        - content: eastus.api.cognitive.microsoft.com/vision/v1.0/ocr
+          isCorrect: true
+          correctExplanation: 'Slutpunkten som anger den region som du valde när du registrerade dig, tjänstens URL och en resurs som används på begäran.'

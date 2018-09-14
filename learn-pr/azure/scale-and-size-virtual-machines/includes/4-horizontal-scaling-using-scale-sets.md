@@ -1,87 +1,87 @@
-You can get the resources you need using either one large virtual machine or several small VMs with a load balancer to distribute requests among the VMs.
+Du kan få resurserna du behöver med hjälp av en stor virtuell dator eller flera små virtuella datorer med en belastningsutjämnare distribueras begäranden mellan de virtuella datorerna.
 
-The VM pool has the nice advantage that you can add or remove VMs quickly when demand changes. In the toy company scenario, this strategy would be useful to handle unexpected spikes in demand. You could add VMs to the pool when demand increased and remove them when demand returned to normal. The pool also gives you redundancy; if one VM fails, the others can continue to handle requests with no interruption in service.
+VM-pool har bra fördelen att du kan lägga till eller ta bort virtuella datorer snabbt när behoven ändras. Den här strategin är användbart för att hantera oväntade toppar i efterfrågan Sonens företagets för scenariot. Du kan lägga till virtuella datorer till poolen när efterfrågan ökar och ta bort dem när begäran tillbaka till normal. Poolen får du även redundans; Om en virtuell dator misslyckas, kan de andra kan fortsätta att hantera förfrågningar utan avbrott i tjänsten.
 
-In this section, you will see how to provision multiple VMs using scale sets and how to automatically add and remove instances in response to changing demand. 
+I det här avsnittet visas hur du etablerar flera virtuella datorer med skalningsuppsättningar och automatiskt lägga till och ta bort instanser som svar på förändrade behov. 
 
-## What is horizontal scaling?
+## <a name="what-is-horizontal-scaling"></a>Vad är horisontell skalning?
 
-*Horizontal scaling* is the process of adding or removing virtual machines from a pool to adjust the amount of available resources. Adding machines is called _scaling out_ and removing machines is called _scaling in_. Solutions that use horizontal scaling include a load balancer or gateway to distribute requests among the VMs in the pool. The following illustration shows an example of changing the number of virtual machine instances.
+*Horisontell skalning* är en process för att lägga till eller ta bort virtuella datorer från en pool att justera mängden tillgängliga resurser. Lägger till datorer kallas _skala ut_, och tar bort datorer kallas _skalning i_. Lösningar som använder horisontell skalning omfattar en belastningsutjämnare eller gateway distribueras begäranden mellan de virtuella datorerna i poolen. Följande bild visar ett exempel på hur du ändrar antalet instanser av virtuella datorer.
 
-![An illustration showing scaling out the resources to handle demand and scaling in the resources to reduce costs.](../media/4-ScaleInOut.png)
+![En bild som visar att skala ut resurser för att hantera begäran och skalning i resurser för att minska kostnaderna.](../media/4-ScaleInOut.png)
 
-This technique works best for applications that can be run across multiple, identical servers. For example, you can duplicate your web server and web pages on multiple VMs and they will all give the same response no matter which server receives the request. On the other hand, a VM that runs your backend database is not an ideal candidate because running multiple copies of the database requires some effort to keep the copies in sync.
+Den här tekniken fungerar bäst för program som kan köras på flera identiska servrar. Exempel: du kan duplicera webbservern och webbsidor på flera virtuella datorer och de kommer alla ger samma svar oavsett vilken server tar emot begäran. En virtuell dator som kör serverdelsdatabasen kan å andra sidan inte en perfekt kandidat eftersom när du kör flera kopior av databasen måste vissa arbete för att synkronisera kopiorna.
 
-## What is a scale set?
+## <a name="what-is-a-scale-set"></a>Vad är skalningsuppsättningar?
 
-A *scale set* is a pool of identical virtual machines, a load balancer or gateway to distribute requests, and an optional set of rules that control when VMs are added or removed from the pool. Here, "identical" means that each VM in the set is created using the same image and has the same size.
+En *skalningsuppsättning* är en uppsättning identiska virtuella datorer, en belastningsutjämnare eller gateway distribueras begäranden och en valfri uppsättning regler som styr när virtuella datorer läggs till eller tas bort från poolen. Här är innebär ”identiska” att varje virtuell dator i uppsättningen skapas med hjälp av samma avbildning och har samma storlek.
 
-You have some flexibility in how a new VM is configured with the software you need. You can start with a predefined image for the base OS and then use scripts to install or copy files automatically after the OS is set up. Alternately, you can create a custom virtual machine image with the operating system and your application software already installed.
+Har du viss flexibilitet i hur en ny virtuell dator konfigureras med programvaran du behöver. Du kan börja med en fördefinierad avbildning för den grundläggande OS och använda skript för att installera eller kopiera filer automatiskt när Operativsystemet har konfigurerats. Du kan också skapa en anpassad virtuell datoravbildning med operativsystemet och din programvara installerad.
 
-## How to distribute requests
+## <a name="how-to-distribute-requests"></a>Hur du distribuerar begäranden
 
-You can use either a load balancer or an Application Gateway to distribute requests to the VM instances in a scale set.
+Du kan använda antingen en belastningsutjämnare eller en Programgateway för att distribuera förfrågningar till de Virtuella datorinstanserna i en skalningsuppsättning.
 
-An Azure load balancer operates at OSI layer 4 (TCP and UDP) and routes traffic based on source IP address and port combined with the destination IP address and port. It can provide affinity, where traffic from the same source IP address is routed to the same destination server to provide consistency across a client session. The load balancer also has a health probe mechanism that determines the availability of server instances. If a virtual machine becomes unresponsive to the health probe, the load balancer will avoid routing any new connections to that machine.
+En Azure load balancer fungerar på OSI-nivå 4 (TCP och UDP) och dirigerar trafik baserat på källans IP-adress och port som kombineras med IP-måladress och port. Det kan ge tillhörighet, där trafiken från samma IP-källadress dirigeras till samma mål-servern så att en klientsession. Belastningsutjämnaren har också en avsökningsmekanism för hälsotillstånd som fastställer tillgängligheten för server-instanser. Om en virtuell dator blir svarar inte på hälsoavsökningen undviker belastningsutjämnaren routning alla nya anslutningar till den datorn.
 
-An Application Gateway operates at OSI layer 7 (the application layer). For example, if your VMs are running a web server, then the gateway can use the requested URL to perform routing. This means you could forward requests with `*/customers*` in the URL to one pool of servers and requests with `*/partners*` in the URL to a different pool. The Application Gateway can also provide HTTP to HTTPS redirection, Secure Sockets Layer (SSL) termination to reduce the processing requirement on the virtual machines for encryption, and a Web application firewall (WAF) that uses rules to detect known web exploits and prevent these requests from reaching the web servers.
+En application gateway fungerar på OSI-nivå 7 (application layer). Till exempel om dina virtuella datorer kör en webbserver, kan sedan gatewayen använda den begärda Webbadressen för att utföra routning. Det innebär att du kan vidarebefordra begäranden med `*/customers*` i URL-Adressen till en pool av servrar och begäranden med `*/partners*` i URL-Adressen till en annan pool. Application gateway kan också tillhandahålla HTTP till HTTPS-omdirigering, Secure Sockets Layer (SSL)-avslutning till att minska bearbetning av kravet på de virtuella datorerna för kryptering och en brandvägg för webbaserade program (WAF) som använder regler för att identifiera kända web utnyttjar och förhindra att dessa begäranden når webbservrarna.
 
-## What is autoscaling?
+## <a name="what-is-autoscaling"></a>Vad är automatisk skalning?
 
-_Autoscaling_ is the process of automatically scaling out or in based on a set of rules. The rules can be triggered by machine load or a schedule. The following illustration shows how the autoscale feature manages instances to handle the load.
+_Automatisk skalning_ är automatiskt skala in eller ut baserat på en uppsättning regler. Reglerna kan utlösas av datorn belastning eller ett schema. Följande bild visar hur funktion skala automatiskt hanterar instanser för att hantera belastningen.
 
-![An illustration showing how autoscale monitors the CPU levels of a pool of virtual machines and adds instances when the CPU utilization is above the threshold.](../media/4-autoscale.png)
+![En bild som visar hur funktioner för autoskalning övervakar CPU-nivåer av en pool med virtuella datorer och lägger till instanser när CPU-användningen är över tröskeln.](../media/4-autoscale.png)
 
-To enable autoscaling for a scale set, you must create an autoscale profile. The profile defines the minimum and maximum number of VM instances for the set and the scaling rules. Autoscale rules have the following elements:
+Om du vill aktivera automatisk skalning för en skalningsuppsättning, måste du skapa en autoskalningsprofil. Profilen som definierar det lägsta och högsta antalet Virtuella datorinstanser för uppsättningen och skalar reglerna. Regler för automatisk skalning har följande element:
 
-* Metric source - the source of information or data that triggers the autoscale rule. There are four options:
-  * *Current scale set* provides host-based metrics that do not require any additional agents.
-  * *Storage account* the Azure diagnostic extension writes performance metrics to Azure storage that are used to trigger autoscale rules.
-  * *Service Bus Queue* can specify application-based or other Azure Service Bus messages to trigger autoscaling.
-  * *App Insights* uses an instrumentation package that needs to be installed in the application running on the scale set to stream metric data direct from the application.
-* Rule criteria - This is the specific metric you want to use to trigger an autoscale rule. If you are using host-based metrics, this can include aspects such as CPU usage, volume of network traffic, disk operations, or CPU credits. For example, you could configure a rule to scale out if disk write operations per second exceed a threshold. Using the Azure diagnostic extension or App Insights enables you to use any available measure to trigger the rule but requires configuration of the appropriate agent.
-* Aggregation type - This specifies how you want to measure the metric data and will be one of the following options:
-  * Average
+* Måttkälla - källan för information eller data som utlöser regeln för automatisk skalning. Det finns fyra alternativ:
+  * *Aktuella skalningsuppsättning* ger värdbaserade mått som inte kräver någon ytterligare agenter.
+  * *Storage-konto*. Azure-diagnostiktillägget skriver prestandamått till Azure Storage. De här måtten används för att utlösa regler för automatisk skalning.
+  * *Azure Service Bus-kö* ange programbaserade eller andra Azure Service Bus-meddelanden för att utlösa automatisk skalning.
+  * *Azure Application Insights* använder en instrumentationspaket som måste installeras i programmet som körs på skalningsuppsättningen att strömma mått data direkt från programmet.
+* Villkor – det här är den specifika mått som du vill använda för att utlösa en regel för automatisk skalning. Om du använder värdbaserade mått kan omfatta detta aspekter, till exempel CPU-användning, mängden nätverkstrafik, diskåtgärder eller CPU-krediter. Du kan till exempel konfigurera en regel för att skala ut om disken skrivåtgärder per sekund överskrider ett tröskelvärde. Med hjälp av Azure-diagnostiktillägget eller Application Insights kan du använda alla tillgängliga mått för att utlösa regeln, men kräver konfiguration av lämplig agent.
+* Sammansättningstyp – detta anger hur du vill mäta måttdata och kommer vara något av följande alternativ:
+  * Medel
   * Minimum
-  * Maximum
-  * Total
-  * Last
-  * Count
-* Operator - The operator denotes how a metric must be different to a defined threshold to trigger the rules action. This is particularly important when identifying whether the rule will scale out or in. Operators can be:
-  * Greater than
-  * Greater than or equal to
-  * Less than
-  * Less than or equal to
-  * Equal to
-  * Not equal to
-* Action - This determines how the number of instances will change when the rule is triggered. The following actions are available:
-  * *Increase count by* a fixed number of virtual machines.
-  * *Increase percent by* a percentage of existing instances.
-  * *Increase count to* a specific number of virtual machines.
-  * *Decrease count by* a fixed number of virtual machines.
-  * *Decrease percent by* a percentage of existing instances.
-  * *Decrease count to* a specific number of virtual machines.
+  * Maximal
+  * Totalt
+  * Senaste
+  * Antal
+* Operator - operatorn anger hur ett mått får inte vara samma med ett angivet tröskelvärde som utlöser åtgärden regler. Detta är särskilt viktigt när du identifierar om regeln skalas in eller ut. Operatörer kan vara:
+  * Större än
+  * Större än eller lika med
+  * Mindre än
+  * Mindre än eller lika med
+  * Lika med
+  * Inte lika med
+* Åtgärd - detta avgör hur antalet instanser kommer att ändras när regeln utlöses. Följande åtgärder är tillgängliga:
+  * *Öka antal med* ett fast antal virtuella datorer.
+  * *Öka procent med* procentandelar av befintliga instanser.
+  * *Öka antalet till* ett visst antal virtuella datorer.
+  * *Minska antal med* ett fast antal virtuella datorer.
+  * *Minska procent med* procentandelar av befintliga instanser.
+  * *Minska antal till* ett visst antal virtuella datorer.
 
-You can also create autoscale rules that trigger on a schedule. For example, you might define a rule that scales out in the morning when you know demand is high and then scales in after lunch when demand typically decreases.
+Du kan också skapa regler för automatisk skalning som utlöser enligt ett schema. Du kan till exempel definiera en regel som skalas ut på morgonen när du vet att begäran är hög och sedan skalas in efter lunch när efterfrågan vanligtvis minskar.
 
-## How to create a scale set
+## <a name="how-to-create-a-scale-set"></a>Så här skapar du en skalningsuppsättning
 
-You can create a scale set using the Azure portal, Azure PowerShell, or the Azure command-line interface (CLI).
+Du kan skapa en skalningsuppsättning med Azure-portalen, Azure PowerShell eller Azure CLI.
 
-### Portal
+### <a name="portal"></a>Portalen
 
-If you use the Azure portal to create the scale set, you will specify the operating system image to use for the virtual machines and how many VM instances to create at startup. You will also specify the size of virtual machine for each instance and whether to use the Azure load balancer or the Application Gateway for load balancing. If you choose a load balancer, the portal will create a default health probe on port 80 for it.
+Om du använder Azure-portalen för att skapa skalningsuppsättningen, anger du avbildningen av operativsystemet ska användas för de virtuella datorerna och hur många Virtuella datorinstanser att skapa vid start. Du kan också ange storleken på virtual machine för varje instans och om du vill använda Azure load balancer eller application gateway för belastningsutjämning. Om du väljer en belastningsutjämnare, skapa en standard-hälsoavsökning på port 80 för den med portalen.
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
-You can create a virtual machine scale set with the **New-AzureRmVmss** PowerShell cmdlet. This cmdlet can create a new scale set, a load balancer, and control IP address and virtual network assignments. Unless specified in the cmdlet, **New-AzureRmVmss** will use the following default settings:
+Du kan skapa en VM-skalningsuppsättning med den **New-AzureRmVmss** PowerShell-cmdlet. Denna cmdlet kan skapa en ny skalningsuppsättning, en belastningsutjämnare och kontrollera IP-adress och tilldelningar för virtuellt nätverk. Om inte inställningar har angetts i cmdlet, **New-AzureRmVmss** kommer att använda följande standardinställningar:
 
-* Create two virtual machine instances
-* Use the Windows Server 2016 Datacenter image
-* Use the Standard DS1_v2 virtual machine size
-* Create a load balancer
-* Create load balancer rules for ports 3389 and 5985 for Windows, port 22 for Linux
+* Skapa två instanser av virtuella datorer
+* Använda Windows Server 2016 Datacenter-avbildning
+* Använd Standard DS1_v2 VM-storlek
+* Skapa en lastbalanserare
+* Skapa regler för belastningsutjämnaren för port 3389 och 5985 för Windows, port 22 för Linux
 
-**New-AzureRmVmss** does not create a health probe for the load balancer. Best practice would be to create this using **Add-AzureRmLoadBalancerProbeConfig** after you have created the scale set.
+**New-Azurermvmsssupport** skapar inte en hälsoavsökning för belastningsutjämnaren. Det bästa sättet är att skapa detta med hjälp av **Add-AzureRmLoadBalancerProbeConfig** när du har skapat skalningsuppsättningen.
 
-Horizontal scaling with scale sets gives you multiple servers to run your application. Using multiple servers lets you handle high loads and ensures your services remain available even if a server crashes. You can add autoscale to your scale sets, so your system automatically adjusts to unexpected changes in demand.
+Horisontell skalning med skalningsuppsättningar ger dig flera servrar för att köra programmet. Med hjälp av flera servrar kan du hantera hög läser in och säkerställer att dina tjänster hålls tillgängliga även om en server kraschar. Du kan lägga till automatisk skalning till dina skalningsuppsättningar, så att systemet automatiskt anpassar sig till oväntade förändringar av behov.

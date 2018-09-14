@@ -1,183 +1,184 @@
-You have an on-premises datacenter that you plan to keep, but you want to use Azure to offload peak traffic using virtual machines (VMs) hosted in Azure. You want to keep your existing IP addressing scheme and network appliances, while ensuring that any data transfer is secure.
+Du har ett lokalt datacenter som du planerar att fortsätta, men du vill använda Azure för att avlasta trafiktoppar med hjälp av virtuella datorer (VM) i Azure. Du vill behålla din befintliga IP-adresser schema och nätverket enheter, samtidigt som man säkerställer att eventuell dataöverföring är säker.
 
-## What is Azure virtual networking?
+## <a name="what-is-azure-virtual-networking"></a>Vad är Azure virtuellt nätverk?
 
-**Azure virtual networks** enable Azure resources, such as virtual machines, web apps, and databases, to communicate with: each other, users on the Internet, and on-premises client computers. You can think of an Azure network as a set of resources that links other Azure resources.
+**Azure-nätverk** aktivera Azure-resurser, till exempel virtuella datorer, webbappar och databaser, att kommunicera med: varje andra, användare på Internet och lokala klientdatorer. Du kan tänka på ett Azure-nätverk som en uppsättning resurser som länkar till andra Azure-resurser.
 
-Azure virtual networks provide key networking capabilities:
+Azure virtuella nätverk tillhandahåller viktiga nätverksfunktioner:
 
-- Isolation and segmentation
-- Internet communications
-- Communicate between Azure resources
-- Communicate with on-premises resources
-- Route network traffic
-- Filter network traffic
-- Connect virtual networks
+- Isolering och segmentering
+- Internetkommunikation
+- Kommunicera mellan Azure-resurser
+- Kommunicera med lokala resurser
+- Dirigering av nätverkstrafik
+- Filtrering av nätverkstrafik
+- Anslutning av virtuella nätverk
 
-### Isolation and segmentation
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEve]
 
-Azure allows you to create multiple isolated virtual networks. When you set up a virtual network, you define a private Internet Protocol (IP) address space, using either public or private IP address ranges. You can then segment that IP address space into subnets, and allocate part of the defined address space to each named subnet.
+### <a name="isolation-and-segmentation"></a>Isolering och segmentering
 
-For name resolution, you can use the name resolution service that's built in to Azure, or you can configure the virtual network to use either an internal or an external Domain Name System (DNS) server.
+Med Azure kan du skapa flera isolerade virtuella nätverk. När du har konfigurerat ett virtuellt nätverk kan definiera du en privat IP (Internet Protocol)-adressutrymme med hjälp av antingen offentliga eller privata IP-adressintervall. Sedan kan du segmentera IP-adressutrymmet i undernät och allokera en del av det definierade adressutrymmet till varje namngivet undernät.
 
-### Internet communications
+Du kan använda den namnmatchningstjänst som är inbyggda i Azure för namnmatchning, eller du kan konfigurera det virtuella nätverket för att använda en intern eller en extern Domain Name System (DNS)-server.
 
-A VM in Azure can connect to the Internet by default. However, you need to connect to and control that VM, with either the Azure CLI, Remote Desktop Protocol (RDP), or Secure Shell (SSH). You can enable incoming communications by defining a public IP address or a public load balancer.
+### <a name="internet-communications"></a>Internetkommunikation
 
-### Communicate between Azure resources
+En virtuell dator i Azure kan ansluta till Internet som standard. Dock måste du ansluta till och styra den virtuella datorn med Azure CLI, Remote Desktop Protocol (RDP) eller Secure Shell (SSH). Du kan aktivera inkommande kommunikation genom att definiera en offentlig IP-adress eller en offentlig belastningsutjämnare.
 
-You'll want to enable Azure resources to communicate securely with each other. You can do that in one of two ways:
+### <a name="communicate-between-azure-resources"></a>Kommunicera mellan Azure-resurser
 
-- **Virtual networks**
+Du vill aktivera Azure-resurser att kommunicera säkert med varandra. Du kan göra det på två sätt:
+
+- **Virtuella nätverk**
     
-    Virtual networks can connect not only VMs, but other Azure resources, such as the App Service Environment, Azure Kubernetes Service, and Azure virtual machine scale sets.
+    Virtuella nätverk kan ansluta inte bara virtuella datorer, men andra Azure-resurser, till exempel App Service Environment, Azure Kubernetes Service och Azure VM-skalningsuppsättningar.
 
-- **Service endpoints**
+- **Serviceslutpunkter**
      
-     You can use service endpoints to connect to other Azure resource types, such as Azure SQL databases and storage accounts. This approach enables you to link multiple Azure resources to virtual networks, thereby improving security and providing optimal routing between resources.
+     Du kan använda tjänstslutpunkter för att ansluta till andra typer av Azure-resurser, till exempel Azure SQL-databaser och lagringskonton. Med den här metoden kan du länka flera Azure-resurser till virtuella nätverk och därmed förbättra säkerheten och ge optimal routning mellan resurser.
 
-### Communicate with on-premises resources
+### <a name="communicate-with-on-premises-resources"></a>Kommunicera med lokala resurser
 
-Azure virtual networks enable you to link resources together in your on-premises environment and within your Azure subscription, in effect creating a network that spans both your local and cloud environments. There are three mechanisms for you to achieve this connectivity:
+Azure-nätverk kan du länka resurser tillsammans i din lokala miljö och i din Azure-prenumeration som i praktiken skapar ett nätverk som omfattar både dina lokala och molnbaserade miljöer. Det finns tre mekanismer för att uppnå den här anslutningen:
 
-- **Point-to-site Virtual Private Networks**
+- **Punkt-till-plats VPN-nätverk**
 
-   This approach is like a Virtual Private Network (VPN) connection that a computer outside your organization makes back into your corporate network, except that it's working in the opposite direction. In this case, the client computer initiates an encrypted VPN connection to Azure, connecting that computer to the Azure virtual network.
+   Den här metoden är som en anslutning för virtuella privata nätverk (VPN) som en dator utanför din organisation gör tillbaka till företagets nätverk, förutom att det fungerar i motsatt riktning. I det här fallet initierar klientdatorn en krypterad VPN-anslutning till Azure och ansluter datorn till det virtuella Azure-nätverket.
 
-- **Site-to-site Virtual Private Networks**
-    A site-to-site VPN links your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network. In effect, the devices in Azure can appear as being on the local network. The connection is encrypted and works over the Internet.
+- **Plats-till-plats virtuella privata nätverk** en plats-till-plats-VPN länkar din lokala VPN-enhet eller en gateway till Azure VPN-gateway i ett virtuellt nätverk. Enheter i Azure kan därmed visas som om de finns i det lokala nätverket. Anslutningen är krypterad och fungerar över Internet.
 
 - **Azure ExpressRoute**
 
-    For environments where you need greater bandwidth and even higher levels of security, Azure ExpressRoute is the best approach. Azure ExpressRoute provides dedicated private connectivity to Azure that does not travel over the Internet.
+    För miljöer där du behöver större bandbredd och ännu högre säkerhetsnivåer, är det bästa sättet för Azure ExpressRoute. Azure ExpressRoute ger dedikerad privat anslutning till Azure som inte följer med dig via Internet.
 
-### Route network traffic
+### <a name="route-network-traffic"></a>Dirigering av nätverkstrafik
 
-By default, Azure will route traffic between subnets on any connected virtual networks, on-premises networks, and the Internet. However, you can control routing and override those settings as follows:
+Som standard dirigerar Azure trafik mellan undernät på alla anslutna virtuella nätverk, lokala nätverk och Internet. Du kan dock kontrollera routningen och åsidosätta inställningarna enligt följande:
 
-- **Route tables**
+- **Routningstabeller**
 
-    A route table allows you to define rules as to how traffic should be directed. You can create custom route tables that control how packets are routed between subnets.
+    En routningstabell kan du definiera regler för hur trafiken ska dirigeras. Du kan skapa anpassade routningstabeller som styr hur paket dirigeras mellan undernät.
 
 - **Border Gateway Protocol**
 
-    Border Gateway Protocol (BGP) works with Azure VPN gateways or ExpressRoute to propagate on-premises BGP routes to Azure virtual networks.
+    Border Gateway Protocol (BGP) fungerar med Azure VPN gateway eller ExpressRoute för sprida lokala BGP-vägar till Azure-nätverk.
 
-### Filter network traffic
+### <a name="filter-network-traffic"></a>Filtrering av nätverkstrafik
 
-Azure virtual networks enable you to filter traffic between subnets by using the following approaches:
+Virtuella Azure-nätverk gör det möjligt att filtrera trafik mellan undernät med hjälp av följande metoder:
 
-- **Network security groups**
+- **Nätverkssäkerhetsgrupper**
 
-    A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
+    En nätverkssäkerhetsgrupp är en Azure-resurs som kan innehålla flera inkommande och utgående säkerhetsregler. Du kan definiera dessa regler så att de tillåter eller blockerar trafik, baserat på faktorer som IP-adress för källa och destination, port och protokoll.
 
-- **Network virtual appliances**
+- **Virtuella nätverksinstallationer**
     
-    A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing WAN optimization.
+    En virtuell nätverksinstallation är en specialiserad virtuell dator som kan jämföras med en förstärkt nätverksenhet. En virtuell nätverksinstallation utför en viss nätverksfunktion, till exempel köra en brandvägg eller utföra WAN-optimering.
 
-## Connect virtual networks
+## <a name="connect-virtual-networks"></a>Anslutning av virtuella nätverk
 
-You can link virtual networks together using virtual network _peering_. Peering enables resources in each virtual network to communicate with each other. These virtual networks can be in separate regions, allowing you to create a global interconnected network through Azure.
+Du kan länka samman virtuella nätverk med _peering_ för virtuella nätverk. Peering aktiverar resurser i varje virtuellt nätverk så att de kan kommunicera med varandra. Dessa virtuella nätverk kan finnas i olika regioner, vilket gör att du kan skapa ett globalt, sammankopplat nätverk via Azure.
 
-## Azure virtual network settings
+## <a name="azure-virtual-network-settings"></a>Inställningar för Azure virtuella nätverk
 
-You can create and configure Azure virtual networks from the Azure portal, Azure PowerShell on your local computer, or Azure Cloud Shell.
+Du kan skapa och konfigurera Azure-nätverk från Azure-portalen, Azure PowerShell på den lokala datorn eller Azure Cloud Shell.
 
-### Create a virtual network
+### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-When you create an Azure virtual network, you configure a number of basic settings. You'll have the option to configure advanced settings, such as multiple subnets, distributed denial of service (DDoS) protection, and service endpoints.
+När du skapar ett Azure-nätverk kan konfigurera du ett antal grundläggande inställningar. Du har möjlighet att konfigurera avancerade inställningar, till exempel flera undernät, datorn service (DDoS) skydd och Tjänsteslutpunkter.
 
-![Screenshot of the Azure portal showing an example of the Create virtual network blade fields.](../media/2-create-virtual-network.PNG)
+![Skärmbild av Azure-portalen som visar ett exempel på det virtuella nätverket skapa bladfält.](../media/2-create-virtual-network.PNG)
 
-You'll configure the following settings for a basic virtual network:
+Du kan konfigurera följande inställningar för ett grundläggande virtuellt nätverk:
 
-- **Network name**
+- **Nätverksnamn**
 
-    The network name must be unique in your subscription, but does not need to be globally unique. Make the name a descriptive one that is easy to remember and identified from other virtual networks.
+    Nätverksnamn måste vara unikt i din prenumeration, men behöver inte vara globalt unikt. Kontrollera namnet på en beskrivande alternativ som är lätt att komma ihåg och identifierad från andra virtuella nätverk.
 
-- **Address space**
+- **Adressutrymme**
     
-    When you set up a virtual network, you define the internal address space in Classless Inter-Domain Routing (CIDR) format. This address space needs to be unique within your subscription and any other networks that you connect to.
+    När du har konfigurerat ett virtuellt nätverk kan definiera du adressutrymmet för interna Classless Inter-Domain Routing CIDR-format. Det här adressutrymmet måste vara unikt inom prenumerationen och andra nätverk som du ansluter till.
     
-    Let's assume, you choose an address space of 10.0.0.0/24 for your first virtual network. The addresses defined in this address space ranges from 10.0.0.1 - 10.0.0.254. You the create a second virtual network and choose an address space of 10.1.0.0./8. The address in this address space ranges from 10.0.0.1 - 10.255.255.254. Some of the address overlap and can't be used for the two virtual networks.
+    Vi antar, du väljer ett adressutrymme 10.0.0.0/24 för ditt första virtuella nätverk. Adresser som definieras i den här adressintervall mellan 10.0.0.1 - 10.0.0.254. Du kan skapa en andra virtuell nätverks- och välj ett adressutrymme för 10.1.0.0./8. Adressen i det här adressutrymmet mellan 10.0.0.1 - 10.255.255.254. Några av adressen överlappar varandra och kan inte användas för de två virtuella nätverken.
 
-    However, you can use 10.0.0.0/16, with addresses ranging from 10.0.0.1 - 10.0.255.254, and 10.1.0.0/16, with addresses ranging from 10.1.0.1 - 10.1.255.254. You can assign these address spaces to your virtual networks since there's no address overlap.
+    Du kan dock använda 10.0.0.0/16, med adresser mellan 10.0.0.1 - 10.0.255.254 och 10.1.0.0/16 med adresser som sträcker sig från 10.1.0.1 - 10.1.255.254. Du kan tilldela dessa adressutrymmen till dina virtuella nätverk eftersom det inte finns någon överlappning adress.
 
     > [!NOTE] 
-    > You can add address spaces after creating the virtual network.
+    > Du kan lägga till adressutrymmen när du har skapat det virtuella nätverket.
 
-- **Subscription**
+- **Prenumeration**
 
-    Only applies if you have multiple subscriptions to choose from.
+    Gäller bara om du har flera prenumerationer kan välja bland.
 
-- **Resource group**
+- **Resursgrupp**
     
-    Like any other Azure resource, a virtual network needs to exist in a resource group. You can either select an existing resource group or create a new one.
+    Som alla andra Azure-resurser måste ett virtuellt nätverk finnas i en resursgrupp. Du kan välja en befintlig resursgrupp, eller så kan du skapa en ny.
     
-- **Location**
+- **Plats**
 
-    Select the location where you want the virtual network to exist.
+    Välj den plats där du vill att det virtuella nätverket finns.
 
-- **Subnet**
+- **Undernät**
     
-    Within each virtual network address range, you can create one or more subnets that partition the virtual network's address space. Routing between subnets will then depend on the default traffic routes, or you can define custom routes. Alternatively, you can define one subnet that encompasses all the virtual networks' address ranges.
+    Du kan skapa en eller flera undernät som partitionerar det virtuella nätverkets adressutrymme-adressintervallet för varje virtuellt nätverk. Routning mellan undernät förlitar sig sedan på standardtrafikvägar eller så kan du definiera anpassade vägar. Du kan också definiera ett undernät som omfattar de virtuella nätverken-adressintervall.
 
     > [!NOTE]
-    > Subnet names must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.
+    > Namn på undernät måste börja med en bokstav eller siffra, sluta med en bokstav, siffra eller ett understreck och får endast innehålla bokstäver, siffror, understreck, punkter eller bindestreck.
 
-- **Distributed Denial of Service (DDoS) protection**
+- **Distribuerad Överbelastningsattack (DDoS)-skydd**
 
-    You can select either Basic or Standard DDoS protection. Standard DDoS Protection is a premium service. The [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview) provides for more information on Standard DDoS protection. 
+    Du kan välja Basic eller Standard DDoS protection. Standard-DDoS är en premiumtjänst. Den [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview) ger mer information om Standard DDoS-skydd. 
 
-- **Service Endpoints**
+- **Tjänsteslutpunkter**
     
-    Here, you enable service endpoints, and then select from the list which Azure service endpoints you want to enable. Options include Azure Cosmos DB, Azure Service Bus, Azure Key Vault, and so on.
+    Här kan aktivera du Tjänsteslutpunkter och välj från listan över vilka Azure-tjänstslutpunkter som du vill aktivera. Alternativ inkluderar Azure Cosmos DB, Azure Service Bus, Azure Key Vault och så vidare.
 
-When you have configured these settings, click the **Create** button.
+När du har konfigurerat de här inställningarna klickar du på knappen **Skapa**.
 
-### Define additional settings
+### <a name="define-additional-settings"></a>Ange ytterligare inställningar
 
-After creating a virtual network, you can then define further settings. These include:
+När du har skapat ett virtuellt nätverk kan du definiera fler inställningar. Exempel på dessa är:
 
-- **Network security group**
+- **Nätverkssäkerhetsgrupp**
     
-    Network security groups have security rules that enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. You create the network security group separately, and then associate it with the virtual network.
+    Nätverkssäkerhetsgrupper har säkerhetsregler som gör det möjligt att filtrera typ av nätverkstrafik som kan flödar in och ut ur virtuellt nätverk, undernät och nätverksgränssnitt. Du skapar den nya nätverkssäkerhetsgruppen separat och koppla den till det virtuella nätverket.
 
-- **Route table**
+- **Routningstabell**
 
-    Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. However, you can add custom route tables to modify traffic between virtual networks.
+    Azure skapar automatiskt en routningstabell för varje undernät inom ett virtuellt Azure-nätverk och lägger till systemstandardvägar i tabellen. Du kan dock lägga till anpassade routningstabeller för att ändra trafik mellan virtuella nätverk.
 
-You can also amend the service endpoints.
+Du kan också ändra tjänstslutpunkterna.
 
-![Screenshot of the Azure portal showing an example blade for editing virtual network settings.](../media/2-virtual-network-additional-settings.PNG)
+![Skärmbild av Azure-portalen som visar ett exempel blad för att redigera inställningar för virtuella nätverk.](../media/2-virtual-network-additional-settings.PNG)
 
-### Configure virtual networks
+### <a name="configure-virtual-networks"></a>Konfigurera virtuella nätverk
 
-When you have created a virtual network, you can change any further settings from the Virtual Networks blade in the Azure portal. Alternatively, you can use PowerShell commands or commands in Cloud Shell to make changes.
+När du har skapat ett virtuellt nätverk kan du ändra eventuella ytterligare inställningar från bladet för virtuella nätverk i Azure Portal. Du kan också använda PowerShell-kommandon eller kommandon i Cloud Shell för att göra ändringar.
 
-![Screenshot of the Azure portal showing an example blade for configuring a virtual network.](../media/2-configure-virtual-network.PNG)
+![Skärmbild av Azure-portalen som visar ett exempel blad för att konfigurera ett virtuellt nätverk.](../media/2-configure-virtual-network.PNG)
 
-You can then review and change settings in further sub-blades.
-These settings include:
+Du kan sedan granska och ändra inställningar i underordnade blad.
+Några av dessa inställningar är:
 
-- Address spaces
+- Adressutrymmen
 
-    You can add further address spaces to the initial definition
+    Du kan lägga till ytterligare adressutrymmen inledande definition
 
-- Connected devices
+- Anslutna enheter
 
-    Use the virtual network to connect machines
+    Använd virtual network för att ansluta datorer
 
-- Subnets
+- Undernät
 
-    Add further subnets
+    Lägga till ytterligare undernät
 
-- Peerings
+- Peering-sessioner
 
-    Link virtual networks in peering arrangements
+    Länken virtuella nätverken i peering-åtgärder
 
-You can also monitor and troubleshoot virtual networks, or create an automation script to generate the current virtual network.
+Du kan också övervaka och felsöka virtuella nätverk eller skapa ett automationsskript för att generera det nuvarande virtuellt nätverk.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Virtual networks are powerful and highly configurable mechanisms for connecting entities in Azure. You can connect Azure resources to one another or to resources you have on-premises. You can isolate, filter and route your network traffic, and Azure allows you to increase security where you feel you need it.
+Virtuella nätverk är kraftfulla och mycket konfigurerbara mekanismer för att ansluta enheter i Azure. Du kan ansluta Azure-resurser till varandra eller till resurser som du har lokalt. Du kan isolera, filtrera och dirigera trafik på nätverket och Azure kan du öka säkerhet där du anser att du behöver den.

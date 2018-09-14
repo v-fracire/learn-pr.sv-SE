@@ -1,68 +1,67 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-your-azure-sql-database.6-knowledge-check
 metadata:
-  title: Knowledge check
-  description: Test your knowledge 
+  title: Kunskapskontroll
+  description: Testa dina kunskaper
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-title: Knowledge check
+title: Kunskapskontroll
 durationInMinutes: 5
 content: |
   [!include[](includes/6-knowledge-check.md)]
 quiz:
-  title: 'Quiz'
+  title: Frågeformulär
   questions:
-  - content: 'A mask has been applied to a column in the database that holds a user’s email address laura@contoso.com. From the list of options, what would the mask display for a dbo account?'
-    choices:
-    - content: lxxx@xxxx.com
-      isCorrect: false
-      incorrectExplanation: dbo accounts do not have the masks applied to the data. 
-    - content: laura@xxxxxxx.com
-      isCorrect: false
-      incorrectExplanation: dbo accounts do not have the masks applied to the data. In addition, when email masks are applied, they also mask the name portion of the email address.
-    - content: laura@contoso.com
-      isCorrect: true
-      correctExplanation: Correct! When dbo accounts access data that has masks applied, they do not see the masks applied to the data.
-    - content: Data not available
-      isCorrect: false
-      incorrectExplanation: Data will be displayed when accessing an email mask. dbo accounts will not see the masks applied to the data. Non-dbo accounts will see the masks applied to the data, unless they have been listed to see data unmasked.
-  - content: 'Transparent Data Encryption will encrypt which database files?'
-    choices:
-    - content: Database files only 
-      isCorrect: false
-      incorrectExplanation: When Transparent Data Encryption is enabled, all database, log, and backup files will be encrypted.
-    - content: Log files and backup files only
-      isCorrect: false
-      incorrectExplanation: When Transparent Data Encryption is enabled, all database, log, and backup files will be encrypted.
-    - content: Backup files only
-      isCorrect: false
-      incorrectExplanation: When Transparent Data Encryption is enabled, all database, log, and backup files will be encrypted.
-    - content: Database files, log files, and backup files
-      isCorrect: true
-      correctExplanation: Correct! When Transparent Data Encryption is enabled, all database, log, and backup files will be encrypted.
-  - content: 'A database firewall rule can filter which IP addresses?'
-    choices:
-    - content: Azure-only IP addresses 
-      isCorrect: false
-      incorrectExplanation: The database firewall rules can define IP addresses or IP address ranges for both Azure and internet IP addresses. 
-    - content: IP addresses of other databases
-      isCorrect: false
-      incorrectExplanation: The database firewall rules can define IP addresses or IP address ranges for both Azure and internet IP addresses.
-    - content: Networks created on an Azure virtual network
-      isCorrect: false
-      incorrectExplanation: The database firewall rules can define IP addresses or IP address ranges for both Azure and internet IP addresses.
-    - content: Any IP address or IP address range
-      isCorrect: true
-      correctExplanation: Correct! The database firewall rules can define IP addresses or IP address ranges for both Azure and internet IP addresses.
-  - content: 'Is encrypted communication turned on automatically when connecting to an Azure SQL Server?'
-    choices:
-    - content: Yes
-      isCorrect: false
-      incorrectExplanation: The encryption options are defined in the connection string connecting to the database. The connection string should be set to use encryption and to not trust the certificate, to reduce the likelihood of a man-in-the-middle attack.
-    - content: No
-      isCorrect: true
-      correctExplanation: Correct! The encryption options are defined in the connection string connecting to the database. The connection string should be set to use encryption and to not trust the certificate, to reduce the likelihood of a man-in-the-middle attack.
+    - content: 'En mask har kopplats till en kolumn i den databas som innehåller en användares e-postadress laura@contoso.com. Från listan över alternativ, vad masken visar ett dbo-konto?'
+      choices:
+        - content: lxxx@xxxx.com
+          isCorrect: false
+          incorrectExplanation: dbo-konton har inte masker som tillämpas på data.
+        - content: laura@xxxxxxx.com
+          isCorrect: false
+          incorrectExplanation: dbo-konton har inte masker som tillämpas på data. Dessutom när e-post masker tillämpas kan maskera de också del av den e-postadressen.
+        - content: laura@contoso.com
+          isCorrect: true
+          correctExplanation: 'Rätt! När dbo-konton har åtkomst till data som har tillämpats masker, visas inte masker som tillämpas på data.'
+        - content: Data är inte tillgängliga
+          isCorrect: false
+          incorrectExplanation: 'Data kommer att visas vid åtkomst till en e-mask. dbo-konton kan inte se masker som tillämpas på data. Icke-dbo-konton visas masker som tillämpas på data, om inte de tillgängliga om du vill visa avmaskerad.'
+    - content: Transparent datakryptering krypteras vilka databasfiler?
+      choices:
+        - content: Endast databasfiler
+          isCorrect: false
+          incorrectExplanation: När Transparent datakryptering är aktiverat krypteras alla database log och säkerhetskopior.
+        - content: Loggfiler och säkerhetskopierade filer
+          isCorrect: false
+          incorrectExplanation: När Transparent datakryptering är aktiverat krypteras alla database log och säkerhetskopior.
+        - content: Säkerhetskopiera filer
+          isCorrect: false
+          incorrectExplanation: När Transparent datakryptering är aktiverat krypteras alla database log och säkerhetskopior.
+        - content: Databasfilerna och loggfilerna säkerhetskopior
+          isCorrect: true
+          correctExplanation: Rätt! När Transparent datakryptering är aktiverat krypteras alla database log och säkerhetskopior.
+    - content: En brandväggsregel för databasen kan filtrera vilka IP-adresser?
+      choices:
+        - content: Endast Azure-IP-adresser
+          isCorrect: false
+          incorrectExplanation: Database-brandväggsregler kan definiera IP-adresser eller IP-adressintervall för IP-adresser för både Azure och internet.
+        - content: IP-adresser till andra databaser
+          isCorrect: false
+          incorrectExplanation: Database-brandväggsregler kan definiera IP-adresser eller IP-adressintervall för IP-adresser för både Azure och internet.
+        - content: Nätverk som har skapats i en Azure-nätverk
+          isCorrect: false
+          incorrectExplanation: Database-brandväggsregler kan definiera IP-adresser eller IP-adressintervall för IP-adresser för både Azure och internet.
+        - content: Alla IP-adress eller IP-adressintervall
+          isCorrect: true
+          correctExplanation: Rätt! Database-brandväggsregler kan definiera IP-adresser eller IP-adressintervall för IP-adresser för både Azure och internet.
+    - content: Krypterad kommunikation aktiveras automatiskt när du ansluter till en Azure SQL Server?
+      choices:
+        - content: Ja
+          isCorrect: false
+          incorrectExplanation: 'Alternativ för kryptering har definierats i anslutningssträngen som ansluter till databasen. Anslutningssträngen ska anges att använda kryptering och inte litar på certifikatet, för att minska sannolikheten för en man-in-the-middle-attack.'
+        - content: Nej
+          isCorrect: true
+          correctExplanation: 'Rätt! Alternativ för kryptering har definierats i anslutningssträngen som ansluter till databasen. Anslutningssträngen ska anges att använda kryptering och inte litar på certifikatet, för att minska sannolikheten för en man-in-the-middle-attack.'

@@ -18,13 +18,13 @@ Börja med att identifiera vilket operativsystem du använder. Följ sedan stege
 
 1. Dubbelklicka på det nedladdade arkivet för att visa innehållet.
 
-1. Dra Visual Studio Code.app till programmappen för att göra den tillgänglig i Launchpad.
+1. Dra Visual Studio-Code.app till programmappen så att den blir tillgänglig i Launchpad.
 
-1. Lägg till VS Code till Dock genom att högerklicka på ikonen och välja Options (Alternativ) -> Keep in Dock (Fäst i Dock).
+1. Lägga till VS Code din dockan genom att högerklicka på ikonen och välja alternativ > Tänk Dock.
 
 ### <a name="linux--debian-and-ubuntu"></a>Linux – Debian och Ubuntu
 
-1. Ladda ned och installera [.deb paketet (64-bitars)](https://go.microsoft.com/fwlink/?LinkID=760868), antingen via det grafiska programvarucentret, eller via kommandoraden (om tillgängligt) (ersätt `<file>` med det .deb-filnamn som du laddade ned):
+1. Ladda ned och installera den [.deb paketet (64-bitars)](https://go.microsoft.com/fwlink/?LinkID=760868) via det grafiska software center, om den är tillgänglig eller via kommandoraden (Ersätt `<file>` med .deb filnamnet som du laddade ned):
 
     ```bash
     sudo dpkg -i <file>.deb
@@ -80,4 +80,4 @@ Börja med att identifiera vilket operativsystem du använder. Följ sedan stege
 
     ![Skärmbild av VS Code som visar fliken Tillägg med Azure App Service-tillägget markerat i sökresultaten.](../media/3-install-azure-extension.png)
 
-Detta installerar tillägget. Du kan ansluta till din Azure-prenumeration och utveckla och distribuera dina webb-, mobil- eller API-appar till en Azure App Service.
+Detta installerar tillägget. Du är nu redo att ansluta till din Azure-prenumeration och distribuera en webb-, Mobil- eller API-app till en Azure App Service.

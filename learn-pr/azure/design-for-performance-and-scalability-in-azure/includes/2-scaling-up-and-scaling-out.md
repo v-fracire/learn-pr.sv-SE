@@ -1,128 +1,130 @@
-It's rare that we can exactly predict the load on our system: public facing applications might grow rapidly or an internal application might need to support a larger user base as the business grows. Even when we can predict load, it's rarely flat: retailers have more demand during the holidays and sports websites peak during playoffs. Here, we'll define _scaling up/down_ and _scaling out/in_, cover some ways Azure can improve your scaling capabilities, and look at how serverless and container technologies can improve your architecture's ability to scale.
+Det är ovanligt att vi kan förutse den exakta belastningen i systemet: användningen av de offentliga programmen kan öka snabbt eller ett internt program kan behöva hantera ett större antal användare när verksamheten växer. Även om vi kan förutse belastningen är den sällan konstant: återförsäljarna har större efterfrågan under helger och sportwebbplatserna har högst belastning under slutspel. Här definierar vi begreppen _skala upp/ned_ och _skala ut/in_, berättar om hur Azure kan förbättra dina skalningsmöjligheter på olika sätt och tittar på hur serverfria tekniker och containertekniker kan förbättra arkitekturens möjligheter till skalning.
 
-## What is scaling?
+## <a name="what-is-scaling"></a>Vad är skalning?
 
-_Scaling_ is the process of managing your resources to help your application meet a set of performance requirements.  When we have too many resources serving users, we won't be using it efficiently and we'll be wasting money. Too few available resources means that the performance of our application could be impacted. The goal is to meet our defined performance requirements while optimizing for cost. 
+_Skalning_ är en process för att hantera dina resurser och se till att programmen uppfyller en uppsättning prestandakrav.  När vi har för många resurser som nyttjas av användare används de inte effektivt och det kostar pengar. För få tillgängliga resurser innebär att prestanda för programmet kan påverkas. Målet är att uppfylla våra definierade prestandakrav och samtidigt optimera kostnaderna. 
 
-"_Resources_" can refer to anything we need to manage to run our applications. Memory and CPU for virtual machines are the most obvious resources, but some Azure services might require you to consider bandwidth or abstractions, like Cosmos DB Request Units.
+”_Resurser_” kan referera till allt som behövs för att köra programmen. Minne och processor för virtuella datorer är de mest uppenbara resurserna, men vissa Azure-tjänster kräver att du även beaktar bandbredd eller abstrakta element som enheter för programbegäran i Cosmos DB.
 
-In a world where application demand is constant, it's easy to predict the right amount of resources you'll need. In the real world, the demands of applications change over time, so the right amount of resources you'll need can be harder to predict. If you're lucky, that change will be predictable or seasonal, but that is not typical of all applications. Ideally, you want to provision the right amount of resources to meet demand and adjust as demand changes.
+I en värld där programkrav är konstant, är det enkelt att förutsäga rätt mängd resurser som du behöver. I verkligheten, kraven från program ändras med tiden, så att rätt mängd resurser som du kan vara svårare att förutsäga. Om du har tur kan förändringarna vara förutsebara eller säsongsberoende, men det är inte det vanligaste för många program. Det mest optimala är att etablera rätt mängd resurser för att möta efterfrågan och göra justeringar då efterfrågan ändras.
 
-Scaling is difficult in an on-premises scenario, where you purchase and manage your own servers. Adding resources can be costly and often takes too much time to bring online, sometimes longer than your actual need for the increased capacity. It can be just as difficult to then reduce capacity during times of low demand on the system, so you may be stuck with the increased cost.
+Skalning är svårt i ett lokalt scenario då du köper och hanterar dina egna servrar. Det kan bli dyrt att lägga till resurser och det tar ofta för lång tid att etablera dem online, ibland längre tid än det faktiska behovet av ökad kapacitet. Det kan vara lika svårt att sedan minska kapaciteten under perioder med låg belastning på systemet, och då står du där med en ökad kostnad.
 
-Easy scaling is a key benefit of Azure. Most Azure resources let you easily add or remove resources as demand changes, and many services have automated options so they monitor demand and adjust for you. This automatic scaling capability, commonly known as autoscaling, lets you set thresholds for the minimum and maximum level of instances that should be available, and will add or remove instances based upon a performance metric (for example, CPU utilization).
+Enkel skalning är en viktig fördel med Azure. Med de flesta Azure-resurser kan du enkelt lägga till eller ta bort resurser i takt med en ändrad efterfrågan, och många tjänster har automatiserade alternativ för övervakning av efterfrågan och justeras därefter automatiskt. Med funktionen för automatisk skalning, som ofta kallas autoskalning, kan du ange tröskelvärden för lägsta och högsta nivå av instanser som ska vara tillgängliga, och instanser läggs till eller tas bort baserat på prestandamått (till exempel CPU-användning).
 
-## What is scaling up or down?
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yBWi]
 
-Scaling up is the process where we increase the capacity of a given instance. A virtual machine could be increased from 1 vCPU and 3.5 GB of RAM to 2 vCPUs and 7 GB of RAM to provide more processing capacity. On the other hand, scaling down is the process where we lower the capacity of a given instance. For example, reducing a virtual machine's capacity from 2 vCPUs and 7 GB of RAM to 1 vCPU and 3.5 GB of RAM, reducing both capacity and cost. The following illustration shows an example of changing the size of a virtual machine.
+## <a name="what-is-scaling-up-or-down"></a>Vad innebär det att skala upp och ned?
 
-![An illustration showing scaling up and scaling down of a virtual machine to change the performance capabilities.](../media/2-ScaleUpDown.png)
+Skala upp är en process där vi ökar kapaciteten för en viss instans. En virtuell dator kan utökas från 1 virtuell processor och 3,5 GB RAM-minne till 2 virtuella processorer och 7 GB RAM-minne för att ge mer bearbetningskapacitet. På motsvarande sätt innebär processen att skala ned att kapaciteten minskas för en viss instans. Om du till exempel minskar kapaciteten för en virtuell dator från 2 virtuella processorer och 7 GB RAM-minne till 1 virtuell processor och 3,5 GB RAM-minne minskar både kapaciteten och kostnaden. Följande bild visar ett exempel på att ändra storlek på en virtuell dator.
 
-Let's take a look at what scaling up or down means in the context of Azure resources:
+![En bild som visar uppskalning och Nedskalning av en virtuell dator för att ändra prestandafunktioner.](../media/2-ScaleUpDown.png)
 
-- In Azure virtual machines, you scale based upon a virtual machine size. That size has a certain amount of vCPUs, RAM, and local storage associated with it. For example, we could scale up from a Standard_DS1_v2 virtual machine (1 vCPU and 3.5 GB of RAM) to a Standard_DS2_v2 virtual machine (2 vCPUs and 7 GB of RAM).
-- Azure SQL Database is a platform as a service (PaaS) implementation of Microsoft SQL Server.  You can scale up a database based upon the number of database transaction units (DTUs) or vCPUs. DTUs are an abstraction of underlying resources and are a blend of CPU, IO, and memory. You could scale your database instance from 500 DTUs to 250 DTUs.
-- Azure App Service is a PaaS website-hosting service on Azure. Websites run on a virtual server farm, also known as an App Service plan. You can scale the App Service plan up or down between tiers and have capacity options within tiers. For example, an S1 App Service plan has 1 vCPU and 1.75 GB of RAM per instance. We could scale up to an S2 App Service plan, which has 2 vCPUs and 3 GB of RAM per instance.
+Låt oss ta en titt på vad skala upp eller skala ned kan innebära för Azure-resurser:
 
-To have these capabilities in an on-premises environment you typically have to wait for procurement of the needed hardware and installation before you can start using the new level of scale. In Azure, the physical resources are already deployed and available for you. You simply need to select the alternate level of scale that you are looking to use.
+- På virtuella Azure-datorer skalar du baserat på en VM-storlek. Den storleken associeras med en viss mängd virtuella processorer, RAM-minne och lokal lagring. Vi kan exempelvis skala upp från en virtuell dator på Standard_DS1_v2 (1 virtuell processor och 3,5 GB RAM-minne) till en virtuell dator på Standard_DS2_v2 (2 virtuella processorer och 7 GB RAM-minne).
+- Azure SQL Database är en plattform som en tjänst-implementering (PaaS) av Microsoft SQL Server.  Du kan skala upp en databas baserat på antalet databastransaktionsenheter (DTU) eller virtuella processorer. DTU:er är en abstraktion av underliggande resurser och är en blandning av CPU, IO och minne. Du kan skala din databasinstans från 500 DTU:er till 250 DTU:er.
+- Azure App Service är en värdtjänst för PaaS-webbplatsen i Azure. Webbplatserna körs på en virtuell servergrupp, som även kallas App Service-plan. Du kan skala upp eller ned App Service-planen mellan nivåerna och har kapacitetsalternativ inom nivåerna. En S1-App Service-plan har till exempel 1 virtuell processor och 1,75 GB RAM-minne per instans. Vi kan skala upp till en S2-App Service-plan som har 2 virtuella processorer och 3 GB RAM-minne per instans.
 
-You may need to consider the impact of scaling up in your solution, depending upon the cloud services that you have chosen.
+För att få dessa funktioner i en lokal miljö skulle du normalt behöva vänta på inköp av den nödvändiga maskinvaran och installationen innan du kan börja använda den nya skalningsnivån. I Azure har de fysiska resurserna redan distribuerats och är tillgängliga för dig. Du behöver bara välja den alternativa skalningsnivå som du vill använda.
 
-For example, if you choose to scale up in Azure SQL Database, the service deals with scaling up individual nodes and continues the operation of your service. Changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process, and there's only a brief interruption (typically less than four seconds) when the service switches over to the replica.
+Du kan behöva ta hänsyn till effekterna av att skala upp i din lösning, beroende på vilka molntjänster som du har valt.
 
-Alternatively, if you choose to scale up or down a virtual machine, you do so by selecting a different instance size. In most cases this requires a restart of the VM, so it's best to have the expectation that a reboot will be required and you'll need to account for when performing this activity.
+Om du till exempel väljer att skala upp i Azure SQL Database hanterar tjänsten uppskalning av enskilda noder och fortsätter driften av tjänsten. När du ändrar servicenivån och/eller prestandanivån för en databas skapas en replik av den ursprungliga databasen på den nya prestandanivån och sedan växlas anslutningar över till repliken. Inga data förloras under den här processen och det blir bara ett kort avbrott (vanligtvis mindre än fyra sekunder) när tjänsten växlar över till repliken.
 
-Finally, you should always look for places where scaling down is an option. If your application can provide adequate performance at a lower price tier, your Azure bill could be significantly reduced.
+Om du vill skala upp eller ned en virtuell dator kan du även göra det genom att välja en annan instansstorlek. I de flesta fall kräver detta en omstart av den virtuella datorn, så det är bäst att förvänta sig att en omstart krävs och att du måste ha det i åtanke när du utför den här åtgärden.
 
-## What is scaling out or in?
+Slutligen bör du alltid överväga att skala ned när detta är ett alternativ. Om ditt program ger tillfredsställande prestanda på en lägre prisnivå, kan Azure-fakturan minskas avsevärt.
 
-Where scaling up and down adjusts the amount of resources a single instance has available, scaling out and in adjusts the total number of instances.
+## <a name="what-is-scaling-out-or-in"></a>Vad innebär det att skala ut och in?
 
-_Scaling out_ is the process of adding more instances to support the load of your solution. For example, if our website front end were hosted on virtual machines, we could increase the number of virtual machines if the level of load increased.
+Medan en skalning upp och ned justerar mängden resurser en instans har tillgängliga, innebär skalning ut och in att det totala antalet instanser justeras.
 
-_Scaling in_ is the process of removing instances that are no longer needed to support the load of your solution. If the website front ends have low usage, we may want to lower the number of instances to save cost. The following illustration shows an example of changing the number of virtual machine instances.
+_Skala ut_ är en process där fler instanser läggs till för att ge stöd för belastningen i din lösning. Om klientdelen av webbplatsen till exempel finns på virtuella datorer så kan vi öka antalet virtuella datorer om belastningen ökar.
+
+_Skala in_ är en process som innebär att ta bort instanser som inte längre behövs för att ge stöd för belastningen i din lösning. Om webbplatsens klientdelar har låg belastning kan vi minska antalet instanser för att minska kostnaderna. Följande bild visar ett exempel på hur du ändrar antalet instanser av virtuella datorer.
 
 
-![An illustration showing scaling out the resources to handle demand and scaling in the resources to reduce costs.](../media/2-ScaleInOut.png)
+![En bild som visar att skala ut resurser för att hantera begäran och skalning i resurser för att minska kostnaderna.](../media/2-ScaleInOut.png)
 
-Here are some examples of what scaling out or in means in the context of Azure resources:
+Här följer några exempel på vad skala ut eller skala in innebär i samband med Azure-resurser:
 
-- For the infrastructure layer, you would likely use virtual machine scale sets to automate the addition and removal of extra instances.
-  - Virtual machine scale sets let you create and manage a group of identical, load balanced VMs.
-  - The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
-- In an Azure SQL Database implementation, you could share the load across database instances by sharding. _Sharding_ is a technique to distribute large amounts of identically structured data across a number of independent databases.
-- In Azure App Service, the App Service plan is the virtual web server farm hosting your content. Scaling out in this way means that you're increasing the number of virtual machines in the farm. As with virtual machine scale sets, the number of instances can be automatically raised or lowered in response to certain metrics or a schedule.
+- För infrastrukturlagret skulle du förmodligen använda VM-skalningsuppsättningar för att automatisera tillägg och borttagningar av extra instanser.
+  - Med VM-skalningsuppsättningar kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer.
+  - Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema.
+- I en Azure SQL Database-implementering kan du fördela belastningen över databasinstanser med hjälp av horisontell partitionering. _Horisontell partitionering_ är en teknik som används för att distribuera stora mängder identiskt strukturerade data över ett antal oberoende databaser.
+- I Azure App Service är App Service-planen den virtuella webbservergruppen som är värd för ditt innehåll. Skala ut innebär på detta sätt att du ökar antalet virtuella datorer i servergruppen. Precis som med VM-skalningsuppsättningar kan antalet instanser automatiskt ökas eller minskas som svar på vissa mått eller enligt ett schema.
 
-Scaling out is typically easily performed in the Azure portal, command-line tools, or Resource Manager templates, and in most cases is seamless to the end user.
+Utskalning utförs vanligtvis enkelt på Microsoft Azure-portalen, med kommandoradsverktyg eller med Resource Manager-mallar, och är i de flesta fall inte märkbar för slutanvändaren.
 
-### Autoscale
+### <a name="autoscale"></a>Automatisk skalning
 
-You can configure some of these services to use a feature called autoscale. With autoscale you no longer have to worry about scaling services manually. Instead, you can set a minimum and maximum threshold of instances and scale based upon specific metrics (queue length, CPU utilization) or schedules (weekdays between 5:00 PM and 7:00 PM). The following illustration shows how the autoscale feature manages instances to handle the load.
+Du kan konfigurera vissa av dessa tjänster för användning av en funktion som kallas autoskalning. Med autoskalning behöver du inte längre tänka på att skala tjänsterna manuellt. I stället kan du ange ett lägsta och ett högsta tröskelvärde för instanser och skala baserat på specifika mått (kölängd, CPU-användning) eller scheman (vardagar mellan 17:00 och 19:00). Följande bild visar hur funktion skala automatiskt hanterar instanser för att hantera belastningen.
 
-![An illustration showing how autoscale monitors the CPU levels of a pool of virtual machines and adds instances when the CPU utilization is above the threshold.](../media/2-autoscale.png)
+![En bild som visar hur funktioner för autoskalning övervakar CPU-nivåer av en pool med virtuella datorer och lägger till instanser när CPU-användningen är över tröskeln.](../media/2-autoscale.png)
 
-### Considerations when scaling in and out
+### <a name="considerations-when-scaling-in-and-out"></a>Att tänka på när du skalar in och ut
 
-When scaling out, the startup time of your application can impact how quickly your application can scale. If your web app takes two minutes to start up and be available for users, that means each of your instances will take two minutes until they are available to your users. You'll want to take this startup time into consideration when determining how fast you want to scale.
+Vid utskalning kan starttiden för ditt program påverka hur snabbt ditt program kan skalas. Om webbappen tar två minuter att starta och bli tillgänglig för användarna innebär det att det tar två minuter för var och en av dina instanser innan de blir tillgängliga för användarna. Du bör beakta den här starttiden när du bestämmer hur snabbt du vill skala.
 
-You'll also need to think about how your application handles state. When the application scales in, any state stored on the machine is no longer available. If a user connects to an instance that doesn't have its state, it could force them to sign in or re-select data, leading to a poor user experience. A common pattern is to externalize state to another service like Redis Cache or SQL Database, making your web servers stateless. Now that our web front ends are stateless, we don't need to worry about which individual instances are available. They are all doing the same job and are deployed in the same way.
+Du måste också tänka på hur programmet hanterar tillstånd. När programmet skalas in är tillstånd som lagrats på datorn inte längre tillgängliga. Om en användare ansluter till en instans som inte har tillgång till tillståndet, kan de bli tvingade att logga in, eller välja data på nytt, vilket ger en sämre användarupplevelse. En vanlig metod är att lagra tillstånd externt i en annan tjänst som exempelvis Redis Cache eller SQL Database, vilket gör webbservrarna tillståndslösa. Nu när klientdelarna av webben är tillståndslösa behöver vi inte bekymra oss om vilka enskilda instanser som är tillgängliga. De gör alla samma jobb och distribueras på samma sätt.
 
-## Throttling
+## <a name="throttling"></a>Begränsning
 
-We've established that the load on an application will vary over time. This may be due to the number of active or concurrent users and the activities being performed. While we could use autoscaling to add capacity, we could also use a throttling mechanism to limit the number of requests from a source. We can safeguard performance limits by putting known limits into place at the application level, preventing the application from breaking. Throttling is most frequently used in applications exposing API endpoints.
+Vi har konstaterat att belastningen på ett program varierar över tid. Detta kan bero på antalet aktiva eller samtidiga användare och de aktiviteter som utförs. Vi kan använda autoskalning för att lägga till kapacitet och vi kan också använda en mekanism för bandbreddsbegränsning som begränsar antalet begäranden från en källa. Vi kan skydda prestandabegränsningarna genom att ange kända begränsningar på programnivå, vilket hindrar programmet från att avbrytas. Bandbreddsbegränsning används oftast i program som exponerar API-slutpunkter.
 
-Once the application has identified that it would breach a limit, throttling could begin and ensure the overall system SLA isn't breached. For example, if we exposed an API for customers to get data, we could limit the number of requests to 100 per minute. If any single customer exceeded this limit, we could respond with an HTTP 429 status code, including the wait time before another request can successfully be submitted.
+När programmet har identifierat att det inte överträder en gräns kan begränsning påbörjas och säkerställa att det övergripande systemserviceavtalet inte överträds. Om vi till exempel har exponerat en API för kunderna för att hämta data kan vi begränsa antalet begäranden till 100 per minut. Om en enda kund överskrider denna gräns kan vi svara med statuskoden HTTP 429, inklusive väntetiden innan en annan begäran kan skickas.
 
-## Serverless
+## <a name="serverless"></a>Utan server
 
-Serverless computing provides a cloud-hosted execution environment that runs your apps but completely abstracts the underlying environment. You create an instance of the service, and you add your code; no infrastructure management or maintenance is required, or even allowed.
+Serverfri databehandling ger en molnbaserad körningsmiljö som kör dina appar men där den underliggande miljön är helt abstrakt. Du skapar en instans av tjänsten och lägger till din kod, men du behöver inte, och kan inte, hantera eller underhålla någon infrastruktur.
 
-You configure your serverless apps to respond to events. This could be a REST endpoint, a timer, or a message received from another Azure service. The serverless app runs only when it's triggered by an event.
+Du konfigurerar dina serverfria appar för att svara på händelser. Det kan gälla en REST-slutpunkt, en timer eller ett meddelande som tas emot från en annan Azure-tjänst. Den serverfria appen körs bara när den utlöses av en händelse.
 
-Infrastructure isn't your responsibility. Scaling and performance are handled automatically, and you are billed only for the exact resources you use. There's no need to even reserve capacity. Azure Functions, Azure Container Instances, and Logic Apps are examples of serverless computing available on Azure.
+Du ansvarar inte för infrastrukturen. Skalning och prestanda hanteras automatiskt och du debiteras endast för de resurser du använder. Du behöver inte ens reservera kapacitet. Azure Functions, Azure Container Instances och Logic Apps är exempel på serverlös databehandling som är tillgänglig på Azure.
 
-Let's revisit the Lamna Healthcare example. There could be some potential for cost saving and ease of management. Consider an API endpoint. Instead of hosting the API in Azure App Service, where they must pay for reserved capacity, they could use an Azure Function App triggered by an HTTP request. Azure functions would enable the team to pay only for the resources required to process each transaction. The cost and scale would be directly in line with the number of transactions in the system.
+Nu ska vi gå tillbaka till exemplet med Lamna Healthcare. Det kan finnas en viss potential för att spara kostnader och förenkla hanteringen. Överväg en API-slutpunkt. I stället för att ha Azure App Service som värd för API:et, där de måste betala för reserverad kapacitet, kan de använda en Azure Funktionsapp som utlöses av en HTTP-begäran. Azure Functions skulle göra det möjligt för teamet att endast betala för de resurser man behöver för att bearbeta respektive transaktion. Kostnaden och skalningen skulle vara i direkt linje med antalet transaktioner i systemet.
 
-## Containers
+## <a name="containers"></a>Containrar
 
-A container is a method running applications in a virtualized environment. A virtual machine is virtualized at the hardware level, where a hypervisor makes it possible to run multiple virtualized operating systems on a single physical server. Containers take the virtualization up a level. The virtualization is done at the OS level, making it possible to run multiple identical application instances within the same OS.
+En container är en metod som kör program i en virtualiserad miljö. En virtuell dator är virtualiserad på maskinvarunivå, där ett hypervisor-program gör det möjligt att köra flera virtualiserade operativsystem på en enda fysisk server. Containrar tar virtualiseringen till nästa nivå. Virtualiseringen utförs på operativsystemsnivå, vilket gör det möjligt att köra flera identiska programinstanser inom samma OS.
 
-Containers are well suited to scale out scenarios. They are meant to be lightweight and are designed to be created, scaled out, and stopped dynamically as environment and demand change.
+Containrar passar mycket bra för utskalningsscenarier. De är menade att vara enkla och utformade för att kunna skapas, skalas ut och stoppas dynamiskt när miljön och behoven ändras.
 
-A benefit of using containers is the ability to run multiple isolated applications on each virtual machine. Since containers themselves are secured and isolated at a kernel level, you don't necessarily need separate VMs for separate workloads.
+En fördel med att använda containrar är att du kan köra flera isolerade program på en virtuell dator. Eftersom containrar är skyddade och isolerade i sig själva på kernelnivå behöver du inte nödvändigtvis separata virtuella datorer för olika arbetsbelastningar.
 
-While you can run containers on virtual machines, there are a couple of Azure services that focus on easing the management and scaling of containers:
+Du kan köra containrar på virtuella datorer. Det finns ett par Azure-tjänster som fokuserar på att underlätta hantering och skalning av containrar:
 
 - **Azure Kubernetes Service (AKS)**
 
-  Azure Kubernetes Service allows you to set up virtual machines to act as your nodes. Azure hosts the Kubernetes management plane and only bills for the running worker nodes that host your containers.
+  Med Azure Kubernetes Service kan du konfigurera virtuella datorer så att de fungerar som noder. Azure är värd för Kubernetes hanteringsplan och fakturerar enbart för de arbetsnoder som körs som värdar för dina containrar.
 
-  To increase the number of your worker nodes in Azure, you could use the Azure CLI to increase that manually. At time of writing, there is a preview of Cluster Autoscaler on AKS available that enables autoscaling of your worker nodes. On your Kubernetes cluster, you could use the Horizontal Pod Autoscaler to scale out the number of instances of the container to be deployed.
+  För att öka antalet arbetsnoder i Azure kan du använda Azure CLI och öka antalet manuellt. När detta skrivs finns det en förhandsversion av Cluster Autoscaler på AKS tillgänglig som möjliggör autoskalning av arbetsnoder. I Kubernetes-klustret kan du använda Horizontal Pod Autoscaler för att skala ut antalet instanser av containern som ska distribueras.
 
-  AKS can also scale with the Virtual Kubelet described below.
+  AKS kan även skalas med Virtual Kubelet som beskrivs nedan.
 
 - **Azure Container Instances (ACI)**
   
-  Azure Container Instances is a serverless approach that lets you create and execute containers on demand. You're charged only for the execution time per second.
+  Azure Container Instances är en serverfri metod som gör att du kan skapa och köra containrar på begäran. Du debiteras endast för körningstid per sekund.
 
-  You can use Virtual Kubelet to connect Azure Container Instances into your Kubernetes environment, including AKS. With Virtual Kubelet, when your Kubernetes cluster demands additional container instances, those demands can be met from ACI. Since ACI is serverless, there is no need to have reserved capacity. You can therefore take advantage of the control and flexibility of Kubernetes scaling with the per-second-billing of serverless. At time of writing, the Virtual Kubelet is described as experimental software and should not be used in production scenarios.
+  Du kan använda Virtual Kubelet för att ansluta Azure Container Instances till Kubernetes-miljön, inklusive AKS. När Kubernetes-klustret kräver ytterligare containerinstanser kan du med Virtual Kubelet uppfylla dessa krav från ACI. Eftersom ACI är serverfri finns det inget behov av att ha reserverad kapacitet. Du kan därför dra nytta av kontrollen och flexibiliteten i Kubernetes-skalning med fakturering per sekund utan server. När detta skrivs betecknas Virtual Kubelet som experimentell programvara och ska inte användas i produktionsscenarier.
 
-## Scaling at Lamna Healthcare
+## <a name="scaling-at-lamna-healthcare"></a>Skalning på Lamna Healthcare
 
-Lamna Healthcare operates a patient management and booking system. The management system handles appointment bookings and patient records across dozens of hospitals and medical facilities. The local health service is running at full capacity, and no growth is expected at the moment. The system is running on a PHP website hosted in Azure App Service.
+Lamna Healthcare har ett system för hantering och tidsbokning av patienter. Hanteringssystemet sköter tidsbokningar och patientjournaler för dussintals sjukhus och medicinska kliniker. Den lokala sjukvårdstjänsten körs med full kapacitet och ingen tillväxt förväntas för närvarande. Systemet körs på en PHP-webbplats i Azure App Service.
 
-The load pattern of the application is predictable, as they primarily operate Monday to Friday between the hours of 9 to 5.  From Tuesday through to Friday, the system averages 1,200 transactions per hour across the entire system. During the weekend, it handles 500 transactions per hour. After the quiet of the weekend, Mondays are busy with an average of 2,000 transactions per hour.
+Belastningsmönstret för programmet är förutsägbart, eftersom det främst är igång måndag till fredag mellan 9 och 17.  Från tisdag till fredag hanteras i genomsnitt 1 200 transaktioner per timme i hela systemet. Under helgerna hanteras 500 transaktioner per timme. Efter helgens lugn ökar trafiken på måndagar med ett genomsnitt på 2 000 transaktioner per timme.
 
-The application is hosted on an S1 App Service plan, but the operations team have noticed a high level of CPU utilization (over 95%) across all instances. The high usage is having an impact on the processing and loading times of the application. In a cloud environment, having highly utilized resources is not necessarily a bad thing. It means that they are getting value for their money, as the resources deployed are being well used. 
+Programmet finns på en S1-App Service-plan, men driftteamet har märkt av en hög nivå av CPU-användning (mer än 95 %) på alla instanser. Den höga användningen påverkar bearbetnings- och inläsningstiderna i programmet. I en molnmiljö är det inte nödvändigtvis något dåligt att resurser används i hög grad. Det innebär att de får valuta för sina pengar, eftersom resurserna som har distribuerats utnyttjas väl. 
 
-The team decide to _scale up_ the App Service plan level for the deployed instances from S1 (1 vCPU and 1.75 GB of RAM) to S2 (2 vCPUs and 3 GB of RAM). They easily achieve this using the Azure portal, but could have achieved the same thing using a single command in the Azure CLI, Azure PowerShell, or using Resource Manager templates.
+Teamet bestämmer sig för att _skala upp_ App Service-plannivån för de distribuerade instanserna från S1 (1 virtuell processor och 1,75 GB RAM-minne) till S2 (2 virtuella processorer och 3 GB RAM-minne). Detta åstadkoms enkelt med hjälp av Microsoft Azure-portalen, men de kan även uppnå samma sak med hjälp av ett enda kommando i Azure CLI, Azure PowerShell eller med hjälp av Resource Manager-mallar.
 
-The team decide that they want to automate the number of instances deployed based upon a schedule, as their load profile is predictable. They configure the App Service plan's autoscale schedule. Let's assume two instances sufficiently handle 500 transactions per hour. The team could then scale to six instances for Tuesday - Friday and eight instances for a Monday to meet the requirements (based upon insight and monitoring from load tests).
+Teamet beslutar att de vill automatisera antalet distribuerade instanser baserat på ett schema, eftersom deras belastningsprofil är förutsägbar. De konfigurerar schemat för autoskalning av App Service-planen. Anta att två instanser är tillräckligt för att hantera 500 transaktioner per timme. Teamet kan sedan skala till sex instanser för tisdag till fredag och åtta instanser för måndagen för att uppfylla kraven (baserat på övervakning och insikter av belastningstester).
 
-Autoscale also gives them an added benefit, preparing for those unforeseen scenarios. The site may suddenly take higher than expected load on the weekend (more appointments in the winter season because of colds and flu). The team can set up autoscale to increase by one instance when CPU percentage is above 90% and reduce by one instance when usage is below 15%.
+Automatisk skalning ger även den extra fördelen att ha beredskap inför oförutsedda scenarier. Webbplatsen kan plötsligt få högre belastning under en helg (fler avtalade tider under vintersäsongen på grund av förkylningar och influensa). Teamet kan ställa in automatisk skalning för att öka med en instans när CPU-användningen ligger över 90 % och minska med en instans när användningen går under 15 %.
 
-The team have used the throttling pattern inside of the patient booking API they have exposed behind an Azure API Management instance. This helps prevent the system from performing poorly by only allowing a certain volume of throughput through the system.
+Teamet har använt mönstret för bandbreddsbegränsning för den patientboknings-API som exponerats bakom en Azure API Management-instans. Detta förhindrar att systemet får sämre prestanda genom att bara tillåta en viss mängd dataflöde genom systemet.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-We've talked about scaling up and down and scaling in and out, and how you can leverage these options in your architecture. We've also looked at how serverless technologies and containers can help evolve your scaling capabilities. Next, we'll take a look at how network performance can impact your application, and different ways we can optimize the network.
+Vi har pratat om att skala upp och ned och skala in och ut och hur du kan utnyttja de här alternativen i din arkitektur. Vi har även tittat på hur serverfria tekniker och containrar kan utveckla dina skalningsmöjligheter. Nu ska vi ta en titt på hur nätverksprestanda kan påverka ditt program, och olika sätt att optimera nätverket.

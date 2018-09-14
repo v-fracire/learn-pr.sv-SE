@@ -1,14 +1,14 @@
-Every system, architecture, and application needs to be designed with security in mind. A denial of service attack prevents you from doing business. Defacement of your website damages your reputation. And a data breach is perhaps worst of all. It can ruin hard-earned trust and cause significant personal and financial harm. As administrators, developers, and IT management, we all must work to guarantee the security of our systems. 
+Varje system, arkitektur och program måste utformas med säkerhet i åtanke. En DoS-angrepp undviker du att göra affärer. Defacement för din webbplats skadar ditt rykte. Och en överträdelse av data är kanske sämsta av alla. Det kan förstöra hårda erhållna förtroende och skada betydande personliga och finansiella. Som administratörer, utvecklare och IT-hantering, måste vi alla arbetar för att garantera säkerheten i våra system. 
 
-Let's say you work for shipping and logistics company Contoso Shipping. Contoso Shipping is in the process of moving a lot of their infrastructure to the cloud. Several physical servers in their datacenter are moving over to Azure virtual machines. The current plans involve a hybrid solution, with some of the servers remaining on-premises, but they will need a secure, high-quality connection between the new virtual machines and the existing network.
+Vi antar att du arbetar för leverans och logistik företagets Contoso endash. Contoso leverans håller på att flytta en massa sin infrastruktur till molnet. Flera fysiska servrar i sina datacenter flyttas till Azure-datorer. De aktuella planerna omfattar en hybridlösning med några av de servrar som är kvar på plats, men de måste en säker, hög kvalitet anslutning mellan de nya virtuella datorerna och det befintliga nätverket.
 
-Additionally, Contoso Shipping has some out-of-network devices that are part of its operations. They are using network-enabled sensors in their trucks that send data to Azure Event Hubs. And delivery drivers use mobile apps to get route maps and record signatures for receipt of shipments. These devices and apps must be securely authenticated before data can be sent to or from them.
+Dessutom har Contoso leverans vissa out nätverk-enheter som är en del av driften. De använder nätverksaktiverad sensorer i sina lastbilar som skickar data till Azure Event Hubs. Och leverans drivrutiner använder mobilappar för att hämta vägen kartor och post signaturer för mottagande av leveranser. Dessa enheter och appar måste autentiseras på ett säkert sätt innan data kan skickas till eller från dem.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Learn how security responsibility is shared with Azure
-- Learn how identity management provides protection, even outside your network
-- Learn how encryption capabilities built in to Azure can protect your data
-- Learn how to protect your network and virtual networks
+- Lär dig hur security ansvar som delas med Azure
+- Lär dig hur Identitetshantering ger skydd även utanför ditt nätverk
+- Lär dig hur krypteringsfunktioner som är inbyggda i Azure kan skydda dina data
+- Lär dig att skydda ditt nätverk och virtuella nätverk

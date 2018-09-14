@@ -1,5 +1,7 @@
 I den här modulen har vi tittat på vad molntjänster är och hur de kan hjälpa alla slags företag och organisationer, från små nystartade företag till stora bolag. Vid det här laget bör vi veta vad molntjänster är, men vi har inte pratat om en specifik molnleverantör.
 
+![En ansluten plugin att representera elektricitet håller på att skickas](../media/7-heading.png)
+
 ### <a name="microsoft-azure"></a>Microsoft Azure
 
 Azure är Microsofts plattform för molntjänster. Azure tillhandahåller över 100 tjänster som hjälper dig med allt från att köra befintliga program på virtuella datorer till att utforska nya programvaruparadigmer som till exempel intelligenta robotar och mixad verklighet.

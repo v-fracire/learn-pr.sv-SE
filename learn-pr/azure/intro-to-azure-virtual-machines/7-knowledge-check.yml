@@ -1,36 +1,35 @@
 ### YamlMime:ModuleUnit
 uid: learn.introduction-to-azure-virtual-machines.7-knowledge-check
-title: Knowledge check
+title: Kunskapskontroll
 metadata:
-  title: Knowledge check
-  description: Knowledge check
+  title: Kunskapskontroll
+  description: Kunskapskontroll
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
 durationInMinutes: 3
 quiz:
-  title: 'Azure Virtual Machine'
+  title: Virtuell Azure-dator
   questions:
-  - content: 'Suppose you want to run a network appliance on a virtual machine. Which workload option will you choose?'
-    choices:
-    - content: General purpose
-      isCorrect: false
-    - content: Compute optimized
-      isCorrect: true
-    - content: Memory optimized
-      isCorrect: false
-    - content: Storage optimized
-      isCorrect: false
-  - content: 'Assume you want to deploy a copy of an existing Azure virtual machine. Which option will you choose to complete the job?'
-    choices:
-    - content: PowerShell
-      isCorrect: false
-    - content: Resource Manager Templates
-      isCorrect: true
-    - content: Azure CLI
-      isCorrect: false
-    - content: Azure Client SDK
-      isCorrect: false
+    - content: Anta att du vill köra en nätverksenhet på en virtuell dator. Vilket arbetsbelastningsalternativ väljer du?
+      choices:
+        - content: Generell användning
+          isCorrect: false
+        - content: Beräkningsoptimerad
+          isCorrect: true
+        - content: Minnesoptimerad
+          isCorrect: false
+        - content: Lagringsoptimerad
+          isCorrect: false
+    - content: Anta att du vill distribuera en kopia av en befintlig virtuell Azure-dator. Vilket alternativ du väljer att slutföra jobbet?
+      choices:
+        - content: PowerShell
+          isCorrect: false
+        - content: Resource Manager-mallar
+          isCorrect: true
+        - content: Azure CLI
+          isCorrect: false
+        - content: Azure Client SDK
+          isCorrect: false

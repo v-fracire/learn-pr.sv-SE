@@ -1,84 +1,88 @@
-Capturing of weather data is an important task as weather can effect everything
-from traffic patterns to how HVAC systems in retail stores are operated. In this
-exercise, you will be harnessing the online Raspberry Pi simulator to capture
-simulated weather data and capture said data via the Azure IoT Hub.
+Avbildning av väderdata är en viktig uppgift som väder kan påverka allt från trafikmönster till hur uppvärmning, ventilation och luftkonditionering (HVAC) system i butiker används. I den här övningen kommer du att samverka med online Raspberry Pi simulatorn lärde du dig i den föregående enheten till avbildning simulerade weather-data och via Azure IoT Hub.
 
-While this exercise is being conducted in a simulated environment, the
-application running on the simulated device can be transferred to a real device
-in future.
+Även om den här övningen körs i en simulerad miljö, kan det program som körs på den simulerade enheten överföras till en riktig enhet i framtiden.
 
-## Create an IoT hub
+[!include[](../../../includes/azure-sandbox-activate.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-1. Select **Create a resource** \> **Internet of Things** \> **IoT Hub**.
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+Azure IoT Hub innehåller funktionerna och en modell för utökningsbarhet som gör det möjligt enhets- och backend-utvecklare att bygga robusta lösningar för enhetshantering. Enheter är allt från begränsade sensorer och enskilda mikrostyrenheter för ett särskilt ändamål till kraftfulla gateways som dirigerar kommunikationen för grupper av enheter. Dessutom varierar användningsfall och krav för IoT-operatörer avsevärt mellan olika branscher. Trots variationen ger enhetshantering med IoT Hub funktioner, mönster och kodbibliotek för att serva en mängd olika enheter och slutanvändare.
 
-![Screenshot of Azure portal navigation to IoT Hub](../media-draft/fa40d1bc51bc4490f657e3c1a8371b5b.png)
+För att börja samla in data från Raspberry Pi-simulator, måste du först skapa en IoT-hubb.
 
-1. In the **IoT hub** pane, enter the following information for your IoT hub:
+1. Öppna [Azure-portalen](https://portal.azure.com?azure-portal=true).
+2. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
+3. Välj **Internet of Things**, och välj sedan **IoT Hub**.
 
- - **Subscription**: Choose the subscription that you want to use to create this IoT hub.
- - **Resource group**: Create a resource group to host the IoT hub or use an existing one. For more information, see [Use resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
- - **Region**: Select the closest location to you.
- - **Name**: Create a name for your IoT hub. If the name you enter is available, a green check mark appears.
+![Skärmbild av Azure-portalnavigering till IoT Hub](../media-draft/fa40d1bc51bc4490f657e3c1a8371b5b.png)
+
+4. I rutan **IoT-hubb** anger du följande information för IoT-hubben:
+   
+   **Prenumeration**: använda standard-prenumerationen för det här exemplet.
+   **Resursgrupp**: Skapa en resursgrupp som ska innehålla IoT-hubben eller använd en befintlig. Genom att lägga till alla relaterade resurser i en grupp, till exempel *TestResources*, kan du hantera dem allihop tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort.
+   **Region**: Välj den plats som är närmast dig.
+   **Namn**: Skapa ett unikt namn för din IoT-hubb. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
 
 > [!IMPORTANT]
-> The IoT hub will be publicly discoverable as a DNS endpoint, so make sure to avoid any sensitive information while naming it.
+> IoT-hubben kan identifieras offentligt som en DNS-slutpunkt, så se till att undvika känslig information när du namnger det.
 
-   ![IoT Hub basics window](./../media-draft/dbb7319388673b8ee0e0b407536156c0.png)
+   ![Fönster med grundläggande IoT Hub-inställningar](./../media-draft/dbb7319388673b8ee0e0b407536156c0.png)
 
-1.  Select **Next: Size and scale** to continue creating your IoT hub.
+5. Välj **Nästa: Storlek och skalning** för att fortsätta att skapa IoT-hubben.
+6. Välj **pris- och skalningsnivå**. Det här exemplet väljer du den **F1 – kostnadsfri** nivå.
 
-1.  Choose your **Pricing and scale tier**. For this article, select the **F1 - Free** tier if it's still available on your subscription. For more information, see the [Pricing and scale tier](https://azure.microsoft.com/pricing/details/iot-hub/).
+   ![Fönster för IoT Hub-storlek och IoT Hub-skalning](../media-draft/b506eb3293fa4aa9d4785ad498fc476c.png)
 
-   ![IoT Hub size and scale window](../media-draft/b506eb3293fa4aa9d4785ad498fc476c.png)
+7. Välj **Granska + skapa**.
 
-1.  Select **Review + create**.
+8. Gå igenom informationen om IoT-hubben och klicka sedan på **Skapa**. Det kan ta några minuter innan IoT-hubben har skapats. Du kan övervaka förloppet i **meddelandefönstret**.
 
-1.  Review your IoT hub information, then click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
-
-Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub.
-
-In your IoT hub navigation menu, open **Shared access policies**. Select the **iothubowner** policy, and then copy the **Connection string---primary key** of your IoT hub. For more information, see [Control access to IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security).
+<!--STOPPED HERE-->
+<!--
+Now that you have created an IoT hub, it's time to locate the important information that you use to connect devices and applications to your IoT hub. In your IoT hub navigation menu, open **Shared access policies**. Select the **iothubowner** policy, and then copy the **Connection string---primary key** of your IoT hub. For more information, see [Control access to IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security).
 
 > [!NOTE]
 > You do not need this iothubowner connection string for this set-up tutorial. However, you may need it for some of the tutorials or different IoT scenarios after you complete this set-up.
 
 ![Get your IoT hub connection string](../media-draft/a4b41e6ea46ccbef653c411a9829610c.png)
+-->
 
-## Register a device in the IoT hub for your device
-------------------------------------------------
+## <a name="register-a-device"></a>Registrera en enhet
+En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta.
 
-1.  In your IoT hub navigation menu, open **IoT devices**, then click **Add** to register a device in your IoT hub.
+1. Öppna i navigeringsmenyn din IoT-hubb **IoT-enheter**, klicka sedan på **Lägg till** att registrera en enhet i IoT hub.
 
-   ![Add a device in the IoT Devices of your IoT hub](../media-draft/ee5f177abcf06b86dd007fce3b8448ad.png)
+   ![Lägg till en enhet i IoT-enheter för IoT-hubben](../media-draft/ee5f177abcf06b86dd007fce3b8448ad.png)
 
-1.  Enter a **Device ID** for the new device. Device IDs are case sensitive.
+2. Ange en **enhets-ID** för den nya enheten. Enhets-ID är skiftlägeskänsliga.
 
 > [!IMPORTANT]
-> The device ID may be visible in the logs collected for customer support and troubleshooting, so make sure to avoid any sensitive information while naming it.
+> Enhets-ID kanske visas i loggarna som samlas in för support och felsökning, så se till att undvika känslig information när du namnger det.
 
-1.  Click **Save**.
+3. Klicka på **Spara**.
+4. När enheten har skapats öppnar du enheten i listan i den **IoT-enheter** fönstret.
+5. Kopiera den **anslutningssträngen---primärnyckel** för senare användning.
 
-1.  After the device is created, open the device from the list in the **IoT
-    devices** pane.
+   ![Hämta enhetens anslutningssträng](../media-draft/fba4413dcb652be92a6ab0f6bb638561.png)
 
-1.  Copy the **Connection string---primary key** to use later.
+## <a name="send-simulated-telemetry"></a>Skicka simulerad telemetri
 
-   ![Get the device connection string](../media-draft/fba4413dcb652be92a6ab0f6bb638561.png)
+1. Öppna den [Raspberry Pi Azure IoT-simulatorn](https://azure-samples.github.io/raspberry-pi-web-simulator?azure-portal=true).
+2. Ersätt platshållaren i rad 15 med Azure IoT hub enhetens anslutningssträng du kopierade.
+3. Klicka på den `Run` knapp eller typ `npm start` i konsolfönstret för att köra programmet.
+   
+   ![Ersätt enhetens anslutningssträng](../media-draft/Line15.png)
 
-## Run a sample application on Pi web simulator
+Du bör se följande utdata som visar sensordata och meddelanden som skickas till din IoT hub
 
-1. In coding area, make sure you are working on the default sample application. Replace the placeholder in Line 15 with the Azure IoT hub device connection string.
+![Resultat – sensordata som skickas från Raspberry Pi till din IoT-hubb](../media-draft/96b28d30e317b04347abb0d613738117.png)
 
-    ![Replace the device connection string](../media-draft/92ea2c31d42f5b939fb5512e7220e957.png)
+## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
+ Så vad som händer? IoT-hubb tar emot enhet-till-moln-meddelanden som skickas från den simulerade enheten. Om du vill se att, låt oss ta en titt på hur Azure IoT Hub bearbetar inkommande data. I din IoT-hubb under **övervakning**väljer **mått**. Ge det ett par minuter som du vill vänta tills data kommer in i bilden.
+   
+   ![IoT Hub-mått](../media-draft/HubMetrics.png)
 
-2.  Click **Run** or type npm start to run the application.
-
-You should see the following output that shows the sensor data and the messages
-that are sent to your IoT hub
-
-   ![Output - sensor data sent from Raspberry Pi to your IoT hub](../media-draft/96b28d30e317b04347abb0d613738117.png)
 
 <!--Reference links
 https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started-->

@@ -1,102 +1,101 @@
-In Azure IoT Central, the data that a device can exchange with your application is specified in a device template that defines the behavior and capabilities of a device or in this case, a coffee machine. When you create a device template, a simulated device is generated from the template. The simulated device generates telemetry that enables you to test the behavior of your application before a physical/real device is connected. 
+De data som en enhet kan utbyta med ditt program har angetts i en mall för enheten som definierar beteende och kapaciteter för en enhet eller i det här fallet en kaffe dator i Azure IoT Central. När du skapar en enhetsmall genereras en simulerad enhet från mallen. Den simulerade enheten genererar telemetri som hjälper dig att testa hur ditt program innan en fysisk/real-enhet är ansluten. 
 
-In this unit, you create a device template for a coffee machine that specifies the following capabilities and behaviors:
-* **Measurements**: The data that comes from your device. You can add multiple measurements to your device template to match the capabilities of your device.
-    * Telemetry measurements : The numerical data points that your device collects over time. They're represented as a continuous stream. In this scenario, the telemetry measurements are air humidity and water temperature. 
+I den här enheten, kan du skapa en mall för enheten för en kaffe-dator som anger följande funktioner och beteenden:
+* **Mätning av faktisk användning**: data som kommer från din enhet. Du kan lägga till flera mått till mallen för enheten att matcha funktionerna i din enhet.
+    * Mätningar av telemetri: numeriska datapunkter som din enhet som samlar in över tid. De är representeras som en löpande ström. I det här scenariot telemetri mätning av faktisk användning är air fuktighet och vatten temperatur. 
 
-    * State measurements : The state of the device or its components over a period of time. In this scenario, you set states as Brewing/Not Brewing, Cup Detected/Cup Not Detected
+    * Plats för mätning av faktisk användning: tillståndet för enheten eller dess komponenter under en viss tidsperiod. I det här scenariot ställer du in tillstånd som Brewing/inte bryggning Cup identifierade/Cup inte identifieras
 
-* **Settings**: You use settings to send configuration data to a device from your application. In this scenario, you adjust the optimal water temperature in settings and send it to the coffee machine. When the setting is updated, it is marked as pending in the UI until the device acknowledges that it has responded to the setting change.
+* **Inställningar för**: du använda inställningar för att skicka konfigurationsdata till en enhet från ditt program. I det här scenariot justera optimala water temperaturen i inställningar och skicka den till den kaffe-datorn. När inställningen har uppdaterats kan den markeras som väntar i Användargränssnittet tills enheten bekräftar att den har svarat på ändringen.
 
-* **Properties**: 
-The device metadata that's associated with the device. There are two types of properties.
-    * You use *application properties* to record information about your device in your application. In this scenario, you use application properties to set the ideal water temperature range of the coffee machine. Application properties are stored in the application and do not synchronize with the device. 
+* **Egenskaper för**: enhetsmetadata som är associerat med enheten. Det finns två typer av egenskaper.
+    * Du använder *programegenskaper* att samla in information om din enhet i ditt program. I det här scenariot kan använda du egenskaper för program för att ange perfekt water temperaturintervall maskinens kaffe. Programegenskaper lagras i programmet och synkroniseras inte med enheten. 
 
-    * You use *device properties* to enable a device to send property values to your application. These properties can only be changed by the device. In this scenario, you configure the Device Property called Device Warranty Expired in IoT Central. The Device Warranty Expired field remains empty until the coffee machine is connected to IoT Central. Once connected, the coffee machine sends the warranty status to the application. 
+    * Du använder *enhetsegenskaper* för göra så att en enhet kan skicka egenskapsvärden till programmet. De här egenskaperna kan bara ändras av enheten. I det här scenariot konfigurerar du enhetsegenskap som heter enheten garantin inte längre i IoT Central. Fältet enhet garantin längre förblir tom tills kaffe-dator är ansluten till IoT Central. När du är ansluten, skickar den kaffe datorn garantistatus till programmet. 
 
-* **Commands**: You use commands to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices. In this scenario, you run the commands on your coffee machine to set it to maintenance or start brewing. 
+* **Kommandon**: du använda kommandon för att hantera din enhet från ditt program. Du kan köra kommandon direkt på enheten från molnet för att styra enheterna. I det här scenariot kan köra du kommandon på datorn kaffe inställd underhåll eller starta bryggning. 
 
-## Create a device template for the coffee maker
-A device template defines the behavior and capabilities of a device or in this case, a coffee maker.
+## <a name="create-a-device-template-for-the-coffee-maker"></a>Skapa en enhetsmall för kaffebryggaren
+En enhet mall definierar beteende och kapaciteter för en enhet eller i det här fallet kaffe flöde.
 
-1. Navigate to the Home page and choose **Create Device Templates**.
+1. Gå till startsidan och välj **skapar mallar för enheten**.
 
-1. Enter *Connected Coffee Maker* for your custom device template. 
+1. Ange *anslutna kaffe Maker* för din anpassade mall. 
  
-1. Choose **Create**. You’ve created a blank device template for the coffee maker where you define the behavior and capabilities of the machine. 
+1. Välj **Skapa**. Du har skapat en tom enheten mall för kaffe-maker definierar beteende och kapaciteter för datorn. 
 
-## Define Telemetry measurement temperature and humidity
-1.	In the **Connected Coffee Maker** device template, make sure you are on the **Measurements** page where you define the telemetry. 
+## <a name="define-telemetry-measurement-temperature-and-humidity"></a>Definiera telemetri för mätning av temperatur och luftfuktighet
+1.  I enhetsmallen **Ansluten kaffebryggare** kontrollerar du att du är på sidan **Mått**, där du definierar telemetrin. 
 
-1.	To add the temperature telemetry measurement, choose **+ New Measurement**. Then choose **Telemetry** as the measurement type.
+1.  Lägg till telemetri-mätning temperatur, Välj **+ ny mätning**. Välj sedan **telemetri** som måttenhet.
 
-1.	Each type of telemetry you define for a device template includes configuration options such as:
-    * Display options.
-    * Details of the telemetry.
-    * Simulation parameters.
+1.  Varje typ av telemetri som du definierar för en enhetsmall innehåller konfigurationsalternativ som:
+    * Visningsalternativ.
+    * Information om telemetrin.
+    * Simuleringsparametrar.
 
-    To configure your temperature and humidity telemetry, use the information in the following table. When creating telemetry items, you need to add a new measurement by choosing **+ New Measurement** for each item in the table.
+    Använd informationen i följande tabell för att konfigurera din temperatur och fuktighet telemetri. När du skapar telemetri objekt kan du behöva lägga till ett nytt mått genom att välja **+ ny mätning** för varje objekt i tabellen.
     
-    |Display Name|Field Name|Units|Min|Max|Decimal Places|
+    |Visningsnamn|Fältnamn|Enheter|Min|Max|Antal decimaler|
     |---|---|---|---|---|---|
-    |Water Temperature|waterTemperature|Celsius|86|100|1|
-    |Air Humidity|airHumidity|%|20|100|0|
+    |Vattentemperatur|vattentemperatur|Celsius|86|100|1|
+    |Luftfuktighet|luftfuktighet|%|20|100|0|
    
-    You can also choose a color for the telemetry display. To save the telemetry definition, choose **Save**. As you create more definitions for measurements, settings, properties, and commands in the remaining unit, remember to save whenever you're finished.  
+    Du kan även välja en färg för telemetrivisningen. Om du vill spara telemetri-definition, Välj **spara**. När du skapar flera definitioner av mått, inställningar, egenskaper och kommandon i den återstående enheten, Kom ihåg att spara när du är klar.  
     
-    ![Create a device template](../images/2-device-template-a.png)
+    ![Skapa en enhetsmall](../images/2-device-template-a.png)
 
-    Enter field names exactly as shown in the table in the device template. If the field names do not match the property names in the corresponding device code, the telemetry cannot be displayed in the application. Do the same when you enter settings and properties information. 
+    Ange fältnamn exakt som de visas i tabellen i mallen för enheten. Om egenskapsnamnen i motsvarande enhet koden inte matchar fältnamnen kan inte visas telemetri i programmet. Gör samma när du anger inställningar och egenskapsinformation. 
 
-## Define State measurement for brewing/not brewing, cup detected/cup not detected
-Add the following states in the **Measurements** page by choosing **+ New Measurement**. Then choose **State** as the measurement type:
+## <a name="define-state-measurement-for-brewingnot-brewing-cup-detectedcup-not-detected"></a>Definiera tillståndsmätning för brygger/brygger inte, kopp identifierad/kopp inte identifierad
+Lägg till följande tillstånd i den **mätningar av** sidan genom att välja **+ ny mätning**. Välj sedan **Tillstånd** som måttyp:
     
-   |Display Name|Field Name|Value 1|Display Name 1|Value 2|Display Name 2|
+   |Visningsnamn|Fältnamn|Värde 1|Visningsnamn 1|Värde 2|Visningsnamn 2|
    |---|---|---|---|---|---|
-   |Brewing|stateBrewing|true|Brewing|false|Not Brewing|
-   |Cup Detected|stateCupDetected|true|Cup Detected|false|Cup Not Detected|
+   |Brygger|tillståndBrygger|sant|Brygger|falskt|Brygger inte|
+   |Kopp identifierad|tillståndKoppIdentifierad|sant|Kopp identifierad|falskt|Kopp inte identifierad|
 
 
-On the State > Brewing page, you add the value as true. Add the other value as false with the optional display name as Not Brewing by clicking **+** next to **Values**.
+På tillstånd > bryggning sidan du lägga till värdet som SANT. Lägga till andra värdet som FALSKT med alternativa visningsnamn som inte bryggning genom att klicka på **+** bredvid **värden**.
 
 > [!NOTE]
-> After you define Telemetry and State, you see the simulated data generated from the device template on the device screen. The simulated data enables you to test the behavior of your application before you connect a physical device to IoT Central. 
+> När du har definierat telemetri och tillstånd Se simulerade data genereras från mallen enheten på enhetens skärm. Simulerade data kan du testa hur ditt program innan du ansluter en fysisk enhet till IoT Central. 
 
-## Use Settings to set the optimal temperature of the coffee machine
-Navigate to the Settings page, the tab next to Measurements. Turn on **Design Mode**. Add the following **Number** setting under **Library** on the **Settings** page:
+## <a name="use-settings-to-set-the-optimal-temperature-of-the-coffee-machine"></a>Använd Inställningar för att ange den optimala temperaturen för kaffebryggaren
+Gå till sidan Inställningar på fliken bredvid mätning av faktisk användning. Aktivera **Designläge**. Lägg till följande **nummer** inställningen **biblioteket** på den **inställningar** sidan:
 
-|Display Name|Field Name|Units|Decimals|Min|Max|Initial|
+|Visningsnamn|Fältnamn|Enheter|Decimaler|Min|Max|Inledande|
 |---|---|---|---|---|---|---|---|
-|Optimal Temperature|setTemperature|Celsius|1|86|100|95|
+|Optimal temperatur|angeTemperatur|Celsius|1|86|100|95|
 
-## Use Properties to store warranty info and water temperature range
+## <a name="use-properties-to-store-warranty-info-and-water-temperature-range"></a>Använda egenskaper för att lagra garantiinformation och vattentemperaturinternvall
 
-Add the following **Number** properties on the **Properties** page by first turning on **Design Mode**:
+Lägg till följande **nummer** egenskaper på den **egenskaper** sidan genom att första aktivera **designläget**:
 
-|Display Name|Field Name|Units|Decimal Places|Min|Max|Initial
+|Visningsnamn|Fältnamn|Enheter|Antal decimaler|Min|Max|Inledande
 |---|---|---|---|---|---|---|
-|Coffee Makers Min Temperature|propertyMinTemperature|Celsius|1|88|92|90|
-|Coffee Makers Max Temperature|propertyMaxTemperature|Celsius|1|96|99|98| 
+|Kaffebryggarens lägsta temperatur|egenskapLägstaTemperatur|Celsius|1|88|92|90|
+|Kaffebryggarens högsta temperatur|egenskapHögstaTemperatur|Celsius|1|96|99|98| 
 
-Add the following **Device Property** on the **Properties** page:
+Lägg till följande **enhetsegenskap** på sidan **Egenskaper**:
 
-   |Display Name|Field Name|Data Type|
+   |Visningsnamn|Fältnamn|Datatyp|
    |---|---|---|
-   |Device Warranty Expired|propertyWarrantyExpired|number|
+   |Enhetens garanti har upphört|egenskapGarantiUpphört|nummer|
 
 > [!NOTE]
-> Device Property is sent by your device, in this case, your coffee machine. Once you connect the coffee machine to Azure IoT Central, Device Property Warranty is then sent to the application and displayed in the Device Warranty Expired field. 
+> Enhetsegenskap skickas av enheten, i det här fallet din kaffebryggare. När du ansluter kaffebryggaren till Azure IoT Central, skickas enhetsegenskapen Garanti till programmet och visas i fältet Enhetens garanti har upphört. 
 
-## Use Commands to set maintenance mode and start brewing
+## <a name="use-commands-to-set-maintenance-mode-and-start-brewing"></a>Använda kommandon för att ange underhållsläget och starta bryggningen
 
-Add the following commands on the **Commands** page by first turning on **Design Mode**.
+Lägg till följande kommandon på sidan **Kommandon** genom att först aktivera **Designläge**.
 
-|Display Name|Field Name|Default Timeout|Data Type|
+|Visningsnamn|Fältnamn|Standardvärde för tidsgräns|Datatyp|
 |---|---|---|---|---|---|---|
-|Set Maintenance Mode|cmdSetMaintenance|30|text| 
-|Start Brewing|cmdStartBrewing|30|text|
+|Ange underhållsläge|cmdSetMaintenance|30|text| 
+|Starta bryggning|komStartaBryggning|30|text|
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created a new device type, a coffee machine, using the device template. In the device template, you specified the data that a coffee machine can exchange with your application. You defined the telemetry such as temperature and humidity, as well as the state such as whether the coffee is brewing or not. You further defined the behavior and capabilities of the coffee machine by configuring settings, properties, and commands. 
+I den här enheten skapade du en ny enhetstyp, en kaffe-dator med hjälp av mallen för enheten. I mallen enhet angett du som en kaffe dator kan utbyta data med ditt program. Du har definierat telemetridata som temperatur och luftfuktighet samt tillståndet – om kaffebryggaren brygger eller inte. Ytterligare definierade du beteende och kapaciteter för kaffe datorn genom att konfigurera inställningar, egenskaper och kommandon. 
 

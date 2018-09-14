@@ -1,54 +1,53 @@
-You’ve now worked with both the Azure IoT Central application and connected the coffee machine to Azure IoT Central. You are well on your way to begin to monitor and manage your remote coffee machine. In this unit, you take a moment to validate your setup and connection by using the Connected Coffee Maker template that you defined earlier. You update the optimal temperature in settings, run commands to check for the state of your machine, and view your connected coffee machine in the dashboard. 
+Nu har du arbetat med både Azure IoT Central-programmet och anslutit kaffebryggaren till Azure IoT Central. Du är på väg att börja övervaka och hantera din fjärranslutna kaffebryggare. I den här enheten ta en stund att verifiera din konfiguration och anslutning med hjälp av ansluten kaffe Maker-mallen som du angav tidigare. Du uppdatera optimala temperaturen i inställningar, kör kommandon för att söka efter tillståndet för din dator och visa anslutna kaffe datorn i instrumentpanelen. 
 
-## Update settings to sync your application with the coffee machine
+## <a name="update-settings-to-sync-your-application-with-the-coffee-machine"></a>Uppdatera inställningarna för att synkronisera dina program med kaffe-dator
 
-On the Settings page, you send configuration data to the coffee machine from your application. 
+På sidan Inställningar skicka konfigurationsdata till kaffe datorn från ditt program. 
 
-In this scenario, change the optimal temperature and choose **Update**. 
- When the setting is changed, the setting is marked as pending in the UI until the coffee machine acknowledges that it has responded to the setting change. 
+I det här scenariot väljer vi att ändra temperaturen och välja **Uppdatera**. När inställningen ändras markeras inställningen som väntande i användargränssnittet tills kaffebryggaren bekräftar att den har besvarat den ändrade inställningen. 
 
 > [!NOTE]
-> Successful updates in the setting indicate data flow and validate your  connection. The telemetry measurements will respond to the update in Optimal  Temperature. You can observe the change on the Measurements page. 
+> Lyckade uppdateringar i inställningen ange dataflöde och verifiera din anslutning. Mätningar telemetri kommer att besvara uppdateringen i optimala temperatur. Du ser ändringen på sidan Mått. 
 
-## Run commands on the coffee machine 
-Navigate to the **Commands** page for the following exercise. To validate the commands setup, you remotely run commands on the coffee machine from IoT Central. If successful, confirmation messages are sent from the coffee machine.
+## <a name="run-commands-on-the-coffee-machine"></a>Kör kommandon på datorn kaffe 
+Navigera till den **kommandon** för följande övning. För att verifiera installationen kommandon kan köra du via en fjärranslutning kommandon på datorn kaffe från IoT Central. Om detta lyckas skickas bekräftelsemeddelanden från kaffe-datorn.
 
-1. Start Brewing remotely by choosing **Run**. 
+1. Starta Brewing via fjärranslutning genom att välja **kör**. 
     
-    The coffee machine will start if these three conditions are satisfied:
-    - Cup detected
-    - Not in maintenance
-    - Not brewing already  
+    Kaffebryggaren startar om följande tre villkor är uppfyllda:
+    - En kopp har identifierats
+    - Bryggaren är inte i underhållsläge
+    - Någon bryggning pågår inte redan  
 
     > [!NOTE]
-    > When you've successfully started brewing, the state of the machine changes to yellow as indicated in Measurements > State. 
+    > När du har startat bryggningen ändras bryggarens status gult, vilket indikeras under Mått > Status. 
     
-    Look for confirmation messages in the console log on the coffee machine. 
+    Leta efter bekräftelsemeddelanden i konsolloggen på kaffe-datorn. 
 
-    ![Run commands](../images/4-commands-brewing.png)
+    ![Kör kommandon](../images/4-commands-brewing.png)
 
-1. Set Maintenance Mode by choosing **Run**. The coffee machine will set to maintenance if it's *not* already in maintenance.
+1. Ange underhållsläge genom att välja **kör**. Anger den kaffe datorn till underhåll om det är *inte* redan i underhållsläge.
     
-    Look for confirmation messages in the console log on the coffee machine. 
+    Leta efter bekräftelsemeddelanden i konsolloggen på kaffe-datorn. 
 
     > [!NOTE]
-    > As in real life when the technician takes the machine offline to perform necessary repairs before switching it back online, the coffee machine continues to stay in the maintenance mode until you reboot the client code.
+    > Som i verkliga livet är vanligtvis när teknikern tar datorn offline för att utföra nödvändiga reparationer innan du växlar den online igen, fortsätter kaffe datorn vara i underhållsläge förrän du startar om klientkoden.
 
-    ![Run commands](../images/4-commands-maintenance.png)
+    ![Kör kommandon](../images/4-commands-maintenance.png)
 
-1. It's recommended that you run the Node.js application no more than 60 minutes or so to prevent the application from sending you unwanted notifications/emails. Stopping the application when you're not working on the tutorial also prevents you from exhausting the daily message quota.
+1. Vi rekommenderar att du kör Node.js-program inte fler än 60 minuter, eller så att programmet från att skicka oönskade meddelanden/e-postmeddelanden. Stoppa programmet när du inte arbetar med självstudien förhindrar även att du få slut den dagliga meddelandekvoten.
 
-## View the coffee machine in the dashboard
-Navigate to the **Dashboard** page where you can collectively see the relevant information about your coffee machine. For the following exercise, turn on **Design Mode** to configure your dashboard. Whenever you are finished, choose **Save**.
+## <a name="view-the-coffee-machine-in-the-dashboard"></a>Visa kaffebryggaren på instrumentpanelen
+Navigera till den **instrumentpanelen** sidan där du sammantaget kan se den relevanta informationen om din kaffe-dator. För följande övning använder aktivera **designläget** att konfigurera din instrumentpanel. När du är klar kan du välja **spara**.
 
-1. Choose **Line Chart** and enter the title as Telemetry to see the telemetry measurements. Choose **Past 30 minutes** for **Time Range**.
+1. Välj **linjediagram** och ange rubriken som telemetri att se telemetri mätning av faktisk användning. Välj **De senaste 30 minuter** om du vill se ett **tidsintervall**.
 
-    ![Viewing the dashboard](../images/4-dashboard-a.png)
+    ![Visa instrumentpanelen](../images/4-dashboard-a.png)
 
-1. Choose **Settings and Properties** and enter the title as Device Properties. In **Add/Remove**, choose Coffee Makers Max Temperature, Coffee Makers Min Temperature, Device Warranty Expired. 
+1. Välj **Inställningar och egenskaper** och ange rubriken Enhetsegenskaper. Välj Maxtemperatur kaffebryggare, Minimitemperatur kaffebryggare, Enhetsgaranti utgången i **Lägg till/ta bort**. 
 
-1. Choose **Settings and Properties** and enter the title as Optimal Temperature. In **Add/Remove**, choose Optimal  Temperature. 
+1. Välj **Inställningar och egenskaper** och ange rubriken Optimal temperatur. Välj Optimal temerpatur i **Lägg till/ta bort**. 
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you spent some time to validate the connection between the coffee machine and Azure IoT Central. You achieved validation by updating the optimal temperature, running the commands. Finally you set up the dashboard to monitor your machine in one place by defining the information you'd like to see about your coffee machine. These validation steps are necessary before moving on to other tasks in the next unit. 
+I den här enheten du ägnat tid åt att verifiera anslutningen mellan kaffe datorn och Azure IoT Central. Du nått verifieringen genom att uppdatera den optimala temperaturen köra kommandon. Avslutningsvis konfigurerar du instrumentpanelen för övervakning av bryggaren på en plats genom att definiera vilken information om kaffebryggaren som du vill ska visas. De här stegen för validering krävs innan du fortsätter till andra aktiviteter i nästa heltal. 

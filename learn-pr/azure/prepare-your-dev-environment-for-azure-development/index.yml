@@ -2,43 +2,37 @@
 uid: learn.prepare-azure-dev-environment
 metadata:
   title: Förbered din utvecklingsmiljö för utveckling i Azure
-  description: Konfigurera en lokal utvecklingsmiljö med flera populära IDE:er.
+  description: 'Konfigurera en lokal utvecklingsmiljö med flera populära IDE:er.'
   ms.date: 09/24/2018
-  ms.openlocfilehash: bba47fd637faa43a90fc68d2f4a0cade0ec6a113
-  ms.sourcegitcommit: 09425147d998035edf9d2d36006a54d85e3cf75d
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43846831"
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 title: Förbered din utvecklingsmiljö för utveckling i Azure
-summary: Konfigurera en lokal utvecklingsmiljö med flera populära IDE:er.
-abstract: >
+summary: 'Konfigurera en lokal utvecklingsmiljö med flera populära IDE:er.'
+abstract: |
   I den här modulen kommer du att göra följande:
-
-  - Konfigurera Visual Studio Code.
-
-  - Konfigurera Visual Studio.
-
-  - Konfigurera Eclipse för Java-utveckling.
-
-  - Förbered alla miljöer för utveckling för Azure.
+  - Konfigurera Visual Studio Code
+  - Konfigurera Visual Studio
+  - Konfigurera Eclipse för Java-utveckling
+  - Förbereda alla miljöer för utveckling för Azure
 prerequisites: Ingen
-iconUrl: http://via.placeholder.com/120x120
+iconUrl: /learn/achievements/prepare-your-dev-environment-for-azure-development.svg
 levels:
-- beginner
+  - beginner
 roles:
-- developer
+  - developer
 products:
-- azure
-- vs-code
-- azure-sdks
+  - azure
+  - vs-code
+  - azure-sdks
 units:
-- learn.prepare-azure-dev-environment.1-introduction
-- learn.prepare-azure-dev-environment.2-set-up-visual-studio-code
-- learn.prepare-azure-dev-environment.3-exercise-set-up-visual-studio-code
-- learn.prepare-azure-dev-environment.4-set-up-visual-studio
-- learn.prepare-azure-dev-environment.5-exercise-set-up-visual-studio
-- learn.prepare-azure-dev-environment.6-set-up-eclipse-ide-for-java-developers
-- learn.prepare-azure-dev-environment.7-exercise-set-up-eclipse
-- learn.prepare-azure-dev-environment.8-summary
+  - learn.prepare-azure-dev-environment.1-introduction
+  - learn.prepare-azure-dev-environment.2-set-up-visual-studio-code
+  - learn.prepare-azure-dev-environment.3-exercise-set-up-visual-studio-code
+  - learn.prepare-azure-dev-environment.4-set-up-visual-studio
+  - learn.prepare-azure-dev-environment.5-exercise-set-up-visual-studio
+  - learn.prepare-azure-dev-environment.6-set-up-eclipse-ide-for-java-developers
+  - learn.prepare-azure-dev-environment.7-exercise-set-up-eclipse
+  - learn.prepare-azure-dev-environment.8-summary
 achievement: learn.prepare-azure-dev-environment.badge

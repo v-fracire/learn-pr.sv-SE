@@ -9,23 +9,23 @@ metadata:
   ms.author: luken
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-durationInMinutes: 10
+durationInMinutes: 15
 content: |
   [!include[](includes/2-azure-security-center.md)]
 quiz:
-  title: 'Knowledge Check - Azure Security center'
+  title: Knowledge Check - Azure Security center
   questions:
-  - content: 'Which one of the items below is not an Azure Security Center feature?'
-    choices:
-    - content: 'Actionable Recommendations'
-      isCorrect: false
-      correctExplanation: 'TBD.'
-    - content: 'Mitigation Reporting'
-      isCorrect: true
-      incorrectExplanation: 'TBD.'
-    - content: 'Just-In-Time access control'
-      isCorrect: false
-      correctExplanation: 'TBD.'
-    - content: 'Threat Protection'
-      isCorrect: false
-      correctExplanation: 'TBD.'
+    - content: Vilken som av objekten nedan är inte en funktion i Azure Security Center?
+      choices:
+        - content: Användbara rekommendationer
+          isCorrect: false
+          incorrectExplanation: Det här är en funktion i Azure Security Center.
+        - content: Användning och priser för rapporter
+          isCorrect: true
+          correctExplanation: Det är rätt!  Användning och priser rapporter är inte en del av ASC.
+        - content: Just-In-Time-åtkomstkontroll
+          isCorrect: false
+          incorrectExplanation: Det här är en funktion i Azure Security Center.
+        - content: Skydd mot hot
+          isCorrect: false
+          incorrectExplanation: Det här är en funktion i Azure Security Center.

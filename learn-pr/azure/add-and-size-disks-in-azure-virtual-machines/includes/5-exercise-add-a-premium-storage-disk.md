@@ -1,77 +1,76 @@
-If your virtual machine (VM) hosts a disk-intensive application, you should consider using premium storage for the virtual hard drives (VHDs).
+Om din virtuella dator (VM) är värd för ett disk-intensiva program, bör du använda premium storage för de virtuella hårddiskarna (VHD).
 
-For example, you decide to add a VHD to store outgoing mail on your SMTP server VM. To optimize disk performance, you decide on premium storage for outgoing mail. 
+Till exempel att du vill lägga till en virtuell Hårddisk för att lagra utgående e-post på SMTP-servern VM. För att optimera prestanda för diskar som du bestämmer dig för premium storage för utgående e-post.
 
-Let's add a premium SSD to the VM. 
+Vi lägger till en premium SSD till den virtuella datorn.
 
-## Sign in to Azure
-<!---TODO: Update for sandbox?--->
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com/?azure-portal=true).
+1. Logga in på [Azure Portal](https://portal.azure.com/?azure-portal=true).
 
-## Create a premium storage account
+## <a name="create-a-premium-storage-account"></a>Skapa ett premium storage-konto
 
-All premium storage VHDs must be stored in a premium storage account. Follow these steps to create a premium storage account.
+Premiumlagring för alla virtuella hårddiskar måste vara lagrad i ett premium storage-konto. Följ dessa steg om du vill skapa ett premium storage-konto.
 
-1. Select **Storage accounts** under **FAVORITES** in the left-hand menu of the portal.
+1. Välj **lagringskonton** under **Favoriter** på den vänstra menyn i portalen.
 
-1. Select **+ Add** at the top left of the **Storage accounts** screen.
+1. Välj **+ Lägg till** på upp till vänster på den **lagringskonton** skärmen.
 
-1. In the **Create storage account** pane that opens, set the following properties.
+1. I den **skapa lagringskonto** fönstret som öppnas och ange följande egenskaper.
 
-|Property  |Value  |Notes  |
+|Egenskap  |Värde  |Anteckningar  |
 |---------|---------|---------|
-|Name     |    *A unique name (see note)*     |   This name must be unique across all existing storage account names in Azure. It must be 3 to 24 characters long, and can contain only lowercase letters and numbers.      |
-|Account kind     |  **Storage (general-purpose v1)**       |         |
-|Location     |  *Select the same location as the VM you created earlier*       |         |
-|Replication     |   **Locally redundant storage (LRS)**      |  Select this value from the dropdown. If you recall, we're creating a premium storage account, and premium storage supports only LRS replication.       |
-|Performance     |  **Premium**       | Premium storage accounts are backed by solid-state drives and offer consistent, low-latency performance.        |
-|Resource group     |  *Select **Use existing** and then  **MailInfrastructure***      |  We want to keep all resources together under the same resource group.       |
+|Namn     |    *Ett unikt namn (se anmärkning)*     |   Det här namnet måste vara unikt inom alla befintliga lagringskontonamn i Azure. Det måste vara 3 och 24 tecken långt och får bara innehålla gemena bokstäver och siffror.      |
+|Typ av konto     |  **Lagring (general-purpose v1)**       |         |
+|Plats     |  *Välj samma plats som den virtuella datorn som du skapade tidigare*       |         |
+|Replikering     |   **Lokalt redundant lagring (LRS)**      |  Välj det här värdet i listrutan. Om du vet vi skapar ett premium storage-konto och premium storage stöder LRS-replikering.       |
+|Prestanda     |  **Premium**       | Premium storage-konton backas upp av SSD-enheter och ger prestanda med låg fördröjning.        |
+|Resursgrupp     |  *Välj **Använd befintlig** och sedan <rgn>[Sandbox resursgruppens namn]</rgn>*      |  Vi vill hålla alla resurser tillsammans under samma resursgrupp.       |
 
-When you've filled out this dialog, it should look like the following screenshot. 
+När du har fyllt i den här dialogrutan, bör det se ut som på följande skärmbild. 
 
-!["Create storage account" dialog showing all properties set as instructed.](../media-draft/create-premium-sa.png)
+![”Skapa storage-konto” dialogrutan visar alla egenskaperna enligt anvisningarna.](../media-draft/create-premium-sa.png)
 
-1. Select **Create** to start the storage account creation process. This process can take a few moments to complete. 
+1. Välj **skapa** att starta processen för storage-konto. Den här processen kan ta en stund att slutföra. 
 
-1. When you receive a notification that deployment of the new storage account finished successfully, select **Refresh** in the storage accounts list to display the premium storage account we created. Note the name of this account, as it will be used in the next step.
+1. När du får ett meddelande om att distributionen av det nya lagringskontot har slutförts kan du välja **uppdatera** i storage kontolista för att visa premium storage-konto som vi skapade. Anteckna namnet på det här kontot, som kommer att användas i nästa steg.
 
-## Create VHD in the premium storage account
+## <a name="create-vhd-in-the-premium-storage-account"></a>Skapa virtuell Hårddisk i premium storage-konto
 
-Now you can add a new VHD to the VM and specify the premium storage account as its location. Follow these steps:
+Nu kan du lägga till en ny virtuell Hårddisk till den virtuella datorn och ange premium storage-konto som dess plats. Följ de här stegen:
 
-1. In the navigation on the left, under **FAVORITES**, select **Virtual machines**.
+1. I navigeringsfönstret till vänster under **Favoriter**väljer **virtuella datorer**.
 
-1. In the list of VMs, select **MailSenderVM**.
+1. Välj i listan över virtuella datorer, **MailSenderVM**.
 
-1. Under **SETTINGS** of the **MailSenderVM** configuration menu on the left, select **Disks**.
+1. Under **inställningar** av den **MailSenderVM** configuration menyn till vänster, Välj **diskar**.
 
-1. Under **Data disks**, select **Add data disk**.
+1. Under **datadiskar**väljer **Lägg till datadisk**.
 
-1. In the **Attach unmanaged disks** pane, set the following properties.
+1. I den **koppla ohanterade diskar** fönstret, ange följande egenskaper.
 
 
-|Property  |Value  |Notes  |
+|Egenskap  |Värde  |Anteckningar  |
 |---------|---------|---------|
-|Name     |   **MailSenderVMOutgoing**      |         |
-|Source type     |  **New (empty disk)**       |   Select this value from the dropdown.       |
-|Account type     |  **Premium SSD**       |  Select this value from the dropdown.        |
+|Namn     |   **MailSenderVMOutgoing**      |         |
+|Källtyp     |  **Ny (tom disk)**       |   Välj det här värdet i listrutan.       |
+|Kontotyp     |  **Premium SSD**       |  Välj det här värdet i listrutan.        |
 
-1. To the left of the **Storage container** field, select **Browse**.
+1. Till vänster om den **lagringsbehållare** väljer **Bläddra**.
 
-1. In the list of storage accounts, find and select the premium storage account you created earlier in this unit. The type of the entry will be listed as **Premium-LRS**.
+1. I listan över lagringskonton, hitta och väljer premium storage-konto som du skapade tidigare i den här enheten. Typ av posten visas som **Premium-LRS**.
 
-1. In the list of containers, select __+ Container__.
+1. Välj i listan över behållare, __+ behållare__.
 
-1. In the **New container** pane, in the **Name** textbox, type **vhds** and then select **OK**.
+1. I den **ny behållare** fönstret i den **namn** textrutan typ **virtuella hårddiskar** och välj sedan **OK**.
 
-1. In the list of containers, select **vhds** and then choose **Select**.
+1. Välj i listan över behållare, **virtuella hårddiskar** och välj sedan **Välj**.
 
-1. Back on the **Attach unmanaged disk** pane, select **OK**.
+1. Gå tillbaka till den **Anslut ohanterad disk** väljer **OK**.
 
-1. Back on the **MailSenderVM - Disks** pane, select **Save**. Azure adds the new premium storage disk to the VM.
+1. Gå tillbaka till den **MailSenderVM - diskar** väljer **spara**. När du lägger Azure till den nya premium storage disken till den virtuella datorn.
 
-Our virtual machine has an operating system disk, a standard disk, and a premium SSD-based disk.
+Våra virtuella datorn har en operativsystemdisk och en standarddisk en premium SSD-baserad disk.
 
 > [!NOTE]
-> The new disk must be initialized, partitioned, and formatted before it can store data. To avoid repetition, these steps have been omitted from this exercise. If you want to complete these tasks, complete the steps in the [Partition and format a data disk](../3-exercise-add-data-disks-to-azure-virtual-machines.yml##partition-and-format-a-data-disk) section of the preceding exercise.
+> Den nya disken måste initieras, partitionerade och formaterade innan den kan lagra data. De här stegen har uteslutits från den här övningen för att undvika upprepning. Om du vill utföra dessa uppgifter kan du slutföra stegen i den [partitionera och formatera en datadisk](../3-exercise-add-data-disks-to-azure-virtual-machines.yml##partition-and-format-a-data-disk) avsnitt i den föregående övningen.

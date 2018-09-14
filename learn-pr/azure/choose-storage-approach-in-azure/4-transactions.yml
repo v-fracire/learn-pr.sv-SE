@@ -3,35 +3,31 @@ uid: learn.choose-storage-approach-in-azure.4-transactions
 metadata:
   title: Gruppera flera åtgärder i en transaktion
   description: Gruppera flera åtgärder i en transaktion
-  ms.openlocfilehash: a6a19c7092ce390eacbddd832ddd25050cfc1ab9
-  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/31/2018
-  ms.locfileid: "43363659"
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 title: Gruppera flera åtgärder i en transaktion
 durationInMinutes: 10
-content: >
+content: |
   [!include[](includes/4-transactions.md)]
 quiz:
   title: Transaktioner
   questions:
-  - content: Vilken typ av system behövs för produktdata?
-    choices:
-    - content: OLAP
-      isCorrect: false
-      incorrectExplanation: Nej, OLAP-system passar bäst för data där du behöver köra komplexa frågor eller transaktioner och där svarstiderna inte är kritiska. Produktdata måste kunna ändras snabbt, och då behövs ett system med korta svarstider och stora dataflöden.
-    - content: OLTP
-      isCorrect: true
-      correctExplanation: Ja, OLTP-system har stöd för många användare, korta svarstider, kan hantera stora mängder data, har hög tillgänglighet och hanterar oftast små eller relativt enkla transaktioner, vilket är perfekt för produktdata.
-  - content: Vad skulle hända om åtgärderna att uppdatera lagret och bearbeta betalningar låg i samma transaktion, och en användare skickade exakt samma order via telefon och bärbar dator till en ACID-kompatibel databas?
-    choices:
-    - content: Den första ordern skulle bearbetas, återstående kredit skulle ändras till noll och den andra ordern skulle uppdateras med information om att användaren inte hade någon återstående butikskredit.
-      isCorrect: false
-      incorrectExplanation: Nej, på grund av isoleringen i transaktionsdatabaser skulle de två transaktionerna hanteras oberoende av varandra. Den första transaktionen skulle inte ändra den andra pågående transaktionen förrän den andra transaktionen slutfördes och misslyckades.
-    - content: En order skulle bearbetas och använda upp butikskrediten, medan den andra ordern skulle uppdatera återstående lager för artiklarna i kundvagnen men inte slutföras.
-      isCorrect: false
-      incorrectExplanation: Nej, på grund av atomiciteten i transaktionsdatabaser skulle den andra ordern inte uppdatera återstående lager för den misslyckade ordern.
-    - content: En order skulle bearbetas och använda upp butikskrediten och den andra ordern skulle inte bearbetas.
-      isCorrect: true
-      correctExplanation: Ja, när den andra ordern avgör att butikskrediten redan har använts så skulle transaktionen återställas.
+    - content: Vilken typ av transaktionella databassystem skulle fungerar bäst i produktdata?
+      choices:
+        - content: OLAP
+          isCorrect: false
+        - content: OLTP
+          isCorrect: true
+          correctExplanation: 'OLTP-system stöder ett stort antal användare, har snabba svarstider, hantera stora mängder data, tillgänglighet hög och är perfekt för små eller relativt enkla transaktioner.'
+    - content: 'Anta att åtgärder för att uppdatera inventering och behandla betalningar är i samma transaktion. En användare försöker använda store-kredit för hela beloppet och Skickat exakt samma ordning via telefon och bärbar dator på samma gång. Databas i bakgrunden är en ACID-kompatibel databas, vad som händer?'
+      choices:
+        - content: Båda order skulle bearbetas och använda den i butik krediten.
+          isCorrect: false
+        - content: 'En order skulle bearbetas och användning i butiken kredit och ordningen som helst skulle uppdatera återstående lager för objekt i korgen, men vill inte att slutföra ordningen.'
+          isCorrect: false
+        - content: En order skulle bearbetas och används i butiken kredit och andra ordningen skulle inte bearbetas.
+          isCorrect: true
+          correctExplanation: 'När den andra ordningen bestämt i butiken kredit har redan använts, skulle det Återställ transaktionen.'

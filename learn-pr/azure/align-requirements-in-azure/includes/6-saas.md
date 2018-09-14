@@ -15,6 +15,4 @@ Du betalar bara för det du använder. Du sparar även pengar eftersom SaaS-tjä
 
 **Använd kostnadsfri klientprogramvara:** Användarna kan köra de flesta SaaS-appar direkt i sina webbläsare utan att behöva ladda ned och installera någon programvara. Du behöver inte köpa in eller distribuera någon klientprogramvara till användarna.
 
-**Gör enkelt personalen mer mobil:** Användarna kommer åt SaaS-appar och data från valfri Internetansluten dator eller mobil enhet. Tjänstleverantören hanterar leveransen av tjänsten till enheterna.
-
 **Använd appdata var du än befinner dig:** Eftersom data lagras i molnet kan användarna komma åt sin information från valfri internetansluten dator eller mobil enhet. När appdata lagras i molnet går heller inga data förlorade om en dator eller enhet skulle sluta fungera.

@@ -1,19 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.9-summary-and-cleanup
-title: Sammanfattning och rensning
+title: Sammanfattning och rensa
 metadata:
-  title: Sammanfattning och rensning
-  description: En sammanfattning av de steg som vidtagits samt anvisningar för att rensa bort de etablerade Azure-resurserna
+  title: Sammanfattning och rensa
+  description: En sammanfattning eller åtgärder som vidtagits och rensa anvisningarna för att rensa upp de etablerade Azure-resurserna
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: bdfdfc4806fce2fdc9d3de04f0a19f279f0e5af2
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44232344"
 durationInMinutes: 2
-content: '[!include[](includes/9-summary-and-cleanup.md)]'
+content: |
+  [!include[](includes/9-summary-and-cleanup.md)]

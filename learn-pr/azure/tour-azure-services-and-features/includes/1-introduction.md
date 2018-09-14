@@ -1,16 +1,16 @@
-Azure is a cloud platform that provides the compute, storage, and networking resources needed to build cloud-hosted applications. As a new user, the Azure Portal is likely to be the primary way you will interact with Azure. The Azure Portal lets you create and manage all your Azure resources. For example, you can set up a new database, increase the compute power of your virtual machines, and monitor your monthly costs. It's also a great learning tool since you can survey all available resources and use guided wizards to create the ones you need.
+Azure är en molnplattform som tillhandahåller de resurser för databehandling, lagring och nätverk som behövs när du ska skapa molnbaserade program. Som ny användare kommer du förmodligen primärt att interagera med Azure via Azure Portal. I Azure Portal kan du skapa och hantera alla dina Azure-resurser. Du kan till exempel konfigurera en ny databas, öka beräkningskraften i dina virtuella datorer och hålla koll på din månadskostnad. Portalen är också ett bra inlärningsverktyg eftersom du kan se alla tillgängliga resurser och använda guider för att skapa de resurser som du behöver.
 
-Here you will learn how to create an Azure account, sign in to the portal, and navigate the portal interface. You will customize the dashboard, so it is convenient to locate and monitor your most essential services.
+Här får du lära dig att skapa ett Azure-konto, logga in på portalen och navigera i gränssnittet. Du kommer att anpassa instrumentpanelen och så att det är praktiskt att leta upp och övervaka den viktigaste.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Create an Azure account
-- Navigate the Azure portal
-- Customize the dashboard
+- Skapa ett Azure-konto
+- Navigera på Azure Portal
+- Anpassa instrumentpanelen
 
-## Prerequisites
+## <a name="prerequisites"></a>Förutsättningar
 
-- Knowledge of basic cloud computing terms and concepts
-- A valid credit card to register with Azure
+- Kunskaper om grundläggande termer och begrepp kring databehandling i molnet
+- Ett giltigt kreditkort för Azure-registreringen

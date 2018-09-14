@@ -1,55 +1,55 @@
-Let's assume you're running a website and an attacker gained access to your database. The attacker gained access to a dbo account in the attack and can perform any operation on the database. A dbo account can access and manipulate information such as metadata and perform all levels of access. 
+Anta att du kör en webbplats och angriparen fick åtkomst till din databas. Angriparen fick åtkomst till ett dbo-konto på attacken och kan utföra alla åtgärder i databasen. Ett dbo-konto kan komma åt och ändra information, till exempel metadata och utföra alla åtkomstnivåer.
 
-If the attacker only gained access to a regular user account, then they could only access tables, views, stored procedures, and other objects defined for that user account. For example, if a website accessing a database was compromised due to a SQL injection attack, then the attacker would be limited in what they could do. 
+Om angriparen fick bara tillgång till ett vanligt användarkonto, sedan de kan bara komma åt tabeller, vyer, lagrade procedurer och andra objekt som definierats för det användarkontot. Till exempel om en webbplats som har åtkomst till en databas har komprometterats på grund av ett SQL-angrepp, skulle sedan angriparen vara begränsad i vad de kunde göra.
 
-In case a security breach happens, it helps to reduce the impact of the breach. Let's look at how to restrict access to the SQL Azure database at the user layer.
+Om ett intrång inträffar kan det hjälper dig för att minska effekten av överträdelser. Nu ska vi titta på hur du begränsar åtkomsten till SQL Azure-databas på nivån för användaren.
 
-## Reduce the attack surface of the database
+## <a name="reduce-the-attack-surface-of-the-database"></a>Minska risken för angrepp på databasen
 
-To reduce the impact of any security breach, you restrict the surface area of the attack. If you're connecting to your database using a dbo or administrator account and an attacker gets access to the database, the attacker will have access to perform all operations on the database. Access could include querying the database metadata, determining what data is available and/or sensitive, and exploiting this information. 
+För att minska effekten av någon säkerhetsbrist kan begränsa du ytan på attacken. Om du ansluter till din databas med ett dbo eller administratör-konto och en angripare får tillgång till databasen, angriparen åtkomst för att utföra alla åtgärder i databasen. Åtkomst kan omfatta fråga databasmetadata, avgör vilka data som är tillgängliga och/eller känsliga och utnyttja den här informationen.
 
-You avoid this security risk by creating database users that have restricted permissions. We'll use the term least-privilege here, as the users should only have access to the tables, views, stored procedures, and other entities needed to do their work. 
+Du kan undvika denna säkerhetsrisk genom att skapa databasanvändare som har begränsade behörigheter. Vi använder termen lägsta behörighet här, eftersom användarna bara har åtkomst till tabeller, vyer, lagrade procedurer och andra entiteter som behövs för att utföra sitt arbete.
 
-## Create a database user
+## <a name="create-a-database-user"></a>Skapa en databasanvändare
 
-To create a user with reduced privileges, you'll create a database user and then associate that user with the database. Let's create a SQL Server user and give the user permissions to the database. 
+Om du vill skapa en användare med lägre behörighet du skapa en databasanvändare och sedan koppla användaren till databasen. Nu ska vi skapa en SQL Server-användare och ge användarbehörighet till databasen.
 
 > [!Note]
-> There are thirteen (13) types of users in SQL Server. If you need to create another type of database user, use the appropriate link to find out the right syntax. See [Create a database user](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-2017). 
+> Det finns 13 (13) typer av användare i SQL Server. Om du vill skapa en annan typ av databasanvändare, kan du använda länken för att ta reda på rätt syntax. Se [skapa en databasanvändare](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-2017).
 
-Preferred practice is to create the user at a database level. This step prevents user permissions from going outside the boundaries of the database that you are trying to protect. 
+Prioriterade metoden är att skapa användaren på en databasnivå. Det här steget förhindrar användarbehörigheter går utanför gränserna för den databas som du vill skydda.
 
-1. First, select the database.
-2. Then, create the user using the following query: 
-   
+1. Börja med att välja databasen.
+2. Skapa sedan den användare som använder du följande fråga:
+
    ```sql
    CREATE USER MyWebAppUser WITH PASSWORD = '<YourSuperStrongPassword>';
    ```
-   
-   The previous query creates the user *MyWebUser*. By default the user will not have access to any tables, views, or stored procedures.  
-   
-3. Now, create appropriate permissions for the user by adding them to roles such as db_datareader and db_datawriter.
-   
-   The db_datareader role will allow the user access to all user tables and views within the database. Likewise, the db_datawriter role will allow the user access to read, write, update, and delete rows in the database. 
-   
+
+   Den föregående frågan skapar användaren *MyWebUser*. Användaren har inte åtkomst till alla tabeller, vyer och lagrade procedurer som standard.
+
+3. Skapa nu rätt behörighet för användaren genom att lägga till dem roller som db_datareader och db_datawriter.
+
+   Rollen db_datareader kan användaråtkomst till alla användartabeller och vyer i databasen. På samma sätt kommer rollen db_datawriter kan användaråtkomst till läsa, skriva, uppdatera och ta bort rader i databasen.
+
    ```sql
    ALTER ROLE db_datareader ADD MEMBER MyWebAppUser;
    ALTER ROLE db_datawriter ADD MEMBER MyWebAppUser;
    ```
 
-You can deny a user's access to other elements within the database using the DENY operator. Here you're denying the user MyWebAppUser the ability to select data from the Customers table.
+Du kan neka en användares åtkomst till andra element i databasen med NEKA-operator. Du här neka användaren MyWebAppUser möjlighet att välja data från tabellen kunder.
 
 ```sql
-DENY SELECT ON Customers TO MyWebAppUser; 
+DENY SELECT ON Customers TO MyWebAppUser;
 ```
 
-You can also use the GRANT permission to explicitly give permissions to a user or role.
+Du kan också använda ge behörighet att uttryckligen ge behörigheter till en användare eller roll.
 
 ```sql
 GRANT SELECT ON Customers TO MyWebAppUser;
 ```
 
-You'll continue to refine the operations on the database in order to get the user to the level of access needed. Instead of a user, you can create a role with the minimum permissions needed and then add the user to the role. 
+Du kommer att fortsätta att förfina åtgärder i databasen för att få användaren att åtkomstnivån som behövs. I stället för en användare, kan du skapa en roll med de lägsta behörigheten som krävs och sedan lägga till användaren till rollen.
 
-If you have multiple users that have the same permissions, you could create those users as part of the role. The user will have access only to things that they need, once all the access permissions have been granted or denied. 
-If an attacker gains access to the database through the newly created user, they will only see and execute the same data and operations the user can. Locking down user access greatly reduces the surface area of attack on the database. 
+Om du har flera användare som har samma behörigheter, kan du skapa de användarna som en del av rollen. Användaren har endast åtkomst till saker som de behöver, när alla åtkomstbehörigheter har beviljats eller nekats.
+Om en angripare får åtkomst till databasen via den nyligen skapade användaren, kommer de endast se och köra samma data och åtgärder som användaren kan. Låsa användaråtkomst avsevärt minskar ytan på attack på databasen.

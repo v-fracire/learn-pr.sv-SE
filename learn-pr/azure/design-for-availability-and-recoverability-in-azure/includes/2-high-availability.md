@@ -4,7 +4,9 @@ Här får du lära dig behovet av hög tillgänglighet, utvärdera krav på hög
 
 ## <a name="what-is-high-availability"></a>Vad är hög tillgänglighet?
 
-En tjänst med hög tillgänglighet är ett program som absorberar variationer i tillgänglighet, belastning och tillfälliga fel i beroende tjänster och maskinvara. Programmet är online och tillgängligt hela tiden (eller ser till att det ser ut som det) samtidigt som det fungerar acceptabelt. Tillgänglighet definieras ofta av affärskrav eller programmets serviceavtal.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEvc]
+
+En tjänst med hög tillgänglighet är en tjänst som absorberar variationer i tillgänglighet, belastning och tillfälliga fel i beroende tjänster och maskinvara. Programmet är online och tillgängligt hela tiden (eller ser till att det ser ut som det) samtidigt som det fungerar acceptabelt. Den här tillgänglighet definieras ofta av företagets krav, servicenivåmål eller servicenivåavtal.
 
 Hög tillgänglighet handlar främst om förmågan att hantera förlust av eller allvarlig försämring av en komponent i ett system. Det kan bero på att en virtuell dator som är värd för ett program försätts i offlineläge eftersom värden misslyckades. Det kan vara på grund av planerat underhåll av en systemuppgradering. Det kan även bero på fel i en tjänst i molnet. Om du identifierar de platser där ditt system kan misslyckas och skapar funktioner för att hantera sådana fel kan tjänsterna du erbjuder dina kunder förbli online.
 
@@ -24,7 +26,25 @@ Vi ska titta lite närmare på stegen.
 
 Ett serviceavtal (SLA) är ett avtal mellan en tjänsteleverantör och en tjänstanvändare där tjänstleverantören förbinder sig till en tjänststandard baserat på mätbara mått och angivna ansvarsområden. Serviceavtal kan vara strikta, juridiskt bundna, avtalsenliga avtal eller förutsatta förväntningar på tillgänglighet av kunder. Tjänstmått fokuserar vanligen på tjänstens dataflöde, kapacitet och tillgänglighet, vilket alltihop kan mätas på olika sätt. Oavsett de specifika mätvärdena som utgör serviceavtalet kan underlåtenhet att uppfylla serviceavtalet få allvarliga ekonomiska påföljder för tjänstleverantören. En vanlig komponent av serviceavtal är garanterad ekonomisk återbetalning för serviceavtal som inte uppfylls.
 
-![SLA-handskakning](../media-draft/SLAHandshake.png)
+Servicenivåmål (SLO) är värdena för målmått som används för att mäta prestanda, tillförlitlighet och tillgänglighet. Det kan vara mått som definierar prestanda för behandling av begäranden i millisekunder, tillgängligheten för tjänster på bara några minuter per månad eller antalet begäranden som bearbetas per timme. Du kan definiera de godkända och oacceptabla intervall för dessa slo: erna genom att utvärdera de mått som exponeras av ditt program och förstå vilka kunder använder som ett mått på kvalitet. Genom att definiera dessa mål kan ange du tydligt mål och förväntningar med både team för stöd för de tjänster och kunder som förbrukar dessa tjänster. Dessa slo: erna används för att fastställa om din övergripande serviceavtal är uppfyllt.
+
+I följande tabell visas den potentiella totala avbrottstiden för olika nivåer i serviceavtalet. 
+
+| SLA | Nedtid per vecka | Nedtid per månad | Nedtid per år |
+| --- | --- | --- | --- |
+| 99 % |1,68 timmar |7,2 timmar |3,65 dagar |
+| 99,9 % |10,1 minuter |43,2 minuter |8,76 timmar |
+| 99,95 % |5 minuter |21,6 minuter |4,38 timmar |
+| 99,99 % |1,01 minuter |4,32 minuter |52,56 minuter |
+| 99,999 % |6 sekunder |25,9 sekunder |5,26 minuter |
+
+Naturligtvis är en högre tillgänglighet bättre om allt annat är lika. Men i jakten på fler 9:or så ökar kostnaden och komplexiteten med att uppnå den höga tillgängligheten. En drifttid på 99,99 % innebär cirka 5 minuter total nedtid per månad. Är det värt den extra komplexiteten och kostnaden för att nå fem 9:or? Svaret beror på affärskraven. 
+
+Här följer några andra saker att tänka på när du definierar ett SLA:
+
+* För att uppnå fyra 9:or (99,99 %) kan du förmodligen inte förlita dig på manuella åtgärder efter fel. Programmet måste själv kunna diagnosticera och återställa interna fel. 
+* Bortom fyra 9:or är det svårt att identifiera avbrott tillräckligt snabbt för att uppfylla serviceavtalet.
+* Tänk på vilket tidsfönster som serviceavtalet mäts mot. Ju mindre fönster desto snävare tolerans. Det är förmodligen inte så bra att definiera serviceavtalet i termer av drifttid per timme eller dag. 
 
 Att identifiera serviceavtal är ett viktigt första steg vid beslut om vilka funktioner med hög tillgänglighet som din arkitektur kräver. De hjälper till att utforma metoderna du ska använda för att göra programmet mer tillgängligt.
 
@@ -36,7 +56,7 @@ Du måste noggrant utvärdera alla komponenter i programmet, däribland delarna 
 
 ### <a name="evaluate-the-ha-capabilities-of-dependent-applications"></a>Utvärdera beroende programs HA-funktion
 
-Du måste inte enbart förstå ditt programs serviceavtalskrav på konsumenten, utan även serviceavtalen som tillhandahålls av en resurs som ditt program förlitar sig på. Om du lovar kunderna en drifttid på 99,9 %, men en tjänst som ditt program är beroende av endast har ett SLA på 99 % kan det innebära att du riskerar att inte uppfylla ditt SLA till kunderna. Om en beroende tjänst inte har tillräckligt med serviceavtal kan du behöva ändra dina egna serviceavtal, ersätta beroendet med ett alternativ eller hitta sätt att uppfylla serviceavtalet medan beroendet är otillgängligt. Beroende på scenariot och typ av beroende kan beroenden som misslyckas lösas tillfälligt med lösningar som cacheminnen och arbetsköer.
+Du måste inte enbart förstå ditt programs serviceavtalskrav på konsumenten, utan även serviceavtalen som tillhandahålls av en resurs som ditt program förlitar sig på. Om du checkar in en drifttid till dina kunder på 99,9%, men en tjänst som ditt program är beroende av har bara en drifttid åtagande att 99%, kan detta placera du riskerar inte uppfyller serviceavtalet till dina kunder. Om en beroende tjänst inte har tillräckligt med serviceavtal kan du behöva ändra dina egna serviceavtal, ersätta beroendet med ett alternativ eller hitta sätt att uppfylla serviceavtalet medan beroendet är otillgängligt. Beroende på scenariot och typ av beroende kan beroenden som misslyckas lösas tillfälligt med lösningar som cacheminnen och arbetsköer.
 
 ## <a name="azures-highly-available-platform"></a>Azures plattform med hög tillgänglighet
 
@@ -45,17 +65,17 @@ Azure-molnplattformen har utformats för att tillhandahålla hög tillgänglighe
 * Tillgänglighetsuppsättningar
 * Tillgänglighetszoner
 * Belastningsutjämning
-* PaaS HA-funktioner
+* Plattform som en tjänst (PaaS)-funktioner för hög tillgänglighet
 
 ### <a name="availability-sets"></a>Tillgänglighetsuppsättningar
 
 Tillgänglighetsuppsättningar är ett sätt för dig att informera virtuella Azure-datorer om att virtuella datorer som tillhör samma programbelastning ska distribueras för att förhindra samtidig påverkan från maskinvarufel och schemalagt underhåll. Tillgänglighetsuppsättningar består av *uppdateringsdomäner* och *feldomäner*.
 
-![Tillgänglighetsuppsättningar](../media-draft/AzAvailSets.png)
+![Tillgänglighetsuppsättningar](../media/AzAvailSets.png)
 
 Uppdateringsdomäner ser till att en delmängd av programmets servrar alltid körs när den virtuella datorn finns i ett Azure-datacenter som kräver driftstopp vid underhåll. De flesta uppdateringarna kan utföras utan att påverka till de virtuella datorerna som körs på dem, men det finns tillfällen när det inte är möjligt. För att se till att uppdateringar inte sker för ett helt datacenter i taget delas Azure-datacentret upp logiskt i uppdateringsdomäner (UD). När en underhållshändelse som en prestandauppdatering sker och en viktig säkerhetskorrigering krävs som ska tillämpas på värden sekventeras uppdateringen via uppdateringsdomäner. Användningen av sekvensering av uppdateringar med uppdateringsdomäner ser till att hela datacentrat inte blir otillgängligt under plattformsuppdateringar och -korrigeringar.
 
-Medan uppdateringsdomäner representerar en logisk del av datacentret representerar feldomäner (FD) fysiska avsnitt av datacentret och garanterar en mångfald av rack för servrar i en tillgänglighetsuppsättning. Feldomäner justeras till den fysiska separationen av delad maskinvara i datacentret. Det inkluderar kraft, kylning och nätverksmaskinvara som stöder fysiska servrar som finns i serverrack. Om maskinvara som stöder ett serverrack har blivit otillgänglig påverkas endast det serverracket av felet.
+Medan uppdateringsdomäner representerar en logisk del av datacentret representerar feldomäner (FD) fysiska avsnitt av datacentret och garanterar en mångfald av rack för servrar i en tillgänglighetsuppsättning. Feldomäner justeras till den fysiska separationen av delad maskinvara i datacentret. Det inkluderar kraft, kylning och nätverksmaskinvara som stöder fysiska servrar som finns i serverrack. Om maskinvara som stöder ett serverrack har blivit otillgänglig påverkas endast det serverracket av felet. Genom att placera dina virtuella datorer i en tillgänglighetsuppsättning, sprids dina virtuella datorer automatiskt över flera FD så att endast en del av dina virtuella datorer kommer att påverkas i händelse av ett maskinvarufel.
 
 Med tillgänglighetsuppsättningar kan du se till att programmet fortsätter att vara online om en händelse med stor inverkan krävs eller om ett maskinvarufel uppstår.
 
@@ -63,11 +83,11 @@ Med tillgänglighetsuppsättningar kan du se till att programmet fortsätter att
 
 Tillgänglighetszoner är oberoende fysiska datacenterplatser inom en region som har egen kraft, kylning och nätverkstjänster. Om du tar hänsyn till tillgänglighetszoner när du distribuerar resurser kan du skydda arbetsbelastningar mot datacenteravbrott och behålla närvaron i en viss region. Tjänster som virtuella datorer är *zonindelade*, vilket gör att du kan distribuera dem till to specifika zoner inom en region. Andra tjänster är *zonredundanta* och replikeras mellan tillgänglighetszoner i den specifika Azure-regionen. Båda typerna ser till att det inte finns några felkritiska systemdelar inom en Azure-region.
 
-![Tillgänglighetszoner](../media-draft/AzAvailZones.png)
+![Tillgänglighetszoner](../media/AzAvailZones.png)
 
 Regioner som stöds innehåller minst tre tillgänglighetszoner. När du skapar zonindelade resurser i de här regionerna har du möjlighet att välja zonen där resursen ska skapas. På så sätt kan du utforma ditt program så att det kan hantera ett zonindelat avbrott och fortsätta att fungera i en Azure-region innan du måste evakuera programmet till en annan Azure-region.
 
-Tillgänglighetszoner är en nyare konfigurationstjänst för hög tillgänglighet för Azure-regioner och är tillgängliga för vissa regioner. Det är viktigt att kontrollera tillgängligheten för den här tjänsten i regionen där du tänker distribuera ditt program om du vill överväga den här funktionen. Tillgänglighetszoner stöds när du använder virtuella datorer och flera PaaS-tjänster. Tillgänglighetszoner ersätter tillgänglighetsuppsättningar i regioner som stöds.
+Tillgänglighetszoner är en nyare konfigurationstjänst för hög tillgänglighet för Azure-regioner och är tillgängliga för vissa regioner. Det är viktigt att kontrollera tillgängligheten för den här tjänsten i regionen där du tänker distribuera ditt program om du vill överväga den här funktionen. Tillgänglighetszoner stöds när du använder virtuella datorer och flera PaaS-tjänster. Tillgänglighetszoner är ömsesidigt uteslutande med tillgänglighetsuppsättningar. När du använder tillgänglighetszoner behöver du inte längre att definiera en tillgänglighetsuppsättning för dina system. Har du affärsanalyser på nivån data center och uppdateringar kommer aldrig att utföras till flera tillgänglighetszoner på samma gång.
 
 ### <a name="load-balancing"></a>Belastningsutjämning
 
@@ -81,7 +101,7 @@ Azure har tre tjänster för belastningsutjämning som skiljer sig åt i hur de 
 
 Med en eller en kombination av alla tre teknikerna för Azure-belastningsutjämning får du de tillgängliga alternativ som krävs för att skapa en lösning med hög tillgänglighet för att dirigera nätverkstrafik i programmet.
 
-![Azures alternativ för belastningsutjämning](../media-draft/AzLBOptions.png)
+![Azures alternativ för belastningsutjämning](../media/AzLBOptions.png)
 
 ### <a name="paas-ha-capabilities"></a>PaaS HA-funktioner
 

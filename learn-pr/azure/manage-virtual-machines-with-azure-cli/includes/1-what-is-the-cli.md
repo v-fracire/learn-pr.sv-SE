@@ -22,6 +22,6 @@ Med Azure CLI kan du hantera Azure-resurser som virtuella datorer och diskar fr�
 I den här modulen kommer du att göra följande:
 
 - Skapa en virtuell dator med Azure CLI
-- Ändra storlek på virtuella datorer med Azure CLI
+- Ändra storlek på virtuella datorer med Azure CLI.
 - Utföra grundläggande hanteringsåtgärder med Azure CLI.
 - Ansluta till en aktiv virtuell dator med SSH och Azure CLI.

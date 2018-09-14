@@ -1,103 +1,103 @@
-Imagine you receive an alert from your company's security administrator that a potential security breach has been detected on your network. In order to protect your database servers, you decide to add auditing and monitoring.
+Anta att du får en avisering från ditt företags säkerhetsadministratör att en potentiell säkerhetsrisk har identifierats i nätverket. För att skydda dina database-servrar, som du vill lägga till granskning och övervakning.
 
-In this unit, we look at how auditing is configured against a database, and how to use these audits.
+I den här enheten, kan vi titta på hur granskning konfigureras mot en databas och hur du använder dessa granskningar.
 
-## Configure auditing
+## <a name="configure-auditing"></a>Konfigurera granskning
 
-You'll enable auditing to store the operations that occur on the database for later inspection, or have automated tools analyze them. Auditing is also used for compliance management or understanding how your database is used. Auditing is also required if you wish to use Azure threat detection on your Azure SQL database. 
+Aktiverar du granskning att lagra de åtgärder som inträffar på databasen för senare granskning eller har automatiserade verktyg analysera dem. Granskning används också för hantering av regelefterlevnad och förstå hur databasen används. Granskning krävs också om du vill använda Azure hotidentifiering i Azure SQL database.
 
-In order to store audits of the database, an Azure storage account will be needed to store the audit history.  
+Om du vill lagra granskningar av databasen, krävs ett Azure storage-konto för att lagra granskningshistoriken.
 
-Let's look at the steps you take to set up auditing on your system.
+Nu ska vi titta på de steg du utför för att konfigurera granskning på datorn.
 
-1. Select the Azure SQL Server in the portal.
- 
-2. Navigate to the Auditing item in the left configuration options. You will find it in the Security category. 
- 
-3. Auditing is turned off by default. To enable it on your database server, tap the ON button. 
+1. Välj Azure SQL-Server i portalen.
 
-4. Once the ON button is selected, select the Configure button to define the storage account. You can select an existing storage account or create a new storage account to store your audits. The storage account must be configured to use the same region as your server. 
+2. Navigera till objektet granskning i de vänstra konfigurationsalternativ. Du hittar den i säkerhetskategorin.
 
-5. Click the 'Save' button in the toolbar to save your changes. 
+3. Granskning är inaktiverat som standard. Om du vill aktivera det på din databasserver, trycker du på knappen vidare.
 
-These actions configure the audits at the database server level. You can also configure auditing to happen at a database level. 
+4. När knappen på är markerad, klicka på Konfigurera definiera storage-konto. Du kan välja ett befintligt lagringskonto eller skapa ett nytt lagringskonto för att lagra dina granskningar. Lagringskontot måste konfigureras för att använda samma region som din server.
 
-You'll now configure Advanced Threat Protection. 
+5. Klicka på knappen ”Spara” i verktygsfältet för att spara dina ändringar.
 
-## Configure Advanced Threat Protection
+De här åtgärderna konfigurera revisioner på databasnivå för servern. Du kan också konfigurera granskning ska inträffa vid en databasnivå.
 
-The Advanced Threat Protection system analyzes audit logs to look for potential problems and threats against your database.
+Nu får du konfigurera Avancerat skydd.
 
-Let's look at the steps you take to configure Advanced Threat Protection on your system.
+## <a name="configure-advanced-threat-protection"></a>Konfigurera Avancerat skydd
 
-1. Select the Azure SQL Server in the portal.
+Avancerat skydd analyseras granskningsloggar för att söka efter potentiella problem och hot mot din databas.
 
-2. Navigate to the Advanced Threat Protection item in the left configuration options. You'll find it in the Security category.
+Nu ska vi titta på de steg du utför för att konfigurera Avancerat skydd på datorn.
 
-3. Click the 'Enable Advanced Threat Protection on the server' button. 
+1. Välj Azure SQL-Server i portalen.
 
-4. Change the Advanced Threat Protection switch to ON. 
- 
-5. Select View Advanced Threat Protection server settings to see the options for the database system. 
+2. Navigera till avancerat skydd-objekt i de vänstra konfigurationsalternativ. Du hittar den i säkerhetskategorin.
 
-6. Next, define where notification emails will be delivered as a list of semicolon separated email addresses. Select Email service and co-administrators to send the threats to the service administrators. 
+3. Klicka på knappen ”Aktivera Avancerat skydd på servern”.
 
-7. You'll now specify the subscription and storage account that will be analyzed for any threats on the system. This should be the subscription and Azure storage account configured for auditing. You also need to set the number of days to retain the audit history. Setting the value to zero means that the audit will be stored forever. 
+4. Ändra Advanced Threat Protection-växel till ON.
 
-Next, select the Storage access key to connect to the audits. Once you have configured the options, press OK.
+5. Välj vyn Avancerat skydd-serverinställningar Visa alternativ för databassystem.
 
-Finally, set the Threat Detection types. The preferred option is All.
+6. Definiera där avgränsade meddelandet som e-postmeddelanden levereras som en lista över semikolonavgränsade e-postadresser. Välj e-posttjänst och medadministratörer att skicka hot för tjänstadministratörer.
 
-All represents the following values:
+7. Nu ska du ange den prenumerationen och storage-konto som ska analyseras för några hot i systemet. Detta bör vara den prenumerationen och Azure storage-konto som konfigurerades för granskning. Du måste också ange antalet dagar att behålla granskningshistoriken. Ställer in värdet på noll innebär det att granskningen kommer att lagras alltid.
 
-- SQL injection reports where SQL injections attacks have occurred;
-- SQL injection vulnerability reports where the possibility of a SQL injection is likely; and
-- Anomalous client login looks at logins that are irregular and could be cause for concern, such as a potential attacker gaining access.  
+Välj sedan lagringsåtkomstnyckel för att ansluta till revisioner. Tryck på OK när du har konfigurerat alternativen.
 
-Click the **Save** button to apply the changes. 
+Slutligen ange vilka typer av identifiering av hot. Önskat Kontaktalternativ är allt.
 
-You'll receive email notifications as vulnerabilities are detected. The email will outline what occurred and the actions to take. 
+Alla representerar följande värden:
 
-## Enable Advanced Threat Protection
+- SQL-inmatning rapporter där SQL-inmatningar-angrepp har inträffat;
+- SQL-inmatning säkerhetsproblem rapporter där sannolikheten för en SQL-inmatning är sannolikt; och
+- Avvikande klientinloggning tittar på inloggningar som oregelbunden och kan orsaka problem, till exempel en potentiella angripare får åtkomst.
 
-Once you've configured the server for Advanced Threat Protection, you enable the option on each individual database. Navigate to the individual databases and enable Advanced Threat Protection by selecting 'Enable Advanced Threat Protection on the server'. 
+Klicka på den **spara** knappen för att tillämpa ändringarna.
 
-You can turn on periodic recurring scans that will scan the system every seven days to look for vulnerabilities. 
+Du får e-postmeddelanden som sårbarheter upptäcks. E-postmeddelandet beskriver vad som hänt och åtgärder som kan vidtas.
 
-When you select the Periodic recurring scan option, a scan will run immediately after saving the settings. 
+## <a name="enable-advanced-threat-protection"></a>Aktivera Avancerat skydd
 
-Click the **Save** button to save your changes. 
+När du har konfigurerat servern för avancerat skydd kan aktivera du alternativet för varje enskild databas. Navigera till de enskilda databaserna och aktivera Avancerat skydd genom att välja ”Aktivera Avancerat skydd på servern”.
 
-You'll receive an email notification notifying you of any security issues. Make sure to address the threat immediately. You may get a notification for a number of reasons:
+Du kan aktivera periodiskt återkommande sökningar som genomsöker systemet var sjunde dag för att söka efter säkerhetsrisker.
 
-![An example notification warning from Advanced Threat Protection](../media-draft/5-email-with-warning.png)
+När du väljer alternativet periodiskt återkommande genomsökning körs en genomsökning omedelbart när du har sparat inställningarna.
 
-Selecting the Advanced Threat Protection option when Advanced Threat Protection is running, you'll see a list of issues presented. This list may include Data Discovery & Classification problems such as sensitive data, a list of vulnerabilities on the system, and potential threats.  
+Klicka på knappen **Spara** för att spara ändringarna.
 
-![Data Discovery & Classification](../media-draft/5-data-discovery-and-classification.png)
+Du får ett e-postmeddelande som meddelar dig om eventuella säkerhetsproblem. Se till att åtgärda hotet omedelbart. Du kan få ett meddelande för en rad orsaker:
 
-The Data Discovery & Classification panel shows columns within your tables that need to be protected. Some of the columns may have sensitive information, or would be considered classified in different countries or regions.  
+![En exempel-meddelande varning från Avancerat skydd](../media-draft/5-email-with-warning.png)
 
-Click on the Data Discovery & Classification panel. 
+Välj Avancerat skydd om Advanced Threat Protection är igång, visas en lista över problem som visas. Den här listan kan innehålla Dataidentifiering och klassificering problem, till exempel känsliga data, en lista över sårbarheter på system och potentiella hot.
 
-A message will be displayed if any columns need protection configured. This message will be in the form of *"We have found 10 columns with classification recommendations"*. You can click on the text to view the recommendations. 
+![Dataidentifiering och klassificering](../media-draft/5-data-discovery-and-classification.png)
 
-Select the columns that you want to classify by clicking the checkmark next to the column, or select the checkbox to the left of the schema header. Select the Accept selected recommendations options to apply the classification recommendations.
+Panelen Dataidentifiering och klassificering visar kolumner i dina tabeller som behöver skyddas. Några av kolumnerna som kan ha känslig information eller kan betraktas som klassificeras i olika länder eller regioner.
 
-You'll edit the columns and then define the information type and the sensitivity label for the database. Click on the Save button to save the changes. 
+Klicka på panelen Dataidentifiering och klassificering.
 
-No active recommendations should be listed once you've managed the recommendations successfully.
+Ett meddelande visas om några kolumner behöver skydd som har konfigurerats. Det här meddelandet skickas i form av *”vi har hittat 10 kolumner med klassificeringsrekommendationer”*. Du kan klicka på texten som ska visa rekommendationer.
 
-![Vulnerability Assessment Dashboard](../media-draft/5-vunrability-assessment-dashboard.png)
+Markera de kolumner som du vill klassificera genom att klicka på bockmarkeringen bredvid kolumnen eller markera kryssrutan till vänster om schema-huvudet. Välja Godkänn valda rekommendationer att använder rekommendationerna för klassificering.
 
-The Vulnerability Assessment lists configuration issues on your database and the associated risk. For example, in the image above, you can see the server-level firewall needs to be set up.
+Du redigera kolumner och definiera informationstypen och känslighetsetikett för databasen. Klicka på knappen Spara för att spara ändringarna.
 
-Click on the Vulnerability Assessment panel to review a full list of vulnerabilities. From here, you'll click on each individual vulnerability. 
+Inga aktiva rekommendationer bör visas när du har lyckats rekommendationerna har.
 
-On that page you will see the details such as the risk level, which database it applies to, a description of the vulnerability, and the recommended remediation to fix the issue. You'll apply the remediation to fix the issue or issues. Make sure to address all the vulnerabilities.
- 
-![Threat Detection](../media-draft/5-threat-detection-dashboard.png)
+![Vulnerability Assessment instrumentpanel](../media-draft/5-vulnerability-assessment-dashboard.png)
 
-The last chart displays a list of threat detections. For example, in this list you'll see a number of potential SQL injection attacks. 
- 
-Like the vulnerabilities, click on the Threat Detection panel to navigate to the list of entries to see what the threat is. Then address that issue by following the recommendations.  For issues such as the SQL injection warnings, you'll be able to look at the query and work backward to where that query is being executed in code. Once found, you'll rewrite the code so it will no longer have the issue. 
+Utvärdering av säkerhetsrisker listar konfigurationsproblem på din databas och den associera risken. Till exempel i bilden ovan ser du brandväggen på servernivå måste ställas in.
+
+Klicka på panelen Vulnerability Assessment att granska en fullständig lista över sårbarheter. Härifrån kan ska du klicka på varje enskild säkerhetsproblem.
+
+På sidan visas information, till exempel risknivå, vilken databas som gäller för en beskrivning av problemet och de rekommenderade åtgärderna för att åtgärda problemet. Du ska använda åtgärder för att åtgärda problemet eller problem. Se till att åtgärda alla sårbarheter.
+
+![Identifiering av hot](../media-draft/5-threat-detection-dashboard.png)
+
+Senaste diagrammet visar en lista över threat identifieringar. Till exempel i den här listan visas ett antal potentiell SQL-inmatningsattacker.
+
+Klicka på panelen identifiering av hot för att gå till listan över poster att se det hotet som sårbarheter. Sedan åtgärda problemet genom att följa rekommendationerna.  För problem med till exempel SQL-inmatning varningar kommer du att kunna titta på frågan och arbetar bakåt för att där frågan körs i kod. Förr, du måste skriva om koden så att den inte längre har problemet.

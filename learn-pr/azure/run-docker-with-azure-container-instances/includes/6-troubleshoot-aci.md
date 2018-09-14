@@ -5,7 +5,7 @@ I den här utbildningsenheten utför du en del grundläggande felsökning som at
 Börja med att skapa containern vi ska använda. Om du fortfarande har den första containern vi skapade i modulen kan du hoppa över det här steget:
 
 ```azurecli
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ports 80 --ip-address Public
+az container create --resource-group <rgn>[Sandbox resource group name]</rgn> --name mycontainer --image microsoft/aci-helloworld --ports 80 --ip-address Public
 ```
 
 ## <a name="get-logs-from-a-container-instance"></a>Hämta loggar från en containerinstans
@@ -13,7 +13,7 @@ az container create --resource-group myResourceGroup --name mycontainer --image 
 Om du vill visa loggar från programkoden i en container kan du använda kommandot `az container logs`:
 
 ```azazurecli
-az container logs --resource-group myResourceGroup --name mycontainer
+az container logs --resource-group <rgn>[Sandbox resource group name]</rgn> --name mycontainer
 ```
 
 Här är loggutdata från exempelcontainern när webbappen har använts några gånger:
@@ -31,7 +31,7 @@ listening on port 80
 Med kommandot `az container attach` kan du visa diagnostisk information när containern startas. När containern har startats strömmas även STDOUT och STDERR till den lokala konsolen:
 
 ```azazurecli
-az container attach --resource-group myResourceGroup --name mycontainer
+az container attach --resource-group <rgn>[Sandbox resource group name]</rgn> --name mycontainer
 ```
 
 Exempel på utdata:
@@ -56,7 +56,7 @@ Azure Container Instances har stöd för att köra kommandon i aktiva containers
 Det här exemplet startar en interaktiv terminalsession med containern som körs:
 
 ```azurecli
-az container exec --resource-group myResourceGroup --name mycontainer --exec-command /bin/sh
+az container exec --resource-group <rgn>[Sandbox resource group name]</rgn> --name mycontainer --exec-command /bin/sh
 ```
 
 När kommandot har slutförts arbetar du i praktiken inuti containern. I det här exemplet kördes kommandot `ls` för att visa innehållet i arbetskatalogen:
@@ -74,7 +74,7 @@ Ange `exit` för att stoppa fjärrsessionen.
 Du kanske vill hämta mått om användningen av processorkraft och minne. Då måste du först hämta Azure-containerinstansens ID. I det här exemplet ligger ID:t i en variabel med namnet `CONTAINER_ID`:
 
 ```azurecli
-CONTAINER_ID=$(az container show --resource-group myResourceGroup --name mycontainer --query id --output tsv)
+CONTAINER_ID=$(az container show --resource-group <rgn>[Sandbox resource group name]</rgn> --name mycontainer --query id --output tsv)
 ```
 
 Nu kan använda kommandot `az monitor metrics list` till att hämta information om processoranvändningen:
@@ -131,18 +131,11 @@ Timestamp            Name              Average
 2018-08-20 21:55:00  Memory Usage  19181568.0
 ```
 
-Den här informationen är också tillgänglig i Azure Portal. En grafisk representation av processor- och minnesanvändningen finns på sidan Översikt för en containerinstans i Azure Portal.
+Den här informationen är också tillgänglig i Azure Portal. En grafisk representation av processor- och minnesanvändningen finns på sidan Översikt för en containerinstans i Azure-portalen.
 
 ![Vy i Azure Portal över processor- och minnesanvändning för Azure Container Instances](../media-draft/cpu-memory.png)
 
-## <a name="clean-up"></a>Rensa
-<!---TODO: Update for sandbox?--->
-
-Detta är den sista utbildningsenheten i modulen för Azure Container Instances. Nu kan du rensa alla resurser du har skapat genom att ta bort resursgruppen. Det gör du med kommandot **az group delete**:
-
-```azurecli
-az group delete --name myResourceGroup --no-wait
-```
+[!include[](../../../includes/azure-sandbox-cleanup.md)]
 
 ## <a name="summary"></a>Sammanfattning
 

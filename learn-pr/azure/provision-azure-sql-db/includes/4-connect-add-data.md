@@ -1,6 +1,6 @@
 Innan du ansluter databasen till din app måste du kontrollera att du kan ansluta till den, lägga till en enkel tabell och arbeta med exempeldata.
 
-Vi står för infrastrukturen, uppdateringar och korrigeringar till din Azure SQL-databas. Utöver det kan du hantera din Azure SQL-databas som vilken SQL Server-installation som helst. Du kan till exempel använda Visual Studio, SQL Server Management Studio eller andra verktyg för att hantera din Azure SQL-databas.
+Vi står för infrastrukturen, uppdateringar och korrigeringar till din Azure SQL-databas. Utöver det kan du hantera din Azure SQL-databas som vilken SQL Server-installation som helst. Du kan till exempel använda Visual Studio, SQL Server Management Studio, SQL Server Operations Studio eller andra verktyg för att hantera Azure SQL database.
 
 Hur du söker åtkomst till din databas och ansluter den till din app är upp till dig. Men för att få lite mer erfarenhet av att arbeta med databasen har du här möjlighet att prova på att ansluta den direkt från portalen, skapa en tabell och köra några grundläggande CRUD-åtgärder. Du får lära dig detta:
 
@@ -15,7 +15,7 @@ Azure Cloud Shell är ett webbläsarbaserat gränssnitt som gör det möjligt at
 
 Cloud Shell körs egentligen på Linux i bakgrunden. Beroende på om du föredrar en Linux- eller en Windows-miljö kan du välja mellan två olika versioner: Bash och PowerShell.
 
-Cloud Shell kan användas var du än befinner dig. Förutom på portalen kan du också använda Cloud Shell via [shell.azure.com](https://shell.azure.com/), Azure-mobilappen eller Visual Studio Code.
+Cloud Shell kan användas var du än befinner dig. Förutom på portalen kan du också använda Cloud Shell via [shell.azure.com](https://shell.azure.com/), Azure-mobilappen eller Visual Studio Code. Panelen till höger är en terminal som du kan använda under den här övningen Cloud Shell.
 
 Cloud Shell innehåller flera populära verktyg och redigeringsprogram. Här följer en snabb titt på `az`, `jq` och `sqlcmd` – tre verktyg som du behöver för den aktuella uppgiften.
 
@@ -27,11 +27,7 @@ Cloud Shell innehåller flera populära verktyg och redigeringsprogram. Här fö
 
 Innan du ansluter till databasen är det en bra om du kontrollerar att den verkligen finns och att den är online.
 
-Här kan du öppna Cloud Shell och använder `az`-verktyget för att visa en lista över dina databaser och information om databasen **Logistics** (Logistik), inklusive maximal storlek och status.
-
-1. Gå till portalen och klicka på **Cloud Shell** längst upp.
-
-    ![Öppna Cloud Shell](../media-draft/open-cloud-shell.png)
+Här kan du använda den `az` verktyg för att visa dina databaser och visa information om den **logistik** databas, inklusive dess maximal storlek och status.
 
 1. `az`-kommandona som du kör behöver tillgång till namnet på resursgruppen och namnet på den logiska Azure SQL-servern. Om du vill slippa skriva själv kan du köra `azure configure`-kommandot för att ange dem som standardvärden.
     Ersätt `contoso-logistics` med namnet på den logiska Azure SQL-servern.
@@ -45,7 +41,7 @@ Här kan du öppna Cloud Shell och använder `az`-verktyget för att visa en lis
     ```azurecli
     az sql db list
     ```
-    Du ser ett stort JSON-block som utdata. 
+    Du ser ett stort JSON-block som utdata.
 
 1. Eftersom vi bara vill ha databasnamnen kör du kommandot en gång till. Den här gången styr du utdata till `jq` för att endast skriva ut namnfälten.
     ```azurecli
@@ -62,7 +58,7 @@ Här kan du öppna Cloud Shell och använder `az`-verktyget för att visa en lis
       }
     ]
     ```
-    Din databas heter **Logistics** (Logistik). Precis som på SQL Server innehåller **master** metadata för servern som till exempel inloggningskonton och konfigurationsinställningar för systemet.
+    Din databas heter **Logistics** (Logistik). Som SQL Server, **master** innehåller servermetadata, till exempel logga in konton och konfigurationsinställningar för system.
 
 1. Kör `az sql db show`-kommandot för att få information om databasen **Logistics** (Logistik).
 
@@ -136,14 +132,14 @@ CRUD handlar om att **skapa**, **läsa**, **uppdatera** och **ta bort**. De här
     name
     --------------------------------------------------------------------------------------------------------------------------------
     Drivers
-    
+
     (1 rows affected)
     ```
 
 1. Kör T-SQL-uttrycket `INSERT` för att lägga till en exempelrad i tabellen. Det här är åtgärden **create** (skapa).
 
     ```sql
-    INSERT INTO Drivers (DriverID, LastName, FirstName, OriginCity) VALUES (123, 'Orton', 'Erick', 'Springfield');
+    INSERT INTO Drivers (DriverID, LastName, FirstName, OriginCity) VALUES (123, 'Zirne', 'Laura', 'Springfield');
     GO
     ```
 
@@ -166,14 +162,14 @@ CRUD handlar om att **skapa**, **läsa**, **uppdatera** och **ta bort**. De här
     DriverID
     -----------
             123
-    
+
     (1 rows affected)
     ```
 
 1. Kör T-SQL-uttrycket `UPDATE` för att ändra byta stationeringsort från ”Springfield” till ”Springfield, OR” för chauffören med `DriverID` 123. Det här är åtgärden **update** (uppdatera).
 
     ```sql
-    UPDATE Drivers SET OriginCity='Springfield, OR' WHERE DriverID=123;
+    UPDATE Drivers SET OriginCity='Springfield, AK' WHERE DriverID=123;
     GO
     ```
 
@@ -189,7 +185,7 @@ CRUD handlar om att **skapa**, **läsa**, **uppdatera** och **ta bort**. De här
     DELETE FROM Drivers WHERE DriverID=123;
     GO
     ```
-    
+
     ```console
     (1 rows affected)
     ```
@@ -206,7 +202,7 @@ CRUD handlar om att **skapa**, **läsa**, **uppdatera** och **ta bort**. De här
     ```console
     -----------
               0
-    
+
     (1 rows affected)
     ```
 

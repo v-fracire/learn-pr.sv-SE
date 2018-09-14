@@ -1,38 +1,33 @@
-In this unit, you will install Node.js - the **N** in the MEAN acronym - on an Azure-hosted Ubuntu Linux virtual machine. Node.js will serve as our runtime for handling our HTTP traffic and hosting our web application.
+I den här enheten installerar du Node.js – den **N** i MEAN förkortningen – på en Azure-värdbaserade Ubuntu Linux-dator. Node.js kommer att fungera som runtime för att hantera vår HTTP-trafik och som värd för webbappen.
 
-## Connect to the VM
+## <a name="install-nodejs"></a>Installera Node.js
 
-In order to install Node.js, you have to connect to the VM using **ssh**. If you aren't still connected to your VM, run the following command. Substitute your admin username and your VM's public IP address from above for the `<vm-admin-username>` and `<vm-public-ip>` placeholders.
+1. **Om du inte är fortfarande ansluten med SSH till den virtuella datorn från den föregående övningen**, SSH i.
 
-```bash
-ssh <vm-admin-username>@<vm-public-ip>
-```
+    ```bash
+    ssh <vm-admin-username>@<vm-public-ip>
+    ```
 
-## Install Node.js
-
-> [!Important]
-> Ubuntu provides an unofficial package called **Node.js-legacy**. This package is not maintained by Node.js and is outdated.
-
-1. Register the Node.js package repository, so **apt-get** can find the right package to install on your virtual machine.
+1. Registrera Node.js-paketlagringsplatsen så att **apt-get** kan hitta rätt paket att installera på den virtuella datorn.
 
     ```bash
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     ```
 
-1. Install the Node.js package on your Linux system.
+1. Installera Node.js-paketet på Linux-datorn.
 
     ```bash
     sudo apt-get install -y Node.js
     ```
 
-1. Verify the Node.js installation succeeded by running the following simple Node.js command.
+1. Verifiera att Node.js-installationen lyckades genom att köra följande enkla Node.js-kommando.
 
     ```bash
     node -v
     ```
 
-    The output should be something like `v8.11.4`, with the version reflecting the latest Node.js version that's available when you install the package.
+    Utdata bör se ut ungefär som `v8.11.4`, där versionen speglar den senast tillgängliga Node.js-versionen när du installerar paketet.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-With Node.js installed on your virtual machine, we can start building a web application that it will be responsible for running.
+Med Node.js installerat på den virtuella datorn kan vi börja skapa ett webbprogram som att det blir ansvarigt för att köra.

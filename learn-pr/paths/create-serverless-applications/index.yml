@@ -8,25 +8,19 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: a7f2ca804a19a5e612bb29e76455238f86b7d783
-  ms.sourcegitcommit: 4605f6af0037078761ef50cac6879711c7319635
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/11/2018
-  ms.locfileid: "44344237"
 title: Skapa serverlösa program
 summary: Med Azure Functions kan du skapa händelsestyrda system med beräkning på begäran som utlöses av olika externa händelser. Lär dig att använda funktioner för att köra logik på serversidan och skapa serverlösa arkitekturer.
 prerequisites: Ingen
-iconUrl: http://via.placeholder.com/120x120
+iconUrl: /achievements/create-serverless-applications.svg
 levels:
-- beginner
+  - beginner
 roles:
-- developer
+  - developer
 products:
-- azure
+  - azure
 modules:
-- learn.create-serverless-logic-with-functions
-- learn.execute-azure-function-with-triggers
-- learn.chain-azure-functions-data-using-input-output-bindings
-- learn.build-a-serverless-web-app
+  - learn.create-serverless-logic-with-functions
+  - learn.execute-azure-function-with-triggers
+  - learn.chain-azure-functions-data-using-input-output-bindings
+  - learn.build-a-serverless-web-app
 achievement: learn.create-serverless-applications.trophy

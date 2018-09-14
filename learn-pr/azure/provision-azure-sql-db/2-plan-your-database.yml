@@ -4,11 +4,11 @@ title: Planera för din Azure SQL-databas
 metadata:
   title: Planera för din Azure SQL-databas
   description: Planera för din Azure SQL-databas
-  ms.openlocfilehash: 8427081d8819cb44382bade51d2135c69cfe404c
-  ms.sourcegitcommit: 1663afb13d55c1fce5f2dc4c0f78ef2d74902c33
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/31/2018
-  ms.locfileid: "43363605"
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 durationInMinutes: 7
-content: '[!include[](includes/2-plan-your-database.md)]'
+content: |
+  [!include[](includes/2-plan-your-database.md)]

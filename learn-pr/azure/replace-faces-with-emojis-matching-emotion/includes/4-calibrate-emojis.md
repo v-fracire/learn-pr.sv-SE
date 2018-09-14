@@ -1,57 +1,64 @@
-We can’t pass an image of the emoji to the Face API to get it’s emotion because, well because it’s not human. So for each emoji, I needed a human proxy, me.
+Vi kan inte skicka en avbildning av emoji till brunnen eftersom den inte användas för att visa dess känslo eftersom Ansikts-API. Så för varje emoji jag behövde en mänsklig proxy mig.
 
-I took pictures of myself _accurately_ mimicking each emoji, and used the _emotional point_ for that image as the proxy for the emoji. To keep things interesting I also chose people from my team and associated them with emojis as well, like so:
+Jag började med bilder av själv _korrekt_ frihandsbilden varje emoji och används den _känslomässig punkt_ för avbildningen som proxy för emoji. För att göra det intressanta jag också valde personer från mitt team och kopplade emojis samt, t.ex:
 
 ![Team Moji](/media-drafts/team.jpg)
 
-For the emoji of love eyes (😍) I chose a picture of my wife ❤️. In memory of [Stephen Hawking](https://en.wikipedia.org/wiki/Stephen_Hawking) I picked a picture of him to represent 🤔.
+Du kan se en lista över proxy-avbildningar för varje emoji i den `bin/proxy-images` mappen i exempelkoden som är associerade med den här självstudien.
 
-You can see the list of proxy images for each emoji in the `bin/proxy-images` folder in the sample code associated with this tutorial.
+## <a name="goal"></a>Mål
 
-In this chapter you will generate a key so you can use the Azure Face API and then use the Face API to calibrate all the emojies using proxied images of me.
+I det här kapitlet genererar du nödvändiga autentiseringsnycklar så att du kan använda Ansikts-API i Azure och sedan använda Ansikts-API för att kalibrera alla emojis med hjälp av proxyn avbildningar av mig.
 
-## Generate an Azure Face API Key
+## <a name="learning-objectives"></a>Utbildningsmål
 
-<!-- To make calls to the Azure Face API we will need a special authorization key.
+- Generera API-nycklar för användning med Cognitive Services.
+- Hur du kör avbildningar via Ansikts-API och extrahera känslo-information.
 
-We are going to create one using the `az` CLI. -->
+## <a name="generate-an-azure-face-api-key"></a>Skapa en Azure Ansikts-API-nyckel
 
-To use the Azure Face API we need a special authentication key, head over to https://azure.microsoft.com/try/cognitive-services/ and signup to trial the Face API.
+Om du vill använda Ansikts-API för Azure behöver vi en autentiseringsnyckel.
 
-![Team Moji](/media-drafts/4.calibrating-emojis.get-face-api.png)
+Det snabbaste sättet att hämta en nyckel är att gå över till https://azure.microsoft.com/try/cognitive-services/?api=face-api och registrering av Ansikts-API-utvärderingsversionen.
 
-> TODO: Find az commands to create faceAPI and grab keys
+När du registrera dig får du några delarna av information som du behöver för att lagra för senare.
 
-<!-- > NOTE the Azure Face API doesn't return the emotion information by default, we need to switch on this behavior by setting some query parameters, like so:
-> https://westeurope.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=false&returnFaceLandmarks=false&returnFaceAttributes=emotion -->
+1. Hämta den _endpoint_. Det bör se ut ungefär som https://westcentralus.api.cognitive.microsoft.com/face/v1.0
 
-## Setup the environment variables
+2. Den visar två API-nycklar, store en av dem för användning senare ingen (det spelar roll vilken)
 
-The calibration script needs to know your Face API URL and Key in order to make the correct calls, rather than hardcoding these in the script we are going to use environment varialbes, run these commands in the terminal you expect to run the application in:
+## <a name="setup-the-environment-variables"></a>Konfigurera miljövariabler
+
+Skriptet kalibrering behöver veta ditt Ansikts-API-URL och nyckel för att göra rätt-anrop, i stället för att hårdkoda dessa i skriptet som vi ska använda miljövariabler, kör följande kommandon i terminalen du förväntar dig att köra programmet:
 
 ```bash
-FACE_API_URL=<the-face-api-url>
-FACE_API_KEY=<your-face-api-key>
+export FACE_API_URL=<the-face-api-url>
+export FACE_API_KEY=<your-face-api-key>
 ```
 
-<!-- > NOTE
-> Don't forget to add the query param returnFaceAttributes=emotion to ensure the Face API returns emotion as well -->
+Vi använder också ett paket som heter `dotenv` i vår Node-programmet. Det här paketet ska vi använda lagra miljövariablerna lokalt i en fil med namnet `.env`. Den `dotenv` paketet laddas alla variabler i den här filen och visas som miljövariabler i ditt program.
 
-## Create some proxy images for emojis
+> **OBS!**
+>
+> Inte checka in `.env` filerna till källkontroll.
 
-I've provided all the proxy images myself, but feel free to generate your own!
+Azure Functions har ett annat sätt för hantering av miljövariabler via sina `local.settings.json` filen, mer om det senare.
 
-For each emoji in the `bin/proxy-images` folder, take a picture of yourself mimicking that emoji and replace the image with your image.
+## <a name="create-some-proxy-images-for-emojis"></a>Skapa en proxy-avbildningar för emojis
 
-## Try it out
+Jag har angett alla avbildningar för proxy själv, men kan skapa din egen!
 
-Now comes the fun part! We are going to run each of the images in the `bin/proxy-images` through the Face API to calculate an emotional point for that emoji in _emotional space_, run:
+För varje emoji i den `bin/proxy-images` mappen, ta en bild av själv frihandsbilden som emoji och ersätta den med din avbildning.
+
+## <a name="try-it-out"></a>Prova
+
+Nu kommer roligt del! Vi kommer att köra var och en av avbildningarna i den `bin/proxy-images` via Ansikts-API för att beräkna en känslomässig tidpunkt för den emoji i _känslomässig utrymme_, kör:
 
 ```bash
 node bin/calibrate.js
 ```
 
-The output of this command should look something like so:
+Kommandots utdata bör se ut ungefär som detta:
 
 ```json
 ...
@@ -76,6 +83,6 @@ Processing 😆
 }
 ```
 
-It will first print out the emoji's it is processing and then finally print out to the console an array which defines the `EmotivePoint` of all the emoji's. This is the same format as the array in `shared/mojis.ts`.
+Den första skriver ut den emoji's är den bearbetning och sedan slutligen skriva ut till konsolen en matris som definierar den `EmotivePoint` av alla emoji. Det här är samma format som matrisen i `shared/mojis.ts`.
 
-If you changed some of the proxied images then copy the output of this script to the relevant section of `mojis.ts`
+Om du har ändrat vissa via proxy bilder kan sedan kopiera utdata från det här skriptet till relevanta avsnitt av `mojis.ts`

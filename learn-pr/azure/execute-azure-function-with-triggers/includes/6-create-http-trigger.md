@@ -1,4 +1,4 @@
-I den här övningen ska vi skapa en Azure-funktion som tar emot en HTTP-begäran med en enda sträng. Funktionen returnerar en sträng till anroparen som anger om åtgärden lyckades eller misslyckades.
+I den här enheten ska vi skapa en Azure-funktion som tar emot en HTTP-förfrågan med en enda sträng. Funktionen returnerar en sträng till anroparen som anger om åtgärden lyckades eller misslyckades. Vi kommer att fortsätta arbeta med funktionen från den föregående övningen.
 
 ## <a name="create-an-http-trigger"></a>Skapa en HTTP-utlösare
 
@@ -8,11 +8,9 @@ Vi ska fortsätta att använda vår befintliga Azure Functions-app och lägger t
 
 1. Peka på **Funktioner** och välj plustecknet (+).
 
-    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
-
 1. Välj **HTTP-utlösare**.
 
-1. Välj **C#** som språk. 
+1. Välj **C#** som språk.
 
 1. Lämna standardvärdet för **Namn**.
 
@@ -49,5 +47,3 @@ Nu har vi kopierat funktionens webbadress till Urklipp. Vi ska skicka en GET-beg
 ## <a name="clean-up"></a>Rensa
 
 För att undvika att debiteras för den här funktionen väljer du **Pausa** ovanför loggfönstret.
-
-![Pausa](../media-drafts/4-pause-timer.png)

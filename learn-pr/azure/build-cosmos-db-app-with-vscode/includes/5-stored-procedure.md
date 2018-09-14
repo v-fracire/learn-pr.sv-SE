@@ -44,7 +44,6 @@ I den här lagrade proceduren används OrderId, som innehåller en lista med all
     Konsolen visar utdata som anger att den lagrade proceduren har slutförts.
 
 ## <a name="clean-up"></a>Rensa
-<!---TODO: Update for sandbox?--->
 
 Om du planerar att fortsätta med modulerna i den här utbildningsvägen kan du hoppa över rensningsprocessen. Annars använder du följande steg för att ta bort dina resurser så att du inte debiteras för användning av tjänsten.
 

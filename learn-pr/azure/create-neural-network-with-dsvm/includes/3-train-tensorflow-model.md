@@ -56,7 +56,7 @@ Att träna modellen kräver lite mer än att bara köra ett Python-skript som la
 
     *Bilder i mappen ”hot_dog”*
 
-    Bekräfta också att mappen innehåller en textfil med namnet **retrained_labels_hotdog.txt**. Den här filen identifierar underkatalogerna som innehåller träningsbilderna. Den används av Python-skriptet som tränar modellen. Skriptet räknar filerna i varje underkatalog som identifierats i textfilen (textfilens namn är en parameter som skickas till skriptet) och använder de filerna för att träna nätverket.
+    Bekräfta också att mappen innehåller en textfil med namnet **retrained_labels_hotdog.txt**. Den här filen identifierar underkatalogerna som innehåller träningsbilderna. Den används av Python-skriptet som tränar modellen. Skriptet räknar upp filerna i varje underkatalog som identifieras i textfilen (text filnamnet är en parameter som skickas till skriptet) och använder dessa filer för att träna nätverket.
 
 1. Öppna ett andra terminalfönster och navigera till mappen ”notebooks/tensorflow-for-poets-2” – samma mapp som är öppen i det första terminalfönstret. Använd sedan följande kommando för att starta [TensorBoard](https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard), vilket är en uppsättning verktyg som används för att visualisera TensorFlow-modeller och få insyn i processen för överförd inlärning:
 

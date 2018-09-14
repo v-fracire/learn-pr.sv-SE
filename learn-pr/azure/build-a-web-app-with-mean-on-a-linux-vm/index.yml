@@ -1,48 +1,45 @@
 ### YamlMime:Module
 uid: learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm
 metadata:
-  title: Build and run a web application with the MEAN stack on an Azure Linux Virtual Machine
-  description: Learn how to set up a MEAN-based web application on a new Azure Linux virtual machine.
+  title: Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure
+  description: Lär dig hur du konfigurerar en MEAN-baserad webbapp på en ny virtuell Linux-dator i Azure.
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-title: Build and run a web application with the MEAN stack on an Azure Linux Virtual Machine
-summary: Learn how to set up a MEAN-based web application on a new Azure Linux virtual machine.
+title: Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure
+summary: Lär dig hur du konfigurerar en MEAN-baserad webbapp på en ny virtuell Linux-dator i Azure.
 abstract: |
-  In this module, you will:
-  - Decide if the MEAN web stack is right for you
-  - Create an Ubuntu Linux VM to host your web app
-  - Add MongoDB as a data store for your web app
-  - Add Node.js as a host runtime for your web app
-  - Add Express as a Node.js web framework
-  - Add mongooseJS for object modeling of your MongoDB data
-  - Create a simple web app to verify the MEAN stack is working
-    - Make the web application publicly available from your VM
+  I den här modulen kommer du att göra följande:
+  - Avgöra om MEAN-webbstacken är rätt för dig
+  - Skapa en virtuell Ubuntu Linux-dator som värd för webbappen
+  - Lägga till MongoDB som datalager för webbappen
+  - Lägga till Node.js som en runtime-värd för webbappen
+  - Lägga till Express som Node.js-webbramverk
+  - Lägga till mongooseJS för objektmodellering av dina MongoDB-data
+  - Skapa en enkel webbapp för att verifiera MEAN-stacken fungerar
+  - Göra webbappen offentligt tillgänglig från den virtuella datorn
 prerequisites: |
-  - Experience with the Bash command-line interface
-#TODO: Update icon URL with real image 
-iconUrl: http://via.placeholder.com/120x120
+  - Erfarenhet av kommandoradsgränssnittet Bash
+iconUrl: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
 levels:
-- beginner
+  - beginner
 roles:
-- developer
+  - developer
 products:
-- azure
-- azure-virtual-machines
+  - azure
+  - azure-virtual-machines
 units:
-#TODO: None of these units have a knowledge task or task validation component (need to add somewhere so users don't get marked complete solely by viewing the pages).
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.1-introduction
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.2-decide-if-mean-is-right-for-you
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.3-exercise-create-an-ubuntu-linux-vm-to-host-your-web-app
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.4-install-mongodb
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.5-exercise-install-mongodb
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.6-install-nodejs
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.7-exercise-install-nodejs
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.8-install-express
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.9-install-angularjs
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.10-exercise-create-a-simple-app-to-validate-the-installation
-- learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.11-summary
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.1-introduction
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.2-decide-if-mean-is-right-for-you
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.3-exercise-create-an-ubuntu-linux-vm-to-host-your-web-app
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.4-install-mongodb
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.5-exercise-install-mongodb
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.6-install-nodejs
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.7-exercise-install-nodejs
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.8-install-express
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.9-install-angularjs
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.10-exercise-create-a-simple-app-to-validate-the-installation
+  - learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.11-summary
 achievement: learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.badge

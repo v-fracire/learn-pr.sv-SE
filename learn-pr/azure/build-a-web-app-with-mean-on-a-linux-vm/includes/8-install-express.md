@@ -1,19 +1,21 @@
-In the MEAN stack, the **E** represents the Express component. Express is a web server framework that's built for Node.js. It will handle our request routing and helper system. It's designed to simplify building web applications that are hosted on the Node.js runtime. While the core of Express is routing, it also helps web applications work with HTTP cookies and request query string data.
+I MEAN-stacken representerar **E** Express-komponenten. Express är ett webbserverramverk som skapats för Node.js. Det hanterar vår begäranderoutning och vårt hjälpkomponentsystem. Express gör det enklare att skapa webbprogram i Node.js-körningen. Kärnan i Express är routning, men det hjälper även webbprogram att fungera med HTTP-cookies och begära frågesträngsdata.
 
-## Express version
+## <a name="express-version"></a>Express-version
 
-Because Express is a Node.js web application framework, we need to have Node.js and the node package manager installed.
+Eftersom Express är en Node.js-programramverk, måste vi ha Node.js och node package manager installeras.
 
-At the time of this writing, the Express version is `4.16.0`.
+Vid tidpunkten då den här artikeln skrivs är Express-versionen `4.16.0`.
 
-## How to install Express
+## <a name="how-to-install-express"></a>Så installerar du Express
 
-The installation is as simple as running the following command:
+Installationen är så enkel som att köra följande kommando:
 
    ```bash
    npm install express
    ```
 
-## Summary
+Du behöver inte göra detta på den virtuella datorn ännu, tar vi upp det inom kort.
 
-With Express installed, we have a shortcut path to responding to HTTP requests. We can quickly set up request routing and handlers for handling API and web page response data.
+## <a name="summary"></a>Sammanfattning
+
+Med Express installerat har vi en genväg till att svara på HTTP-begäranden. Vi kan snabbt konfigurera begäranderoutning och hanterare för hantering av API och webbplatssvarsdata.

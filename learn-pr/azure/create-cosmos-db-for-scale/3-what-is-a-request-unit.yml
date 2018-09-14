@@ -3,43 +3,37 @@ uid: learn.create-cosmos-db-for-scale.3-what-is-a-request-unit
 metadata:
   title: Vad är en enhet för programbegäran i Azure Cosmos DB?
   description: Vad är en enhet för programbegäran i Azure Cosmos DB?
-  ms.openlocfilehash: 0cc2c35e8db603453dc42b2490402b26d20e0686
-  ms.sourcegitcommit: b1b68b477ab39109c48f227b504a5050cae7a718
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/01/2018
-  ms.locfileid: "43410808"
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
 title: Vad är en enhet för programbegäran?
 durationInMinutes: 8
-content: "[!include[](includes/3-what-is-a-request-unit.md)] \n"
+content: |
+  [!include[](includes/3-what-is-a-request-unit.md)] 
 quiz:
   title: Kunskapskontroll
   questions:
-  - content: Vilket är det minsta värde som du bör ange för dataflödet när du skapar ett Azure Cosmos DB-konto och du vill vara säker på att det kan växa med behoven i programmet?
-    choices:
-    - content: 400 RU/s
-      isCorrect: false
-      incorrectExplanation: 400 RU/s är det minsta dataflöde som du kan ange för en Azure Cosmos DB. Databaser som har skapats med ett ursprungligt dataflöde på 400 RU/s kommer dock inte att skalas automatiskt.
-    - content: 1 000 RU/s
-      isCorrect: true
-      correctExplanation: Rätt! Ett dataflöde på 1 000 RU/s är det lägsta värdet för att aktivera automatisk skalning av din databas.
-    - content: 1 400 RU/s
-      isCorrect: false
-      incorrectExplanation: Att ställa in dataflödet på 1 400 RU/s skulle aktivera databasen för automatisk skalning. Det är dock inte det minsta värde som du kan ange för detta.
-    - content: 250 000 RU/s
-      isCorrect: false
-      incorrectExplanation: Att ställa in dataflödet på 1 400 RU/s skulle aktivera databasen för automatisk skalning. Det är dock inte det minsta värde som du kan ange för detta.
-  - content: Om du tänker skriva ett dokument på 4 KB till en Azure Cosmos DB-databas 100 gånger per sekund och läsa dokument på 4 KB 500 gånger per sekund, hur många enheter för programbegäran ska du etablera för att säkerställa att ditt konto inte är hastighetsbegränsat?
-    choices:
-    - content: 400 RU/s
-      isCorrect: false
-      incorrectExplanation: Tyvärr uppstår en hastighetsbegränsning om du endast har etablerat 400 RU/s för det här scenariot. Ta en titt på tabellen och leta efter ett dokument på 4 KB som kräver 500 läsningar per sekund och 100 skrivningar per sekund.
-    - content: 1 000 RU/s
-      isCorrect: false
-      incorrectExplanation: Tyvärr uppstår en hastighetsbegränsning om du endast har etablerat 1 000 RU/s för det här scenariot. Ta en titt på tabellen och leta efter ett dokument på 4 KB som kräver 500 läsningar per sekund och 100 skrivningar per sekund.
-    - content: 1 300 RU/s
-      isCorrect: false
-      incorrectExplanation: Tyvärr uppstår en hastighetsbegränsning om du endast har etablerat 1 300 RU/s för det här scenariot. Ta en titt på tabellen och leta efter ett dokument på 4 KB som kräver 500 läsningar per sekund och 100 skrivningar per sekund.
-    - content: 1 400 RU/s
-      isCorrect: true
-      correctExplanation: Rätt! Tabellen visar att du behöver minst 1 350 RU/s för det här scenariot. För att se till att ingen hastighetsbegränsning uppstår bör du ha 1 400 RU/s, eftersom du behöver mer än 1 350 RU/s. Enheter för programbegäran etableras i enheter om 100 (1 300, 1 400, 1 500 osv.).
+    - content: Vilket är det minsta värde som du bör ange för dataflödet när du skapar ett Azure Cosmos DB-konto och du vill vara säker på att det kan växa med behoven i programmet?
+      choices:
+        - content: 400 RU/s
+          isCorrect: false
+        - content: 1 000 RU/s
+          isCorrect: true
+          correctExplanation: Ett dataflöde på 1 000 RU/s är det lägsta värdet för att aktivera automatisk skalning av din databas.
+        - content: 1 400 RU/s
+          isCorrect: false
+        - content: 250 000 RU/s
+          isCorrect: false
+    - content: 'Om du planerar att skriva ett 4 KB-dokument till en Azure Cosmos DB-databas 100 gånger per sekund och läsa 500 gånger per sekund, hur många enheter för programbegäran ska du etablera för att säkerställa att ditt konto inte är rate-limited?'
+      choices:
+        - content: 400 RU/s
+          isCorrect: false
+        - content: 1 000 RU/s
+          isCorrect: false
+        - content: 1 300 RU/s
+          isCorrect: false
+        - content: 1 400 RU/s
+          isCorrect: true
+          correctExplanation: 'Du behöver minst 1350 RU/s för det här scenariot. För att säkerställa att du inte är hastighetsbegränsad, bör du tillhandahålla 1400 RU/s så du behöver mer än 1350 RU/s och begäransenheter är etablerat i enheter om 100 (1300, 1400, 1500, osv.).'

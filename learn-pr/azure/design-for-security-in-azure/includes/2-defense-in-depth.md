@@ -1,109 +1,109 @@
-There's no "easy button" for security and no solution that solves all your problems from a security perspective. Let's imagine that Lamna Healthcare has been neglecting security in their environment, but has realized that they need to put some major focus in this area. They're not exactly sure where to start, or if they can just buy a solution to make their environment secure. They know they need an overall holistic approach, but are unsure what really fits into that. Here, we'll identify key concepts of defense in depth, identify key security technologies and approaches to support a defense in depth strategy, and discuss how to apply these concepts when architecting your own Azure services.
+Det finns inte någon ”enkel knapp” som kan användas för säkerheten och det finns inte någon lösning som löser alla problem ur säkerhetssynpunkt. Låt oss anta att Lamna Healthcare har ignorerat säkerheten i sin miljö, men nu har insett att de måste lägga större fokus på det här området. De vet inte exakt var de ska börja eller om de bara helt enkelt kan köpa en lösning som skyddar deras miljö. De vet att de behöver ha en övergripande helhetssyn, men de är osäkra på vad det egentligen innebär. Här kan vi se viktiga delar i ett djupgående skydd, vi kan identifiera viktiga säkerhetstekniker och metoder och vi diskuterar hur de här koncepten används när man skapar sina egna Azure-tjänster.
 
-## A layered approach to security
+## <a name="a-layered-approach-to-security"></a>Säkerhet på flera nivåer
 
-*Defense in depth* is a strategy that employs a series of mechanisms to slow the advance of an attack aimed at acquiring unauthorized access to information. Each layer provides protection so that if one layer is breached, a subsequent layer is already in place to prevent further exposure. Microsoft applies a layered approach to security, both in our physical datacenters and across Azure services. The objective of defense in depth is to protect and prevent information from being stolen by individuals not authorized to access it. The common principles used to define a security posture are confidentiality, integrity, and availability, known collectively as CIA.
+*Skydd på djupet* är en strategi som använder en serie mekanismer till att fördröja en attack som syftar till att få obehörig åtkomst till information. Varje lager ger skydd så att om ett lager har överskrids kan ett lager för efterföljande redan är på plats för att förhindra ytterligare exponering. Microsoft gäller ett lager säkerhet, både i våra fysiska datacenter och mellan olika Azure-tjänster. Målet med ett djupgående skydd är att skydda och förhindra att information blir stulen av personer som inte har behörighet till den. De allmänna principer som används för att definiera en säkerhetsposition är sekretess, integritet och tillgänglighet (CIA).
 
-- __Confidentiality__ - Principle of least privilege. Restricting access to information only to individuals explicitly granted access. This information includes protection of user passwords, remote access certificates, and email content.
+- __Sekretess__ – Principen om lägsta behörighet. Begränsar åtkomst av information till personer som uttryckligen beviljats åtkomst. Informationen omfattar skydd av användarlösenord, fjärråtkomstcertifikat och e-postinnehåll.
 
-- __Integrity__ - The prevention of unauthorized changes to information at rest or in transit. A common approach used in data transmission is for the sender to create a unique fingerprint of the data using a one-way hashing algorithm. The hash is sent to the receiver along with the data. The data's hash is recalculated and compared to the original by the receiver to ensure the data wasn't lost or modified in transit.
+- __Integritet__ – Förhindra obehöriga ändringar av information i viloläge eller under överföring. Det är en vanlig metod som används vid dataöverföring där avsändaren skapar ett unikt fingeravtryck av datan med en enkelriktad hash-algoritm. Hashen skickas till mottagaren tillsammans med datan. Datans hash omberäknas och jämförs med originalet av mottagaren för att se till att data inte har tappats bort eller ändrats under överföringen.
 
-- __Availability__ - Ensure services are available to authorized users. Denial of service attacks are the most prevalent malicious example of this. Natural disasters also drive system design to prevent singe points of failure and deploy multiple instances of an application to geo-dispersed locations.
+- __Tillgänglighet__ – Se till att tjänsterna är tillgängliga för auktoriserade användare. DoS-attacker är det vanligaste skadliga exemplet på detta. Naturkatastrofer kan även innebära att systemdesign förhindrar enskilda felpunkter och distribuerar flera instanser av ett program till geografiskt spridda platser.
 
-## Security layers
+## <a name="security-layers"></a>Säkerhetsnivåer
 
-Defense in depth can be visualized as a set of concentric rings, with the data to be secured at the center. Each ring adds an additional layer of security around the data. This approach removes reliance on any single layer of protection and acts to slow down an attack and provide alert telemetry that can be acted upon, either automatically or manually. Let's take a look at each of the layers.
+Djupgående skydd kan visualiseras som en uppsättning av koncentriska ringar, där de data som ska skyddas ligger i mitten. Varje ring är en extra säkerhetsnivå kring datan. Den här metoden innebär att man inte behöver förlita sig på en enda skyddsnivå. Den fördröjer angrepp och aviserar med telemetri som kan åtgärdas, antingen automatiskt eller manuellt. Låt oss ta en titt på var och en av dessa nivåer.
 
-![Defense in depth](../media-draft/defense_in_depth_layers_small.PNG)
+![Skydd på djupet](../media-draft/defense_in_depth_layers_small.PNG)
 
-### Data
+### <a name="data"></a>Data
 
-In almost all cases, attackers are after data:
+I nästan alla fall är angriparna ute efter data:
 
-- Data stored in a database
-- Data stored on disk inside virtual machines
-- Data stored on a SaaS application such as Office 365
-- Data stored in cloud storage
+- Data som lagras i en databas
+- Data som lagras på en disk i virtuella datorer
+- Data som lagras i ett SaaS-program, till exempel Office 365
+- Data som lagras i molnlagring
 
-It's the responsibility of those storing and controlling access to data to ensure that it's properly secured. Often there are regulatory requirements that dictate the controls and processes that must be in place to ensure the confidentiality, integrity, and availability of the data.
+Ansvaret för att säkerställa att datan är skyddad ligger hos de som lagrar och styr åtkomsten till den. Det finns ofta regelverk som fastställer vilka kontroller och processer som behövs för att säkerställa sekretess, integritet och tillgänglighet för datan.
 
-### Applications
+### <a name="applications"></a>Program
 
-- Ensure applications are secure and free of vulnerabilities
-- Store sensitive application secrets in a secure storage medium
-- Make security a design requirement for all application development
+- Se till att programmen är säkra utan sårbarheter
+- Lagra känsliga programhemligheter i ett säkert lagringsmedium
+- Göra säkerhet till ett designkrav för all programutveckling
 
-Integrating security into the application development life cycle will help reduce the number of vulnerabilities introduced in code. Encourage all development teams to ensure their applications are secure by default, and are making security requirements non-negotiable.
+Om säkerhet introduceras i livscykeln för programutveckling kan antalet säkerhetsrisker i koden minskas. Uppmuntra alla utvecklingsteam att säkerställa att programmen är säkra som standard, och gör kraven på säkerhet icke förhandlingsbara.
 
-### Compute
+### <a name="compute"></a>Beräkning
 
-- Secure access to virtual machines
-- Implement endpoint protection and keep systems patched and current
+- Säker åtkomst till virtuella datorer
+- Implementera slutpunktsskydd och se till att systemen är korrigerade och aktuella
 
-Malware, unpatched systems, and improperly secured systems open your environment to attacks. The focus in this layer is on making sure your compute resources are secure, and you have the proper controls in place to minimize security issues.
+Skadlig kod, okorrigerade system och felaktigt skyddade system öppnar din miljö för attacker. Fokus i detta skikt som ligger på att se till att dina beräkningsresurser är säkra och du har rätt kontroller på plats för att minimera säkerhetsproblem.
 
-### Networking
+### <a name="networking"></a>Nätverk
 
-- Limit communication between resources
-- Deny by default
-- Restrict inbound internet access and limit outbound where appropriate
-- Implement secure connectivity to on-premises networks
+- Begränsa kommunikationen mellan resurser
+- Neka som standard
+- Begränsa inkommande Internet-åtkomst och begränsa den utgående åtkomsten när det är lämpligt
+- Implementera en säker anslutning till lokala nätverk
 
-At this layer, the focus is on limiting the network connectivity across all your resources to only allow what is required. By limiting this communication, you reduce the risk of lateral movement throughout your network.
+På den här nivån ligger fokus på att begränsa nätverksanslutningen mellan alla resurser och endast tillåta det som krävs. Genom att begränsa kommunikationen kan du minska risken för lateral förflyttning i hela nätverket.
 
-### Perimeter
+### <a name="perimeter"></a>Perimeternätverk
 
-- Use distributed denial-of-service (DDoS) protection to filter large-scale attacks before they can cause a denial of service for end users
-- Use perimeter firewalls to identify and alert on malicious attacks against your network
+- Använd ett skydd mot distribuerade överbelastningsattacker till att filtrera storskaliga attacker, innan de orsakar en överbelastningsattack hos slutanvändarna
+- Använd perimeterbrandväggar till att identifiera och varna vid skadliga attacker mot ditt nätverk
 
-At the network perimeter, it's about protecting from network-based attacks against your resources. Identifying these attacks, eliminating their impact, and alerting on them is important to keep your network secure.
+I nätverksperimetern handlar det om att skydda sig mot nätverksbaserade attacker mot dina resurser. Att identifiera dessa attacker, eliminerar deras inverkan och varna för dem är viktigt för att skydda ditt nätverk.
 
-### Policies & access
+### <a name="policies--access"></a>Principer och åtkomst
 
-- Control access to infrastructure, change control
-- Use single sign-on and multi-factor authentication
-- Audit events and changes
+- Styra åtkomsten till infrastruktur, ändra styrningen
+- Använda enkel inloggning och multifaktorautentisering
+- Granska händelser och ändringar
 
-The policy & access layer is all about ensuring identities are secure, and that access granted is only what is needed, and changes are logged.
+Nivån för princip och åtkomst handlar om att säkerställa att identiteter är skyddade, samt att enbart bevilja åtkomst för det som behövs och logga ändringar.
 
-### Physical security
+### <a name="physical-security"></a>Fysisk säkerhet
 
-- Physical building security and controlling access to computing hardware within the data center is the first line of defense.
+- Är den första försvarslinjen fysiska att bygga in säkerhet och kontrollera åtkomst till maskinvara för databehandling i datacenter.
 
-With physical security, the intent is to provide physical safeguards against access to assets. This ensures that other layers can't be bypassed, and loss or theft is handled appropriately.
+Avsikten är att tillhandahålla fysiska skydd mot åtkomst till tillgångar fysiska säkerheten. Detta säkerställer att andra nivåer inte kan kringgås, samt att förlust eller stöld hanteras korrekt.
 
-Each layer can implement one or more of the CIA concerns.
+Varje nivå kan implementera en eller flera av CIA-åtgärderna.
 
-|#|Ring|Example|Principle
+|#|Ring|Exempel|Princip
 |---|---|---|---|
-|1|Data|Data encryption at rest in Azure blob storage|Integrity|
-|2|Application|SSL/TLS encrypted sessions|Integrity|
-|3|Compute|Regularly apply OS and layered software patches|Availability|
-|4|Network|Network security rules|Confidentiality|
-|5|Perimeter|DDoS protection|Availability|
-|6|Policies & Access|Azure Active Directory user authentication|Integrity|
-|7|Physical Security|Azure data center biometric access controls|Confidentiality|
+|1|Data|Datakryptering i viloläge i Azure Blob Storage|Integritet|
+|2|Program|Krypterade SSL/TLS-sessioner|Integritet|
+|3|Beräkning|Tillämpa korrigeringar av operativsystem och programnivåer regelbundet|Tillgänglighet|
+|4|Nätverk|Nätverkssäkerhetsregler|Sekretess|
+|5|Perimeternätverk|DDoS-skydd|Tillgänglighet|
+|6|Principer och åtkomst|Användarautentisering med Azure Active Directory|Integritet|
+|7|Fysisk säkerhet|Biometriska åtkomstkontroller för Azures datacenter|Sekretess|
 
-## Shared responsibilities
+## <a name="shared-responsibilities"></a>Delat ansvar
 
-As computing environments move from customer-controlled datacenters to cloud datacenters, the responsibility of security also shifts. Security is now a concern shared by both cloud providers and customers.
+När beräkningsmiljöer flyttas från kundstyrda datacentra till molndatacentra, övergår också ansvaret för säkerheten. Säkerhet är nu en åtgärd som delas av både molnproviders och kunder.
 
 ![shared_responsibility.png](../media-draft/shared_responsibilities.png)
 
-## Continuous improvement
+## <a name="continuous-improvement"></a>Kontinuerlig förbättring
 
-The threat landscape is evolving in real time and at massive scale, therefore a security architecture is never complete. Microsoft and our customers require the ability to respond to these threats intelligently, quickly, and at scale.
+Hotlandskapet utvecklas i realtid och i massiv skala, därför blir en säkerhetsarkitektur aldrig färdig. Microsoft och våra kunder kräver möjligheten att svara på hoten Smart, snabbt och skalenligt.
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) provides customers with unified security management and advanced threat protection to understand and respond to security events on-premises and in Azure. In turn, Azure customers have a responsibility to continually reevaluate and evolve their security architecture.
+[Azure Security Center](https://azure.microsoft.com/services/security-center/) ger kunderna en enhetlig säkerhetshantering och ett avancerat skydd mot hot som förstår och svarar på säkerhetshändelser lokalt och i Azure. Azure-kunderna har i sin tur ett ansvar för att kontinuerligt omvärdera och utveckla sin säkerhetsarkitektur.
 
-## Defense in depth at Lamna Healthcare
+## <a name="defense-in-depth-at-lamna-healthcare"></a>Skydd på djupet på Lamna Healthcare
 
-Lamna Healthcare has put a strong focus on defense in depth across all IT teams. Since the organization is responsible for a substantial amount of sensitive health care data, they realize that a comprehensive approach is their best path forward. 
+Lamna Healthcare har satt tydligt fokus på ett djupgående skydd i alla IT-team. Eftersom organisationen är ansvarig för en stor mängd känsliga patientdata, inser de att en heltäckande metod är det bästa valet. 
 
-They've formed a virtual team, with representatives from each IT team along with their security team, that is focused on driving this across the organization. They work on educating engineers and architects on vulnerabilities, how to address them, and provide guidance as projects move through the organization.
+De har skapats på rätt sätt ett virtuellt team med representanter från varje IT-avdelningen tillsammans med deras säkerhetsteamet som fokuserar på att förbättra detta i organisationen. De samarbetar med utbildare, tekniker och arkitekter om sårbarheter, hur man åtgärdar dem och de får vägledning medan projektet implementeras i organisationen.
 
-They realize that this effort is never done, and have put in place regular policy, process, technical, and architectural reviews to ensure they are constantly looking at ways to improve security.
+De upptäcker att den här insatsen aldrig har gjort och har placerat i plats regelbundna princip, process, teknik och arkitektoniska granskningar för att säkerställa att de ständigt tittar på sätt att förbättra säkerheten.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-We've looked at what a defense in depth approach to security looks like, what the layers of this approach look like, and what each layer is focused on. Using this approach to secure your architecture will put you on a path forward to ensure you're addressing security comprehensively across your environment instead of focusing on one single layer or technology.
+Vi har tittat på hur ett skydd på djupet kan se ut, vilka nivåerna i den här metoden är och vad varje nivå fokuserar på. Med den här metoden för att skydda din arkitektur placeras du på en sökväg vanlig att säkerställa säkerhet adressering ett mer omfattande sätt i din miljö i stället för att fokusera på en enda nivå eller teknik.

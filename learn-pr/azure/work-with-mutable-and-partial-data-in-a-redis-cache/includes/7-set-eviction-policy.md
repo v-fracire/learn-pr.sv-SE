@@ -1,15 +1,15 @@
-Here you'll add an eviction policy to our Azure Redis Cache.
+Här lägger du till en Borttagningsprincip till Azure Redis Cache.
 
-## Set an eviction policy
+## <a name="set-an-eviction-policy"></a>Ange en Borttagningsprincip
 
-To set an eviction policy in Azure, we simply use a drop-down menu in the portal.
+Ange en Borttagningsprincip i Azure och använda vi helt enkelt en nedrullningsbar meny i Azure-portalen.
 
-1. Open your Redis Cache in the Azure portal.
+1. Öppna din Azure Redis Cache i Azure-portalen.
 
-1. Select the **Advanced settings** blade.
+1. Välj den **avancerade inställningar** bladet.
 
-1. Use the **maxmemory-policy** drop-down menu and select **allkeys-random**.
+1. Använd den **princip för max. minne** nedrullningsbara menyn och välj **allkeys slumpmässiga**.
 
-1. Click **Save**. 
+1. Klicka på **Spara**. 
 
-At this point, if you run out of memory, Redis will select a random key to delete to make room for your new data.
+Nu om du kör slut på minne, Välj en slumpmässig nyckel tas bort för att göra plats för din nya data i Azure Redis Cache.

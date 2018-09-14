@@ -1,78 +1,65 @@
 ### YamlMime:ModuleUnit
 uid: learn.monitor-manage-device-with-iotcentral.6-knowledge-check
 metadata:
-# Search engine metadata  
-  title: Knowledge check 
-  description: This is a knowledge check of the Azure IoT Central tutorial
+  title: Kunskapskontroll
+  description: Det här är en kunskapskontroll av Azure IoT Central-självstudien
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-title: Knowledge check of the Azure IoT Central tutorial
+title: Kunskapskontroll av Azure IoT Central-självstudien
 durationInMinutes: 11
 content: |
   [!include[](includes/6-knowledge-check.md)]
 quiz:
-  title: 'Knowledge check for the Azure IoT Central tutorial'
+  title: Kunskapskontroll av Azure IoT Central-självstudien
   questions:
-  - content: Where do you define telemetry in IoT Central?
-    choices:
-    - content: Settings
-      isCorrect: false
-    - content: Properties
-      isCorrect: false
-    - content: Measurements
-      isCorrect: true
-    - content: Dashboard
-      isCorrect: false
-    - content: Rules
-      isCorrect: false
-
-  - content: What are the actions available when configuring rules?
-    choices:
-    - content: Email
-      isCorrect: false
-    - content: Microsoft Flow
-      isCorrect: false
-    - content: Webhook
-      isCorrect: false
-    - content: All of the above
-      isCorrect: true
-    - content: None of the above 
-      isCorrect: false
-
-  - content: Where do you add the firmware of your device?
-    choices:
-    - content: Measurements
-      isCorrect: false
-    - content: Settings
-      isCorrect: false
-    - content: Properties
-      isCorrect: true
-    - content: Rules
-      isCorrect: false
-    - content: Dashboard 
-      isCorrect: false
-
-  - content: How do you obtain the connection string to connect your device to IoT Central?
-    choices:
-    - content: By adding a device in IoT Central
-      isCorrect: true
-    - content: By providing the firmware MAC address
-      isCorrect: false
-    - content: Customizing it on your own and registering it with IoT Central
-      isCorrect: false
-    - content: All of the above
-      isCorrect: false
-    - content: None of the above
-      isCorrect: false
-
-
-
-
-
-
-
-
+    - content: Var definierar du telemetri i IoT Central?
+      choices:
+        - content: Inställningar
+          isCorrect: false
+        - content: Egenskaper
+          isCorrect: false
+        - content: Mått
+          isCorrect: true
+        - content: Instrumentpanel
+          isCorrect: false
+        - content: Regler
+          isCorrect: false
+    - content: Vilka är de tillgängliga åtgärderna när du konfigurerar regler?
+      choices:
+        - content: E-post
+          isCorrect: false
+        - content: Microsoft Flow
+          isCorrect: false
+        - content: Webhook
+          isCorrect: false
+        - content: Alla alternativ ovan
+          isCorrect: true
+        - content: Inget av ovanstående
+          isCorrect: false
+    - content: Var lägger du till enhetens inbyggda programvara?
+      choices:
+        - content: Mått
+          isCorrect: false
+        - content: Inställningar
+          isCorrect: false
+        - content: Egenskaper
+          isCorrect: true
+        - content: Regler
+          isCorrect: false
+        - content: Instrumentpanel
+          isCorrect: false
+    - content: Hur får du anslutningssträngen för att ansluta enheten till IoT Central?
+      choices:
+        - content: Genom att lägga till en enhet i IoT Central
+          isCorrect: true
+        - content: Genom att tillhandahålla den inbyggda programvaran med MAC-adressen
+          isCorrect: false
+        - content: Genom att anpassa den på egen hand och registrera den i IoT Central
+          isCorrect: false
+        - content: Alla alternativ ovan
+          isCorrect: false
+        - content: Inget av ovanstående
+          isCorrect: false

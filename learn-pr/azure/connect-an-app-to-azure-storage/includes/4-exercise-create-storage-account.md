@@ -1,45 +1,45 @@
-Now that we have an app, we need an Azure storage account to work with. We created one using the Azure portal in the **Create an Azure storage account** module. Let's use the Azure CLI this time.
+Nu när vi har en app kan behöver vi ett Azure storage-konto för att arbeta med. Vi har skapat en med hjälp av Azure-portalen i den **skapa ett Azure storage-konto** modulen. Nu ska vi använda Azure CLI för den här gången.
 
 <!-- Activate the sandbox -->
 [!include[](../../../includes/azure-sandbox-activate.md)]
 
-## Use the Azure CLI to create an Azure storage account
+## <a name="use-the-azure-cli-to-create-an-azure-storage-account"></a>Använda Azure CLI för att skapa ett Azure storage-konto
 
-We will use the `az storage account create` command to create a new storage account. It takes several parameters which we either need to supply (or should) to configure it the way we want.
+Vi använder den `az storage account create` kommando för att skapa ett nytt lagringskonto. Det tar flera parametrar som vi antingen måste du ange (eller bör) att konfigurera den som vi vill.
 
 > [!div class="mx-tableFixed"]
-> | Option | Description |
+> | Alternativ | Beskrivning |
 > |--------|-------------|
-> | `--name` | A **Storage account name**. The name will be used to generate the public URL used to access the data in the account. It must be unique across all existing storage account names in Azure. It must be 3 to 24 characters long and can contain only lowercase letters and numbers. |
-> | `--resource-group` | Use <rgn>[Sandbox resource group name]</rgn> to place the storage account into the free sandbox. |
-> | `--location` | Select a location near you. |
-> | `--kind` | This determines the storage account _type_. Options include BlobStorage, Storage, and StorageV2. |
-> | `--sku` | This decides the storage account performance and replication model. Options include Premium_LRS, Standard_GRS, Standard_LRS, Standard_RAGRS, and Standard_ZRS. |
-> | `--access-tier` | The **Access tier** is only used for Blob storage, available options are Cool and Hot. The **Hot Access Tier** is ideal for frequently accessed data, and the **Cool Access Tier** is better for infrequently accessed data. Note that this only sets the _default_ value - when you create a Blob, you can set a different value for the data. |
+> | `--name` | En **lagringskontonamn**. Namnet används för att generera en offentlig URL som används för att komma åt data på kontot. Det måste vara unikt inom alla befintliga lagringskontonamn i Azure. Det måste vara 3 och 24 tecken långt och får bara innehålla gemena bokstäver och siffror. |
+> | `--resource-group` | Använd <rgn>[Sandbox resursgruppens namn]</rgn> att placera storage-konto i kostnadsfria sandbox-miljön. |
+> | `--location` | Välj en plats nära dig (se nedan). |
+> | `--kind` | Detta avgör lagringskontot _typ_. Alternativ inkluderar `BlobStorage`, `Storage`, och `StorageV2`. |
+> | `--sku` | Detta avgör konto prestanda och replikering lagringsmodellen. Alternativ inkluderar `Premium_LRS`, `Standard_GRS`, `Standard_LRS`, `Standard_RAGRS`, och `Standard_ZRS`. |
+> | `--access-tier` | Den **åtkomstnivå** är endast används för Blob storage, tillgängliga alternativ är [`Cool` | `Hot`]. Den **frekventa åtkomstnivån** är perfekt för data som används ofta och **kalla åtkomstnivåer** är bättre för data som sällan används. Observera att detta endast anger den _standard_ värdet&mdash;när du skapar en Blob kan du ange ett annat värde för data. |
     
-Use the above table to craft a command line in the Cloud Shell on the right to create the account.
-- Use a unique name, we recommend something like "photostore" with your initials and a random number. You will get an error if it's not unique.
-- Normally you would create a new resource group to hold your app resources, in this case use the Sandbox resource group.
-- Use "Standard_LRS" for the **sku**, this will use standard storage with local replication which is fine for this example.
-- Use "Cold" for the **Access Tier**.
+Använda tabellen ovan för att skapa en kommandorad i Cloud Shell till höger för att skapa kontot.
+- Använd ett unikt namn. Vi rekommenderar att något som liknar ”photostore” med din initialer och ett slumptal. Du får ett fel om det inte är unikt.
+- Normalt skulle du skapa en ny resursgrupp för att hålla din appresurser, men i det här fallet använder Sandbox-resursgrupp.
+- Använd ”Standard_LRS” för den **sku**. Detta använder standard storage med lokal replikering, vilket är bra för det här exemplet.
+- Använd ”kalla” för den **åtkomst till nivån**.
 
-### Selecting a location
+### <a name="selecting-a-location"></a>Att välja en plats
 <!-- Resource selection -->
 [!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-### Example command
+### <a name="example-command"></a>Exempelkommando
 
-```bash
+```azurecli
 az storage account create \
         --name <name> \
         --resource-group <rgn>[Sandbox resource group name]</rgn> \
         --location <region> \
         --kind StorageV2 \
         --sku Standard_LRS \ 
-        --access-tier Cold
+        --access-tier Cool
 ```
 
 > [!TIP]
-> If you are interested in exploring the options for the storage account, make sure to go through the **Create an Azure storage account** where we go through them in depth.
+> Om du är intresserad av att utforska alternativ för storage-konto kan du se till att gå igenom den **skapa ett Azure storage-konto** där vi gå igenom dem i detalj.
 
-It will take a few minutes to deploy the account. While Azure is working on that, let's explore the APIs we'll use with this account.
+Det tar några minuter att distribuera kontot. Medan Azure arbetar med som, låt oss utforska API: er som vi ska använda med det här kontot.

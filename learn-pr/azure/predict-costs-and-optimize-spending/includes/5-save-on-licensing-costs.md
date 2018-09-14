@@ -2,7 +2,7 @@ Licensiering är ett annat område som kan ha stor inverkan på dina utgifter. N
 
 ## <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 
-Många kunder har investerat i Windows Server-licenser och vill kunna dra nytta av den här investeringen i Azure. Azure Hybrid-förmånen ger kunderna rätt att använda dessa licenser för virtuella datorer i Azure. Det innebär att du inte debiteras för Windows Server-licensen utan istället betalar Linux-priset. 
+Många kunder har investerat i Windows Server-licenser och vill kunna dra nytta av den här investeringen i Azure. Azure Hybrid-förmånen ger kunderna rätt att använda dessa licenser för virtuella datorer i Azure. Det innebär att du inte debiteras för Windows Server-licensen utan istället betalar Linux-priset.
 
 För att få tillgång till den här förmånen måste dina Windows-licenser omfattas av Software Assurance. Följande riktlinjer gäller också:
 
@@ -31,7 +31,7 @@ Azure Hybrid-förmånen fungerar så här för Azure SQL Database:
 
 Följande illustration visar de alternativ för virtuella kärnor som är tillgängliga på varje tjänstnivå med Azure Hybrid-förmånen för SQL Server-licenser.
 
-![En illustration som visar ett exempel på hur du kan maximera värdet av din befintliga SQL Server-licens med hjälp av Azure Hybrid-förmånen.](../media-drafts/5-sql-tradein-value.png)
+![En illustration som visar ett exempel på hur du kan maximera värdet av din befintliga SQL Server-licens med hjälp av Azure Hybrid-förmånen.](../media/5-sql-tradein-value.png)
 
 För SQL Server i Azure Virtual Machines fungerar Azure Hybrid-förmånen så här:
 
@@ -49,7 +49,7 @@ Nedan kan du läsa fullständig information om respektive erbjudande. Om du är 
 
 Om du är en kund med ett Enterprise-avtal och redan har investerat i SQL Server-licenser, som sedan har frigjorts när du flyttat resurser till Azure, kan du etablera **BYOL-avbildningar** (använd din egen licens) från Azure Marketplace. Då får du användning för dina licenser och minskar kostnaden för dina virtuella Azure-datorer. Du har alltid kunnat göra det här genom att etablera en virtuell Windows-dator och installera SQL Server manuellt, men när du använder certifierade avbildningar från Microsoft blir processen enklare. Sök efter **BYOL** på Marketplace om du vill hitta de här avbildningarna.
 
-![BYOL för SQL Server i Azure](../media-drafts/5-byol-sql-server.png)
+![Skärmbild av Azure-portalen som visar alternativ för BYOL för SQL Server.](../media/5-byol-sql-server.png)
 
 > [!IMPORTANT]
 > Du behöver en Enterprise Agreement-prenumeration för att använda de här certifierade BYOL-avbildningarna.
@@ -58,12 +58,12 @@ Om du är en kund med ett Enterprise-avtal och redan har investerat i SQL Server
 
 Det är många som inte känner till att SQL Server Developer Edition är en kostnadsfri produkt **när den inte används i produktion**. Developer Edition har samma funktioner som Enterprise Edition, men för miljöer utanför produktion. Det här gör att du kan sänka dina licenskostnader avsevärt.
 
-Leta efter SQL Server-avbildningar för Developer Edition på Azure Marketplace och använd dem för utveckling eller testning. Då eliminerar du den extra kostnaden för SQL Server i de här fallen. 
+Leta efter SQL Server-avbildningar för Developer Edition på Azure Marketplace och använd dem för utveckling eller testning. Då eliminerar du den extra kostnaden för SQL Server i de här fallen.
 
 > [!TIP]
 > Mer information finns i [dokumentationen om prissättning](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
-## <a name="use-constrained-instance-sizes-for-database-workloads"></a>Använda begränsade instansstorlekar för databasarbetsbelastningar 
+## <a name="use-constrained-instance-sizes-for-database-workloads"></a>Använda begränsade instansstorlekar för databasarbetsbelastningar
 
 Många kunder har stora krav på minne, lagring och I/O-bandbredd, men ett litet antal processorkärnor. På grund av detta så har Microsoft gjort de mest populära storlekarna (DS, ES, GS och MS) tillgängliga i nya storlekar där antalet kärnor begränsas till hälften eller en fjärdedel av den ursprungliga VM-storleken, men med samma mängd minne lagring och I/O-bandbredd.
 
@@ -74,4 +74,4 @@ Många kunder har stora krav på minne, lagring och I/O-bandbredd, men ett litet
 | Standard_GS5      | 32 | 448    | 64 | 80 000 IOPS eller 2 MB/s   |           |           |
 | Standard_GS5-8    | **8**  | 448    | 64 | 80 000 IOPS eller 2 MB/s   | 75 % lägre | 42 % lägre |
 
-Eftersom databasprodukter som SQL Server och Oracle licensieras per processor så kan kunderna sänka sina licenskostnader med upp till 75 procent och samtidigt få tillgång till de databasprestanda som behövs. 
+Eftersom databasprodukter som SQL Server och Oracle licensieras per processor så kan kunderna sänka sina licenskostnader med upp till 75 procent och samtidigt få tillgång till de databasprestanda som behövs.

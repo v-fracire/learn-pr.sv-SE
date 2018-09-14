@@ -1,20 +1,20 @@
-Azure Key Vault uses **Azure Active Directory** to authenticate users and applications that try to access a vault. To grant our web application access to the vault, we first need to register our app with Azure Active Directory. Registering creates an identity for the app. Once the app has an identity, we can assign vault permissions to it.
+Azure Key Vault använder **Azure Active Directory** till att autentisera användare och program som försöker få åtkomst till ett valv. För att ge vår webbapp åtkomst till valvet, måste vi först registrera appen med Azure Active Directory. Vid registreringen skapas en identitet för appen. När appen har en identitet kan vi tilldela valvbehörigheter till den.
 
-Apps and users authenticate to Key Vault using an Azure Active Directory authentication token. Getting a token from Azure Active Directory requires a secret or certificate, because anyone with a token could use the application identity to access all of the secrets in the vault.
+Appar och användare autentiserar till Key Vault med hjälp av en Azure Active Directory-autentiseringstoken. För att få en token från Azure Active Directory krävs en hemlighet eller ett certifikat, eftersom alla med en token kan använda programidentiteten för att komma åt samtliga hemligheter i valvet.
 
-Our application secrets are secure in the vault, but we still need to keep a secret or certificate outside of the vault in order to access them! This problem is called the *bootstrapping problem*, and Azure has a solution for it.
+Våra programhemligheter är säkra i valvet, men vi måste ha en hemlighet eller ett certifikat utanför valvet för att komma åt dem! Det här problemet kallas för *startproblem* och Azure har en lösning.
 
-## Managed identities for Azure resources
+## <a name="managed-identities-for-azure-resources"></a>Hanterade identiteter för Azure-resurser
 
-Managed identities for Azure resources is an Azure feature that your app can use to access Key Vault and other Azure services without having to manage even a single secret outside of the vault. Using a managed identity is a simple and secure way to take advantage of Key Vault from your web app.
+Hanterade identiteter för Azure-resurser är en funktion i Azure som din app kan använda för att få åtkomst till Key Vault och andra Azure-tjänster utan att behöva hantera även en enda hemlighet utanför valvet. Med hjälp av en hanterad identitet är ett enkelt och säkert sätt att dra nytta av Key Vault från ditt program.
 
-When you enable managed identity on your web app, Azure activates a separate token-granting REST service specifically for use by your app. Your app will request tokens from this service instead of directly from Azure Active Directory. Your app needs to use a secret to access this service, but that secret is injected into your app's environment variables by App Service when it starts up. You don't need to manage or store this secret value anywhere, and nothing outside of your app can access this secret or the managed identity token service endpoint.
+När du aktiverar hanterad identitet på web Apps, aktiverar Azure en separat token-granting REST-tjänst som ska användas av din app. Din app kommer att begära token från den här tjänsten i stället för direkt från Azure Active Directory. Din app måste använda en hemlighet för att få åtkomst till den här tjänsten, men den hemligheten injiceras i appens miljövariabler med App Service när den startas. Du behöver inte hantera eller lagra den här hemligt värde var som helst och inget utanför appen kan komma åt den här hemligheten eller hanterad identitet token tjänstslutpunkten.
 
-Managed identities for Azure resources also registers your app in Azure Active Directory for you, and will delete the registration if you delete the web app or disable its managed identity.
+Hanterade identiteter för Azure-resurser kan du även registrerar din app i Azure Active Directory för dig, och tar bort registreringen om du tar bort webbappen eller inaktivera dess hanterad identitet.
 
-Managed identities are available in all editions of Azure Active Directory, including the Free edition included with an Azure subscription. Using it in App Service has no extra cost and requires no configuration, and it can be enabled or disabled on an app at any time.
+Hanterade identiteter är tillgängliga i alla utgåvor av Azure Active Directory, inklusive den kostnadsfria versionen ingår i en Azure-prenumeration. Att använda MSI i App Service medför inte någon extra kostnad och kräver inte någon konfiguration. Det kan aktiveras eller inaktiveras i en app när som helst.
 
 > [!NOTE]
-> Managed identities for Azure resources is not currently supported for Linux or Container web apps.
+> Hanterade identiteter för Azure-resurser stöds inte för Linux eller behållare web apps.
 
-Enabling a managed identity for a web app requires only a single Azure CLI command with no configuration. We'll do it later on when we set up an App Service app and deploy to Azure. Before that, though, we're going to apply our knowledge of managed identities to write the code for our app.
+Aktivera en hanterad identitet för en webbapp måste bara en enda Azure CLI-kommando utan konfiguration. Vi ska göra detta senare när vi skapar en App Service-app och distribuerar den till Azure. Innan som, men vi att använda vår kunskap om hanterade identiteter att skriva kod för appen.

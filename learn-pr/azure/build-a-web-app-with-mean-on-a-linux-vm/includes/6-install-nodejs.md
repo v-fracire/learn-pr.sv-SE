@@ -1,16 +1,16 @@
-We will be talking to our MongoDB data store from a web application. For the MEAN stack, this means installing the Node.js open-source JavaScript runtime. Node.js will act as our server-side host for our web application and its content.
+Vi kommer att prata med vårt MongoDB-datalager via en webbapp. För MEAN-stacken innebär det att installera JavaScript-körning med öppen Node.js-källkod. Node.js fungerar som värd på serversidan för webbappen och dess innehåll.
 
-## Node.js versions
+## <a name="nodejs-versions"></a>Node.js-versioner
 
-There are two recommended versions of Node.js that are available:
+Det finns två rekommenderade versioner av Node.js:
 
-- **Long Term Support (LTS)** - A version that's recommended for most users and for production environments.
-- **Current** - A version that contains the latest features, but it can introduce breaking changes between release cycles.
+- **LTS (Long Term Support)** – en version som rekommenderas för de flesta användare och för produktionsmiljöer.
+- **Current** – en version som innehåller de senaste funktionerna men kan medföra större ändringar mellan utgivningscykler.
 
-In this module, we're going to use Node.js LTS, version 8.11.4 as of this writing.
+I den här modulen använder vi Node.js LTS, version 8.11.4 när detta skrivs.
 
-## How to install Node.js
+## <a name="how-to-install-nodejs"></a>Installera Node.js
 
-Node.js can be installed on most platforms. We will continue to install MEAN stack components on Ubuntu Linux. For information on how to install Node.js on other operating systems, check out the [Node.js instructions for installing it via various package managers](https://nodejs.org/en/download/package-manager/).
+Node.js kan installeras på de flesta plattformar. Vi fortsätter med att installera MEAN-stackkomponenterna på Ubuntu Linux. Mer information om hur du installerar Node.js på andra operativsystem finns i [Node.js-instruktionerna för installation via olika pakethanterare](https://nodejs.org/en/download/package-manager/).
 
-On Ubuntu Linux, you use the **apt-get** package manager to install Node.js.
+På Ubuntu Linux kan du använda pakethanteraren **apt-get** för att installera Node.js.

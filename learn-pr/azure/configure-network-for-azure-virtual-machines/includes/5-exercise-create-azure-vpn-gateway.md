@@ -1,63 +1,63 @@
-You want to ensure that you can connect clients or sites within your environment into Azure using encrypted tunnels across the public Internet. In this unit, you'll create a point-to-site VPN gateway, and then connect to that gateway from a client computer. You'll use native Azure certificate authentication connections for security.
+Du vill se till att du kan ansluta klienter eller platser inom din miljö i Azure med hjälp av krypterade tunnlar över det offentliga internet. I den här enheten, måste du skapa en punkt-till-plats VPN-gateway och sedan ansluta till denna gateway från en klientdator. Du använder ursprungliga Azure-certifikatautentiseringsanslutningar för säkerhet.
 
-You will carry out the following process:
+Du kommer att utföra följande processer:
 
-1. Create a RouteBased VPN gateway.
+1. Skapa en RouteBased VPN-gateway.
 
-1. Upload the public key for a root certificate for authentication purposes.
+1. Överföra den offentliga nyckeln för ett rotcertifikat för autentisering.
 
-1. Generate a client certificate from the root certificate, and then install the client certificate on each client computer that will connect to the virtual network for authentication purposes.
+1. Generera ett klientcertifikat från rotcertifikatet och sedan installera klientcertifikatet på varje klientdator som ska ansluta till det virtuella nätverket för autentisering.
 
-1. Create VPN client configuration files, which contain the necessary information for the client to connect to the virtual network.
+1. Skapa VPN-klienten configuration-filer som innehåller informationen som krävs för klienter att ansluta till det virtuella nätverket.
 
-## Before you begin
+## <a name="before-you-begin"></a>Innan du börjar
 <!---TODO: These should be prerequisites in the first unit and on the index.yml--->
 
-To complete this module, you must have:
+För att slutföra den här modulen måste du ha:
 
-- Azure PowerShell installed
+- Azure PowerShell installerad
 
-- A folder named **C:\cert**
+- En mapp med namnet **C:\cert**
 
-To install Azure PowerShell:
+Så här installerar du Azure PowerShell:
 
-1. Right-click the Windows button and click **PowerShell (Admin)**.
+1. Högerklicka på Windows-knappen och klicka på **PowerShell (Admin)**.
 
-1. In the **User Account Control** message box, click **Yes**.
+1. I meddelanderutan **User Account Control** klickar du på **Ja**.
 
-1. In the PowerShell window, type the following command and press Enter:
+1. I PowerShell-fönstret anger du följande kommando och trycker på Retur:
 
     ```PowerShell
     Import-Module AzureRM
     ```
 
-1. At the security prompt, type A and press Enter.
+1. I säkerhetsrutan skriver du A och trycker på Retur.
 
-## Sign in and set variables
+## <a name="sign-in-and-set-variables"></a>Logga in och ange variabler
 
-To sign in and set variables, carry out the following steps:
+Logga in och ange variabler genom att utföra följande steg:
 
-1. Connect to Azure by entering the following command and pressing Enter:
+1. Anslut till Azure genom att ange följande kommando och trycka på Retur:
 
     ```PowerShell
     Connect-AzureRmAccount
     ```
 
-1. Get a list of your Azure subscriptions.
+1. Hämta en lista över dina Azure-prenumerationer.
 
     ```PowerShell
     Get-AzureRmSubscription
     ```
 
-1. Specify the subscription that you want to use.
+1. Ange den prenumeration som du vill använda.
 
     ```PowerShell
     Select-AzureRmSubscription -SubscriptionName "{Name of your subscription}"
     ```
 
-    Replace "Name of subscription" with your subscription name.
+    Ersätt ”namn på prenumeration” med ditt prenumerationsnamn.
 
-1. Enter the following variables and press Enter after each one.
+1. Ange följande variabler och tryck på Retur efter varje.
 
     ```PowerShell
     $VNetName  = "VNetData"
@@ -77,15 +77,15 @@ To sign in and set variables, carry out the following steps:
     $GWIPconfName = "gwipconf"
     ```
 
-## Configure a virtual network
+## <a name="configure-a-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
-1. Create a resource group.
+1. Skapa en resursgrupp.
 
     ```PowerShell
     New-AzureRmResourceGroup -Name $RG -Location $Location
     ```
 
-1. Create subnet configurations for the virtual network. These have the name **FrontEnd, BackEnd**, and **GatewaySubnet**. All of these subnets exist within the virtual network prefix.
+1. Skapa undernätskonfigurationer för det virtuella nätverket. Dessa måste ha namnen **FrontEnd, BackEnd** och **GatewaySubnet**. Alla dessa undernät finns i prefixet för det virtuella nätverket.
 
     ```PowerShell
     $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
@@ -93,40 +93,40 @@ To sign in and set variables, carry out the following steps:
     $gwsub = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
     ```
 
-1. Create the virtual network using the subnet values and a static DNS server.
+1. Skapa det virtuella nätverket med undernätsvärdena och en statisk DNS-server.
 
     > [!IMPORTANT]
-    > Ignore the warning message, and then wait for the command to finish.
+    > Ignorera varningsmeddelandet och sedan vänta tills kommandot har slutförts.
 
     ```PowerShell
     New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
     ```
 
-1. Now specify the variables for this network that you have just created.
+1. Ange nu variablerna för det här nätverket som du just har skapat.
 
     ```PowerShell
     $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
     ```
 
-1. Request a dynamically assigned public IP address.
+1. Begär en dynamiskt tilldelad offentlig IP-adress.
 
     ```PowerShell
     $pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
     $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
     ```
 
-## Create the VPN gateway
+## <a name="create-the-vpn-gateway"></a>Skapa VPN-gatewayen
 
-When creating this VPN gateway:
+När du skapar denna VPN-gateway:
 
-- GatewayType must be Vpn
-- VpnType must be RouteBased
+- GatewayType måste vara Vpn
+- VpnType måste vara RouteBased
 
 > [!NOTE]
-> Note that this part of the exercise can take up to 45 minutes to complete, depending on the value of GatewaySku.
+> Observera att den här delen av den här övningen kan ta upp till 45 minuter att slutföra beroende på värdet för GatewaySku.
 
-1. To create the VPN gateway, run the following command and press Enter.
+1. Skapa VPN-gatewayen genom att köra följande kommando och trycka på Retur.
 
     ```PowerShell
     New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -134,22 +134,22 @@ When creating this VPN gateway:
     -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
     ```
 
-1. Wait for the command output to appear.
+1. Vänta tills kommandoutdatan visas.
 
-## Add the VPN client address pool
+## <a name="add-the-vpn-client-address-pool"></a>Lägg till VPN-klientadresspoolen
 
-1. Run the following command and press Enter.
+1. Ange följande kommando och tryck på Retur.
 
     ```PowerShell
     $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
     Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
     ```
 
-1. Wait for the command output to appear.
+1. Vänta tills kommandoutdatan visas.
 
-## Generate a client certificate
+## <a name="generate-a-client-certificate"></a>Generera ett klientcertifikat
 
-1. Create the self-signed root certificate.
+1. Skapa det självsignerade rotcertifikatet.
 
     ```PowerShell
     $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -158,7 +158,7 @@ When creating this VPN gateway:
     -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
     ```
 
-1. Generate a client certificate.
+1. Generera ett klientcertifikat.
 
     ```PowerShell
     New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -168,35 +168,35 @@ When creating this VPN gateway:
     -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
     ```
 
-1. Export the root certificate public key. On your client computer, type the following command and press Enter.
+1. Exportera den offentliga nyckeln för rotcertifikatet. På klientdatorn anger du följande kommando och trycker på Retur.
 
     ```PowerShell
     certmgr
     ```
 
-1. Navigate to Personal/Certificates. Right-click P2SRootCert, click **All tasks**, and then select **Export**.
+1. Navigera till Personliga/Certifikat. Högerklicka på P2SRootCert, klickar du på **alla uppgifter**, och välj sedan **exportera**.
 
-1. In the Certificate Export Wizard, click **Next**.
+1. I guiden Exportera certifikat klickar du på **Nästa**.
 
-1. Ensure that **No, do not export the private key** is selected, and then click **Next**.
+1. Se till att **Nej, exportera inte den privata nyckeln** är markerad och klicka sedan på **nästa**.
 
-1. On the **Export File Format** page, ensure that **Base-64 encoded X.509 (.CER)** is selected, and then click **Next**.
+1. På den **filformat för Export** kontrollerar du att **Base 64-kodad X.509 (. CER)** är markerad och klicka sedan på **nästa**.
 
-1. In the **File to Export** page, under **File name**, enter **C:\cert\P2SRootCert.cer**, and then click Next.
+1. I den **fil som ska exporteras** sidan under **filnamn**, ange **C:\cert\P2SRootCert.cer**, och klicka sedan på Nästa.
 
-1. On the **Completing the Certificate Export Wizard** page, click **Finish**.
+1. På sidan **Slutför guiden Exportera certifikat** klickar du på **Slutför**.
 
-1. On the **Certificate Export Wizard** message box, click **OK**.
+1. I meddelanderutan **Exportera certifikat** klickar du på **OK**.
 
-## Upload the root certificate public key information
+## <a name="upload-the-root-certificate-public-key-information"></a>Ladda upp informationen om den offentliga nyckeln för rotcertifikatet
 
-1. In the PowerShell window, execute the following command to declare a variable for the certificate name:
+1. I följande PowerShell-fönster kör du följande kommando för att deklarera en variabel för certifikatets namn:
 
     ```PowerShell
     $P2SRootCertName = "P2SRootCert.cer"
     ```
 
-1. Execute the following command:
+1. Kör följande kommando:
 
     ```PowerShell
     $filePathForCert = "C:\cert\P2SRootCert.cer"
@@ -205,64 +205,64 @@ When creating this VPN gateway:
     $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
     ```
 
-1. Now upload the certificate to Azure. Azure then recognizes it as a trusted root certificate.
+1. Ladda nu upp certifikatet till Azure. Azure identifierar det som ett betrott rotcertifikat.
 
     ```PowerShell
     Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNetDataGW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
     ```
 
-## Configure the native VPN client
+## <a name="configure-the-native-vpn-client"></a>Konfigurera den inbyggda VPN-klienten
 
-1. Execute the following command to create VPN client configuration files in .ZIP format.
+1. Kör följande kommando för att skapa VPN-klientkonfigurationsfiler i. ZIP-format.
 
     ```PowerShell
     $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNetDataGW" -AuthenticationMethod "EapTls"
     $profile.VPNProfileSASUrl
     ```
 
-1. Copy the URL returned in the output from this command and paste it into your browser. Your browser should start downloading a .ZIP file. Unzip it and put it in a suitable location.
+1. Kopiera URL: en som returneras i resultatet från det här kommandot och klistra in den i din webbläsare. Webbläsaren bör nu börja ladda ned en .ZIP-fil. Packa upp den och placera den på en lämplig plats.
 
-1. In the extracted folder, navigate to either the WindowsAmd64 folder (for 64-bit Windows computers) or the WindowsZX86 folder (for 32-bit computers).
+1. Navigera till mappen WindowsAmd64 (för 64-bitars Windows-datorer) eller mappen WindowsZX86 (för 32-bitars datorer) i den extrahera mappen.
 
-1. Double-click on the VpnClientSetupxxxxx.exe file, depending on your architecture.
+1. Dubbelklicka på filen VpnClientSetupxxxxx.exe, beroende på din arkitektur.
 
-1. In the **Windows protected your PC** screen, click **More info**, and then click **Run anyway**.
+1. I den **Windows skyddade datorn** klickar du på **mer info**, och klicka sedan på **kör ändå**.
 
-1. In the **User Account Control** dialog box, click **Yes**.
+1. I dialogrutan **User Account Control** klickar du på **Ja**.
 
-1. In the **VNetData** dialog box, click **Yes**.
+1. I dialogrutan **VNetData** klickar du på **Ja**.
 
-## Connect to Azure
+## <a name="connect-to-azure"></a>Anslut till Azure
 
-1. Press the Windows key, type **Settings** and press Enter.
+1. Tryck på Windows-tangenten, skriv **Inställningar** och tryck på Retur.
 
-1. In the **Settings** window, click **Network and Internet**.
+1. I fönstret **Inställningar** klickar du på **Network and Internet** (Nätverk och internet).
 
-1. In the left-hand pane, click **VPN**.
+1. Klicka på **VPN** i det vänstra fönstret.
 
-1. In the right-hand pane, click **VNetData**, and then click **Connect**.
+1. I den högra rutan klickar du på **VNetData**, och klicka sedan på **Connect**.
 
-1. In the VNetData window, click **Connect**.
+1. I fönstret VNetData klickar du på **Anslut**.
 
-1. In the next VNetData window, click **Continue**.
+1. I nästa VNetData-fönster klickar du på **Fortsätt**.
 
-1. In the **User Account Control** message box, click **Yes**.
+1. I meddelanderutan **User Account Control** klickar du på **Ja**.
 
 > [!NOTE]
-> If these steps do not work, you may need to restart your computer.
+> Om de här stegen inte fungerar, kan du behöva starta om datorn.
 
-## Verify your connection
+## <a name="verify-your-connection"></a>Verifiera din anslutning
 
-1. Press the Windows key, type **cmd** and press Enter. The **Command Prompt** window appears.
+1. Tryck på Windows-tangenten, skriv **cmd** och tryck på Retur. Fönstret för **kommandotolken** öppnas.
 
-1. Type `IPCONFIG /ALL` and press Enter.
+1. Skriv `IPCONFIG /ALL` och tryck på Retur.
 
-1. Copy the IP address under PPP adapter VNetData, or write it down.
+1. Kopiera IP-adressen under PPP-anslutningen för VNetData eller skriv ned den.
 
-1. Confirm that IP address is in the **VPNClientAddressPool range of 172.16.201.0/24**.
+1. Bekräfta att IP-adressen finns i **VPNClientAddressPool-intervallet 172.16.201.0/24**.
 
-1. You have successfully made a connection to the Azure VPN gateway.
+1. Du har upprättat en anslutning till Azure VPN-gatewayen.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-You just set up a VPN gateway, allowing you to make an encrypted client connection to a virtual network in Azure. This approach is great with client computers and smaller site-to-site connections.
+Du konfigurera bara en VPN-gateway så att du kan göra ett krypterat klientdator-anslutning till ett virtuellt nätverk i Azure. Den här metoden är mycket bra med klientdatorer och mindre plats till plats-anslutningar.

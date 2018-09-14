@@ -2,9 +2,9 @@ Den integrerade utvecklingsmiljön (IDE) i Eclipse används för utveckling av J
 
 ## <a name="eclipse"></a>Eclipse
 
-Det IDE som används mest av Java-utvecklare är Eclipse. Det är en mångsidig utvecklingsmiljö, med ett plugin-program för utökningsbar arkitektur som kan användas som stöd för andra språk förutom Java. Även om flesta Eclipse-användarna är Java-utvecklare finns det många andra språk som kan användas med Eclipse, t.ex. C++, Python, C och Ruby. Det kommer regelbundna, årliga uppdateringar, som håller den här utvecklingsmiljön modern och uppdaterad.
+Eclipse är en mycket flexibel utvecklingsmiljö med en arkitektur för extensible plugin-program som kan användas för andra språk än Java. Flesta Eclipse användarna är Java-utvecklare, kan Eclipse också användas för att bygga appar med C++, Python, C och Ruby. Eclipse tar emot årliga regelbundet för att hålla IDE moderna och uppdaterade.
 
-Eclipse används för stora företagsappar och många av dessa kommer sannolikt att kräva anslutningar till Microsoft Azure-tjänster och -produkter.
+Eclipse är lämplig för utveckling av appar för stora företag och många av dessa kommer sannolikt att kräva anslutningar till Microsoft Azure-tjänster och produkter.
 
 ## <a name="azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse
 
@@ -16,7 +16,7 @@ Verktygen innehåller mallar för integration för Docker-containers, HDInsights
 
 Eclipse stöds på Windows, macOS och Linux. Installationsprocessen använder Eclipse-installationsprogrammet på alla plattformar. Det är bara den allmänna installationsproceduren som varierar mellan plattformarna.
 
-Det är enkelt att installera Eclipse för Java eller Java EE på vilken plattform som helst, och det ser ut som vilken annan installation som helst på den valda plattformen. Under installationen uppmanas användaren välja vilket paket som ska installeras beroende på språk och ramverk.
+Installera Eclipse för Java eller Java EE på vilken plattform som är enkel och ser ut som andra installationen på den valda plattformen. Under installationen uppmanas användaren välja vilket paket som ska installeras beroende på språk och ramverk.
 
 ## <a name="the-azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse
 
@@ -26,6 +26,6 @@ Verktygen är öppen källkod och värdbaserade i GitHub. De uppdateras ofta fö
 
 ## <a name="summary"></a>Sammanfattning
 
-I det här avsnittet har du lärt dig hur enkelt det är att komma igång och skapa Java-program med Eclipse och Azure Toolkit. När verktygen väl har installerats innehåller de en mängd olika lättanvända mallar och funktioner som gör Azure-integration enklare och effektivare.
+I det här avsnittet får du lära dig och hur enkelt det är att komma igång och skapa Java-program med hjälp av Eclipse och Azure Toolkit. När du har installerat innehåller verktygen en mängd olika enkel att använda mallar och funktioner som gör Azure integration enkel och effektiv.
 
-Både Eclipse och Azure Toolkit uppdateras ofta och ger ett stabilt och effektivt sätt att skriva Java-program med molnintegrering.
+Både Eclipse och Azure Toolkit uppdateras ofta. Tillsammans kan de är ett stabilt och effektivt sätt att skriva Java-program med cloud integration.

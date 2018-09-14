@@ -4,11 +4,11 @@ Här följer det vanliga arbetsflödet för appar som använder Azure Blob Stora
 
 1. **Initiera klienten**: Använd anslutningssträngen för att initiera Azure Storage-klientbiblioteket. Det skapar de objekt som appen kommer att använda med Blob Storages API.
 
-1. **Använd**: Utför API-anrop med klientbiblioteket för att arbeta med containrar och blobar.
+1. **Använd**: Utför API-anrop med klientbiblioteket för att arbeta med behållare och blobar.
 
 ## <a name="configure-your-connection-string"></a>Konfigurera anslutningssträngen
 
-Innan du skriver någon kod behöver du anslutningssträngen för lagringskontot som du ska använda.
+Innan du kör din app behöver du anslutningssträngen för storage-konto som du ska använda. Du kan använda valfri Azure hanteringsgränssnitt för att hämta den, inklusive Azure-portalen, Azure CLI eller Azure PowerShell. När vi konfigurera webbappen att köra vår kod mot slutet av den här modulen använder vi Azure CLI för att hämta anslutningssträngen för lagringskontot som du skapade tidigare.
 
 Lagringskontons anslutningssträngar innehåller kontonyckeln. Kontonyckeln anses vara en hemlighet och bör lagras på ett säkert sätt. Här lagrar vi anslutningssträngen i en programinställning för App Service. Programinställningar i App Service är en säker plats för programhemligheter, men den här modellen har inte stöd för lokal utveckling och är ingen robust lösning från slutpunkt till slutpunkt på egen hand.
 
@@ -25,7 +25,7 @@ I Azure Storage SDK för .NET Core består standardmönstret för att använda B
 
 1. Anropa `GetContainerReference` på `CloudBlobClient` för att hämta en `CloudBlobContainer`.
 
-1. Använd metoder för att containern ska hämta en lista över blobar och/eller hämta referenser till enskilda blobar och ladda upp och ned data.
+1. Använd metoder för att behållaren ska hämta en lista över blobar och/eller hämta referenser till enskilda blobar och ladda upp och ned data.
 
 I kod ser steg 1&ndash;3 ut så här:
 
@@ -49,15 +49,13 @@ Att anropa `CreateIfNotExistsAsync` på en `CloudBlobContainer` är det bästa s
 
 Vi börjar med att klona startappen från GitHub. I Cloud Shell-terminalen kör du följande för att hämta en kopia av källkoden och öppna den i redigeringsprogrammet:
 
-**TODO-uppdatering av slutgiltig lagringsplats-URL**
-
 ```console
-git clone https://github.com/nickwalkmsft/FileUploader.git
-cd FileUploader
+git clone https://github.com/MicrosoftDocs/mslearn-store-data-in-azure.git
+cd mslearn-store-data-in-azure/store-app-data-with-azure-blob-storage/src/start
 code .
 ```
 
-Öppna filen `Controllers/FilesController.cs`. Inget arbete ska göras här, men vi ska ta en snabb titt på vad appen gör.
+Öppna filen `Controllers/FilesController.cs` i redigeraren. Inget arbete ska göras här, men vi ska ta en snabb titt på vad appen gör.
 
 Den här styrenheten implementerar ett API med tre åtgärder:
 
@@ -80,13 +78,13 @@ Det ser till att vi använder den senaste versionen av Blob Storage-klientbiblio
 
 ### <a name="configure"></a>Konfigurera
 
-De konfigurationsvärden vi behöver för att köra appen är anslutningssträngen för lagringskonto och namnet på den container appen använder för att lagra filer. I den här övningen ska vi bara köra appen i Azure App Service, så vi följer bästa praxis för App Service och lagrar värdena i programinställningarna för App Service. Vi gör det när vi skapar App Service-instansen, så det är inget vi behöver göra just nu.
+Konfigurationsvärden som vi behöver är en anslutningssträng för lagringskonto och namnet på behållaren appen använder för att lagra filer. I den här modulen endast ska vi köra appen i Azure App Service, så vi följa bästa praxis för App Service och lagra värdena i programinställningarna för App Service. Vi gör det när vi skapar App Service-instansen, så det är inget vi behöver göra just nu.
 
 När det handlar om att *använda* konfigurationen innehåller vår startapp redan de grunder vi behöver. Konstruktorparametern `IOptions<AzureStorageConfig>` i `BlobStorage` har två egenskaper: anslutningssträngen för lagringskontot och namnet på containern som vår app använder för att lagra blobar. Det finns kod i metoden `ConfigureServices` för `Startup.cs` som läser in värdena från konfigurationen när appen startar.
 
 ### <a name="initialize"></a>Initiera
 
-Öppna `Models/BlobStorage.cs`. Lägg till följande `using`-uttryck överst i filen för att förbereda den för den kod som du ska lägga till under den här övningen.
+Öppna `Models/BlobStorage.cs` i redigeraren. Lägg till följande `using`-uttryck överst i filen för att förbereda den för den kod som du ska lägga till under den här övningen.
 
 ```csharp
 using System.Linq;

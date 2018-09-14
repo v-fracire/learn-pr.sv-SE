@@ -1,18 +1,18 @@
 
-The following table shows what disks are available as managed, and unmanaged disks.
+I följande tabell visas vilka diskar som är tillgängliga som hanterade och ohanterade diskar.
 
-|Disk type  |Unmanaged  | Managed  | Storage account for unmanaged|
+|Disktyp  |Ohanterade  | Hanterad  | Storage-konto för ohanterade|
 |---------|---------|---------|---------|
-|[Standard HDD](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)      |   yes      |  yes       |  general storage account       |
-|[Standard SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)    |   no      |   yes      |  Not applicable       |
-|[Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)    |    yes     |   yes      |     premium storage account    |
+|[Standard HDD](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)      |   ja      |  ja       |  Allmänt lagringskonto       |
+|[Standard SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)    |   nej      |   ja      |  Inte tillämpligt       |
+|[Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)    |    ja     |   ja      |     Premium storage-konto    |
 
-Here's a summary of the tradeoffs you make when selecting a disk type for your VMs.
+Här är en sammanfattning av de nackdelar som du gör när du väljer en disktyp för dina virtuella datorer.
 
-|Disk type  |Relative IOPS*  | Relative cost  | Scenarios|
+|Disktyp  |Relativa IOPS *  | Relativa kostnaden  | Scenarier|
 |---------|---------|---------|---------|
-|[Standard HDD](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)      |   lowest      |  lowest       |  Use for low-IOPs workloads that demand consistent performance and cost-effective development and testing       |
-|[Standard SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)    |   medium|   medium      |  Use for low-IOPs workloads that demand consistent performance and cost-effective development and testing |
-|[Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)    |    highest     |   highest      |     Use for production and performance-sensitive workloads where low latency and high throughput are critical    |
+|[Standard HDD](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)      |   lägsta      |  lägsta       |  Använd för arbetsbelastningar med låg IOPs som kräver en konsekvent prestanda och kostnadseffektiv utveckling och testning       |
+|[Standard SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)    |   medium|   medium      |  Använd för arbetsbelastningar med låg IOPs som kräver en konsekvent prestanda och kostnadseffektiv utveckling och testning |
+|[Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)    |    högsta     |   högsta      |     Använd för produktion och resultatdrivna arbetsbelastningar där låg fördröjning och högt dataflöde är kritiska    |
 
-* IOPS - Input/output operations per second.
+* IOPS - i/o-åtgärder per sekund.

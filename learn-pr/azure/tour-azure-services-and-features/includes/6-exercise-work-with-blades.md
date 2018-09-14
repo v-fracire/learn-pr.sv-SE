@@ -1,51 +1,51 @@
-In this unit, you will learn how to work with blades in the Azure portal user interface (UI).
+I den här enheten får du lära dig hur du arbetar med blad i användargränssnittet i Azure-portalen.
 
-## Working with blades
+## <a name="working-with-blades"></a>Arbeta med blad
 
-1. In a browser, navigate to [https://portal.azure.com](https://portal.azure.com?azure-portal=true), and sign in.
+1. Gå till [https://portal.azure.com](https://portal.azure.com?azure-portal=true) i en webbläsare och logga in.
 
-2. Let's start by creating a resource. In the left-hand pane, click **Create a resource**.
+2. Låt oss börja med att skapa en resurs. I den vänstra rutan klickar du på **Skapa en resurs**.
 
-3. The **New** blade displays a list of categories of items to create on the left-hand side, with the **Get started** option selected. This is like the "Favorites" menu, with some of the most common options visible. Under **Get started**, you have the option to create resources such as a Windows Server 2016 VM, an Ubuntu Server VM, a web app, a SQL database, and so on. Each of these items includes a quickstart tutorial.
+3. Bladet **Ny** visar en lista över kategorier av objekt som du kan skapa på vänster sida och alternativet **Kom igång** är markerat. Detta fungerar som menyn Favoriter och visar några av de vanligast använda alternativen. Under **Kom igång** kan du skapa resurser som till exempel en virtuell Windows Server 2016-dator, en virtuell Ubuntu Server-dator, en webbapp, en SQL-databas och så vidare. Var och ett av dessa objekt innehåller en snabbstartsguide.
 
-4. Click **Quickstart tutorial** under Windows Server 2016 VM. This lists the Windows VM tutorials. Close this new tab to return to the Azure portal.
+4. Klicka på **Snabbstartsguide** under virtuell Windows Server 2016-dator. Här visas Windows VM-självstudier. Stäng den här nya fliken för att återgå till Azure-portalen.
 
-## Viewing resources
+## <a name="viewing-resources"></a>Visa resurser
 
-1. Under Azure Marketplace, click **Compute** to show more compute options, such as Red Hat Enterprise, Reserved VM instances, Web app for Containers, and so on. This list is a subset of the entire range of computing resources available.
+1. Under Azure Marketplace klickar du på **Beräkning** för att visa fler beräkningsalternativ, till exempel Red Hat Enterprise, reserverade instanser för virtuella datorer, Web app for Containers och så vidare. Den här listan är en delmängd av hela intervallet för tillgängliga resurser.
 
-2. To the right of **Featured**, click **See all** to see the full range of available resources. The full list of VMs now appears.
+2. Klicka på **Se alla** till höger om **Aktuella** för att se alla tillgängliga resurser. En fullständig lista över virtuella datorer visas.
 
-3. Under **Recommended**, click **Windows Server**. The **Windows Server** blade appears.
+3. Klicka på **Windows Server** under **Rekommenderade**. Bladet **Windows Server** visas.
 
-4. To the right of the **Pin** icon, click the **Maximize** icon. The Windows Server blade now fills the screen, except for the left-hand pane. Scroll down the list to see the other Windows Server images available.
+4. Klicka på ikonen **Maximera** till höger om **stiftikonen**. Windows Server-bladet fyller då skärmen, med undantag för det vänstra fönstret. Rulla nedåt i listan för att se andra tillgängliga Windows Server-avbildningar.
 
-    ![Maximize button in the Azure blade](../media-draft/6-maximize-button.png)
+    ![Knappen Maximera på Azure-bladet](../media-draft/6-maximize-button.png)
 
-5. Click the **X** at the top right-hand corner to close the **Windows Server** blade.
+5. Klicka på **X** i det övre högra hörnet för att stänga bladet **Windows Server**.
 
-## Filtering results
+## <a name="filtering-results"></a>Filtrera resultat
 
-1. To refine this list further, on the **Compute** blade, click **Filter**. The **Filter** blade now appears.
+1. Om du vill förfina den här listan ytterligare klickar du på **Filter** på bladet **Beräkning**. Bladet **Filter** visas.
 
-    ![Filter button in the Azure Marketplace](../media-draft/6-filter.png)
+    ![Filter-knappen i Azure Marketplace](../media-draft/6-filter.png)
 
-2. Select the filter option for **Virtual Machine Images**, and then click **Done**.
+2. Välj filteralternativet för **Virtuella datoravbildningar** och klicka sedan på **Klar**.
 
-3. Click the **X** in the top right-hand corner of the **Filter** blade.
+3. Klicka på **x** i det övre högra hörnet på bladet **Filter**.
 
-1. On the **Compute** blade, look down the list of available VM images and then, at the bottom, click **Load More**.
+1. På bladet **Beräkning** bläddrar du nedåt i listan över tillgängliga VM-avbildningar och sedan klickar du på **Läs in mer** längst ned på sidan.
 
-1. Continue to click **Load More** a few times to appreciate just how many types of VMs Azure provides.
+1. Fortsätt att klicka på **Läs in mer** ett antal gånger för att uppskatta hur många typer av virtuella datorer som Azure faktiskt tillhandahåller.
 
-1. Click the **X** at the top right-hand corner to close the **Compute** blade.
+1. Klicka på **X** i det övre högra hörnet för att stänga bladet **Compute**.
 
-1. Click the **X** at the top right-hand corner to close the **Marketplace** blade.
+1. Klicka på **X** i det övre högra hörnet för att stänga bladet **Marketplace**.
 
-1. Click the **X** at the top right-hand corner to close the **New** blade.
+1. Klicka på **X** i det övre högra hörnet för att stänga bladet **Ny**.
 
-The default dashboard now appears.
+Då visas standardinstrumentpanelen.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you connected to the Azure portal, signed in, and then discovered how blades work to present UI information. In the next exercise, you will view and configure additional settings in Azure.
+I den här övningen anslöt du till Azure-portalen, loggade in och sedan identifierade du hur blad används för att visa information om gränssnittet. I nästa övning kommer du visa och konfigurera ytterligare inställningar i Azure.

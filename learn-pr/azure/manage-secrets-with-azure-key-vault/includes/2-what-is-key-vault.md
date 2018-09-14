@@ -1,4 +1,4 @@
-Azure Key Vault är ett *hemligt arkiv*: en centraliserad molntjänst för lagring av programhemligheter. Key Vault hjälper till att förhindra ovannämnda scenarier genom att lagra programhemligheter på en enda central plats och tillhandahåller säker åtkomst, behörighetskontroll och loggning av användaråtkomst.
+Azure Key Vault är ett *hemligt arkiv*: en centraliserad molntjänst för lagring av programhemligheter. Key Vault kan du styra hemligheter för dina program genom att hålla dem på en enda central plats och att tillhandahålla säker åtkomst, behörighetskontroll, och loggning av användaråtkomst.
 
 De främsta fördelarna med att använda Key Vault är dessa:
 

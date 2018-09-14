@@ -9,49 +9,39 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: d4fc7700e80f8716294a84f91da41e80c76f1be1
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44247287"
 durationInMinutes: 5
 quiz:
   title: Introduktion till containrar
   questions:
-  - content: Vilket av följande är inte någon fördel vid införandet av containrar?
-    choices:
-    - content: Snabba starttider.
-      incorrectExplanation: Containrar kan starta betydligt snabbare än virtuella eller fysiska system.
-      isCorrect: false
-    - content: Effektiv användning av värdresurser.
-      isCorrect: false
-      incorrectExplanation: På grund av en delad avbildningsarkitektur kan många containrar köras på en enda värddator, vilket innebär att du utnyttjar värdresurserna effektivt.
-    - content: Inbyggd haveriberedskap.
-      isCorrect: true
-      correctExplanation: Containrar ändrar inte procedurerna för haveriberedskap automatiskt.
-    - content: Möjliggör molnbaserad programarkitektur.
-      isCorrect: false
-      incorrectExplanation: Containrar kan bidra till att utveckla program med en modern eller molnbaserad arkitektur.
-  - content: Vilket kommando visar alla containerinstanser (både stoppade och de som körs)?
-    choices:
-    - content: docker ps
-      incorrectExplanation: Det här kommandot visar endast containrar som körs.
-      isCorrect: false
-    - content: docker ps -a
-      isCorrect: true
-      correctExplanation: Det här kommandot visar en lista med alla containrar som körs och har stoppats.
-    - content: docker ps -x
-      incorrectExplanation: Detta är inte något giltigt Docker-kommando.
-      isCorrect: false
-    - content: docker ps
-      incorrectExplanation: Det här kommandot visar en lista med containeravbildningar.
-      isCorrect: false
-  - content: I produktion bör skapandet av containeravbildningar automatiseras med en Dockerfile.
-    choices:
-    - content: False.
-      incorrectExplanation: Ett automatiskt skapande av containrar har många fördelar och bör användas i produktionsmiljöer för containern.
-      isCorrect: false
-    - content: True.
-      isCorrect: true
-      correctExplanation: Ett automatiskt skapande av containrar har många fördelar och bör användas i produktionsmiljöer för containern.
+    - content: Vilket av följande är inte någon fördel vid införandet av containrar?
+      choices:
+        - content: Snabba starttider.
+          isCorrect: false
+          incorrectExplanation: Containrar kan starta betydligt snabbare än virtuella eller fysiska system.
+        - content: Effektiv användning av värdresurser.
+          isCorrect: false
+          incorrectExplanation: 'På grund av en delad avbildningsarkitektur köra flera behållare på en värddator, samtidigt som du utnyttjar effektivt värdresurser.'
+        - content: Inbyggd haveriberedskap.
+          isCorrect: true
+          correctExplanation: Containrar ändrar inte procedurerna för haveriberedskap automatiskt.
+        - content: Möjliggör molnbaserad programarkitektur.
+          isCorrect: false
+          incorrectExplanation: Containrar kan bidra till att utveckla program med en modern eller molnbaserad arkitektur.
+    - content: Vilket kommando visar alla containerinstanser (både stoppade och de som körs)?
+      choices:
+        - content: docker ps
+          isCorrect: false
+          incorrectExplanation: Det här kommandot visar endast containrar som körs.
+        - content: docker-avbildningar
+          isCorrect: false
+          incorrectExplanation: Det här kommandot visar en lista med containeravbildningar.
+        - content: docker ps -a
+          isCorrect: true
+          correctExplanation: Det här kommandot visar en lista med alla containrar som körs och har stoppats.
+    - content: 'SANT eller FALSKT: i produktionsmiljöer, skapa avbildningar för behållaren bör automatiseras med en Dockerfile.'
+      choices:
+        - content: Sant
+          isCorrect: true
+          correctExplanation: 'Automation är snabbare, enkelt upprepningsbar och mindre felbenägna än skapa manuella avbildningar. Bästa praxis rekommenderar att du använder automation i produktionsmiljöer för behållaren.'
+        - content: Falskt
+          isCorrect: false

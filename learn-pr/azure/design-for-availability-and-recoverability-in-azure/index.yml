@@ -1,34 +1,32 @@
 ### YamlMime:Module
 uid: learn.design-for-availability-and-recoverability
 metadata:
-  title: Design for availability and recoverability in Azure
-  description: Make your Azure architecture highly available and able to recover from failures
+  title: Design för tillgänglighet och återställning i Azure
+  description: Gör din Azure-arkitektur mycket tillgänglig och kapabel att återställa från fel
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-title: Design for availability and recoverability
-summary: If you were to lose one or more components of your infrastructure, could your architecture handle it? If you experience a loss of data or identify data corruption, could you recover the data? Do you know what your requirements are to your customers for system availability and disaster recovery? Learn how to incorporate availability and recoverability into your architecture.
+title: Design för tillgänglighet och återställning
+summary: Skulle din arkitektur kunna hantera om du förlorade en eller flera komponenter i infrastrukturen? Skulle du kunna återställa data om du upplever dataförlust eller identifierar skadade data? Vet du vilka dina krav är på kunder för systemets tillgänglighet och haveriberedskap? Lär dig att införliva tillgänglighet och återställning i din arkitektur.
 abstract: |
-  In this module, you will:
-    - Leverage Azure services to design a highly available application
-    - Incorporate Azure disaster recovery capabilities into your architecture
-    - Back up and restore on Azure to protect your application from data loss or corruption
-prerequisites: None
-iconUrl: http://via.placeholder.com/120x120
+  I den här modulen kommer du att göra följande:
+    - Utnyttja services-tjänster för att utforma ett program med hög tillgänglighet
+    - Införliva Azure haveriberedskap i din arkitektur
+    - Säkerhetskopiera och återställa på Azure för att skydda ditt program från dataförlust eller skadade data
+prerequisites: Ingen
+iconUrl: /learn/achievements/design-for-availability-and-recoverability-in-azure.svg
 levels:
-- intermediate
+  - intermediate
 roles:
-- solution-architect
-#TODO: Update achievement
-achievement: learn.placeholder.badge
+  - solution-architect
 products:
-- azure
+  - azure
 units:
-- learn.design-for-availability-and-recoverability.1-introduction
-- learn.design-for-availability-and-recoverability.2-high-availability
-- learn.design-for-availability-and-recoverability.3-disaster-recovery
-- learn.design-for-availability-and-recoverability.4-backup-and-restore
-- learn.design-for-availability-and-recoverability.5-summary
+  - learn.design-for-availability-and-recoverability.1-introduction
+  - learn.design-for-availability-and-recoverability.2-high-availability
+  - learn.design-for-availability-and-recoverability.3-disaster-recovery
+  - learn.design-for-availability-and-recoverability.4-backup-and-restore
+  - learn.design-for-availability-and-recoverability.5-summary
+achievement: learn.design-for-availability-and-recoverability.badge

@@ -11,7 +11,7 @@ Java-mottagarappen, som du konfigurerar i den här enheten, lagrar meddelanden i
 1. Skapa ett lagringskonto (generell användning V2) i en resursgrupp med följande kommando:
 
     ```azurecli
-    az storage account create --name <storage account name> --resource-group <resource group name>  --location <location> --sku Standard_RAGRS --encryption blob
+    az storage account create --name <storage account name> --resource-group <rgn>[Sandbox resource group name]</rgn>  --location <location> --sku Standard_RAGRS --encryption blob
     ```
 
     |Parameter      |Beskrivning|
@@ -23,7 +23,7 @@ Java-mottagarappen, som du konfigurerar i den här enheten, lagrar meddelanden i
 1. Lista över alla åtkomstnycklar som är associerade med ditt lagringskonto med följande kommando:
 
     ```azurecli
-    az storage account keys list --account-name <storage account name> --resource-group <resource group name>
+    az storage account keys list --account-name <storage account name> --resource-group <rgn>[Sandbox resource group name]</rgn>
     ```
 
     |Parameter      |Beskrivning|
@@ -36,7 +36,7 @@ Java-mottagarappen, som du konfigurerar i den här enheten, lagrar meddelanden i
 1. Visa anslutningssträngen för ditt lagringskonto med följande kommando:
 
     ```azurecli
-    az storage account show-connection-string -n <storage account name> -g <resource group name>
+    az storage account show-connection-string -n <storage account name> -g <rgn>[Sandbox resource group name]</rgn>
     ```
 
     |Parameter      |Beskrivning|
@@ -55,8 +55,6 @@ Java-mottagarappen, som du konfigurerar i den här enheten, lagrar meddelanden i
 ## <a name="clone-the-event-hubs-github-repository"></a>Klona Event Hubs GitHub-databasen
 
 Använd följande steg för att klona Event Hubs GitHub-databasen.
-
-1. Logga in på Azure Cloud Shell (Bash).
 
 1. Källfilerna för appen du bygger i den här enheten finns på en [GitHub-lagringsplats](https://github.com/Azure/azure-event-hubs). Använd följande kommandon för att se till att du är i din arbetskatalog i Cloud Shell, och klona sedan den här lagringsplatsen:
 

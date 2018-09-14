@@ -1,4 +1,4 @@
-Nu när du vet hur du ska aktivera att MSI skapar en identitet som vår app ska använda vid autentisering, skapar vi en app som använder den identiteten för att få åtkomst till hemligheter i valvet.
+Nu när du vet hur du aktiverar hanterad identiteter för Azure-resurser skapar en identitet för vår app ska användas för autentisering, skapar vi en app som använder det identitet för åtkomst till hemligheter i valvet.
 
 ## <a name="reading-secrets-in-an-aspnet-core-app"></a>Läsa hemligheter i en ASP.NET Core-app
 
@@ -9,7 +9,7 @@ Det officiella Key Vault-klientbiblioteket för .NET Core är `KeyVaultClient`-k
 > [!TIP]
 > Oavsett vilket ramverk och språk du använder när du skapar din app, ska du cachelagra hemliga värden lokalt eller läsa in dem i minnet vid appstarten – om du inte har en särskild anledning att låta bli. Det är onödigt långsamt och dyrt att läsa dem direkt från valvet varje gång du behöver dem.
 
-`AddAzureKeyVault` kräver endast valvnamnet som indata, vilket vi får från våra lokala appkonfiguration. Den hanterar också automatiskt MSI-autentisering &mdash; när den används i en app som distribueras till Azure App Service med MSI aktiverat, identifierar den MSI-tokentjänsten och använder den vid autentiseringen. Det är ett bra alternativ för de flesta scenarier så vi kommer att använda det i övningen för denna enhet.
+`AddAzureKeyVault` kräver endast valvnamnet som indata, vilket vi får från våra lokala appkonfiguration. Den hanterar också automatiskt hanterade identitetsautentisering &mdash; när den används i en app distribueras till Azure App Service med hanterade identiteter för Azure-resurser aktiverat, identifieras hanterade identiteter token service och använda den för att autentisera. Det är ett bra alternativ för de flesta scenarier så vi kommer att använda det i övningen för denna enhet.
 
 ## <a name="handling-secrets-in-an-app"></a>Hantera hemligheter i en app
 
@@ -71,9 +71,10 @@ namespace KeyVaultDemoApp
                     var vaultUrl = $"https://{builtConfig["VaultName"]}.vault.azure.net/";
 
                     // Load all secrets from the vault into configuration. This will automatically
-                    // authenticate to the vault using MSI. If MSI is not available, it will
-                    // check if Visual Studio and/or the Azure CLI are installed locally and
-                    // see if they are configured with credentials that can access the vault.
+                    // authenticate to the vault using a managed identity. If a managed identity
+                    // is not available, it will check if Visual Studio and/or the Azure CLI are
+                    // installed locally and see if they are configured with credentials that can
+                    // access the vault.
                     config.AddAzureKeyVault(vaultUrl);
                 })
                 .UseStartup<Startup>();

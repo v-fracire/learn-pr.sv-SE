@@ -7,6 +7,8 @@ Nu vill du använda historiska sensordata för att hitta mönster i sensoravläs
 ## <a name="what-is-azure-event-hubs"></a>Vad är Azure Event Hubs?
 Event Hubs är en mellanhand för kommunikationsmönstret publicera/prenumerera. Men till skillnad från Event Grid är det optimerat för mycket stora dataflöden, ett stort antal utgivare, säkerhet och återhämtning.
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yuat]
+
 Event Grid passar perfekt för mönstret publicera/prenumerera, eftersom det bara hanterar prenumerationer och dirigerar kommunikation till prenumeranterna. Event Hubs utför dessutom ett stort antal ytterligare tjänster. Dessa ytterligare tjänster innebär att det mer liknar en tjänstebuss eller meddelandekö, än en enkel händelseavsändare.
 
 #### <a name="partitions"></a>Partitioner

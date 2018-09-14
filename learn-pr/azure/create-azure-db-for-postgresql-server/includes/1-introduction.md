@@ -1,14 +1,14 @@
-Suppose you work for a company that processes fitness tracker data for runners. Your company tracks the runners' routes and performance using a relational database hosted on an on-premise server.
+Anta att du arbetar för ett företag som bearbetar lämplighet spåraren data för deltagare. Ditt företag spårar deltagare vägar och prestanda med hjälp av en relationsdatabas som finns på en lokal server.
 
-The company wants to expand by tracking additional fitness tracking models and types and do that it will need to scale its database, both for capacity and performance. You want to move away from your current on-premise databases servers without compromising security.
+Företaget vill expandera genom att spåra ytterligare lämplighet spårnings-modeller och typer. Om du vill göra expansionen behöver företaget skala sin databas för både kapacitet och prestanda. Du vill flytta från ditt aktuella lokala databasservrar utan att säkerheten äventyras.
 
-When you consider cloud hosted database offerings, some of the questions that you may have might be aspects such as availability, scalability, and security. Azure Database for PostgreSQL allows you to take advantage of built-in security, fault tolerance, and data protection that you otherwise have to buy or design separately, build, and manage.
+När du överväger att molnbaserade databaserbjudanden och kanske vissa av de frågor som du kan ha aspekter som tillgänglighet, skalbarhet och säkerhet. Azure Database för PostgreSQL kan du dra nytta av inbyggd säkerhet, feltolerans och dataskydd som du annars behöva köpa eller separat designa, bygga och hantera.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-By the end of this module, you will:
+I slutet av den här modulen kommer du att:
 
-- Create an Azure Database for PostgreSQL using the Azure portal
-- Create an Azure Database for PostgreSQL using Azure CLI
-- Configure a PostgreSQL server-level firewall rule
-- Connect to the PostgreSQL server using _psql_ in Azure Cloud Shell
+- Skapa en Azure Database for PostgreSQL med Azure-portalen
+- Skapa en Azure Database för PostgreSQL med hjälp av Azure-CLI:n
+- Konfigurera en PostgreSQL-servernivå brandväggsregel
+- Anslut till PostgreSQL-server med den `psql` i Azure Cloud Shell

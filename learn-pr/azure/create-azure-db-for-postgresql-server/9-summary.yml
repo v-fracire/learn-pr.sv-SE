@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-azure-db-for-postgresql.summary
-title: Clean up resources
+title: Rensa resurser
 metadata:
-  title: Clean up resources
-  description: Clean up and delete all resources used in the module.
+  title: Rensa resurser
+  description: Rensa och ta bort alla resurser som används i modulen.
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial

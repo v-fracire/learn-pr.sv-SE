@@ -1,23 +1,23 @@
-Suppose you work in an IT department of a drug research company. You administer a group of servers that run all the company infrastructure from web servers to databases. However, the hardware is getting older and is struggling to keep up with some of the new data analysis applications being deployed to it.
+Anta att du arbetar i IT-avdelningen på ett företag som sysslar med läkemedelsforskning. Du kan administrera en grupp med servrar som kör företags hela infrastruktur från webbservrar till databaser. Dock blir maskinvaran äldre och får kämpa för att hålla jämna steg med en del av de nya dataanalysprogram som distribueras till den.
 
-You could upgrade all the hardware, but that's not appealing for several reasons:
+Du skulle kunna uppgradera all maskinvara, men det är mindre fördelaktigt av flera skäl:
 
-1. The servers are physically scattered all around the world with minimal staff in each location. We'd like to centralize the upgrade to our home office.
+1. Servrarna är fysiskt utspridda över hela världen med minimal personal på varje plats. Vi vill centralisera uppgraderingen till vårt hemkontor.
 
-1. The company runs custom data analysis software on several versions and flavors of Windows and Linux, sometimes set up with odd configurations that aren't entirely understood. We need a way to test our deployments completely and try different configurations to make sure everything is working before we transition the work.
+1. Företaget körs anpassad programvara för dataanalys på flera versioner och varianter av Windows och Linux, ibland med udda konfigurationer som inte är helt dokumenterade. Vi behöver ett sätt att testa våra distributioner helt och prova olika konfigurationer för att kontrollera att allt fungerar innan vi överför arbetet.
 
-1. Business is booming, and the company is growing fast. It's likely that the load on the internal servers, particularly the databases, will continue to grow, requiring us to either buy for the future or come up with a scaling plan to handle the growth.
+1. Verksamheten frodas och företaget växer snabbt. Det är troligt att belastningen på de interna servrarna, särskilt databaserna, fortsätter att växa, att kräva att vi kan antingen köpa för framtiden eller få fram en plan som skalning för att hantera tillväxt.
 
-For these reasons, you decide that it's time to explore the cloud to see if it can help solve the load and scale problem. Since you have a bunch of mixed servers and custom software, it makes sense to look at trying to move servers one at a time into Azure using Azure Virtual Machines (VMs).
+På grund av de här anledningarna anser du att det är dags att utforska molnet och se om det kan lösa problemet med belastning och skala. Eftersom du har en mängd blandade servrar och anpassad programvara är det logiskt att försöka flytta servrarna en i taget till Azure med hjälp av virtuella Azure-datorer (VM).
 
-Azure VMs are one of several types of on-demand, scalable computing resources that Azure offers. With VMs, you have total control over the configuration and can install anything you need to perform the work. You don't need to purchase physical hardware when you need to scale or extend your datacenter. Finally, Azure provides additional services to monitor, secure, and manage updates and patches to the OS.
+Virtuella Azure-datorer är en av flera typer av skalbara datorresurser på begäran som Azure erbjuder. Med virtuella datorer får du fullständig kontroll över konfigurationen och kan installera allt du behöver för att utföra arbetet. Du behöver inte köpa fysisk maskinvara när du vill skala eller utöka datacentret. Azure tillhandahåller dessutom ytterligare tjänster för att övervaka, skydda och hantera uppdateringar och korrigeringar till operativsystemet.
 
-We're going to look at the decisions made before creating a VM, the options to create and manage the VM, and the extensions and services you use to manage your VM.
+Vi ska titta på de beslut som fattas innan du skapar en virtuell dator, alternativ för att skapa och hantera den virtuella datorn, och tillägg och tjänster du använder för att hantera den virtuella datorn.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Compile a checklist for creating a virtual machine
-- Describe the options to create and manage virtual machines
-- Describe the additional services available to administer virtual machines
+- Kompilera en checklista för att skapa en virtuell dator
+- Beskriv alternativen för att skapa och hantera virtuella datorer
+- Beskriv de ytterligare tjänster som är tillgängliga för att administrera virtuella datorer

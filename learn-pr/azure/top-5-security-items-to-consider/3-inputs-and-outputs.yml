@@ -1,9 +1,9 @@
 ### YamlMime:ModuleUnit
 uid: learn.top-5-security-items-to-consider.3-inputs-and-outputs
-title: Inputs and Outputs
+title: Indata och utdata
 metadata:
-  title: Inputs and Outputs
-  description: Inputs and Outputs
+  title: Indata och utdata
+  description: Indata och utdata
   author: lnyswonger
   ms.date: 09/24/2018
   ms.author: luken
@@ -13,47 +13,47 @@ durationInMinutes: 10
 content: |
   [!include[](includes/3-inputs-and-outputs.md)]
 quiz:
-  title: 'Knowledge Check - Azure Security center'
+  title: Knowledge Check - Azure Security center
   questions:
-  - content: 'Which of the following data sources need to be sanitized?'
-    choices:
-    - content: 'Data from a 3rd party API.'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-    - content: 'Data from the URL parameter.'
-      isCorrect: false
-      correctExplanation: 'TBD.'
-    - content: 'Data collected from the user via an input field.'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-    - content: 'All of the above'
-      isCorrect: true
-      incorrectExplanation: 'TBD.'
-  - content: 'Which of the following data needs to be output encoded?'
-    choices:
-    - content: 'Data saved to the database'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-    - content: 'Data to be output to the screen'
-      isCorrect: true
-      correctExplanation: 'TBD.'
-    - content: 'Data sent to a 3rd party API'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-    - content: 'Data in the URL parameters'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-  - content: 'Parameterized queries (stored procedures in SQL) are always a more secure choice for talking to the database because:'
-    choices:
-    - content: 'They are more organized than inline database commands, and therefore less confusing for users.'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-    - content: 'There is a clear outline of the script in the stored procedure, ensuring better visibility.'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-    - content: 'Hackers don’t understand how to program in SQL.'
-      isCorrect: false
-      incorrectExplanation: 'TBD.'
-    - content: 'Parameterized queries substitute variables before running queries, meaning it avoids the opportunity for code to be submitted in place of a variable.'
-      isCorrect: true
-      correctExplanation: 'TBD.'
+    - content: Vilket av följande datakällor måste verifieras?
+      choices:
+        - content: Data från en 3 part API.
+          isCorrect: false
+          incorrectExplanation: Det här är bara en av flera olika källor som behöver verifieras.
+        - content: Data från URL-parameter.
+          isCorrect: false
+          incorrectExplanation: Det här är bara en av flera olika källor som behöver verifieras
+        - content: Data som samlas in från användaren via ett indatafält.
+          isCorrect: false
+          incorrectExplanation: Det här är bara en av flera olika källor som behöver verifieras.
+        - content: Inget av alternativen ovan.
+          isCorrect: true
+          correctExplanation: Korrigera. Alla dessa datakällor behöver verifieras.  Aldrig lita på alla data som kan ha ändrats.
+    - content: Vilket av följande data måste vara kodad utdata?
+      choices:
+        - content: Data som sparas i databasen
+          isCorrect: false
+          incorrectExplanation: 'Även om data som sparas i databasen måste verifieras för att säkerställa att data är bra, behöver vi inte att koda för utdata.'
+        - content: Data kan utdata till skärmen
+          isCorrect: true
+          correctExplanation: Har du rätt måste data som utdata till skärmen alltid vara utdata kodas för att se till att det aldrig ska tolkas som kod.
+        - content: Data som skickas till en 3 part API
+          isCorrect: false
+          incorrectExplanation: 'Även om data som skickas till en 3 part API måste verifieras för att säkerställa att data är bra, behöver vi inte att koda för utdata.'
+        - content: Data i URL-parametrar
+          isCorrect: false
+          incorrectExplanation: 'Även om data från URL-parametrar måste verifieras innan den används i vår App, behöver vi inte att koda för utdata.'
+    - content: 'Frågor med parametrar (lagrade procedurer i SQL) är alltid en säkrare alternativ för att prata databasen eftersom:'
+      choices:
+        - content: De är mer organiserad än infogade databaskommandona och därför mindre förvirrande för användaren.
+          isCorrect: false
+          incorrectExplanation: Organisation av koden är inte orsaken till att parameteriserade frågor är säkrare än infogad SQL.
+        - content: 'Det finns en tydlig beskrivning av skriptet i den lagrade proceduren, att säkerställa bättre insyn.'
+          isCorrect: false
+          incorrectExplanation: Ta bort disposition av skriptet är inte orsaken till att parameteriserade frågor är säkrare än infogad SQL.
+        - content: Hackare förstår inte hur man programmerar i SQL.
+          isCorrect: false
+          incorrectExplanation: 'Många hackare förstår SQL, detta är inte rätt svar.'
+        - content: 'Frågor med parametrar ersätta variabler innan du kör frågor, vilket innebär att de undviker möjlighet för kod som ska skickas i stället för en variabel.'
+          isCorrect: true
+          correctExplanation: 'Parameterfält som används i parameterfrågor behandlas som data, inte koden, skydda mot inmatning. Mer information om hur du implementerar parameteriserade frågor finns i den [OWASP frågor Parameterisering facit blad]( https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet).'

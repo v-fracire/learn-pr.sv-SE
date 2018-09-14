@@ -1,16 +1,16 @@
-Your business relies on access to the systems and data that make it run. If something happened to cause a loss of availability, even for a short period of time, it could be disastrous for the bottom line. Every minute that your customers or your internal workers don’t have access to what they need results in a loss of revenue. It is our job to make sure that doesn’t happen.
+Ditt företag är beroende av åtkomst till system och data som gör att den körs. Om något hände orsaka förlust av tillgänglighet, även för en kort tidsperiod, kan det och med katastrofal för slutresultatet. Varje minut att dina kunder eller dina interna medarbetare inte har åtkomst till vad behöver de leder till förlust av intäkter. Det är vår jobbet att kontrollera som inte sker.
 
-As we learn about architecting our cloud solutions to be highly available and to have the capability to recover from localized and widespread issues, we'll see how one fictional Azure customer puts these principles to work:
+Vi Lär om bygga vår molnlösningar ska ha hög tillgänglighet och möjlighet att komma tillrätta med problem med lokaliserade och utökas ska vi se hur ett fiktivt Azure customer placerar dessa principer ska fungera:
 
-Lamna Healthcare is a national healthcare provider. Their IT organization has recently started to move the majority of their IT systems to Azure. They have a mixture of custom apps, open-source apps, and off-the-shelf applications, with varying architectures and technology platforms. We'll learn what they need to do to migrate to the cloud while keeping their systems and data secure.
+Lamna Healthcare är en nationell vårdgivare. IT-avdelningen har nyligen börjat flytta merparten av sina IT-system till Azure. De har en blandning av anpassade appar, appar med öppen källkod och startklara program med olika arkitekturer och teknik plattformar. Vi får lära dig vad de behöver göra för att migrera till molnet samtidigt som deras system och data.
 
 > [!NOTE]
-> The concepts discussed in this module are not all-inclusive, but represent some of the important considerations when building a solution on the cloud. Microsoft publishes a broad set of patterns, guidelines, and examples on designing applications on Azure. It's highly recommended that you look through the content in the [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) as you start planning and designing your architecture.
+> De begrepp som diskuteras i den här modulen är inte heltäckande, men representerar några viktiga överväganden när du skapar en lösning i molnet. Microsoft publicerar en rad olika mönster, riktlinjer och exempel på hur du skapar program i Azure. Vi rekommenderar starkt att du söker igenom innehållet i den [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) när du börjar planera och utforma din arkitektur.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Leverage Azure services to design a highly available application
-- Incorporate Azure disaster recovery capabilities into your architecture
-- Back up and restore on Azure to protect your application from data loss or corruption
+- Utnyttja services-tjänster för att utforma ett program med hög tillgänglighet
+- Införliva Azure haveriberedskap i din arkitektur
+- Säkerhetskopiera och återställa på Azure för att skydda ditt program från dataförlust eller skadade data

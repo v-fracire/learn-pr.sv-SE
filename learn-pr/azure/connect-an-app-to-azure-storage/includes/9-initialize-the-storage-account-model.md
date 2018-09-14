@@ -1,17 +1,17 @@
-The Azure Storage client library provides an object model that is used to interact with Azure storage accounts. It's used to quickly connect to an Azure storage account and use the Azure Storage service APIs. 
+Azure Storages klientbibliotek tillhandahåller en objektmodell som används för att interagera med Azure Storage-kontona. Den används för att snabbt ansluta till ett Azure Storage-konto och använda Azure Storages tjänst-API:er. 
 
-## Azure Storage client library object model
+## <a name="azure-storage-client-library-object-model"></a>Objektmodell från Azure Storages klientbibliotek
 
 ::: zone pivot="csharp"
 
-The foundation of the storage account object model in the .NET Core client library is the class `CloudStorageAccount`. The simplest way to initialize the object model is to use `CloudStorageAccount.Parse` or `CloudStorageAccount.TryParse` to parse the connection string.
+Grunden för storage-konto: objektmodell i klientbiblioteket för .NET Core är klassen `CloudStorageAccount`. Det enklaste sättet att initiera objektmodellen är att använda `CloudStorageAccount.Parse` eller `CloudStorageAccount.TryParse` för att parsa anslutningssträngen.
 
 > [!NOTE]
-> The client library will not attempt to connect until an operation is invoked that requires it. `Parse()` and `TryParse()` only guarantee that the connection string is well-formatted; they don't verify that the account exists or that the key is correct. 
+> Klientbiblioteket försöker inte ansluta förrän en åtgärd som efterfrågar detta anropas. `Parse()` och `TryParse()` säkerställer endast att anslutningssträngen är välformad: de kan de inte verifiera att kontot finns eller att nyckeln är korrekt. 
 
-The resulting `CloudStorageAccount` instance returned from the `Parse()` or `TryParse()` method call exposes methods to create a client objects to access the Azure Blob, Files, Queue and Table storage services. 
+Den resulterande `CloudStorageAccount` instans som returnerades från den `Parse()` eller `TryParse()` metodanrop exponerar metoder för att skapa ett klientobjekt för att få åtkomst till Azure Blob, filer, Queue och Table storage-tjänsterna. 
 
-The code snippet below shows an example of creating a client to use for blob storage:
+Kodfragmentet nedan visar ett exempel på hur du skapar en klient för användning med bloblagring:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -21,11 +21,11 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse("your-storage-key
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient()
 ```
 
-`CloudStorageAccount` and the client objects are lightweight and can be created on demand or created up front to be shared within your application. A standard approach is to use `CloudStorageAccount.TryParse()` near the entry point of your application to create an instance, and make it available within your application for creating client instances.
+`CloudStorageAccount` och klientobjekten är enkla och kan skapas på begäran eller i förväg för delning i ditt program. En vanlig metod är att använda `CloudStorageAccount.TryParse()` nära startpunkten för programmet för att skapa en instans och göra den tillgänglig i ditt program när du vill skapa klientinstanser.
 
-Once you have a client object to a specific storage type, you can use methods to perform actual work. Methods which make network calls are intentionally asynchronous - in .NET we use the `async` and `await` keywords to work with these methods efficiently.
+När du har ett klientobjekt till en viss lagringstyp kan använda du metoder för att utföra verkligt arbete. För att nätverksanrop är avsiktligt asynkrona – i .NET använder vi den `async` och `await` nyckelord att arbeta med dessa metoder effektivt.
 
-As an example, we can use the `CloudBlobClient` to create a _blob container_ and upload a file to blob storage.
+Exempelvis kan vi använda den `CloudBlobClient` att skapa en _blobbehållare_ och överföra en fil till blob storage.
 
 ```csharp
 // Create a local CloudBlobContainer object. No network call.
@@ -47,27 +47,27 @@ await blob.UploadFromFileAsync(fileName);
 
 ::: zone-end
 
-::: zone-pivot="javascript"
+::: zone pivot="javascript"
 
-The foundation of the storage account object model in the **Microsoft Azure Storage Client Library for Node.js and JavaScript** is the `azurestorage` object. This is created by adding the **azure-storage** module to your app through a `require` statement.
+Grunden för objektmodell för storage-konto i den **Microsoft Azure Storage-klientbibliotek för Node.js och JavaScript** är den `azurestorage` objekt. Det här skapas genom att lägga till den **azure-storage** modul till din app via en `require` instruktionen.
 
 ```javascript
 const storage = require('azure-storage');
 ```
 
-This object provides a series of _factory_ methods that create specific objects to work with each facet of Azure storage. You call `createXXX` methods to create each object.
+Det här objektet innehåller en serie _factory_ metoder som skapar specifika objekt att fungera med alla aspekter av Azure storage. Du anropar `createXXX` metoder för att skapa varje objekt.
 
-| Type | Method | Returns |
+| Typ | Metod | Returnerar |
 |--------|---------|-------------|
 | **Blob** | `createBlobService` | `BlobService` |
-| **Table** | `createTableService` | `TableService` |
-| **Queue** | `createQueueService` | `QueueService` |
-| **File** | `createFileService` | `FileService` |
+| **Tabell** | `createTableService` | `TableService` |
+| **Kö** | `createQueueService` | `QueueService` |
+| **Fil** | `createFileService` | `FileService` |
 
 > [!NOTE]
-> The client library will not attempt to connect until an operation is invoked that requires it. Each of these `create` methods return a lightweight object representing access to the storage type - it does not validate the connection or the access key being used. 
+> Klientbiblioteket försöker inte ansluta förrän en åtgärd som efterfrågar detta anropas. Var och en av dessa `create` metoder returnerar ett lightweight-objekt som representerar åtkomst för lagringstypen&mdash;validerar inte anslutningen eller åtkomstnyckeln som används.
 
-Once you have a service object to a specific storage type, you can use methods to perform actual work. Methods which make network calls are intentionally asynchronous. The library current supports _callbacks_ to return asynchronous results. For example, here is code that creates a blob container.
+När du har ett serviceobjekt till en viss lagringstyp kan använda du metoder för att utföra verkligt arbete. Metoder som gör nätverksanrop är avsiktligt asynkrona. Biblioteket stöder för närvarande _återanrop_ att returnera asynkront resultat. Här är till exempel kod som skapar en blob-behållare.
 
 ```javascript
 var azure = require('azure-storage');
@@ -81,9 +81,9 @@ blobService.createContainerIfNotExists('myblobcontainer', function(err, result, 
 });
 ```
 
-This approach works fine, but tends to lead to a lot of code being added into the callbacks which can get unmanagement. A better approach in JavaScript is to use _promises_ to work with these methods. There are several great libraries which will convert callback-style methods into promises - you can pick the one you prefer.
+Den här metoden fungerar bra, men det ofta leda till en massa kod som läggs till i återanrop som kan hämta svårhanterligt. En bättre metod i JavaScript är att använda _lovar_ att arbeta med dessa metoder. Det finns flera bra bibliotek som konverterar återanrop-style metoder till löften&mdash;du kan välja den som du föredrar.
 
-Here, we'll use the `util.promisify` feature from Node and use the `BlobService` to create the container and upload a file to blob storage. In addition, we'll use the `async` and `await` keywords to work with the promises a bit more naturally.
+Här kan vi använder den `util.promisify` funktionen från noden och använder den `BlobService` att skapa behållaren och ladda upp en fil till blob storage. Dessutom använder vi den `async` och `await` nyckelord att arbeta med sina löften lite mer naturligt.
 
 ```javascript
 const util = require('util');
@@ -114,4 +114,4 @@ main();
 ```
 ::: zone-end
 
-Let's try this in our app.
+Nu ska vi prova detta i vår app.

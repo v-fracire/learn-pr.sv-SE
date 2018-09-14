@@ -31,6 +31,7 @@ WHERE p.id ="1"
         "category": "Women's Clothing",
         "manufacturer": "Contoso Sport",
         "description": "Quick dry crew neck t-shirt",
+        "price": "14.99",
         "shipping": {
             "weight": 1,
             "dimensions": {
@@ -39,11 +40,11 @@ WHERE p.id ="1"
                 "depth": 1
             }
         },
-        "_rid": "glAZAJFm0VsBAAAAAAAAAA==",
-        "_self": "dbs/glAZAA==/colls/glAZAJFm0Vs=/docs/glAZAJFm0VsBAAAAAAAAAA==/",
-        "_etag": "\"00006000-0000-0000-0000-5b71be760000\"",
+        "_rid": "iAEeANrzNAAJAAAAAAAAAA==",
+        "_self": "dbs/iAEeAA==/colls/iAEeANrzNAA=/docs/iAEeANrzNAAJAAAAAAAAAA==/",
+        "_etag": "\"00003a02-0000-0000-0000-5b9208440000\"",
         "_attachments": "attachments/",
-        "_ts": 1534180982
+        "_ts": 1536297028
     }
 ]
 ```
@@ -96,22 +97,22 @@ FROM Products.shipping
 
 ```
 [
-{
-    "weight": 1,
-    "dimensions": {
-        "width": 6,
-        "height": 8,
-        "depth": 1
+    {
+        "weight": 1,
+        "dimensions": {
+            "width": 6,
+            "height": 8,
+            "depth": 1
+        }
+    },
+    {
+        "weight": 2,
+        "dimensions": {
+            "width": 8,
+            "height": 11,
+            "depth": 3
+        }
     }
-},
-{
-    "weight": 1,
-    "dimensions": {
-        "width": 6,
-        "height": 8,
-        "depth": 1
-    }
-}
 ]
 ```
 
@@ -202,7 +203,7 @@ I följande fråga returneras produkt-ID:n för varje produkt som har en leveran
 
 ## <a name="geospatial-queries"></a>Geospatiala frågor
 
-Med geospatiala frågor kan du utföra spatiala frågor med GeoJSON-punkter. Med koordinaterna i databasen kan du beräkna avståndet mellan två punkter och avgöra om en punkt, polygon eller linjesträng är inom en annan punkt, polygon eller linjesträng.
+Geospatiala frågor kan du utföra rumsliga förfrågningar med GeoJSON punkter. Med koordinaterna i databasen kan du beräkna avståndet mellan två punkter och avgöra om en punkt eller Polygon LineString är i en annan plats, Polygon eller LineString.
 
 För produktkatalogdata skulle detta göra det möjligt för dina användare att ange platsinformation och fastställa om det finns några butiker inom 80 km avstånd som har artikeln som användaren letar efter. 
 

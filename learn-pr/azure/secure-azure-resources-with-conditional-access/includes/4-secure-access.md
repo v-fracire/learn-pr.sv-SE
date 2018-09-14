@@ -1,4 +1,4 @@
-I den föregående övningen aktiverade vi utvärderingslicenser, skapade en katalog, skapade en användare och skapade en grupp för att testa vår lösning. I den här övningen ska vi skapa vår regel för villkorlig åtkomst för att kräva multifaktorautentisering för Azure Portal.
+I den föregående övningen aktiverade vi utvärderingslicenser, skapade en katalog, skapade en användare och skapade en grupp för att testa vår lösning. I den här enheten, ska vi skapa vårt regel för villkorlig åtkomst för att kräva Azure Multi-Factor Authentication för Azure-portalen.
 
 ## <a name="enable-conditional-access-based-multi-factor-authentication"></a>Aktivera multifaktorautentisering baserat på villkorlig åtkomst
 

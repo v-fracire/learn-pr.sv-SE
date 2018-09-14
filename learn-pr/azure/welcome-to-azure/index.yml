@@ -1,31 +1,35 @@
 ### YamlMime:Module
 uid: learn.welcome-to-azure
-title: Welcome to Azure
-summary: Get started with Azure by creating and configuring your first VM in the cloud.
-cardDescription: Get started with Azure by creating your first VM in the cloud.
-iconUrl: http://via.placeholder.com/120x120
-achievement: learn.placeholder.badge
-levels:
-- beginner
-roles:
-- developer
-- administrator
-- solution-architect
-products:
-- azure
 metadata:
-  title: Welcome to Azure
-  description: Get started with Azure by creating your first VM in the cloud.
+  title: Välkommen till Azure
+  description: Kom igång med Azure genom att skapa din första virtuella dator i molnet.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+title: Välkommen till Azure
+summary: Kom igång med Azure genom att skapa och konfigurera din första virtuella dator i molnet.
 abstract: |
-  * Start building the foundational skills you need to change the world or land the job of your dreams. 
-  * Learn what Microsoft Azure is and how it relates to cloud computing.
-  * See how easy it is to launch your first virtual machine, add a web server, and scale up your server when you need more power.
-
-  This was written by a group of people who are passionate about the potential technology has to change people's lives. We hope our passion helps you build the skills you need to be successful with the cloud.
+  I den här modulen kommer du att göra följande:
+  - Börja bygga de grundläggande kunskaper som du behöver ändra världen eller få en uppgift för dina drömmar. 
+  - Läs mer om Microsoft Azure och hur den relaterar till cloud computing.
+  - Se hur enkelt det är att starta den första virtuella datorn, Lägg till en webbserver och skala upp din server när du behöver mer kraft.
+prerequisites: Ingen
+iconUrl: /learn/achievements/welcome-to-azure.svg
+levels:
+  - beginner
+roles:
+  - developer
+  - administrator
+  - solution-architect
+products:
+  - azure
 units:
-- learn.welcome-to-azure.1-introduction
-- learn.welcome-to-azure.2-what-is-azure
-- learn.welcome-to-azure.3-create-a-vm
-- learn.welcome-to-azure.4-add-web-server
-- learn.welcome-to-azure.5-scale-up
-- learn.welcome-to-azure.6-summary
+  - learn.welcome-to-azure.1-introduction
+  - learn.welcome-to-azure.2-what-is-azure
+  - learn.welcome-to-azure.3-create-a-vm
+  - learn.welcome-to-azure.4-add-web-server
+  - learn.welcome-to-azure.5-scale-up
+  - learn.welcome-to-azure.6-summary
+achievement: learn.welcome-to-azure.badge

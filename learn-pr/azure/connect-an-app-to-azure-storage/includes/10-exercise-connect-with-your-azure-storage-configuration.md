@@ -1,25 +1,24 @@
-::: zone pivot="csharp"
-Let's add code to retrieve the connection string from configuration and use it to connect to the Azure storage account.
+::: zon pivot = ”csharp” ska vi lägga till kod för att hämta anslutningssträngen från konfigurationen och använda den för att ansluta till Azure storage-kontot.
 
-## Retrieve the connection string
+## <a name="retrieve-the-connection-string"></a>Hämta anslutningssträngen
 
-1. Select **Program.cs** to open it in the code editor.
+1. Välj **Program.cs** att öppna den i kodredigeraren.
 
-1. Add a `using` statement at the top of the file to reference the `Microsoft.WindowsAzure.Storage` namespace:
+1. Lägg till en `using` instruktion överst i filen för att referera till den `Microsoft.WindowsAzure.Storage` namnområde:
 
     ```csharp
     using Microsoft.WindowsAzure.Storage;
     ```
-1. At the end of the `Main` method, add the following line to retrieve the Azure storage account connection string from the configuration file. The passed _key_ must match the name used in your **appsettings.json** file.
+1. I slutet av den `Main` metoden lägger du till följande rad för att hämta anslutningssträngen för Azure storage-konto från konfigurationsfilen. Den överförda _nyckel_ måste matcha namnet som används i din **appsettings.json** fil.
 
     ```csharp
     var connectionString = configuration["StorageAccountConnectionString"];
     ```
 
-## Create a blob client
+## <a name="create-a-blob-client"></a>Skapa en blobbklient
 
-1. Use the static `CloudStorageAccount.TryParse` method to create a `CloudStorageAccount` object - it takes the connection string and an `out` parameter to return the created object. It returns a `bool` value indicating whether it successfully parsed the string.
-    - If it fails, output a message to the console and return from the method.
+1. Använder du statiskhet `CloudStorageAccount.TryParse` metod för att skapa en `CloudStorageAccount` objekt – det tar att anslutningssträngen och en `out` parametern ska returneras objektet. Returnerar en `bool` -värde som anger om det har parsats strängen.
+    - Om det inte går ut ett meddelande till konsolen och returneras från metoden.
 
     ```csharp
     if (!CloudStorageAccount.TryParse(connectionString, 
@@ -30,27 +29,27 @@ Let's add code to retrieve the connection string from configuration and use it t
     }
     ```
 
-1. Use the returned `CloudStorageAccount` object to create a blob client.
+1. Använd den returnerade `CloudStorageAccount` objektet för att skapa en blob-klient.
 
     ```csharp
     var blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. Next, use the blob client to retrieve a reference to a container named "photoblobs". Much like the account names, the Blob container names must be lowercase and composed of letters and numbers.
+1. Använd blobbklienten för att hämta en referens till en behållare med namnet ”photoblobs”. Mycket som kontonamn, måste Blob-behållarnamn vara gemener och består av bokstäver och siffror.
 
     ```csharp
     var blobContainer = blobClient.GetContainerReference("photoblobs");
     ```
 
-1. Use the `CreateIfNotExistsAsync` method to create the container. This returns a `bool` indicating whether the container was created. Store this in a variable named `created`.
-    - Notice that this is an **async** method - that means it will perform an actual network call.
-    - You will need to use the `await` keywords to get the `bool` result.
+1. Använd den `CreateIfNotExistsAsync` metod för att skapa behållaren. Detta returnerar en `bool` som anger om behållaren har skapats. Store detta i en variabel med namnet `created`.
+    - Observera att detta är en **async** metod - innebär det utförs ett faktiska nätverks-anrop.
+    - Du måste använda den `await` nyckelord att hämta den `bool` resultatet.
 
     ```csharp
     bool created = await blobContainer.CreateIfNotExistsAsync();
     ```
 
-1. Because we are using the `await` keyword, go ahead and change the signature for the `Main` method to be `async` and return a `Task`.
+1. Eftersom vi använder den `await` nyckelord, gå vidare och ändra signaturen för den `Main` -metoden är `async` och returnera en `Task`.
 
     ```csharp
     static async Task Main(string[] args)
@@ -59,15 +58,15 @@ Let's add code to retrieve the connection string from configuration and use it t
     }
     ```
 
-1. Finally, output whether we created the Blob container.
+1. Slutligen matar ut om vi skapade Blob-behållaren.
 
     ```csharp
     Console.WriteLine(created ? "Created the Blob container" : "Blob container already exists.");
     ```
 
-1. Save the file.
+1. Spara filen.
 
-The final file should look like this if you'd like to check your work.
+Den slutgiltiga filen bör se ut så här om du vill kontrollera ditt arbete.
 
 ```csharp
 using System;
@@ -106,11 +105,11 @@ namespace PhotoSharingApp
 }
 ```
 
-## Use C# 7.1 to build our app
+## <a name="use-c-71-to-build-our-app"></a>Använd C# 7.1 för att bygga vår app
 
-Support for `async` and `await` on `Main` methods was added to C# 7.1. This might not be the default version of the compiler you are using. Let's make sure we use that version of the compiler by setting it in our configuration file.
+Stöd för `async` och `await` på `Main` metoder har lagts till i C# 7.1. Detta kanske inte standardversionen av kompilatorn som du använder. Vi behöver kontrollera att vi använder den versionen av kompilatorn genom att ange den i vår konfigurationsfilen.
 
-1. Open the `PhotoSharingApp.csproj` and add `<LangVersion>7.1</LangVersion>` to the `PropertyGroup` that specifies the `TargetFramework`. It should look like this when you're finished:
+1. Öppna den `PhotoSharingApp.csproj` och Lägg till `<LangVersion>7.1</LangVersion>` till den `PropertyGroup` som anger den `TargetFramework`. Det bör se ut så här när du är klar:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -123,11 +122,11 @@ Support for `async` and `await` on `Main` methods was added to C# 7.1. This migh
     </Project>
     ```
 
-1. Save the file.
+1. Spara filen.
 
-## Run the app
+## <a name="run-the-app"></a>Kör appen
 
-1. Build and run the application. **Note:** make sure you're in the correct working directory.
+1. Skapa och kör programmet. **Obs:** se till att du befinner dig i rätt arbetskatalogen.
 
     ```bash
     dotnet run
@@ -135,14 +134,13 @@ Support for `async` and `await` on `Main` methods was added to C# 7.1. This migh
 
 ::: zone-end
 
-::: zone-pivot="javascript"
-Let's add code to connect to the Azure storage account using our stored connection string. The Azure client library will automatically use the **AZURE_STORAGE_CONNECTION_STRING** environment variable to get the connection string.
+::: zon pivot = ”javascript” ska vi lägga till kod för att ansluta till Azure storage-konto med hjälp av vår lagrade anslutningssträngen. Azure-klientbiblioteket använder automatiskt den **AZURE_STORAGE_CONNECTION_STRING** miljövariabeln att hämta anslutningssträngen.
 
-## Create a blob client
+## <a name="create-a-blob-client"></a>Skapa en blobbklient
 
-1. Open **index.js** in the code editor.
+1. Öppna **index.js** i kodredigeraren.
 
-1. Start by including the **azure-storage** module. Store the module in a variable named **storage**.
+1. Starta genom att inkludera den **azure-storage** modulen. Store modulen i en variabel med namnet **storage**.
 
     ```javascript
     #!/usr/bin/env node
@@ -151,25 +149,25 @@ Let's add code to connect to the Azure storage account using our stored connecti
     const storage = require('azure-storage');
     ```
 
-1. Next, right after that, use the **storage** object to create the `BlobService` object and store it in a global named **blobService**. Remember, these are light-weight objects representing access to the storage account.
+1. Direkt efter det, Använd sedan den **storage** objektet för att skapa den `BlobService` objekt och lagra den på en global med namnet **blobService**. Kom ihåg att dessa är lätta objekt som representerar åtkomst till lagringskontot.
 
     ```javascript
     const blobService = storage.createBlobService();
     ```
 
-1. Add a constant to represent the container we want to create. We'll name the container "photoblobs".
+1. Lägg till en konstant som representerar den behållare som vi vill skapa. Vi kan namnge behållaren ”photoblobs”.
 
     ```javascript
     const containerName = 'photoblobs';
     ```
 
-## Create a container
+## <a name="create-a-container"></a>Skapa en container
 
-We can use the `BlobService` object to work with blob APIs in Azure storage. As mentioned before, all the APIs that make network calls are asynchronous to keep the app responsive. The `createContainerIfNotExists` method is one such method. We'll use _promises_ to handle the callback which contains the response.
+Vi kan använda den `BlobService` objekt att arbeta med blob API: er i Azure storage. Som tidigare nämnts, är alla API: er som gör nätverksanrop asynkrona att appen svarar. Den `createContainerIfNotExists` metoden är en sådan metod. Vi använder _lovar_ att hantera det återanrop som innehåller certifikatutfärdarens svar.
 
-1. Use `util.promisify` to take the callback version of `createContainerIfNotExists` and turn it into a promise-returning method.
-    - Since the callback method is on an object, make sure to add a `bind` call at the end to connect it to that context.
-    - Assign the return value to a constant at the top of the file named `createContainerAsync` as shown below.
+1. Använd `util.promisify` ska börja återanrop-versionen av `createContainerIfNotExists` och omvandla dem till ett löfte returnerar-metoden.
+    - Eftersom motringningsmetoden är på ett objekt, se till att lägga till en `bind` anropa i slutet för att ansluta till denna kontext.
+    - Tilldela det returnera värdet en konstant överst i filen som heter `createContainerAsync`, enligt nedan.
 
 ```javascript
 const storage = require('azure-storage');
@@ -180,12 +178,12 @@ const createContainerAsync = util.promisify(blobService.createContainerIfNotExis
 const containerName = 'photoblobs';
 ```
 
-1. Remove the "Hello, World!" output from `main()`.
+1. Ta bort den ”Hello, World”! utdata från `main()`.
 
-1. Call your new `createContainerAsync` promise.
-    - Pass it the **containerName** constant.
-    - Apply the `await` keyword to the call.
-    - Wrap the call in a `try` / `catch` construct and output any error.
+1. Anropa din nya `createContainerAsync` löftet.
+    - Skickar den de **containerName** konstant.
+    - Tillämpa den `await` nyckelord i anropet.
+    - Omsluta anropet i en `try`  /  `catch` konstruera och utdata eventuella fel.
 
     ```javascript
     try {
@@ -196,7 +194,7 @@ const containerName = 'photoblobs';
     }
     ```
     
-1. The `createContainerAsync` promise returns the first value from the underlying `createContainerIfNotExists` which is the container result. This includes information on whether the container was created or not. Capture the result in a variable and output whether the container was created based on the `result.created` property.
+1. Den `createContainerAsync` löftet returnerar det första värdet från den underliggande `createContainerIfNotExists`, som är resultatet för behållaren. Detta omfattar information om om behållaren har skapats eller inte. Samla in resultatet i en variabel och utdata om behållaren har skapats utifrån den `result.created` egenskapen.
 
     ```javascript
     try {
@@ -213,11 +211,11 @@ const containerName = 'photoblobs';
     }
     ```
 
-1. Finally, decorate the `main` function with the `async` keyword.
+1. Slutligen kan anpassa den `main` fungerar med den `async` nyckelord.
         
-1. Save the file.
+1. Spara filen.
 
-The final file should look like this if you'd like to check your work.
+Den slutgiltiga filen bör se ut så här, om du vill kontrollera ditt arbete.
 
 ```javascript
 #!/usr/bin/env node
@@ -250,9 +248,9 @@ async function run() {
 run();
 ```
 
-## Run the app
+## <a name="run-the-app"></a>Kör appen
 
-1. Build and run the application. **Note:** make sure you're in the correct working directory.
+1. Skapa och kör programmet. **Obs:** se till att du befinner dig i rätt arbetskatalogen.
 
     ```bash
     node index.js
@@ -260,23 +258,23 @@ run();
 
 ::: zone-end
 
-It should report that the blob container was created. If you run it a second time, it should tell you it already exists.
+Det bör rapportera att blob-behållaren har skapats. Om du kör en gång, bör den informera dig om den redan finns.
 
-To verify the container:
+För att verifiera behållaren:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/?azure-portal=true).
+1. Logga in på [Azure Portal](https://portal.azure.com/?azure-portal=true).
 
-1. Navigate to your storage account. You can use the **All Resources** section to find the storage account, or search by name from the _search box_ at the top of the portal window. 
+1. Navigera till ditt lagringskonto. Du kan använda den **alla resurser** avsnitt för att hitta lagringskontot eller Sök efter namn från den _sökrutan_ längst ned i portalfönstret. 
 
-1. Select the **Blobs** entry of the storage account in the **Blob services** section.
+1. Välj den **Blobar** inmatning av lagringskontot i den **Blob tjänster** avsnittet.
 
-1. You should see your **photoblobs** container in the Blobs panel. You can delete the container through the "..." menu on the right hand side of the entry to try re-creating it with your app.
+1. Du bör se din **photoblobs** behållare i panelen Blobar. Du kan ta bort behållaren via menyn ”...” till höger i posten för att försöka återskapa den med din app.
 
 > [!NOTE]
-> The container will disappear from the portal very quickly, but it takes a few minutes to actually delete. You will get an error response from Azure while it is being deleted if you attempt to recreate it.
+> Behållaren försvinner från portalen mycket snabbt, men det tar några minuter att bort. Du får ett felsvar från Azure medan det tas bort om du försöker återskapa den.
 
-## Delete the app
-If you decide you don't want to keep the application source code in your Cloud Shell environment, you can use the following command to remove the folder and all the contents.
+## <a name="delete-the-app"></a>Ta bort appen
+Om du inte vill behålla programmets källkod i Cloud Shell-miljön kan använda du följande kommando för att ta bort mappen och allt innehåll.
 
 ```bash
 rm -r PhotoSharingApp/

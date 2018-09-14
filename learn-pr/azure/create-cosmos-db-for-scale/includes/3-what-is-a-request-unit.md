@@ -1,4 +1,4 @@
-Nästa steg är att se över dataflödet i vår databas. Det här är viktigt så att vi säkert kan hantera den transaktionsvolym som krävs enligt våra affärsbehov. Dataflödesbehovet behöver inte vara statiskt. Du kanske till exempel skapar en shoppingwebbplats som behöver skalas ut under reor eller storhelger. Vi börjar med att uppskatta dataflödesbehovet.
+Nästa anta att du har data i hela för din databas. Tillräckligt dataflöde är viktigt att se till att du kan hantera volymen av transaktioner för dina affärsbehov. Dataflödesbehovet behöver inte vara statiskt. Du kanske till exempel skapar en shoppingwebbplats som behöver skalas ut under reor eller storhelger. Vi börjar med att lära dig mer om begäransenheter och hur du beräkna krav på dataflöde.
 
 ## <a name="what-is-database-throughput"></a>Vad är dataflöden i databaser? 
 
@@ -41,4 +41,4 @@ När du skapar ett konto kan du etablera som minst 400 RU/s eller som mest 250 0
 
 ## <a name="summary"></a>Sammanfattning
 
-Nu har du lärt dig hur du kan uppskatta dataflöden för en Azure Cosmos-databas med enheter för programbegäran. Du kan när som helst ändra antalet enheter för programbegäran, och om du ställer in värdet 1 000 RU/s när du skapar ett konto ser du till att databasen kan skalas om senare.
+Nu förstå hur du beräkna och omfång dataflöde för Azure Cosmos DB med hjälp av enheter för programbegäran och kan göra ett lämpligt val när du skapar en ny Azure Cosmos DB-collectio. Begäransenheter kan ändras när som helst, men ställa in dem på 1000 RU/s när du skapar ett konto försäkrar du dig din databas är redo att skala senare.

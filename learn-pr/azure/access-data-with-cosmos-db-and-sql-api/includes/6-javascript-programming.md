@@ -22,15 +22,12 @@ Att utföra batchåtgärder i lagrade procedurer rekommenderas också på grund 
 
 Följande exempel är en enkel lagrad HelloWorld-procedur som hämtar den aktuella kontexten och skickar ett svar som visar ”Hello, World”. Observera att den lagrade proceduren har ett ID-värde, precis som Azure Cosmos DB-dokument.
 
-```java
-var helloWorldStoredProc = {
-    id: "helloWorld",
-    serverScript: function () {
-        var context = getContext();
-        var response = context.getResponse();
+```javascript
+function helloWorld() {
+    var context = getContext();
+    var response = context.getResponse();
 
-        response.setBody("Hello, World");
-    }
+    response.setBody("Hello, World");
 }
 ```
 
@@ -42,23 +39,21 @@ I ett scenario med onlinehandel kan en UDF användas för att fastställa om mom
 
 ## <a name="user-defined-function-example"></a>Exempel på en användardefinierad funktion
 
-I följande exempel skapas en UDF för att beräkna rabatter baserat på en beställnings totalsumma och sedan returneras den ändrade beställningssumman baserat på rabatten:
+Följande exempel skapar en UDF för att beräkna moms på en produkt i det fiktiva företaget baserat kostnaden produkten:
 
-```java
-var discountUdf = {
-    id: "discount",
-    serverScript: function discount(orderTotal) {
+```javascript
+function producttax(price) {
+    if (price == undefined) 
+        throw 'no input';
 
-        if(orderTotal == undefined) 
-            throw 'no input';
+    var amount = parseFloat(price);
 
-        if (orderTotal < 50) 
-            return orderTotal * 0.9;
-        else if (orderTotal < 100) 
-            return orderTotal * 0.8;
-        else
-            return orderTotal * 0.7;
-    }
+    if (amount < 1000) 
+        return amount * 0.1;
+    else if (amount < 10000) 
+        return amount * 0.2;
+    else
+        return amount * 0.4;
 }
 ```
 
@@ -69,8 +64,6 @@ Nu ska vi skapa en ny lagrad procedur i portalen. Portalen fyller automatiskt i 
 1. I Datautforskaren klickar du på **Ny lagrad procedur**.
 
     Datautforskaren visar en ny flik med ett exempel på lagrad procedur.
-
-  <!--TODO: Insert animated .gif of creating the stored procedure.-->
 
 2. I rutan **ID för lagrad procedur** anger du namnet *sample*, klickar på **Spara** och klickar sedan på **Kör**.
 
@@ -87,54 +80,56 @@ Nu ska vi skapa en lagrad procedur som skapar dokument.
 
 1. I Datautforskaren klickar du på **Ny lagrad procedur**. Ge den här lagrade proceduren namnet *createDocuments*, klicka på **Spara** och klicka sedan på **Kör**.
 
-    ```java
-    var createDocumentStoredProc = {
-        id: "createMyDocument",
-        productid: "5"
-        serverScript: function createMyDocument(documentToCreate) {
-            var context = getContext();
-            var collection = context.getCollection();
-    
-            var accepted = collection.createDocument(collection.getSelfLink(),
-                  documentToCreate,
-                  function (err, documentCreated) {
-                      if (err) throw new Error('Error' + err.message);
-                      context.getResponse().setBody(documentCreated.id)
-                  });
-            if (!accepted) return;
-        }
-    }
-    ```
+```javascript
+function createMyDocument(id, productid, name, description, price) {
+    var context = getContext();
+    var collection = context.getCollection();
 
-<!--TODO: Need to fix code above.-->
+    var doc = {
+        "id": id,
+        "productId": productid,
+        "description": description,
+        "price": price    
+    };
 
-2. Ange partitionsnyckelvärdet *3* och klicka sedan på **Kör**.
+    var accepted = collection.createDocument(collection.getSelfLink(),
+        doc,
+        function (err, documentCreated) {
+            if (err) throw new Error('Error' + err.message);
+            context.getResponse().setBody(documentCreated)
+        });
+    if (!accepted) return;
+}
+```
 
-    Datautforskaren visar det nya dokumentet. 
+2. I rutan indata parametrar anger du Partition nyckel värdet *999* och klicka sedan på **lägga till nya param** och ange ett värde för id, tryck **lägga till nya param** igen och ange ett värde för productId. Gör samma sak för namnet på den namn, beskrivning och pris, i den ordningen, och klicka sedan på **kör**.
+
+    Nyligen skapade dokumentet visas sedan i data Explorer. 
 
 ## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
 
 Nu ska vi skapa en UDF i Datautforskaren.
 
-Klicka på **Ny UDF** i Datautforskaren. Kopiera följande kod i fönstret, namnet UDF:en *tax* och klicka sedan på **Spara**. Du kan inte köra UDF:en från portalen men vi använder den i en senare modul.
+Klicka på **Ny UDF** i Datautforskaren. Kopiera följande kod i fönstret, namnge UDF *producttax*, och klicka sedan på **spara**.
 
-```java
-function userDefinedFunction(){
-    var taxUdf = {
-        id: "tax",
-        serverScript: function tax(income) {
+```javascript
+function producttax(price) {
+    if (price == undefined) 
+        throw 'no input';
 
-            if(income == undefined) 
-                throw 'no input';
+    var amount = parseFloat(price);
 
-            if (income < 1000) 
-                return income * 0.1;
-            else if (income < 10000) 
-                return income * 0.2;
-            else
-                return income * 0.4;
-        }
-    }
+    if (amount < 1000) 
+        return amount * 0.1;
+    else if (amount < 10000) 
+        return amount * 0.2;
+    else
+        return amount * 0.4;
 }
 ```
 
+När du har definierat användardefinierad funktion kan kan du sedan köra den mot samlingen genom att köra följande fråga:
+
+```sql
+SELECT c.id, c.productId, c.price, udf.producttax(c.price) AS producttax FROM c
+```

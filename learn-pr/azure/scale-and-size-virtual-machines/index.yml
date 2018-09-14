@@ -1,34 +1,38 @@
 ### YamlMime:Module
 uid: learn.scale-and-size-virtual-machines
 metadata:
-  title: Scale and size virtual machines
-  description: You can change the CPU and memory resources of your virtual machines as needed to handle demand and control costs. Manual adjustment can work when demand is predictable and changes infrequently. An automated solution is better when your workload changes unpredictably or frequently. Here, you will see how to control the power of your virtual machines by modifying the size of individual servers or changing the number of available machines. We'll cover how to do this both manually and with scale sets and AutoScaling.
+  title: Skala och storlek virtuella datorer
+  description: Du kan ändra resurser för CPU och minne för dina virtuella datorer som behövs för att hantera kostnader för begäran och kontroll. Manuell justering fungerar när efterfrågan är förutsägbara och ändras sällan. En automatiserad lösning är bättre när arbetsbelastningen ändras ofta eller oförutsägbart. Här visas hur du styr kraften i dina virtuella datorer genom att ändra storleken på enskilda servrar eller ändra antalet tillgängliga datorer. Vi går igenom hur du gör detta både manuellt och med scale sets och automatisk skalning.
   ms.date: 09/24/2018
-title: Scale and size virtual machines
-summary: Adjust your virtual machine compute and storage power manually or using AutoScale.
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+title: Skala och storlek virtuella datorer
+summary: Justera din virtuella dator beräknings- och power manuellt eller genom att använda automatisk skalning.
 abstract: |
-  In this module, you will:
-  - Vertically scale virtual machines by resizing
-  - Horizontally scale virtual machines using scale sets
-  - Configure autoscaling
+  I den här modulen kommer du att göra följande:
+  - Lodrätt skalning av virtuella datorer genom att ändra storlek
+  - Vågrätt skala virtuella datorer med skalningsuppsättningar
+  - Konfigurera automatisk skalning
 prerequisites: |
-  - Experience with a command-line interface such as PowerShell or Bash
-  - Knowledge of basic Azure concepts such as resource groups and virtual machines
-  - Experience administering Azure resources using the Azure portal
-iconUrl: http://via.placeholder.com/120x120
+  - Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
+  - Kunskaper om grundläggande Azure begrepp som resursgrupper och virtuella datorer
+  - Upplev administrera Azure-resurser med hjälp av Azure portal
+iconUrl: /learn/achievements/scale-and-size-virtual-machines.svg
 levels:
-- intermediate
+  - intermediate
 roles:
-- developer
+  - developer
 products:
-- azure
-- azure-virtual-machines
+  - azure
+  - azure-virtual-machines
 units:
-- learn.scale-and-size-virtual-machines.1-introduction
-- learn.scale-and-size-virtual-machines.2-size-and-resize-virtual-machines-in-azure
-- learn.scale-and-size-virtual-machines.3-exercise-resize-a-virtual-machine
-- learn.scale-and-size-virtual-machines.4-horizontal-scaling-using-scale-sets
-- learn.scale-and-size-virtual-machines.5-exercise-create-a-scale-set-and-configure-autoscaling
-- learn.scale-and-size-virtual-machines.6-knowledge-check
-- learn.scale-and-size-virtual-machines.7-summary
+  - learn.scale-and-size-virtual-machines.1-introduction
+  - learn.scale-and-size-virtual-machines.2-size-and-resize-virtual-machines-in-azure
+  - learn.scale-and-size-virtual-machines.3-exercise-resize-a-virtual-machine
+  - learn.scale-and-size-virtual-machines.4-horizontal-scaling-using-scale-sets
+  - learn.scale-and-size-virtual-machines.5-exercise-create-a-scale-set-and-configure-autoscaling
+  - learn.scale-and-size-virtual-machines.6-knowledge-check
+  - learn.scale-and-size-virtual-machines.7-summary
 achievement: learn.scale-and-size-virtual-machines.badge

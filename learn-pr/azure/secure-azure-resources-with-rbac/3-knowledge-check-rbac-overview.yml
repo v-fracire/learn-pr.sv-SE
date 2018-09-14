@@ -8,50 +8,44 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 85b15c5e29716aa4aa54bc49c7ad6c016901c41b
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44243258"
 title: Kunskapskontroll – Vad är RBAC?
 durationInMinutes: 3
 quiz:
   title: Kunskapskontroll – Vad är RBAC?
   questions:
-  - content: En roll i Azure är en samling av behörigheter.
-    choices:
-    - content: Sant
-      isCorrect: true
-      correctExplanation: Rätt! En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.
-    - content: Falskt
-      isCorrect: false
-      incorrectExplanation: En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.
-  - content: Vilka är de tre element som utgör en rolltilldelning?
-    choices:
-    - content: Användare, grupp och program
-      isCorrect: false
-      correctExplanation: Användare, grupp och program är säkerhetsobjekt.
-    - content: Säkerhetsobjekt, roll och omfång
-      isCorrect: true
-      incorrectExplanation: Rätt! En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt i ett visst omfång i syfte att bevilja åtkomst.
-    - content: Hanteringsgrupp, prenumeration och resursgrupp
-      isCorrect: false
-      correctExplanation: Hanteringsgrupp, prenumeration och resursgrupp är metoder för att ordna dina Azure-resurser och de representerar omfång.
-    - content: Ägare, Deltagare och Läsare
-      isCorrect: false
-      correctExplanation: Ägare, Deltagare och Läsare är inbyggda roller i Azure.
-  - content: Vilken är arvsordningen för omfång i Azure?
-    choices:
-    - content: Hanteringsgrupp, resursgrupp, prenumeration och resurs
-      isCorrect: false
-      correctExplanation: Detta är inte rätt ordning.
-    - content: Hanteringsgrupp, prenumeration, resursgrupp och resurs
-      isCorrect: true
-      incorrectExplanation: Rätt!
-    - content: Prenumeration, hanteringsgrupp, resursgrupp och resurs
-      isCorrect: false
-      correctExplanation: Detta är inte rätt ordning.
-    - content: Prenumeration, resursgrupp, hanteringsgrupp och resurs
-      isCorrect: false
-      correctExplanation: Detta är inte rätt ordning.
+    - content: En roll i Azure är en samling av behörigheter.
+      choices:
+        - content: Sant
+          isCorrect: true
+          correctExplanation: 'Rätt! En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.'
+        - content: Falskt
+          isCorrect: false
+          incorrectExplanation: 'En roll i Azure är en samling av behörigheter med ett namn som du kan tilldela till användare, grupp eller program.'
+    - content: Vilka är de tre element som utgör en rolltilldelning?
+      choices:
+        - content: 'Användare, grupp och program'
+          isCorrect: false
+          correctExplanation: 'Användare, grupp och program är säkerhetsobjekt.'
+        - content: 'Säkerhetsobjekt, roll och omfång'
+          isCorrect: true
+          incorrectExplanation: Rätt! En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt i ett visst omfång i syfte att bevilja åtkomst.
+        - content: 'Hanteringsgrupp, prenumeration och resursgrupp'
+          isCorrect: false
+          correctExplanation: 'Hanteringsgrupp, prenumeration och resursgrupp är metoder för att ordna dina Azure-resurser och de representerar omfång.'
+        - content: 'Ägare, Deltagare och Läsare'
+          isCorrect: false
+          correctExplanation: 'Ägare, Deltagare och Läsare är inbyggda roller i Azure.'
+    - content: Vilken är arvsordningen för omfång i Azure?
+      choices:
+        - content: 'Hanteringsgrupp, resursgrupp, prenumeration och resurs'
+          isCorrect: false
+          correctExplanation: Detta är inte rätt ordning.
+        - content: 'Hanteringsgrupp, prenumeration, resursgrupp och resurs'
+          isCorrect: true
+          incorrectExplanation: Rätt!
+        - content: 'Prenumeration, hanteringsgrupp, resursgrupp och resurs'
+          isCorrect: false
+          correctExplanation: Detta är inte rätt ordning.
+        - content: 'Prenumeration, resursgrupp, hanteringsgrupp och resurs'
+          isCorrect: false
+          correctExplanation: Detta är inte rätt ordning.

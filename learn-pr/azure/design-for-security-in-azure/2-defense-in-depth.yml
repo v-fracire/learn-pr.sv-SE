@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-security.2-defense-in-depth
-title: Defense in depth
+title: Skydd på djupet
 metadata:
-  title: Defense in depth
-  description: In this unit we'll discuss how to practice defense in depth
+  title: Skydd på djupet
+  description: I den här enheten diskuterar vi hur skydd på djupet går till
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
@@ -14,27 +13,27 @@ durationInMinutes: 5
 content: |
   [!include[](includes/2-defense-in-depth.md)]
 quiz:
-  title: 'Knowledge Check - Defense in depth'
+  title: Kunskapskontroll – Skydd på djupet
   questions:
-  - content: 'Which of the following would be an appropriate tactic to apply to a defense in depth security strategy?'
-    choices:
-    - content: 'Deallocating virtual machines when not in use'
-      isCorrect: false
-      incorrectExplanation: 'This can be an effective tactic to reduce costs, but it not a tactic for a security strategy.'
-    - content: 'Setting up alerts for CPU percentage exceeds 90%'
-      isCorrect: false
-      incorrectExplanation: 'This may be a valuable monitoring metric to identify performance issues in your application, but is not a tactic in a security strategy.'
-    - content: 'Storing connection strings in a configuration file'
-      isCorrect: false
-      incorrectExplanation: 'Storing connection strings in a configuration file is a security risk and is not a tactic in a security strategy.'
-    - content: 'Enforcing MFA for all administrative level accounts'
-      isCorrect: true
-      correctExplanation: 'Enforcing MFA for all administrative level accounts adds an extra layer of protection for highly privliged accounts and is an effective tactic as part of a defense in depth security strategy.'
-  - content: 'By moving to the cloud, my architecture is fully secure and I can hand off all security responsibilities to my cloud provider.'
-    choices:
-    - content: 'True'
-      isCorrect: false
-      incorrectExplanation: 'Moving to the cloud does offload some responsibilities to the cloud provider, but a model of shared responsibility is still in effect.'
-    - content: 'False'
-      isCorrect: true
-      correctExplanation: 'Moving to the cloud does offload some responsibilities to the cloud provider, but a model of shared responsibility is still in effect.'
+    - content: Vilket av följande är en lämplig metod att tillämpa på säkerhetsstrategi för skydd på djupet?
+      choices:
+        - content: Det virtuella datorer som har frigjorts
+          isCorrect: false
+          incorrectExplanation: 'Detta kan vara en effektiv möjligheten att minska kostnaderna, men inte en möjligheten för en säkerhetsstrategi.'
+        - content: "Konfigurera aviseringar när CPU-procenten överstiger 90\_%"
+          isCorrect: false
+          incorrectExplanation: 'Detta kan vara ett värdefulla övervakning mått för att identifiera prestandaproblem i programmet, men är inte en möjligheten i en säkerhetsstrategi.'
+        - content: Lagra anslutningssträngar i en konfigurationsfil
+          isCorrect: false
+          incorrectExplanation: Om du lagrar anslutningssträngar i en konfigurationsfil utgör en säkerhetsrisk och är inte en möjligheten i en säkerhetsstrategi.
+        - content: Framtvinga MFA för alla administratörskonton för servicenivå
+          isCorrect: true
+          correctExplanation: Framtvinga MFA för alla administratörskonton på lägger till ett extra skyddslager för mycket privliged konton och är en effektiv skräpposten som en del av en skydd på djupet säkerhetsstrategi.
+    - content: 'Genom att gå över till molnet gör jag min arkitektur helt säker, och jag kan lämna över allt säkerhetsansvar till min molnleverantör.'
+      choices:
+        - content: Sant
+          isCorrect: false
+          incorrectExplanation: 'Flytta till molnet omfördela några ansvarsområden till molnleverantören, men en modell för delat ansvar fungerar fortfarande.'
+        - content: Falskt
+          isCorrect: true
+          correctExplanation: 'Flytta till molnet omfördela några ansvarsområden till molnleverantören, men en modell för delat ansvar fungerar fortfarande.'

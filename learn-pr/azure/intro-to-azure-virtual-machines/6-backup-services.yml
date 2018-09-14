@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.introduction-to-azure-virtual-machines.6-backup-services
-title: Back up your virtual machines
+title: Säkerhetskopiera dina virtuella datorer
 metadata:
-  title: Back up your virtual machines
-  description: Back up your virtual machines
+  title: Säkerhetskopiera dina virtuella datorer
+  description: Säkerhetskopiera dina virtuella datorer
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial

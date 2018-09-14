@@ -1,37 +1,37 @@
-When building an application, you want to provide a great user experience, and a part of that is quick data retrieval. Retrieving data from a database is typically a slow process and if this data is read often, this could provide a poor user experience. The cache-aside pattern describes how you can implement a cache in conjunction with a database to return the most commonly accessed data as quickly as possible.
+När du skapar ett program som du vill ge en bättre användarupplevelse och en del av som är snabb datahämtning. Hämta data från en databas är vanligtvis lång tid och om dessa data läses ofta, kan detta ge en dålig användarupplevelse. Cache-aside-mönstret beskriver hur du kan implementera ett cacheminne tillsammans med en-databas att returnera de ofta använda data så snabbt som möjligt.
 
-Here, you'll learn how the cache-aside pattern can be used to ensure your important data is quickly accessible.
+Här kan lära du dig hur cache-aside-mönstret kan användas för att kontrollera dina viktiga data kan snabbt komma åt.
 
-## What is the cache-aside pattern?
+## <a name="what-is-the-cache-aside-pattern"></a>Vad är cache-aside-mönstret?
 
-The cache-aside pattern dictates that when you need to retrieve data from a data source, like a relational database, you should first check for the data in your cache. If the data is in your cache, use it. If the data is not in your cache, then query the database, and when you're returning the data back to the user add it to your cache. This will then allow you to access the data from your cache the next time it's needed.
+Cache-aside-mönstret avgör att när du behöver hämta data från en datakälla som en relationsdatabas, bör du först kontrollera för data i cacheminnet. Om data finns i cacheminnet, använda den. Om data är inte i din cache och sedan fråga databasen och när du returnerar data tillbaka till användaren kan du lägga till den till ditt cacheminne. Detta kommer sedan att du kan komma åt data från ditt cacheminne nästa gång det behövs.
 
-## When to implement cache-aside pattern?
+## <a name="when-to-implement-the-cache-aside-pattern"></a>När du ska implementera mönstret cache-aside?
 
-Reading data from a database is usually a slow process because it involves compilation of a complex query, preparation of a query execution plan, execution of the query, and then preparation of the result. In some cases, this process may read data from the disk as well. There are optimizations that can be done on the database level like having pre-compiling the queries, and loading some of the data in memory. However, execution of the query and preparation of the result will always happen when retrieving data from a database.
+Läsning av data från en databas är vanligtvis lång tid. Det innebär att kompileringen av en komplex fråga, förbereda en plan för körning av fråga, körning av frågan och förberedelsen av resultatet. I vissa fall kan kan den här processen läsa data från disken samt. Det finns optimeringar som kan göras på databasnivå som förväg kompilera frågorna och inläsning av data i minnet. Körningen av frågan och förberedelsen av resultatet inträffar alltid emellertid att hämta data från en databas.
 
-We can solve this problem using cache-aside pattern. In the cache-aside pattern, we still have the application and the database, but now we also have a cache. A cache stores its data in memory, so it doesn't have to interact with the file system. Caches also store data in very simple data structures, like key value pairs, so they don't have to execute complex queries to gather data or maintain indexes when writing data. Because of this, a cache is typically more performant than a database. When you use an application, it will try to read data from the cache first. If the requested data is not in the cache, the application will retrieve it from the database, like it always has done. However, then it stores the data in the cache for subsequent requests. Next time when any user requests the data, it will return it from the cache directly.
+Vi kan lösa problemet med hjälp av cache-aside-mönstret. Vi har fortfarande programmet och databasen i cache-aside-mönstret, men nu ger vi även team en cache. En cache lagras data i minnet, så att den inte behöver interagera med filsystemet. Cacheminnen lagrar också data i mycket enkelt datastrukturer som nyckelvärdepar, så att de inte behöver köra komplexa frågor för att samla in data eller underhålla index när du skriver data. Ett cacheminne är därför vanligtvis bättre än en databas. När du använder ett program, görs ett försök att läsa data från cachen först. Om begärda data inte är i cacheminnet, hämtar programmet den från databasen, som alltid är klar. Men sedan lagras data i cacheminnet för efterföljande förfrågningar. Nästa gång när en användare begär data, returneras det från cachen direkt.
 
-![Load Data to Cache](../media-draft/cache-aside-set-cache.png)
+![Diagram för att läsa in data som ska cachelagras](../media-draft/cache-aside-set-cache.png)
 
-### How to manage updating data
+### <a name="how-to-manage-updating-data"></a>Så här hanterar du uppdaterar data
 
-When you implement the cache-aside pattern, you introduce a small problem. Since your data is now stored in a cache and a data store, you can run into problems when you try to make an update. For example, to update your data, you would need to update both the cache and the data store.
+När du implementerar mönstret cache-aside lägger du till ett litet problem. Eftersom dina data lagras nu i ett cacheminne och ett datalager, kan du köra får problem när du försöker göra en uppdatering. Om du vill uppdatera dina data, skulle du behöva uppdatera både cacheminnet och datalagret.
 
-The solution to this problem in the cache-aside pattern is to invalidate the data in the cache. When you update date in your application you should first delete the data in the cache and then make the changes to the data source directly. By doing this, next time the data is requested, it won't be present in the cache, and the process will repeat. 
+Lösning på problemet i cache-aside-mönstret är att ogiltigförklara data i cacheminnet. När du uppdaterar data i ditt program bör du först ta bort data i cacheminnet och gör ändringar i datakällan direkt. Den kommer inte vara närvarande i cacheminnet genom att göra detta, nästa gång data begärs, och processen upprepas. 
 
-![Invalidate Cached Data](../media-draft/cache-aside-invalidate.png)
+![Diagram över ogiltigförklara cachelagrade data](../media-draft/cache-aside-invalidate.png)
 
-## Considerations for using the cache-aside pattern
+## <a name="considerations-for-using-the-cache-aside-pattern"></a>Att tänka på när cache-aside-mönstret
 
-Carefully consider which data we should put in the cache. Not all data is suitable to be cached.
+Noga överväga vilka data du kan placera i minnet. Inte alla data är lämpligt att cachelagras.
 
-- **Lifetime**: For cache-aside to be effective, make sure that the expiration policy matches the access frequency of the data. Making the expiration period too short can cause applications to continually retrieve data from the data store and add it to the cache.
+- **Livslängd**: för cache-aside ska vara effektivt, se till att förfallopolicyn matchar åtkomstfrekvensen av data. Gör förfalloperioden för kort kan orsaken program att hämta data kontinuerligt från data lagra och lägga till det i cacheminnet.
 
-- **Evicting**: Caches have a limited size compared to typical data stores, and they'll evict data if necessary. Make sure you choose an appropriate eviction policy for your data.
+- **Ta bort**: cacheminnen har en begränsad storlek jämfört med vanliga datalager och de tar bort data om det behövs. Kontrollera att du väljer en lämplig Borttagningsprincip för dina data.
 
-- **Priming**: To make the cache-aside pattern effect, many solutions will prepopulate the cache with data that they think will be accessed often.
+- **Prima**: Om du vill göra cache-aside-mönstret effektiva många lösningar ska fylla i cachen med data som de tycker sker ofta.
 
-- **Consistency**: Implementing the Cache-Aside pattern doesn't guarantee consistency between the data store and the cache. Data in a data store can be changed without notifying the cache. This can lead to serious synchronization issues.
+- **Konsekvens**: Implementera cache-aside-mönstret inte garantera konsekvens mellan datalagret och cachen. Data i ett datalager kan ändras utan att meddela cachen. Detta kan leda till allvarliga synkroniseringsproblem.
 
-The cache-aside pattern is useful when you're required to access data frequently from a data source that uses a disk. Using the cache-aside pattern, you'll store important data in a cache to help increase the speed of retrieving it. 
+Cache-aside-mönstret är användbart när du är obligatoriskt att komma åt data ofta från en datakälla som använder en disk. Med hjälp av cache-aside-mönstret ska du lagra viktiga data i ett cacheminne för att öka hastigheten för att hämta den. 

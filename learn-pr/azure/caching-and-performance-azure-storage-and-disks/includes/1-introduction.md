@@ -1,14 +1,14 @@
-You manage your corporate database infrastructure of SQL Server VMs running in Azure. Times are good, and you need to scale up your operation, while still managing costs. Some database operations involve many reads of existing data. The regular invoice and reporting runs are write-heavy operations. You'd like to find a way to optimize your infrastructure to handle all operation types. Before investing in infrastructure improvements, you decide to explore VM disk caching options first.
+Du hanterar infrastrukturen företagets databas i SQL Server-datorer som körs i Azure. Tiderna är bra och du behöver skala upp din åtgärd, medan du fortfarande hanterar kostnader. Vissa databasåtgärder innebära många läsningar av befintliga data. Vanliga faktura och rapportering körningar är skrivintensiv åtgärder. Du vill hitta ett sätt att optimera din infrastruktur för att hantera alla åtgärdstyper av. Innan du investerar i förbättringar av infrastrukturen, som du vill utforska virtuell disk cachelagringsalternativ först.
 
-Caching is a common approach to speeding up computing resources. Azure supports a range of caching technologies to help optimize data access across the Azure landscape, including specific cache options for the Azure storage and disks used by Azure virtual machines (VMs).
+Cachelagring är ett vanligt sätt att förbättra bearbetningsresurser. Azure stöder en mängd cachelagring tekniker för att optimera dataåtkomst över Azure liggande, inklusive specifika cachealternativ för Azure storage och diskar som används av virtuella Azure-datorer (VM).
 
-We're going to explore all disk caching options in Azure, and manage disk caching with the portal and PowerShell.
+Vi kommer att utforska alla diskcachelagringstypen alternativ i Azure och hantera diskcachelagringstypen med portalen och PowerShell.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att göra följande:
 
-- Describe the key considerations around disk performance in Azure (IOPS)
-- Describe the effects of caching on disk performance in Azure
-- Enable and manage cache settings with the Azure portal
-- Enable and manage cache settings with PowerShell
+- Beskriv de viktiga övervägandena kring diskprestanda i Azure (IOPS)
+- Beskriv effekterna av cachelagring på diskprestanda i Azure
+- Aktivera och hantera inställningar för cachelagring med Azure portal
+- Aktivera och hantera inställningar för cachelagring med PowerShell

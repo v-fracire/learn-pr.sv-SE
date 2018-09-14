@@ -1,43 +1,43 @@
-Securing your network from attacks and unauthorized access is an important part of any architecture. Here, we'll take a look at what network security looks like, how to integrate a layered approach into your architecture, and how Azure can help you provide network security for your environment.
+Att skydda ditt nätverk från attacker och obehörig åtkomst är en viktig del av alla arkitekturer. Här tittar vi på hur nätverkssäkerhet ser ut, hur du integrerar en metod med flera lager i arkitekturen samt hur Azure kan hjälpa dig att få nätverkssäkerhet för din miljö.
 
-## A layered approach to network security
+## <a name="a-layered-approach-to-network-security"></a>En metod för nätverkssäkerhet med flera lager
 
-A common thread throughout this module has been taking a layered approach to security, and this approach is no different at the network layer. It's not enough to just focus on securing the network perimeter, or focusing on the network security between services inside a network. A layered approach provides multiple levels of protection, so that if an attacker gets through one layer, there's further protections in place to limit further attack.
+En gemensam tråd i den här modulen har varit att använda en säkerhetsmetod med flera lager, och den metoden fungerar på samma sätt vid nätverkslagret. Det räcker inte att bara fokusera på säkra perimeternätverket eller på nätverkssäkerheten mellan tjänster i ett nätverk. En metod med flera lager ger flera nivåer av skydd, så om en angripare tar sig igenom ett lager finns det ytterligare skydd på plats för att begränsa angreppet.
 
-Let's take a look at how Azure can provide the tools for a layered approach to securing your network footprint.
+Vi går igenom hur Azure kan ge verktyg för en metod med flera lager för att säkra ditt nätverksfotavtryck.
 
-### Internet protection
+### <a name="internet-protection"></a>Internetskydd
 
-If we start on the perimeter of the network, we're focused on limiting and eliminating attacks from the internet. A great first place to start is to assess the resources that are internet-facing, and allow only inbound and outbound communication where necessary. Identify all resources that are allowing inbound network traffic of any type, and ensure they are necessary and restricted to only the ports/protocols required. Azure Security Center is a great place to look for this information, because it will identify internet-facing resources that don't have network security groups associated with them, as well as resources that are not secured behind a firewall.
+Om vi startar i utkanten av nätverket fokuserar vi på att begränsa och eliminera attacker från Internet. Ett bra första ställe att börja är att utvärdera de resurser som är mot internet och tillåter bara inkommande och utgående kommunikation vid behov. Identifiera alla resurser som tillåter inkommande nätverkstrafik oavsett typ och se till att de är nödvändiga och begränsade till endast de portar/protokoll som krävs. Azure Security Center är ett bra ställe att leta efter den här informationen eftersom den identifierar mot internet-resurser som inte har nätverkssäkerhetsgrupper som är kopplade till dem, samt resurser som inte kontrolleras bakom en brandvägg.
 
-To provide inbound protection at the perimeter, you have a couple of choices:
+För att ge inkommande skydd på perimeternätverket måste ha du ett par alternativ:
 
-* Azure Application Gateway is a load balancer that includes a web application firewall that provides protection from common, known vulnerabilities.
+* Azure Application Gateway är en belastningsutjämnare som innehåller en brandvägg för webbaserade program som ger skydd mot vanliga, kända säkerhetsrisker.
 
-* For non-HTTP services or advanced configurations, network virtual appliances (NVAs) can be used. NVAs are similar to hardware firewall appliances.
+* Virtuella nätverksinstallationer (Nva) kan användas för HTTP-tjänster eller avancerade konfigurationer. Nva: erna liknar maskinvaruinstallationer för brandväggen.
 
 
-Any resource exposed to the internet is at risk of being attacked by a denial of service attack. These types of attacks attempt to overwhelm a network resource by sending so many requests that the resource becomes slow or unresponsive. To mitigate these attacks, Azure DDoS protection provides basic protection across all Azure services and enhanced protection for further customization for your resources. Azure DDoS protection blocks attack traffic and forwards the remaining traffic to its intended destination. Within a few minutes of attack detection, you are notified using Azure Monitor metrics.
+Alla resurser som är exponerade mot internet är risk för angrepp en denial of service-attack. Dessa typer av attacker försöker överbelasta en nätverksresurs genom att skicka så många begäranden att resursen blir långsam eller slutar svarar. För att lösa dessa attacker, ger Azure DDoS protection grundläggande skydd över alla Azure-tjänster och förbättrat skydd för ytterligare anpassning för dina resurser. Azure DDoS protection blockerar attack trafik och vidarebefordrar återstående trafiken till sin destination. Inom några minuter efter att ett angrepp har identifierats meddelas du via Azure Monitor-mått.
 
 <!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![DDoS](../media-COPIED-FROM-DESIGNFORSECURITY/ddos.png)
 
-### Virtual network security
+### <a name="virtual-network-security"></a>Säkerhet för virtuella nätverk
 
-Once inside a virtual network (VNet), it's important to limit communication between resources to only what is required.
+I ett virtuellt nätverk (VNet) är det viktigt att begränsa kommunikationen mellan resurser till det som krävs.
 
-For communication between virtual machines, network security groups are a critical piece to restrict unnecessary communication. They provide a list of allowed and denied communication to and from network interfaces and subnets, and are fully customizable.
+För kommunikation mellan virtuella datorer är nätverkssäkerhetsgrupper viktig att begränsa risken för onödig information. De ger en lista över tillåtna och nekade kommunikation till och från nätverksgränssnitt och undernät och är helt anpassningsbar.
 
-You can completely remove public internet access to your services by restricting access to service endpoints. With service endpoints, Azure service access can be limited to your virtual network.
+Du kan helt ta bort offentliga Internetåtkomsten till dina tjänster genom att begränsa åtkomsten till Tjänsteslutpunkter. Med tjänstslutpunkter kan Azure-tjänståtkomst begränsas till det virtuella nätverket.
 
-### Network integration
+### <a name="network-integration"></a>Nätverksintegrering
 
-It's common to have existing network infrastructure that needs to be integrated to provide communication from on-premises networks or to provide improved communication between services in Azure. There are a few key ways to handle this integration and improve the security of your network.
+Det är vanligt att ha befintliga nätverksinfrastruktur som behöver integreras att tillhandahålla kommunikation från lokala nätverk eller att tillhandahålla förbättrad kommunikation mellan tjänster i Azure. Det finns några viktiga sätt att hantera den här integreringen och förbättra säkerheten för nätverket.
 
-Virtual private network (VPN) connections are a common way of establishing secure communication channels between networks. Connection between Azure Virtual Network and an on-premises VPN device is a great way to provide secure communication between your network and your VNet on Azure.
+Virtuella privata nätverksanslutningar (VPN) är ett vanligt sätt att upprätta säker kommunikationskanaler mellan nätverk. Anslutningen mellan Azure-nätverk och en lokal VPN-enhet är ett bra sätt att tillhandahålla säker kommunikation mellan ditt nätverk och ditt virtuella nätverk på Azure.
 
-To provide a dedicated, private connection between your network and Azure, you can use Azure ExpressRoute. ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365. This improves the security of your on-premises communication by sending this traffic over the private circuit instead of over the internet. You don't need to allow access to these services for your end users over the internet, and youcan send this traffic through appliances for further traffic inspection.
+Du kan använda Azure ExpressRoute för att tillhandahålla en dedikerad privat anslutning mellan ditt nätverk och Azure. Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365. Detta förbättrar säkerheten för din lokala kommunikation genom att skicka den här trafiken över den privata anslutningen i stället för via Internet. Du behöver inte att få tillgång till dessa tjänster för dina slutanvändare via internet och youcan skicka den här trafiken via enheterna för att ytterligare trafikkontroll.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-A layered approach to network security helps reduce your risk of exposure through network-based attacks. Azure provides several services and capabilities to secure your internet-facing resource, internal resources, and communication between on-premises networks. These features make it possible to create secure solutions on Azure.
+En metod med flera lager för nätverkssäkerhet bidrar till att minska risken för exponering via nätverksbaserade attacker. Azure tillhandahåller flera tjänster och funktioner för att säkra din internet-ansluten resurs, interna resurser och kommunikationen mellan lokala nätverk. De här funktionerna gör det möjligt att skapa säkra lösningar på Azure.

@@ -1,40 +1,48 @@
-Before you run a container or container-integrated application in Azure, you'll most likely work in a local development environment like your laptop. This unit helps you prepare your system for container development with Docker.
+Innan du kör en container eller ett containerintegrerat program i Azure, kommer du troligen att arbeta i en lokal utvecklingsmiljö som t.ex. din bärbara dator. Här kan förbereder du datorn för utveckling av behållare med Docker.
 
-## Docker for Windows and Mac
+## <a name="why-use-containers"></a>Varför använda behållare?
 
-Docker, Inc. has published two applications to install and configure local container development environments. Essentially, each application prepares your system with Docker tooling, such as the necessary CLI and automation tools. A virtual machine is also created that hosts the Docker platform. The environment is configured such that Docker commands are passed through to the virtual machine. Each of these applications is similar in functionality and includes the following features:
+Behållare och behållaravbildningar använda effektivt värdresurser som diskutrymme, minne och CPU. Detta innebär att det går snabbt att starta containrar. I vissa fall startas en ny instans av en container nästan omedelbart. Detta gör att snabb etablering av program och gör en ny modell för på begäran bearbetning och skala åtgärder.
 
-- **Docker platform:** The core components necessary to create and run containers.
-- **Docker CLI:** The command-line interface for interacting with Docker containers.
-- **Docker Compose:** Automation tooling for defining and running multi-container applications.
+Tänk dig det här scenariot: Du kör en satsvis bearbetning som ibland har ökad efterfrågan. Behållare kan du kan skapa ett system som reagerar på ökad efterfrågan genom att snabbt etablera nya instanser. Det är kraftfullt och inte lika enkelt att uppnå med traditionella virtuella datorer.
 
-Open the appropriate link below in a new tab to install Docker on your operating system. 
+Behållare kan du få ”hyper densitet”. Det innebär att du kan köra flera program och processer med mindre virtuella eller fysiska resurser.
 
-- [Docker for Windows](https://www.docker.com/docker-windows)
-- [Docker for Mac](https://www.docker.com/docker-mac)
+Även om containrar är en utmärkt plattform för att köra traditionella arbetsbelastningar som exempelvis webbservrar, kan de också användas till anpassningsbar satsvis bearbetning, program som skapats med en modern och distribuerad arkitektur och allt det som krävs vid skalning på begäran.
 
-## Docker for Windows environments
+## <a name="docker-for-windows-and-mac"></a>Docker för Windows och Mac
 
-When you use Docker for Windows, two environments are available: Linux and Windows. Using the Linux environment allows you to run Linux containers on your Windows system. You can select an environment by right-clicking on the Docker task bar icon, selecting **Switch to Linux containers**, and following the on-screen prompts.
+Docker, Inc. har publicerat två program för att installera och konfigurera lokal behållare utvecklingsmiljöer. Programmen Förbered datorn med Docker verktyg, till exempel nödvändiga verktyg för CLI och automatisering. En virtuell dator skapas också som blir värd för Docker-plattformen. Miljön är konfigurerad så att Docker-kommandon skickas till den virtuella datorn. Dessa program fungerar ungefär likadant och innehåller följande funktioner:
 
-![Docker for Windows, switch to Linux containers](../media-draft/2-docker-linux.png)
+- **Docker-plattformen:** kärnkomponenter som krävs för att skapa och köra behållare.
+- **Docker CLI:** kommandoradsgränssnittet för att interagera med Docker-behållare.
+- **Docker Compose:** automatiseringsverktyg för att definiera och köra program med flera behållare.
+
+Öppna länken nedan i en ny flik för att installera Docker på ditt operativsystem. 
+
+- [Docker för Windows](https://www.docker.com/docker-windows)
+- [Docker för Mac](https://www.docker.com/docker-mac)
+
+## <a name="docker-for-windows-environments"></a>Docker för Windows-miljöer
+
+När du använder Docker för Windows är två miljöer tillgängliga: Linux och Windows. I Linux-miljön kan du köra Linux-containrar på ditt Windows-system. Du kan välja en miljö genom att högerklicka på ikonen Docker i aktivitetsfältet, välja alternativet att **växla till Linux-containrar** och följa anvisningarna på skärmen.
 
 > [!NOTE]
-> The steps in this tutorial assume that your system is configured to work with Linux containers.
+> I den här självstudien förutsätter vi att datorn är konfigurerad att fungera med Linux-containrar.
 
-## Docker on Linux
+## <a name="docker-on-linux"></a>Docker på Linux
 
-If you're working on a Linux-based system, the Docker server components and CLI tools can be manually installed. Follow the instructions found on [About Docker CE](https://docs.docker.com/install/#server) for your specific Linux distribution.
+Det finns för närvarande inget installationsprogrammet program för Linux. Om du arbetar på en Linux-baserat system, måste Docker-serverkomponenter och CLI-verktyg installeras manuellt. Följ instruktionerna på [om Docker CE](https://docs.docker.com/install/#server) för din specifika Linux-distribution.
 
-## Validate configuration
+## <a name="validate-configuration"></a>Verifiera konfigurationen
 
-To validate that Docker has been successfully installed and configured, open a terminal and run the following command:
+Du kan kontrollera att Docker har installerats och konfigurerats genom att öppna en terminal och köra följande kommando:
 
 ```bash
 docker search nginx
 ```
 
-If you see output similar to the following, your environment is ready for the next unit.
+Om du ser utdata som liknar följande din miljö är redo för nästa enhet.
 
 ```output
 NAME                                                   DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
@@ -64,7 +72,3 @@ travix/nginx                                           NGinx reverse proxy      
 ansibleplaybookbundle/nginx-apb                        An APB to deploy NGINX                          0                                       [OK]
 mailu/nginx                                            Mailu nginx frontend                            0                                       [OK]
 ```
-
-## Summary
-
-In this unit, you prepared a local container development environment. In the next unit, you will learn about some basic Docker operations.

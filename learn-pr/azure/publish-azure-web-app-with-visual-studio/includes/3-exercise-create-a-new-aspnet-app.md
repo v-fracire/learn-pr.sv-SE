@@ -1,12 +1,10 @@
-Nu när du har kört igång appen på din lokala dator är det dags att publicera den till Azure. 
-
 I den här delen skapar, bygger och kör du ett nytt ASP.NET-webbprogram på den lokala datorn.
 
-## <a name="create-a-new-project"></a>Skapa ett nytt projekt
+## <a name="create-a-project"></a>Skapa ett projekt
 
 ### <a name="visual-studio-for-windows"></a>Visual Studio för Windows
 
-Det första steget är att starta Visual Studio och skapa ett lokalt ASP.NET Core-webbprogram.
+Första steget är att starta Visual Studio och skapa ett lokalt ASP.NET Core-webbprogram.
 
 1. På startsidan för Visual Studio väljer du **Arkiv** och klickar sedan på **Nytt** följt av **Projekt...**.
 
@@ -18,7 +16,7 @@ Det första steget är att starta Visual Studio och skapa ett lokalt ASP.NET Cor
 
 1. Välj en **plats** för den nya lösningen.
 
-1. Klicka på knappen **OK** för att skapa projektet.
+1. Klicka på **OK** för att skapa projektet.
 
 1. I dialogrutan **Nytt ASP.NET Core-webbprogram** visas ett urval av startmallar. För den här övningen väljer du **Webbprogram** och klickar sedan på **OK** för att skapa projektet.
 
@@ -35,9 +33,9 @@ Det första steget är att starta Visual Studio och skapa ett lokalt ASP.NET Cor
 
 1. På startsidan för Visual Studio väljer du **Arkiv** och klickar sedan på **Nytt** följt av **Projekt...**.
 
-1. Under. **NET Core** väljer du en **ASP.NET Core-webbapp** och klickar sedan på **Nästa**.
+1. Under .**NET Core** väljer du en **ASP.NET Core-webbapp** och klickar sedan på **Nästa**.
 
-1. Som **projektnamn** skriver du **AlpineSkiHouse**. Det bör även fylla i lösningens namn automatiskt.
+1. Som **projektnamn** skriver du **AlpineSkiHouse**. Det bör också automatisk ifyllning lösningens namn.
 
 1. Välj en **plats** på den lokala datorn för projektet.
 

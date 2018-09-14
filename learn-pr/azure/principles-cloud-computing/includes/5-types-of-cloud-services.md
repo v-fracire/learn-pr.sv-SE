@@ -2,21 +2,37 @@ När man talar om molnbaserad databehandling finns det tre huvudkategorier. Det 
 
 ## <a name="explore-the-three-categories-of-cloud-computing"></a>Utforska de tre kategorierna av molnbaserad databehandling
 
-<!-- TODO: replace video link? -->
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEbs]
 
-### <a name="infrastructure-as-a-service-iaas"></a>Infrastruktur som en tjänst (IaaS)
+:::row:::
+  :::column:::
+    ![IaaS-ikon](../media/5-iaas.png)
+  :::column-end:::
+  :::column span="3"::: **Infrastructure as a service (IaaS)**
 
 Infrastruktur som en tjänst är den mest flexibla kategorin av molntjänster. Syftet är att ge dig fullständig kontroll över den maskinvara som kör ditt program. Istället för att köpa maskinvara hyr du den med laaS.
+  :::column-end:::
+:::row-end:::
 
-### <a name="platform-as-a-service-paas"></a>Plattform som en tjänst (PaaS)
+:::row:::
+  :::column:::
+    ![Ikon för PaaS](../media/5-paas.png)
+  :::column-end:::
+  :::column span="3"::: **Platform as a service (PaaS)**
 
 Plattform som en tjänst är en miljö för att skapa, testa och distribuera program. Målet med PaaS är att hjälpa dig att skapa ett program så snabbt som möjligt utan att du ska behöva bekymra dig om att hantera den underliggande infrastrukturen. När du till exempel distribuerar ett webbprogram med PaaS behöver du inte installera något operativsystem, någon webbserver eller ens systemuppdateringar.
+  :::column-end:::
+:::row-end:::
 
-### <a name="software-as-a-service-saas"></a>Programvara som en tjänst (SaaS)
+:::row:::
+  :::column:::
+    ![SaaS-ikon](../media/5-saas.png)
+  :::column-end:::
+  :::column span="3"::: **Software as a service (SaaS)**
 
 Programvara som en tjänst är centralt värdbaserad programvara som är hanterad för slutkunden. Det är vanligtvis baserad på en arkitektur där en version av programmet används för alla kunder och licensieras via en månads- eller årsprenumeration. Office 365 är ett perfekt exempel på ett SaaS-program.
+  :::column-end:::
+:::row-end:::
 
 ## <a name="think-about-service-categories-as-layers"></a>Föreställ dig tjänstekategorierna som lager
 

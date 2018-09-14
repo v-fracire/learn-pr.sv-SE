@@ -1,130 +1,130 @@
-Lets' assume you're using an on-premises PostgreSQL database. You're managing all security aspects and locked down all access to your servers using the standard PostgreSQL server level firewall rules. You now want to make sure that you can configure the same server level firewall rules in Azure.
+Anta att du använder en lokal PostgreSQL-databas. Du hanterar alla säkerhetsaspekter och du har låst all åtkomst till dina servrar med hjälp av standardregler för PostgreSQL-brandväggen på servernivå. Nu vill du se till att du kan konfigurera samma servernivå brandväggsregler i Azure.
 
-## Server Security Considerations and Connection Methods
+## <a name="server-security-considerations-and-connection-methods"></a>Säkerhetsöverväganden för Server och anslutningsmetoder
 
-You have a number of options to restrict access to your Azure Database for PostgreSQL server and databases. Network access can be restricted at a network, server, or database level. You can use any of the following options:
+Du har ett antal alternativ för att begränsa åtkomsten till din Azure Database for PostgreSQL-server och databaser. Åtkomst till nätverket kan vara begränsad till ett nätverk, servern eller databasnivå. Du kan använda någon av följande alternativ:
 
-- User accounts to restrict database access
-- Virtual networks to restrict network access
-- Firewall rules to restrict server access
+- Användarkonton för att begränsa databasåtkomst
+- Virtuella nätverk för att begränsa nätverksåtkomsten till
+- Brandväggsregler för att begränsa åtkomst
 
-### Authentication and authorization
+### <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
-Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. You'll also create users to connect to specific databases to limit access.
+Azure Database for PostgreSQL-server stöder interna PostgreSQL-autentisering. Du kan ansluta och autentisera till servern med den serveradministratör. Du måste också skapa användarna att ansluta till vissa databaser att begränsa åtkomsten.
 
-### What is a Virtual Network?
+### <a name="what-is-a-virtual-network"></a>Vad är ett virtuellt nätverk?
 
-A virtual network is a logically isolated network created within the Azure network. You can use a virtual network to control what Azure resources can connect to other resources.
+Ett virtuellt nätverk är ett logiskt isolerat nätverk som har skapats i Azure-nätverket. Du kan använda ett virtuellt nätverk för att styra vad Azure-resurser kan ansluta till andra resurser.
 
-Imagine you're running a web application that connects to a database. You'll use subnets to isolate different parts of the network. A subnet is a part of a network based upon a range of IP addresses.
+Anta att du kör ett program som ansluter till en databas. Du använder undernät för att isolera olika delar av nätverket. Ett undernät är en del av ett nätverk som baseras på ett intervall med IP-adresser.
 
-To configure these subnets, you'll create a virtual network and then subdivide the network into subnets. The web application will operate on one subnet and the database on another subnet. Each subnet would have its own rules for communicating to and from the other network. These rules give you the ability to restrict access from the database to the web application.
+Om du vill konfigurera dessa undernät måste du skapa ett virtuellt nätverk och sedan dela upp nätverket i undernät. Webbprogrammet ska användas i ett undernät och databasen på ett annat undernät. Varje undernät har sina egna regler för kommunikation till och från andra nätverk. De här reglerna ger dig möjlighet att begränsa åtkomst från databasen till webbprogrammet.
 
-Creating a virtual network is beyond the scope of this module. If you need more information, please explore other learning modules related to virtual networks.
+Skapa ett virtuellt nätverk är utanför omfattningen för den här modulen. Om du behöver mer information kan du utforska andra learning-moduler som är relaterade till virtuella nätverk.
 
-### What is a firewall?
+### <a name="what-is-a-firewall"></a>Vad är en brandvägg?
 
-A firewall is a service that grants server access based on the originating IP address of each request. You create firewall rules that specify ranges of IP addresses. Only clients from these granted IP addresses, will be allowed to access the server. Firewall rules generally speaking also includes specific network protocol and port information. For example, a PostgreSQL server by default listens to TCP requests on port 5432.
+En brandvägg är en tjänst som ger åtkomst baserat på den ursprungliga IP-adressen för varje begäran. Du skapar brandväggsregler som anger intervall med IP-adresser. Endast klienter från dessa beviljas IP-adresser kommer att kunna ansluta till servern. Brandväggsregler, generellt sett innehålla också information om specifika nätverk protokoll och port. Till exempel lyssnar en PostgreSQL-server som standard på TCP-begäranden på port 5432.
 
-### Azure Database for PostgreSQL server firewall
+### <a name="azure-database-for-postgresql-server-firewall"></a>Azure Database för PostgreSQL-server-brandväggen
 
-The Azure Database for PostgreSQL server firewall prevents all access to your database server until you specify which computers have permission. The firewall configuration allows you to specify a range of IP addresses that are allowed to connect to the server. The server always uses the default PostgreSQL connection information.
+Azure Database for PostgreSQL serverbrandvägg förhindrar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggskonfigurationen kan du ange ett intervall med IP-adresser som ska kunna ansluta till servern. Servern använder alltid informationen som standard PostgreSQL.
 
-![Azure firewall functional diagram](../media-draft/7-firewall-diagram.png)
+![Funktionsdiagram för Azure-brandväggen](../media-draft/7-firewall-diagram.png)
 
-### Azure Database for PostgreSQL server SSL connections
+### <a name="azure-database-for-postgresql-server-ssl-connections"></a>Azure Database for PostgreSQL server SSL-anslutningar
 
-Azure Database for PostgreSQL prefers your client applications connects to the PostgreSQL service using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" and similar attacks by encrypting the data between the server and client. Enabling SSL requires the exchange of keys and strict authentication between client and server for the connection to work. Details about using SSL are beyond the scope of this learning module. If you need more information, please explore other learning modules related to SSL.
+Azure Database för PostgreSQL föredrar att ditt klientprogram ansluta till PostgreSQL-tjänsten med hjälp av Secure Sockets Layer (SSL). Att framtvinga SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle” och liknande attacker genom att kryptera data mellan servern och klienten. Om du aktiverar SSL kräver ett utbyte av nycklar och strikt autentisering mellan klienten och servern för anslutningen ska fungera. Information om hur du använder SSL ligger utanför omfånget för den här lärmodulen. Om du behöver mer information kan du utforska andra inlärningsmoduler som rör SSL.
 
-## Configure Connection Security
+## <a name="configure-connection-security"></a>Konfigurera anslutningssäkerhet
 
-Let's look at the decisions and steps you make to configure an Azure Database for PostgreSQL server firewall. You'll also see how to connect to the server you've created earlier.
+Nu ska vi titta på beslut och steg som du gör för att konfigurera en Azure Database for PostgreSQL-server-brandväggen. Du lär dig också att ansluta till servern som du skapade tidigare.
 
-First, you'll open the [Azure portal](https://portal.azure.com?azure-portal=true) and navigate to the server resource for which you would like to create a firewall rule.
+Först ska du öppna den [Azure-portalen](https://portal.azure.com?azure-portal=true) och navigera till serverresursen som du vill skapa en brandväggsregel.
 
-Then you'll select the **Connection Security** option to open the connection security blade to the right.
+Sedan väljer du den **anslutningssäkerhet** möjligheten att öppna anslutningsbladet till höger.
 
-![Screenshot of the Azure portal showing the Connection security section of the PostgreSQL database resource blade.](../media-draft/7-db-security-settings.png)
+![Skärmbild av Azure-portalen som visar avsnittet anslutning säkerhet på resursbladet för PostgreSQL-databas](../media-draft/7-db-security-settings.png)
 
-On this screen, you have several options. You can:
+På den här skärmen har du flera alternativ. Du kan:
 
-- Add the IP address you use to access the portal as a firewall entry by clicking on the **+ Add client IP** button
-- Allow access to Azure services. By default all Azure services **don't** have access to the PostgreSQL server
-- Add firewall rules by entering ranges of IP addresses
-- Enforce SSL connections. This option forces you client to connect to the server using an SSL certificate.
+- Lägg till IP-adressen som används för att få åtkomst till portalen som en brandvägg post genom att klicka på den **klientens IP-adress** knappen.
+- Tillåt åtkomst till Azure-tjänster. Som standard alla Azure-tjänster **inte** har åtkomst till PostgreSQL-servern.
+- Lägga till brandväggsregler genom att ange IP-adressintervall.
+- Framtvinga SSL-anslutningar. Det här alternativet tvingas klienten att ansluta till servern med ett SSL-certifikat.
 
-Always remember to click on the **Save** icon above the entry fields to save the updated configuration once you've made changes.
+Kom ihåg att klicka på alltid den **spara** -ikonen ovanför fälten posten för att spara den uppdaterade konfigurationen när du har gjort ändringar.
 
-### Allow access to Azure services
+### <a name="allow-access-to-azure-services"></a>Tillåt åtkomst till Azure-tjänster
 
-To use Azure Cloud Shell to access or configure your server, make sure to enable **Allow Access to Azure Services**. This step is going to add a firewall rule to the server configuration to allow access from Cloud Shell. This rule will not show as one of the custom rules you add though.
+Om du vill använda Azure Cloud Shell för att komma åt eller konfigurera servern, se till att aktivera **Tillåt åtkomst till Azure-tjänster**. Det här steget kommer att lägga till en brandväggsregel i serverkonfigurationen som ger åtkomst från Cloud Shell. Den här regeln visas inte som en av de anpassa regler som du lägger till.
 
-You also need to disable **Enforce SSL connection**. PowerShell cann't connect to the server if SSL is required for client connections.
+Du måste också inaktivera **framtvinga SSL-anslutning**. PowerShell kan inte ansluta till servern om SSL krävs för klientanslutningar.
 
-Both of these options will result in an error message displayed on the command line if not configured correctly.
+Båda dessa alternativ leder till ett felmeddelande som har visas på kommandoraden om de inte konfigurerats korrekt.
 
-For example, if access is not allowed to Azure services and enforce SSL connections is enabled then you'll see something similar to this error when the firewall is blocking access.
+Till exempel om åtkomst tillåts inte till Azure-tjänster och framtvinga SSL-anslutningar är aktiverad, därefter visas något som liknar det här felet när brandväggen blockerar åtkomst:
 
-> psql: FATAL: no pg_hba.conf entry for host "123.45.67.89", user "adminuser", database "postgres", SSL on FATAL:  SSL connection is required. Please specify SSL options and retry.
+> psql: oåterkalleligt fel: ingen pg_hba.conf post för värd ”123.45.67.89” användare ”adminuser” databas ”postgres”, SSL på oåterkalleligt fel: SSL-anslutning krävs. Please specify SSL options and retry.
 
-### Create a firewall rule using the portal
+### <a name="create-a-firewall-rule-using-the-portal"></a>Skapa en brandväggsregel med hjälp av portalen
 
-Let's say, you want to create a firewall rule that provides access from any IP address.
+Vi antar att du vill skapa en brandväggsregel som ger åtkomst från alla IP-adresser.
 
 > [!WARNING]
-> Creating this firewall rule will allow any IP address on the Internet to attempt to connect to your server. Eventhough clients will not be able access the server without the username and password, enable this rule with caution and make sure you understand the security implications.
+> Skapa den här brandväggsregeln tillåter alla IP-adresser på internet att ansluta till servern. Eventhough klienter inte kan få åtkomst till servern utan användarnamn och lösenord, aktivera den här regeln med försiktighet och kontrollera att du förstår säkerhetsriskerna.
 
-You create a new firewall rule by entering the following data in the labeled fields:
+Du kan skapa en ny brandväggsregel genom att ange följande information i fälten med etiketter:
 
-- Rule Name: `AllowAll`
-- Start IP: `0.0.0.0`
-- End IP: `255.255.255.255`
+- Regelnamn: `AllowAll`
+- Start-IP: `0.0.0.0`
+- Slut-IP: `255.255.255.255`
 
-To remove a firewall rule, you'll click the ellipsis at the end of the rule you want to delete. Click the Delete button to delete the rule.
+Om du vill ta bort en brandväggsregel, klickar du på ellipsen (...) i slutet av den regel som du vill ta bort. Klicka på den **ta bort** för att ta bort regeln.
 
-Click on the **Save** icon above the entry fields to commit the deletion of the rule.
+Klicka på den **spara** -ikonen ovanför inmatningsfälten att genomföra borttagningen av regeln.
 
-### Create a firewall rule using the Azure CLI
+### <a name="create-a-firewall-rule-using-the-azure-cli"></a>Skapa en brandväggsregel med hjälp av Azure CLI
 
-You use the Azure CLI to add firewall rules to your server with the `az postgres server firewall-rule create` command using Azure CloudShell.
+Du använder Azure CLI för att lägga till brandväggsregler till servern med den `az postgres server firewall-rule create` kommandot använder Azure CloudShell.
 
-Let's say you want to create the same rules as above You'' use the following command:
+Vi antar att du vill skapa samma regler som ovan. Du kan använda följande kommando:
 
-  ```bash
+  ```azurecli
   az postgres server firewall-rule create --resource-group <resource_group_name> --server <server-name> --name AllowAll --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
   ```
 
-You remove firewall rules from your server with the command `az postgres server firewall-rule delete`.
+Du tar bort brandväggsregler från servern med kommandot `az postgres server firewall-rule delete`.
 
-Let's say you want to delete the firewall you created then use the following command:
+Vi antar att du vill ta bort brandväggen som du skapade. Sedan kan du använda följande kommando:
 
-  ```bash
+  ```azurecli
   az postgres server firewall-rule delete --name AllowAll --resource-group <resource_group_name> --server-name <server-name>
   ```
 
-## Connecting to your server
+## <a name="connecting-to-your-server"></a>Ansluter till servern
 
-Like any modern database, PostgreSQL requires regularly server administration to achieve best performance. You have a number of options to connect and manage your Azure Database for PostgreSQL server. We'll use `psql` to connect to the server.
+Som alla moderna database kräver PostgreSQL regelbundna serveradministration att uppnå bästa prestanda. Du har ett antal alternativ för att ansluta och hantera din Azure Database for PostgreSQL-server. Vi använder `psql` att ansluta till servern.
 
-### What is psql?
+### <a name="what-is-psql"></a>Vad är psql?
 
-The command-line tool called `psql` is the PostgreSQL distributed interactive terminal for working with PostgreSQL server and databases. `psql` works with Azure Database for PostgreSQL the same as with any other PostgreSQL implementation and is included with the Azure Cloud Shell. The `psql` tool allows you to manage databases as well as execute structure queries against these databases.
+Kommandoradsverktyget kallas `psql` är PostgreSQL distribuerade interaktiv terminal för att arbeta med PostgreSQL-servrar och databaser. `psql` fungerar med Azure Database för PostgreSQL på samma sätt som med andra PostgreSQL-implementering och ingår i Azure Cloud Shell. Den `psql` verktyget kan du hantera databaser samt köra struktur frågor mot dessa databaser.
 
-Using `psql` requires a successful connection to a PostgreSQL server. There are a number of command-line parameters available for use when working with `psql`.
+Med hjälp av `psql` kräver en anslutning till en PostgreSQL-server. Det finns ett antal kommandoradsparametrar tillgängliga för användning när du arbetar med `psql`.
 
-- `--host` - the host to which you'd like to connect
-- `--username` - the user name/i.d. with which to connect
-- `--dbname` - the name of the database to connect to.
+- `--host` -Värden som du vill ansluta.
+- `--username` -Användaren namn/ID som ska anslutas.
+- `--dbname` – Namnet på databasen som ska ansluta till.
 
 > [!Note]
-> You'll typically connect to the `postgres` management database when managing your server access and databases configuration.
+> Ansluter du normalt till de `postgres` hanteringsdatabasen när du hanterar din serverkonfigurationer för åtkomst och databasen.
 
-Here is the complete command:
+Här är det fullständiga kommandot:
 
   ```bash
   psql --host=<server-name>.postgres.database.azure.com --username=<admin-user>@<server-name> --dbname=<database>
   ```
 
-Once connected, you'll be presented with a command prompt and can execute commands to your server and databases.
+När du är ansluten, visas en kommandotolk och kan köra kommandon till servern och databaserna.
 
-You've now seen the steps you take to configure an Azure Database for PostgreSQL security settings. In the next unit, you'll configure an  Azure Database for PostgreSQL security settings. You'll also connect to the server using Cloud Shell.
+Du har nu sett instruktioner om hur du konfigurerar Azure Database för PostgreSQL-säkerhetsinställningar. I nästa enhet konfigurerar du Azure Database för PostgreSQL-säkerhetsinställningar. Du kan också ansluta till servern med Cloud Shell.

@@ -1,11 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-performance-and-scalability.4-optimize-storage-performance
-title: Optimize storage performance
+title: Optimera lagringsprestanda
 metadata:
-  title: Optimize storage performance
-  description: In this unit we'll discuss how to optimize storage performance for your architecture
+  title: Optimera lagringsprestanda
+  description: I den här utbildningsenheten går vi igenom hur du kan optimera lagringsprestanda för din arkitektur
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
@@ -14,27 +13,27 @@ durationInMinutes: 5
 content: |
   [!include[](includes/4-optimize-storage-performance.md)]
 quiz:
-  title: 'Knowledge Check - Optimize storage performance'
+  title: Kunskapskontroll – Optimera lagringsprestanda
   questions:
-  - content: 'What is polyglot persistence?'
-    choices:
-    - content: 'Using Azure SQL Database to store all of your data'
-      isCorrect: false
-      incorrectExplanation: 'Storing all data in a single technology is not the definition of polyglot persistence.'
-    - content: 'A way to keep connections alive for data transfers'
-      isCorrect: false
-      incorrectExplanation: 'Keepalives are methods of keeping connections alive for data transfers and are not related to polyglot persistence.'
-    - content: 'The usage of different data storage technologies for different purposes in your application'
-      isCorrect: true
-      correctExplanation: 'Polyglot persistence is the usage of different data storage technologies for different purposes.'
-    - content: 'An approach to deal with transient data faults'
-      isCorrect: false
-      incorrectExplanation: 'While dealing with transient data faults is beneficial in an application architecture, it is not related to polyglot persistence.'
-  - content: 'Redis Cache can be used to improve the performance of your application by storing a snapshot of data in memory.'
-    choices:
-    - content: 'True'
-      isCorrect: true
-      correctExplanation: 'Redis Cache will store application data in memory, leading to fast retrieval times and an improvement in application performance related to frequently accessed data.'
-    - content: 'False'
-      isCorrect: false
-      incorrectExplanation: 'Redis Cache will store application data in memory, leading to fast retrieval times and an improvement in application performance related to frequently accessed data.'
+    - content: Vad är flerspråkig persistens?
+      choices:
+        - content: Att använda Azure SQL Database till att lagra alla dina data
+          isCorrect: false
+          incorrectExplanation: Att lagra alla data med en enda teknik är inte definitionen av flerspråkig persistens.
+        - content: Ett sätt att hålla anslutningar igång för dataöverföring
+          isCorrect: false
+          incorrectExplanation: Keepalive-överföringar är metoder för att hålla anslutningar aktiva för dataöverföringar och är inte relaterade till flerspråkig persistens.
+        - content: Att använda olika lagringstekniker till olika syften i en app
+          isCorrect: true
+          correctExplanation: Flerspråkig persistens avser användning av olika lagringstekniker för olika syften.
+        - content: En metod för att hantera fel i tillfälliga data
+          isCorrect: false
+          incorrectExplanation: 'Även om hantering av fel i tillfälliga data är bra i en programarkitektur, så har det inget att göra med flerspråkig persistens.'
+    - content: Du kan använda Redis Cache till att förbättra appens prestanda genom att du lagrar en ögonblicksbild av data i minnet.
+      choices:
+        - content: Sant
+          isCorrect: true
+          correctExplanation: 'Redis Cache lagrar programdata i minnet, vilket leder till snabba hämtningstider och förbättrade programprestanda när det gäller data som ofta används.'
+        - content: Falskt
+          isCorrect: false
+          incorrectExplanation: 'Redis Cache lagrar programdata i minnet, vilket leder till snabba hämtningstider och förbättrade programprestanda när det gäller data som ofta används.'

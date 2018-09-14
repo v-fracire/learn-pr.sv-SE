@@ -1,4 +1,4 @@
-Pick from one of these locations available to the Azure Sandbox:
+Välj en av dessa platser som är tillgängliga i Azure-sandlådan:
 
 - Region A
 - Region B

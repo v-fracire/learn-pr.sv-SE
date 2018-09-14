@@ -29,7 +29,7 @@ Du har bestämt dig för att skapa webb- och appnivåer för din logistikapp hos
     Azure SQL Database har flera olika prisnivåer. Använd de olika prisnivåerna för att hitta rätt balans mellan prestanda och kostnad. Börja med en liten summa varje månad.
 
 - **Skalning**
- 
+
     Du upptäcker att mängden logistikdata som måste du lagra fördubblas för varje år som går. Hur mycket extra kapacitet ska du planera för när du kör lokalt?
 
     Om du använder Azure SQL Database kan du enkelt justera prestanda och storleken på databasen i takt med att dina behov skiftar.

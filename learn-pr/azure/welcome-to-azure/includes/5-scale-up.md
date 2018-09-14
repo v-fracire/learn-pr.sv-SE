@@ -1,84 +1,80 @@
-Your web server is up and running, but you realize you need more computing power to make the experience great for your users. How can you make your VM run faster?
+Webbservern är igång och körs, men du inser du behöver mer bearbetningskraft att göra upplevelsen bra för dina användare. Hur kan du skapa den virtuella datorn körs snabbare?
 
-In your data center, you might move your web server to more powerful hardware to solve performance problems. The problem is you need to buy, rack, and power your new system. With Azure, the answer is much simpler.
+Du kan flytta webbservern till kraftfullare maskinvara för att lösa problem med prestanda i ditt datacenter. Problemet är att du behöver köpa, rack och starta nya systemet. Svaret är mycket enklare med Azure.
 
-Now you'll scale up your VM to a more powerful size. Before you change your VM's size, you must shut it down, or deallocate it.
+Nu kan du skala upp din virtuella dator till en kraftfullare storlek. Innan du ändrar den Virtuella datorns storlek, måste du stänga av eller frigör den.
 
-First, let's define what scale means and what happens when you deallocate your VM.
+Först ska vi definiera vilken skala innebär och vad som händer när du frigör den virtuella datorn.
 
-## What is scale?
+## <a name="what-is-scale"></a>Vad är skala?
 
-_Scale_ refers to adding network bandwidth, memory, storage, or compute power to achieve better performance.  
+_Skala_ avser att lägga till nätverkets bandbredd, minne, lagring eller datorkraft för att få bättre prestanda.  
 
-You may have heard the terms _scale up_ and _scale out_.
+Du kanske har hört villkoren _skala upp_ och _skala ut_.
 
-Scaling up, or vertical scaling, means to increase the memory, storage, or compute power on an existing virtual machine. For example, you can add additional memory to a web or database server to make it run faster.
+Skala upp eller vertikal skalning innebär att öka minne, lagring, eller beräkningskraft på en befintlig virtuell dator. Exempelvis kan du lägga till ytterligare minne till en webb- eller database-server så att de blir snabbare.
 
 > [!TIP]
-> You can also _scale down_ your system if you needed to scale up only temporarily.
+> Du kan också _Nedskalning_ systemet om du behöver skala upp bara tillfälligt.
 
-Scaling out, or horizontal scaling, means to additional virtual machines to power your application. For example, you might create many virtual machines configured in exactly the same way and use a load balancer to distribute work across them.
+Skala ut eller horisontell skalning innebär att ytterligare virtuella datorer att köra ditt program. Du kan till exempel skapa många virtuella datorer som konfigurerats på exakt samma sätt och använder en belastningsutjämnare för att fördela arbetet mellan dem.
 
-## What is deallocation?
+## <a name="what-is-deallocation"></a>Vad är frigörs?
 
-Deallocation is the process that shuts down your VM and releases its compute resources.
+Flyttningen är den process som stänger av den virtuella datorn och släpper dess beräkningsresurser.
 
-When you shut down your PC at work or at home, the operating system closes your programs and then notifies the power management hardware to turn off power.
+När du stänger av datorn på arbetet eller i hemmet, operativsystemet stänger program och sedan meddelar power management maskinvara att stänga av datorn.
 
-Deallocating a virtual machine is similar. After your VM shuts down, Azure reclaims the hardware used to power it. Your data disks and storage remain intact. When you start your VM back up, you'll pick up where you left off, just like with your PC.
+Frigörs en virtuell dator är liknande. När den virtuella datorn stängs av, återtar Azure den maskinvara som används för att starta den. Dina diskar och lagring förblir intakta. När du startar den virtuella datorn säkerhetskopiera, ta vid där du slutade, som precis med din dator.
 
-When deallocated, you are not billed for the compute and network resources that your virtual machine uses. You still pay for any associated disks to sit in storage, but the overall cost is much lower than it would be if the VM were running.
+När datorn är frigjord kan debiteras du inte för de resurser för beräkning och nätverk som den virtuella datorn använder. Du betala för alla associerade diskar direkt på lagring, men den totala kostnaden är mycket lägre än det skulle vara om den virtuella datorn kördes.
 
-Here, you'll deallocate your VM briefly so that you can resize it. But you can also deallocate your VMs for a longer period to save cost. Say you have a bank of VMs that you use for testing during work hours. You can schedule your VMs to be automatically deallocated on nights and weekends. If you need to stay late, you can manually restart them.
+Här får du frigör den virtuella datorn kort så att du kan ändra storlek på den. Men du kan också Frigör dina virtuella datorer under en längre period för att minska kostnaderna. Anta att du har en bank för virtuella datorer som du använder för att testa under arbetstid. Du kan schemalägga dina virtuella datorer ska frigöras automatiskt på nätter och helger. Om du vill hålla sent kan du manuellt starta om dem.
 
-## Scale up your VM
+## <a name="scale-up-your-vm"></a>Skala upp din virtuella dator
 
-Recall that you specified the size **Standard_DS2_v2** when you created your VM. Your VM currently has two virtual CPUs and 7 GB of memory.
+Kom ihåg att du har angett storleken **Standard_DS2_v2** när du skapade den virtuella datorn. Den virtuella datorn har för närvarande två virtuella processorer och 7 GB minne.
 
-Let's bump up to the next size, **Standard_DS3_v2**. Your VM will then have four virtual CPUs and 14 GB of memory.
+Nu ska vi uppgraderar nästa storlek **Standard_DS3_v2**. Den virtuella datorn kommer då ha fyra virtuella processorer och 14 GB minne.
 
 ::: zone pivot="windows-cloud"
 
-1. From Cloud Shell, deallocate your VM.
+1. Kör från Cloud Shell `az vm deallocate` att frigöra eller stoppa den virtuella datorn.
 
-    ```powershell
-    Stop-AzureRmVM `
-      -ResourceGroupName "myResourceGroup" `
-      -Name "myVM" `
-      -Force
+    ```azurecli
+    az vm deallocate \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myWindowsVM
     ```
-    The process takes a couple minutes to complete.
-1. Run these commands to specify your VM's new size.
-    ```powershell
-    $vm = Get-AzureRmVM `
-      -ResourceGroupName "myResourceGroup" `
-      -VMName "myVM"
-    $vm.HardwareProfile.VmSize = "Standard_DS3_v2"
-    Update-AzureRmVM `
-      -VM $vm `
-      -ResourceGroupName "myResourceGroup"
-    ```
-    The update process takes about a minute.
-1. Restart your VM.
+    Processen tar några minuter att slutföra.
+1. Kör `az vm resize` att öka storleken på den virtuella datorn till **Standard_DS3_v2**.
 
-    ```powershell
-    Start-AzureRmVM `
-      -ResourceGroupName "myResourceGroup" `
-      -Name "myVM"
+    ```azurecli
+    az vm resize \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myWindowsVM \
+      --size Standard_DS3_v2
     ```
-    The process takes about a minute.
-1. Verify that your VM is running the new size.
+    Uppdateringen tar ungefär en minut.
+1. Kör `az vm start` att starta om den virtuella datorn.
 
-    ```powershell
-    $vm = Get-AzureRmVM `
-      -ResourceGroupName "myResourceGroup" `
-      -VMName "myVM"
-    $vm.HardwareProfile
+    ```azurecli
+    az vm start \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myWindowsVM
     ```
-    You see your new VM size, **Standard_DS3_v2**.
+    Processen tar ungefär en minut.
+1. Kör `az vm show` att verifiera att Virtuellt datorn körs den nya storleken.
+
+    ```azurecli
+    az vm show \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myWindowsVM \
+      --query "hardwareProfile" \
+      --output tsv
+    ```
+    Du ser din nya VM-storleken **Standard_DS3_v2**.
     ```console
-    VmSize
-    ------
     Standard_DS3_v2
     ```
 
@@ -86,30 +82,41 @@ Let's bump up to the next size, **Standard_DS3_v2**. Your VM will then have four
 
 ::: zone pivot="linux-cloud"
 
-1. From Cloud Shell, run `az vm deallocate` to deallocate, or stop, your VM.
+1. Kör från Cloud Shell `az vm deallocate` att frigöra eller stoppa den virtuella datorn.
 
     ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm deallocate \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myLinuxVM
     ```
-    The process takes a couple of minutes to complete.
-1. Run `az vm resize` to increase your VM's size to **Standard_DS3_v2**.
+    Processen tar några minuter att slutföra.
+1. Kör `az vm resize` att öka storleken på den virtuella datorn till **Standard_DS3_v2**.
 
     ```azurecli
-    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
+    az vm resize \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myLinuxVM \
+      --size Standard_DS3_v2
     ```
-    The update process takes about a minute.
-1. Run `az vm start` to restart your VM.
+    Uppdateringen tar ungefär en minut.
+1. Kör `az vm start` att starta om den virtuella datorn.
 
     ```azurecli
-    az vm start --resource-group myResourceGroup --name myVM
+    az vm start \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myLinuxVM
     ```
-    The process takes about a minute.
-1. Run `az vm show` to verify that your VM is running the new size.
+    Processen tar ungefär en minut.
+1. Kör `az vm show` att verifiera att Virtuellt datorn körs den nya storleken.
 
     ```azurecli
-    az vm show -n myVM -g myResourceGroup --query "hardwareProfile" -o tsv
+    az vm show \
+      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --name myLinuxVM \
+      --query "hardwareProfile" \
+      --output tsv
     ```
-    You see your new VM size, **Standard_DS3_v2**.
+    Du ser din nya VM-storleken **Standard_DS3_v2**.
     ```console
     Standard_DS3_v2
     ```
@@ -117,12 +124,12 @@ Let's bump up to the next size, **Standard_DS3_v2**. Your VM will then have four
 ::: zone-end
 
 > [!NOTE]
-> By default, Azure assigns a new public IP address to your VM when you stop and restart it. This is OK for learning purposes. In practice, you can reserve a public IP address that stays with your VM even when your VM is restarted.
+> Som standard tilldelar Azure en ny offentlig IP-adress till den virtuella datorn när du stoppar och startar du om den. Det här är OK i utbildningssyfte. I praktiken, kan du reservera en offentlig IP-adress som ligger med den virtuella datorn även om den virtuella datorn har startats om.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Nice job! With just a few commands, your VM is now twice as powerful.
+Bra jobbat! Med bara några få kommandon, den virtuella datorn är nu två gånger så kraftfulla.
 
-Scaling up and scaling out are two ways to increase performance. Here you scaled up your VM to increase its compute power.
+Skala upp och skala ut finns två sätt att öka prestandan. Här skalas upp den virtuella datorn att öka sin beräkningskraft.
 
-You deallocate a VM before you can resize it. You can also deallocate your VMs when they're not in use to save costs.
+Du kan frigöra en virtuell dator innan du kan ändra storlek på den. Du kan också Frigör dina virtuella datorer när de inte används för att sänka kostnaderna.

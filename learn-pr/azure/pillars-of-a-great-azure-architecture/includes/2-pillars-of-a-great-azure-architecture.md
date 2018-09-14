@@ -1,50 +1,52 @@
-The cloud has changed the way organizations solve their business challenges, and how applications and systems are designed. The role of a solution architect is not only to deliver business value through the functional requirements of the application, but to ensure the solution is designed in ways that are scalable, resilient, efficient and secure. Solution architecture is concerned with the planning, design, implementation, and ongoing improvement of a technology system. The architecture of a system must balance and align the business requirements with the technical capabilities needed to execute those requirements. It includes an evaluation of risk, cost, and capability throughout the system and its components.
+Molnet har ändrats på sätt som organisationer lösa sina affärsutmaningar och hur program och system är utformade för. Rollen för Lösningsarkitekt är inte bara att skapa affärsvärden via funktionskrav av programmet, men se till att lösningen är utformad på ett sätt som är skalbara, elastiska, effektiv och säker. Lösningsarkitektur är bekymrad över planering, design, implementering och pågående förbättring av en teknik-system. Ett systems arkitektur måste balansera och justera affärskraven med de tekniska funktioner som behövs för att köra dessa krav. Det inkluderar en utvärdering av risk, kostnad och kapacitet i hela systemet och dess komponenter.
 
-While there is no one-size-fits-all approach to designing an architecture, there are some universal concepts that will apply regardless of the architecture, technology, or cloud provider. While these are not all-inclusive, focusing on these concepts will help you build a reliable, secure, and flexible foundation for your application.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEv2]
 
-A great architecture starts with a solid foundation built on four pillars:
+Det finns ingen enkel metod för att utforma en arkitektur, finns men det några universal begrepp som gäller oavsett arkitektur, teknik eller molnleverantör. Även om dessa inte är omfattande, fokusera på dessa begrepp hjälper dig att bygga en tillförlitlig, säker och flexibel grund för ditt program.
 
-* Security
-* Performance and scalability
-* Availability and recoverability
-* Efficiency and operations
+En bra arkitektur börjar med en stabil grund som bygger på fyra grundpelare:
 
-![Pillars of a great architecture](../media-draft/pillars.png)
+* Säkerhet
+* Prestanda och skalbarhet
+* Tillgänglighet och återställning
+* Effektivitet och drift
 
-## Security
+![Grundpelare för en bra arkitektur](../media-draft/pillars.png)
 
-Data in various forms is the most valuable piece of your organization's technical footprint. In this pillar, you'll be focused on securing access to your architecture through authentication and protecting your application and data from network vulnerabilities. The integrity of your data should be protected as well, using tools like encryption.
+## <a name="security"></a>Säkerhet
 
-You must think about security throughout the entire lifecycle of your application, from design and implementation to deployment and operations. The cloud provides protections against a variety of threats, such as network intrusion and DDoS attacks, but you still need to build security into your application, processes, and organizational culture.
+Data i olika former är den mest värdefulla teknisk fotavtryck för din organisation. I den här grundpelaren så kommer du att fokuserar på att säkra åtkomst till din arkitektur via autentisering och att skydda ditt program och dina data från nätverketssårbarheter. Integriteten för dina data bör också skyddas med verktyg som kryptering.
 
-![Types of attacks](../media-draft/security.png)
+Du måste tänka på säkerheten under hela livscykeln för ditt program, från design och implementering till distribution och drift. Molnet ger skydd mot en mängd hot, till exempel intrång och DDoS-attacker, men du måste fortfarande bygger in säkerhet i dina program, processer och organisationens kultur.
 
-## Performance and scalability
+![Angreppstyper](../media-draft/security.png)
 
-For an architecture to perform well and be scalable, it should properly match resource capacity to demand. Traditionally, cloud architectures do so by scaling applications dynamically based off activity in the application. Demand for services change, so it's important for your architecture to have the ability to adjust to demand as well. By designing your architecture with performance and scalability in mind, you'll provide a great experience for your customers while being cost-effective.
+## <a name="performance-and-scalability"></a>Prestanda och skalbarhet
 
-![Graphic depicting large influx of data or requests](../media-draft/performance-demand.png))
+För att en arkitektur ska fungera bra och vara skalbar, måste den korrekt matcha resurskapacitet efter efterfrågan. Traditionellt gör molnarkitekturer det genom att skala program dynamiskt baserat på aktivitet i programmet. Efterfrågan på tjänster ändras så det är viktigt att din arkitektur kan anpassa sig till efterfrågan. Genom att skapa din arkitektur med prestanda och skalbarhet i åtanke så kan du erbjuda en bra upplevelse för dina kunder samtidigt som du är kostnadseffektiv.
 
-## Availability and recoverability
+![Bild som visar ett stort inflöde av data eller begäranden](../media-draft/performance-demand.png))
 
-Every architect’s worst fear is having your architecture go down with no way to recover it. A successful cloud environment is designed in a way that anticipates failure at all levels. Part of anticipating these failures is designing a system that can recover from the failure, within the time required by your stakeholders and customers.
+## <a name="availability-and-recoverability"></a>Tillgänglighet och återställning
 
-![System failure](../media-draft/system-failure.png)
+Varje arkitekts värsta mardröm är att din arkitektur slutar fungera utan att det går att återställa den. En lyckad molnmiljö är skapad på ett sätt som förutser fel på alla nivåer. En del av att förutse de här felen är att designa ett system som kan återställas från fel, inom den tid som krävs av dina intressenter och kunder.
 
-## Efficiency and operations
+![Systemfel](../media-draft/system-failure.png)
 
-You will want to design your cloud environment so that it's cost-effective to operate and develop against. Inefficiency and waste in cloud spending should be identified to ensure you're spending money where we can make the greatest use of it. You need to have a good monitoring architecture in place so that you can detect failures and problems before they happen or, at a minimum, before your customers notice. You also need to have some visibility in to how your application is using its available resources, through a robust monitoring framework.
+## <a name="efficiency-and-operations"></a>Effektivitet och drift
 
-![Efficiency](../media-draft/efficiency.png)
+Du vill utforma din molnmiljö så att det är kostnadseffektivt att driva och utveckla mot. Funktionen och spill i molnet utgifter ska identifieras för att säkerställa att du arbetar särskilt pengar där vi kan göra bästa användning av den. Du måste ha en bra övervakning arkitektur på plats så att du kan identifiera fel och problem innan de inträffar eller, som ett minimum innan Lägg märke till dina kunder. Du måste också måste vissa insyn hur ditt program använder olika tillgängliga resurser via ett robust övervakning ramverk.
 
-## Shared responsibility
+![Effektivitet](../media-draft/efficiency.png)
 
-Moving to the cloud introduces a model of shared responsibility. In this model, your cloud provider will manage certain aspects of your application, leaving you with the remaining responsibility. In an on-premises environment you are responsible for everything. As you move to infrastructure as a service (IaaS), then to platform as a service (PaaS) and software as a service (SaaS), your cloud provider will take on more of this responsibility. This shared responsibility will play a role in your architectural decisions, as they can have implications on cost, operational capabilities, security, and the technical capabilities of your application. By shifting these responsibilities to your provider you can focus on brining value to your business and move away from activities that aren't a core business function.
+## <a name="shared-responsibility"></a>Delat ansvar
 
-![Cloud service models](../media-draft/cloud-responsibility-model.png)
+Flytta till molnet introducerar en modell för delat ansvar. I den här modellen hanterar molnleverantör vissa aspekter av ditt program, så att du har det återstående ansvaret. Du är ansvarig för allt innehåll i en lokal miljö. När du migrerar till infrastruktur som en tjänst (IaaS), sedan tar till plattform som en tjänst (PaaS) och programvara som en tjänst (SaaS), molnleverantör på flera av den här ansvar. Den här delat ansvar kommer att ha en roll i din arkitektur beslut, eftersom de kan ha konsekvenser för kostnader, operativa funktioner, säkerhet och de tekniska funktionerna i ditt program. Genom att ändra detta ansvar för din leverantör kan du fokusera på insaltning värde för din verksamhet och överger aktiviteter som inte är en grundläggande funktioner.
 
-## Design choices
+![Molntjänstmodeller](../media-draft/cloud-responsibility-model.png)
 
-In an ideal architecture, we would build the most secure, high performance, highly available, and efficient environment possible. However, as with everything, there are trade-offs. To build an environment with the highest level of all these pillars, there is a cost. That cost may be in actual money, time to deliver, or operational agility. Every organization will have different priorities that will impact the design choices made in each pillar. As you design your architecture, you will need to determine what trade-offs are acceptable and which are not.
+## <a name="design-choices"></a>Utformningsalternativ
 
-When building an Azure architecture, there are many considerations to keep in mind. You want your architecture to be secure, scalable, available, and recoverable. To make that possible, you'll have to make decisions based on cost, organizational priorities, and risk.
+I en perfekt arkitektur skulle vi skapa den mest säkra, högpresterande, högtillgängliga och effektiva miljön som går. Men precis som alltid så måste man göra vissa kompromisser. För att skapa en miljö med den högsta nivån för alla pelare så finns det en kostnad. Kostnaden kan vara i pengar, tid till leverans eller driftsmässig flexibilitet. Varje organisation har olika prioriteter som påverkar de designval som görs för varje pelare. När du utformar din arkitektur, behöver du bestämma vilka kompromisser accepteras och som inte är.
+
+När du skapar en Azure-arkitektur, finns det många saker att tänka på. Du vill att din arkitektur är säker, skalbar, tillgänglig och återställningsbar. Om du vill för att måste du fatta beslut utifrån kostnader, organisationens prioriteringar och risk.

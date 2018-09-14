@@ -1,12 +1,12 @@
-Azure gives you the tools you need to manage the size and number of your virtual machines. 
+Azure ger dig de verktyg du behöver för att hantera storlek och antalet virtuella datorer. 
 
-Suppose you work at a company that sells children’s toys online. You web server runs on an Azure virtual machine. Much of your demand is seasonal and predictable; for example, the load on your server increases before major holidays. Demand will sometimes spike without warning; for example, the unexpected success of a movie can drive demand for related toys.
+Anta att du arbetar på ett företag som säljer children's online toys. Webbservern körs på virtuella Azure-datorer. Mycket av din begäran är säsongsbaserad och förutsägbara; till exempel ökar belastningen på servern innan du större helgdagar. Begäran kommer ibland utnyttja utan varning; oväntat kan användas i en film kan till exempel förbättra begäran för relaterade toys.
 
-Your goal is to identify the expected loads throughout the year. You will then create a management plan to ensure your virtual machines have enough CPU, memory, and storage hardware to handle the demand.
+Målet är att identifiera förväntad belastning under hela året. Sedan skapar du en plan för att se till att dina virtuella datorer har tillräckligt med processor, minne och lagringsmaskinvara som att hantera belastningen.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
-- Vertically scale virtual machines by resizing
-- Horizontally scale virtual machines using scale sets
-- Configure autoscaling
+I den här modulen kommer du att göra följande:
+- Lodrätt skalning av virtuella datorer genom att ändra storlek
+- Vågrätt skala virtuella datorer med skalningsuppsättningar
+- Konfigurera automatisk skalning

@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.the-mojifier.10-integrate-with-slack
+metadata:
+  title: Integrera Mojifier med Slack
+  description: Anslut dina Azure-funktioner tillsammans med Slack och skapa en slack _snedstreck_ kommando för att anropa vår Azure-funktioner och visa den resulterande mojified bilden i fönstret Slack.
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+labId: 45987
+title: Integrera Mojifier med Slack
+durationInMinutes: 10
+content: |
+  [!include[](includes/10-integrate-with-slack.md)]

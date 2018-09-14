@@ -1,40 +1,36 @@
-You have added the required client libraries to your application and are ready to connect to your Azure storage account.
+Du har nu lagt till de klientbibliotek som behövs i appen och det har blivit dags att ansluta till ditt Azure Storage-konto.
 
-To work with data in a storage account, your app will need two pieces of data:
+Om du vill arbeta med data i ett lagringskonto kan din app måste ha två typer av data:
 
-1. [An access key](#access-key)
-1. [The REST API endpoint](#rest-endpoint)
+1. En åtkomstnyckel
+1. REST API-slutpunkt
 
-<a name="access-key"></a>
+## <a name="security-access-keys"></a>Snabbtangenter för säkerhet
 
-## Security access keys
+Varje lagringskonto har två unika _åtkomstnycklar_ som används för att skydda lagringskontot. Om din app behöver ansluta till flera lagringskonton, sedan kräver din app en åtkomstnyckel för varje lagringskonto.
 
-Each storage account has two unique _access keys_ that are used to secure the storage account. If your app needs to connect to multiple storage accounts, then your app will require an access key for each storage account.
+![En bild som visar ett program som är ansluten till två olika lagringskonton i molnet. Varje lagringskonto är tillgänglig med en unik nyckel.](..\media\6-multiple-accounts.png)
 
-![An illustration showing an application connected to two different storage accounts in the cloud. Each storage account is accessible with a unique key.](..\media\6-multiple-accounts.png)
+## <a name="rest-api-endpoint"></a>REST API-slutpunkt
 
-<a name="rest-endpoint"></a>
+Förutom åtkomst till nycklar för autentisering till storage-konton, kommer din app behöver veta tjänstslutpunkter för lagring att utfärda REST-begäranden. 
 
-## REST API endpoint
+REST-slutpunkten är en kombination av ditt lagringskonto _namn_, datatypen och en känd domän. Exempel:
 
-In addition to access keys for authentication to storage accounts, your app will need to know the storage service endpoints to issue the REST requests. 
-
-The REST endpoint is a combination of your storage account _name_, the data type, and a known domain. For example:
-
-| Data type | Example endpoint |
+| Datatyp | Exempel-slutpunkt |
 |-----------|------------------|
-| Blobs     | `https://[name].blob.core.windows.net/` |
-| Queues    | `https://[name].queue.core.windows.net/` |
-| Table     | `https://[name].table.core.windows.net/` |
-| Files     | `https://[name].file.core.windows.net/` |
+| Blobar     | `https://[name].blob.core.windows.net/` |
+| Köer    | `https://[name].queue.core.windows.net/` |
+| Tabell     | `https://[name].table.core.windows.net/` |
+| Filer     | `https://[name].file.core.windows.net/` |
 
-If you have a custom domain tied to Azure, then you can also create a custom domain URL for the endpoint.
+Om du har en anpassad domän som är kopplad till Azure, kan du också skapa en anpassad domän-URL för slutpunkten.
 
-## Connection strings
+## <a name="connection-strings"></a>Anslutningssträngar
 
-The simplest way to handle this information is to use a **storage account connection string** A connection string provides all needed connectivity information in a single text string.
+Det enklaste sättet att hantera den här informationen är att använda en **lagringskontots anslutningssträng**. En anslutningssträng innehåller alla nödvändiga anslutningsinformationen i en enda textsträng.
 
-Azure Storage connection strings look similar to the example below but with the access key and account name of your specific storage account:
+Anslutningssträngarna i Azure Storage ser ut ungefär som i exemplet nedan, men med åtkomstnyckeln och kontonamnet för ditt specifika lagringskonto angivet:
 
 ```
 DefaultEndpointsProtocol=https;AccountName={your-storage};
@@ -42,29 +38,29 @@ DefaultEndpointsProtocol=https;AccountName={your-storage};
    EndpointSuffix=core.windows.net
 ```
 
-## Security
+## <a name="security"></a>Säkerhet
 
-Access keys are critical to providing access to your storage account and as a result, should not be given to any system or person that you do not wish to have access to your storage account. Access keys are the equivalent of a username and password to access your computer.
+Åtkomstnycklar ger åtkomst till ditt lagringskonto och du ska därför undvika att lämna ut dem till något system eller person som du inte vill ska ha tillgång till ditt lagringskonto. Åtkomstnycklar har samma funktion som användarnamn och lösenord vid inloggning på en dator.
 
-Typically, storage account connectivity information is stored within an environment variable, database, or configuration file.
+Anslutningsinformation för lagringskonton lagras vanligtvis i en miljövariabel, databas eller konfiguration.
 
 > [!IMPORTANT]
-> It is important to note that storing this information in a configuration file can be dangerous if you include that file in source control and store it in a public repository. This is a common mistake and means that anyone can browse your source code in the public repository and see your storage account connection information.
+> Det är viktigt att Observera att lagra den här informationen i en konfigurationsfil kan vara farliga om du inkluderar den filen i källkontrollen och lagra den i en offentlig lagringsplats. Det här är tyvärr ett misstag som många användare gör och som kan leda till att vem som helst kan läsa källkoden på den offentliga lagringsplatsen och hitta anslutningsinformationen till ditt lagringskonto.
 
-Each storage account has two access keys. The reason for this is to allow keys to be rotated (regenerated) periodically as part of security best practice in keeping your storage account secure. This process can be done from the Azure portal or the Azure CLI / PowerShell command line tool.
+Varje lagringskonto har två åtkomstnycklar. Anledningen till detta är att vi vill möjliggöra rotation (regenererad) av nycklar med jämna mellanrum. Inkludera gärna metoden i ert interna regelverk för att skydda lagringskontona. Den här processen kan göras från Azure portal eller Azure CLI / PowerShell kommandoradsverktyget.
 
-Rotating a key will invalidate the original key value immediately and will revoke access to anyone who obtained the key inappropriately. With support for two keys, you can rotate keys without causing downtime in your applications that use them. Your app can switch to using the alternate access key, while the other key is regenerated. If you have multiple apps using this storage account, they should all use the same key to support this technique. Here's the basic idea:
+Om du roterar en nyckel så ogiltigförklaras det ursprungliga nyckelvärdet omedelbart. Detta gör det lätt att återkalla behörigheten om någon obehörig kommit över nyckeln. Då det finns stöd för två nycklar kan du rotera nycklar utan driftstopp i apparna som använder nycklarna i fråga. Din app kan växla till alternativa åtkomstnyckeln medan den andra nyckeln har återskapats. Om lagringskontot används av flera appar bör samtliga appar använda samma nyckel i samband med att den här tekniken används. Här är grunden:
 
-1. Update the connection strings in your application code to reference the secondary access key of the storage account.
-2. Regenerate the primary access key for your storage account using the Azure portal or command line tool.
-3. Update the connection strings in your code to reference the new primary access key.
-4. Regenerate the secondary access key in the same manner.
+1. Uppdatera anslutningssträngarna i programkoden så att de refererar till lagringskontots sekundära åtkomstnyckel.
+2. Återskapa den primära åtkomstnyckeln för ditt lagringskonto med hjälp av verktyget Azure-portalen eller kommandoraden.
+3. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
+4. Återskapa den sekundära åtkomstnyckeln på samma sätt.
 
 > [!TIP]
-> It's highly recommended that you periodically rotate your access keys to ensure they remain private - just like changing your passwords. If you are using the key in a server application, you can use an **Azure Key Vault** to store the access key for you. Key Vaults include support to synchronize directly to the Storage Account and automatically rotate the keys periodically. Using a Key Vault provides an additional layer of security so your app never has to work directly with an access key.
+> Vi rekommenderar starkt att du regelbundet rotera dina åtkomstnycklar för att se till att de förblir privata, precis som att ändra ditt lösenord. Om du använder nyckeln i ett serverprogram, kan du använda en **Azure Key Vault** att lagra åtkomstnyckeln för dig. Nyckelvalv har stöd för att synkronisera direkt till Storage-kontot och automatiskt rotera nycklarna regelbundet. Med ett Key Vault ger ett extra lager av säkerhet, så att din app har aldrig att arbeta direkt med en åtkomstnyckel.
 
-### Shared access signatures (SAS)
+### <a name="shared-access-signatures-sas"></a>Signaturer för delad åtkomst (SAS)
 
-Access keys are the easiest approach to authenticating access to a storage account, however they provide full access to anything in the storage account - similar to a root password on a computer. 
+Snabbtangenter är den enklaste metoden för att autentisera åtkomst till ett lagringskonto. Men de ger fullständig åtkomst till något i lagringskontot liknar ett rotlösenord på en dator.
 
-Storage accounts offer a separate authentication mechanism called _shared access signatures_ that support expiration and limited permissions for scenarios where you need to grant limited access. You should use this approach when you are allowing other users to read and write data to your storage account. There are links to our documentation on this advanced topic at the end of the module.
+Storage-konton erbjuder en separat autentiseringsmekanism som kallas _signaturer för delad åtkomst_ som stöd för förfallodatum och begränsade behörigheter för scenarier där du måste bevilja begränsad åtkomst. Du bör använda den här metoden när du tillåter att andra användare att läsa och skriva data till ditt lagringskonto. Det finns länkar till dokumentationen om den här avancerade avsnitt i slutet av modulen.

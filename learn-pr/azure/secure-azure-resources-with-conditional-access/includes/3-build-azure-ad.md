@@ -12,7 +12,7 @@ Vi skapar en ny katalog för First Up Consultants, där vi kan testa utan att de
    1. ORGANISATIONSNAMN: `First Up Consultants`.
    1. URSPRUNGLIGT DOMÄNNAMN: `firstupconsultants<XXXX>.onmicrosoft.com`.
 
-1. Vänta tills katalogen skapas. Klicka på länken för att växla till den nya katalogen eller klicka på **Katalog- och prenumerationsfilter** längst upp i fönstret och välj sedan den nya katalogen.
+1. Vänta tills katalogen skapas. Klicka på länken om du vill växla till den nya katalogen eller klicka på den **katalog- och prenumerationsfilter** överst i fönstret och välj sedan den nya katalogen.
 
 ## <a name="get-trial-licenses"></a>Skaffa utvärderingslicenser
 
@@ -32,7 +32,9 @@ Vi behöver testa det här med en användare. Isabella Simonsen (en annan medlem
 
 1. Skapa en användare med namnet **Isabella Simonsen** med användarnamnet:
 
-   * `Isabella@firstupconsultants<XXXX>.onmicrosoft.com`
+   `Isabella@firstupconsultants<XXXX>.onmicrosoft.com`
+
+   Matchar domänen efter den @ med den domän som du skapade i den *skapa en katalog* ovan.
 
 1. Markera kryssrutan för att **Visa lösenord** för användaren. Anteckna lösenordet så att du kan använda det senare när du testar.
 

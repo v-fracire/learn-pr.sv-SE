@@ -1,14 +1,14 @@
-Blobs give you file storage in the cloud and an API that lets you build apps to access the data.
+Med blobbar får du fillagring i molnet och ett API där du kan skapa appar för att komma åt data i filerna.
 
-Suppose you work at an augmented-reality gaming company. Your game runs on every mobile platform. You want to add a new feature to let users record video clips of their gameplay and upload the clips to your servers. Users will be able to watch clips directly in the game or through your website. You plan to log every upload and viewing for use in analytics and for traceability.
+Anta att du arbetar på ett spelföretag som sysslar med förhöjd verklighet. Ditt spel körs på alla typer av mobila plattformar. Du vill lägga till en ny funktion så att användarna kan spela in videoklipp när de spelar och ladda upp klippen till dina servrar. Användarna kan sedan titta på klippen direkt i spelet eller via din webbplats. Tanken är att logga alla uppladdningar och visningar, och använda loggarna för analys och spårning.
 
-You need a storage solution that can handle thousands of simultaneous uploads, massive amounts of video data, and constantly growing log files. You also need to add the viewing functionality to all your mobile apps and your website, so you want API access from multiple platforms and languages.
+Du behöver en lagringslösning som kan hantera tusentals samtidiga uppladdningar, stora mängder videodata och ständigt växande loggfiler. Du måste också lägga till visningsfunktionen i alla mobilappar och på webbplatsen, så du behöver API-åtkomst från flera plattformar och på flera språk.
 
-Here, you will see how Azure Blob storage could be appropriate for this application.
+Här får du se hur du kan använda Azure Blob Storage till allt det här.
 
-## Learning objectives
-In this module, you will:
+## <a name="learning-objectives"></a>Utbildningsmål
+I den här modulen kommer du att:
 
-- Organize your data with Azure Blob Storage
-- Create storage resources to hold blobs
-- Store and retrieve data from Azure Blob Storage
+- organisera dina data med Azure Blob Storage
+- Skapa lagringsresurser för lagring av blobbar
+- Lagra och hämta data från Azure Blob Storage

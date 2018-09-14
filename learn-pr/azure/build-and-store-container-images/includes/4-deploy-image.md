@@ -1,36 +1,36 @@
-Container images can be pulled from Azure Container Registry from many container management platforms, such as Azure Container Instances, Azure Kubernetes Registry, and Docker for Windows or Mac. When running container images from Azure Container Registry, authentication credentials may be needed. It is recommended to use an Azure service principal for authentication with Container Registry. Furthermore, it is also recommended to secure the Azure service principal credentials in Azure Key Vault.
+Du kan hämta containeravbildningar från Azure Container Registry från flera plattformar för containerhantering, som Azure Container Instances, Azure Kubernetes Registry och Docker för Windows eller Mac. När du kör containeravbildningar från Azure Container Registry kan du behöva autentiseringsuppgifter. Du bör använda ett huvudnamn för Azure-tjänsten till autentisering i Container Registry. Dessutom bör du skydda autentiseringsuppgifterna för Azure-tjänstens huvudnamn i Azure Key Vault.
 
-In this unit, you will create a service principal for your Azure container registry, store it in Azure Key Vault, and then deploy the container to Azure Container Instances using the service principal's credentials.
+I den här utbildningsenheten får du skapa ett huvudnamn för ditt Azure-containerregister, lagra det i Key Vault och sedan distribuera containern till Azure Container Instances med hjälp av autentiseringsuppgifterna för tjänstens huvudnamn.
 
-## Configure registry authentication
+## <a name="configure-registry-authentication"></a>Konfigurera registerautentisering
 
-All production scenarios should use service principals to access an Azure container registry. Service principals allow you to provide role-based access control (RBAC) to your container images. For example, you can configure a service principal with pull-only access to a registry.
+Du bör använda huvudnamn för åtkomst till Azure-containerregister i alla produktionsscenarier. Med ett huvudnamn för tjänsten får du rollbaserad åtkomstkontroll (RBAC) för containeravbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten som enbart har hämtningsåtkomst till ett register.
 
-If you don't already have a vault in Azure Key Vault, create one with the Azure CLI using the following commands.
+Om du inte redan har ett valv i Azure Key Vault skapar du ett med följande kommandon i Azure CLI.
 
-First, create a variable with the name of your container registry. This variable is used throughout this unit.
+Skapa först en variabel med namnet på ditt containerregister. Den här variabeln används i hela utbildningsenheten.
 
 ```azurecli
 ACR_NAME=<acrName>
 ```
 
-Create an Azure key vault with the `az keyvault create` command.
+Skapa ett Azure-nyckelvalv med kommandot `az keyvault create`.
 
 ```azurecli
 az keyvault create --resource-group myResourceGroup --name $ACR_NAME-keyvault
 ```
 
-Now, you need to create a service principal and store its credentials in your key vault.
+Nu måste du skapa ett huvudnamn för tjänsten och lagra autentiseringsuppgifterna för det i nyckelvalvet.
 
-Use the `az ad sp create-for-rbac` command to create the service principal. The `--role` argument configures the service principal with the *reader* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *contributor*.
+Använd cmdleten `az ad sp create-for-rbac` till att skapa tjänstens huvudnamn. Argumentet `--role` konfigurerar huvudnamnet för tjänsten med rollen *läsare*, vilket endast ger hämtningsåtkomst till registret. Om du vill bevilja både push- och hämtningsåtkomst ändrar du argumentet `--role` till *deltagare*.
 
 ```azurecli
 az ad sp create-for-rbac --scopes $(az acr show --name $ACR_NAME --query id --output tsv) --role reader
 ```
 
-This is what the output of the service principal creation will look like. Take note of the `appId` and the `password` values. These will be stored in the Azure key vault.
+Så här ser utdata ut när du har skapat tjänsten huvudnamn. Anteckna värdena för `appId` och `password`. De här värdena lagras i Azure-nyckelvalvet.
 
-```bash
+```output
 {
   "appId": "1fa05179-0000-0000-0000-e269a4e97c41",
   "displayName": "azure-cli-2018-08-19-22-35-26",
@@ -40,30 +40,30 @@ This is what the output of the service principal creation will look like. Take n
 }
 ```
 
-Next, use the `az keyvault secret set` command to store the service principal's *appId* in the vault. Replace `<appId>` with the `appId` of the service principal.
+Använd sedan kommandot `az keyvault secret set` till att lagra *appId*-värdet för tjänstens huvudnamn i valvet. Ersätt `<appId>` med `appId`-värdet för tjänstens huvudnamn.
 
 ```azurecli
 az keyvault secret set --vault-name $ACR_NAME-keyvault --name $ACR_NAME-pull-usr --value <appId>
 ```
 
-Now, use the `az keyvault secret set` command to store the service principal's *password* in the vault. Replace `<password>` with the `password` of the service principal.
+Använd nu kommandot `az keyvault secret set` till att lagra *password*-värdet för tjänstens huvudnamn i valvet. Ersätt `<password>` med `password`-värdet för tjänstens huvudnamn.
 
 ```azurecli
 az keyvault secret set --vault-name $ACR_NAME-keyvault --name $ACR_NAME-pull-pwd --value <password>
 ```
 
-You've created an Azure key vault and stored two secrets in it:
+Du har skapat ett Azure-nyckelvalv och lagrat två hemligheter i det:
 
-* `$ACR_NAME-pull-usr`: The service principal ID, for use as the container registry **username**.
-* `$ACR_NAME-pull-pwd`: The service principal password, for use as the container registry **password**.
+* `$ACR_NAME-pull-usr`: ID:t för tjänstens huvudnamn som ska användas som **användarnamn** för containerregistret.
+* `$ACR_NAME-pull-pwd`: lösenordet för tjänstens huvudnamn som ska användas som **lösenord** för containerregistret.
 
-You can now reference these secrets by name when you or your applications and services pull images from the registry.
+Nu kan du referera till de här hemligheterna med namn när du eller dina program och tjänster hämtar avbildningar från registret.
 
-### Deploy a container with Azure CLI
+### <a name="deploy-a-container-with-azure-cli"></a>Distribuera en container med Azure CLI
 
-Now that the service principal credentials are stored in Azure Key Vault, your applications and services can use them to access your private registry.
+Nu när autentiseringsuppgifterna för tjänstens huvudnamn lagras i Azure Key Vault kan dina program och tjänster använda dem för att få åtkomst till ditt privata register.
 
-Execute the following `az container create` command to deploy a container instance. The command uses the service principal's credentials stored in Azure Key Vault to authenticate to your container registry.
+Kör kommandot `az container create` för att distribuera en containerinstans. I kommandot används de autentiseringsuppgifter för tjänstens huvudnamn som lagras i Azure Key Vault för autentisering i containerregistret.
 
 ```azurecli
 az container create \
@@ -76,13 +76,13 @@ az container create \
     --registry-password $(az keyvault secret show --vault-name $ACR_NAME-keyvault --name $ACR_NAME-pull-pwd --query value -o tsv)
 ```
 
-Get the IP address of the Azure container instance.
+Hämta Azure-containerinstansens IP-adress.
 
 ```azurecli
 az container show --resource-group myResourceGroup --name acr-build --query ipAddress.ip --output table
 ```
 
-Open up a browser and navigate to the IP address of the container. If everything has been configured correctly, you should see the following results:
+Öppna en webbläsare och navigera till containerns IP-adress. Om allt är konfigurerat på rätt sätt bör du se följande resultat:
 
-![Sample web application with the text Hello World](../media/hello.png)
+![Webbappsexempel med texten Hello World](../media/hello.png)
 

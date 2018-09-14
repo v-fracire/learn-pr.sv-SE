@@ -1,89 +1,90 @@
-Setting up a CI/CD pipeline has always been challenging to do quickly. Now, it is incredibly easy to go from nothing at all to a full end to end Azure DevOps project. And in the Azure DevOps project, you get the following:
+Hur du konfigurerar en CI/CD-pipeline har alltid svårt för att göra snabbt. Nu, är det otroligt lätt att gå från ingenting alls till en fullständig från slutpunkt till slutpunkt Azure DevOps-projekt. Och i Azure DevOps-projekt får du följande:
 
-1. Infrastructure provisioned for you in Azure.
+1. Infrastruktur etablerat för dig i Azure.
 
-2. A Team Project in a VSTS instance.
+2. Ett Teamprojekt i en VSTS-instans.
 
-3. Source code for a sample app in the language that you picked in the repo of your VSTS instance.
+3. Källkoden för en exempelapp på det språk som du valt i lagringsplatsen för din VSTS-instans.
 
-4. A build and release pipeline that makes sense for the technologies picked.
+4. En skapa och släpp pipeline som passar för de tekniker som är valt.
 
-And when its's done, the Azure DevOps project takes the sample app, builds and releases it through the pipelines into the infrastructure it provisions for you up in Azure. And you get all of this with just a couple of clicks.
+Och när den är klar, Azure DevOps projekt tar exempelappen, bygger och frigör den via pipelines i infrastruktur som etableras för dig in i Azure. Och du får allt detta med ett par klick.
 
-## Create an Azure DevOps project
+## <a name="create-an-azure-devops-project"></a>Skapa ett Azure DevOps-projekt
 
-You create an Azure DevOps project from the Azure portal.
+Du kan skapa ett Azure DevOps-projekt från Azure-portalen.
 
-1. Head to the [Azure Portal](https://portal.azure.com) and click `Create a resource`  
-![](/media-draft/1-azureportal.png)
+1. Gå till den [Azure-portalen](https://portal.azure.com) och klicka på `Create a resource`  
+![AzurePortal](../media-drafts/1-azureportal.png)
 
-2. Click `DevOps Project`  
-![Pick DevOps Project](/media-draft/1-pickdevopsproject.png)
+2. Klicka på `DevOps Project`  
+![Pick DevOps Project](../media-drafts/1-pickdevopsproject.png)
 
-3. The next screen is where you get to pick what language you want to use. Notice how you can choose .NET (of course), java, node, php, python, ruby, and go. You can even bring your own code in from a git repo. For this unit, let’s go ahead and create a Node.js app. Click Node.js and click Next  
-![Pick Node.js for language](/media-draft/1-picknodejsforlang.png)
+3. Nästa skärm är där du får välja vilket språk som du vill använda. Observera hur du väljer .NET (naturligtvis), java, node, php, python, ruby och go. Du kan även importera din egen kod från en git-lagringsplats. Vi går vidare och skapa en Node.js-app för den här enheten. Node.js och klicka på nästa  
+![Välj Node.js för språk](../media-drafts/1-picknodejsforlang.png)
 
-4. Next it's going to ask you what node.js framework you want to use. For this unit, pick Simple Node.js app and click Next  
-![Pick Simple Node](/media-draft/1-picksimplenode.png)
+4. Bredvid kommer det att be dig vilket node.js-ramverk som du vill använda. För den här enheten, Välj enkel Node.js-app och klicka på nästa  
+![Välj enkel nod](../media-drafts/1-picksimplenode.png)
 
-5. Next, it's going to ask you what infrastructure do you want to provision and run your app in? For this unit, let’s provision and deploy into a Kubernetes cluster using Azure Kubernetes Service. Select Kubernetes Service and click Next  
-![Pick Kubernetes](/media-draft/1-pickkubernetes.png)
+5. Sedan det kommer att be dig vilken infrastruktur du vill etablera och kör appen i? För den här enheten nu ska vi etablera och distribuera till ett Kubernetes-kluster med hjälp av Azure Kubernetes Service. Välj Kubernetes Service och klicka på nästa  
+![Pick Kubernetes](../media-drafts/1-pickkubernetes.png)
 
-6. And now, you can either create a brand new instance of VSTS or choose an existing one. You also get to set up where and how you want your kubernetes cluster to run. For this unit, go ahead and create a new VSTS instance by choosing Select new and give your VSTS instance a unique name. Enter Learn for the Project name, pick your azure subscription, name the Cluster Name LearnCluster, select East US for the location, and click Done  
-![Final Confirmation Screen](/media-draft/1-finalconfirmation.png)
+6. Och nu kan du kan skapa en helt ny instans av VSTS eller välj en befintlig. Du får också konfigurera var och hur du vill ha kubernetes-klustret att köra. För den här enheten, gå vidare och skapa en ny VSTS-instans genom att välja Välj ny och ge ett unikt namn för din VSTS-instans. Ange Läs som projektnamn, Välj din azure-prenumeration, namnge kluster namn LearnCluster, Välj USA, östra för platsen och klickar du på klar  
+![](../media-drafts/1-finalconfirmation2.png)
 
-And that is literally it! This takes a while so kick back, relax and just let Azure do its thing. Most of the time will be spent provisioning and configuring your Azure infrastructure. For this module, this will be your Azure Kubernetes Service and Azure Container Registry.
+Och är verkligen det klart! Detta tar en stund så startar tillbaka och bara låta Azure göra dess sak. I de flesta fall kommer att gå åt etablering och konfigurera Azure-infrastrukturen. För den här modulen är det här din Azure Kubernetes Service och Azure Container Registry.
 
-## A lap around the finished Azure DevOps Project
+## <a name="a-lap-around-the-finished-azure-devops-project"></a>Ett varv runt klar Azure DevOps-projekt
 
-When Azure is done, you will be notified in your Alerts
+När Azure är klart kommer du att meddelas i dina aviseringar
 
-1. Click on the alert and then Go to resource  
-![Go To Resource From Alert](/media-draft/1-gotoresourcefromalert.png)
+1. Klicka på aviseringen och går sedan till resursen  
+![Gå till resurs från avisering](../media-drafts/1-gotoresourcefromalert.png)
 
-2. This takes you to a portal blade that displays everything provisioned. On the left-hand side is your CI/CD pipeline. You have your code repository, your build definition, and also your release definition. All the links are deep links that take you directly into the resource in VSTS. And on the right-hand side, you see all the infrastructure deployed for you in Azure. You have your Kubernetes cluster with your sample app already deployed and also application insight. Once again, all these links are deep links to the resources in Azure.  
-![Portal DevOps Project](/media-draft/1-pickdevopsproject.png)
+2. Detta tar dig till en portal som visar allt etableras. Är dina CI/CD-pipeline till vänster. Du har din kodcentrallager, build-definition och även din versionsdefinition. Alla länkar är djupgående länkar som vägleder dig direkt till resursen i VSTS. Och till höger visas all infrastruktur som är distribuerade åt dig i Azure. Har du Kubernetes-kluster med din exempelapp som redan har distribuerats och det också en application Insights. Alla dessa länkar är återigen djuplänkar till resurser i Azure.  
+![Portalen DevOps-projekt](../media-drafts/1-portaldevopsproj.png)
 
-3. Click on the link for your source code  
-![Link to Source](/media-draft/1-linktosource.png)
+3. Klicka på länken för din källkod  
+![Länk till källan](../media-drafts/1-linktosource.png)
 
-4. This takes you to the git repo in your VSTS project. Notice this is just a normal git repo holding the sample node.js app with helm charts.  
-![VSTS Repo](/media-draft/1-vstsrepo.png)
+4. Detta tar dig till git-lagringsplats i Azure-kod. Observera att detta är bara en normal git-lagringsplats som innehåller node.js-exempelapp med helm-diagram.  
+![Azure Repo](../media-drafts/1-azurerepo.png)
 
-5. Go into the builds  
-![Link to Builds](/media-draft/1-navtobuild.png)
+5. Gå till versionerna  
+![Länka till versioner](../media-drafts/1-linktobuild.png)
 
-6. Edit the created build by clicking on the build and then click Edit  
-![](/media-draft/1-editbuildlink.png)
+6. Redigera skapade versionen genom att klicka på versionen och sedan klicka på Redigera  
+![Redigera build-länk](../media-drafts/1-editbuildlink2.png)
 
-7. You will see a build pipeline that makes sense for the technologies picked. Since we picked a node.js app into a Kubernetes cluster, we get a build pipeline that uses Docker tasks to build the Node.js app, create the image container image and then Helm tasks to create a Helm package.  
-![Build Pipeline](/media-draft/1-buildpipeline.png)
+7. Du kan se en build-pipeline som passar för de tekniker som är valt. Eftersom vi har valt en node.js-app till ett Kubernetes-kluster får vi en build-pipeline som använder Docker-uppgifter för att skapa Node.js-app, skapa behållaravbildningen bild och sedan Helm uppgifter för att skapa ett Helm-paket.  
+![Skapa Pipeline](../media-drafts/1-buildpipeline2.png)
 
-8. Go to the Release pipeline by clicking `Releases`  
-![Go to Releases](/media-draft/1-gotoreleases.png)
+8. Gå till versionspipelinen genom att klicka på `Releases`  
+![Versionen länk](../media-drafts/1-gotoreleaselink.png)
 
-9. You'll see the release pipeline created. Edit it by clicking on the release and selecting `Edit pipeline`  
-![Edit Release](/media-draft/1-editrelease.png)
+9. Du ser versionspipelinen skapas. Redigera den genom att klicka på versionen och välja `Edit pipeline`  
+![Redigera version](../media-drafts/1-editrelease2.png)
 
-10. Azure has created a release pipeline that makes sense for the technologies picked. A node app running in a container hosted in a Kubernetes cluster.
-![Release Pipeline](/media-draft/1-releasepipeline.png)
+10. Azure har skapat en releasepipeline som passar för de tekniker som är valt. En node-app som körs i en behållare i ett Kubernetes-kluster.
+![Releasepipeline](../media-drafts/1-releasepipeline2.png)  
+![Versionen Pipeline steg](../media-drafts/1-pipelinesteps.png)
 
-11. Go back to the Azure portal and click on the external endpoint for the kubernetes service  
-![](/media-draft/1-clickonendpoint.png)
+11. Gå tillbaka till Azure-portalen och klicka på den externa slutpunkten för kubernetes-tjänst  
+![](../media-drafts/1-clickonendpoint.png)
 
-12. You should see the sample app build and deployed into your AKS cluster  
-![App Running](/media-draft/1-apprunning.png)
+12. Du bör se exempelappen bygga och distribuerats i AKS-kluster  
+![App som körs](../media-drafts/1-apprunning.png)
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created an Azure DevOps project that consists of:
+I den här enheten skapade du ett Azure DevOps-projekt som består av:
 
-1. Infrastructure for your app - Azure Kubernetes Service and Application Insight
+1. Infrastrukturen för din app – Azure Kubernetes Service och Application Insights
 
-2. A Team Project in a VSTS instance.
+2. Ett Teamprojekt i en VSTS-instans.
 
-3. Source code for a Node.js sample app running in a container in the repo of your VSTS instance.
+3. Källkoden för ett Node.js-exempelapp som körs i en behållare i lagringsplatsen för din VSTS-instans.
 
-4. A build and release pipeline for a Node.js container app running in your Azure Kubernetes Service instance.
+4. Skapa och släpp pipeline för en app för Node.js-behållare som körs i Azure Kubernetes Service-instans.
 
-Next, learn how to replace the sample app with your real app.
+Därefter lär du dig hur du ersätter exempelappen med din verklig app.
