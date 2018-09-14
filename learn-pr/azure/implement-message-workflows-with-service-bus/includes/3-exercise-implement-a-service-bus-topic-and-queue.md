@@ -21,7 +21,7 @@ Om du vill skapa en Service Bus-namnrymd med hjälp av Azure Portal gör du så 
 
 1. I bladet **Alla tjänster** bläddrar du ned till avsnittet **Integrering** och klickar sedan på **Service Bus**.
 
-    ![Skapa ett namnområde för Service Bus](../media-draft/3-create-namespace-1.png)
+    ![Skapa ett namnområde för Service Bus](../media/3-create-namespace-1.png)
 
 1. Längst upp till vänster på bladet **Service Bus** klickar du på **Lägg till**.
 
@@ -35,7 +35,7 @@ Om du vill skapa en Service Bus-namnrymd med hjälp av Azure Portal gör du så 
 
 1. I listrutan **Plats** väljer du en plats nära dig och klickar sedan på **Skapa**. Azure skapar det nya Service Bus-namnområdet.
 
-    ![Skapa ett namnområde för Service Bus](../media-draft/3-create-namespace-2.png)
+    ![Skapa ett namnområde för Service Bus](../media/3-create-namespace-2.png)
 
 ## <a name="create-a-service-bus-queue"></a>Skapa en Service Bus-kö
 
@@ -49,7 +49,7 @@ Nu när du har ett namnområde, kan du skapa en kö för meddelanden om enskild 
 
 1. Skriv **salesmessages** i textrutan **Namn** på bladet **Skapa kö** och klicka sedan på **Skapa**. Azure skapar kön i ditt namnområde.
 
-    ![Skapa en kö](../media-draft/3-create-queue.png)
+    ![Skapa en kö](../media/3-create-queue.png)
 
 ## <a name="create-a-service-bus-topic-and-subscriptions"></a>Skapa ett Service Bus-ämne och prenumerationer
 
@@ -61,7 +61,7 @@ Följ de här stegen:
 
 1. Skriv **salesperformancemessages** i textrutan **Namn** på bladet **Skapa ämne** och klicka sedan på **Skapa**. Azure skapar ämnet i ditt namnområde.
 
-    ![Skapa ett ämne](../media-draft/3-create-topic.png)
+    ![Skapa ett ämne](../media/3-create-topic.png)
 
 1. Klicka på **Ämnen** under **Entiteter** på bladet **Service Bus-namnrymd** när ämnet har skapats.
 
