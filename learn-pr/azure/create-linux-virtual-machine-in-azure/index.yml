@@ -8,12 +8,12 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 0668e88c5130b22771aeb56a5d7ec4de4324b9e0
-  ms.sourcegitcommit: c99f7e4ac79611b51dfb48196b4f3d810e4ed2c6
+  ms.openlocfilehash: b81dd92ad5a4e0619c9129521bf2f275e3f30b01
+  ms.sourcegitcommit: 4d3d995e220b696d35237a19740a6d619134d6ca
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/11/2018
-  ms.locfileid: "44386646"
+  ms.lasthandoff: 09/13/2018
+  ms.locfileid: "45537341"
 title: Skapa en virtuell Linux-dator i Azure
 summary: I den här modulen beskriver vi hur du skapar en virtuell Linux-dator med hjälp av Azure Portal.
 abstract: >
@@ -23,7 +23,7 @@ abstract: >
     - Ansluta till en virtuell Linux-dator med SSH
     - Installera programvara och ändra nätverkskonfigurationen på en virtuell dator via Azure-portalen
 prerequisites: Ingen
-iconUrl: http://via.placeholder.com/120x120
+iconUrl: /learn/achievements/create-linux-virtual-machine-in-azure.svg
 levels:
 - beginner
 roles:

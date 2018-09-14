@@ -1,0 +1,43 @@
+### YamlMime:Module
+uid: learn.migrate-sql-server-relational-data
+metadata:
+  title: Migrera dina SQL-data till Azure SQL med hjälp av Microsoft Data Migration Assistant
+  description: I den här modulen ska du migrera en SQL Server-databas till Azure SQL Database. Du lär dig vilka tillgängliga alternativ som finns och deras respektive fördelar. Du ska även utvärdera din SQL Server-databas och sedan migrera databasen till Azure SQL Database.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 51b3d81163df07fdd72aa2cd25606377f6ab6f6a
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44248018"
+title: Migrera dina SQL-data till Azure SQL med hjälp av Microsoft Data Migration Assistant
+summary: I den här modulen lär du dig hur Data Migration Assistant (DMA) kan hjälpa dig att utvärdera dina lokala SQL Server-databaser och migrera dem till en Azure SQL Database.
+abstract: >
+  I den här modulen kommer du att göra följande:
+
+  - Utvärdera din SQL Server-databas för migrering
+
+  - Analysera och åtgärda databasen före migreringen
+
+  - Migrera databasen med hjälp av Microsoft Data Migration Assistant
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- intermediate
+roles:
+- developer
+products:
+- azure
+units:
+- learn.migrate-sql-server-relational-data.1-introduction
+- learn.migrate-sql-server-relational-data.2-assess-your-database
+- learn.migrate-sql-server-relational-data.3-exercise-assess-your-database
+- learn.migrate-sql-server-relational-data.4-deploy-fixes-and-migrate-the-database
+- learn.migrate-sql-server-relational-data.5-exercise-migrate-the-database
+- learn.migrate-sql-server-relational-data.6-knowledge-check-deploy-fixes-and-migrate-the-database
+- learn.migrate-sql-server-relational-data.7-summary
+achievement: learn.migrate-sql-server-relational-data.badge
