@@ -2,9 +2,9 @@ Nu har du ett ASP.NET Core-webbprogram som körs lokalt. I den här enheten publ
 
 ### <a name="visual-studio-for-windows"></a>Visual Studio för Windows
 
-1. I Solution Explorer högerklickar du på ditt projekt och väljer **Publicera**.
+1. Öppna Solution Explorer, högerklicka på projektet och välj **Publicera**.
 
-1. I den dialogruta väljer du **App Service** till vänster som publiceringsmål.  Till höger väljer du **Skapa ny** för att skapa en ny App Service.
+1. I dialogrutan som visas väljer du **App Service** som publiceringsmål.  Till höger väljer du **Skapa ny** för att skapa en ny App Service.
 
 1. Klicka på knappen **Publicera** för att skapa din nya App Service.
 
@@ -13,7 +13,7 @@ Nu har du ett ASP.NET Core-webbprogram som körs lokalt. I den här enheten publ
 
 ### <a name="visual-studio-mac"></a>Visual Studio Mac
 
-1. I Solution Explorer högerklickar du på ditt projekt.
+1. Öppna Solution Explorer och högerklicka på ditt projekt.
 
 1. Välj **Publicera**.
 
@@ -23,17 +23,17 @@ Nu har du ett ASP.NET Core-webbprogram som körs lokalt. I den här enheten publ
 
 ## <a name="configure-your-new-azure-app-service"></a>Konfigurera din nya Azure App Service
 
-1. I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och loggar in på din Azure-prenumeration. Välj det konto som innehåller den önskade prenumerationen i listrutan om du redan är inloggad.
+1. I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och loggar in på din Azure-prenumeration. Välj kontot som innehåller den önskade prenumerationen i listrutan om du redan är inloggad.
 
 1. Ange nödvändig information om din App Service-plan.
 
     ![Skapa App Service](../media-draft/5-CreateAppService.png)
 
-    I dialogrutan **Skapa App Service** ska du ange följande information:
+    I dialogrutan **Skapa App Service** anger du följande information:
 
-    - **Appnamn**: det här är namnet på ditt program.  Det avgör URL:en för det publicerade programmet, vilket blir https://_AppName_.azurewebsites.net.  Det måste vara ett unikt värde. Därför måste du prova några olika namn för att hitta ett som inte har reserverats.
+    - **Appnamn**: det här är namnet på ditt program.  Detta avgör URL:en för det publicerade programmet, som blir https://_AppName_.azurewebsites.net.  Det här måste vara ett unikt värde. Därför kan du behöva prova några olika namn för att hitta ett som inte har reserverats.
 
-    - **Prenumeration**: den Azure-prenumeration som du vill distribuera din App Service till.
+    - **Prenumeration**: den Azure-prenumeration du vill distribuera din App Service till.
 
     - **Resursgrupp**: klicka på knappen **Ny...** bredvid resursgruppen och ange ett unikt namn för resursgruppen.
 
@@ -50,21 +50,21 @@ Nu har du ett ASP.NET Core-webbprogram som körs lokalt. I den här enheten publ
         > [!NOTE]
         > Om du anger olika platser och storlekar påverkar det kostnaden för tjänsten. För den här övningen rekommenderar vi att du anger storleken **Kostnadsfri**, vilket säkerställer att det inte medför några kostnader.
 
-    - **Application Insights**: anger om du vill använda Application Insights för programmet. För den här övningen rekommenderar vi att du väljer **Ingen.**
+    - **Application Insights:** anger om du vill använda Application Insights för programmet. För den här övningen rekommenderar vi att du väljer **Ingen.**
 
 1. Klicka på knappen **Skapa** för att börja etablera din App Service. Förloppet visas allt eftersom den distribueras:
 
     ![Distribuering pågår](../media-draft/5-DeployProgress.png)
 
-1. När App Service har etablerats skapar och distribuerar Visual Studio webbappen.  I ditt Visual Studio-byggresultat kan du se resultatet av distributionen.
+1. När din App Service har etablerats skapar och distribuerar Visual Studio webbappen.  I utdata från Visual Studio-kompileringen kan du se resultatet av distributionen.
 
-    ![Publicera resultat](../media-draft/5-PublishResult.png)
+    ![Publiceringsresultat](../media-draft/5-PublishResult.png)
 
-1. Grattis! Ditt ASP.NET Core-webbprogram har publiceras och är nu live. Du kommer att kunna se den slutliga URL:en för webbplatsen i byggresultat och även på publiceringssidan i Visual Studio.
+1. Grattis! Ditt ASP.NET Core-webbprogram har publiceras och är nu live. Du kommer att kunna se den slutliga URL:en för webbplatsen i byggets utdata och även på publiceringssidan i Visual Studio.
 
-    ![Publicera resultat](../media-draft/5-PublishPage.png)
+    ![Publiceringsresultat](../media-draft/5-PublishPage.png)
 
-1. Du kan testa webbplatsen genom att gå till den angivna URL:en.
+1. Du kan testa webbplatsen genom att gå till den angivna webbadressen.
 
     ![Live-webbplats](../media-draft/5-WebPageLive.png)
 

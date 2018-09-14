@@ -4,7 +4,7 @@ Du har redan implementerat den nödvändiga infrastrukturen i din Azure-prenumer
 
 ## <a name="configure-a-connection-string-to-a-service-bus-namespace"></a>Konfigurera en anslutningssträng för en Service Bus-namnrymd
 
-Börja med att konfigurera anslutningssträngar i både sändande och mottagande komponenter:
+Börja med att konfigurera anslutningssträngar i de sändande och mottagande komponenterna:
 
 1. Växla till Azure Portal.
 
@@ -113,7 +113,7 @@ Följ dessa steg om du vill köra komponenten som skickar ett meddelande om en f
 
 1. Växla till Azure Portal.
 
-1. Om Service Bus inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
+1. Om Service Bus-namnrymden inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
 
 1. På **Service Bus-namnrymd**-bladet, under **ENTITETER**, klickar du på **Ämnen** och sedan på ämnet **salesperformancemessages**. I listan över prenumerationer bör det finnas ett meddelande som visas i både prenumerationen för **USA** och **Europa**.
 
@@ -128,7 +128,7 @@ Följ dessa steg för att slutföra komponenten som hämtar meddelanden om förs
 1. Leta upp följande kodrad i den aktuella metoden:
 
     ```C#
-    // Create a Subscription Client here
+    // Create a subscription client here
     ```
 
 1. Skapa en prenumerationsklient genom att ersätta kodraden med följande kod:
@@ -197,6 +197,6 @@ Följ dessa steg för att köra komponenten som hämtar ett meddelande om förs�
 
 1. Växla till Azure Portal.
 
-1. Om Service Bus inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
+1. Om Service Bus-namnrymden inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
 
 1. På **Service Bus-namnrymd**-bladet, under **ENTITETER**, klickar du på **Ämnen** och sedan på ämnet **salesperformancemessages**. I listan över prenumerationer bör det finnas noll meddelanden som visas i prenumerationen **USA** eftersom ditt program har bearbetat och tagit bort det enda meddelandet. Observera att meddelandet är kvar i prenumerationen **Europa**.

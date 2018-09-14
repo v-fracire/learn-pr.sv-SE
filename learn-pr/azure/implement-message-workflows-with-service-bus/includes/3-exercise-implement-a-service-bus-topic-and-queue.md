@@ -11,11 +11,11 @@ I den här övningen skapar du ett Service Bus-namnområde som innehåller både
 
 I Azure Service Bus är ett namnområde en container med ett unikt fullständigt kvalificerat domännamn för köer, ämnen och reläer. Du börjar med att skapa namnområdet.
 
-Varje namnområde har också primära och sekundära krypteringsnycklar för signatur för delad åtkomst (SAS). En skickande eller mottagande komponent måste ange dessa nycklar när den ansluter för att få åtkomst till objekten inom namnområdet.
+Varje namnområde har också primära och sekundära krypteringsnycklar för signatur för delad åtkomst. En skickande eller mottagande komponent måste ange dessa nycklar när den ansluter för att få åtkomst till objekten inom namnområdet.
 
-Följ de här stegen för att skapa ett Service Bus-namnområde med Azure-portalen:
+Om du vill skapa en Service Bus-namnrymd med hjälp av Azure Portal gör du så här:
 
-1. I en webbläsare går du till [Azure-portalen](https://portal.azure.com/) och loggar in med dina vanliga autentiseringsuppgifter för Azure-kontot.
+1. I en webbläsare går du till [Azure Portal](https://portal.azure.com/) och loggar in med dina vanliga autentiseringsuppgifter för Azure-kontot.
 
 1. I det vänstra navigeringsfönstret klickar du på **Alla tjänster**.
 
@@ -25,7 +25,7 @@ Följ de här stegen för att skapa ett Service Bus-namnområde med Azure-portal
 
 1. Längst upp till vänster på bladet **Service Bus** klickar du på **Lägg till**.
 
-1. Ange ett unikt namn för namnområdet i textrutan **Namn**. Till exempel salesteamapp + *dina initialer* + *aktuellt datum*
+1. Ange ett unikt namn för namnrymden i textrutan **Namn**. Exempel: salesteamapp + *dina initialer* + *aktuellt datum*.
 
 1. I listrutan **Prisnivå**, väljer du **Standard**.
 
@@ -47,7 +47,7 @@ Nu när du har ett namnområde, kan du skapa en kö för meddelanden om enskild 
 
 1. Längst upp till vänster på namnområdesbladet klickar du på **+ Kö**.
 
-1. I bladet **Skapa kö** i textrutan **Namn** textrutetypen **salesmessages** och klickar sedan på **Skapa**. Azure skapar kön i ditt namnområde.
+1. Skriv **salesmessages** i textrutan **Namn** på bladet **Skapa kö** och klicka sedan på **Skapa**. Azure skapar kön i ditt namnområde.
 
     ![Skapa en kö](../media-draft/3-create-queue.png)
 
@@ -59,18 +59,18 @@ Följ de här stegen:
 
 1. På bladet **Service Bus-namnområde** klickar du på **+ Ämne**.
 
-1. I bladet **Skapa ämne** i textrutan **Namn** textrutetypen **salesperformancemessages** och klicka sedan på **Skapa**. Azure skapar ämnet i ditt namnområde.
+1. Skriv **salesperformancemessages** i textrutan **Namn** på bladet **Skapa ämne** och klicka sedan på **Skapa**. Azure skapar ämnet i ditt namnområde.
 
     ![Skapa ett ämne](../media-draft/3-create-topic.png)
 
-1. När ämnet har skapats i bladet **Service Bus-namnområde** under **Entiteter**, klickar du på **Ämnen**.
+1. Klicka på **Ämnen** under **Entiteter** på bladet **Service Bus-namnrymd** när ämnet har skapats.
 
-1. I listan med ämnen, klickar du på **salesperformancemessages** och klickar sedan på **+ Prenumeration**.
+1. Klicka på **salesperformancemessages** i listan med ämnen och klicka sedan på **+ Prenumeration**.
 
-1. I textrutan **Namn**, typen **Americas** och klickar sedan på **Skapa**.
+1. Skriv **Americas** i textrutan **Namn** och klicka sedan på **Skapa**.
 
 1. Klicka på **+ Prenumeration**.
 
-1. I textrutan **Namn**, typen **EuropeAndAfrica** och klickar sedan på **Skapa**.
+1. Skriv **EuropeAndAfrica** i textrutan **Namn** och klicka sedan på **Skapa**.
 
 Du har skapat den infrastruktur som krävs för att använda Service Bus för att öka flexibiliteten för din säljstyrkas distribuerade program. Du har skapat en kö för meddelanden om enskild försäljning och ett ämne för meddelanden om försäljningsresultat. Avsnittet innehåller flera prenumerationer eftersom meddelanden som skickas till detta ämne kan levereras till flera mottagande webbtjänster över hela världen.
