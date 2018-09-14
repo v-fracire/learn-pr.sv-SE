@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.introduction-to-azure-virtual-machines.2-compile-a-checklist-for-creating-a-vm
+title: Kompilera en checklista för att skapa en virtuell Azure-dator
+metadata:
+  title: Kompilera en checklista för att skapa en virtuell Azure-dator
+  description: Kompilera en checklista för att skapa en virtuell Azure-dator
+  ms.openlocfilehash: aad339f47dd91aed5e1769a810aeecce097bf836
+  ms.sourcegitcommit: ee277f4207efa50a4f7c657b47725be7f8c45489
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/02/2018
+  ms.locfileid: "43475449"
+durationInMinutes: 10
+content: '[!include[](includes/2-compile-a-checklist-for-creating-a-vm.md)]'

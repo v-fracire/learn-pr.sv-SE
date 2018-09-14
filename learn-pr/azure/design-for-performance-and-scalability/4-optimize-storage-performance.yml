@@ -1,0 +1,40 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.4-optimize-storage-performance
+title: Optimera lagringsprestanda
+metadata:
+  title: Optimera lagringsprestanda
+  description: I den här utbildningsenheten går vi igenom hur du kan optimera lagringsprestanda för din arkitektur
+  ms.openlocfilehash: 32524382aa06c0a14f56c8faf49a0b4123c945e4
+  ms.sourcegitcommit: 2df436853854bfcb39bc82ee461d7011bf8531ca
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2018
+  ms.locfileid: "43675601"
+durationInMinutes: 5
+content: >
+  [!include[](includes/4-optimize-storage-performance.md)]
+quiz:
+  title: Kunskapskontroll – Optimera lagringsprestanda
+  questions:
+  - content: Vad är flerspråkig persistens?
+    choices:
+    - content: Använda Azure SQL Database till att lagra alla dina data
+      isCorrect: false
+      incorrectExplanation: Att lagra alla data med en enda teknik är inte definitionen av flerspråkig persistens.
+    - content: Ett sätt att hålla anslutningar igång för dataöverföringar
+      isCorrect: false
+      incorrectExplanation: Keepalive-överföringar är metoder för att hålla anslutningar aktiva för dataöverföringar och är inte relaterade till flerspråkig persistens.
+    - content: Att använda olika datalagringstekniker för olika syften i ett program
+      isCorrect: true
+      correctExplanation: Flerspråkig persistens avser användning av olika datalagringstekniker för olika syften.
+    - content: En metod för att hantera fel i tillfälliga data
+      isCorrect: false
+      incorrectExplanation: Även om hantering av fel i tillfälliga data är bra i en programarkitektur, så har det inget att göra med flerspråkig persistens.
+  - content: Du kan använda Redis Cache till att förbättra programmets prestanda genom att du lagrar en ögonblicksbild av datan i minnet.
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Redis Cache lagrar programdata i minnet, vilket leder till snabba hämtningstider och förbättrade programprestanda när det gäller data som ofta används.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Redis Cache lagrar programdata i minnet, vilket leder till snabba hämtningstider och förbättrade programprestanda när det gäller data som ofta används.

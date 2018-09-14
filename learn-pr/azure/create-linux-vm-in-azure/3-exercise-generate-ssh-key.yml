@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.create-linux-vm-in-azure.3-exercise-generate-ssh-key
+title: Övning – Välj en autentiseringsmetod för SSH
+metadata:
+  title: Övning – Välj en autentiseringsmetod för SSH
+  description: Övning – Välj en autentiseringsmetod för SSH
+  ms.openlocfilehash: 7247c27fe0ea1f2077fb42210aaee13d544bfacd
+  ms.sourcegitcommit: 1aec476e479e92851bc3b5b7795f1200740bc1e5
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/03/2018
+  ms.locfileid: "43498748"
+durationInMinutes: 10
+interactive: bash
+content: '[!include[](includes/3-exercise-generate-ssh-key.md)]'

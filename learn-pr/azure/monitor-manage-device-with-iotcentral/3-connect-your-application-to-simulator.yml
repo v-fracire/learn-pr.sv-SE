@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.monitor-manage-device-with-iotcentral.3-connect-your-application-to-simulator
+title: Anslut ditt program till kaffebryggarsimulatorn
+metadata:
+  title: Anslut ditt program till kaffebryggarsimulatorn
+  description: Anslut ditt program till kaffebryggarsimulatorn
+  ms.openlocfilehash: d7dbbf8226940d5a61ee707edd7600b0bfd0bf2e
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43795998"
+durationInMinutes: 12
+content: '[!include[](includes/3-connect-your-application-to-simulator.md)]'
