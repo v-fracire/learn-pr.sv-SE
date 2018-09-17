@@ -9,6 +9,7 @@ Azure CLI tillhandahåller plattformsoberoende kommandoradsverktyg för hanterin
 ## <a name="how-to-install-azure-cli"></a>Installera Azure CLI
 
 Du använder en pakethanterare för att installera PowerShell Core i både Linux och macOS. Den rekommenderade pakethanteraren skiljer sig beroende på operativsystem och distribution:
+
 - Linux: **apt-get** i Ubuntu, **yum** i Red Hat och **zypper** i OpenSUSE
 - Mac: **Homebrew**
 
@@ -20,18 +21,16 @@ I Windows installerar du Azure CLI genom att hämta och köra en MSI-fil.
 
 Om du vill använda Azure CLI-kommandona i skript måste du vara medveten om eventuella problem relaterade till ”servergränssnittet” eller miljön som ska användas för att köra skriptet. I ett bash-gränssnitt används exempelvis följande syntax för att ställa in variabler:
 
- ```azurecli
- variable="value"
- variable=integer
- ```
+```azurecli
+variable="value"
+variable=integer
+```
 
 Om du använder en PowerShell-miljö för att köra Azure CLI-skript måste du använda den här syntaxen för variabler:
 
- ```powershell
- $variable="value"
- $variable=integer
- ```
+```powershell
+$variable="value"
+$variable=integer
+```
 
-## <a name="summary"></a>Sammanfattning
-
-Azure CLI måste installeras innan det kan användas för att hantera Azure-resurser från en lokal dator. Installationsstegen varierar för Windows, Linux och macOS, men när det har installerats är kommandona samma för alla plattformar. 
+Azure CLI måste installeras innan det kan användas för att hantera Azure-resurser från en lokal dator. Installationsstegen varierar för Windows, Linux och macOS, men när det har installerats är kommandona samma för alla plattformar.

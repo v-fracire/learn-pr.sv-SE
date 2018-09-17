@@ -1,4 +1,4 @@
-Nu ska vi installera Azure CLI på din lokala dator och därefter köra ett enkelt kommando för att verifiera installationen. Vilken metod du använder för att installera Azure CLI beror på datorns operativsystem. Välj anvisningarna för ditt operativsystem.
+Nu ska vi installera Azure CLI på din lokala dator och därefter köra ett kommando för att verifiera installationen. Vilken metod du använder för att installera Azure CLI beror på datorns operativsystem. Välj anvisningarna för ditt operativsystem.
 
 > [!NOTE]
 > I den här övningen får du hjälp att installera verktyget Azure CLI lokalt. Resten av modulen använder Azure Cloud Shell så att du kan utnyttja den kostnadsfria prenumerationssupporten i Microsoft Learn. Du kan se den här övningen som en valfri aktivitet och bara läsa anvisningarna om du vill.
@@ -83,10 +83,8 @@ Du kör Azure CLI genom att öppna ett bash-gränssnitt (Linux och macOS), eller
 ::: zone pivot="windows"
 
 > [!TIP]
-> Det finns några fördelar med att köra Azure CLI från PowerShell jämfört med köra Azure CLI från Kommandotolken för Windows. PowerShell ger ytterligare funktioner än de som är tillgängliga från Kommandotolken. 
+> Det finns några fördelar med att köra Azure CLI från PowerShell jämfört med köra Azure CLI från Kommandotolken för Windows. PowerShell ger ytterligare funktioner än de som är tillgängliga från Kommandotolken.
 
 ::: zone-end
-
-## <a name="summary"></a>Sammanfattning
 
 Du konfigurerar dina lokala datorer för att administrera Azure-resurser med Azure CLI. Du kan nu använda Azure CLI lokalt för att ange kommandon eller köra skript. Azure CLI vidarebefordrar dina kommandon till Azure-datacenter där de körs i din Azure-prenumeration.
