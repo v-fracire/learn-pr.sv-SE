@@ -1,15 +1,21 @@
 ### YamlMime:ModuleUnit
 uid: learn.build-a-serverless-web-app.4-store-image-metadata-with-cosmos
-title: <span data-ttu-id="91fbb-101">Lagra bildmetadata med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="91fbb-101">Store image metadata with Azure Cosmos DB</span></span>
+title: <span data-ttu-id="90cf5-101">Lagra bildmetadata med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="90cf5-101">Store image metadata with Azure Cosmos DB</span></span>
 metadata:
-  title: <span data-ttu-id="91fbb-102">Lagra bildmetadata med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="91fbb-102">Store image metadata with Azure Cosmos DB</span></span>
-  description: <span data-ttu-id="91fbb-103">Lagra bildmetadata med Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="91fbb-103">Store image metadata with Azure Cosmos DB.</span></span>
-  ms.openlocfilehash: 46528197a33d53436870a85469d1763e75acfa6f
-  ms.sourcegitcommit: bf091e3a389138b59573865ca54775e38a4ffa1f
+  title: <span data-ttu-id="90cf5-102">Lagra bildmetadata med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="90cf5-102">Store image metadata with Azure Cosmos DB</span></span>
+  description: <span data-ttu-id="90cf5-103">Lagra bildmetadata med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="90cf5-103">Store image metadata with Azure Cosmos DB</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 7e32304a8bf4152e09621b1e152dcb052d9be0e6
+  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/29/2018
-  ms.locfileid: "43155416"
+  ms.lasthandoff: 09/10/2018
+  ms.locfileid: "44308456"
 durationInMinutes: 11
 interactive: bash-editor
+azureSandbox: true
 content: '[!include[](includes/4-store-image-metadata-with-cosmos.md)]'

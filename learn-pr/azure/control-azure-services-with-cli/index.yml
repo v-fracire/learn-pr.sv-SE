@@ -4,24 +4,28 @@ metadata:
   title: Kontrollera Azure-tjänster med CLI
   description: Installera Azure CLI lokalt och använd det för att hantera Azure-resurser.
   ms.date: 09/24/2018
-  ms.openlocfilehash: 58c8267132f780d1c80678cb3fe7145df9a62f63
-  ms.sourcegitcommit: b1b68b477ab39109c48f227b504a5050cae7a718
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 3d693d34c115f7f29c1e73b5cf8664ad496179e1
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/01/2018
-  ms.locfileid: "43414785"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44233738"
 title: Kontrollera Azure-tjänster med CLI
 summary: Installera Azure CLI lokalt och använd det för att hantera Azure-resurser.
 abstract: >
-  I den här modulen kommer du att göra följande:
+  I den här modulen kommer du att:
 
-  - Installera Azure CLI på Linux, macOS och/eller Windows.
+  - Installera Azure CLI på Linux, macOS och/eller Windows
 
-  - Ansluta till en Azure-prenumeration med hjälp av Azure CLI.
+  - Ansluta till en Azure-prenumeration med hjälp av Azure CLI
 
-  - Skapa Azure-resurser med Azure CLI.
+  - Skapa Azure-resurser med Azure CLI
 prerequisites: >
-  - Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
+  - Få erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
 
   - Kunskaper om grundläggande Azure-begrepp, som exempelvis resursgrupper
 
@@ -33,7 +37,7 @@ roles:
 - developer
 products:
 - azure
-- azureCli
+- azure-clis
 units:
 - learn.control-azure-services-with-cli.1-introduction
 - learn.control-azure-services-with-cli.2-what-is-the-azure-cli
