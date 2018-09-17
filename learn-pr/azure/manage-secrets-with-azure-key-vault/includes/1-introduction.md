@@ -12,9 +12,8 @@ Att läcka en databasanslutningssträng, API-nyckel eller tjänstlösenord kan r
 
 ## <a name="learning-objectives"></a>Utbildningsmål
 
-I den här modulen kommer du att göra följande:
-
-- Förstå vilka typer av information som kan lagras i Azure Key Vault.
-- Skapa ett Azure Key Vault-lager.
-- Autentisera med Azure Key Vault.
-- Få tillgång till hemligheter i ett Azure Key Vault.
+  I den här modulen kommer du att:
+    - Undersöka vilka typer av information som kan lagras i Azure Key Vault.
+    - Skapa ett Azure Key Vault och använda det för att lagra hemliga konfigurationsvärden
+    - Upprätta säker åtkomst till valvet från en Azure App Service-webbapp med hanterad tjänstidentitet för Azure-resurser
+    - Implementera ett webbprogram som hämtar hemligheter från valvet

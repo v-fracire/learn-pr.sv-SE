@@ -1,4 +1,4 @@
-I den här övningen ska vi skapa en Azure-funktion som visar namnet och storleken för en blob när den har skapats eller uppdaterats. 
+I den här övningen ska vi skapa en Azure-funktion som visar namnet och storleken för en blob när den har skapats eller uppdaterats.
 
 ## <a name="create-a-blob-trigger"></a>Skapa en blobutlösare
 
@@ -8,11 +8,9 @@ Vi ska fortsätta att använda vårt befintliga Azure Functions-program och läg
 
 1. Peka på **Funktioner** och välj plustecknet (+).
 
-    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
-
 1. Välj **Anpassad funktion** och sedan **Blob-utlösare**.
 
-1. Välj **C#** som språk. 
+1. Välj **C#** som språk.
 
 1. Lämna standardvärdet för **Namn**.
 
@@ -65,5 +63,3 @@ Nu är blobutlösaren aktiverad och lyssnar efter aktivitet. Nu ska vi skapa en 
 ## <a name="pause-the-function"></a>Pausa funktionen
 
 Klicka på **Pausa** ovanför loggfönstret så att du inte debiteras för ytterligare begäranden.
-
-![Pausa funktionen](../media-drafts/4-pause-timer.png)

@@ -1,4 +1,4 @@
-Att lägga till data i din Azure Cosmos DB-databas ska vara enkelt. Öppna Azure Portal, navigera till databasen och använd Datautforskaren till att lägga till JSON-dokument i databasen. Det finns mer avancerade sätt att lägga till data, men vi börjar här eftersom Datautforskaren är ett bra verktyg för att bekanta sig med de egenskaper och funktioner som tillhandahålls av Azure Cosmos DB.
+Att lägga till data i din Azure Cosmos DB-databas är enkelt. Öppna Azure Portal, navigera till databasen och använd Datautforskaren till att lägga till JSON-dokument i databasen. Det finns mer avancerade sätt att lägga till data, men vi börjar här eftersom Datautforskaren är ett bra verktyg för att bekanta sig med de egenskaper och funktioner som tillhandahålls av Azure Cosmos DB.
 
 ## <a name="what-is-the-data-explorer"></a>Vad är Datautforskaren?
 Datautforskaren i Azure Cosmos DB är ett verktyg som ingår i Azure Portal som används för att hantera data som lagras i en Azure Cosmos DB. Det har ett användargränssnitt för visning och navigering av datasamlingar samt för redigering av dokument i databasen.
@@ -7,9 +7,9 @@ Datautforskaren i Azure Cosmos DB är ett verktyg som ingår i Azure Portal som 
 
 1. Om du fortsätter från föregående modul klicka du på **Datautforskaren** I Azure Portal-fönstret och klicka sedan på **Öppna i helskärmsläge**.
 
-    Logga annars in på [Azure Portal](https://portal.azure.com/?azure-portal=true), klicka på **Alla tjänster** > **Databaser** > **Azure Cosmos DB**. Välj sedan ditt konto, klicka på **Datautforskaren** och klicka sedan på **Öppna i helskärmsläge**
+    Logga annars in på [Azure Portal](https://portal.azure.com/?azure-portal=true), klicka på **Alla tjänster** > **Databaser** > **Azure Cosmos DB**. Välj ditt konto, klicka på **Datautforskaren** och klicka sedan på **Öppna i helskärmsläge**.
  
-   ![Skapa nya dokument i Datautforskaren i Azure Portal](../media-draft/3-azure-cosmosdb-data-explorer-full-screen.png)
+   ![Skapa nya dokument i Datautforskaren i Azure Portal](../media/3-azure-cosmosdb-data-explorer-full-screen.png)
 
 2. I rutan **Öppna i helskärmsläge** klickar du på **Öppna**.
 
@@ -17,7 +17,7 @@ Datautforskaren i Azure Cosmos DB är ett verktyg som ingår i Azure Portal som 
 
 3. Om du vill skapa ett nytt JSON-dokument klickar du på **Nytt dokument**.
 
-   ![Skapa nya dokument i Datautforskaren i Azure Portal](../media-draft/3-azure-cosmosdb-data-explorer-new-document.png)
+   ![Skapa nya dokument i Datautforskaren i Azure Portal](../media/3-azure-cosmosdb-data-explorer-new-document.png)
 
 4. Lägg nu till ett dokument i samlingen med följande struktur. Kopiera och klistra in följande kod på fliken **Dokument**:
 
@@ -40,7 +40,7 @@ Datautforskaren i Azure Cosmos DB är ett verktyg som ingår i Azure Portal som 
 
 5. När du har lagt till JSON på fliken **Dokument** klickar du på **Spara**.
 
-    ![Kopiera in JSON-data och klicka på Spara i Datautforskaren i Azure Portal](../media-draft/3-azure-cosmosdb-data-explorer-save-document.png)
+    ![Kopiera in JSON-data och klicka på Spara i Datautforskaren i Azure Portal](../media/3-azure-cosmosdb-data-explorer-save-document.png)
 
 6. Skapa och spara ett dokument till genom att kopiera följande JSON-objekt i Datautforskaren och klicka på **Spara**.
 

@@ -9,9 +9,9 @@ Det finns två metoder som vi kan använda för att autentisera en SSH-anslutnin
 > [!TIP]
 > Även om SSH ger en krypterad anslutning blir den virtuella datorn sårbar för råstyrkeattacker och gissade lösenord om du använder lösenord med SSH-anslutningar. En säkrare och lämpligare metod för att ansluta till en virtuell Linux-dator med SSH är med ett offentligt/privat nyckelpar, som även kallas SSH-nycklar.
 
-Med ett SSH-nyckelpar kan du logga in på Linux-baserade virtuella Azure-datorer utan lösenord. Det här är en säkrare metod om du bara planerar att logga in från några få datorer. Om du behöver kunna komma åt den virtuella Linux-datorn från ett antal olika platser kanske en kombination av användarnamn och lösenord är en bättre metod. Ett SSH-nyckelpar består av två delar: en offentlig nyckel och en privat nyckel.
+Med ett SSH-nyckelpar kan du logga in på Linux-baserade virtuella Azure-datorer utan lösenord. Det här är en säkrare metod om du bara planerar att logga in på den virtuella datorn från några få datorer. Om du behöver kunna komma åt den virtuella Linux-datorn från ett antal olika platser kanske en kombination av användarnamn och lösenord är en bättre metod. Ett SSH-nyckelpar består av två delar: en offentlig nyckel och en privat nyckel.
 
-- Den **offentliga nyckeln** placeras på den virtuella Linux-datorn eller en annan tjänst som du vill använda med kryptering med offentliga nycklar. Den kan delas med vem som helst.
+* Den offentliga nyckeln placeras på den virtuella Linux-datorn eller en annan tjänst som du vill använda med kryptering med offentliga nycklar. Den kan delas med vem som helst.
 
 - Den **privata nyckeln** är den du anger på den virtuella Linux-datorn när du upprättar en SSH-anslutning, för att verifiera din identitet. Det här är konfidentiell information som du måste skydda precis som ett lösenord eller andra privata uppgifter.
 
@@ -21,15 +21,15 @@ Du kan använda samma enskilda offentliga/privata nyckelpar för att få åtkoms
 
 I Linux, Windows 10 och MacOS kan du använda det inbyggda kommandot `ssh-keygen` för att generera de offentliga och privata SSH-nyckelfilerna. 
 
-> [!TIP]
-> Windows 10 innehåller en SSH-klient i **Fall Creators Update**. Tidigare versioner av Windows kräver ytterligare programvara för att använda SSH – [dokumentationen innehåller fullständig information](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) Du kan också installera Linux-undersystemet för Windows och få samma funktioner.
+> [!TIP]  
+> Windows 10 innehåller en SSH-klient i **Fall Creators Update**. För tidigare versioner av Windows krävs ytterligare programvara om SSH ska användas. [Fullständig information finns i dokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows). Du kan också installera Linux-undersystemet för Windows och få samma funktionalitet.
 
-> [!NOTE]
-> Vi använder Azure Cloud Shell som lagrar de genererade nycklarna i Azure på ditt privata lagringskonto. Du kan också skriva dessa kommandon direkt i det lokala gränssnittet om du vill. Du behöver anpassa instruktionerna i hela den här modulen utifrån en lokal session om du använder den här metoden.
+> [!NOTE]  
+> Vi använder Azure Cloud Shell, där de genererade nycklarna lagras i Azure i ditt privata lagringskonto. Du kan också skriva dessa kommandon direkt i det lokala gränssnittet om du vill. Du behöver anpassa instruktionerna i hela den här modulen utifrån en lokal session om du använder den här metoden.
 
-Här är minimikommandot som krävs för att generera nyckelparet för en virtuell Azure-dator. Det skapar ett offentligt/privat SSH-2 (SSH-protokoll 2) RSA-nyckelpar med 2 048 bitars längd (minimilängden). 
+Här är minimikommandot som krävs för att generera nyckelparet för en virtuell Azure-dator. Då skapas ett offentligt/privat SSH-2 (SSH-protokoll 2) RSA-nyckelpar med 2048 bitars längd (minimilängden). 
 
-Ange det här kommandot i Cloud Shell.
+Ange det här kommandot i Cloud Shell:
 
 ```bash
 ssh-keygen -t rsa -b 2048
@@ -43,10 +43,10 @@ Du kan också ange en lösenfras när du genererar din privata nyckel. Det är e
 
 När du lägger till en lösenfras för SSH-nyckeln krypteras den privata nyckeln med 128-bitars AES, så att den inte kan användas utan lösenfrasen som krävs för att dekryptera den. 
 
-> [!IMPORTANT]
-> Vi rekommenderar **starkt** att du skapar en lösenfras. Om en angripare stjäl din privata nyckel och om nyckeln inte skyddas med en lösenfras, kan angriparen använda den privata nyckeln för att logga in på alla servrar som den offentliga nyckeln används för. Om en lösenfras skyddar en privat nyckel kan den inte användas av angriparen, vilket ger infrastrukturen i Azure ett extra säkerhetslager.
+> [!IMPORTANT]  
+> Vi rekommenderar **starkt** att du skapar en lösenfras. Om en angripare stjäl din privata nyckel och nyckeln inte skyddas med en lösenfras kan angriparen använda den privata nyckeln för att logga in på alla servrar som den offentliga nyckeln används för. Om en lösenfras skyddar en privat nyckel kan den inte användas av angriparen, vilket ger infrastrukturen i Azure ett extra säkerhetslager.
 
-Här är ett exempel som visar hur du anger lösenfrasen. Du behöver inte köra det här kommandot (men du kan göra det om du vill).
+Här är ett exempel som visar hur du anger lösenfrasen. Du behöver inte köra det här kommandot (men du kan göra det om du vill):
 
 ```bash
 ssh-keygen -t rsa -b 4096 \
@@ -67,13 +67,13 @@ ssh-keygen -t rsa -b 4096 \
 
 När du har genererat nyckelparet kan du använda det med en virtuell Linux-dator i Azure. Du kan ange den offentliga nyckeln när den virtuella datorn skapas eller lägga till den efter att den virtuella datorn har skapats. 
 
-Du kan visa filens innehåll i Azure Cloud Shell med följande kommando.
+Du kan visa filens innehåll i Azure Cloud Shell med följande kommando: 
 
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
-Det är en enda rad och ser ut ungefär så här:
+Det är en enda rad som ser ut ungefär så här:
 
 ```output
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXGX/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
@@ -87,9 +87,9 @@ Om du vill tillämpa SSH-nyckeln när du skapar en ny virtuell Linux-dator behö
 
 ### <a name="add-the-ssh-key-to-an-existing-linux-vm"></a>Lägga till SSH-nyckeln på en befintlig virtuell Linux-dator
 
-Om du redan har skapat en virtuell dator kan du installera den offentliga nyckeln på den virtuella Linux-datorn med kommandot `ssh-copy-id`. När nyckeln har auktoriserats för SSH beviljar den åtkomst till servern utan ett lösenord.
+Om du redan har skapat en virtuell dator kan du installera den offentliga nyckeln på den virtuella Linux-datorn med kommandot `ssh-copy-id`. När nyckeln har auktoriserats för SSH beviljar den åtkomst till servern utan lösenord.
 
-Skicka den offentliga nyckelfilen och användarnamnet som ska associeras med nyckeln.
+Skicka den offentliga nyckelfilen och användarnamnet som ska associeras med nyckeln:
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub azureuser@myserver

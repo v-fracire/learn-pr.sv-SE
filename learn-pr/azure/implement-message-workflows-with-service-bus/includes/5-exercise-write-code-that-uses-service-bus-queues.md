@@ -1,10 +1,10 @@
-Du har valt att använda en Service Bus-kö för att utbyta meddelanden om enskilda försäljningar mellan mobiltelefonsappen din säljpersonal använder och webbtjänsten på Azure, som lagrar information om varje försäljning i en Azure SQL-databas.
+Du har valt att använda en Service Bus-kö för att utbyta meddelanden om enskilda försäljningar mellan den mobilapp som din säljpersonal använder och webbtjänsten på Azure, som lagrar information om varje försäljning i en Azure SQL-databas.
 
 Du har redan implementerat nödvändiga objekt i Azure-prenumerationen. Nu vill du skriva kod som skickar meddelanden till kön och hämtar meddelanden.
 
 ## <a name="clone-and-open-the-starter-application"></a>Klona och öppna startprogrammet
 
-I den här enheten kommer du att slutföra två konsolprogram i **Visual Studio Code**. Det första placerar meddelanden i en Service Bus-kö och det andra hämtar dem. Programmen är en del av en enda .NET Core-lösning. 
+I den här enheten kommer du att slutföra två konsolprogram i **Visual Studio Code**. Det första programmet placerar meddelanden i en Service Bus-kö och det andra hämtar dem. Programmen är en del av en enda .NET Core-lösning. 
 
 Börja genom att klona lösningen:
 
@@ -33,10 +33,10 @@ För att få åtkomst till en Service Bus-namnrymd och använda en kö, måste d
 * Slutpunkten för din namnrymd
 * Den delade åtkomstnyckeln för autentisering
 
-Båda dessa värden kan hämtas från Azure-portalen i form av en fullständig anslutningssträng.
+Båda dessa värden kan hämtas från Azure Portal i form av en fullständig anslutningssträng.
 
 > [!NOTE]
-> För enkelhets skull hårdkodar du anslutningssträngen i **Program.cs** för båda konsolprogrammen. I ett riktigt program skulle du kunna använda en konfigurationsfil eller Azure Key Vault för att lagra anslutningssträngen.
+> För enkelhets skull hårdkodar du anslutningssträngen i filen **Program.cs** för båda konsolprogrammen. I ett produktionsprogram skulle du kunna använda en konfigurationsfil eller Azure Key Vault för att lagra anslutningssträngen.
 
 1. Växla till Azure-portalen.
 
@@ -52,7 +52,7 @@ Båda dessa värden kan hämtas från Azure-portalen i form av en fullständig a
 
 1. I **Explorer**-fönsterrutan i mappen **privatemessagesender** klickar du på filen **Program.cs**.
 
-1. Leta upp följande kodrad:
+1. Leta rätt på följande kodrad:
 
     ```C#
     const string ServiceBusConnectionString = "";
@@ -62,7 +62,7 @@ Båda dessa värden kan hämtas från Azure-portalen i form av en fullständig a
 
 1. I **Explorer**-fönsterrutan i mappen **privatemessagereceiver** klickar du på filen **Program.cs**.
 
-1. Leta upp följande kodrad:
+1. Leta rätt på följande kodrad:
 
     ```C#
     const string ServiceBusConnectionString = "";
@@ -85,7 +85,7 @@ Följ dessa steg för att slutföra komponenten som skickar meddelanden om förs
 1. Leta upp följande kodrad i den aktuella metoden:
 
     ```C#
-    // Create a Queue Client here
+    // Create a queue client here
     ```
 
 1. Skapa en kö-klient genom att ersätta kodraden med följande kod:
@@ -119,7 +119,7 @@ Följ dessa steg för att slutföra komponenten som skickar meddelanden om förs
     await queueClient.SendAsync(message);
     ```
 
-1. Leta upp följande kodrad:
+1. Leta rätt på följande kodrad:
 
     ```C#
     // Close the connection to the queue here
@@ -143,9 +143,9 @@ Följ dessa steg om du vill köra komponenten som skickar ett meddelande om en f
 
 1. När programmet körs kan du granska meddelandena som visas i **Felsökningskonsolen**.
 
-1. Växla till Azure-portalen.
+1. Växla till Azure Portal.
 
-1. Om Service Bus inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
+1. Om Service Bus-namnrymden inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
 
 1. På **Service Bus-namnrymd**-bladet, under **ENTITETER**, klickar du på **Köer** och sedan på kön **salesmessages**. **ANTAL AKTIVA MEDDELANDEN** ska visa att ett meddelande har lagts till i kön.
 
@@ -160,10 +160,10 @@ Följ dessa steg för att slutföra komponenten som tar emot meddelanden om för
 1. Leta upp följande kodrad i den aktuella metoden:
 
     ```C#
-    // Create a Queue Client here
+    // Create a queue client here
     ```
 
-1. Skapa en kö-klient genom att ersätta kodraden med följande kod:
+1. Skapa en kö-klient genom att ersätta raden med följande kod:
 
     ```C#
     queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
@@ -207,7 +207,7 @@ Följ dessa steg för att slutföra komponenten som tar emot meddelanden om för
     // Close the queue here
     ```
 
-1. För att stänga anslutningen till Service Bus ersätter du koden med följande kod:
+1. Stäng anslutningen till Service Bus genom att ersätta du koden med följande kod:
 
     ```C#
     await queueClient.CloseAsync();
@@ -227,12 +227,12 @@ Följ dessa steg om du vill köra komponenten som tar emot ett meddelande om en 
 
 1. När du ser att meddelandet har tagits emot och visas i konsolen klickar du på menyn **Felsöka** och därefter på **Stoppa felsökning**.
 
-1. Växla till Azure-portalen.
+1. Växla till Azure Portal.
 
-1. Om Service Bus inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
+1. Om Service Bus-namnrymden inte visas går du till startsidan och klickar på **Alla resurser** och därefter på den Service Bus-namnrymd du skapade tidigare.
 
 1. På **Service Bus-namnrymd**-bladet, under **ENTITETER**, klickar du på **Köer** och sedan på kön **salesmessages**. **ANTAL AKTIVA MEDDELANDEN** ska visa att ett meddelande har tagits bort från kön.
 
-Du har skrivit kod som skickar ett meddelande om enskilda försäljningar till en Service Bus-kö. När det gäller det distribuerade programmet för säljpersonal, ska du skriva den här koden i mobilappen som säljarna använder på sina enheter.
+Du har skrivit kod som skickar ett meddelande om enskilda försäljningar till en Service Bus-kö. I det distribuerade programmet för säljpersonal skriver du den här koden i mobilappen som säljarna använder på sina enheter.
 
-Du har även skrivit koden som tar emot ett meddelande från Service Bus-kön. När det gäller det distribuerade programmet för säljpersonal, ska du skriva den här koden i webbtjänsten på Azure, som tar hand om mottagna meddelanden.
+Du har även skrivit kod som tar emot ett meddelande från Service Bus-kön. I det distribuerade programmet för säljpersonal skriver du den här koden i webbtjänsten som körs på Azure och bearbetar mottagna meddelanden.

@@ -1,7 +1,7 @@
 I den här modulen har du lärt dig hur du använder Azure Blob Storage för att lagra data för webbprogrammet. Vi gick igenom tips för att skapa en strategi för att använda Blob Storage i en webbapp och hur du använder Azure Storage SDK för .NET Core för att skriva till och läsa från blobar. Appen som vi skapade accepterar uppladdade filer från användare, lagrar dem i Blob Storage och gör dem tillgängliga för nedladdning.
 
-## <a name="cleanup"></a>Rensa
-<!---TODO: Do we need to include cleanup for the free education tier?--->
+## <a name="clean-up"></a>Rensa
+<!---TODO: Update for sandbox?--->
 
 Om du vill rensa i din Azure-prenumeration kör du följande i Azure Cloud Shell för att ta bort resursgruppen som innehåller alla de resurser som vi skapade i den här modulen.
 
@@ -9,7 +9,7 @@ Om du vill rensa i din Azure-prenumeration kör du följande i Azure Cloud Shell
 az group delete --name blob-exercise-group --yes --no-wait
 ```
 
-Du kan rensa Cloud Shell-lagringen genom att ta bort katalogen `FileUploader`.
+Du kan rensa Cloud Shell-lagringen genom att ta bort katalogen `mslearn-store-data-in-azure`.
 
 ## <a name="further-reading"></a>Ytterligare läsning
 

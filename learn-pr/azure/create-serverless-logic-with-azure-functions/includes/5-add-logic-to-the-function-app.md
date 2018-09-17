@@ -1,6 +1,7 @@
 Vi fortsätter med vårt exempel om kugghjulsdrift och lägger till logiken för temperaturtjänsten. Mer specifikt tar vi emot data från en HTTP-begäran.
 
 ## <a name="function-requirements"></a>Funktionskrav
+
 Först måste vi definiera vissa krav för vår logik:
 
 - Temperaturer mellan 0–25 ska flaggas som **OK**.
@@ -15,25 +16,23 @@ Som du såg i föregående kursdel innehåller Azure mallar som hjälper dig att
 
 1. Välj resursgruppen som du skapade i den första övningen genom att välja **Alla resurser** på menyn till vänster och sedan välja **escalator-functions-group**.
 
-1. Gruppens resurser visas. Öppna funktionsappen som du skapade i föregående övning genom att välja objektet **escalator-functions-xxxxxxx** (visas med blixtikonen).
+1. Gruppens resurser visas. Klicka på namnet på den funktionsapp som du skapade i föregående övning genom att välja objektet **escalator-functions-xxxxxxx** (visas med funktionsikonen med en blixt).
 
-  ![Skärmbild av Alla resurser på portalen med fokus på escalator-functions-group och funktionsappen som vi skapade.](../media-draft/5-access-function-app.png)
+  ![Skärmbild av Azure Portal där bladet Alla resurser har valts, och den escalator-funktionsapp som vi skapade.](../media/5-access-function-app.png)
 
-1. På menyn till vänster visas funktionsappens namn och en undermeny med tre objekt: *Funktioner*, *Proxyservrar* och *Platser*.  Du börjar att skapa den första funktionen genom att flytta musen till **Funktioner** i navigeringsträdet och klicka på knappen **+** som visas.
+1. På menyn till vänster visas funktionsappens namn och en undermeny med tre objekt: *Funktioner*, *Proxyservrar* och *Platser*.  Börja skapa vår första funktion genom att välja **Funktioner** och sedan klicka på knappen **Ny funktion** högst upp på den sida som visas.
 
-  ![Skärmbild som visar plustecknet när du hovrar över menyobjektet Funktioner. När du klickar på objektet startar proceduren för att skapa funktioner.](../media-draft/5-function-add-button.png)
+  ![Skärmbild av Azure Portal med funktionslistan för vår funktionsapp, med alternativet Funktioner och knappen Ny funktion markerade.](../media/5-function-add-button.png)
 
 1. På skärmen Snabbstart väljer du länken **Anpassad funktion** i avsnittet **Kom igång på egen hand**, som du ser i följande skärmbild.
- 
-  ![Skärmbild av skärmen Snabbstart med knappen Anpassad funktion markerad.](../media-draft/5-custom-function.png)
 
-1. I listan över mallar som visas på skärmen väljer du JavaScript-implementeringen av HTTP-utlösarmallen, som du ser i följande skärmbild.
+  ![Skärmbild av Azure Portal med badet Snabbstart, där knappen Anpassad funktion är markerad i avsnittet Komma igång på egen hand.](../media/5-custom-function.png)
 
-  ![Skärmbild av listan över mallar, med HTTP-utlösaren och JavaScript-alternativet markerade.](../media-draft/5-httptrigger-template.png)
+1. Gå till listan med mallar som visas på skärmen och välj **JavaScript**-implementeringen av **HTTP-utlösarmallen**, som du ser i följande skärmbild.
 
-1.  Ange **DriveGearTemperatureService** i namnfältet i dialogrutan **Ny funktion** som visas. Lämna Auktoriseringsnivå som ”Funktion” och tryck på knappen **Skapa** för att skapa funktionen.
+1. Ange **DriveGearTemperatureService** i namnfältet i dialogrutan **Ny funktion** som visas. Lämna Auktoriseringsnivå som ”Funktion” och tryck på knappen **Skapa** för att skapa funktionen.
 
-  ![Skärmbild av formuläret Ny funktion, med namnfältet markerat och ifyllt med värdet ”DriveGearTemperatureService”](../media-draft/5-create-httptrigger-form.png)
+  ![Skärmbild av Azure Portalen med de nya alternativen för HTTP-utlösarfunktionen, med JavaScript inställt i språkfältet och DriveGearTemperatureService angivet för namn.](../media/5-create-httptrigger-form.png)
 
 1. När funktionen har skapats öppnas kodredigeraren med innehållet i kodfilen *index.js*. Standardkoden som mallen har genererat åt oss visas i följande kodavsnitt.
 
@@ -59,7 +58,7 @@ module.exports = function (context, req) {
 
 Funktionen förväntar sig att ett namn skickas i frågesträngen för HTTP-begäran eller som en del av själva begäran. Funktionen svarar genom att returnera meddelandet **Hello, {name}**, med namnet som skickades i begäran.
 
-Till höger i källvyn ser du två flikar. **Visa fil** visar koden och konfigurationsfilen för funktionen.  Välj **function.json** för att visa funktionens konfiguration, som bör se ut så här: 
+Till höger i källvyn ser du två flikar. **Visa fil** visar koden och konfigurationsfilen för funktionen.  Välj **function.json** för att visa funktionens konfiguration, som bör se ut så här:
 
 ```javascript
 {
@@ -90,11 +89,12 @@ Konfigurationen fastställer att funktionen körs när den får en HTTP-begäran
 >- <https://en.wikipedia.org/wiki/CURL>
 >- <https://curl.haxx.se/docs/>
 
-Om du vill testa funktionen kan du skicka en HTTP-begäran till funktions-URL:en med hjälp av cURL på kommandoraden. Du hittar funktionens slutpunktsadress genom att gå tillbaka till funktionskoden och välja länken **Hämta funktionswebbadress**, som du ser i följande skärmbild. Spara den här länken tills vidare.  
+Om du vill testa funktionen kan du skicka en HTTP-begäran till funktions-URL:en med hjälp av cURL på kommandoraden. Du hittar funktionens slutpunktsadress genom att gå tillbaka till funktionskoden och välja länken **Hämta funktionswebbadress**, som du ser i följande skärmbild. Spara den här länken tills vidare.
 
- ![Skärmbild av kodredigeraren i avsnittet Funktionsappar på portalen. Kommandot Hämta funktionswebbadress är markerat längst upp till höger.](../media-draft/5-get-function-url.png)
+ ![Skärmbild av Azure Portal med funktionsredigeraren, där knappen Get function URL (Hämta funktions-URL) är markerad.](../media/5-get-function-url.png)
 
 ### <a name="securing-http-triggers"></a>Skydda HTTP-utlösare
+
 Med HTTP-utlösare kan du använda API-nycklar för att blockera okända anropare genom att kräva att nyckeln måste finnas i varje begäran. När du skapar en funktion väljer du _auktoriseringsnivån_. Standardinställningen är ”Funktion”, vilket kräver en funktionsspecifik API-nyckel, men den kan också anges till ”Administratör” för användning av en global ”huvudnyckel” eller till ”Anonym” om ingen nyckel krävs. Du kan också ändra åtkomstnivån via funktionens egenskaper när du har skapat den.
 
 Eftersom vi valde ”Funktion” när vi skapade funktionen måste vi ange nyckeln när vi skickar HTTP-begäran. Du kan skicka den som en frågesträngsparameter med namnet `code`, eller som ett HTTP-huvud (rekommenderas) med namnet `x-functions-key`.
@@ -103,7 +103,7 @@ Funktionen och huvudnycklarna visas i avsnittet **Hantera** när funktionen har 
 
 1. Expandera funktionen och välj avsnittet **Hantera**. Visa standardfunktionsnyckeln och kopiera den till Urklipp.
 
-![Blad för att hämta funktionsnyckeln från Azure Portal](../media-draft/5-get-function-key.png)
+![Skärmbild av Azure Portal med funktionen Hantera blad, med funktionsknappen markerad.](../media/5-get-function-key.png)
 
 1. Formatera sedan ett cURL-kommando med URL:en för din funktion och funktionsnyckeln.
 
@@ -112,9 +112,9 @@ Funktionen och huvudnycklarna visas i avsnittet **Hantera** när funktionen har 
     - Ersätt URL:en nedan med din egen.
     - Skicka funktionsnyckeln som huvudvärdet `x-functions-key`.
 
-```bash
-curl --header "Content-Type: application/json" --header "x-functions-key: VCWjWkBTvWBsnvw0TlbIbtsav3P3J80m/PKe8WclH0C3RSmvG4Sy8w==" --request POST --data "{\"name\": \"Azure Function\"}" https://<your-url-here>/api/DriveGearTemperatureService
-```
+    ```bash
+    curl --header "Content-Type: application/json" --header "x-functions-key: <your-function-key>" --request POST --data "{\"name\": \"Azure Function\"}" https://<your-url-here>/api/DriveGearTemperatureService
+    ```
 
 Funktionen svarar med texten `"Hello Azure Function"`.
 
@@ -124,7 +124,7 @@ Nu ska vi lägga till logiken till funktionen som kontrollerar temperaturavläsn
 
 Funktionen förväntar sig en matris med temperaturavläsningar. Följande JSON-kodavsnitt är ett exempel på begäran som vi ska skicka till funktionen. Varje `reading`-post har ett ID, en tidsstämpel och en temperatur.
 
-```javascript
+```json
 {
     "readings": [
         {
@@ -146,7 +146,7 @@ Funktionen förväntar sig en matris med temperaturavläsningar. Följande JSON-
 }
 ```
 
-Nu ska vi ersätta standardkoden i funktionen med följande kod som implementerar vår affärslogik. 
+Nu ska vi ersätta standardkoden i funktionen med följande kod som implementerar vår affärslogik.
 
 1. Öppna filen **index.js** och ersätt den med följande kod.
 
@@ -155,7 +155,7 @@ module.exports = function (context, req) {
     context.log('Drive Gear Temperature Service triggered');
     if (req.body && req.body.readings) {
         req.body.readings.forEach(function(reading) {
-            
+
             if(reading.temperature<=25) {
                 reading.status = 'OK';
             } else if (reading.temperature<=50) {
@@ -193,14 +193,36 @@ I det här fallet ska vi testa funktionen med hjälp av **testfönstret** på po
 
 1. Öppna fönstret **Test** från den utfällbara menyn till höger.
 
-1. Klistra in exempelbegäran ovan i textrutan för begärandetexten. 
+1. Klistra in exempelbegäran, som kopierats ovan, i textrutan för begärandetexten.
+
+    ```json
+    {
+        "readings": [
+            {
+                "driveGearId": 1,
+                "timestamp": 1534263995,
+                "temperature": 23
+            },
+            {
+                "driveGearId": 3,
+                "timestamp": 1534264048,
+                "temperature": 45
+            },
+            {
+                "driveGearId": 18,
+                "timestamp": 1534264050,
+                "temperature": 55
+            }
+        ]
+    }
+    ```
 
 1. Välj **Kör** och visa svaret i utdatafönstret. Om du vill visa loggmeddelanden öppnar du fliken **Loggar** på den nedre utfällbara menyn på sidan. På följande skärmbild visas ett exempelsvar i utdatafönstret och meddelanden i fönstret **Loggar**.
 
-![Skärmbild av flikarna Test och Loggar i funktionsgränssnittet på portalen. Ett exempelsvar från funktionen visas i utdatafönstret på fliken Test.](../media-draft/5-portal-testing.png)
+![Skärmbild av Azure Portal med funktionsredigerarbladet, där flikarna Test och Loggar visas. Ett exempelsvar från funktionen visas i utdatafönstret.](../media/5-portal-testing.png)
 
 Du kan se i utdatafönstret att vårt statusfält har lagts till i alla avläsningar.
 
 Om du navigerar till instrumentpanelen **Övervaka** ser du att begäran har loggats i Application Insights.
 
-![Skärmbild av en del av instrumentpanelen Övervaka med ett meddelande från funktionen om att åtgärden har slutförts.](../media-draft/5-app-insights.png)
+![Skärmbild av Azure Portal där det tidigare körda testet resulterar i en instrumentpanel för funktionen Övervaka.](../media/5-app-insights.png)

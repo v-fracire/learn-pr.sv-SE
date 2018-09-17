@@ -1,12 +1,13 @@
 I den här modulen har du lärt dig hur du skapar en virtuell Linux-dator med hjälp av Azure-portalen. Därefter anslöt du till den offentliga IP-adressen för den virtuella datorn och hanterade den med en SSH-anslutning. 
 
-Du lärde dig också att du kan interagera med operativsystemet och programvara på den virtuella datorn med hjälp av SSH, och att du kan konfigurera virtuell maskinvara och anslutningar via portalen. Du skulle även kunna använda PowerShell eller Azure CLI om du föredrar kommandorader eller en skriptbar miljö.
+Du lärde dig också att du kan interagera med operativsystemet och programvara på den virtuella datorn med hjälp av SSH, och att du kan konfigurera virtuell maskinvara och anslutningar via portalen. Vi hade även kunnat använda PowerShell eller Azure CLI om vi hade föredragit att använda en kommandorads- eller skriptmiljö.
 
-## <a name="clean-up-the-resources"></a>Rensa resurserna
+## <a name="clean-up"></a>Rensa
+<!---TODO: Update for sandbox?--->
 
-Du debiteras för virtuella datorer när de körs och för lagring baserat på hur mycket du använder. Du bör alltid stoppa och frigöra virtuella datorer när du inte använder dem, och när du inte längre behöver resurser är det en bra idé att ta bort dem. Om du vill ta bort alla resurser som du har skapat kan du ta bort dem en i taget eller bara ta bort resursgruppen.
+Du debiteras för virtuella datorer när de körs och för lagring utifrån din faktiska användning. Du bör alltid stoppa och frigöra virtuella datorer när du inte använder dem, och när du inte längre behöver resurser är det en bra idé att ta bort dem. Om du vill ta bort alla resurser som du har skapat kan du ta bort dem en i taget eller helt enkelt ta bort resursgruppen.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Microsoft Azure-portalen.
 
 1. Välj **Alla tjänster** på menyn till vänster.
 

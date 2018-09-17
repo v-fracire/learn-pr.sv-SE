@@ -2,12 +2,11 @@ Med Azure App Service-autentisering kan du använda nyckelfärdig autentisering 
 
 ## <a name="enable-app-service-authentication"></a>Aktivera App Service-autentisering
 
-1. Öppna funktionsappen på Azure Portal.
+1. Öppna funktionsappen på [Azure portal](https://portal.azure.com/?azure-portal=true).
 
 1. Välj **Autentisering/auktorisering** under **Plattformsfunktioner**.
 
     ![Välja autentisering och auktorisering](../media/6-authorization.jpg)
-
 
 1. Välj följande värden:
     

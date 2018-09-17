@@ -4,18 +4,16 @@ Vår server körs och Apache har installerats och används av sidor. Vårt säke
 
 ## <a name="opening-ports-in-azure-vms"></a>Öppna portar i virtuella Azure-datorer
 
-<!-- TODO: Azure portal is inconsistent here in applying the NSG.
-By default, new VMs are locked down. 
+<!-- TODO: The Azure portal is inconsistent here in applying the NSG. By default, new VMs are locked down. 
 
-Apps can make outgoing requests, but the only inbound traffic allowed is from the virtual network (e.g., other resources on the same local network), and from Azure's Load Balancer (probe checks). -->
+Apps can make outgoing requests, but the only inbound traffic allowed is from the virtual network (e.g., other resources on the same local network) and from Azure Load Balancer (probe checks). -->
 
 Det finns två steg för att justera konfigurationen för att stödja olika protokoll i nätverket. När du skapar en ny virtuell dator har du möjlighet att öppna några vanliga portar (RDP, HTTP, HTTPS och SSH). Men om du behöver andra ändringar av brandväggen måste du justera dem manuellt.
 
 Processen för det här omfattar två steg:
 
-1. Skapa en nätverkssäkerhetsgrupp
-
-1. Skapa en inkommande regel som tillåter trafik på portarna som du behöver
+1. Skapa en nätverkssäkerhetsgrupp.
+2. Skapa en inkommande regel som tillåter trafik på portarna som du behöver.
 
 ### <a name="what-is-a-network-security-group"></a>Vad är en nätverkssäkerhetsgrupp?
 
@@ -25,25 +23,25 @@ Säkerhetsgrupper kan kopplas till ett nätverksgränssnitt (för regler per vä
 
 #### <a name="security-group-rules"></a>Regler för säkerhetsgrupper
 
-NGS:er använder _regler_ för att tillåta eller neka trafik genom nätverket. Varje regel identifierar käll- och måladress (eller intervall), protokoll, port (eller intervall), riktning (inkommande eller utgående), en numerisk prioritet och om trafiken som matchar regeln ska tillåtas eller nekas. Följande bild visar NSG-regler som tillämpas på nivåerna för undernät och gränssnitt.
+Nätverkssäkerhetsgrupper använder _regler_ för att tillåta eller neka trafik i nätverket. Varje regeln identifierar käll- och måladress (eller intervall), protokoll, port (eller intervall), riktning (inkommande eller utgående), en numerisk prioritet och om trafiken som matchar regeln ska tillåtas eller nekas.
 
-![En bild som visar nätverkssäkerhetsgrupper arkitektur i två olika undernät. Det finns två virtuella datorer i ett undernät, var och en med sina egna regler för gränssnittet.  Själva undernätet har en uppsättning regler som gäller för båda de virtuella datorerna. ](../media-drafts/7-nsg-rules.png)
+![En bild som visar nätverkssäkerhetsgrupper arkitektur i två olika undernät. Det finns två virtuella datorer i ett undernät, var och en med sina egna regler för gränssnittet.  Själva undernätet har en uppsättning regler som gäller för båda de virtuella datorerna. ](../media/7-nsg-rules.png)
 
 Varje säkerhetsgrupp har en uppsättning standardsäkerhetsregler för att tillämpa standardnätverksregler som beskrivs ovan. Dessa standardregler kan inte ändras men de _kan_ åsidosättas.
 
 #### <a name="how-azure-uses-network-rules"></a>Så använder Azure nätverksregler
 
-För inkommande trafik bearbetar Azure den säkerhetsgrupp som kopplas till undernätet och sedan den säkerhetsgrupp som tillämpas på nätverksgränssnittet. Utgående trafik hanteras i omvänd ordning (nätverksgränssnittet först, sedan undernätet).
+För inkommande trafik bearbetar Azure först den säkerhetsgrupp som kopplas till undernätet och därefter den säkerhetsgrupp som tillämpas på nätverksgränssnittet. Utgående trafik hanteras i omvänd ordning (nätverksgränssnittet först, sedan undernätet).
 
-> [!WARNING]
-> Tänk på att säkerhetsgrupper är valfria på båda nivåerna. Om ingen säkerhetsgrupp tillämpas **tillåts all trafik** av Azure. Om den virtuella datorn har en offentlig IP-adress kan det vara en allvarlig risk, särskilt om operativsystemet inte har en inbyggd brandvägg.
+> [!WARNING]  
+> Tänk på att säkerhetsgrupper är valfria på båda nivåerna. Om ingen säkerhetsgrupp tillämpas, **tillåts all trafik** av Azure. Om den virtuella datorn har en offentlig IP-adress kan det vara en allvarlig risk, särskilt om operativsystemet inte har en inbyggd brandvägg.
 
 Reglerna utvärderas i _prioritetsordning_, från regeln med **lägst prioritet**. Neka-regler **stoppar** alltid utvärderingen. Exempel: Om en regel för nätverksgränssnittet blockerar en utgående begäran kontrolleras inte några regler som tillämpas på undernätet. För att trafik ska tillåtas via säkerhetsgruppen måste den passera genom _alla_ tillämpade grupper.
 
 Den sista regeln är alltid **Neka alla**. Det här är en standardregel som läggs till i varje säkerhetsgrupp för både inkommande och utgående trafik med prioriteten 65500. Det innebär att för att trafik ska passera genom säkerhetsgruppen _måste du ha en Tillåt-regel_. Annars blockeras den av den sista standardregeln.
 
-> [!NOTE]
-> SMTP (port 25) är ett specialfall – beroende på din prenumerationsnivå och när ditt konto har skapats kan utgående SMTP-trafik blockeras. Du kan begära att ta bort begränsningen med affärsrelaterad motivering.
+> [!NOTE]  
+> SMTP (port 25) är ett specialfall. Utgående SMTP-trafik kan komma att stoppas, beroende på din prenumerationsnivå och när ditt konto skapades. Du kan begära att ta bort denna begränsning med affärsrelaterad motivering.
 
 Eftersom vi inte har skapat en säkerhetsgrupp för den här virtuella datorn ska vi göra det och tillämpa den.
 

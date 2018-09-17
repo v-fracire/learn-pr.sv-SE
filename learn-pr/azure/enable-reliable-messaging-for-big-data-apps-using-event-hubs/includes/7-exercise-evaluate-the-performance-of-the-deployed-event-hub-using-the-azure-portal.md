@@ -22,7 +22,6 @@ Följ stegen nedan för att se vad som händer när ett program skickar meddelan
     cd ~
     cd azure-event-hubs/samples/Java/Basic/SimpleSend
     java -jar ./target/simplesend-1.0.0-jar-with-dependencies.jar
-    ENTER
     ```
 
 1. Tryck på Retur när du ser **Överföringen är klar**.
@@ -43,7 +42,6 @@ Vänta minst fem minuter.
     cd ~
     cd azure-event-hubs/samples/Java/Basic/EventProcessorSample
     java -jar ./target/eventprocessorsample-1.0.0-jar-with-dependencies.jar
-    ENTER
     ```
 
 1. När meddelanden slutar att visas i konsolen trycker du på Retur.

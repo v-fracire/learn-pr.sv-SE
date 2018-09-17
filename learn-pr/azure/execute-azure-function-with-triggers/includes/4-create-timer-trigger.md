@@ -12,7 +12,7 @@ Vi ska börja med att skapa en Azure-funktion på portalen.
 
 1. Leta upp och välj **Funktionsapp**. Du kan även använda sökfältet för att hitta mallen.
 
-    ![Välj Funktionsapp](../media-drafts/4-click-function-app.png)
+    ![Skärmbild av Azure Portal som visar bladet Skapa ett resursblad med Funktionsapp markerat.](../media/4-click-function-app.png)
 
 1. Ange ett unikt **appnamn**.
 
@@ -42,7 +42,7 @@ Nu ska vi skapa en timerutlösare i vår Azure-funktion.
 
 1. Peka på **Funktioner** och välj plustecknet (+) på det nya bladet.
 
-    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
+    ![Skärmbild av Azure Portal som visar ett funktionsappblad med knappen Lägg till (+) för undermenyn Funktioner markerad.](../media/4-hover-function.png)
 
 1. Välj **Timer**.
 
@@ -58,7 +58,7 @@ Vi har en Azure-funktion med logik som skriver ut ett meddelande till loggfönst
 
 1. Ange följande värde i rutan **Schema**:
 
-    ```
+    ```log
     */20 * * * * *
     ```
 
@@ -68,17 +68,18 @@ Vi har en Azure-funktion med logik som skriver ut ett meddelande till loggfönst
 
 Nu när vi har konfigurerat timern är vi redo att starta den.
 
-1. Välj **TimerTriggerCSharp1**. 
+1. Välj **TimerTriggerCSharp1**.
 
     > [!NOTE]
     > **TimerTriggerCSharp1** är standardnamnet. Det väljs automatiskt när du skapar utlösaren.
 
-1. Välj **Kör**. 
+1. Välj **Kör**.
 
 Du bör nu se ett meddelande i loggfönstret var 20:e sekund.
 
 ## <a name="clean-up"></a>Rensa
+<!---TODO: Update for sandbox?--->
 
-För att undvika att debiteras för den här funktionen väljer du **Pausa** ovanför loggfönstret för att stoppa timern.
+För att undvika debitering för den här funktionen väljer du **Pausa** ovanför loggfönstret för att stoppa timern.
 
-![Pausa](../media-drafts/4-pause-timer.png)
+![Skärmbild av Azure Portal med en utdatapanel för funktionsappsloggar, med knappen Paus markerad.](../media/4-pause-timer.png)

@@ -1,29 +1,21 @@
-I den här modulen ska du distribuera ett enkelt webbprogram som visar ett HTML-baserad användargränssnitt. Med en serverlös funktion kan programmet ladda upp bilder och automatiskt hämta bildtexter som beskriver bilderna.
+I den här modulen ska du distribuera ett enkelt webbprogram som visar ett HTML-baserad användargränssnitt. En serverlös funktion gör att programmet kan ladda upp bilder och automatiskt generera beskrivande bildtexter.
 
 ![Webbapp som körs](../media/0-app-screenshot-finished.png)
 
 I följande diagram visas de Azure-tjänster som används av programmet.
 
+![Diagram över lösningsarkitektur](../media/0-architecture.jpg)
+
 1. Azure Blob Storage hanterar statiskt webbinnehåll (HTML, CSS och JS) och lagrar bilder.
 2. Azure Functions hanterar uppladdning, storleksändring och metadatalagring för bilder.
 3. Azure Cosmos DB lagrar bildmetadata.
-4. Azure Logic Apps hämtar bildtexter från API:et för visuellt innehåll i Cognitive Services.
+4. Azure Logic Apps hämtar bildtexter från API för visuellt innehåll i Cognitive Services.
 5. Azure Active Directory hanterar användarautentisering.
 
-![Diagram över lösningsarkitektur](../media/0-architecture.jpg)
-
-I den här kursdelen lär du dig att:
-> [!div class="checklist"]
-> * Konfigurera Azure Blob Storage att lagra en statisk webbplats och uppladdade bilder.
-> * Ladda upp bilder till Azure Blob Storage med hjälp av Azure Functions.
-> * Ändra storlek på bilder med hjälp av Azure Functions.
-> * Lagra bildmetadata i Azure Cosmos DB.
-> * Använd API:et för visuellt innehåll i Cognitive Services för att skapa bildtexter automatiskt.
-> * Använd Azure Active Directory för att skydda webbappen med användarautentisering.
-
-Azure Blob Storage är en tjänst med extremt hög skalbarhet för lagring av statiska filer till låg kostnad. I den här självstudien använder du tjänsten för att hantera statiskt innehåll (till exempel HTML, JavaScript, CSS) för en webbapp som du skapar.
+Azure Blob Storage är en tjänst med extremt hög skalbarhet för lagring av statiska filer till låg kostnad. I den här modulen använder du Blob Storage för statiskt innehåll (till exempel HTML, JavaScript eller CSS) för en webbapp som du skapar.
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
+<!---TODO: Update for sandbox?--->
 
 Ett Azure Storage-konto är en Azure-resurs där du kan lagra tabeller, köer, filer, blobbar (objekt) och VM-diskar.
 
@@ -35,13 +27,13 @@ Ett Azure Storage-konto är en Azure-resurs där du kan lagra tabeller, köer, f
     az group create -n first-serverless-app -l westcentralus
     ```
 
-1. Det statiska innehållet (HTML-, CSS- och JavaScript-filer) för den här självstudiekursen finns i Blob Storage. För Blob Storage krävs ett lagringskonto. Skapa ett lagringskonto (generell användning V2) i resursgruppen. Ersätt `<storage account name>` med ett unikt namn.
+1. Det statiska innehållet (HTML-, CSS- och JavaScript-filer) för den här självstudiekursen finns i Blob Storage. För Blob Storage krävs ett lagringskonto. Skapa ett lagringskonto (generell användning v2; GPv2) i resursgruppen. Ersätt `<storage account name>` med ett unikt namn.
 
     ```azurecli
     az storage account create -n <storage account name> -g first-serverless-app --kind StorageV2 -l westcentralus --https-only true --sku Standard_LRS
     ```
     
-1. Använd sökfältet överst i [Azure Portal](https://portal.azure.com) för att leta rätt på det lagringskonto som du just skapade. Öppna kontot.
+1. Använd sökfältet överst i [Azure Portal](https://portal.azure.com/?azure-portal=true) för att leta rätt på det lagringskonto som du just skapade. Öppna kontot.
 
 1. Välj **Statisk webbplats (förhandsversion)** i det vänstra navigeringsfönstret för att konfigurera en container för lagring av statiskt webbplatsinnehåll.
     - Välj **Aktiverad** för att aktivera en statisk webbplats.
@@ -54,7 +46,7 @@ Ett Azure Storage-konto är en Azure-resurs där du kan lagra tabeller, köer, f
 
 ## <a name="upload-the-web-application"></a>Ladda upp webbprogrammet
 
-1. Källfilerna för programmet som du skapar i den här självstudien finns på en [GitHub-lagringsplats](https://github.com/Azure-Samples/functions-first-serverless-web-application). Kontrollera att du är i din hemkatalog i Cloud Shell och klona lagringsplatsen.
+1. Källfilerna för programmet som du skapar i den här självstudien finns på en [GitHub-lagringsplats](https://github.com/Azure-Samples/functions-first-serverless-web-application). Gå till din hemkatalog i Cloud Shell och klona lagringsplatsen.
 
     ```azurecli
     cd ~
@@ -63,7 +55,7 @@ Ett Azure Storage-konto är en Azure-resurs där du kan lagra tabeller, köer, f
 
     Lagringsplatsen klonas till `/home/<username>/functions-first-serverless-web-application`.
 
-1. Webbprogrammet på klientsidan finns i mappen **www** och skapas med hjälp av JavaScript-ramverket Vue.js. Växla till mappen och kör **npm**-kommandon för att installera programmets beroenden och skapa programmet. Det sista av kommandona kan ta flera minuter att slutföra.
+1. Webbprogrammet på klientsidan finns i mappen **www** och skapas med hjälp av JavaScript-ramverket Vue.js. Växla till mappen **www** och kör **npm**-kommandon för att installera programmets beroenden och skapa programmet. Det sista av kommandona kan ta flera minuter att slutföra.
 
     ```azurecli
     cd ~/functions-first-serverless-web-application/www
@@ -80,11 +72,11 @@ Ett Azure Storage-konto är en Azure-resurs där du kan lagra tabeller, köer, f
     az storage blob upload-batch -s . -d \$web --account-name <storage account name>
     ```
 
-1. Visa programmet genom att öppna webbadressen för den primära slutpunkten för statiska webbplatser i lagringskontot i en webbläsare.
+1. Visa programmet genom att öppna den primära slutpunktswebbadressen för den statiska webbplatsen i en webbläsare.
 
     ![Startsida för den första serverlösa webbappen](../media/1-app-screenshot-new.png)
 
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här kursdelen har du skapat en resursgrupp med namnet **first-serverless-app** som innehåller ett lagringskonto. En blobcontainer med namnet **$web** i lagringskontot lagrar webbappens statiska innehåll och gör innehållet offentligt tillgängligt. I nästa avsnitt lär du dig använda en serverlös funktion för att ladda upp bilder till Blob Storage från det här webbprogrammet.
+I den här kursdelen har du skapat en resursgrupp med namnet **first-serverless-app** som innehåller ett lagringskonto. En blob-container med namnet **$web** i lagringskontot lagrar webbappens statiska innehåll och gör innehållet offentligt tillgängligt. I nästa avsnitt lär du dig använda en serverlös funktion för att ladda upp bilder till Blob Storage från det här webbprogrammet.

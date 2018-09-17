@@ -8,11 +8,9 @@ Vi ska fortsätta att använda vår befintliga Azure Functions-app och lägger t
 
 1. Peka på **Funktioner** och välj plustecknet (+).
 
-    ![Peka på Funktioner och välj plustecknet](../media-drafts/4-hover-function.png)
-
 1. Välj **HTTP-utlösare**.
 
-1. Välj **C#** som språk. 
+1. Välj **C#** som språk.
 
 1. Lämna standardvärdet för **Namn**.
 
@@ -47,7 +45,6 @@ Nu har vi kopierat funktionens webbadress till Urklipp. Vi ska skicka en GET-beg
 1. Klicka på Retur för att skicka begäran.
 
 ## <a name="clean-up"></a>Rensa
+<!---TODO: Update for sandbox?--->
 
 För att undvika att debiteras för den här funktionen väljer du **Pausa** ovanför loggfönstret.
-
-![Pausa](../media-drafts/4-pause-timer.png)
