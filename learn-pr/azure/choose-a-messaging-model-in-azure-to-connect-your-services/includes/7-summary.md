@@ -1,0 +1,14 @@
+<span data-ttu-id="cd564-101">I den här modulen har du utforskat fyra olika Azure-tjänster som gör det möjligt att skapa pålitliga och motståndskraftiga distribuerade program.</span><span class="sxs-lookup"><span data-stu-id="cd564-101">In this module, you have explored four different Azure services that allow you to create reliable and resilient distributed applications.</span></span> <span data-ttu-id="cd564-102">Valet mellan dem handlar om att bestämma vilken typ av data som behöver överföras mellan komponenter (meddelanden eller händelser) och sedan vilka funktioner du behöver leverera och bearbeta data.</span><span class="sxs-lookup"><span data-stu-id="cd564-102">Choosing between them is a matter of deciding the type of data that needs to be passed between components (messages or events), and then what features you need to deliver and process the data.</span></span>
+
+## <a name="clean-up"></a><span data-ttu-id="cd564-103">Rensa</span><span class="sxs-lookup"><span data-stu-id="cd564-103">Clean up</span></span>
+<!---TODO: Update for sandbox?--->
+
+<span data-ttu-id="cd564-104">När ett lagringskonto innehåller data medför det kostnader mot din Azure-prenumeration, men dessa är sannolikt låga för liten kö med få meddelanden.</span><span class="sxs-lookup"><span data-stu-id="cd564-104">While a Storage Account contains data, it incurs a cost against your Azure subscription, although these are likely to be low for small queue with few messages.</span></span> <span data-ttu-id="cd564-105">Kom ihåg att ta bort kön för att undvika onödiga kostnader när du är klar med den.</span><span class="sxs-lookup"><span data-stu-id="cd564-105">When you have finished with the queue, remember to remove it in order to avoid unnecessary charges.</span></span> <span data-ttu-id="cd564-106">Eftersom du skapade alla resurser i samma resursgrupp är det enklast att rensa din Azure-prenumeration genom att ta bort resursgruppen. Då tas allt dess innehåll bort:</span><span class="sxs-lookup"><span data-stu-id="cd564-106">Because you created all the resources in the same resource group, the easiest way to cleanup your Azure subscription is to remove the resource group which will remove all its contents:</span></span>
+
+```powershell
+Remove-AzureRmResourceGroup -Name "MusicSharingResourceGroup" -Force
+```
+
+<span data-ttu-id="cd564-107">När du uppmanas att bekräfta borttagningen svarar du **Ja**.</span><span class="sxs-lookup"><span data-stu-id="cd564-107">When you are asked to confirm the delete, answer **Yes**.</span></span>
+
+<span data-ttu-id="cd564-108">Det kan ta flera minuter att köra kommandot och ta bort resurserna.</span><span class="sxs-lookup"><span data-stu-id="cd564-108">The command may take several minutes to complete as resources are deleted.</span></span>

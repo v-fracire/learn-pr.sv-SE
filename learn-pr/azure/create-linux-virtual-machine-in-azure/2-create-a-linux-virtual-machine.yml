@@ -1,14 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-linux-vm-in-azure.2-create-a-linux-virtual-machine
-title: <span data-ttu-id="9165b-101">Översikt över virtuella Azure Linux-datorer</span><span class="sxs-lookup"><span data-stu-id="9165b-101">Overview of Azure Linux virtual machines</span></span>
+title: <span data-ttu-id="ff91b-101">Skapa en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="ff91b-101">Create a Linux virtual Machine in Azure</span></span>
 metadata:
-  title: <span data-ttu-id="9165b-102">Översikt över virtuella Azure Linux-datorer</span><span class="sxs-lookup"><span data-stu-id="9165b-102">Overview of Azure Linux virtual machines</span></span>
-  description: <span data-ttu-id="9165b-103">Översikt över virtuella Azure Linux-datorer</span><span class="sxs-lookup"><span data-stu-id="9165b-103">Overview of Azure Linux virtual machines</span></span>
-  ms.openlocfilehash: 792789b1db65906adb55d96d6c183781757e16d7
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  title: <span data-ttu-id="ff91b-102">Skapa en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="ff91b-102">Create a Linux virtual machine in Azure</span></span>
+  description: <span data-ttu-id="ff91b-103">Skapa en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="ff91b-103">Create a Linux virtual machine in Azure</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: fd2819e83035bed0463dd7bceb6d084d48957fad
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43838590"
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44231579"
 durationInMinutes: 10
 content: '[!include[](includes/2-create-a-linux-virtual-machine.md)]'

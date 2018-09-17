@@ -1,0 +1,30 @@
+### YamlMime:Module
+uid: learn.create-computer-vision-service
+metadata:
+  title: Skapa en tjänst för visuellt innehåll för att identifiera bilder
+  description: Lär dig hur du skapar en tjänst för visuellt innehåll för att identifiera och tagga bilder
+  ms.openlocfilehash: 0e064c7e10e35f586b33b3a8fed571da4dd01658
+  ms.sourcegitcommit: e90461bc6f88bca3b53183b476553633f93990a3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "44043754"
+title: Skapa en tjänst för visuellt innehåll för att identifiera bilder
+summary: Lär dig hur du skapar en tjänst för visuellt innehåll för att identifiera och tagga bilder
+abstract: I den här modulen skapar du en tjänst för visuellt innehåll. Du lär dig att använda den tjänsten för att hjälpa dig att identifiera, tagga och utföra OCR på bilder som skickats av användare. Genom att lära dig de här begreppen kan du skapa AI-aktiverade tjänster i dina egna projekt.
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+units:
+- learn.create-computer-vision-service.1-intro
+- learn.create-computer-vision-service.2-create-service
+- learn.create-computer-vision-service.3-analyze-images
+- learn.create-computer-vision-service.4-generate-thumbnail
+- learn.create-computer-vision-service.5-extract-printed-text
+- learn.create-computer-vision-service.6-extract-handwritten-text
+- learn.create-computer-vision-service.7-summary
+achievement: learn.create-computer-vision-service.badge
