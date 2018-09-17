@@ -29,7 +29,7 @@ Kön i Azure kan finnas hundratals mil från skickande och mottagande komponente
 
 Använd till exempel metoden `QueueClient.SendAsync()` med nyckelordet `await` när ett meddelande ska skickas till en kö.
 
-## <a name="write-code-that-sends-to-queues"></a>Skriva kod som skickar till köer 
+## <a name="write-code-that-sends-to-queues"></a>Skriva kod som skickar till köer
 
 I alla sändande och mottagande komponenter bör du lägga till följande `using`-uttryck i alla kodfiler som anropar en Service Bus-kö:
 
@@ -66,4 +66,3 @@ Utför bearbetningsarbetet. Inom meddelandehanteraren anropar du sedan metoden `
 ```C#
 await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 ```
-    

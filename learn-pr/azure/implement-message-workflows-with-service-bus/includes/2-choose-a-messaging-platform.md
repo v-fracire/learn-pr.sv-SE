@@ -8,7 +8,7 @@ Här får du lära dig om kommunikationsplattformarna som är tillgängliga i Az
 
 ## <a name="decide-between-messages-and-events"></a>Välja mellan meddelanden och händelser
 
-Meddelanden och händelser är båda **datagram**: datapaket som skickas från en komponent till en annan. De är olika på sätt som först verkar subtila men som kan innebära stora skillnader i hur du skapar programmet. 
+Meddelanden och händelser är båda **datagram**: datapaket som skickas från en komponent till en annan. De är olika på sätt som först verkar subtila men som kan innebära stora skillnader i hur du skapar programmet.
 
 ### <a name="messages"></a>Meddelanden
 
@@ -23,13 +23,14 @@ I Contoso Slices nya arkitektur är det sannolikt att de skulle använda meddela
 En händelse utlöser ett meddelande om att något har skett. Händelser är ”enklare” än meddelanden och används oftast för sändningskommunikation.
 
 Händelser har följande egenskaper:
+
 * Händelsen kan skickas till flera mottagare eller inte till någon alls
 * Händelser är ofta avsedda att ”förgrenas” eller har ett stort antal prenumeranter för varje utgivare
 * Utgivaren av händelsen har ingen förväntan på åtgärder från den mottagande komponenten
 
 Vår pizzakedja skulle sannolikt använda händelser för meddelanden till användare om statusändringar. Statusändringshändelser skulle kunna skickas till Azure Event Grid, och därefter till Azure Notification Hub för en helt _serverlös_ lösning.
 
-Den här skillnaden mellan händelser och meddelanden är grundläggande eftersom kommunikationsplattformar vanligen är utformade för att hantera det ena eller det andra. Service Bus är utformat för att hantera meddelanden. Om du vill skicka händelser ska du troligen välja Event Grid. 
+Den här skillnaden mellan händelser och meddelanden är grundläggande eftersom kommunikationsplattformar vanligen är utformade för att hantera det ena eller det andra. Service Bus är utformat för att hantera meddelanden. Om du vill skicka händelser ska du troligen välja Event Grid.
 
 Azure har även Azure Event Hubs, men det används oftast för en särskild typ av ström med högt kommunikationsflöde som används för analys. Om vi till exempel hade nätverksanslutna sensorer på våra pizzaugnar skulle vi kunna skicka Event Hub kopplat till Azure Stream Analytics för att hålla koll på mönster i temperaturändringarna som kan vara ett tecken på brand eller komponentslitage.
 
@@ -41,11 +42,11 @@ Azure Service Bus kan utbyta meddelanden på tre olika sätt: via köer, ämnen 
 
 En **kö** är en enkel temporär lagringsplats för meddelanden. En sändande komponent lägger till ett meddelande till kön. En målkomponent hämtar det meddelande som ligger först i kön. Under normala förhållanden tas varje meddelande emot av endast en mottagare.
 
-![Azure Service Bus-kö](../media-draft/2-service-bus-queue.png)
+![Azure Service Bus-kö](../media/2-service-bus-queue.png)
 
 Köer frikopplar käll- och målkomponenterna för att isolera målkomponenter från hög efterfrågan. 
 
-Under perioder med hög belastning kan meddelanden komma in snabbare än vad målkomponenterna kan hantera. Eftersom källkomponenter inte har någon direkt anslutning till målet påverkas inte källan, och kön växer. Målkomponenter tar bort meddelanden från kön eftersom de kan hantera dem. När efterfrågan sjunker kan målkomponenter komma ikapp så att kön förkortas. 
+Under perioder med hög belastning kan meddelanden komma in snabbare än vad målkomponenterna kan hantera. Eftersom källkomponenter inte har någon direkt anslutning till målet påverkas inte källan, och kön växer. Målkomponenter tar bort meddelanden från kön eftersom de kan hantera dem. När efterfrågan sjunker kan målkomponenter komma ikapp så att kön förkortas.
 
 En kö motsvarar hög efterfrågan som här utan att lägga till resurser i systemet. Men för meddelanden som behöver hanteras relativt snabbt kan de dela belastningen om du lägger till ytterligare instanser av din målkomponent. Varje meddelande hanteras av endast en instans. Det är ett effektivt sätt att skala hela programmet, samtidigt som du bara lägger till resurser till komponenterna som verkligen behöver dem.
 
@@ -55,7 +56,7 @@ Ett **ämne** liknar en kö men kan ha flera prenumerationer. Det innebär att f
 
 Ämne kan inte användas på Basic-prisnivån.
 
-![Azure Service Bus-ämne](../media-draft/2-service-bus-topic.png)
+![Azure Service Bus-ämne](../media/2-service-bus-topic.png)
 
 ### <a name="what-is-a-relay"></a>Vad är ett relä?
 
@@ -96,20 +97,21 @@ Om du bestämmer dig för att du behöver en kö:
 
 #### <a name="choose-service-bus-queues-if"></a>Välj Service Bus-köer om:
 
-- Du behöver en garanti om leverans högst en gång
-- Du behöver en FIFO-garanti
-- Du behöver gruppera meddelanden i transaktioner
-- Du vill ta emot meddelanden utan att avsöka kön
-- Du behöver ange rollbaserad åtkomst till köerna
-- Du behöver hantera meddelanden som är större än 64 KB men mindre än 256 KB
-- Storleken på din kö inte kommer att bli större än 80 GB
-- Du vill kunna publicera och använda batchar av meddelanden
+* Du behöver en garanti om leverans högst en gång
+* Du behöver en FIFO-garanti
+* Du behöver gruppera meddelanden i transaktioner
+* Du vill ta emot meddelanden utan att avsöka kön
+* Du behöver ange rollbaserad åtkomst till köerna
+* Du behöver hantera meddelanden som är större än 64 KB men mindre än 256 KB
+* Storleken på din kö inte kommer att bli större än 80 GB
+* Du vill kunna publicera och använda batchar av meddelanden
 
 #### <a name="choose-queue-storage-if"></a>Välj kölagring om:
-- Du behöver en enkel kö utan några specifika ytterligare krav
-- Du behöver en spårningslogg för alla meddelanden som skickas via kön
-- Du förväntar dig att kön kommer att överskrida 80 GB i storlek
-- Du vill följa förloppet för bearbetning av ett meddelande i kön
+
+* Du behöver en enkel kö utan några specifika ytterligare krav
+* Du behöver en spårningslogg för alla meddelanden som skickas via kön
+* Du förväntar dig att kön kommer att överskrida 80 GB i storlek
+* Du vill följa förloppet för bearbetning av ett meddelande i kön
 
 Även om komponenterna i ett distribuerat program kan kommunicera direkt kan du ofta öka kommunikationens tillförlitlighet genom att använda en mellanliggande kommunikationsplattform som Azure Service Bus eller Azure Event Grid.
 

@@ -4,7 +4,7 @@
 
 I den här modulen kommer du att göra följande:
 
-- skapa ett Custom Vision Service-projekt
+- Skapa ett Custom Vision Service-projekt
 - träna upp en Custom Vision Service-modell med taggade bilder
 - testa en Custom Vision Service-modell
 - skapa appar där Custom Vision Service-modeller används genom anrop till REST-API:er

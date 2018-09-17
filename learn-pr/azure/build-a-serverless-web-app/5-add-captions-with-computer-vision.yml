@@ -9,12 +9,13 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: fe757f307f181bdb80b002825f5cd7140346b72a
-  ms.sourcegitcommit: 8213d1af6ad9da967a5e195f0b40b00265cb192c
+  zone_pivot_groups: dev-lang-csharp-javascript
+  ms.openlocfilehash: d6e97fb216c2ca32cd542a9815cffb7fb75b95d2
+  ms.sourcegitcommit: 36ad58bcbe9d89cfae6943e7183fadb140139b74
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/10/2018
-  ms.locfileid: "44309682"
+  ms.lasthandoff: 09/14/2018
+  ms.locfileid: "45612091"
 durationInMinutes: 9
 interactive: bash-editor
 azureSandbox: true
