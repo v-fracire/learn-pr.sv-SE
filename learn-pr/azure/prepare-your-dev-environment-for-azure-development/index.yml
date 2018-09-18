@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: a69970c0ae30c6f6bb222d18fa6743fa980a91d6
-  ms.sourcegitcommit: 4d3d995e220b696d35237a19740a6d619134d6ca
+  ms.sourcegitcommit: b6f5aa15bae13cb0f53667fba1d404b7bec76f67
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/13/2018
-  ms.locfileid: "45536944"
+  ms.lasthandoff: 09/17/2018
+  ms.locfileid: "45772289"
 title: Förbered din utvecklingsmiljö för utveckling i Azure
 summary: Konfigurera en lokal utvecklingsmiljö med flera populära IDE:er.
 abstract: >

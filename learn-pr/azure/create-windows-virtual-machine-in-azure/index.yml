@@ -9,21 +9,21 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 41b8c2d92b0f75dbf8d29898ba54aeca80707a8f
-  ms.sourcegitcommit: 4d3d995e220b696d35237a19740a6d619134d6ca
+  ms.sourcegitcommit: b6f5aa15bae13cb0f53667fba1d404b7bec76f67
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/13/2018
-  ms.locfileid: "45538089"
+  ms.lasthandoff: 09/17/2018
+  ms.locfileid: "45774884"
 title: Skapa en virtuell Windows-dator i Azure
 summary: Med virtuella Azure-datorer (VM) kan du skapa dedikerade beräkningsresurser på bara några minuter och använda dem precis som med en fysisk dator eller server. Oavsett om den virtuella datorn är en server som du ansluter till för administrativa syften eller en virtuell dator för slutanvändare så ger RDP (Remote Desktop Protocol) samma upplevelse som om du satt vid terminalen för en lokal fysisk dator.
 abstract: >
-  I den här modulen kommer du att:
+  I den här modulen ska du:
 
   - Skapa en virtuell Windows-dator med Azure-portalen
 
   - Ansluta till en aktiv virtuell Windows-dator med hjälp av fjärrskrivbordet
 
-  - Installera programvara och ändra nätverkskonfigurationen på en virtuell dator via Azure-portalen
+  - Installera programvara och ändra nätverkskonfigurationen på en virtuell dator via Azure Portal
 prerequisites: Ingen
 iconUrl: /learn/achievements/create-windows-virtual-machine-in-azure.svg
 levels:

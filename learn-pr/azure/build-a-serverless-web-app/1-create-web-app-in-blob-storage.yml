@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.build-a-serverless-web-app.1-create-web-app-in-blob-storage
-title: <span data-ttu-id="cf499-101">Skapa en webbapp i Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="cf499-101">Create a web app in Azure Blob storage</span></span>
+title: <span data-ttu-id="24f18-101">Skapa en webbapp i Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="24f18-101">Create a web app in Azure Blob storage</span></span>
 metadata:
-  title: <span data-ttu-id="cf499-102">Skapa en webbapp i Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="cf499-102">Create a web app in Azure Blob storage</span></span>
-  description: <span data-ttu-id="cf499-103">Skapa en webbapp i Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="cf499-103">Create a web app in Azure Blob storage</span></span>
+  title: <span data-ttu-id="24f18-102">Skapa en webbapp i Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="24f18-102">Create a web app in Azure Blob storage</span></span>
+  description: <span data-ttu-id="24f18-103">Skapa en webbapp i Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="24f18-103">Create a web app in Azure Blob storage</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 774c6012f927429442f0dd0c205378a927e74370
-  ms.sourcegitcommit: cc8e3e72c5b62499f1febe881c84e0495e83b59c
+  ms.sourcegitcommit: b6f5aa15bae13cb0f53667fba1d404b7bec76f67
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/10/2018
-  ms.locfileid: "44340549"
+  ms.lasthandoff: 09/17/2018
+  ms.locfileid: "45759204"
 durationInMinutes: 20
 interactive: bash-editor
 azureSandbox: true
