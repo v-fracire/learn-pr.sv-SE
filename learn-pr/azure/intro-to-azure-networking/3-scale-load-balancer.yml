@@ -1,29 +1,29 @@
 ### YamlMime:ModuleUnit
 uid: learn.intro-to-azure-networking.3-scale-load-balancer
-title: <span data-ttu-id="5da89-101">Skala med Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="5da89-101">Scale with Azure Load Balancer</span></span>
+title: <span data-ttu-id="7ce87-101">Skala med Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="7ce87-101">Scale with Azure Load Balancer</span></span>
 metadata:
-  title: <span data-ttu-id="5da89-102">Skala med Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="5da89-102">Scale with Azure Load Balancer</span></span>
-  description: <span data-ttu-id="5da89-103">Lär dig hur Azure Load Balancer hjälper dig att uppnå skalbarhet och återhämtningsförmåga inom en geografisk region.</span><span class="sxs-lookup"><span data-stu-id="5da89-103">Learn how Azure Load Balancer helps achieve scale and resiliency within a geographic region.</span></span>
-  ms.openlocfilehash: 6174280c8013e6c2ca5cec461cc6352734f0f6a5
-  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  title: <span data-ttu-id="7ce87-102">Skala med Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="7ce87-102">Scale with Azure Load Balancer</span></span>
+  description: <span data-ttu-id="7ce87-103">Lär dig hur Azure Load Balancer hjälper dig att uppnå skalbarhet och återhämtningsförmåga inom en geografisk region.</span><span class="sxs-lookup"><span data-stu-id="7ce87-103">Learn how Azure Load Balancer helps achieve scale and resiliency within a geographic region.</span></span>
+  ms.openlocfilehash: 984e7811eaa82ab1f3067b1f20cabd721731acbb
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43477544"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43791508"
 durationInMinutes: 7
 content: >
   [!include[](includes/3-scale-load-balancer.md)]
 quiz:
-  title: '<span data-ttu-id="5da89-104">Kunskapskontroll: Skala med Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="5da89-104">Knowledge Check: Scale with Azure Load Balancer</span></span>'
+  title: '<span data-ttu-id="7ce87-104">Kunskapskontroll: Skala med Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="7ce87-104">Knowledge Check: Scale with Azure Load Balancer</span></span>'
   questions:
-  - content: <span data-ttu-id="5da89-105">Vilket av följande är sant för Azure Load Balancer?</span><span class="sxs-lookup"><span data-stu-id="5da89-105">Which is true about Azure Load Balancer?</span></span>
+  - content: <span data-ttu-id="7ce87-105">Vilket av följande är sant för Azure Load Balancer?</span><span class="sxs-lookup"><span data-stu-id="7ce87-105">Which is true about Azure Load Balancer?</span></span>
     choices:
-    - content: <span data-ttu-id="5da89-106">Du måste använda Azure Load Balancer om du vill distribuera trafik mellan virtuella datorer som körs i Azure.</span><span class="sxs-lookup"><span data-stu-id="5da89-106">You must use Azure Load Balancer if you want to distribute traffic among your virtual machines running in Azure.</span></span>
+    - content: <span data-ttu-id="7ce87-106">Du måste använda Azure Load Balancer om du vill distribuera trafik mellan virtuella datorer som körs i Azure.</span><span class="sxs-lookup"><span data-stu-id="7ce87-106">You must use Azure Load Balancer if you want to distribute traffic among your virtual machines running in Azure.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="5da89-107">Du kan använda Azure Load Balancer eller själv konfigurera belastningsutjämning för programvara på en virtuell dator.</span><span class="sxs-lookup"><span data-stu-id="5da89-107">You can use Azure Load Balancer or configure load balancing software yourself on a virtual machine.</span></span>
-    - content: <span data-ttu-id="5da89-108">Azure Load Balancer fungerar endast med Internetriktad trafik.</span><span class="sxs-lookup"><span data-stu-id="5da89-108">Azure Load Balancer works with Internet-facing traffic only.</span></span>
+      incorrectExplanation: <span data-ttu-id="7ce87-107">Du kan använda Azure Load Balancer eller själv konfigurera belastningsutjämning för programvara på en virtuell dator.</span><span class="sxs-lookup"><span data-stu-id="7ce87-107">You can use Azure Load Balancer, or configure load balancing software yourself on a virtual machine.</span></span>
+    - content: <span data-ttu-id="7ce87-108">Azure Load Balancer fungerar endast med Internetriktad trafik.</span><span class="sxs-lookup"><span data-stu-id="7ce87-108">Azure Load Balancer works with internet-facing traffic only.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="5da89-109">Du kan konfigurera Azure Load Balancer för att distribuera trafik mellan system som kan nås från Internet eller endast från ett privat nätverk.</span><span class="sxs-lookup"><span data-stu-id="5da89-109">You can configure Azure Load Balancer to distribute traffic among systems reachable from the Internet or from a private network only.</span></span>
-    - content: <span data-ttu-id="5da89-110">Azure Load Balancer distribuerar trafiken mellan liknande system, vilket gör dina tjänster mer tillgängliga.</span><span class="sxs-lookup"><span data-stu-id="5da89-110">Azure Load Balancer distributes traffic among similar systems, making your services more highly available.</span></span>
+      incorrectExplanation: <span data-ttu-id="7ce87-109">Du kan konfigurera Azure Load Balancer för att distribuera trafik mellan system som kan nås från Internet eller endast från ett privat nätverk.</span><span class="sxs-lookup"><span data-stu-id="7ce87-109">You can configure Azure Load Balancer to distribute traffic among systems reachable from the internet, or from a private network only.</span></span>
+    - content: <span data-ttu-id="7ce87-110">Azure Load Balancer distribuerar trafiken mellan liknande system, vilket gör dina tjänster mer tillgängliga.</span><span class="sxs-lookup"><span data-stu-id="7ce87-110">Azure Load Balancer distributes traffic among similar systems, making your services more highly available.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="5da89-111">Om ett system inte är tillgängligt slutar Azure Load Balancer att skicka trafik till det.</span><span class="sxs-lookup"><span data-stu-id="5da89-111">If one system is unavailable, Azure Load Balancer stops sending traffic to it.</span></span> <span data-ttu-id="5da89-112">Sedan dirigerar den trafik till en av de tillgängliga servrarna.</span><span class="sxs-lookup"><span data-stu-id="5da89-112">It then directs traffic to one of the responsive servers.</span></span>
+      correctExplanation: <span data-ttu-id="7ce87-111">Om ett system inte är tillgängligt slutar Azure Load Balancer att skicka trafik till det.</span><span class="sxs-lookup"><span data-stu-id="7ce87-111">If one system is unavailable, Azure Load Balancer stops sending traffic to it.</span></span> <span data-ttu-id="7ce87-112">Sedan dirigerar den trafik till en av de tillgängliga servrarna.</span><span class="sxs-lookup"><span data-stu-id="7ce87-112">It then directs traffic to one of the responsive servers.</span></span>

@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.6-network-security
+title: <span data-ttu-id="13abe-101">Nätverkssäkerhet</span><span class="sxs-lookup"><span data-stu-id="13abe-101">Network security</span></span>
+metadata:
+  title: <span data-ttu-id="13abe-102">Nätverkssäkerhet</span><span class="sxs-lookup"><span data-stu-id="13abe-102">Network security</span></span>
+  description: <span data-ttu-id="13abe-103">I den här delen ska vi titta närmare på hur du kan skydda din nätverksinfrastruktur</span><span class="sxs-lookup"><span data-stu-id="13abe-103">In this unit we'll discuss how to secure your network infrastructure</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 90be1e461ce19e0bd7a18e869397db2d0ab3abfa
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44240765"
+durationInMinutes: 5
+content: >
+  [!include[](includes/6-network-security.md)]
+quiz:
+  title: <span data-ttu-id="13abe-104">Kunskapskontroll – Nätverkssäkerhet</span><span class="sxs-lookup"><span data-stu-id="13abe-104">Knowledge Check - Network security</span></span>
+  questions:
+  - content: <span data-ttu-id="13abe-105">Azure NSG:er kan användas för att skydda kommunikationen mellan vilka av följande?</span><span class="sxs-lookup"><span data-stu-id="13abe-105">Azure NSGs can be used to secure communication between which of the following?</span></span>
+    choices:
+    - content: <span data-ttu-id="13abe-106">Kommunikation mellan virtuella datorer och Internet</span><span class="sxs-lookup"><span data-stu-id="13abe-106">Communication between virtual machines and the internet</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="13abe-107">NSG:er kan användas för att skydda det här kommunikationsflödet, men detta är inte det enda rätta alternativet.</span><span class="sxs-lookup"><span data-stu-id="13abe-107">NSGs can be used to secure this communication flow, but this is not the only correct choice.</span></span>
+    - content: <span data-ttu-id="13abe-108">Kommunikation mellan virtuella datorer i ett virtuellt nätverk</span><span class="sxs-lookup"><span data-stu-id="13abe-108">Communication between virtual machines within a VNet</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="13abe-109">NSG:er kan användas för att skydda det här kommunikationsflödet, men detta är inte det enda rätta alternativet.</span><span class="sxs-lookup"><span data-stu-id="13abe-109">NSGs can be used to secure this communication flow, but this is not the only correct choice.</span></span>
+    - content: <span data-ttu-id="13abe-110">Kommunikation med system i ett lokalt nätverk</span><span class="sxs-lookup"><span data-stu-id="13abe-110">Communication with systems in an on-premises network</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="13abe-111">NSG:er kan användas för att skydda det här kommunikationsflödet, men detta är inte det enda rätta alternativet.</span><span class="sxs-lookup"><span data-stu-id="13abe-111">NSGs can be used to secure this communication flow, but this is not the only correct choice.</span></span>
+    - content: <span data-ttu-id="13abe-112">Alla alternativ ovan</span><span class="sxs-lookup"><span data-stu-id="13abe-112">All of the above</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="13abe-113">NSG:er kan användas för att skydda alla ovanstående kommunikationsflöden.</span><span class="sxs-lookup"><span data-stu-id="13abe-113">NSGs can be used to secure all of the above communication flows.</span></span>
+  - content: <span data-ttu-id="13abe-114">Vilken av följande är inte en metod för att skydda Internetanslutna tjänster mot nätverksattacker?</span><span class="sxs-lookup"><span data-stu-id="13abe-114">Which of the following is not a method of protecting internet facing services from network attacks?</span></span>
+    choices:
+    - content: <span data-ttu-id="13abe-115">Azure DDoS</span><span class="sxs-lookup"><span data-stu-id="13abe-115">Azure DDoS</span></span>
+      isCorrect: false
+      incorrectExplanation: '<span data-ttu-id="13abe-116">Azure DDoS kan användas för att skydda Internetanslutna tjänster mot en DoS-attack.</span><span class="sxs-lookup"><span data-stu-id="13abe-116">Azure DDoS can be used to protect your internet facing services from a DoS attack.</span></span> '
+    - content: <span data-ttu-id="13abe-117">Azure Application Gateway WAF</span><span class="sxs-lookup"><span data-stu-id="13abe-117">Azure Application Gateway WAF</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="13abe-118">Application Gateway WAF kan användas för att skydda Internetanslutna tjänster mot attacker, som till exempel XSS- och SQL-inmatning.</span><span class="sxs-lookup"><span data-stu-id="13abe-118">Application Gateway WAF can be used to protect your internet facing services from attacks such as XSS and SQL injection.</span></span>
+    - content: <span data-ttu-id="13abe-119">Azure Disk Encryption</span><span class="sxs-lookup"><span data-stu-id="13abe-119">Azure Disk Encryption</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="13abe-120">Azure Disk Encryption skyddar den virtuella datorns virtuella hårddiskar från exponering, men ger inget skydd mot nätverksbaserade attacker.</span><span class="sxs-lookup"><span data-stu-id="13abe-120">Azure Disk Encryption protects your virtual machine VHDs from exposure, but does not provide protection from network based attacks.</span></span>
+    - content: <span data-ttu-id="13abe-121">En virtuell nätverksinstallation</span><span class="sxs-lookup"><span data-stu-id="13abe-121">A network virtual appliance</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="13abe-122">Virtuella nätverksinstallationer kan ange anpassat nätverksskydd för dina Internetanslutna resurser.</span><span class="sxs-lookup"><span data-stu-id="13abe-122">Network virtual appliances can provide customized network protection for your internet facing resources.</span></span>

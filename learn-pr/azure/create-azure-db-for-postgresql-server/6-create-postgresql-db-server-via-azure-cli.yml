@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.create-azure-db-for-postgresql.create-postgresql-db-server-via-azure-cli
+title: <span data-ttu-id="4b587-101">Skapa en PostgreSQL DB-server via Azure CLI</span><span class="sxs-lookup"><span data-stu-id="4b587-101">Create a PostgreSQL DB server via the Azure CLI</span></span>
+metadata:
+  title: <span data-ttu-id="4b587-102">Skapa en PostgreSQL DB-server via Azure CLI</span><span class="sxs-lookup"><span data-stu-id="4b587-102">Create a PostgreSQL DB server via the Azure CLI</span></span>
+  description: <span data-ttu-id="4b587-103">I den här labbuppgiften kommer du att använda Azure CLI till att skapa en Azure Database for PostgreSQL-server.</span><span class="sxs-lookup"><span data-stu-id="4b587-103">In this lab, you will use the Azure CLI to create an Azure Database for PostgreSQL server.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 7d3e558b215a5dc59b211d1d1b4c338c6a10b00a
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44245944"
+durationInMinutes: 10
+content: '[!include[](includes/6-create-postgresql-db-server-via-azure-cli.md)]'

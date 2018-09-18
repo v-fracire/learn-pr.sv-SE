@@ -1,0 +1,53 @@
+### YamlMime:ModuleUnit
+uid: learn.create-computer-vision-service.7-summary
+title: <span data-ttu-id="21e05-101">Sammanfattning och kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="21e05-101">Summary and knowledge check</span></span>
+metadata:
+  title: <span data-ttu-id="21e05-102">Sammanfattning och kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="21e05-102">Summary and knowledge check</span></span>
+  description: <span data-ttu-id="21e05-103">Sammanfattning och kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="21e05-103">Summary and knowledge check</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 4bfc9a1aa36edd1bc613b0fdaef7f89d2e2c35fc
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44238073"
+durationInMinutes: 10
+content: >
+  [!include[](includes/7-summary.md)]
+quiz:
+  title: <span data-ttu-id="21e05-104">Test om visuellt innehåll</span><span class="sxs-lookup"><span data-stu-id="21e05-104">Computer Vision quiz</span></span>
+  questions:
+  - content: <span data-ttu-id="21e05-105">Vilken typ av berömda bilder identifieras inte med visuellt innehåll?</span><span class="sxs-lookup"><span data-stu-id="21e05-105">What kind of famous images won't be identified with Computer Vision?</span></span>
+    choices:
+    - content: '<span data-ttu-id="21e05-106">Landmärken</span><span class="sxs-lookup"><span data-stu-id="21e05-106">Landmarks</span></span> '
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-107">Kändisar</span><span class="sxs-lookup"><span data-stu-id="21e05-107">Celebrities</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-108">Filmer</span><span class="sxs-lookup"><span data-stu-id="21e05-108">Movies</span></span>
+      isCorrect: true
+  - content: <span data-ttu-id="21e05-109">Vilka visuella funktioner kan vi välja att ta emot när vi analyserar bilder?</span><span class="sxs-lookup"><span data-stu-id="21e05-109">Which visual features can we elect to receive when analyzing images?</span></span>
+    choices:
+    - content: <span data-ttu-id="21e05-110">Former</span><span class="sxs-lookup"><span data-stu-id="21e05-110">Shapes</span></span>
+      isCorrect: true
+    - content: <span data-ttu-id="21e05-111">Bildkategorisering</span><span class="sxs-lookup"><span data-stu-id="21e05-111">Image categorization</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-112">Taggar</span><span class="sxs-lookup"><span data-stu-id="21e05-112">Tags</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-113">Textbeskrivning</span><span class="sxs-lookup"><span data-stu-id="21e05-113">Textual description</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-114">Ansikten</span><span class="sxs-lookup"><span data-stu-id="21e05-114">Faces</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-115">Färger</span><span class="sxs-lookup"><span data-stu-id="21e05-115">Colors</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-116">Vuxet eller provokativt innehåll</span><span class="sxs-lookup"><span data-stu-id="21e05-116">Adult and suggestive content</span></span>
+      isCorrect: false
+  - content: <span data-ttu-id="21e05-117">Vad är smart beskärning?</span><span class="sxs-lookup"><span data-stu-id="21e05-117">What does smart cropping do?</span></span>
+    choices:
+    - content: <span data-ttu-id="21e05-118">Beskära bilder från det övre vänstra hörnet</span><span class="sxs-lookup"><span data-stu-id="21e05-118">Crops pictures from the top left</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="21e05-119">Beskära bilder som baseras på intresseområden (ansikten, objekt i fokus, övriga)</span><span class="sxs-lookup"><span data-stu-id="21e05-119">Crops pictures based on regions of interest (faces, objects in focus, others)</span></span>
+      isCorrect: true

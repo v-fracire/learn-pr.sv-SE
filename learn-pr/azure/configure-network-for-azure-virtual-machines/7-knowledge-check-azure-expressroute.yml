@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.configure-the-network-for-your-virtual-machines.7-knowledge-check-azure-expressroute
+title: <span data-ttu-id="65433-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="65433-101">Knowledge check</span></span>
+metadata:
+  title: <span data-ttu-id="65433-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="65433-102">Knowledge check</span></span>
+  description: <span data-ttu-id="65433-103">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="65433-103">Knowledge check</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 20350945337278c188ce8748f28f46a9a1ce02e7
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44230168"
+durationInMinutes: 3
+quiz:
+  title: <span data-ttu-id="65433-104">Kunskapskontroll – Azure ExpressRoute</span><span class="sxs-lookup"><span data-stu-id="65433-104">Knowledge check - Azure ExpressRoute</span></span>
+  questions:
+  - content: <span data-ttu-id="65433-105">Vilket av följande protokoll ger dynamisk routning för Azure ExpressRoute?</span><span class="sxs-lookup"><span data-stu-id="65433-105">Which of the following protocols provides dynamic routing for Azure ExpressRoute?</span></span>
+    choices:
+    - content: <span data-ttu-id="65433-106">IPVPN</span><span class="sxs-lookup"><span data-stu-id="65433-106">IPVPN</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="65433-107">PPTP</span><span class="sxs-lookup"><span data-stu-id="65433-107">PPTP</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="65433-108">IPsec</span><span class="sxs-lookup"><span data-stu-id="65433-108">IPsec</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="65433-109">BCP</span><span class="sxs-lookup"><span data-stu-id="65433-109">BCP</span></span>
+      isCorrect: true
+    - content: <span data-ttu-id="65433-110">S-nyckel</span><span class="sxs-lookup"><span data-stu-id="65433-110">S-key</span></span>
+      isCorrect: false
+  - content: <span data-ttu-id="65433-111">Vilken typ av peering stöder anslutningar till molnbaserade SaaS-erbjudanden?</span><span class="sxs-lookup"><span data-stu-id="65433-111">Which peering type supports connections to cloud-based SaaS offerings?</span></span>
+    choices:
+    - content: <span data-ttu-id="65433-112">Azure, privat</span><span class="sxs-lookup"><span data-stu-id="65433-112">Azure private</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="65433-113">Azure, offentlig</span><span class="sxs-lookup"><span data-stu-id="65433-113">Azure public</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="65433-114">Microsoft</span><span class="sxs-lookup"><span data-stu-id="65433-114">Microsoft</span></span>
+      isCorrect: true
+    - content: <span data-ttu-id="65433-115">Office 365</span><span class="sxs-lookup"><span data-stu-id="65433-115">Office 365</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="65433-116">Dynamisk</span><span class="sxs-lookup"><span data-stu-id="65433-116">Dynamic</span></span>
+      isCorrect: false

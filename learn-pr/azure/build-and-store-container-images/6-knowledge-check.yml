@@ -1,0 +1,57 @@
+### YamlMime:ModuleUnit
+uid: learn.azure-container-registry.knowledge-check
+title: <span data-ttu-id="36ad1-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="36ad1-101">Knowledge check</span></span>
+metadata:
+  title: <span data-ttu-id="36ad1-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="36ad1-102">Knowledge check</span></span>
+  description: <span data-ttu-id="36ad1-103">Kunskapskontroll om Azure Container Registry.</span><span class="sxs-lookup"><span data-stu-id="36ad1-103">Azure Container Registry knowledge check.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: bccb45bd020a40f3e4c0246668630a6a150fc81b
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44244652"
+durationInMinutes: 5
+quiz:
+  title: <span data-ttu-id="36ad1-104">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="36ad1-104">Knowledge check</span></span>
+  questions:
+  - content: <span data-ttu-id="36ad1-105">Vilket av följande är inte en fördel med att använda Azure Container Registry?</span><span class="sxs-lookup"><span data-stu-id="36ad1-105">Which of the following is not a benefit of using Azure Container Registry?</span></span>
+    choices:
+    - content: <span data-ttu-id="36ad1-106">Replikera containeravbildningar till många Azure-datacenter.</span><span class="sxs-lookup"><span data-stu-id="36ad1-106">Replicate container images to many Azure datacenters.</span></span>
+      incorrectExplanation: <span data-ttu-id="36ad1-107">Det här görs med funktionen för georeplikering i Azure Container Registry.</span><span class="sxs-lookup"><span data-stu-id="36ad1-107">The Azure Container Registry geo-replication feature enables this.</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="36ad1-108">Hämta containeravbildningar från Container Registry med valfri teknik för Docker-containers.</span><span class="sxs-lookup"><span data-stu-id="36ad1-108">Pull container images from Container Registry using any Docker container-related technology.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="36ad1-109">Container Registry kan användas med valfri Docker-relaterad teknik.</span><span class="sxs-lookup"><span data-stu-id="36ad1-109">Container Registry can be used with all Docker-related technology.</span></span>
+    - content: <span data-ttu-id="36ad1-110">Göra containeravbildningar offentligt tillgängliga för hämtningsåtgärder.</span><span class="sxs-lookup"><span data-stu-id="36ad1-110">Make container images publicly available for pull operations.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="36ad1-111">Container Registry är ett privat register.</span><span class="sxs-lookup"><span data-stu-id="36ad1-111">Container Registry is a private registry.</span></span> <span data-ttu-id="36ad1-112">Avbildningar som lagras i Container Registry kan inte användas utan autentisering.</span><span class="sxs-lookup"><span data-stu-id="36ad1-112">Images stored in Container Registry cannot be accessed without authentication.</span></span>
+    - content: <span data-ttu-id="36ad1-113">Skapa containeravbildningar utan lokalt installerade Docker-verktyg.</span><span class="sxs-lookup"><span data-stu-id="36ad1-113">Build container images without the need for locally installed Docker tools.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="36ad1-114">Du kan skapa containeravbildningar i molnet med Azure Container Registry Build.</span><span class="sxs-lookup"><span data-stu-id="36ad1-114">Container images can be built in the cloud using Azure Container Registry Build.</span></span>
+  - content: <span data-ttu-id="36ad1-115">Vilken autentiseringsmetod rekommenderas för Azure Container Registry?</span><span class="sxs-lookup"><span data-stu-id="36ad1-115">What is the recommended authentication method for Azure Container Registry?</span></span>
+    choices:
+    - content: <span data-ttu-id="36ad1-116">Administratörskonto.</span><span class="sxs-lookup"><span data-stu-id="36ad1-116">Admin account.</span></span>
+      incorrectExplanation: <span data-ttu-id="36ad1-117">Även om du kan skapa ett administratörskonto för Azure Container Registry så är inte det här den autentiseringsmetod som rekommenderas.</span><span class="sxs-lookup"><span data-stu-id="36ad1-117">Although an admin account can be created for Azure Container Registry, this is not the recommended authentication method.</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="36ad1-118">Användarnamn och lösenord.</span><span class="sxs-lookup"><span data-stu-id="36ad1-118">User name and password.</span></span>
+      incorrectExplanation: <span data-ttu-id="36ad1-119">Du kan aktivera ett containerregister i Azure för administratörskonton med användarnamn och lösenord.</span><span class="sxs-lookup"><span data-stu-id="36ad1-119">An Azure container registry can be admin-account enabled, which provides a user name and password.</span></span> <span data-ttu-id="36ad1-120">Det här är dock inte den autentiseringsmetod som rekommenderas.</span><span class="sxs-lookup"><span data-stu-id="36ad1-120">However, this is not the recommended authentication method.</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="36ad1-121">Huvudnamn för Azure-tjänsten.</span><span class="sxs-lookup"><span data-stu-id="36ad1-121">Azure service principal.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="36ad1-122">Med huvudnamn för Azure-tjänsten får du detaljerad åtkomst till containeravbildningar i Azure Container Registry.</span><span class="sxs-lookup"><span data-stu-id="36ad1-122">Azure service principals provide granular access to container images in Azure Container Registry.</span></span> <span data-ttu-id="36ad1-123">Du kan ge skrivskyddad eller fullständig åtkomst till containerregistret med ett huvudnamn för tjänsten.</span><span class="sxs-lookup"><span data-stu-id="36ad1-123">Using a service principal, read-only and full access can be provided to the container registry.</span></span>
+    - content: <span data-ttu-id="36ad1-124">Ingen autentisering.</span><span class="sxs-lookup"><span data-stu-id="36ad1-124">No authentication.</span></span>
+      incorrectExplanation: <span data-ttu-id="36ad1-125">Azure Container Registry är ett privat register och kan inte användas utan autentisering.</span><span class="sxs-lookup"><span data-stu-id="36ad1-125">Azure Container Registry is a private registry and cannot be accessed without authentication..</span></span>
+      isCorrect: false
+  - content: <span data-ttu-id="36ad1-126">Georeplikering är tillgänglig i standard-SKU:n för Container Registry.</span><span class="sxs-lookup"><span data-stu-id="36ad1-126">Geo-replication is available in the Container Registry Standard SKU.</span></span>
+    choices:
+    - content: <span data-ttu-id="36ad1-127">Sant.</span><span class="sxs-lookup"><span data-stu-id="36ad1-127">True.</span></span>
+      incorrectExplanation: <span data-ttu-id="36ad1-128">Georeplikering är bara tillgängligt i premium-SKU:n.</span><span class="sxs-lookup"><span data-stu-id="36ad1-128">Geo-replication is only available in the Premium SKU.</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="36ad1-129">Falskt.</span><span class="sxs-lookup"><span data-stu-id="36ad1-129">False.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="36ad1-130">Georeplikering är bara tillgängligt i premium-SKU:n.</span><span class="sxs-lookup"><span data-stu-id="36ad1-130">Geo-replication is only available in the Premium SKU.</span></span>

@@ -1,0 +1,36 @@
+### YamlMime:ZonePivotGroups
+groups:
+- id: platform
+  title: <span data-ttu-id="0f072-101">Plattform</span><span class="sxs-lookup"><span data-stu-id="0f072-101">Platform</span></span>
+  prompt: <span data-ttu-id="0f072-102">Välj din plattform</span><span class="sxs-lookup"><span data-stu-id="0f072-102">Choose your platform</span></span>
+  pivots:
+  - id: linux
+    title: <span data-ttu-id="0f072-103">Linux</span><span class="sxs-lookup"><span data-stu-id="0f072-103">Linux</span></span>
+  - id: macos
+    title: <span data-ttu-id="0f072-104">Mac</span><span class="sxs-lookup"><span data-stu-id="0f072-104">Mac</span></span>
+  - id: windows
+    title: <span data-ttu-id="0f072-105">Windows</span><span class="sxs-lookup"><span data-stu-id="0f072-105">Windows</span></span>
+- id: azure-interface
+  title: <span data-ttu-id="0f072-106">Gränssnitt</span><span class="sxs-lookup"><span data-stu-id="0f072-106">Shell</span></span>
+  prompt: <span data-ttu-id="0f072-107">Välj ditt gränssnitt</span><span class="sxs-lookup"><span data-stu-id="0f072-107">Choose your shell</span></span>
+  pivots:
+  - id: bash
+    title: <span data-ttu-id="0f072-108">Bash</span><span class="sxs-lookup"><span data-stu-id="0f072-108">Bash</span></span>
+  - id: powershell
+    title: <span data-ttu-id="0f072-109">PowerShell</span><span class="sxs-lookup"><span data-stu-id="0f072-109">PowerShell</span></span>
+  - id: portal
+    title: <span data-ttu-id="0f072-110">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="0f072-110">Azure Portal</span></span>
+- id: dev-lang-csharp-javascript
+  title: <span data-ttu-id="0f072-111">Programmeringsspråk</span><span class="sxs-lookup"><span data-stu-id="0f072-111">Development language</span></span>
+  prompt: <span data-ttu-id="0f072-112">Välj programmeringsspråk</span><span class="sxs-lookup"><span data-stu-id="0f072-112">Choose your development language</span></span>
+  pivots:
+  - id: csharp
+    title: <span data-ttu-id="0f072-113">C#</span><span class="sxs-lookup"><span data-stu-id="0f072-113">C#</span></span>
+  - id: javascript
+    title: <span data-ttu-id="0f072-114">JavaScript</span><span class="sxs-lookup"><span data-stu-id="0f072-114">JavaScript</span></span>
+ms.openlocfilehash: 6bdb1a03e05a73616680b36556d2b7b4c10a72ed
+ms.sourcegitcommit: 8ba1bd81151f2974ba52bb5b953e210e382b2cad
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44145068"

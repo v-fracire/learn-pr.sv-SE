@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.manage-secrets-with-azure-key-vault.4-authentication-with-managed-identities-for-azure-resources
+title: <span data-ttu-id="a805b-101">Valvautentisering med hanterade identiteter för Azure-resurser</span><span class="sxs-lookup"><span data-stu-id="a805b-101">Vault authentication with managed identities for Azure resources</span></span>
+metadata:
+  title: <span data-ttu-id="a805b-102">Valvautentisering med hanterade identiteter för Azure-resurser</span><span class="sxs-lookup"><span data-stu-id="a805b-102">Vault authentication with managed identities for Azure resources</span></span>
+  description: <span data-ttu-id="a805b-103">Valvautentisering med hanterade identiteter för Azure-resurser</span><span class="sxs-lookup"><span data-stu-id="a805b-103">Vault authentication with managed identities for Azure resources</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: ef4baae7030580e8c6bbe9c7d2d8d4bb84bd42fc
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44238566"
+durationInMinutes: 4
+content: >
+  [!include[](includes/4-authentication-with-managed-identities-for-azure-resources.md)]
+quiz:
+  title: '<span data-ttu-id="a805b-104">Kunskapskontroll: Hanterade identiteter för Azure-resurser</span><span class="sxs-lookup"><span data-stu-id="a805b-104">Knowledge check: Managed identities for Azure resources</span></span>'
+  questions:
+  - content: <span data-ttu-id="a805b-105">Hur ändrar användningen av hanterade identiteter för Azure-resurser hur en app autentiserar till Azure Key Vault?</span><span class="sxs-lookup"><span data-stu-id="a805b-105">How does using managed identities for Azure resources change the way an app authenticates to Azure Key Vault?</span></span>
+    choices:
+    - content: <span data-ttu-id="a805b-106">Appen använder ett certifikat för att autentisera i stället för en hemlighet.</span><span class="sxs-lookup"><span data-stu-id="a805b-106">The app uses a certificate to authenticate instead of a secret.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a805b-107">Appar *kan* använda hemligheter eller certifikat för att hämta autentiseringstoken från Azure Active Directory, men med hanterade identiteter behöver de inte det.</span><span class="sxs-lookup"><span data-stu-id="a805b-107">Apps *can* use secrets or certificates to get authentication tokens from Azure Active Directory, but with managed identities they don't have to.</span></span>
+    - content: <span data-ttu-id="a805b-108">Varje användare måste ange ett lösenord.</span><span class="sxs-lookup"><span data-stu-id="a805b-108">Each user of the app must enter a password.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a805b-109">Det är *appen* som autentiserar till Key Vault, inte enskilda användare av appen.</span><span class="sxs-lookup"><span data-stu-id="a805b-109">It is the *app* that authenticates to Key Vault, not individual users of the app.</span></span> <span data-ttu-id="a805b-110">Användning av hanterade identiteter påverkar inte om din app kräver autentisering från användarna.</span><span class="sxs-lookup"><span data-stu-id="a805b-110">Use of a managed identity does not impact whether or not your app requires authentication from your users.</span></span>
+    - content: <span data-ttu-id="a805b-111">Appen hämtar token från en tokentjänst som drivs av funktionen för hanterade identiteter i stället för Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="a805b-111">The app gets tokens from a token service powered by the managed identities feature instead of from Azure Active Directory.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="a805b-112">Tokentjänsten för hanterade identiteter hämtar token från Azure Active Directory för din app och gör så att din app kan autentisera med en hemlighet som matas in i miljövariablerna.</span><span class="sxs-lookup"><span data-stu-id="a805b-112">The managed identities token service gets tokens from Azure Active Directory on behalf of your app, and allows your app to authenticate with a secret injected into its envirionment variables.</span></span>
+    - content: <span data-ttu-id="a805b-113">Hanterade identiteter identifieras automatiskt av Key Vault och autentiseras automatiskt.</span><span class="sxs-lookup"><span data-stu-id="a805b-113">Managed identities are automatically recognized by Key Vault and authenticated automatically.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a805b-114">Key Vault kontrollerar och hanterar inte identiteter.</span><span class="sxs-lookup"><span data-stu-id="a805b-114">Key Vault does not control or manage identities.</span></span> <span data-ttu-id="a805b-115">Identiteter finns i Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="a805b-115">Identities exist within Azure Active Directory.</span></span>
+  - content: <span data-ttu-id="a805b-116">Vilket av följande påståenden beskriver en viktig fördel med att använda hanterade identiteter för Azure-resurser för att autentisera en app för Key Vault?</span><span class="sxs-lookup"><span data-stu-id="a805b-116">Which one of these statements describes a primary benefit of using managed identities for Azure resources to authenticate an app to Key Vault?</span></span>
+    choices:
+    - content: <span data-ttu-id="a805b-117">Användning av hanterade identiteter förbättrar programmets prestanda.</span><span class="sxs-lookup"><span data-stu-id="a805b-117">Using managed identities improves application performance.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a805b-118">Användning av hanterade identiteter för Azure-resurser har ingen påverkan på programmets prestanda.</span><span class="sxs-lookup"><span data-stu-id="a805b-118">Use of managed identities for Azure resources has no effect on your application's performance.</span></span>
+    - content: <span data-ttu-id="a805b-119">Hanterade identiteter eliminerar behovet av att hantera hemligheter i konfigurationen.</span><span class="sxs-lookup"><span data-stu-id="a805b-119">Managed identities eliminate the need to handle secrets in configuration.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="a805b-120">Din app autentiserar till tokentjänsten för hanterade identiteter med en hemlighet som matas in i dess miljövariabler vid körning, vilket eliminerar behovet av att lagra hemligheter i konfigurationen.</span><span class="sxs-lookup"><span data-stu-id="a805b-120">Your app authenticates to the managed identities token service with a secret injected into its environment variables at runtime, eliminating the need to store secrets in configuration.</span></span>
+    - content: <span data-ttu-id="a805b-121">Hanterade identiteter beviljas automatiskt behörigheter för Key Vault.</span><span class="sxs-lookup"><span data-stu-id="a805b-121">Managed identities are automatically granted Key Vault permissions.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a805b-122">Alla identiteter, inklusive hanterade identiteter, måste uttryckligen beviljas behörigheter i ett valv.</span><span class="sxs-lookup"><span data-stu-id="a805b-122">All identities, including managed identities, must be explicitly granted permissions within a vault.</span></span>
+    - content: <span data-ttu-id="a805b-123">Hanterade identiteter gör det enklare att välja lösenord för fjärrtjänster.</span><span class="sxs-lookup"><span data-stu-id="a805b-123">Managed identities make it easier to choose passwords for remote services.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="a805b-124">Funktionen för hanterade identiteter har ingen effekt på hemligheter eller arbetsflöden för autentisering med fjärrtjänster.</span><span class="sxs-lookup"><span data-stu-id="a805b-124">The managed identities feature has no effect on your secrets or authentication workflows with remote services.</span></span> <span data-ttu-id="a805b-125">Användning av hanterade identiteter påverkar endast hur din app autentiserar till Key Vault.</span><span class="sxs-lookup"><span data-stu-id="a805b-125">Using a managed identity only impacts how your app authenticates to Key Vault.</span></span>

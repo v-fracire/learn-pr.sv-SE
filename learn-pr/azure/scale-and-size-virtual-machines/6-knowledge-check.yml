@@ -1,0 +1,39 @@
+### YamlMime:ModuleUnit
+uid: learn.scale-and-size-virtual-machines.6-knowledge-check
+title: '<span data-ttu-id="25f05-101">Kunskapskontroll: Skala och storleksändra virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="25f05-101">Knowledge check: Scale and size virtual machines</span></span>'
+durationInMinutes: 3
+metadata:
+  title: '<span data-ttu-id="25f05-102">Kunskapskontroll: Skala och storleksändra virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="25f05-102">Knowledge check: Scale and size virtual machines</span></span>'
+  description: <span data-ttu-id="25f05-103">Frågor om att skala och ändra storlek på virtuella datorer i Azure.</span><span class="sxs-lookup"><span data-stu-id="25f05-103">Questions about scaling and sizing virtual machines in Azure.</span></span>
+  ms.openlocfilehash: 8c27602c6efc9f5c1f581ff176b561a378a82309
+  ms.sourcegitcommit: 4d2d6d8c52fa24ae1c5c06cf4cb3afa09d8c8363
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44255500"
+quiz:
+  title: '<span data-ttu-id="25f05-104">Kunskapskontroll: Skala och storleksändra virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="25f05-104">Knowledge check: Scale and size virtual machines</span></span>'
+  questions:
+  - content: '<span data-ttu-id="25f05-105">Sant eller falskt: När du använder VM-skalningsuppsättningar med automatisk skalning, kan reglerna för automatisk skalning konfigureras till att ändra _storlek_ på de virtuella datorerna i din skalningsuppsättning.</span><span class="sxs-lookup"><span data-stu-id="25f05-105">True or false: when using virtual machine scale sets with autoscale, the autoscale rules can be configured to change the _size_ of the virtual machines in your scale set.</span></span>'
+    choices:
+    - content: <span data-ttu-id="25f05-106">Sant</span><span class="sxs-lookup"><span data-stu-id="25f05-106">True</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="25f05-107">Falskt</span><span class="sxs-lookup"><span data-stu-id="25f05-107">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="25f05-108">Automatisk skalning ändrar antalet instanser i din skalningsuppsättning, men den ändrar inte storleken på instanserna.</span><span class="sxs-lookup"><span data-stu-id="25f05-108">Autoscale changes the number of instances in your scale set, it does not change the size of the instances.</span></span>
+  - content: <span data-ttu-id="25f05-109">Vad är vanligtvis det viktigaste kriteriet när du väljer en _typ_ för din virtuella dator?</span><span class="sxs-lookup"><span data-stu-id="25f05-109">What is typically the most important criterion to use when choosing a _type_ for your virtual machine?</span></span>
+    choices:
+    - content: <span data-ttu-id="25f05-110">Din arbetsbelastning, det vill säga den typ av åtgärder du förväntar dig att den virtuella datorn ska utföra oftast.</span><span class="sxs-lookup"><span data-stu-id="25f05-110">Your workload; that is, the kind of operations you expect the virtual machine to perform most often.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="25f05-111">Den virtuella datorns _typ_ beskriver vilken blandning av CPU, GPU, minne, lagring och nätverksbandbredd som allokeras till en virtuell dator.</span><span class="sxs-lookup"><span data-stu-id="25f05-111">Virtual machine _type_ describes the mix of CPU, GPU, memory, storage, and networking bandwidth allocated to a VM.</span></span> <span data-ttu-id="25f05-112">Målet är att hitta den bästa matchningen av resurser för din arbetsbelastning.</span><span class="sxs-lookup"><span data-stu-id="25f05-112">Your goal is to find the best match of resources for your workload.</span></span>
+    - content: <span data-ttu-id="25f05-113">Märket på den underliggande maskinvaran.</span><span class="sxs-lookup"><span data-stu-id="25f05-113">The brand of the underlying hardware.</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="25f05-114">De operativsystem och avbildningar som typen har stöd för.</span><span class="sxs-lookup"><span data-stu-id="25f05-114">The operating systems and images that the type supports.</span></span>
+      isCorrect: false
+  - content: <span data-ttu-id="25f05-115">Anta att du arbetar för en offentlig myndighet som är ansvarig för vädervarningar.</span><span class="sxs-lookup"><span data-stu-id="25f05-115">Suppose you work for a government department responsible for severe-weather alerts.</span></span> <span data-ttu-id="25f05-116">Du kan uppnå den prestanda du behöver med en stor virtuell dator eller två små virtuella datorer med en lastbalanserare.</span><span class="sxs-lookup"><span data-stu-id="25f05-116">You can achieve the performance you need using one large VM or two small VMs with a load balancer.</span></span> <span data-ttu-id="25f05-117">Vilken konfiguration är troligen det bästa alternativet?</span><span class="sxs-lookup"><span data-stu-id="25f05-117">Which configuration is likely to be a better choice?</span></span>
+    choices:
+    - content: <span data-ttu-id="25f05-118">En virtuell dator</span><span class="sxs-lookup"><span data-stu-id="25f05-118">One VM</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="25f05-119">Två virtuella datorer och lastbalanserare</span><span class="sxs-lookup"><span data-stu-id="25f05-119">Two VMs and a load balancer</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="25f05-120">Flera virtuella datorer är lämpligt eftersom det ger redundans.</span><span class="sxs-lookup"><span data-stu-id="25f05-120">Multiple VMs is appropriate because it provides redundancy.</span></span> <span data-ttu-id="25f05-121">Om någon av de virtuella datorerna kraschar, kan den andra fortsätta att hantera tjänstbegäranden.</span><span class="sxs-lookup"><span data-stu-id="25f05-121">If one of the VMs crashes, the other can continue to service requests.</span></span>

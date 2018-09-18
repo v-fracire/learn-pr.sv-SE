@@ -1,0 +1,41 @@
+### YamlMime:Module
+uid: learn.pillars-of-a-great-azure-architecture
+metadata:
+  title: Grundpelare för en bra Azure-arkitektur
+  description: Lära dig att skapa en framgångsrik arkitektur i Azure
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 57dfd27f19666959c1f15b4c7fc6b743ae015785
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44244720"
+title: Grundpelare för en bra Azure-arkitektur
+summary: Du vill skapa fantastiska saker i Azure, men du vet inte riktigt vad det innebär. En mängd verktyg och tjänster står till ditt förfogande i Azure, men vad är viktigt för att det ska gå bra? Hur kan du övertyga dina kunder om att deras data är säkra? Kan din arkitektur klara en trafiktopp om en mediarapport blir viral? Kan din arkitektur hantera fel på en eller flera viktiga komponenter? Använder du resurserna på det mest effektiva sättet? Om du använder viktiga principer i hela arkitekturen oavsett val av teknik kan du utforma, skapa och kontinuerligt förbättra arkitekturen.
+abstract: >
+  I den här modulen kommer du att göra följande:
+
+  - Identifiera viktiga principer för en arkitekturlösning i molnet
+
+  - Tillämpa viktiga principer för att skapa en stabil arkitekturgrund
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- intermediate
+roles:
+- solution-architect
+products:
+- azure
+units:
+- learn.pillars-of-a-great-azure-architecture.1-introduction
+- learn.pillars-of-a-great-azure-architecture.2-pillars-of-a-great-azure-architecture
+- learn.pillars-of-a-great-azure-architecture.3-design-for-security
+- learn.pillars-of-a-great-azure-architecture.4-design-for-performance-and-scalability
+- learn.pillars-of-a-great-azure-architecture.5-design-for-availability-and-recoverability
+- learn.pillars-of-a-great-azure-architecture.6-design-for-efficiency-and-operations
+- learn.pillars-of-a-great-azure-architecture.7-summary
+achievement: learn.pillars-of-a-great-azure-architecture.badge

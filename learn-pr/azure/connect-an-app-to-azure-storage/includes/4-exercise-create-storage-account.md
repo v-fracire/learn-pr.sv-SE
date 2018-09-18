@@ -1,0 +1,45 @@
+<span data-ttu-id="b4bd8-101">Nu när vi har en app behöver vi ett Azure-lagringskonto att arbeta med.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-101">Now that we have an app, we need an Azure storage account to work with.</span></span> <span data-ttu-id="b4bd8-102">Vi har skapat en med hjälp av Azure-portalen i modulen **Skapa ett Azure Storage-konto**.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-102">We created one using the Azure portal in the **Create an Azure storage account** module.</span></span> <span data-ttu-id="b4bd8-103">Den här gången ska vi använda CLI.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-103">Let's use the Azure CLI this time.</span></span>
+
+<!-- Activate the sandbox -->
+[!include[](../../../includes/azure-sandbox-activate.md)]
+
+## <a name="use-the-azure-cli-to-create-an-azure-storage-account"></a><span data-ttu-id="b4bd8-104">Skapa ett Azure-lagringskonto med hjälp av Azure CLI</span><span class="sxs-lookup"><span data-stu-id="b4bd8-104">Use the Azure CLI to create an Azure storage account</span></span>
+
+<span data-ttu-id="b4bd8-105">Vi använder kommandot `az storage account create` för att skapa det nya lagringskontot.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-105">We will use the `az storage account create` command to create a new storage account.</span></span> <span data-ttu-id="b4bd8-106">Det kräver flera parametrar som vi behöver tillhandahålla (eller bör) för att konfigurera på det sätt vi önskar.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-106">It takes several parameters which we either need to supply (or should) to configure it the way we want.</span></span>
+
+> [!div class="mx-tableFixed"]
+> | <span data-ttu-id="b4bd8-107">Alternativ</span><span class="sxs-lookup"><span data-stu-id="b4bd8-107">Option</span></span> | <span data-ttu-id="b4bd8-108">Beskrivning</span><span class="sxs-lookup"><span data-stu-id="b4bd8-108">Description</span></span> |
+> |--------|-------------|
+> | `--name` | <span data-ttu-id="b4bd8-109">Ett **namn på lagringskontot**.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-109">A **Storage account name**.</span></span> <span data-ttu-id="b4bd8-110">Namnet används för att generera den offentliga webbadress som används för att få åtkomst till data på kontot.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-110">The name will be used to generate the public URL used to access the data in the account.</span></span> <span data-ttu-id="b4bd8-111">Det måste vara unikt för alla befintliga lagringskontonamn i Azure.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-111">It must be unique across all existing storage account names in Azure.</span></span> <span data-ttu-id="b4bd8-112">Det måste vara 3 till 24 tecken långt och får bara innehålla gemena bokstäver och siffror.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-112">It must be 3 to 24 characters long and can contain only lowercase letters and numbers.</span></span> |
+> | `--resource-group` | <span data-ttu-id="b4bd8-113">Använd <rgn>[Sandbox-resursgruppnamn]</rgn> för att placera lagringskontot i den kostnadsfria sandbox-miljön.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-113">Use <rgn>[Sandbox resource group name]</rgn> to place the storage account into the free sandbox.</span></span> |
+> | `--location` | <span data-ttu-id="b4bd8-114">Välj en plats nära dig.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-114">Select a location near you.</span></span> |
+> | `--kind` | <span data-ttu-id="b4bd8-115">Det bestämmer lagringskontots _typ_.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-115">This determines the storage account _type_.</span></span> <span data-ttu-id="b4bd8-116">Bland alternativen finns BlobStorage, Storage och StorageV2.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-116">Options include BlobStorage, Storage, and StorageV2.</span></span> |
+> | `--sku` | <span data-ttu-id="b4bd8-117">Detta avgör lagringskontots prestanda och replikeringsmodell.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-117">This decides the storage account performance and replication model.</span></span> <span data-ttu-id="b4bd8-118">Till exempel Premium_LRS, Standard_GRS, Standard_LRS, Standard_RAGRS och Standard_ZRS.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-118">Options include Premium_LRS, Standard_GRS, Standard_LRS, Standard_RAGRS, and Standard_ZRS.</span></span> |
+> | `--access-tier` | <span data-ttu-id="b4bd8-119">**Åtkomstnivå** används endast för bloglagring, och de tillgängliga alternativen är lågfrekvent och frekvent.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-119">The **Access tier** is only used for Blob storage, available options are Cool and Hot.</span></span> <span data-ttu-id="b4bd8-120">**Frekvent åtkomstnivå** passar perfekt för data som används ofta, och **Lågfrekvent åtkomstnivå** passar bättre för data som inte används ofta.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-120">The **Hot Access Tier** is ideal for frequently accessed data, and the **Cool Access Tier** is better for infrequently accessed data.</span></span> <span data-ttu-id="b4bd8-121">Lägg märke till att detta endast ställer in _standardvärdet_ – när du skapar en blob kan du ställa in ett annat datavärde.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-121">Note that this only sets the _default_ value - when you create a Blob, you can set a different value for the data.</span></span> |
+    
+<span data-ttu-id="b4bd8-122">Använd tabellen ovan för att skapa en kommandorad i Cloud Shell till höger för att skapa kontot.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-122">Use the above table to craft a command line in the Cloud Shell on the right to create the account.</span></span>
+- <span data-ttu-id="b4bd8-123">Som ett unikt namn rekommenderar vi något i stil med ”fotolagring” med dina initialer och ett slumpmässigt tal.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-123">Use a unique name, we recommend something like "photostore" with your initials and a random number.</span></span> <span data-ttu-id="b4bd8-124">Du får ett felmeddelande om det inte är unikt.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-124">You will get an error if it's not unique.</span></span>
+- <span data-ttu-id="b4bd8-125">Vanligtvis skulle du skapa en ny resursgrupp för dina appresurser, i det här fallet Sandbox-resursgruppen.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-125">Normally you would create a new resource group to hold your app resources, in this case use the Sandbox resource group.</span></span>
+- <span data-ttu-id="b4bd8-126">Använd ”Standard_LRS” för **SKU:n**. Då används standardlagringen med lokal replikering vilket fungerar för det här exemplet.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-126">Use "Standard_LRS" for the **sku**, this will use standard storage with local replication which is fine for this example.</span></span>
+- <span data-ttu-id="b4bd8-127">Använd ”Lågfrekvent” som **Åtkomstnivå**.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-127">Use "Cold" for the **Access Tier**.</span></span>
+
+### <a name="selecting-a-location"></a><span data-ttu-id="b4bd8-128">Välja en plats</span><span class="sxs-lookup"><span data-stu-id="b4bd8-128">Selecting a location</span></span>
+<!-- Resource selection -->
+[!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
+
+### <a name="example-command"></a><span data-ttu-id="b4bd8-129">Exempelkommando</span><span class="sxs-lookup"><span data-stu-id="b4bd8-129">Example command</span></span>
+
+```bash
+az storage account create \
+        --name <name> \
+        --resource-group <rgn>[Sandbox resource group name]</rgn> \
+        --location <region> \
+        --kind StorageV2 \
+        --sku Standard_LRS \ 
+        --access-tier Cold
+```
+
+> [!TIP]
+> <span data-ttu-id="b4bd8-130">Om du är intresserad av att utforska alternativen för lagringskontot ska du se till att läsa **Skapa ett Azure Storage-konto** där vi går igenom dem detaljerat.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-130">If you are interested in exploring the options for the storage account, make sure to go through the **Create an Azure storage account** where we go through them in depth.</span></span>
+
+<span data-ttu-id="b4bd8-131">Det tar några minuter att distribuera kontot.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-131">It will take a few minutes to deploy the account.</span></span> <span data-ttu-id="b4bd8-132">Medan Azure arbetar med det ska vi ta en titt på API:erna vi ska använda med kontot.</span><span class="sxs-lookup"><span data-stu-id="b4bd8-132">While Azure is working on that, let's explore the APIs we'll use with this account.</span></span>

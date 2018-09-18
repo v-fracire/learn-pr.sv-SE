@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.5-encryption
+title: <span data-ttu-id="f8140-101">Kryptering</span><span class="sxs-lookup"><span data-stu-id="f8140-101">Encryption</span></span>
+metadata:
+  title: <span data-ttu-id="f8140-102">Kryptering</span><span class="sxs-lookup"><span data-stu-id="f8140-102">Encryption</span></span>
+  description: <span data-ttu-id="f8140-103">I det här avsnittet kommer vi att diskutera hur du använder kryptering för att skydda din arkitektur</span><span class="sxs-lookup"><span data-stu-id="f8140-103">In this unit we'll discuss how to use encryption to secure your architecture</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: ef8f0234387f53e61cb202bef34f6b581bbac48b
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44232684"
+durationInMinutes: 5
+content: >
+  [!include[](includes/5-encryption.md)]
+quiz:
+  title: <span data-ttu-id="f8140-104">Kunskapskontroll – Kryptering</span><span class="sxs-lookup"><span data-stu-id="f8140-104">Knowledge Check - Encryption</span></span>
+  questions:
+  - content: <span data-ttu-id="f8140-105">Det är bara virtuella Windows-datorer som kan använda Azure Disk Encryption</span><span class="sxs-lookup"><span data-stu-id="f8140-105">Only Windows virtual machines can use Azure Disk Encryption</span></span>
+    choices:
+    - content: <span data-ttu-id="f8140-106">Sant</span><span class="sxs-lookup"><span data-stu-id="f8140-106">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f8140-107">Azure Disk Encryption är tillgängligt för både virtuella Windows-datorer och virtuella Linux-datorer.</span><span class="sxs-lookup"><span data-stu-id="f8140-107">Azure Disk Encryption is available for both Windows and Linux virtual machines.</span></span>
+    - content: <span data-ttu-id="f8140-108">Falskt</span><span class="sxs-lookup"><span data-stu-id="f8140-108">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f8140-109">Azure Disk Encryption är tillgängligt för både virtuella Windows-datorer och virtuella Linux-datorer.</span><span class="sxs-lookup"><span data-stu-id="f8140-109">Azure Disk Encryption is available for both Windows and Linux virtual machines.</span></span>
+  - content: <span data-ttu-id="f8140-110">Vad av följande är en viktig faktor när du ska bestämma klassificeringen för data?</span><span class="sxs-lookup"><span data-stu-id="f8140-110">When classifying data, which of the following is a factor when determining its classification?</span></span>
+    choices:
+    - content: <span data-ttu-id="f8140-111">Risknivå för kunder om de exponeras</span><span class="sxs-lookup"><span data-stu-id="f8140-111">Level of risk posed to customers if exposed</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f8140-112">Hur stor risken är för kunder om data exponeras är en viktig faktor i klassificeringen av data.</span><span class="sxs-lookup"><span data-stu-id="f8140-112">The level of risk posed to customers if data is exposed is a key factor in its classification.</span></span>
+    - content: <span data-ttu-id="f8140-113">Metoden för dataöverföring</span><span class="sxs-lookup"><span data-stu-id="f8140-113">Method of data transport</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f8140-114">Dataöverföringsmetoden är viktig när data väl har klassificerats, men är inte en faktor för dess klassificering.</span><span class="sxs-lookup"><span data-stu-id="f8140-114">The method of data transport is important once data has been classified, but is not a factor in determining its classification.</span></span>
+    - content: <span data-ttu-id="f8140-115">Huruvida data lagras på virtuella datorer eller i en databas</span><span class="sxs-lookup"><span data-stu-id="f8140-115">Whether the data is stored on virtual machines or in a database</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f8140-116">Lagringsplatsen kan vara beroende av klassificeringen av data, men är inte en faktor när du bestämmer klassificeringen.</span><span class="sxs-lookup"><span data-stu-id="f8140-116">The location of storage may be dependant on the classification of data, but is not a factor when determining the classification.</span></span>
+    - content: <span data-ttu-id="f8140-117">Mängden data som lagras</span><span class="sxs-lookup"><span data-stu-id="f8140-117">The amount of data stored</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f8140-118">Mängden data som lagras är inte relevant för dataklassificeringen.</span><span class="sxs-lookup"><span data-stu-id="f8140-118">The amount of data being stored is irrelevant in its classification.</span></span>

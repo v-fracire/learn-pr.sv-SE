@@ -1,0 +1,30 @@
+<span data-ttu-id="a183d-101">Raspberry Pi-tavlor har fått mycket uppmärksamhet på sistone för att testa teorier eller för att skapa häftiga saker.</span><span class="sxs-lookup"><span data-stu-id="a183d-101">Raspberry Pi boards have garnered much interest of late for testing theories or event making cool things.</span></span> <span data-ttu-id="a183d-102">Kostnaden för de här tavlorna är låg, men vissa kan ändå vara intresserade av att testa funktionen hos Raspberry Pi innan de investerar i en.</span><span class="sxs-lookup"><span data-stu-id="a183d-102">While the cost on this boards are quite low, some may be interested in testing out the Raspberry Pi functionality before investing in one.</span></span>
+
+<span data-ttu-id="a183d-103">Microsoft har byggt en Raspberry Pi-onlinesimulator så att användarna kan styra emulerade maskinvaran via kod.</span><span class="sxs-lookup"><span data-stu-id="a183d-103">Microsoft has built an online Raspberry Pi simulator allowing users to control the emulated hardware via code.</span></span> <span data-ttu-id="a183d-104">Emulatorn visar en bild av en Raspberry Pi som är ansluten till en sensor för temperatur, fuktighet och tryck samt en röd LED via kopplingsdäck så att kretsarna vara kopplas ihop.</span><span class="sxs-lookup"><span data-stu-id="a183d-104">The emulator portrays a graphic of a Raspberry Pi connected to a temperature, humidity, pressure sensor, and a red LED via breadboard allowing circuits to be wired together.</span></span> <span data-ttu-id="a183d-105">Den sidopanel som visas gör att användare kan ange Node.js JavaScript-kod för att styra LED:n och samla in testdata från den simulerade sensorn.</span><span class="sxs-lookup"><span data-stu-id="a183d-105">The displayed side panel allows users to enter Node.js JavaScript code to control the LED and collect dummy data from the simulated sensor.</span></span>
+
+<span data-ttu-id="a183d-106">Vid den första körningen kör simulatorn ett exempelprogram för temperaturavläsning som visas via kommandoraden.</span><span class="sxs-lookup"><span data-stu-id="a183d-106">At first run, the simulator operates a sample temperature capture program which is displayed via the command line.</span></span> <span data-ttu-id="a183d-107">Samma exempelprogram kan även köras på en verklig Pi eftersom simulatorn är utformad så att användare kan testa kod innan de överför den till en riktig enhet.</span><span class="sxs-lookup"><span data-stu-id="a183d-107">The same sample application can also be run on a real Pi as the simulator is designed to allow people to test code before transferring it to a real device.</span></span>
+
+## <a name="web-simulator"></a><span data-ttu-id="a183d-108">Webbsimulator</span><span class="sxs-lookup"><span data-stu-id="a183d-108">Web simulator</span></span>
+
+<span data-ttu-id="a183d-109">Det finns tre områden i webbsimulatorn:</span><span class="sxs-lookup"><span data-stu-id="a183d-109">There are three areas in the web simulator:</span></span>
+
+1.  <span data-ttu-id="a183d-110">Sammansättningsområdeet – standardkretsen är att en Pi ansluts till en BME280-sensor och en LED.</span><span class="sxs-lookup"><span data-stu-id="a183d-110">Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED.</span></span> <span data-ttu-id="a183d-111">Området är låst i förhandsversionen, så för tillfället går det inte att göra anpassningar.</span><span class="sxs-lookup"><span data-stu-id="a183d-111">The area is locked in preview version so currently you cannot do customization.</span></span>
+
+2.  <span data-ttu-id="a183d-112">Kodningsområdet – en onlinekodredigerare så att du kan köra med Raspberry Pi.</span><span class="sxs-lookup"><span data-stu-id="a183d-112">Coding area - An online code editor for you to code with Raspberry Pi.</span></span> <span data-ttu-id="a183d-113">Standardexempelprogrammet hjälper till att samla in sensordata från BME280-sensorn och skickar till din Azure IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="a183d-113">The default sample application helps to collect sensor data from BME280 sensor and sends to your Azure IoT Hub.</span></span> <span data-ttu-id="a183d-114">Programmet är helt kompatibelt med verkliga Pi-enheter.</span><span class="sxs-lookup"><span data-stu-id="a183d-114">The application is fully compatible with real Pi devices.</span></span>
+
+3.  <span data-ttu-id="a183d-115">Integrerat konsolfönster – visar utdata för din kod.</span><span class="sxs-lookup"><span data-stu-id="a183d-115">Integrated console window - It shows the output of your code.</span></span> <span data-ttu-id="a183d-116">Längst upp i det här fönstret finns tre knappar.</span><span class="sxs-lookup"><span data-stu-id="a183d-116">At the top of this window, there are three buttons.</span></span>
+
+    -   <span data-ttu-id="a183d-117">**Run** (Kör) – kör programmet i kodningsområdet.</span><span class="sxs-lookup"><span data-stu-id="a183d-117">**Run** - Run the application in the coding area.</span></span>
+
+    -   <span data-ttu-id="a183d-118">**Reset** (Återställ) – återställ kodningsområdet till standardexempelprogrammet.</span><span class="sxs-lookup"><span data-stu-id="a183d-118">**Reset** - Reset the coding area to the default sample application.</span></span>
+
+    -   <span data-ttu-id="a183d-119">**Fold/Expand** (Vik/expandera) – på höger sida finns det en knapp som viker/expanderar konsolfönstret.</span><span class="sxs-lookup"><span data-stu-id="a183d-119">**Fold/Expand** - On the right side there is a button for you to fold/expand the console window.</span></span>
+
+[<span data-ttu-id="a183d-120">Översiktsbild av Pi-onlinesimulatorn</span><span class="sxs-lookup"><span data-stu-id="a183d-120">Overview image of Pi online simulator</span></span>](./../media-draft/image1.png)
+
+<!-- Reference links 
+-   Online Raspberry Pi Emulator:
+    <https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started>
+
+-   <https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted>-->
+

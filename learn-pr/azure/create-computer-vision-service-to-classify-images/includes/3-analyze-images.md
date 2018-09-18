@@ -1,0 +1,29 @@
+<span data-ttu-id="159df-101">I den här delen analyserar du bilder med tjänsten API för visuellt innehåll som vi skapade i föregående steg.</span><span class="sxs-lookup"><span data-stu-id="159df-101">In this unit, you will analyze images with the Computer Vision API service that we created in the previous step.</span></span>
+
+# <a name="analyzing-an-image-with-computer-vision-api"></a><span data-ttu-id="159df-102">Analysera en bild med API för visuellt innehåll</span><span class="sxs-lookup"><span data-stu-id="159df-102">Analyzing an image with Computer Vision API</span></span>
+
+<span data-ttu-id="159df-103">Genom att köra kommandot `az cognitiveservices account keys list` hämtas en nyckel som används för att autentisera mot API:t.</span><span class="sxs-lookup"><span data-stu-id="159df-103">Execute the `az cognitiveservices account keys list` command to retrieve a key used to authenticate against the API.</span></span> <span data-ttu-id="159df-104">Lagra utdata från kommandot inom variabeln `key`.</span><span class="sxs-lookup"><span data-stu-id="159df-104">Store the output of that command within the `key` variable.</span></span>
+
+```azurecli
+key=$(az cognitiveservices account keys list -g ComputerVisionRG --name ComputerVisionService --query key1 -o tsv)
+```
+
+<span data-ttu-id="159df-105">När du kör kommandot `curl` görs en HTTP-begäran till API för visuellt innehåll. Återanvänd därefter den nyss deklarerade variabeln `key`.</span><span class="sxs-lookup"><span data-stu-id="159df-105">Execute a `curl` command to do an HTTP request against the Computer Vision API and reuse the previously declared variable `key`.</span></span>
+
+<span data-ttu-id="159df-106">De parametrar som skickas till tjänsten är: `visualFeatures`, `details` och `languages`.</span><span class="sxs-lookup"><span data-stu-id="159df-106">The parameters that are sent to the service are `visualFeatures`, `details`, and `languages`.</span></span> <span data-ttu-id="159df-107">Tjänsten kan fortfarande fungera utan dem, men de hjälper tjänsten att förstå bildernas innehåll.</span><span class="sxs-lookup"><span data-stu-id="159df-107">While without them, the service will still work, it provides hints to the service on the content of the images.</span></span> <span data-ttu-id="159df-108">Till exempel kan `details` anges för `Landmarks` eller `Celebrities` och hjälpa dig att identifiera sevärdheter eller kändisar.</span><span class="sxs-lookup"><span data-stu-id="159df-108">As an example, `details` can be set to `Landmarks` or `Celebrities` to help you identify landmarks or celebrities.</span></span> <span data-ttu-id="159df-109">`visualFeatures` identifierar vilken slags information du vill att tjänsten ska returnera åt dig.</span><span class="sxs-lookup"><span data-stu-id="159df-109">`visualFeatures` identify what kind of information you want the service to return you.</span></span> <span data-ttu-id="159df-110">Alternativet `Categories` kategoriserar bildernas innehåll, till exempel träd, byggnader med mera.</span><span class="sxs-lookup"><span data-stu-id="159df-110">The `Categories` option will categorize the content of the images like trees, buildings, and more.</span></span> <span data-ttu-id="159df-111">`Faces` identifierar personernas ansikten och visar deras kön och ålder.</span><span class="sxs-lookup"><span data-stu-id="159df-111">`Faces` will identify people's faces and give you their gender and age.</span></span>
+
+<span data-ttu-id="159df-112">Mer information finns i [dokumentationen](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa).</span><span class="sxs-lookup"><span data-stu-id="159df-112">More details can be found in [the documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa).</span></span>
+
+<span data-ttu-id="159df-113">För tillfället ska vi identifiera sevärdheter och låta tjänsten returnera `Categories` och `Description`.</span><span class="sxs-lookup"><span data-stu-id="159df-113">For now, let's identify landmarks and have the service return us `Categories` and `Description`.</span></span>
+
+```azurecli
+curl -H "Ocp-Apim-Subscription-Key: $key" -H "Content-Type: application/json" "https://westus2.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service/mountains.jpg\"}"
+```
+
+<span data-ttu-id="159df-114">Resultatet av begäran är JSON-rådatafilen som har en beskrivning av bilden i sitt `url`.</span><span class="sxs-lookup"><span data-stu-id="159df-114">The result of the request is the raw JSON describing the picture in the `url`.</span></span> <span data-ttu-id="159df-115">Vi kan också lägga till ` | jq '.'` på slutet om vi vill göra JSON-utdatan snyggare.</span><span class="sxs-lookup"><span data-stu-id="159df-115">We can also add ` | jq '.'` at the end to prettify the JSON output.</span></span>
+
+```azurecli
+curl -H "Ocp-Apim-Subscription-Key: $key" -H "Content-Type: application/json" "https://westus2.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service/mountains.jpg\"}" | jq '.'
+```
+
+<span data-ttu-id="159df-116">Kopiera länken till valfri bild online och testa den med tjänsten genom att ersätta URL-adressen i kommandona ovan.</span><span class="sxs-lookup"><span data-stu-id="159df-116">Copy the link to any other images found online, and try it with the service by replacing the URL in the above commands.</span></span>

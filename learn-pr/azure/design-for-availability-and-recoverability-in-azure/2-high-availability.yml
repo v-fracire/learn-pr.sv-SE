@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-availability-and-recoverability.2-high-availability
+title: <span data-ttu-id="db233-101">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="db233-101">Build a highly available architecture</span></span>
+metadata:
+  title: <span data-ttu-id="db233-102">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="db233-102">Build a highly available architecture</span></span>
+  description: <span data-ttu-id="db233-103">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="db233-103">Build a highly available architecture</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: e79f3bce5e25dd0f92602b9880cb6d6df99b8fa0
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44247695"
+durationInMinutes: 20
+content: >
+  [!include[](includes/2-high-availability.md)]
+quiz:
+  title: <span data-ttu-id="db233-104">Knowledge Check – Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="db233-104">Knowledge Check - Build a highly available architecture</span></span>
+  questions:
+  - content: <span data-ttu-id="db233-105">Ett serviceavtal är viktigt att definiera för tjänsten eftersom</span><span class="sxs-lookup"><span data-stu-id="db233-105">An SLA is important to define for your service because</span></span>
+    choices:
+    - content: <span data-ttu-id="db233-106">Det hjälper dig att fastställa krav för kvarhållning av säkerhetskopior</span><span class="sxs-lookup"><span data-stu-id="db233-106">It helps you determine your backup retention requirements</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="db233-107">Det är viktigt att definiera kvarhållning av säkerhetskopior, men det styrs inte av serviceavtal.</span><span class="sxs-lookup"><span data-stu-id="db233-107">Backup retention is important to define, but is not driven by SLA.</span></span>
+    - content: <span data-ttu-id="db233-108">Det hjälper dig att fastställa tillgängligheten för tjänsten som du erbjuder kunderna</span><span class="sxs-lookup"><span data-stu-id="db233-108">It helps you determine the availablity of your service you will commit to your customers</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="db233-109">Serviceavtal är ett åtagande som du gör för kunderna för tjänstens tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="db233-109">Service level agreement is a commitement you are making to your customers for the availability of your service.</span></span>
+    - content: <span data-ttu-id="db233-110">Du kan använda det för att övertyga din chef att automatisera skapandet av virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="db233-110">You can use it to convince your manager to automate virtual machine creation</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="db233-111">Samtidigt som det är bra att ha den diskussionen är det inte sannolikt att serviceavtalet påverkar resultatet.</span><span class="sxs-lookup"><span data-stu-id="db233-111">While this is a good discussion to have, your SLA will likely not have any impact on the outcome.</span></span>
+    - content: <span data-ttu-id="db233-112">Du kan använda det för att definiera dina resursers RBAC-inställningar</span><span class="sxs-lookup"><span data-stu-id="db233-112">You use it to define the RBAC settings for your resources</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="db233-113">RBAC-inställningar är viktiga, men relaterar inte till programmets serviceavtal.</span><span class="sxs-lookup"><span data-stu-id="db233-113">RBAC settings are important, but are not related to the SLA of your application.</span></span>
+  - content: <span data-ttu-id="db233-114">Vilket av följande används inte i en arkitektur med hög tillgänglighet?</span><span class="sxs-lookup"><span data-stu-id="db233-114">Which of the following is not used in a highly available architecture?</span></span>
+    choices:
+    - content: <span data-ttu-id="db233-115">Belastningsutjämning</span><span class="sxs-lookup"><span data-stu-id="db233-115">Load balancing</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="db233-116">Belastningsutjämning används vanligen i en arkitektur med hög tillgänglighet för att distribuera belastning på tillgängliga system och ta bort misslyckade system från belastningen.</span><span class="sxs-lookup"><span data-stu-id="db233-116">Load balancing is typically used in a highly available architecture to distribute load to available systems and remove failed systems from load.</span></span>
+    - content: <span data-ttu-id="db233-117">Tillgänglighetszoner</span><span class="sxs-lookup"><span data-stu-id="db233-117">Availability zones</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="db233-118">Tillgänglighetszoner används i en arkitektur med hög tillgänglighet för att distribuera system till flera datacenter inom en region.</span><span class="sxs-lookup"><span data-stu-id="db233-118">Availability zones are used in a highly available architecture to distribute systems across multiple datacenters within a region.</span></span>
+    - content: <span data-ttu-id="db233-119">Tillgänglighetsuppsättningar</span><span class="sxs-lookup"><span data-stu-id="db233-119">Availability sets</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="db233-120">Tillgänglighetsuppsättningar används i en arkitektur med hög tillgänglighet för att minimera påverkan från lokaliserade fel och underhållshändelser.</span><span class="sxs-lookup"><span data-stu-id="db233-120">Availability sets are used in a highly available architecture to minimize impact from localized failures and maintenance events.</span></span>
+    - content: <span data-ttu-id="db233-121">Ett Recovery Service-valv</span><span class="sxs-lookup"><span data-stu-id="db233-121">A recovery service vault</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="db233-122">Recovery Service-valv tillhandahåller ett mål för säkerhetskopior, men är inte en del av en arkitektur med hög tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="db233-122">Recovery service vaults provide a destination for backups, but are not part of a highly available architecture.</span></span>

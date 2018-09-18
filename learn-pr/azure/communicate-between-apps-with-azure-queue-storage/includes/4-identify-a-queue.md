@@ -1,0 +1,63 @@
+<span data-ttu-id="b6d95-101">Nu när vi har ett lagringskonto kan vi titta närmare på hur vi arbetar med kön som kontot ska innehålla.</span><span class="sxs-lookup"><span data-stu-id="b6d95-101">Now that we have a storage account, let's look at how we work with the queue that it will hold.</span></span>
+
+<span data-ttu-id="b6d95-102">Du behöver tre uppgifter för att använda en kö:</span><span class="sxs-lookup"><span data-stu-id="b6d95-102">To access a queue, you need three pieces of information:</span></span>
+
+ 1. <span data-ttu-id="b6d95-103">Namn på lagringskontot</span><span class="sxs-lookup"><span data-stu-id="b6d95-103">Storage account name</span></span>
+ 2. <span data-ttu-id="b6d95-104">Könamn</span><span class="sxs-lookup"><span data-stu-id="b6d95-104">Queue name</span></span>
+ 3. <span data-ttu-id="b6d95-105">Auktoriseringstoken</span><span class="sxs-lookup"><span data-stu-id="b6d95-105">Authorization token</span></span>
+
+<span data-ttu-id="b6d95-106">Den här informationen används av båda programmen som pratar med kön (webbklientdelen som lägger till meddelanden och mellannivån som bearbetar dem).</span><span class="sxs-lookup"><span data-stu-id="b6d95-106">This information is used by both applications that talk to the queue (the web front end that adds messages and the mid-tier that processes them).</span></span>
+
+## <a name="queue-identity"></a><span data-ttu-id="b6d95-107">Köidentitet</span><span class="sxs-lookup"><span data-stu-id="b6d95-107">Queue identity</span></span>
+
+<span data-ttu-id="b6d95-108">Varje kö har ett namn som du tilldelar under skapandet.</span><span class="sxs-lookup"><span data-stu-id="b6d95-108">Every queue has a name that you assign during creation.</span></span> <span data-ttu-id="b6d95-109">Namnet måste vara unikt inom lagringskontot, men det behöver inte vara globalt unikt (till skillnad från namnet på lagringskontot).</span><span class="sxs-lookup"><span data-stu-id="b6d95-109">The name must be unique within your storage account but doesn't need to be globally unique (unlike the storage account name).</span></span>
+
+<span data-ttu-id="b6d95-110">Kombinationen av namnet på lagringskontot och könamnet ger en unik identifikation av kön.</span><span class="sxs-lookup"><span data-stu-id="b6d95-110">The combination of your storage account name and your queue name uniquely identifies a queue.</span></span>
+
+## <a name="access-authorization"></a><span data-ttu-id="b6d95-111">Åtkomstauktorisering</span><span class="sxs-lookup"><span data-stu-id="b6d95-111">Access authorization</span></span>
+
+<span data-ttu-id="b6d95-112">Varje begäran till en kö måste auktoriseras och det finns flera alternativ att välja bland.</span><span class="sxs-lookup"><span data-stu-id="b6d95-112">Every request to a queue must be authorized and there are several options to choose from.</span></span>
+
+| <span data-ttu-id="b6d95-113">Typ av auktorisering</span><span class="sxs-lookup"><span data-stu-id="b6d95-113">Authorization Type</span></span> | <span data-ttu-id="b6d95-114">Beskrivning</span><span class="sxs-lookup"><span data-stu-id="b6d95-114">Description</span></span> |
+|--------------------|-------------|
+| <span data-ttu-id="b6d95-115">**Azure Active Directory**</span><span class="sxs-lookup"><span data-stu-id="b6d95-115">**Azure Active Directory**</span></span> | <span data-ttu-id="b6d95-116">Du kan använda rollbaserad autentisering och identifiera specifika klienter baserat på AAD-autentiseringsuppgifterna.</span><span class="sxs-lookup"><span data-stu-id="b6d95-116">you can use role-based authentication and identify specific clients based on AAD credentials.</span></span> |
+| <span data-ttu-id="b6d95-117">**Delad nyckel**</span><span class="sxs-lookup"><span data-stu-id="b6d95-117">**Shared Key**</span></span> | <span data-ttu-id="b6d95-118">Det här kallas ibland för en **kontonyckel** och är en krypterad nyckelsignatur som är associerad med lagringskontot.</span><span class="sxs-lookup"><span data-stu-id="b6d95-118">Sometimes referred to as an **account key**, this is an encrypted key signature associated with the storage account.</span></span> <span data-ttu-id="b6d95-119">Varje lagringskonto har två sådana nycklar som kan skickas med varje begäran för att autentisera åtkomsten.</span><span class="sxs-lookup"><span data-stu-id="b6d95-119">Every storage account has two of these keys that can be passed with each request to authenticate access.</span></span> <span data-ttu-id="b6d95-120">Den här metoden fungerar ungefär som ett rotlösenord – den ger _fullständig åtkomst_ till lagringskontot.</span><span class="sxs-lookup"><span data-stu-id="b6d95-120">Using this approach is like using a root password - it provides _full access_ to the storage account.</span></span> |
+| <span data-ttu-id="b6d95-121">**Signatur för delad åtkomst**</span><span class="sxs-lookup"><span data-stu-id="b6d95-121">**Shared access signature**</span></span> | <span data-ttu-id="b6d95-122">En signatur för delad åtkomst (SAS) är en genererad URI som ger klienter begränsad åtkomst till objekt i lagringskontot.</span><span class="sxs-lookup"><span data-stu-id="b6d95-122">A shared access signature (SAS) is a generated URI that grants limited access to objects in your storage account to clients.</span></span> <span data-ttu-id="b6d95-123">Du kan begränsa åtkomsten till specifika resurser och behörigheter, och ange ett dataintervall för att automatiskt inaktivera åtkomsten efter en viss tidsperiod.</span><span class="sxs-lookup"><span data-stu-id="b6d95-123">You can restrict access to specific resources, permissions, and scope to a data range to automatically turn off access after a period of time.</span></span>  |
+
+> [!NOTE]
+> <span data-ttu-id="b6d95-124">Vi använder auktorisering med kontonyckel eftersom det är det enklaste sättet att komma igång med köer, men vi rekommenderar att du antingen använder signatur för delad åtkomst (SAS) eller Azure Active Directory (AAD) för appar i produktion.</span><span class="sxs-lookup"><span data-stu-id="b6d95-124">We will use the account key authorization because it is the simplest way to get started working with queues, however it's recommended that you either use shared access signature (SAS) or Azure Active Directory (AAD) in production apps.</span></span>
+
+### <a name="retrieving-the-account-key"></a><span data-ttu-id="b6d95-125">Hämta kontonyckeln</span><span class="sxs-lookup"><span data-stu-id="b6d95-125">Retrieving the account key</span></span>
+ 
+<span data-ttu-id="b6d95-126">Du hittar din kontonyckel under **Inställningar > Åtkomstnycklar** för lagringskontot i Azure Portal. Du kan också hämta den via kommandoraden:</span><span class="sxs-lookup"><span data-stu-id="b6d95-126">Your account key is available in the **Settings > Access keys** section of your storage account in the Azure portal, or you can retrieve it through the command line:</span></span>
+
+```azurecli
+az storage account keys list ...
+```
+
+```powershell
+Get-AzureRmStorageAccountKey ...
+```
+
+## <a name="accessing-queues"></a><span data-ttu-id="b6d95-127">Åtkomst till köer</span><span class="sxs-lookup"><span data-stu-id="b6d95-127">Accessing queues</span></span>
+
+<span data-ttu-id="b6d95-128">Du kan komma åt en kö via ett REST API.</span><span class="sxs-lookup"><span data-stu-id="b6d95-128">You access a queue using a REST API.</span></span> <span data-ttu-id="b6d95-129">Det gör du med en URL som kombinerar lagringskontots namn med domänen `queue.core.windows.net` och sökvägen till kön som du vill arbeta med.</span><span class="sxs-lookup"><span data-stu-id="b6d95-129">To do this, you'll use a URL that combines the name you gave the storage account with the domain `queue.core.windows.net` and the path to the queue you want to work with.</span></span> <span data-ttu-id="b6d95-130">Till exempel: `http://<storage account>.queue.core.windows.net/<queue name>`.</span><span class="sxs-lookup"><span data-stu-id="b6d95-130">For example: `http://<storage account>.queue.core.windows.net/<queue name>`.</span></span> <span data-ttu-id="b6d95-131">Du måste ta med en `Authorization`-rubrik i varje begäran.</span><span class="sxs-lookup"><span data-stu-id="b6d95-131">An `Authorization` header must be included with every request.</span></span> <span data-ttu-id="b6d95-132">Värdet kan vara någon av de tre typerna av auktorisering.</span><span class="sxs-lookup"><span data-stu-id="b6d95-132">The value can be any of the three authorization styles.</span></span>
+
+### <a name="using-the-azure-storage-client-library-for-net"></a><span data-ttu-id="b6d95-133">Använda Azure Storage-klientbiblioteket för .NET</span><span class="sxs-lookup"><span data-stu-id="b6d95-133">Using the Azure Storage Client Library for .NET</span></span>
+
+<span data-ttu-id="b6d95-134">Azure Storage-klientbiblioteket för .NET är ett bibliotek som tillhandahålls av Microsoft samt som formulerar REST-begäranden och parsar REST-svar åt dig.</span><span class="sxs-lookup"><span data-stu-id="b6d95-134">The Azure Storage Client Library for .NET is a library provided by Microsoft that formulates REST requests and parses REST responses for you.</span></span> <span data-ttu-id="b6d95-135">Detta minskar avsevärt den mängd kod som du behöver skriva.</span><span class="sxs-lookup"><span data-stu-id="b6d95-135">This greatly reduces the amount of code you need to write.</span></span> <span data-ttu-id="b6d95-136">När du får åtkomst med klientbiblioteket behöver du fortfarande samma uppgifter (lagringskontots namn, könamn och kontonyckel), men de är ordnade på ett annat sätt.</span><span class="sxs-lookup"><span data-stu-id="b6d95-136">Access using the client library still requires the same pieces of information (storage account name, queue name, and account key); however, they are organized differently.</span></span>
+
+<span data-ttu-id="b6d95-137">Klientbiblioteket använder en **anslutningssträng** för att upprätta din anslutning.</span><span class="sxs-lookup"><span data-stu-id="b6d95-137">The client library uses a **connection string** to establish your connection.</span></span> <span data-ttu-id="b6d95-138">Du hittar anslutningssträngen i avsnittet **Inställningar** för lagringskontot i Azure Portal. Du kan också använda Azure CLI eller PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b6d95-138">Your connection string is available in the **Settings** section of your Storage Account in the Azure portal, or through the Azure CLI and PowerShell.</span></span>
+
+<span data-ttu-id="b6d95-139">En anslutningssträng är en sträng med ett lagringskontonamn och en kontonyckel. Den måste vara känd för att programmet ska komma åt lagringskontot.</span><span class="sxs-lookup"><span data-stu-id="b6d95-139">A connection string is a string that combines a storage account name and account key and must be known to the application to access the storage account.</span></span> <span data-ttu-id="b6d95-140">Formatet ser ut ungefär så här:</span><span class="sxs-lookup"><span data-stu-id="b6d95-140">The format looks like this:</span></span>
+
+```csharp
+string connectionString = "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net"
+```
+
+> [!WARNING]
+> <span data-ttu-id="b6d95-141">Strängvärdet bör lagras på en säker plats eftersom alla som har åtkomst till den här anslutningssträngen kan göra ändringar i kön.</span><span class="sxs-lookup"><span data-stu-id="b6d95-141">This string value should be stored in a secure location since anyone who has access to this connection string would be able to manipulate the queue.</span></span>
+
+<span data-ttu-id="b6d95-142">Observera att anslutningssträngen inte innehåller könamnet.</span><span class="sxs-lookup"><span data-stu-id="b6d95-142">Notice that the connection string doesn't include the queue name.</span></span> <span data-ttu-id="b6d95-143">Könamnet anges i koden när du upprättar en anslutning till kön.</span><span class="sxs-lookup"><span data-stu-id="b6d95-143">The queue name is supplied in your code when you establish a connection to the queue.</span></span>
+
+<span data-ttu-id="b6d95-144">Vi hämtar vår anslutningssträng från Azure och konfigurerar ett nytt program som ska använda den.</span><span class="sxs-lookup"><span data-stu-id="b6d95-144">Let's get our connection string from Azure and set up a new application to use it.</span></span>

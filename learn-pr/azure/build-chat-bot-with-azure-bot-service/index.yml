@@ -1,0 +1,45 @@
+### YamlMime:Module
+uid: learn.build-azure-bot-services-bot
+metadata:
+  title: Skapa en chattrobot med Azure Bot Service
+  description: Azure Bot Service kan kombineras med Microsoft QnA Maker för att ge utvecklarna tillgång till verktyg som kan användas till att skapa och publicera intelligenta robotar som interagerar på ett naturligt sätt med användarna på en rad olika enheter.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 6b250aeb54c796d8eff4ff216bd15dcfe9c5660f
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44231290"
+title: Skapa en chattrobot med Azure Bot Service
+summary: Azure Bot Service kan kombineras med Microsoft QnA Maker för att ge utvecklarna tillgång till verktyg som kan användas till att skapa och publicera intelligenta robotar som interagerar på ett naturligt sätt med användarna på en rad olika enheter.
+abstract: >
+  I den här modulen gör du följande:
+    - Skapa en Azure Web App-robot som kan vara värd för en robot
+    - Skapa en kunskapsbas, fylla den med data och ansluta den till en robot
+    - Implementera robotar i koden och felsöka de robotar som du skapar
+    - Publicera robotar och använda kontinuerlig integrering för att hålla dem uppdaterade
+    - Felsöka robotar lokalt med hjälp av Visual Studio Code och Microsoft Bot Framework-emulatorn
+    - Ansluta en robot till Skype och interagera med den där
+prerequisites: Ingen
+iconUrl: http://via.placeholder.com/120x120
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+units:
+- learn.build-azure-bot-services-bot.1-introduction
+- learn.build-azure-bot-services-bot.2-create-web-app-bot
+- learn.build-azure-bot-services-bot.3-create-qna-maker
+- learn.build-azure-bot-services-bot.4-deploy-bot
+- learn.build-azure-bot-services-bot.5-debug-bot-locally
+- learn.build-azure-bot-services-bot.6-connect-to-knowledge-base
+- learn.build-azure-bot-services-bot.7-test-with-skype
+- learn.build-azure-bot-services-bot.8-knowledge-check
+- learn.build-azure-bot-services-bot.9-delete-env
+achievement: learn.build-azure-bot-services-bot.badge

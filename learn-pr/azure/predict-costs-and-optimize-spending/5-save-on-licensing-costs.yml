@@ -1,0 +1,39 @@
+### YamlMime:ModuleUnit
+uid: learn.predict-costs-and-optimize-spending.5-save-on-licensing-costs
+title: <span data-ttu-id="0533d-101">Sänk dina licenskostnader</span><span class="sxs-lookup"><span data-stu-id="0533d-101">Save on licensing costs</span></span>
+metadata:
+  title: <span data-ttu-id="0533d-102">Sänk dina licenskostnader</span><span class="sxs-lookup"><span data-stu-id="0533d-102">Save on licensing costs</span></span>
+  description: <span data-ttu-id="0533d-103">Sänk dina licenskostnader.</span><span class="sxs-lookup"><span data-stu-id="0533d-103">Save on licensing costs.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 67bea23d8d7fa49aed2edea8fb4400c84240ab3a
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44233704"
+durationInMinutes: 10
+content: >
+  [!include[](includes/5-save-on-licensing-costs.md)]
+quiz:
+  title: <span data-ttu-id="0533d-104">Sänk dina licenskostnader</span><span class="sxs-lookup"><span data-stu-id="0533d-104">Save on licensing costs</span></span>
+  questions:
+  - content: <span data-ttu-id="0533d-105">Om du redan har Windows Server-licenser måste du betala för dem igen i Azure.</span><span class="sxs-lookup"><span data-stu-id="0533d-105">If you already have Windows Server licenses, you have to pay for them again on Azure.</span></span>
+    choices:
+    - content: <span data-ttu-id="0533d-106">Sant</span><span class="sxs-lookup"><span data-stu-id="0533d-106">True</span></span>
+      incorrectExplanation: <span data-ttu-id="0533d-107">I vissa fall kan du använda hybridförmånen för Windows Server och endast betala priset för Linux.</span><span class="sxs-lookup"><span data-stu-id="0533d-107">Under certain circumstances, you can utilize the hybrid benefit for Windows Sever and pay only the Linux rate.</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="0533d-108">Falskt</span><span class="sxs-lookup"><span data-stu-id="0533d-108">False</span></span>
+      correctExplanation: <span data-ttu-id="0533d-109">I vissa fall kan du använda hybridförmånen för Windows Server och endast betala priset för Linux.</span><span class="sxs-lookup"><span data-stu-id="0533d-109">Under certain circumstances, you can utilize the hybrid benefit for Windows Sever and pay only the Linux rate.</span></span>
+      isCorrect: true
+  - content: <span data-ttu-id="0533d-110">Azure har prisvärda alternativ för test- och utvecklingsservrar.</span><span class="sxs-lookup"><span data-stu-id="0533d-110">Azure has money-saving options for test and development servers.</span></span>
+    choices:
+    - content: <span data-ttu-id="0533d-111">Sant</span><span class="sxs-lookup"><span data-stu-id="0533d-111">True</span></span>
+      correctExplanation: <span data-ttu-id="0533d-112">Ja, förmånerna i Azure Enterprise Dev/Test och Azure Betala per användning Dev/Test ger dig flera rabatter, särskilt för Windows-arbetsbelastningar. Du betalar inga licensavgifter och faktureras endast Linux-priset för virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="0533d-112">Yes, the Azure Enterprise Dev/Test and Azure Pay-As-You-Go Dev/Test benefits give you several discounts, most notably for Windows workloads, eliminating license charges and billing you only at the Linux rate for virtual machines.</span></span> <span data-ttu-id="0533d-113">Det här gäller även SQL Server och andra Microsoft-program som täcks under en prenumeration på Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="0533d-113">This also applies to SQL Server and any other Microsoft software that is covered under a Visual Studio subscription.</span></span>
+      isCorrect: true
+    - content: <span data-ttu-id="0533d-114">Falskt</span><span class="sxs-lookup"><span data-stu-id="0533d-114">False</span></span>
+      incorrectExplanation: <span data-ttu-id="0533d-115">Förmånerna i Enterprise Dev/Test och Betala per användning Dev/Test ger dig flera rabatter, särskilt för Windows-arbetsbelastningar. Du betalar inga licensavgifter och faktureras endast Linux-priset för virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="0533d-115">The Enterprise Dev/Test and Pay-As-You-Go Dev/Test benefits give you several discounts, most notably for Windows workloads, eliminating license charges and billing you only at the Linux rate for virtual machines.</span></span> <span data-ttu-id="0533d-116">Det här gäller även SQL Server och andra Microsoft-program som täcks under en prenumeration på Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="0533d-116">This also applies to SQL Server and any other Microsoft software that is covered under a Visual Studio subscription.</span></span>
+      isCorrect: false
