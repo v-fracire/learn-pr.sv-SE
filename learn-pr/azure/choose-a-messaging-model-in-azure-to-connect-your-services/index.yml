@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 458ad6aa856d2a81682b6e70d3c8f16e5fb039ee
-  ms.sourcegitcommit: 4d3d995e220b696d35237a19740a6d619134d6ca
+  ms.sourcegitcommit: b6f5aa15bae13cb0f53667fba1d404b7bec76f67
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/13/2018
-  ms.locfileid: "45538259"
+  ms.lasthandoff: 09/17/2018
+  ms.locfileid: "45759527"
 title: Välja en meddelandemodell i Azure som löst kopplar samman dina tjänster
 summary: När du har ett program som består av komponenter som körs på olika datorer, servrar och mobila enheter kan det vara svårt att göra kommunikationen mellan dessa komponenter tillförlitlig. Azure innehåller flera tekniker som du kan använda till att kommunicera mer tillförlitligt, som lagringsköer, händelsehubbar, Event Grid och Service Bus. I den här modulen får du se hur du väljer den teknik som passar bäst för din kommunikation.
 abstract: >
