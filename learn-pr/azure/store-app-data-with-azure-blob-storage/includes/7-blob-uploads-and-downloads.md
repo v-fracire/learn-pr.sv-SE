@@ -61,10 +61,10 @@ Vår app är klar &mdash; nu ska vi distribuera den och se hur den fungerar. Ska
 Appnamnet måste vara globalt unikt, så du måste välja ett eget namn att fylla i `<your-unique-app-name>`.
 
 ```azurecli
-az appservice plan create --name blob-exercise-plan --resource-group blob-exercise-group
-az webapp create --name <your-unique-app-name> --plan blob-exercise-plan --resource-group blob-exercise-group
+az appservice plan create --name blob-exercise-plan --resource-group <rgn>[Sandbox resource group name]</rgn>
+az webapp create --name <your-unique-app-name> --plan blob-exercise-plan --resource-group <rgn>[Sandbox resource group name]</rgn>
 CONNECTIONSTRING=$(az storage account show-connection-string --name <your-unique-storage-account-name> --output tsv)
-az webapp config appsettings set --name <your-unique-app-name> --resource-group blob-exercise-group --settings AzureStorageConfig:ConnectionString=$CONNECTIONSTRING AzureStorageConfig:FileContainerName=files
+az webapp config appsettings set --name <your-unique-app-name> --resource-group <rgn>[Sandbox resource group name]</rgn> --settings AzureStorageConfig:ConnectionString=$CONNECTIONSTRING AzureStorageConfig:FileContainerName=files
 ```
 
 Nu ska vi distribuera appen. Nedanstående kommandon publicerar webbplatsen till mappen `pub`, zippar upp den till `site.zip` och distribuerar zip-filen till App Service.
@@ -76,7 +76,7 @@ Nu ska vi distribuera appen. Nedanstående kommandon publicerar webbplatsen till
 dotnet publish -o pub
 cd pub
 zip -r ../site.zip *
-az webapp deployment source config-zip --src ../site.zip --name <your-unique-app-name> --resource-group blob-exercise-group
+az webapp deployment source config-zip --src ../site.zip --name <your-unique-app-name> --resource-group <rgn>[Sandbox resource group name]</rgn>
 ```
 
 Öppna `https://<your-unique-app-name>.azurewebsites.net` i en webbläsare om du vill se appen som körs. Det bör se ut som på bilden nedan.

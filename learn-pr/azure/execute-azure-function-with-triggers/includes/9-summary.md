@@ -1,9 +1,5 @@
 En Azure-funktion fungerar inte förrän något uttryckligen beordrar den att köra. I den här modulen lärde vi oss om timer-, HTTP- och blob-utlösare.
 
-Timerutlösare är användbara när du behöver utföra en funktion vid en viss tidpunkt konsekvent. Med HTTP-utlösare kan du köra logik när du tar emot data från en extern källa. Med blob-utlösare kan du svara på data som lagras eller uppdateras i molnet.
+Timerutlösare är användbara när du behöver utföra en funktion vid en viss tidpunkt konsekvent. Med HTTP-utlösare kan du köra logik när du tar emot data från en extern källa. Med Blob-utlösare kan du svara på data som har lagrats eller uppdateras i molnet.
 
-## <a name="cleanup"></a>Rensa
-
-Om du vill ta bort funktionen helt kan du ta bort resursgruppen eller själva funktionen från verktygsfältet.
-
-![Skärmbild av Azure Portal som visar verktygsfältet för en funktionsapp med knappen Ta bort markerad.](../media/6-delete-function.png)
+[!include[](../../../includes/azure-sandbox-cleanup.md)]

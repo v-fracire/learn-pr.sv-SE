@@ -1,8 +1,6 @@
-Molntjänster hyr resurser, till exempel lagringsutrymme eller CPU-cykler på ett annat företags datorer, och du betalar bara för det du använder. Företaget som tillhandahåller tjänsterna kallas för en molnleverantör och kan exempelvis vara Microsoft, Amazon eller Google.
+Molntjänster hyr resurser, till exempel lagringsutrymme eller CPU-cykler på ett annat företags datorer, och du betalar bara för det du använder. Företaget som tillhandahåller tjänsterna kallas för en molnprovider och kan exempelvis vara Microsoft, Amazon eller Google.
 
-![Bild av molnleverantörer](../media/2-cloud-providers.png)
-
-Molnleverantören ansvarar för den fysiska maskinvara som krävs för att utföra ditt arbete, samt för att hålla den uppdaterad. Vilka databehandlingstjänster som erbjuds brukar variera beroende på molnprovider. Men vanligtvis innehåller de dessa:
+Molnprovidern ansvarar för den fysiska maskinvara som krävs för att utföra ditt arbete, samt för att hålla den uppdaterad. Vilka databehandlingstjänster som erbjuds brukar variera beroende på molnprovider. Men vanligtvis innehåller de dessa:
 
 - Beräkningskraft, till exempel virtuella Windows- och Linux-datorer
 - Lagring, till exempel lagring av objekt
@@ -49,6 +47,9 @@ De flesta enheter läser och/eller skriver data. Här följer några exempel:
 I samtliga dessa fall kommer data antingen läsas (till exempel vädret) eller skrivas (t.ex. att ta en bild). Datatypen skiljer sig i dessa fall.
 
 En molnprovider erbjuder vanligtvis tjänster som kan hantera alla dessa typer av data. Om du vill lagra text kan du exempelvis använda en fil på disken eller en mer strukturerad metod som t.ex. en relationsdatabas.
+
+    :::column-end:::
+:::row-end:::
 
 ## <a name="summary"></a>Sammanfattning
 

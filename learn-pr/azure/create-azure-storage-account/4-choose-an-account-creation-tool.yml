@@ -4,11 +4,16 @@ title: Välja ett verktyg för skapande av konto
 metadata:
   title: Välja ett verktyg för skapande av konto
   description: Välja ett verktyg för skapande av konto
-  ms.openlocfilehash: 018427d6b0942f0ce0d2d51e227b7411282b6cb5
-  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: c9fac999d6d00a7ca2382e7bab976db4f1b9d55d
+  ms.sourcegitcommit: b6f5aa15bae13cb0f53667fba1d404b7bec76f67
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/06/2018
-  ms.locfileid: "43824962"
-durationInMinutes: 7
+  ms.lasthandoff: 09/17/2018
+  ms.locfileid: "45753968"
+durationInMinutes: 3
 content: '[!include[](includes/4-choose-an-account-creation-tool.md)]'

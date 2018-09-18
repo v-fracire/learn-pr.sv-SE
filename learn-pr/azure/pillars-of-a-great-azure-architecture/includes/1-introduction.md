@@ -7,7 +7,7 @@ En bra arkitektur hjälper dig utforma, bygga och kontinuerligt förbättra ett 
 
 ## <a name="learning-objectives"></a>Utbildningsmål
 
-I den här modulen kommer du att
+I den här modulen kommer du att:
 
-- identifiera viktiga principer för en arkitekturlösning i molnet
-- tillämpa viktiga principer en stabil arkitekturgrund.
+- Identifiera viktiga principer för en arkitekturlösning i molnet
+- Tillämpa viktiga principer när du skapar en stabil arkitekturgrund

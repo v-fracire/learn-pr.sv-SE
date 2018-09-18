@@ -1,1 +1,2 @@
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?azure-portal=true) before you begin.
+> [!NOTE]
+> Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?azure-portal=true) innan du börjar.

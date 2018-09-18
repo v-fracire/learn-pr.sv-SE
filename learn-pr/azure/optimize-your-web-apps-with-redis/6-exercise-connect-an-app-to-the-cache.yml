@@ -9,12 +9,13 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 215a01f9a2ee377c554d34806f815b5295500343
-  ms.sourcegitcommit: 46c8d35790efaafa6a4637f7688482e3a754d7f3
+  ms.openlocfilehash: 85f7a7e984ccac23d79058381022f8954e3afa86
+  ms.sourcegitcommit: b6f5aa15bae13cb0f53667fba1d404b7bec76f67
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44258345"
+  ms.lasthandoff: 09/17/2018
+  ms.locfileid: "45757348"
 interactive: bash
+azureSandbox: true
 durationInMinutes: 10
 content: '[!include[](includes/6-exercise-connect-an-app-to-the-cache.md)]'

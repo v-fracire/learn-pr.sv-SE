@@ -1,4 +1,4 @@
-Om du vill skapa och använda Azure-tjänster behöver du förr eller senare ett konto. Om du redan har ett Azure-konto kan du hoppa över den här enheten och gå vidare till nästa där vi börjar utforska Azure Portal.
+Om du vill skapa och använda Azure-tjänster behöver du förr eller senare ett konto. Om du redan har ett Azure-konto kan du hoppa över den här kursdelen och gå vidare till nästa där vi börjar utforska Azure Portal.
 
 Om du inte har något konto ska vi nu gå igenom hur du skapar ett kostnadsfritt Azure-konto.
 

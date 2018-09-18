@@ -6,7 +6,7 @@ Alla komponenter i MEAN-stacken är tillförlitliga, väl utvärderade och har �
 
 Om du är bekant med JavaScript är det en stark anledning till att välja MEAN-stacken för webbutveckling. Alla enskilda komponenter utvecklas med JavaScript, från dev-ops-uppgifterna i runtime för webbvärdtjänster och databaskonfiguration till utvecklaruppgifter i webbprogramkoden och skript för klientsidan.
 
-Dessutom är alla komponenter i MEAN-stacken populära just nu. Det är enkelt att hitta uppdaterad dokumentation och självstudier för att utveckla med MongoDB, Express, AngularJS och Node.js. Komponenterna i MEAN-stacken är kompatibla med moderna operativsystem såsom Windows, macOS och Linux. 
+Dessutom är alla komponenter i MEAN-stacken populära just nu. Det är enkelt att hitta uppdaterad dokumentation och självstudier för att utveckla med MongoDB, Express, AngularJS och Node.js. Komponenterna i MEAN-stacken är kompatibla med moderna operativsystem såsom Windows, macOS och Linux.
 
 ## <a name="why-might-mean-not-be-right-for-me"></a>Varför är MEAN kanske inte lämpligt för mig?
 

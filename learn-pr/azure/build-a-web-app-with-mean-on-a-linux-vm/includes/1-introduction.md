@@ -3,6 +3,7 @@ Du skapar en ny fristående kundinriktad webbplats för din verksamhet. De speci
 I den här modulen skapar du en MEAN-stackvärd för webbapp (MongoDB, Express, AngularJS och Node.js) på en Linux-dator som är värdbaserad i Azure.
 
 ## <a name="learning-objectives"></a>Utbildningsmål
+
 I den här modulen kommer du att:
 
 - Avgöra om MEAN-webbstacken är rätt för dig

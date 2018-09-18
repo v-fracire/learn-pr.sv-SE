@@ -1,4 +1,4 @@
-Bakom din sportwebbplats finns en databas som returnerar data genom att köra frågor. Prestandan sänks dock när belastningen är hög, särskilt under stora sportevenemang. I värdbaserade miljöer medför ökad resursanvändning högre kostnader. Cachelagring av data ser till att din webbplats körs med hög prestanda och kostnadseffektivt.
+Bakom din sportwebbplats finns en databas som returnerar data genom att köra frågor. Prestandan sänks dock när belastningen är hög, särskilt under stora sportevenemang. I värdbaserade miljöer medför ökad resursanvändning högre kostnader. Genom att cachelagra data ser du till att webbplatsen körs stabilt och kostnadseffektivt.
 
 ## <a name="what-is-caching"></a>Vad är cachelagring?
 
@@ -12,7 +12,7 @@ Redis-cache (**RE**mote **DI**ctionary **S**erver) är en lagring för nyckel/v�
 
 Microsoft Azure Redis Cache är baserat på den populära Redis-cachen med öppen källkod. Det ger dig tillgång till en säker och dedikerad Redis-cache som hanteras av Microsoft. Ett cacheminne som har skapats med Azure Redis Cache är tillgängligt från alla program i Microsoft Azure. Azure Redis Cache används vanligtvis för att förbättra prestanda i system som är starkt beroende av serverdelsdatalager.
 
-Dina cachelagrade data finns i minnet på en Azure-server som kör Redis Cache i stället för att läsas in från en disk av en databas. Din cache är även mycket skalbar. Du kan ändra storlek och prisnivå när som helst.
+Dina cachelagrade data finns i minnet på en Azure-server som kör Redis-cachen i stället för att läsas in från en disk av en databas. Din cache är även mycket skalbar. Du kan ändra storlek och prisnivå när som helst.
 
 ## <a name="what-type-of-data-can-be-stored-in-the-cache"></a>Vilken typ av data kan lagras i cacheminnet?
 
@@ -48,22 +48,22 @@ Med Redis-cachelagringsarkitektur distribuerar vi våra data i cacheminnet. Redi
 
 1. **En nod**
 1. **Flera noder**
-1. **Klustrad**
+1. **Kluster**
 
-Redis-cachelagringsarkitekturer delas upp i Azure i nivåer:
+Arkitekturerna för Redis-cachelagring i Azure är indelade i nivåer:
 
-### <a name="basic-cache"></a>Grundläggande cache
+### <a name="basic-cache"></a>Basic-cache
 
-En grundläggande cache ger dig en Redis-cache med _**en nod**_. Den fullständiga datamängden lagras i en enda nod. Den här nivån är perfekt för utveckling, testning och icke-kritiska arbetsbelastningar.
+En grundläggande cache som ger en Redis-cache med _**en nod**_. Den fullständiga datamängden lagras i en enda nod. Den här nivån är perfekt för utveckling, testning och icke-kritiska arbetsbelastningar.
 
 ### <a name="standard-cache"></a>Standard-cache
 
-Standard-cache skapar arkitekturer med _**flera noder**_. Redis replikerar en cache i en primär/sekundär konfiguration med två noder. Azure hanterar replikeringen mellan de två noderna. Det här är en produktionsklar cache med överordnad/underordnad replikering.
+Med standard-cache får du en arkitektur med _**flera noder**_. Redis replikerar en cache i en primär/sekundär konfiguration med två noder. Azure hanterar replikeringen mellan de två noderna. Det här är en produktionsklar cache med överordnad/underordnad replikering.
 
 ### <a name="premium-tier"></a>Premiumnivå
 
-Premiumnivån innehåller funktionerna i standardnivån, men lägger till möjligheten att bevara data, ta ögonblicksbilder och säkerhetskopiera data. Med den här nivån kan du skapa ett Redis-kluster som gör shards av data över flera Redis-noder för att öka tillgängligt minne. Premium-nivån har även stöd för Azure Virtual Network för att ge dig fullständig kontroll över dina anslutningar, undernät, IP-adresser och nätverksisolering. Den här nivån har även geo-replikering så att du kan säkerställa att dina data är nära den app som använder dem.
+På premiumnivån får du alla funktioner från standardnivån, men dessutom möjlighet att bevara data, ta ögonblicksbilder och säkerhetskopiera data. På den här nivån kan du skapa ett Redis-kluster där data delas mellan flera Redis-noder för att öka mängden tillgängligt minne. Premium-nivån har även stöd för Azure Virtual Network som ger dig fullständig kontroll över dina anslutningar, undernät, IP-adresser och nätverksisolering. Den här nivån har även geo-replikering så att du kan säkerställa att dina data är nära den app som använder dem.
 
 ## <a name="summary"></a>Sammanfattning
 
-En databas är utmärkt när stora mängder data ska lagras, men det finns en ofrånkomlig svarstid för att söka efter data. Du skickar en fråga. Servern tolkar frågan, letar upp data och returnerar dem. Servrar har även kapacitetsbegränsningar för hantering av begäranden. Om för många begäranden görs blir datahämtningen troligtvis långsammare. Cachelagring lagrar data som begärs ofta i minne som kan returneras snabbare än vid körning av frågor mot en databas, vilket bör ge kortare svarstid och högre prestanda. Med Azure Redis Cache får du tillgång till en säker, dedikerad och skalbar Redis-cache som lagras i Azure och hanteras av Microsoft.
+En databas passar bra till att lagra stora mängder data, när du ska använd dem medför det svarstider. Du skickar en fråga. Servern tolkar frågan, letar upp data och returnerar dem. Servrar har även kapacitetsbegränsningar för hantering av sådana förfrågningar. Om du skickar för många blir datahämtningen troligtvis långsammare. Med cachelagring lagrar du data som efterfrågas ofta i ett minne som kan returnera data snabbare än vid körning av frågor mot en databas, och det här bör ge både kortare svarstider och bättre prestanda. Med Azure Redis Cache får du tillgång till en säker, dedikerad och skalbar Redis-cache som lagras i Azure och hanteras av Microsoft.
