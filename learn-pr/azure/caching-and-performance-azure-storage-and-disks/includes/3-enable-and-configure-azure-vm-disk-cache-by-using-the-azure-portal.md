@@ -1,16 +1,16 @@
-You can configure virtual machine disk cache settings with any of the following tools:
+Du kan konfigurera inställningar för virtuell datorcachelagring med något av följande verktyg:
 
-- Azure portal
-- Resource Manager templates
+- Azure-portalen
+- Resource Manager-mallar
 - Azure CLI
 - Azure PowerShell
 
-In the next exercise, we're going to use the portal to create a VM and configure caching on its disks. Here's some information to keep in mind. 
+I nästa övning använder vi portalen för att skapa en virtuell dator och konfigurera cachelagring på dess diskar. Här är lite information att ha i åtanke. 
 
-When you provision a new VM using the Azure portal, you can't change the default caching configuration for the OS disk from read/write until the VM is deployed.
+När du etablerar en ny virtuell dator med hjälp av Azure-portalen kan du inte ändra standardkonfigurationen för cachelagring för OS-disken från Läsa/skriva förrän den virtuella datorn har distribuerats.
 
-When you add a data disk to an existing VM, you can configure the cache option before the disk is deployed to the VM.
+När du lägger till en datadisk till en befintlig virtuell dator kan du konfigurera cachelagringsalternativet innan disken distribueras till den virtuella datorn.
 
-Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
+När du ändrar cacheinställningen för en Azure-disk så frånkopplas och återansluts måldisken. Om det är operativsystemdisken startas den virtuella datorn om. Stoppa alla program/tjänster som kan påverkas av det här avbrottet innan du ändrar inställningen för diskcachelagring.
 
-Let's create a VM and change the cache settings using the Azure portal.
+Nu skapar vi en virtuell dator och ändrar inställningar för cachelagring med hjälp av Azure-portalen.

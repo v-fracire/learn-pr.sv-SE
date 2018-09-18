@@ -1,20 +1,19 @@
-In this module, you've seen what Azure Database for PostgreSQL offering looks like. You saw how to create an Azure Database for PostgreSQL using the Azure portal as well as Azure CLI.
+I den här modulen har du sett hur Azure Database for PostgreSQL-erbjudandet ser ut. Du såg hur man skapar en Azure Database for PostgreSQL med både Azure Portal och Azure CLI.
 
-You looked at the configuration options available to configure a PostgreSQL server-level firewall rule and enforce SSL connections. Finally, you saw how to connect to an Azure Database for PostgreSQL server using _psql_ in Azure Cloud Shell
+Du har tittat på de konfigurationsalternativ som är tillgängliga för att konfigurera en PostgreSQL-brandväggsregel på servernivå och framtvinga SSL-anslutningar. Slutligen såg du hur man ansluter till en Azure Database for PostgreSQL-server med _psql_ i Azure Cloud Shell
 
-## Clean up
-
+## <a name="clean-up"></a>Rensa
 <!---TODO: Update for sandbox?--->
 
-All that is left now is for you to clean up the resources you created in the labs. Remember the server will generate a monthly charge even though you may not use it. If you create resources for testing purposes, an easy way to get rid of them all is to delete the Resource Group they are part of.
+Allt som återstår nu är att rensa de resurser som du skapade i labbuppgifterna. Kom ihåg att servern genererar en månatlig avgift även om du inte använder den. Om du skapar resurser i testsyfte kan du enkelt ta bort allihop genom att ta bort den resursgrupp som de ingår i.
 
 > [!NOTE]
-> Recall, a resource group is a collection of resources that share the same lifecycle, permissions, and policies. These actions will delete all resources allocated within this resource group, including all data you may have added to the databases on the server you created.
+> En resursgrupp är ju en samling resurser som delar samma livscykel, behörigheter och principer. Dessa åtgärder tar bort alla resurser som är allokerade i den här resursgruppen, inklusive alla data som du har lagt till i databaserna på den server du skapade.
 
-- Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+- Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true).
 
-- In the left menu, select **Resource groups** to view all resource groups currently in use for your account.
+- I den vänstra menyn väljer du **Resursgrupper** för att se alla resursgrupper som för närvarande används på ditt konto.
 
-- Click on the name of the resource group you created and click on the **Delete resource group** button in the toolbar near the top.
+- Klicka på namnet på den resursgrupp som du skapade och klicka på knappen **Ta bort resursgrupp** i verktygsfältet längst upp.
 
-- You'll a dialog box titled **Are you sure you want to delete `<resource_group_name>`** prompting you to type in the name of the resource group to confirm deletion. Confirm the resource group name and click the Delete button at the bottom.
+- Dialogrutan **Är du säker på att du vill ta bort `<resource_group_name>`** visas, där du uppmanas att ange namnet på resursgruppen för att bekräfta borttagningen. Bekräfta resursgruppens namn och klicka på knappen Ta bort längst ned.

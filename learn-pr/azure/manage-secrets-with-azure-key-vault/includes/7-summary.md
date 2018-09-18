@@ -1,6 +1,7 @@
 I den här modulen har du skyddat en apps hemliga konfiguration i Azure Key Vault. Vår appkod autentiserar till valvet med Hanterad tjänstidentitet och läser automatiskt in hemligheterna från valvet till ASP.NET Core-konfigurationssystemet vid start.
 
-## <a name="cleanup"></a>Rensa
+## <a name="clean-up"></a>Rensa
+<!---TODO: Do we need to include cleanup for the free education tier?--->
 
 Om du vill rensa din Azure-prenumeration kör du följande i Azure Cloud Shell för att ta bort resursgruppen som innehåller alla de resurser som vi skapade i den här modulen.
 

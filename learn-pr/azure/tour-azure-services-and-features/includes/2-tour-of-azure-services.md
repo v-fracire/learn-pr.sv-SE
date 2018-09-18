@@ -1,126 +1,126 @@
-Microsoft Azure is a continually expanding set of cloud services that help your organization meet your current and future business challenges. Azure gives you the freedom to build, manage, and deploy applications on a massive global network using your favorite tools and frameworks. Let's take a quick tour of the high-level services Azure offers.
+Microsoft Azure är en ständigt växande uppsättning molntjänster som hjälper din organisation att möta nuvarande och framtida affärsutmaningar. Azure ger dig friheten att skapa, hantera och distribuera program i ett enormt, globalt nätverk med de verktyg och ramverk du föredrar. Nu ska vi ta en snabb titt på de överordnade tjänsterna i Azure.
 
-## Azure services
+## <a name="azure-services"></a>Azure-tjänster
 
-Azure provides a vast range of cloud-based services, with features added and enhanced every month. 
+Azure tillhandahåller en mängd olika molnbaserade tjänster, och funktioner läggs till och förbättras varje månad. 
 
-![Azure services](../media-draft/2-image204.png)
+![Azure-tjänster](../media-draft/2-image204.png)
 
-Let's take a closer look at a few of the more commonly-used features: 
+Vi tar en närmare titt på några av de vanligaste funktionerna: 
 
-- [Compute](#compute-services)
-- [Networking ](#networking-services)
-- [Storage](#storage-services)
-- [Mobile](#mobil-services)
-- [Databases](#database-services)
-- [Web](#web-services)
+- [Beräkning](#compute-services)
+- [Nätverk](#networking-services)
+- [Lagring](#storage-services)
+- [Mobil](#mobil-services)
+- [Databaser](#database-services)
+- [Webb](#web-services)
 
 <a name="compute-services"></a>
 
-### Compute
+### <a name="compute"></a>Beräkning
 
-Compute services are one of the primary reasons why companies move to the Azure platform. Azure provides a range of options for hosting applications and services including:
+Compute Services är en av de främsta orsakerna till varför företag flyttar till Azure-plattformen. Azure har flera olika värdalternativ för program och tjänster, bland annat:
 
-![IaaS, PaaS, and FaaS comparison](../media/2-iaas-paas-faas.png)
+![Jämförelse mellan IaaS, PaaS och FaaS](../media/2-iaas-paas-faas.png)
 
-Here are some examples of IaaS, PaaS, and FaaS in Azure.
+Här är några exempel på IaaS, PaaS och FaaS i Azure.
 
-|  Type  |  Service name             | Service function                                                         |
+|  Typ  |  Tjänstens namn             | Tjänstens funktion                                                         |
 |--------|---------------------------|--------------------------------------------------------------------------|
-| IaaS   | Azure Virtual Machines    | Windows or Linux VMs hosted in Azure                                     | 
-| IaaS   | Azure Kubernetes Service  | Enables management of a cluster of VMs that run containerized services   |
-| PaaS   | Azure Service Fabric      | Distributed systems platform. Runs in Azure or on-premises               |
-| PaaS   | Azure Batch               | Managed service for parallel and high-performance computing applications |
-| PaaS   | Azure Cloud Services      | Managed service for running cloud applications                           |
-| FaaS   | Azure Container Instances | Provides containers without requiring VM provision or higher services    |
-| FaaS   | Azure Functions           | Managed FaaS service                                                     |
+| IaaS   | Azure Virtual Machines    | Virtuella Windows- eller Linux-datorer i Azure                                     | 
+| IaaS   | Azure Kubernetes Service  | Gör att du kan hantera kluster av virtuella datorer som kör tjänster i containrar   |
+| PaaS   | Azure Service Fabric      | Plattform för distribuerade system. Körs i Azure eller lokalt               |
+| PaaS   | Azure Batch               | Hanterad tjänst för parallella och högpresterande databehandlingsprogram |
+| PaaS   | Azure Cloud Services      | Hanterad tjänst för att köra molnprogram                           |
+| FaaS   | Azure Container Instances | Tillhandahåller containrar utan att kräva VM-etablering eller högre tjänster    |
+| FaaS   | Azure Functions           | Hanterad FaaS-tjänst                                                     |
 
 <a name="network-services"></a>
 
-### Networking
+### <a name="networking"></a>Nätverk
 
-Linking compute resources and providing access to applications is the key function of Azure networking. Networking functionality in Azure includes a range of options to connect the outside world to services and features in the global Microsoft Azure datacenters.
+Att länka beräkningsresurser och ge åtkomst till program är huvudfunktionen i Azure-nätverk. Nätverksfunktioner i Azure omfattar en mängd alternativ för att ansluta omvärlden till tjänster och funktioner i de globala Microsoft Azure-datacentren.
 
-Azure networking facilities have the following features:
+Azure-nätverksresurser har följande funktioner:
 
-|  Service name             | Service function                                                                     |
+|  Tjänstnamn             | Tjänstfunktion                                                                     |
 | -------------             | -------------                                                                        |
-| Azure Virtual Network     | Connects VMs to incoming Virtual Private Network (VPN) connections                   |
-| Azure Load Balancer       | Balances inbound and outbound connections to applications or service endpoints       |
-| Azure Application Gateway | Optimizes app server farm delivery while increasing application security             |
-| Azure VPN Gateway         | Accesses Azure Virtual Networks through high-performance VPN gateways                |
-| Azure DNS                 | Provides ultra-fast DNS responses and ultra-high domain availability                 |
-| Azure Content Delivery Network  | Delivers high-bandwidth content to customers globally                          |
-| Azure DDoS Protection     | Protects Azure-hosted applications from distributed denial of service (DDOS) attacks |
-| Azure Traffic Manager     | Distributes network traffic across Azure regions worldwide                           |
-| Azure ExpressRoute        | Connects to Azure over high-bandwidth dedicated secure connections                   |
-| Azure Network Watcher     | Monitors and diagnoses network issues using scenario-based analysis                  |
-| Azure Firewall            | Implements high-security, high-availability firewall with unlimited scalability      |
-| Azure Virtual WAN         | Creates a unified wide area network (WAN), connecting local and remote sites         |
+| Azure Virtual Network     | Ansluter virtuella datorer till inkommande VPN-anslutningar (virtuellt privat nätverk)                   |
+| Azure Load Balancer       | Balanserar inkommande och utgående anslutningar till program och tjänstslutpunkter       |
+| Azure Application Gateway | Optimerar appservergruppens leverans samtidigt som programsäkerheten ökar             |
+| Azure VPN Gateway         | Ansluter till virtuella Azure-nätverk via högpresterande VPN-gatewayer                |
+| Azure DNS                 | Tillhandahåller ultrasnabba DNS-svar och ultrahög domäntillgänglighet                 |
+| Azure Content Delivery Network  | Levererar innehåll med hög bandbredd till kunder världen över                          |
+| Azure DDoS Protection     | Skyddar program i Azure mot distribuerade överbelastningsattacker (DDoS) |
+| Azure Traffic Manager     | Distribuerar nätverkstrafik mellan Azure-regioner över hela världen                           |
+| Azure ExpressRoute        | Ansluter till Azure via dedikerade säkra anslutningar med hög bandbredd                   |
+| Azure Network Watcher     | Övervakar och diagnostiserar nätverksproblem med hjälp av scenariobaserad analys                  |
+| Azure Firewall            | Implementerar brandvägg med hög säkerhet, hög tillgänglighet och obegränsad skalbarhet      |
+| Azure Virtual WAN         | Skapar ett enhetligt WAN-nätverk, som kopplar samman lokala och fjärranslutna platser         |
 
 <a name="storage-services"></a>
 
-### Storage
+### <a name="storage"></a>Lagring
 
-Azure provides four main types of storage services. These services are:
+Azure tillhandahåller fyra huvudsakliga typer av lagringstjänster. Dessa tjänster är:
 
-- **Azure Blob storage** - provides storage for very large objects, such as video files or bitmaps
-- **Azure File storage** - creates file shares that you can access and manage like a file server
-- **Azure Queue storage** - implements a store for queuing and reliably delivering messages between applications
-- **Azure Table storage** - consists of a NoSQL store that hosts unstructured data independent of any schema
+- **Azure Blob Storage** – tillhandahåller lagring för mycket stora objekt, till exempel videofiler eller bitmappar
+- **Azure File Storage** – skapar filresurser som du kan komma åt och hantera som en filserver
+- **Azure Queue Storage** – implementerar ett lager för köer och tillförlitlig leverans av meddelanden mellan program
+- **Azure Table Storage** – består av ett NoSQL-lager som är värd för ostrukturerade data oberoende av scheman
 
-Each of these services shares common characteristics, which are:
+Alla dessa tjänster har gemensamma egenskaper, som är följande:
 
-- Durable and highly available with redundancy and replication.
-- Secure through automatic encryption and role-based access control.
-- Scalable with virtually unlimited storage.
-- Managed, handling maintenance and any critical problems for you.
-- Accessible from anywhere in the world over HTTP or HTTPS.
+- Pålitlig och mycket tillgänglig med redundans och replikering.
+- Säker med hjälp av automatisk kryptering och rollbaserad åtkomstkontroll.
+- Skalbar med nästan obegränsad lagring.
+- Hanterad, tar hand om underhåll och kritiska problem åt dig.
+- Åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst.
 
 <a name="mobile-services"></a>
 
-### Mobile
+### <a name="mobile"></a>Mobilt
 
-Azure enables developers to create engaging iOS, Android, and Windows apps quickly and easily in a wide range of languages using their choice of development environment. Features that used to take time and increase project risks, such as adding corporate sign-in and then connecting to on-premises resources such as SAP, Oracle, SQL Server, and SharePoint, are now simple to include.
+Med Azure kan utvecklare skapa engagerande iOS-, Android- och Windows-appar snabbt och enkelt på en mängd olika språk och i valfri utvecklingsmiljö. Funktioner som tidigare tog tid och medförde stora projektrisker, till exempel att lägga till företagsinloggning och sedan ansluta till lokala resurser som SAP, Oracle, SQL Server och SharePoint, är nu enkla att lägga till.
 
-Other features of this service include:
+Andra funktioner i den här tjänsten:
 
-- Offline data synchronization.
-- Connectivity to on-premises data.
-- Broadcasting push notifications.
-- Autoscaling to match business needs.
+- Synkronisering av offlinedata.
+- Anslutning till lokala data.
+- Sändning av push-meddelanden.
+- Automatisk skalning utifrån företagets behov.
 
 <a name="database-services"></a>
 
-### Databases
+### <a name="databases"></a>Databaser
 
-Azure provides multiple database services to store a wide variety of data types and volumes. And with global connectivity, this data is available to users instantly.
+Azure tillhandahåller flera databastjänster för att lagra en mängd olika datatyper och volymer. Och med global anslutning blir dessa data tillgängliga för användare direkt.
 
-|  Service name              | Service function                                                                                |
+|  Tjänstnamn              | Tjänstfunktion                                                                                |
 | -------------              | -------------                                                                                   |
-| Azure Cosmos DB            | Globally distributed database that supports NoSQL options                                       |
-| Azure SQL Database         | Fully managed relational database with auto-scale, integral intelligence, and robust security    |
-| Azure Database for MySQL   | Fully managed and scalable MySQL relational database with high availability and security        |
-| Azure Database for PostgreSQL   | Fully managed and scalable PostgreSQL relational database with high availability and security   |
-| SQL Server on VMs          | Host enterprise SQL Server apps in the cloud                                                    |
-| Azure SQL Data Warehouse   | Fully managed data warehouse with integral security at every level of scale at no extra cost    |
-| Azure Database Migration Service    | Migrates your databases to the cloud with no application code changes                  |
-| Azure Redis Cache          | Caches frequently used and static data to reduce data and application latency                   |
-| Azure Database for MariaDB | Fully managed and scalable MySQL relational database with high availability and security        |
+| Azure Cosmos DB            | Globalt distribuerad databas med stöd för NoSQL-alternativ                                       |
+| Azure SQL Database         | Fullständigt hanterad relationsdatabas med automatisk skalning, integrerad intelligens och robust säkerhet    |
+| Azure Database for MySQL   | Fullständigt hanterad och skalbar MySQL-relationsdatabas med hög tillgänglighet och säkerhet        |
+| Azure Database for PostgreSQL   | Fullständigt hanterad och skalbar PostgreSQL-relationsdatabas med hög tillgänglighet och säkerhet   |
+| SQL Server på virtuella datorer          | Var värd för SQL Server-företagsappar i molnet                                                    |
+| Azure SQL Data Warehouse   | Fullständigt hanterat informationslager med integrerad säkerhet på alla skalningsnivåer utan extra kostnader    |
+| Azure Database Migration Service    | Migrerar databaser till molnet utan ändringar i programkoden                  |
+| Azure Redis Cache          | Cachelagrar data som används ofta och statiska data för att minska svarstiden för data och program                   |
+| Azure Database for MariaDB | Fullständigt hanterad och skalbar MySQL-relationsdatabas med hög tillgänglighet och säkerhet        |
 
 <a name="web-services"></a>
 
-### Web
+### <a name="web"></a>Webb
 
-Web services in Azure include the following facilities:
+Här är några av webbtjänsterna i Azure:
 
-| Service Name | Description |
+| Tjänstens namn | Beskrivning |
 |--------------|-------------|
-| Azure App Service | Quickly create powerful cloud apps for web and mobile. |
-| Azure Notification Hubs |Send push notifications to any platform from any back end. |
-| Azure API Management | Publish APIs to developers, partners, and employees securely and at scale. |
-| Azure Search | Fully managed search as a service. |
-| Web Apps feature of Azure App Service | Create and deploy mission-critical web apps at scale. |
-| Azure SignalR Service | Add real-time web functionalities easily. |
+| Azure App Service | Skapa snabbt kraftfulla molnappar för webben och mobila enheter. |
+| Azure Notification Hubs |Skicka push-meddelanden till valfri plattform från valfri serverdel. |
+| Azure API Management | Publicera API:er till utvecklare, partner och anställda på ett säkert sätt och efter behov. |
+| Azure Search | Fullständigt hanterad sökning som en tjänst. |
+| Funktionen Web Apps i Azure App Service | Skapa och distribuera affärskritiska webbappar i stor skala. |
+| Azure SignalR Service | Lägg enkelt till realtidsfunktioner för webben. |
 
-Now that we've identified some of the areas that might interest a company looking to migrate to Azure let's look at what it takes to use the services and features.
+Nu när vi har identifierat några av de områden som kan göra det intressant för ett företag att migrera till Azure ska vi titta på vad som krävs för att använda tjänsterna och funktionerna.

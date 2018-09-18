@@ -1,69 +1,69 @@
-Behind your sports website is a database, which returns data by executing queries. However, performance slows down when the load is high, particularly during large sporting events. In hosted environments, increased resource usage translates into higher costs. Caching data ensures your website will perform well and run economically.
+Bakom din sportwebbplats finns en databas som returnerar data genom att köra frågor. Prestandan sänks dock när belastningen är hög, särskilt under stora sportevenemang. I värdbaserade miljöer medför ökad resursanvändning högre kostnader. Cachelagring av data ser till att din webbplats körs med hög prestanda och kostnadseffektivt.
 
-## What is caching?
+## <a name="what-is-caching"></a>Vad är cachelagring?
 
-Caching is the act of storing frequently-accessed data in memory that is very close to the application that consumes the data. Caching is used to increase performance and reduce the load on your servers. We use Redis to create an in-memory cache that can provide excellent latency and potentially improve performance.
+Cachelagring innebär att data som används ofta lagras i ett minne som ligger mycket nära programmet som använder data. Cachelagring används för att öka prestandan och minska belastningen på dina servrar. Vi använder Redis till att skapa en minnesintern cache som ger utmärkta svarstider och kan förbättra prestandan.
 
-## What is a Redis cache?
+## <a name="what-is-a-redis-cache"></a>Vad är en Redis-cache?
 
-Redis (**RE**mote **DI**ctionary **S**erver) cache is an open-source, in-memory key value pair store. It's popular because it's fast and can store and manipulate common data types such as strings, hashes, and sets. It's also considered developer friendly as it supports multiple languages such as Python, C, C++, C#, Java, and JavaScript among others.
+Redis-cache (**RE**mote **DI**ctionary **S**erver) är en lagring för nyckel/värde-par i minnet med öppen källkod. Det är populärt eftersom det är snabbt och kan lagra och manipulera vanliga datatyper såsom strängar, hash-värden och mängder. Det anses även vara utvecklarvänligt eftersom det har stöd för flera språk, till exempel Python, C, C++, C#, Java, JavaScript och fler.
 
-## What is Azure Redis Cache?
+## <a name="what-is-azure-redis-cache"></a>Vad är Azure Redis Cache?
 
-Microsoft Azure Redis Cache is based on the popular open-source Redis cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure. Azure Redis Cache is typically used to improve the performance of systems that rely heavily on back-end data stores.
+Microsoft Azure Redis Cache är baserat på den populära Redis-cachen med öppen källkod. Det ger dig tillgång till en säker och dedikerad Redis-cache som hanteras av Microsoft. Ett cacheminne som har skapats med Azure Redis Cache är tillgängligt från alla program i Microsoft Azure. Azure Redis Cache används vanligtvis för att förbättra prestanda i system som är starkt beroende av serverdelsdatalager.
 
-Your cached data is located in-memory on an Azure server running the Redis cache as opposed to being loaded from disk by a database. Your cache is also highly scalable. You can alter the size and pricing tier at any time.
+Dina cachelagrade data finns i minnet på en Azure-server som kör Redis Cache i stället för att läsas in från en disk av en databas. Din cache är även mycket skalbar. Du kan ändra storlek och prisnivå när som helst.
 
-## What type of data can be stored in the cache?
+## <a name="what-type-of-data-can-be-stored-in-the-cache"></a>Vilken typ av data kan lagras i cacheminnet?
 
-Redis supports a variety of data types all oriented around _binary safe_ strings. This means that you can use any binary sequence for a value, from a string like "i-love-rocky-road" to the contents of an image file. An empty string is also a valid value.
+Redis stöder en mängd olika datatyper som allihop är inriktade på _binärt säkra_ strängar. Det innebär att du kan använda valfri binär sekvens för ett värde från en sträng som ”jag-gillar-rocky-road” till innehållet i en bildfil. En tom sträng är också ett giltigt värde.
 
-- Binary-safe strings (most common)
-- Lists of strings
-- Unordered sets of strings
-- Hashes
-- Sorted sets of strings
-- Maps of strings
+- Binärt säkra strängar (det vanligaste)
+- Lista över strängar
+- Osorterade uppsättningar med strängar
+- Hash
+- Sorterade uppsättningar med strängar
+- Karta över strängar
 
-Each data value is associated to a _key_ which can be used to lookup the value from the cache. Redis works best with smaller values (100k or less), so consider chopping up bigger data into multiple keys. Storing larger values is possible (up to 500 MB), but increases network latency and can cause caching and out-of-memory issues if the cache isn't configured to expire old values.
+Varje datavärde som är kopplat till en _nyckel_ som kan användas för att hämta värdet från cachen. Redis fungerar bäst med mindre värden (100 kB eller mindre), så fundera över att dela upp större data i flera nycklar. Det är möjligt att lagra större värden (upp till 500 MB), men det ökar nätverkets svarstid och kan orsaka problem med cachelagring och otillräckligt med minne om cachen inte är konfigurerad för att upphäva gamla värden.
 
-## What is a Redis key?
-Redis keys are also binary safe strings. Here are some guidelines for choosing keys:
+## <a name="what-is-a-redis-key"></a>Vad är en Redis-nyckel?
+Redis-nycklar är också binärt säkra strängar. Här följer några riktlinjer för att välja nycklar:
 
-- Avoid long keys. They take up more memory and require longer lookup times because they have to be compared byte-by-byte. If you want to use a binary blob as the key, generate a unique hash and use that as the key instead. The maximum size of a key is 512 MB, but you should _never_ use a key that size.
-- Use keys which can identify the data. For example, "sport:football;date:2008-02-02" would be a better key than "fb:8-2-2". The former is more readable and the extra size is negligible. Find the balance between size and readability.
-- Use a convention. A good one is "object:id", as in "sport:football". 
+- Undvik långa nycklar. De förbrukar mer minne och kräver längre sökningstider eftersom de måste jämföras byte för byte. Om du vill använda en binär blob som nyckel ska du generera ett unikt hash-värde och använda det som nyckel. Den maximala storleken för en nyckel är 512 MB, men du bör _aldrig_ använda en nyckel med den storleken.
+- Använd nycklar som kan identifiera data. Till exempel skulle ”sport:fotboll;datum:2008-02-02” vara en bättre nyckel än ”fb:8-2-2”. Det förstnämnda är mer lättläst och den extra storleken är försumbar. Hitta balansen mellan storlek och läsbarhet.
+- Använd en konvention. Ett bra exempel är ”objekt:id”, som i ”sport:fotboll”. 
 
-## How is data stored in a Redis cache?
+## <a name="how-is-data-stored-in-a-redis-cache"></a>Hur lagras data i en Redis-cache?
 
-Data in Redis is stored in _**nodes**_ and _**clusters**_.
+Data i Redis lagras i _**noder**_ och _**kluster**_.
 
-**Nodes** are a space in Redis where your data is stored.
+**Noder** är ett utrymme i Redis där dina data lagras.
 
-**Clusters** are sets of three or more nodes your dataset is split across. Clusters are useful because your operations will continue if a node fails or is unable to communicate to the rest of the cluster.
+**Kluster** är grupper med tre eller fler noder som datamängden delas upp mellan. Kluster är användbara eftersom driften fortsätter om en nod misslyckas eller inte kan kommunicera med resten av klustret.
 
-## What are Redis caching architectures?
+## <a name="what-are-redis-caching-architectures"></a>Vad är Redis-cachelagringsarkitekturer?
 
-Redis caching architecture is how we distribute our data in the cache. Redis distributes data in three major ways:
+Med Redis-cachelagringsarkitektur distribuerar vi våra data i cacheminnet. Redis distribuerar data på tre huvudsakliga sätt:
 
-1. **Single node**
-1. **Multiple node**
-1. **Clustered**
+1. **En nod**
+1. **Flera noder**
+1. **Klustrad**
 
-Redis caching architectures are split across Azure by tiers:
+Redis-cachelagringsarkitekturer delas upp i Azure i nivåer:
 
-### Basic cache
+### <a name="basic-cache"></a>Grundläggande cache
 
-A basic cache provides you with a _**single node**_ Redis cache. The complete dataset will be stored in a single node. This tier is ideal for development, testing, and non-critical workloads.
+En grundläggande cache ger dig en Redis-cache med _**en nod**_. Den fullständiga datamängden lagras i en enda nod. Den här nivån är perfekt för utveckling, testning och icke-kritiska arbetsbelastningar.
 
-### Standard cache
+### <a name="standard-cache"></a>Standard-cache
 
-The standard cache creates _**multiple node**_ architectures. Redis replicates a cache in a two-node primary/secondary configuration. Azure manages the replication between the two nodes. This is a production-ready cache with master/slave replication.
+Standard-cache skapar arkitekturer med _**flera noder**_. Redis replikerar en cache i en primär/sekundär konfiguration med två noder. Azure hanterar replikeringen mellan de två noderna. Det här är en produktionsklar cache med överordnad/underordnad replikering.
 
-### Premium tier
+### <a name="premium-tier"></a>Premiumnivå
 
-The premium tier includes the features of the standard tier but adds the ability to persist data, take snapshots, and back up data. With this tier, you can create a Redis cluster that shards data across multiple Redis nodes to increase available memory. The premium tier also supports an Azure Virtual Network to give you complete control over your connections, subnets, IP addressing, and network isolation. This tier also includes geo-replication, so you can ensure your data is close to the app that's consuming it.
+Premiumnivån innehåller funktionerna i standardnivån, men lägger till möjligheten att bevara data, ta ögonblicksbilder och säkerhetskopiera data. Med den här nivån kan du skapa ett Redis-kluster som gör shards av data över flera Redis-noder för att öka tillgängligt minne. Premium-nivån har även stöd för Azure Virtual Network för att ge dig fullständig kontroll över dina anslutningar, undernät, IP-adresser och nätverksisolering. Den här nivån har även geo-replikering så att du kan säkerställa att dina data är nära den app som använder dem.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-A database is great for storing large amounts of data, but there is an inherent latency when looking up data. You send a query. The server interprets the query, looks up the data, and returns it. Servers also have capacity limits for handling requests. If too many requests are made, data retrieval will likely slow down. Caching will store frequently requested data in memory that can be returned faster than querying a database, which should lower latency and increase performance. Azure Redis Cache gives you access to a secure, dedicated, and scalable Redis cache, hosted in Azure, and managed by Microsoft.
+En databas är utmärkt när stora mängder data ska lagras, men det finns en ofrånkomlig svarstid för att söka efter data. Du skickar en fråga. Servern tolkar frågan, letar upp data och returnerar dem. Servrar har även kapacitetsbegränsningar för hantering av begäranden. Om för många begäranden görs blir datahämtningen troligtvis långsammare. Cachelagring lagrar data som begärs ofta i minne som kan returneras snabbare än vid körning av frågor mot en databas, vilket bör ge kortare svarstid och högre prestanda. Med Azure Redis Cache får du tillgång till en säker, dedikerad och skalbar Redis-cache som lagras i Azure och hanteras av Microsoft.

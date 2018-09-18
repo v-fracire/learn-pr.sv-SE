@@ -1,18 +1,18 @@
-Most applications need a data store. MongoDB, the "M" in the MEAN stack, is one of the most popular NoSQL data store solutions, and it's free and open source. A NoSQL data store doesn't require data to be structured in a pre-defined way as it would with a relational database like SQL Server or MySQL.
+De flesta appar behöver ett datalager. MongoDB, M:et i MEAN-stacken, är en av de mest populära NoSQL-datalagerlösningarna – kostnadsfritt och med öppen källkod. NoSQL-datalagring kräver inte att data struktureras på ett fördefinierat sätt, som med en relationsdatabas som SQL Server eller MySQL.
 
-MongoDB stores its data in JSON-like documents that don't require rigid data structures. We then interact with MongoDB using queries and commands sent as JavaScript Object Notation (JSON).
+MongoDB lagrar data i JSON-liknande dokument som inte kräver fasta datastrukturer. Vi interagerar sedan med MongoDB med hjälp av frågor och kommandon som skickas som JavaScript Object Notation (JSON).
 
-## MongoDB versions
+## <a name="mongodb-versions"></a>MongoDB-versioner
 
-There are two versions of MongoDB available:
+Det finns två versioner av MongoDB:
 
 - MongoDB Community Server
 - MongoDB Enterprise Server
 
-In this module, we're going to use MongoDB Community Server, version 3.6 at the time of this writing, for our web application data store.
+I den här modulen använder vi MongoDB Community Server, version 3.6 när detta skrivs, som webbappens datalager.
 
-## How to install MongoDB
+## <a name="how-to-install-mongodb"></a>Installera MongoDB
 
-MongoDB can be installed on Linux, macOS, and Windows. We will be installing it on our Ubuntu Linux VM for this module, but the recommended package manager differs by OS and distribution. The installation process for all operating systems is well-documented in the [MongoDB install documentation](https://docs.mongodb.com/manual/administration/install-community/).
+MongoDB kan installeras på Linux, macOS och Windows. Vi installerar det på vår Ubuntu Linux-dator för den här modulen men den rekommenderade pakethanteraren är olika beroende på operativsystem och distribution. Installationsprocessen för alla operativsystem är beskrivs utförligt i [installationsdokumentationen för MongoDB](https://docs.mongodb.com/manual/administration/install-community/).
 
-To install on our Ubuntu VM, we will use the **apt-get** package manager.
+Om du vill installera på vår virtuella Ubuntu-dator använder vi pakethanteraren **apt-get**.

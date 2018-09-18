@@ -1,48 +1,53 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-computer-vision-service.7-summary
-title: Summary and knowledge check
+title: Sammanfattning och kunskapskontroll
 metadata:
-  title: Summary and knowledge check
-  description: Summary and knowledge check
+  title: Sammanfattning och kunskapskontroll
+  description: Sammanfattning och kunskapskontroll
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 4bfc9a1aa36edd1bc613b0fdaef7f89d2e2c35fc
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44238073"
 durationInMinutes: 10
-content: |
+content: >
   [!include[](includes/7-summary.md)]
 quiz:
-  title: 'Computer Vision quiz'
+  title: Test om visuellt innehåll
   questions:
-  - content: "What kind of famous images won't be identified with Computer Vision?"
+  - content: Vilken typ av berömda bilder identifieras inte med visuellt innehåll?
     choices:
-    - content: 'Landmarks '
+    - content: 'Landmärken '
       isCorrect: false
-    - content: 'Celebrities'
+    - content: Kändisar
       isCorrect: false
-    - content: 'Movies'
+    - content: Filmer
       isCorrect: true
-  - content: 'Which visual features can we elect to receive when analyzing images?'
+  - content: Vilka visuella funktioner kan vi välja att ta emot när vi analyserar bilder?
     choices:
-    - content: 'Shapes'
+    - content: Former
       isCorrect: true
-    - content: 'Image categorization'
+    - content: Bildkategorisering
       isCorrect: false
-    - content: 'Tags'
+    - content: Taggar
       isCorrect: false
-    - content: 'Textual description'
+    - content: Textbeskrivning
       isCorrect: false
-    - content: 'Faces'
+    - content: Ansikten
       isCorrect: false
-    - content: 'Colors'
+    - content: Färger
       isCorrect: false
-    - content: 'Adult and suggestive content'
+    - content: Vuxet eller provokativt innehåll
       isCorrect: false
-  - content: 'What does smart cropping do?'
+  - content: Vad är smart beskärning?
     choices:
-    - content: 'Crops pictures from the top left'
+    - content: Beskära bilder från det övre vänstra hörnet
       isCorrect: false
-    - content: 'Crops pictures based on regions of interest (faces, objects in focus, others)'
+    - content: Beskära bilder som baseras på intresseområden (ansikten, objekt i fokus, övriga)
       isCorrect: true

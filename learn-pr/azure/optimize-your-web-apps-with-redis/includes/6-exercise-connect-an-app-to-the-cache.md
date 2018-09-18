@@ -1,37 +1,37 @@
-Now that we have a Redis cache created in Azure, let's create an application to use it. Make sure you have your connection string information from the Azure portal.
+Nu när vi har en Redis-cache som skapats i Azure, kan vi skapa ett program att använda den i. Kontrollera att du har information om din anslutningssträng från Azure Portal.
 
 > [!NOTE]
-> The integrated Cloud Shell is available on the right. You can use that command prompt to create and run the example code we are building here, or perform these steps locally if you have a development environment setup. If you decide to use the Cloud Shell, please select the Bash shell if you are prompted for a selection.
+> Integrerad Cloud Shell är tillgängligt på höger sida. Du kan använda kommandotolken till att skapa och köra exempelkoden vi bygger här, eller utföra de här stegen om du har en utvecklingsmiljökonfiguration. Om du väljer att använda Cloud Shell bör du välja Bash-gränssnittet om du uppmanas att välja.
 
-## Create a Console Application
+## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
-We'll use a simple Console Application so we can focus on the Redis implementation.
+Vi använder ett enkelt konsolprogram så att vi kan fokusera på Redis-implementeringen.
 
-1. In the Cloud Shell, create a new .NET Core Console Application, name it "SportsStatsTracker"
+1. Skapa ett nytt .NET Core-konsolprogram i Cloud Shell och ge det namnet ”SportsStatsTracker”
 
     ```bash
     dotnet new console --name SportsStatsTracker
     ```
     
-1. This will create a folder for the project, go ahead and change the current directory.
+1. Detta skapar en mapp för projektet. Du kan fortsätta med att ändra den aktuella katalogen.
 
     ```bash
     cd SportsStatsTracker
     ```
     
-## Add the connection string
+## <a name="add-the-connection-string"></a>Lägga till anslutningssträngen
 
-Let's add the connection string we got from the Azure portal into the code. Never store credentials like this in your source code. To keep this sample simple, we're going to use a configuration file. A better approach for a server-side application in Azure would be to use Azure Key Vault with certificates.
+Vi lägger till den anslutningssträng som vi fick från Azure Portal i koden. Lagra aldrig autentiseringsuppgifterna så här i källkoden. För att det här exemplet ska vara enkelt ska vi använda en konfigurationsfil. En bättre metod för ett program på serversidan i Azure är att använda Azure Key Vault med certifikat.
 
-1. Create a new **appsettings.json** file to add to the project.
+1. Skapa en ny **appsettings.json**-fil som ska läggas till i projektet.
 
     ```bash
     touch appsettings.json
     ```
 
-1. Open the code editor by typing `code .` in the project folder. If you are working locally, we recommend using **Visual Studio Code**. The steps here will mostly align with it's usage.
+1. Öppna kodredigeraren genom att skriva `code .` i projektmappen. Om du arbetar lokalt bör du använda **Visual Studio Code**. De här stegen anpassas huvudsakligen med dess användning.
 
-1. Select the **appsettings.json** file in the editor and add the following text. Paste your connection string into the **value** of the setting.
+1. Välj filen **appsettings.json** i redigeraren och lägg till följande text. Klistra in anslutningssträngen i **värdet** för inställningen.
 
     ```json
     {
@@ -39,9 +39,9 @@ Let's add the connection string we got from the Azure portal into the code. Neve
     }
     ```
 
-1. Save the file - in the online editor, there is a menu in the top right corner which has common file operations.
+1. Spara filen. I onlineredigeraren finns det en meny i det övre högra hörnet med vanliga filåtgärder.
 
-1. Add the following configuration block to include the new file in the project and copy it to the output folder. This ensures that the app configuration file is placed in the output directory when the app is compiled/built.
+1. Lägg till följande konfigurationsblock för att inkludera den nya filen i projektet och kopiera den till utdatamappen. Detta säkerställer att appens konfigurationsfil placeras i utdatakatalogen när appen kompileras/skapas.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -54,32 +54,32 @@ Let's add the connection string we got from the Azure portal into the code. Neve
     </Project>
     ```
 
-1. Save the file. (Make sure you do this or you will lose the change when you add the package below!)
+1. Spara filen. (Kontrollera att detta görs, annars förlorar du ändringen när du lägger till paketet nedan!)
 
-## Add support to read a JSON configuration file
+## <a name="add-support-to-read-a-json-configuration-file"></a>Lägga till stöd för läsning av en JSON-konfigurationsfil
 
-A .NET Core application requires additional NuGet packages to read a JSON configuration file.
+Ett .NET Core-program kräver fler NuGet-paket för att kunna läsa en JSON-konfigurationsfil.
 
-1. In the command prompt section of the window, add a reference to the  **Microsoft.Extensions.Configuration.Json** NuGet package.
+1. I kommandotolken i fönstret lägger du till en referens till NuGet-paketet **Microsoft.Extensions.Configuration.Json**.
 
     ```bash
     dotnet add package Microsoft.Extensions.Configuration.Json
     ```
 
-## Add code to read the configuration file
+## <a name="add-code-to-read-the-configuration-file"></a>Lägga till kod för att läsa konfigurationsfilen
 
-Now that we have added the required libraries to enable reading configuration, we need to enable that functionality within our console application.
+Nu när vi har lagt till de bibliotek som krävs för att möjliggöra inläsning av konfigurationen, måste vi aktivera funktionerna i vårt konsolprogram.
 
-1. Select **Program.cs** in the editor.
+1. Välj **Program.cs** i redigeraren.
 
-1. At the top of the file, a **using System;** line is present. Underneath that line, add the following lines of code:
+1. Överst i filen visas raden **using System;**. Lägg till följande rader med kod under den raden:
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using System.IO;
     ```
 
-1. Replace the contents of the **Main** method with the following code. This code initializes the configuration system to read from the **appsettings.json** file.
+1. Ersätt innehållet i **Main**metoden med följande kod. Den här koden initierar konfigurationssystemet och får det att läsa från filen **appsettings.json**.
 
     ```csharp
     var config = new ConfigurationBuilder()
@@ -88,7 +88,7 @@ Now that we have added the required libraries to enable reading configuration, w
         .Build();
     ```
 
-Your **Program.cs** file should now look like the following:
+Filen **Program.cs** bör se ut så här nu:
 
 ```csharp
 using System;
@@ -110,42 +110,42 @@ namespace SportsStatsTracker
 }
 ```
 
-## Get the connection string from configuration
+## <a name="get-the-connection-string-from-configuration"></a>Hämta anslutningssträngen från konfigurationen
 
-1. In **Program.cs**, at the end of the **Main** method, use the new **config** variable to retrieve the connection string and store it in a new variable named **connectionString**.
-    - The **config** variable has an indexer where you can pass in a string to retrieve from your **appSettings.json** file.
+1. I **Program.cs**, i slutet av **Main**-metoden, använder du den nya **config**-variabeln till att hämta anslutningssträngen och lagra den i en ny variabel med namnet  **connectionString**.
+    - Variabeln **config** innehåller en indexerare där du kan skicka en sträng som hämtas från din **appSettings.json**-fil.
 
     ```csharp
     string connectionString = config["CacheConnection"];
     ```
     
-## Add support for the Redis cache .NET client
+## <a name="add-support-for-the-redis-cache-net-client"></a>Lägga till stöd för Redis-cachens .NET-klient
 
-Next, let's configure the console application to use the **StackExchange.Redis** client for .NET.
+Nu ska vi konfigurera konsolprogrammet till att använda **StackExchange.Redis**-klienten för .NET.
 
-1. Add the **StackExchange.Redis** NuGet package to the project using the command prompt at the bottom of the Cloud Shell editor.
+1. Lägg till NuGet-paketet **StackExchange.Redis** i projektet med kommandotolken längst ned i Cloud Shell-redigeraren.
 
     ```bash
     dotnet add package StackExchange.Redis
     ```
 
-1. Select **Program.cs** in the editor and add a `using` for the namespace **StackExchange.Redis**
+1. Välj **Program.cs** i redigeraren och lägg till en `using` för namnområdet **StackExchange.Redis**
 
     ```csharp
     using StackExchange.Redis;
     ```
     
-Once the installation is completed, the Redis cache client is available to use with your project.
+När installationen är klar är Redis-cacheklienten redo för användning med ditt projekt.
 
-## Connect to the cache
+## <a name="connect-to-the-cache"></a>Ansluta till cachen
 
-Let's add the code to connect to the cache.
+Nu ska vi lägga till koden för att ansluta till cachen.
 
-1. Select **Program.cs** in the editor.
+1. Välj **Program.cs** i redigeraren.
 
-1. Create a `ConnectionMultiplexer` using `ConnectionMultiplexer.Connect` by passing it your connection string. Name the returned value **cache**.
+1. Skapa en `ConnectionMultiplexer` med `ConnectionMultiplexer.Connect` genom att skicka den till din anslutningssträng. Ge det returnerade värdet namnet **cache**.
 
-1. Since the created connection is _disposable_, wrap it in a `using` block. Your code should look something like:
+1. Eftersom anslutningen är _kasserbar_ omsluter du den i ett `using`-block. Koden bör se ut ungefär så här:
 
     ```csharp
     string connectionString = config["CacheConnection"];
@@ -157,36 +157,36 @@ Let's add the code to connect to the cache.
     ```
 
 > [!NOTE] 
-> The connection to Azure Redis Cache is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application. We do _not_ want to create a new connection for each operation. Instead, we want to store it off as a field in our class and reuse it for each operation. Here we are only going to use it in the **Main** method, but in a production application, it should be stored in a class field, or a singleton.
+> Anslutningen till Azure Redis Cache hanteras av `ConnectionMultiplexer`-klassen. Den här klassen ska delas och återanvändas i hela ditt klientprogram. Vi vill _inte_ skapa någon ny anslutning för varje åtgärd. I stället vill vi lagra den utanför som ett fält i vår klass och återanvända den för varje åtgärd. Här ska vi bara använda den i **Main**-metoden, men i ett produktionsprogram ska den lagras i en klassfält eller en enkel databas.
 
-## Add a value to the cache
+## <a name="add-a-value-to-the-cache"></a>Lägga till ett värde i cachen
 
-Now that we have the connection, let's add a value to the cache.
+Nu när vi har anslutningen ska vi lägga till ett värde i cachen.
 
-1. Inside the `using` block after the connection has been created, use the `GetDatabase` method to retrieve an `IDatabase` instance.
+1. I `using`-blocket när anslutningen har skapats använder du `GetDatabase`-metoden till att hämta en `IDatabase`-instans.
 
-1. Call `StringSet` on the `IDatabase` object to set the key "test:key" to the value "some value".
-    - the return value from `StringSet` is a `bool` indicating whether the key was added.
+1. Anropa `StringSet` i `IDatabase`-objektet för att ändra nyckeln ”test:key” till värdet ”some value”.
+    - Returvärdet från `StringSet` är en `bool` som visar om nyckeln har lagts till.
 
-1. Display the return value from `StringSet` onto the console.
+1. Visa returvärdet från `StringSet` i konsolen.
 
     ```csharp
     bool setValue = db.StringSet("test:key", "some value");
     Console.WriteLine($"SET: {setValue}");
     ```
     
-## Get a value from the cache
+## <a name="get-a-value-from-the-cache"></a>Hämta ett värde från cachen
 
-1. Next, retrieve the value using `StringGet`. This takes the key to retrieve and returns the value.
+1. Sedan hämtar vi värdet med hjälp av `StringGet`. Detta kräver att nyckeln används till att hämta och returnera värdet.
 
-1. Output the returned value.
+1. Visa det returnerade värdet.
 
     ```csharp
     string getValue = db.StringGet("test:key");
     Console.WriteLine($"GET: {getValue}");
     ```
     
-1. Your code should look like this:
+1. Koden bör se ut så här:
 
     ```csharp
     using System;
@@ -222,25 +222,25 @@ Now that we have the connection, let's add a value to the cache.
     }
     ```
     
-1. Run the application to see the result. Type `dotnet run` into the terminal window below the editor. Make sure you are in the project folder or it won't find your code to build and run.
+1. Kör programmet för att se resultatet. Skriv `dotnet run` i terminalfönstret nedanför redigeraren. Kontrollera att du är i projektmappen, annars hittar den inte din kod som ska skapas och köras.
     
     ```bash
     dotnet run
     ```
     
-## Use the async versions of the methods
+## <a name="use-the-async-versions-of-the-methods"></a>Använda asynkrona versioner av metoderna
 
-We have been able to get and set values from the cache, but we are using the older synchronous versions. In server-side applications, these are not an efficient use of our threads. Instead, we want to use the _asynchronous_ versions of the methods. You can easily spot them - they all end in **Async**.
+Vi har kunnat hämta och ange värden från cachen, men vi har använt de äldre synkrona versionerna. I program på serversidan är det här inte en effektiv användning av våra trådar. I stället ska vi använda _asynkrona_ versioner av metoderna. Det är enkelt att hitta dem – alla har filändelsen **Async**.
 
-To make these methods easy to work with, we can use the C# `async` and `await` keywords. However, we will need to be using _at least_ C# 7.1 to be able to apply these keywords to our **Main** method.
+För att göra dessa metoder enkla att arbeta med använder vi `async` i C# och `await`-nyckelord. Men vi kommer att behöva använda _minst_ C# 7.1 för att dessa nyckelord ska kunna tillämpas i vår **Main**-metod.
 
-### Switch to C# 7.1
+### <a name="switch-to-c-71"></a>Växla till C# 7.1
 
-C#'s `async` and `await` keywords were not valid keywords in **Main** methods until C# 7.1. We can easily switch to that compiler through a flag in the **.csproj** file.
+C#-`async` och `await`-nyckelord var inte giltiga nyckelord i **Main**-metoderna före C# 7.1. Vi kan enkelt växla till den kompilatorn via en flagga i **.csproj**-filen.
 
-1. Open the **SportsStatsTracker.csproj** file in the editor.
+1. Öppna filen **SportsStatsTracker.csproj** i redigeraren.
 
-1. Add `<LangVersion>7.1</LangVersion>` into the first `PropertyGroup` in the build file. It should look like the following when you are finished.
+1. Lägg till `<LangVersion>7.1</LangVersion>` i den första `PropertyGroup` i versionsfilen. Den bör se ut enligt nedan när du är klar.
     
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -253,13 +253,13 @@ C#'s `async` and `await` keywords were not valid keywords in **Main** methods un
     ...
     ```
     
-### Apply the async keyword
+### <a name="apply-the-async-keyword"></a>Använda async-nyckelordet
 
-Next, apply the `async` keyword to the **Main** method. We will have to do three things.
+Tillämpa sedan `async`-nyckelordet på **Main**-metoden. Vi måste göra tre saker.
 
-1. Add the `async` keyword onto the **Main** method signature.
-1. Change the return type from `void` to `Task`.
-1. Add a `using` statement to include `System.Threading.Tasks`.
+1. Lägga till `async`-nyckelordet i **Main**-metodens signatur.
+1. Ändra returtypen från `void` till `Task`.
+1. Lägga till en `using`-instruktion som inkluderar `System.Threading.Tasks`.
 
 ```csharp
 using System;
@@ -277,13 +277,13 @@ namespace SportsStatsTracker
         ...
 ```
 
-### Get and set values asynchronously
+### <a name="get-and-set-values-asynchronously"></a>Hämta och ange värden asynkront
 
-1. Use the `StringSetAsync` and `StringGetAsync` methods to set and retrieve a key named "counter". Set the value to "100".
+1. Använd metoderna `StringSetAsync` och `StringGetAsync` för att ange och hämta en nyckel med namnet ”counter”. Ange värdet till ”100”.
 
-1. Apply the `await` keyword to get the results from each method.
+1. Tillämpa `await`-nyckelordet för att få resultat från varje metod.
 
-1. Output the results to the console window - just as you did with the synchronous versions.
+1. Överför resultatet till konsolfönstret – precis som du gjorde med de synkrona versionerna.
 
     ```csharp
     // Simple get and put of integral data types into the cache
@@ -294,27 +294,27 @@ namespace SportsStatsTracker
     Console.WriteLine($"GET: {getValue}");
     ```
     
-1. Run the application again - it should still work and now have two values.
+1. Kör programmet igen – det bör fortfarande fungera och nu ha två värden.
 
-#### Increment the value
+#### <a name="increment-the-value"></a>Öka värdet
 
-1. Use the `StringIncrementAsync` method to increment your **counter** value. Pass the number **50** to add to the counter.
-    - Notice that the method takes the key _and_ either a `long` or `double`.
-    - Depending on the parameters passed, it either returns a `long` or `double`.
+1. Använd `StringIncrementAsync`-metoden till att öka ditt värde i **räknaren**. Skicka talet **50** som ska läggas till i räknaren.
+    - Observera att metoden tar nyckeln _och_ antingen en `long` eller `double`.
+    - Beroende på vilka parametrar som skickades returnerar den antingen en `long` eller `double`.
 
-1. Output the results of the method to the console.
+1. Visa resultaten från metoden i konsolen.
 
     ```csharp
     long newValue = await db.StringIncrementAsync("counter", 50);
     Console.WriteLine($"INCR new value = {newValue}");
     ```
     
-## Other operations
+## <a name="other-operations"></a>Andra åtgärder
 
-Finally, let's try executing a few additional methods with the `ExecuteAsync` support.
+Slutligen ska vi prova att köra några fler metoder med `ExecuteAsync`-stödet.
 
-1. Execute "PING" to test the server connection. It should respond with "PONG".
-1. Execute "FLUSHDB" to clear the database values. It should respond with "OK".
+1. Kör ”PING” om du vill testa serveranslutningen. Den bör svara med ”PONG”.
+1. Kör ”FLUSHDB” för att rensa databasvärdena. Den bör svara med ”OK”.
 
 ```csharp
 var result = await db.ExecuteAsync("ping");
@@ -324,14 +324,14 @@ result = await db.ExecuteAsync("flushdb");
 Console.WriteLine($"FLUSHDB = {result.Type} : {result}");
 ```
 
-## Challenge
+## <a name="challenge"></a>Utmaning
 
-As a challenge, try serializing an object type to the cache. Here are the basic steps.
+Som en utmaning kan du försöka att serialisera en objekttyp till cachen. Här är de grundläggande stegen.
 
-1. Create a new `class` with some public properties. You can invent one of your own ("Person" or "Car" are popular), or use the "GameStats" example given in the previous unit.
-1. Add support for the **Newtonsoft.Json** NuGet package using `dotnet add package`.
-1. Add a `using` for the `Newtonsoft.Json` namespace.
-1. Create one of your objects.
-1. Serialize it with `JsonConvert.SerializeObject` and use `StringSetAsync` to push it into the cache.
-1. Get it back from the cache with `StringGetAsync` and then deserialize it with `JsonConvert.DeserializeObject<T>`.
+1. Skapa en ny `class` med några offentliga egenskaper. Du kan göra en egen (”Person” eller ”Bil” är populära), eller använda exemplet ”GameStats” i den föregående kursdelen.
+1. Lägg till stöd för NuGet-paketet **Newtonsoft.Json** med hjälp av `dotnet add package`.
+1. Lägg till en `using` för `Newtonsoft.Json`-namnområdet.
+1. Skapa ett av objekten.
+1. Serialisera det med `JsonConvert.SerializeObject` och använd `StringSetAsync` för att skicka det till cachen.
+1. Hämta tillbaka det från cachen med `StringGetAsync` och deserialisera det sedan med `JsonConvert.DeserializeObject<T>`.
 

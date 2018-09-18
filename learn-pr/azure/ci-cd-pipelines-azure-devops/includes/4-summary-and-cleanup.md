@@ -1,27 +1,27 @@
-You've successfully created a CI/CD pipeline for your custom application using Azure DevOps projects. 
+Du har nu skapat en CI/CD-rörledning för ditt anpassade program med hjälp av Azure DevOps-projekt. 
 
-## Clean up resources
+## <a name="clean-up-resources"></a>Rensa resurser
 
-When you're done working with this CI/CD pipeline, you can delete all resources created during the tutorial.
+När du har arbetat klart med CI/CD-rörledningen, kan du ta bort alla resurser som skapades under självstudien.
 
-1. From the Azure portal, browse to `Resource Groups` and click on `VstsResourceGroup-LearnCluster-xxxx` where xxx is random groups of letters and numbers  
+1. I Azure Portal bläddrar du till `Resource Groups` och klickar på `VstsResourceGroup-LearnCluster-xxxx`, där xxx är slumpmässiga grupper av bokstäver och siffror  
 ![LearnClusterRG](/media-draft/4-learnclusterrg.png)
 
-2. Click on the DevOps project named `Learn`  
-![Learn Link](/media-draft/4-learnlink.png)
+2. Klicka på DevOps-projektet med namnet `Learn`  
+![Läs länk](/media-draft/4-learnlink.png)
 
-3. Click on `Delete`  
-![Delete](/media-draft/4-deleteproj.png)
+3. Klicka på `Delete`  
+![Ta bort](/media-draft/4-deleteproj.png)
 
-4. Click on `Yes`  
-![Yes](/media-draft/4-yes.png)
+4. Klicka på `Yes`  
+![Ja](/media-draft/4-yes.png)
 
-This will delete all resource created in Azure.
+Detta tar bort alla resurser som skapats i Azure.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this tutorial, you learned how to:
+I den här självstudien lärde du dig att:
 > [!div class="checklist"]
-> * Create an Azure DevOps project
-> * Replace the sample app in the Azure DevOps project with your own
-> * Customize the Buld and Release pipelines
+> * Skapa ett Azure DevOps-projekt
+> * Ersätta exempelprogrammet i Azure DevOps-projektet med ditt eget
+> * Anpassa din versionsrörledning

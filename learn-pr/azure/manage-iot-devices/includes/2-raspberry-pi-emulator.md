@@ -1,44 +1,26 @@
-Raspberry Pi boards have garnered much interest of late for testing theories or
-event making cool things. While the cost on this boards are quite low, some may
-be interested in testing out the Raspberry Pi functionality before investing in
-one.
+Raspberry Pi-tavlor har fått mycket uppmärksamhet på sistone för att testa teorier eller för att skapa häftiga saker. Kostnaden för de här tavlorna är låg, men vissa kan ändå vara intresserade av att testa funktionen hos Raspberry Pi innan de investerar i en.
 
-Microsoft has built an online Raspberry Pi simulator allowing users to control
-the emulated hardware via code. The emulator portrays a graphic of a Raspberry
-Pi connected to a temperature, humidity, pressure sensor, and a red LED via
-breadboard allowing circuits to be wired together. The displayed side panel
-allows users to enter Node.js JavaScript code to control the LED and collect
-dummy data from the simulated sensor.
+Microsoft har byggt en Raspberry Pi-onlinesimulator så att användarna kan styra emulerade maskinvaran via kod. Emulatorn visar en bild av en Raspberry Pi som är ansluten till en sensor för temperatur, fuktighet och tryck samt en röd LED via kopplingsdäck så att kretsarna vara kopplas ihop. Den sidopanel som visas gör att användare kan ange Node.js JavaScript-kod för att styra LED:n och samla in testdata från den simulerade sensorn.
 
-At first run, the simulator operates a sample temperature capture program which
-is displayed via the command line. The same sample application can also be run
-on a real Pi as the simulator is designed to allow people to test code before
-transferring it to a real device.
+Vid den första körningen kör simulatorn ett exempelprogram för temperaturavläsning som visas via kommandoraden. Samma exempelprogram kan även köras på en verklig Pi eftersom simulatorn är utformad så att användare kan testa kod innan de överför den till en riktig enhet.
 
-## Web simulator
+## <a name="web-simulator"></a>Webbsimulator
 
-There are three areas in the web simulator:
+Det finns tre områden i webbsimulatorn:
 
-1.  Assembly area - The default circuit is that a Pi connects with a BME280
-    sensor and an LED. The area is locked in preview version so currently you
-    cannot do customization.
+1.  Sammansättningsområdeet – standardkretsen är att en Pi ansluts till en BME280-sensor och en LED. Området är låst i förhandsversionen, så för tillfället går det inte att göra anpassningar.
 
-2.  Coding area - An online code editor for you to code with Raspberry Pi. The
-    default sample application helps to collect sensor data from BME280 sensor
-    and sends to your Azure IoT Hub. The application is fully compatible with
-    real Pi devices.
+2.  Kodningsområdet – en onlinekodredigerare så att du kan köra med Raspberry Pi. Standardexempelprogrammet hjälper till att samla in sensordata från BME280-sensorn och skickar till din Azure IoT Hub. Programmet är helt kompatibelt med verkliga Pi-enheter.
 
-3.  Integrated console window - It shows the output of your code. At the top of
-    this window, there are three buttons.
+3.  Integrerat konsolfönster – visar utdata för din kod. Längst upp i det här fönstret finns tre knappar.
 
-    -   **Run** - Run the application in the coding area.
+    -   **Run** (Kör) – kör programmet i kodningsområdet.
 
-    -   **Reset** - Reset the coding area to the default sample application.
+    -   **Reset** (Återställ) – återställ kodningsområdet till standardexempelprogrammet.
 
-    -   **Fold/Expand** - On the right side there is a button for you to
-        fold/expand the console window.
+    -   **Fold/Expand** (Vik/expandera) – på höger sida finns det en knapp som viker/expanderar konsolfönstret.
 
-[Overview image of Pi online simulator](./../media-draft/image1.png)
+[Översiktsbild av Pi-onlinesimulatorn](./../media-draft/image1.png)
 
 <!-- Reference links 
 -   Online Raspberry Pi Emulator:

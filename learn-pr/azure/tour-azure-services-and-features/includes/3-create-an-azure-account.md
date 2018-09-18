@@ -1,55 +1,55 @@
-With a free Azure account, you can build, test, and deploy enterprise applications, create custom web and mobile experiences, and gain insights from your data through machine learning and powerful analytics.
+Med ett kostnadsfritt Azure-konto kan du skapa, testa och distribuera företagsprogram, skapa anpassade webb- och mobilmiljöer och få insikter från data med hjälp av maskininlärning och kraftfull analys.
 
-## What is an Azure account?
+## <a name="what-is-an-azure-account"></a>Vad är ett Azure-konto?
 
-An _Azure account_ is tied to a specific identity and holds information like:
+Ett _Azure-konto_ är knutet till en viss identitet och innehåller information som:
 
-- Name, email, and contact preferences
-- Billing information such as a credit card
+- Namn, e-postadress och kontaktinställningar
+- Faktureringsinformation, till exempel ett kreditkort
 
-An Azure account is associated with one more  _subscriptions_.
+Ett Azure-konto är kopplat till en eller flera _prenumerationer_.
 
-## What is an Azure subscription?
+## <a name="what-is-an-azure-subscription"></a>Vad är en Azure-prenumeration?
 
-An _Azure subscription_ is a logical container used to provision resources in Microsoft Azure. It holds the details of all your resources like virtual machines, databases, etc. It also has a trust relationship to a single Azure AD _tenant_ which is used to authenticate users and roles for the resources held in the subscription.
+En _Azure-prenumeration_ är en logisk behållare som används för att etablera resurser i Microsoft Azure. Den innehåller information om alla dina resurser, som virtuella datorer och databaser. Den har också en förtroenderelation till en _klientorganisation_ i Azure AD, som används till att autentisera användare och roller för de resurser som lagras i prenumerationen.
 
-Billing occurs at the subscription level. You can set spending limits on each subscription to ensure you aren't surprised at the end of the month. 
+Faktureringen sker på prenumerationsnivå. Du kan konfigurera utgiftsgränser för varje prenumeration så att du slipper överraskningar i slutet av månaden. 
 
-## What is an Azure AD tenant?
+## <a name="what-is-an-azure-ad-tenant"></a>Vad är en klientorganisation i Azure AD?
 
-Azure AD (Azure Active Directory) is a modern identity provider that supports multiple authentication protocols to secure applications and services in the cloud. It's _not_ the same as Windows Active Directory, which is focused on securing Windows desktops and servers. Instead, Azure AD is all about web-based authentication standards such as OpenID and OAuth.
+Azure AD (Azure Active Directory) är en modern identitetsprovider som har stöd för flera autentiseringsprotokoll för att skydda program och tjänster i molnet. Azure AD bör _inte_ förväxlas med Windows Active Directory, som fokuserar på att skydda Windows-baserade datorer och servrar. Azure AD handlar i stället om webbaserade autentiseringsstandarder som OpenID och OAuth.
 
-A single tenant represents a logical organization and allows multiple identities to access and utilize resources protected by that tenant. An Azure subscription always has a trust relationship with a _single_ Azure AD tenant, but _multiple_ subscriptions can share a single tenant. This structure allows the organization to manage multiple subscriptions and set security rules across all the resources contained within them.
+En enda klientorganisation representerar en logisk organisation och gör att flera identiteter kan komma åt och använda resurser som skyddas av klientorganisationen. En Azure-prenumeration har alltid en förtroenderelation med en _enda_ Azure AD-klientorganisation, men _flera_ prenumerationer kan dela en enskild klientorganisation. Den här strukturen gör att organisationen kan hantera flera prenumerationer och definiera säkerhetsregler för alla resurser som de innehåller.
 
-Here's a simple representation of accounts, subscriptions, tenants, and resources.
+Här är en enkel representation av konton, prenumerationer, klientorganisationer och resurser.
 
-![Diagram of how accounts, tenants, subscriptions, and resources work together](../media/3-azure-ad-tenant.png)
+![Diagram som visar hur konton, klientorganisationer, prenumerationer och resurser fungerar tillsammans](../media/3-azure-ad-tenant.png)
 
-Notice that each Azure AD tenant has an _account owner_. This is the original Azure account that is responsible for billing. You can add additional users to the tenant, and even invite guests from other Azure AD tenants to access resources in subscriptions.
+Observera att varje Azure AD-klientorganisation har en _kontoägare_. Det här är det ursprungliga Azure-kontot som ansvarar för faktureringen. Du kan lägga till ytterligare användare i klientorganisationen och även bjuda in gäster från andra Azure AD-klientorganisationer för åtkomst till resurser i prenumerationer.
 
-## Azure account types
+## <a name="azure-account-types"></a>Typer av Azure-konton
 
-Azure has several account types that cater to different customer types. The most commonly used accounts are:
+Azure har flera typer av konton för olika kundtyper. De vanligaste kontona är:
 
-- Free
-- Pay-As-You-Go
-- Enterprise Agreement
+- Kostnadsfritt
+- Betala per användning
+- Enterprise-avtal
 
-### Azure free account
+### <a name="azure-free-account"></a>Kostnadsfritt Azure-konto
 
-An Azure free account includes a **$200 credit** to spend for the first 30 days, free access to the most popular Azure products for 12 months, and access to more than 25 products that are always free. This is an excellent way for new users to get started. To set up a free account, you need a phone number, a credit card, and a Microsoft account.
+Ett kostnadsfritt Azure-konto innehåller en **kredit på 200 USD** som du kan spendera under de första 30 dagarna, kostnadsfri tillgång till de populäraste Azure-produkterna i 12 månader och tillgång till fler än 25 produkter som alltid är kostnadsfria. Det här är ett utmärkt sätt för nya användare att komma igång. Om du vill skaffa ett kostnadsfritt konto behöver du ett telefonnummer, ett kreditkort och ett Microsoft-konto.
 
 > [!NOTE]
-> Credit card information is used for identity verification only. You won’t be charged for any services until you upgrade.
+> Kreditkortsinformationen används endast för identitetsverifiering. Du debiteras inte för några tjänster förrän du uppgraderar.
 
-### Azure Pay-As-You-Go account
+### <a name="azure-pay-as-you-go-account"></a>Azure-konto där du betalar per användning
 
-A Pay-As-You-Go (PAYG) account bills you monthly for the services you used. This account type is appropriate for a wide range of users, from individuals to small businesses and many large organizations as well.
+Med ett konto där du betalar per användning (PAYG) debiteras du varje månad för de tjänster som du använder. Den här typen av konto är lämplig för ett stort antal användare, från enskilda användare till små företag och stora organisationer.
 
-### Azure Enterprise Agreement
+### <a name="azure-enterprise-agreement"></a>Azure Enterprise-avtal
 
-An Enterprise Agreement provides flexibility to buy cloud services and software licenses under one agreement, with discounts for new licenses and Software Assurance. It is targeted at enterprise-scale organizations.
+Ett Enterprise-avtal erbjuder flexibilitet för att köpa molntjänster och programvarulicenser genom ett avtal, med rabatter för nya licenser och Software Assurance. Det är framförallt avsett för stora organisationer.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Whether you are an individual, a small business, or an enterprise, you need an account to use Azure services. The typical sequence is to start with a free account so that you can evaluate Azure services. When your trial period expires, you will convert from the free account to Pay-As-You-Go.
+Oavsett om du är en individ, ett litet företag eller ett större företag behöver du ett konto för att kunna använda Azure-tjänster. Det vanligaste sättet att gå tillväga är att börja med ett kostnadsfritt konto så att du kan utvärdera Azure-tjänsterna. När utvärderingsperioden upphör konverterar du från det kostnadsfria kontot till att betala per användning.

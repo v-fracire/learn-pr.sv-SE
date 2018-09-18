@@ -1,50 +1,56 @@
 Det finns tre olika molndistributionsmodeller. En molndistributionsmodell definierar var dina data lagras och hur dina kunder interagerar med dem – hur kommer de åt dem, och var körs programmen? Vilken modell som passar dig beror också på hur mycket av din egen infrastruktur som du vill eller måste hantera.
 
-Här ska vi utforska olika typer av distributionsmetoder för dina molnresurser. 
+Här ska vi utforska olika typer av distributionsmetoder för dina molnresurser.
 
-## <a name="public-cloud"></a>Offentligt moln
+:::row:::
+    :::column:::
+        ![Ikon för offentligt moln](../media/4-public-cloud.png)
+    :::column-end:::
+    :::column span="3"::: **Offentligt moln**
 
-Det här är den vanligaste distributionsmodellen. I detta fall har du ingen lokal maskinvara som du hanterar eller håller uppdaterad – allt körs på molnleverantörens maskinvara. I vissa fall kan du spara ytterligare kostnader genom att dela beräkningsresurser med andra molnanvändare. 
+Det här är den vanligaste distributionsmodellen. I detta fall har du ingen lokal maskinvara som du hanterar eller håller uppdaterad – allt körs på molnleverantörens maskinvara. I vissa fall kan du spara ytterligare kostnader genom att dela beräkningsresurser med andra molnanvändare.
 
-### <a name="advantages"></a>Fördelar
+Några av fördelarna med det offentliga molnet är:
 
 - Hög skalbarhet – du behöver inte köpa en ny server för att skala upp
 - Priser för användningsbaserad betalning – du betalar bara för det du använder
-- Du slipper bekymra dig om underhåll eller uppdatering av maskinvaran
+- Du slipper bekymra dig om underhåll eller uppdatering av maskinvaran :::column-end:::
+  :::row-end:::
+:::row:::
+   :::column:::
+        ![Ikon för offentligt moln](../media/4-private-cloud.png)
+    :::column-end:::
+    :::column span="3"::: **Privat moln**
 
-### <a name="disadvantages"></a>Nackdelar
+I ett privat moln skapar du en molnmiljö i ditt eget datacenter och ger användare i din organisation åtkomst till beräkningsresurser via självbetjäning. Detta fungerar som en simulering av ett offentligt moln för dina användare, men du ansvara helt för inköp och underhåll av de maskin- och programvarutjänster som du tillhandahåller.
 
-- Större säkerhetshot
-- Delad maskinvara
-
-## <a name="private-cloud"></a>Privat moln
-
-Ett privat moln är ofta ett lokalt datacenter som ditt företag hanterar. Det har ingen anslutning till någon av tjänsterna som du kör i molnet. Ett exempel på den här modellen är ett företag som inte har migrerat någonting till molnet och som inte planerar att göra det.
-
-### <a name="advantages"></a>Fördelar
-
-- Högre säkerhet eftersom allt finns i företagets nätverk
-- Maskinvara/resurser delas inte
-
-### <a name="disadvantages"></a>Nackdelar
+Några skäl till varför team överger det privata molnet är:
 
 - Egen maskinvara krävs för att komma igång och för underhåll
-- Kräver IT-kunskaper
+- Privata moln kräver avancerade IT-kunskaper och expertis
+:::column-end:::
+:::row-end:::
+ :::row:::
+    :::column:::
+        ![Ikon för hybridmoln](../media/4-hybrid-cloud.png)
+    :::column-end:::
+    :::column span="3"::: **Hybridmoln**
 
-## <a name="hybrid-cloud"></a>Hybridmoln
+Ett hybridmoln kombinerar offentliga och privata moln, så att du kan köra dina program på den lämpligaste platsen. Du kan till exempel lagra en webbplats i det offentliga molnet och länka den till en mycket säker databas som finns i ditt privata moln (eller i ett lokalt datacenter).
 
-Det här är en kombination av det lokala datacentret som hanteras av ditt företag och det offentliga molnet. De två molnen är anslutna och kan utbyta data med varandra. Detta är bra om det finns vissa saker som du inte kan placera i molnet, till exempel av juridiska skäl. Du kanske exempelvis har data som inte kan exponeras offentligt (till exempel medicinska uppgifter). Ett annat exempel är ett eller flera program som körs på äldre maskinvara som inte kan uppdateras. I detta fall kan det gamla systemet fortsätta att köras lokalt och anslutas det till det offentliga molnet för auktorisering eller lagring.
+Detta är bra om det finns vissa saker som du inte kan placera i molnet, till exempel av juridiska skäl. Du kanske exempelvis har data som inte kan exponeras offentligt (till exempel medicinska uppgifter). Ett annat exempel är ett eller flera program som körs på äldre maskinvara som inte kan uppdateras. I detta fall kan det gamla systemet fortsätta att köras lokalt och anslutas det till det offentliga molnet för auktorisering eller lagring.
 
-### <a name="advantages"></a>Fördelar
+Några av fördelarna med ett hybridmoln jämfört med ett privat moln är:
 
 - Du kan fortsätta att köra och använda system med gammal maskinvara eller med ett föråldrat operativsystem
-- Flexibilitet att välja vad du vill köra lokalt och vad du vill köra i molnet
+- Du har flexibilitet att välja vad du vill köra lokalt och vad du vill köra i molnet
 
-### <a name="disadvantages"></a>Nackdelar
+Några saker som du bör ha i åtanke är:
 
-- Kan bli dyrare än om du väljer en distributionsmodell
-- Mer komplicerat att konfigurera och hantera
+- Det kan bli dyrare än om du väljer en distributionsmodell
+- Det kan vara mer komplicerat att konfigurera och hantera :::column-end:::
+  :::row-end:::
 
 ## <a name="summary"></a>Sammanfattning
 
-Molntjänster är flexibla och ger dig möjlighet att välja hur du vill distribuera dem. Normalt sett beror din distribution på din budget samt dina behov av säkerhet, skalbarhet och underhåll.
+Molntjänster är flexibla och ger dig möjlighet att välja hur du vill distribuera dem. Vilken molndistributionsmodell du väljer beror på din budget och på dina säkerhets-, skalbarhets- och underhållsbehov.

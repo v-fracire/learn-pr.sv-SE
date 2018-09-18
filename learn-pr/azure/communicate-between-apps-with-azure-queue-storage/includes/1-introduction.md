@@ -1,19 +1,19 @@
-Imagine you work for a major news organization that reports breaking news alerts. Our company employs a worldwide network of journalists that are constantly sending updates through a web portal and a mobile app. A middle tier web service layer then takes those alert updates and publishes them online through several channels.
+Anta att du arbetar för en större nyhetsorganisation som rapporterar aviseringar om de senaste nyheterna. Företaget har ett globalt nätverk av journalister som hela tiden skickar uppdateringar via en webbportal och en mobilapp. Ett webbtjänstlager på mellannivå tar sedan dessa aviseringsuppdateringar och publicerar dem online via flera kanaler.
 
-However, it's been noticed the system is missing alerts when globally significant events occur. This is a _huge_ problem because we're being "scooped" by our competition! You've been hand-selected as the company's top developer to identify and fix the problem.
+Men det har framkommit att det saknas aviseringar i systemet när viktiga globala händelser inträffar. Det här är ett _enormt_ problem eftersom våra konkurrenter därmed blir först med att leverera dessa nyheter! Eftersom du är företagets bästa utvecklare har du valts ut att identifiera och åtgärda problemet.
 
-The middle tier provides plenty of capacity to handle normal loads. However, a look at the server logs revealed the system was overloaded when several journalists tried to upload larger breaking stories at the same time. Some writers complained the portal became unresponsive, and others said they lost their stories altogether. You've spotted a direct correlation between the reported issues and the spike in demand on the middle tier servers.
+Mellannivån har tillräckligt med kapacitet för att hantera vanliga belastningar. Men en närmare titt på serverloggarna visar att systemet överbelastas när många journalister försöker ladda upp stora mängder nyhetsinformation samtidigt. Vissa skribenter klagar på att portalen slutar svara, och andra säger att deras nyheter försvunnit helt och hållet. Du har upptäckt ett direkt samband mellan de rapporterade problemen och toppar i efterfrågan på servrar på mellannivå.
 
-Clearly, you need a way to handle these unexpected peaks. You don't want to add more instances of the website and middle tier web service because they're expensive and, under normal conditions, redundant. We could dynamically spin up instances, but this takes time and we'd have the issue waiting for new servers to come online.
+Du behöver alltså ett sätt att hantera dessa oväntade toppar. Du vill inte lägga till fler instanser av webbplatsen och webbtjänsten på mellannivå, eftersom det är dyrt och inte behövs under normala förhållanden. Vi skulle kunna sätta igång instanser dynamiskt, men det skulle ta tid och vi skulle få problem med att vänta tills de nya servrarna är igång.
 
-You can solve this problem by using Azure Queue storage. A storage queue is a high-performance message buffer that can act as a broker between the front-end components (the "producers") and the middle tier (the "consumer"). 
+Du kan lösa problemet med hjälp av Azure Queue Storage. En lagringskö är en högpresterande meddelandebuffert som kan fungera som meddelandekö mellan komponenterna på klientdelen (”producenterna”) och på mellannivån (”konsumenten”). 
 
-Our front-end components place a message for each new alert into a queue. The middle tier then retrieves these messages one at a time from the queue for processing. At times of high-demand, the queue may grow in length, but no stories will be lost, and the application will remain responsive. When demand drops back to normal levels, the web service will catch up by working through the queue backlog.
+Våra komponenter på klientdelen placerar ett meddelande för varje ny avisering i en kö. På mellannivån tas dessa meddelanden sedan emot ett i taget från kön för bearbetning. Vid tidpunkter med hög efterfrågan växer kön, men inga nyheter går förlorade och programmet fortsätter att svara. När behovet sjunker tillbaka till normalnivåerna kan webbtjänsten komma ikapp genom att kvarvarande uppgifter i kön gås igenom.
 
-Let's learn how to use Azure Queue storage to handle high demand and improve resilience in your distributed applications.
+Nu ska vi visa hur du kan hantera hög efterfrågan och förbättra flexibiliteten i dina distribuerade program med Azure Queue Storage.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-- Create an Azure Storage account that supports queues.
-- Create a queue using C# and the Azure Storage Client Library for .NET.
-- Add, retrieve, and remove messages from a queue using C# and the Azure Storage Client Library for .NET.
+- Skapa ett Azure Storage-konto med stöd för köer.
+- Skapa en kö med C# och Azure Storage-klientbiblioteket för .NET.
+- Lägga till, hämta och ta bort meddelanden från en kö med C# och Azure Storage-klientbiblioteket för .NET.

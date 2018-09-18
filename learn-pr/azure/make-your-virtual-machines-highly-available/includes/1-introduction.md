@@ -1,17 +1,17 @@
-Azure Load Balancer can help scale your cloud applications and improve the availability of your services.
+Azure Load Balancer hjälper dig att skala dina molnprogram och förbättra tillgängligheten för dina tjänster.
 
-Suppose you work as the server administrator responsible for your on-premises Enterprise Resource Planning (ERP) application. The application is business-critical, and you want to minimize the downtime that results from server failure.
+Anta att du arbetar som serveradministratör och ansvarar för det lokala ERP-programmet (Enterprise Resource Planning). Programmet är verksamhetskritiskt, och du vill minimera driftstopp som orsakas av serverfel.
 
-Your company is looking to take advantage of some of the scalability options in the cloud and wants to determine if the ERP application can be made highly available by adding more servers and load balancing network traffic. Your job is to determine if a load balancer is appropriate for this type of application, and if so, how to deploy and configure the system.
+Företaget vill dra nytta av några av skalbarhetsalternativen i molnet och fastställa om ERP-programmet kan få hög tillgänglighet om fler servrar läggs till och om nätverkstrafiken lastbalanseras. Ditt jobb är att avgöra om en lastbalanserare är lämplig för den här typen av program och i så fall hur du distribuerar och konfigurerar systemet.
 
-Here, you will identify internal and external workloads that are suitable for load balancing. You will learn how to choose between the basic and standard load balancer products. Finally, you will see how to create a load balancer, associate the load balancer with virtual servers, and configure the associated rules and probes.
+Här identifierar du interna och externa arbetsbelastningar som är lämpliga för belastningsutjämning. Du kommer att lära dig hur du väljer mellan grundläggande och standardmässiga lastbalanserarprodukter. Slutligen ser du hur det går till att skapa lastbalanserare, associera balanseraren med virtuella servrar och konfigurera de associerade reglerna och avsökningarna.
 
-## Learning objectives:
+## <a name="learning-objectives"></a>Utbildningsmål:
 
-In this module, you will:
-- Decide when to use a load balancer
-- Identify the differences between the basic and standard Load Balancer editions
-- Create a new load balancer
-- Create virtual networks associated with a load balancer
-- Configure load balancer rules
-- Configure a load balancer health probe
+I den här modulen gör du följande:
+- Avgöra när en lastbalanserare ska användas
+- Identifiera skillnaderna mellan grundläggande och standardversioner av lastbalanseraren
+- Skapa en ny lastbalanserare
+- Skapa viruella nätverk som är associerade med en lastbalanserare
+- Konfigurera regler för lastbalanserare
+- Konfigurera en hälsoavsökning för lastbalanserare

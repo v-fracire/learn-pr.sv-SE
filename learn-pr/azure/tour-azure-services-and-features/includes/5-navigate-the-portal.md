@@ -1,10 +1,10 @@
-Now that we have an account, we can sign into the **Azure portal**. The portal is a web-based administration site that lets you interact with all of your subscriptions and resources you have created. Almost everything you do with Azure can be done through this web interface.
+Nu när vi har ett konto kan vi logga in på **Azure-portalen**. Portalen är en webbaserad administrationsplats som låter dig interagera med alla dina prenumerationer och resurser som du har skapat. Nästan allt du gör med Azure kan göras via det här webbgränssnittet.
 
-## Azure portal layout
+## <a name="azure-portal-layout"></a>Layout för Azure-portalen
 
-The Azure portal is the primary graphical user interface (GUI) for controlling Microsoft Azure. You can carry out the majority of management actions in the portal, and it is typically the best interface for carrying out single tasks or where you want to look at the configuration options in detail.
+Azure-portalen är det primära grafiska användargränssnittet (GUI) som du använder för att styra Microsoft Azure. Du kan utföra de flesta viktiga hanteringsåtgärder på portalen och det är vanligtvis det bästa gränssnittet för att utföra enskilda åtgärder eller där du vill se konfigurationsalternativen i detalj.
 
-![The Azure portal](../media-draft/5-portal.png)
+![Azure Portal](../media-draft/5-portal.png)
 
 :::row:::
 
@@ -24,77 +24,77 @@ The Azure portal is the primary graphical user interface (GUI) for controlling M
 
 :::row-end:::
 
-The remainder of the portal view is for the specific elements you are working with. The default (main) page is the _dashboard_. We'll cover this a bit later, but this represents a customizable birds-eye-view of your resources. You can use it to jump into specific resources you want to manage, or search for resources with the **All resources** entry in the resource panel. When you are managing a resource, such as a virtual machine or a web app, you will work with a _blade_ that presents specific information about the resource.
+Resten av portalvyn är för de specifika element som du arbetar med. Standardsidan (startsidan) är _instrumentpanelen_. Vi tar upp det lite senare, men det representerar en anpassningsbar överblick över dina resurser. Du kan använda den för att hoppa till specifika resurser som du vill hantera eller söka efter resurser med inlägget **Alla resurser** i resurspanelen. När du hanterar en resurs som en virtuell dator eller en webbapp, kommer du att arbeta med ett _blad_ som visar specifik information om resursen.
 
-## What is a blade?
+## <a name="what-is-a-blade"></a>Vad är ett blad?
 
-The Azure portal uses a blades model for navigation. A _blade_ is a slide-out panel containing the UI for a single level in a navigation sequence. For example, each of these elements in this sequence would be represented by a blade: **Virtual machines** > **Compute** > **Ubuntu Server**.
+Azure-portalen använder modellen med blad för navigering. Ett _blad_ är en öppningsbar panel som innehåller gränssnitt för en enda nivå i en navigeringssekvens. Till exempel representeras var och en av de här elementen i den här sekvensen av ett blad: **Virtuella datorer** > **Compute** > **Ubuntu Server**.
 
-Each blade contains some information and configurable options. Some of these options generate another blade, which reveals itself to the right of any existing blade. On the new blade, any further configurable options will spawn another blade, and so on. Pretty soon, you can end up with several blades open at the same time. You can maximize blades as well so that they fill the entire screen.
+Varje blad innehåller viss information och konfigurerbara alternativ. Vissa av dessa alternativ genererar ett annat blad, som visas till höger om eventuella befintliga blad. På det nya bladet visas eventuella ytterligare konfigurerbara alternativ som kan starta ett nytt blad och så vidare. Efter ett tag kan du ha flera blad öppna samtidigt. Du kan maximera blad så att de fyller hela skärmen.
 
-Since new blades are always added to the right of the owner, you can use the scrollbar at the bottom of the window to go backwards to see how you got to this spot in the configuration. Alternatively, you can close blades individually by clicking the `X` button in the top corner of the blade. If you have unsaved changes, Azure will prompt you to let you know that the changes will be lost if you continue.
+Eftersom nya blad alltid läggs till höger om sin ägare, kan du använda rullningslisten längst ned i fönstret för att gå bakåt och se hur du kom hit i konfigurationen. Alternativt kan du stänga bladen individuellt genom att klicka på `X`-knappen i det övre hörnet på bladet. Om du har ändringar som inte sparats, kommer Azure informera dig att ändringarna går förlorade om du fortsätter.
 
-## Configuring settings in the Azure portal
+## <a name="configuring-settings-in-the-azure-portal"></a>Konfigurera inställningar i Azure-portalen
 
-The Azure portal displays several configuration options, mostly in the status bar at the top-right of the screen.
+Azure-portalen visar flera konfigurationsalternativ, för det mesta i statusfältet längst upp till höger på skärmen.
 
-### Notifications
+### <a name="notifications"></a>Meddelanden
 
-Clicking the bell icon displays the **Notifications** pane. This pane lists the last actions that have been carried out, along with their status.
+När du klickar på klockikonen visas fönstret **Meddelanden**. Det här fönstret visar de senaste åtgärderna som utförts samt deras status.
 
-### Cloud Shell
+### <a name="cloud-shell"></a>Cloud Shell
 
-If you click the **Cloud Shell** icon (>_), you will create a new Azure Cloud Shell session. Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work. Linux users can opt for a Bash experience, while Windows users can opt for PowerShell. This browser-based terminal lets you control and administer all of your Azure resources in the current subscription through a command-line interface built right into the portal.
+Om du klickar på ikonen för **Cloud Shell** (>_) skapar du en ny Azure Cloud Shell-session. Azure Cloud Shell är ett interaktivt, webbläsartillgängligt skal för att hantera Azure-resurser. Det ger dig flexibilitet att välja den skalupplevelse som bäst passar ditt sätt att arbeta. Linux-användare kan välja en Bash-upplevelse och Windows-användare kan välja PowerShell. Den här webbläsarbaserade terminalen låter dig styra och administrera alla dina Azure-resurser i den aktuella prenumerationen via ett kommandoradsgränssnitt som är inbyggt i portalen.
 
-### Settings
+### <a name="settings"></a>Inställningar
 
-Click the **gear** icon to change the Azure portal settings. These settings include:
+Klicka på **kugghjulsikonen** för att ändra inställningarna för Azure-portalen. Några exempel på inställningar är:
 
-- Logout time
-- Color and contrast themes
-- Toast notifications (to a mobile device)
-- Language and regional format
+- Utloggningstid
+- Färg och kontrastteman
+- Popup-meddelanden (till en mobil enhet)
+- Språk och regionsformat
 
-![Portal settings](../media-draft/5-settings-blade.png)
+![Inställningar för portalen](../media-draft/5-settings-blade.png)
 
-When you have changed settings, click **Apply** to accept your changes.
+När du har ändrat inställningarna klickar du på **Tillämpa** för att godkänna ändringarna.
 
-### Feedback blade
+### <a name="feedback-blade"></a>Feedbackbladet
 
-The **smiley face** icon opens the **Send us feedback** blade. Here you can send feedback to Microsoft about Azure. Note that you can specify whether Microsoft can respond to your feedback by email.
+Ikonen med **uttryckssymbolen** öppnar bladet **Skicka feedback**. Här kan du skicka feedback till Microsoft om Azure. Observera att du kan ange om Microsoft kan svara på din feedback via e-post.
 
-### Help blade
+### <a name="help-blade"></a>Hjälpbladet
 
-Click the **question mark** icon to show the **Help** blade. Here you choose from several options, including:
+Klicka på **frågetecknet** för att visa bladet **Hjälp**. Här kan du välja mellan flera alternativ, inklusive:
 
-- What's new
-- Azure roadmap
-- Launch guided tour
-- Keyboard shortcuts
-- Show diagnostics
-- Privacy + terms
+- Nyheter
+- Azure-översikt
+- Starta guidad visning
+- Kortkommandon
+- Visa diagnostik
+- Sekretess + villkor
 
-### Directory and subscription
+### <a name="directory-and-subscription"></a>Katalog och prenumeration
 
-Click the **Book and Filter** icon to show the **Directory + subscription** blade.
+Klicka på ikonen **Boka och filtrera** för att visa bladet **Katalog + prenumeration**.
 
-Azure allows you to have more than one subscription associated with one directory. On the **Directory + subscription** blade, you can change between subscriptions. Here, you can change your subscription or change to another directory.
+Azure gör det möjligt för dig att ha mer än en prenumeration associerad med en katalog. Du kan ändra mellan prenumerationer på bladet **Katalog och prenumeration**. Här kan du kan ändra din prenumeration eller ändra till en annan katalog.
 
-![Directory](../media-draft/5-directory-blade.png)
+![Katalog](../media-draft/5-directory-blade.png)
 
-### Profile settings
+### <a name="profile-settings"></a>Profilinställningar
 
-If you click on your name in the top right-hand corner, you can then change your profile settings.
-Options include:
+Om du klickar på ditt namn i det övre högra hörnet kan du sedan ändra profilinställningarna.
+Alternativen är:
 
-- Sign out of Azure
-- Change password
-- Change contact information
-- View permissions
-- Submit an idea to the Azure team
-- View your bill
-- Switch directory (shows the **Directory + subscription** blade as in the previous section)
+- Logga ut från Azure
+- Ändra lösenord
+- Ändra kontaktuppgifter
+- Visa behörigheter
+- Skicka en idé till Azure-teamet
+- Visa din faktura
+- Växla katalog (visar bladet **Katalog + prenumeration** som i föregående avsnitt)
 
-If you now click **View my bill**, Azure takes you to the **Cost Management + Billing - Invoices** page, which helps you analyze where Azure is generating costs.
+Om du nu klickar på **Visa min faktura** tar Azure dig till sidan **Kostnadshantering + Fakturering – Fakturor** som hjälper dig att analysera var Azure genererar kostnader.
 
-Azure is a large product, and the Azure portal user interface (UI) reflects this. The sliding blade approach allows you to navigate back and forth through the various administration tasks with ease. Let's experiment a bit with this UI so you get some practice.
+Azure är en stor produkt och det återspeglas i portalens användargränssnitt. Metoden med glidande blad låter dig navigera fram och tillbaka mellan de olika administrationsuppgifterna med enkelhet. Nu ska vi testa lite med det här användargränssnittet så att du får öva lite.

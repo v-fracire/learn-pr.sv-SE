@@ -14,7 +14,7 @@ achievements:
   type: badge
   title: Märke för Skapa en serverfri webbapp
   summary: Märke för modulen ”Skapa en serverfri webbapp”.
-  iconUrl: /learn/azure/build-a-serverless-web-app/achievement/build-a-serverless-web-app.svg
+  iconUrl: http://via.placeholder.com/120x120
 - uid: learn.cd-pipeline-github-to-azure-web-app.badge
   type: badge
   title: Märke för Skapa en pipeline för kontinuerlig distribution från GitHub till Azure Web App
@@ -157,8 +157,8 @@ achievements:
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.migrate-sql-server-relational-data.badge
   type: badge
-  title: Migrera relationsdata i SQL Server till Azure SQL
-  summary: Migrera relationsdata i SQL Server till Azure SQL
+  title: Migrera dina relationsdata i SQL Server till Azure SQL
+  summary: Migrera dina relationsdata i SQL Server till Azure SQL
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.communicate-between-applications-with-azure-queue-storage.badge
   type: badge
@@ -199,13 +199,18 @@ achievements:
   type: badge
   title: Hantera hemligheter i dina webbappar med Azure Key Vault
   summary: Hantera hemligheter i dina webbappar med Azure Key Vault
-  iconUrl: /learn/achievements/manage-secrets-with-azure-key-vault.svg
+  iconUrl: http://via.placeholder.com/120x120
 - uid: learn.secure-azure-resources-with-rbac.badge
   type: badge
   title: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
   summary: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
   iconUrl: http://via.placeholder.com/120x120
-- uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.badge
+- uid: learn.secure-access-azure-ad-multi-factor-authentication.badge
+  type: badge
+  title: Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication
+  summary: Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.share-location-over-sms-from-mobile-using-azure-functions-twilio.badge
   type: badge
   title: Märke för Skicka platsinformation via SMS från din telefon med Azure Functions och Twilio
   summary: Märke för modulen Skicka platsinformation via SMS från din telefon med Azure Functions och Twilio
@@ -224,7 +229,7 @@ achievements:
   type: badge
   title: Lagra data för webbappar med Azure Blob Storage
   summary: Lagra data för webbappar med Azure Blob Storage
-  iconUrl: /learn/modules/store-app-data-with-azure-blob-storage/achievement/store-app-data-with-azure-blob-storage.svg
+  iconUrl: http://via.placeholder.com/120x120
 - uid: learn.enable-reliable-messaging-for-big-data-applications-using-azure-event-hubs.badge
   type: badge
   title: Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs
@@ -239,6 +244,11 @@ achievements:
   type: badge
   title: Märke för Introduktion till data i Azure
   summary: Märke för modulen Introduktion till data i Azure.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.introduction-to-azure-virtual-machines.badge
+  type: badge
+  title: Introduktion till Azure Virtual Machines
+  summary: Introduktion till Azure Virtual Machines
   iconUrl: http://via.placeholder.com/120x120
 - uid: learn.cosmos-db-app-with-vscode.badge
   type: badge
@@ -255,6 +265,21 @@ achievements:
   title: Pokal för Hantera resurser i Azure
   summary: Pokal för utbildningsvägen Hantera resurser i Azure.
   iconUrl: http://via.placeholder.com/120x120
+- uid: learn.interactive-deep-learning.badge
+  type: badge
+  title: Märke för Fem steg till mer interaktiv djupinlärning
+  summary: Märke för modulen ”Fem steg till mer interaktiv djupinlärning”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-computer-vision-service.badge
+  type: badge
+  title: Skapa en tjänst för Visuellt innehåll
+  summary: Märke för modulen ”Skapa en tjänst för Visuellt innehåll”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.monitor-manage-device-with-iotcentral.badge
+  type: badge
+  title: Märke för Övervaka och hantera en kaffebryggare med Azure IoT Central
+  summary: Märke för modulen ”Övervaka och hantera en kaffebryggare med Azure IoT Central”.
+  iconUrl: http://via.placeholder.com/120x120
 - uid: learn.align-requirements-in-azure.badge
   type: badge
   title: Märke för Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
@@ -263,12 +288,122 @@ achievements:
 - uid: learn.choose-storage-approach-in-azure.badge
   type: badge
   title: Märke för Välja metod för lagring i Azure
-  summary: Märke för modulen Välja metod för lagring i Azure.
+  summary: Märke för modulen ”Välja metod för lagring i Azure”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.azure-container-registry.badge
+  type: badge
+  title: Märke för Skapa och lagra containeravbildningar med Azure Container Registry
+  summary: Märke för modulen ”Skapa och lagra containeravbildningar med Azure Container Registry”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.build-azure-bot-services-bot.badge
+  type: badge
+  title: Märke för Skapa en chattrobot med Azure Bot Service
+  summary: Märke för modulen ”Skapa en chattrobot med Azure Bot Service”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.classify-images-with-custom-vision-services.badge
+  type: badge
+  title: Märke för Klassificera bilder med Microsoft Custom Vision Service
+  summary: Märke för modulen ”Klassificera bilder med Microsoft Custom Vision Service”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.create-neural-network-with-dsvm.badge
+  type: badge
+  title: Märke för Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine
+  summary: Märke för modulen ”Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.design-for-efficiency-and-operations.badge
+  type: badge
+  title: Märke för Designa för effektivitet och drift
+  summary: Märke för modulen ”Designa för effektivitet och drift”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.design-for-performance-and-scalability.badge
+  type: badge
+  title: Märke för Designa för prestanda och skalbarhet
+  summary: Märke för modulen ”Designa för prestanda och skalbarhet”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.design-for-security.badge
+  type: badge
+  title: Märke för Designa för säkerhet
+  summary: Märke för modulen ”Designa för säkerhet”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.execute-azure-function-with-triggers.badge
+  type: badge
+  title: Märke för Köra en Azure-funktion med utlösare
+  summary: Märke för modulen ”Köra en Azure-funktion med utlösare”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.intro-to-containers.badge
+  type: badge
+  title: Märke för Introduktion till containrar
+  summary: Märke för modulen ”Introduktion till containrar”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.predict-costs-and-optimize-spending.badge
+  type: badge
+  title: Märke för Förutse kostnader och optimera utgifter för Azure
+  summary: Märke för modulen ”Förutse kostnader och optimera utgifter för Azure”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.principles-cloud-computing.badge
+  type: badge
+  title: Märke för Principerna bakom molntjänster
+  summary: Märke för modulen ”Principerna bakom molntjänster”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.provision-azure-sql-db.badge
+  type: badge
+  title: Märke för Tillhandahålla en Azure SQL-databas för att lagra appdata
+  summary: Märke för modulen ”Tillhandahålla en Azure SQL-databas för att lagra appdata”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.run-docker-containers-aci.badge
+  type: badge
+  title: Märke för Köra Docker-containrar med Azure Container Instances (ACI)
+  summary: Märke för modulen ”Köra Docker-containrar med Azure Container Instances (ACI)”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.access-data-with-cosmos-db-and-sql-api.badge
+  type: badge
+  title: Märke för Lagra och komma åt data med Cosmos DB och SQL API
+  summary: Märke för modulen ”Lagra och komma åt data med Cosmos DB och SQL API”.
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.configure-the-network-for-your-virtual-machines.badge
+  type: badge
+  title: Konfigurera nätverket för dina virtuella datorer
+  summary: Konfigurera nätverket för dina virtuella datorer
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.introduction-to-security.badge
+  type: badge
+  title: Introduktion till säkerhet i Azure
+  summary: Introduktion till säkerhet i Azure
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.secure-your-azure-virtual-machine-disks.badge
+  type: badge
+  title: Skydda dina virtuella Azure-datordiskar
+  summary: Skydda dina virtuella Azure-datordiskar
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.protect-your-resources-with-azure-security-center.badge
+  type: badge
+  title: Skydda dina resurser med Azure Security Center
+  summary: Skydda dina resurser med Azure Security Center
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.implement-message-workflows-with-service-bus.badge
+  type: badge
+  title: Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus
+  summary: Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.intro-to-azure-networking.badge
+  type: badge
+  title: Märke för Introduktion till Azure-nätverk
+  summary: Introduktion till Azure-nätverk
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.design-a-great-azure-architecture.badge
+  type: badge
+  title: Märke för Utforma en fantastisk Azure-arkitektur
+  summary: Märke för Utforma en fantastisk Azure-arkitektur
+  iconUrl: http://via.placeholder.com/120x120
+- uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.badge
+  type: badge
+  title: Märke för Skicka plats via SMS med hjälp av Azure Functions och Twilio
+  summary: Märke för Skicka plats via SMS med hjälp av Azure Functions och Twilio
   iconUrl: http://via.placeholder.com/120x120
 metadata:
-  ms.openlocfilehash: 693a03cb55f823b85d8daa4246a9cdf16fdab8ce
-  ms.sourcegitcommit: 91b4553dbbbf6d8b6b359142332d0654aae326e8
+  ms.openlocfilehash: 7491ac3827bf3f06ccf5974f7a18e31952f03a36
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/30/2018
-  ms.locfileid: "43252137"
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43825455"

@@ -1,105 +1,105 @@
-To see the Text Analytics API in action, let's make some calls using  the built-in API testing console tool located in the online reference documentation. Before we do that, we'll need an access key to make those calls. 
+För att se API för textanalys i praktiken gör vi några anrop med hjälp av det inbyggda API-testkonsolverktyget som finns i referensdokumentationen online. Innan vi gör detta måste vi ha en åtkomstnyckel för att kunna göra dessa anrop. 
 
-## Create an access key
+## <a name="create-an-access-key"></a>Skapa en åtkomstnyckel
 
-Every call to Text Analytics API requires a subscription key. Often called an access key, it is used to validate that you have access to make the call. We'll use the Azure portal to grab a key. 
+För varje anrop till API för textanalys krävs en prenumerationsnyckel. Det kallas ofta en åtkomstnyckel och den används för att verifiera att du har åtkomst för anropet. Vi använder Azure Portal till att hämta en nyckel. 
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com?azure-portal=true) with your Azure account.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com?azure-portal=true) med ditt Azure-konto.
 
-1.  Click **+ Create a resource**
+1.  Klicka på **+ Skapa en resurs**
 
-1.  Under Azure Marketplace, select **AI + Machine Learning** to display a list of available APIs. Click on **See all** in the top right of the page to see the entire list of Cognitive Services APIs. 
+1.  Under Azure Marketplace väljer du **AI + Machine Learning** för att visa en lista med tillgängliga API:er. Klicka på **Se alla** uppe till höger på sidan för att se hela listan med API:er för Cognitive Services. 
 
-1. Find **Text Analytics** in the list of Cognitive Services and select it. 
-![Screenshot of AI and Machine Learning pane, showing the Text Analytics API selected in the list.](../media-draft/select-text-analytics.PNG)
+1. Leta reda på **Textanalys** i listan med Cognitive Services och välj den. 
+![Skärmbild av fönstret AI och Machine Learning som visar den API för textanalys som valts i listan.](../media-draft/select-text-analytics.PNG)
 
-1. In the create page that opens, enter the following values into each field.
+1. På sidan Skapa som öppnas anger du följande värden i fälten.
 
 
-|Property  | Value  | Description  |
+|Egenskap  | Värde  | Beskrivning  |
 |---------|---------|---------|
-|Name     |    MyTextAnalyticsAPIAccount     |  The name of the Cognitive Services account. We recommend using a descriptive name. Valid characters are `a-z`, `0-9`, and `-`.    |
-|Subscription     |  Your subscription       |   The subscription under which this new Cognitive Services API account with **Text Analytics API** is created.      |
-|Location     |  West US       |  Choose a [region](https://azure.microsoft.com/regions/) near you.       |
-|Pricing tier     | **F0 Free**     |   The cost of your Cognitive Services account depends on the actual usage and the options you choose. We recommend selecting the free tier for our purposes here.      |
-|Resource group     |  Create a new resource group and call it [!INCLUDE [resource-group-note](./rg-name.md)]       |  Name for the new resource group in which to create your Cognitive Services Text Analytics API account.       |
+|Namn     |    MyTextAnalyticsAPIAccount     |  Namnet på Cognitive Services-kontot. Vi rekommenderar att du använder ett beskrivande namn. Giltiga tecken är `a-z`, `0-9` och `-`.    |
+|Prenumeration     |  Din prenumeration       |   Prenumerationen där det här nya Cognitive Services API-kontot med **API för textanalys** skapas.      |
+|Plats     |  USA, västra       |  Välj en [region](https://azure.microsoft.com/regions/) nära dig.       |
+|Prisnivå     | **F0 kostnadsfritt**     |   Kostnaden för ditt Cognitive Services-konto beror på den faktiska användningen och de alternativ som du väljer. Vi rekommenderar att du väljer den kostnadsfria nivån för våra syften här.      |
+|Resursgrupp     |  Skapa en ny resursgrupp och kalla den [!INCLUDE [resource-group-note](./rg-name.md)]       |  Namnet på den nya resursgruppen där du vill skapa ett Cognitive Services-konto för API för textanalys.       |
 
 
 [!INCLUDE [resource-group-note](./rg-notice.md)]
 
-Here's a screenshot of what the **Create** page looks like when you've completed it.
+Här visas en skärmbild av hur sidan **Skapa** ser ut när du är klar.
 
-![Screenshot of user interface for creating a Text Analytics account with all fields filled out with values suggested in preceding table.](../media-draft/create-text-analytics-account.PNG)
+![Skärmbild av användargränssnittet för att skapa ett textanalyskonto med alla fält ifyllda med de värden som föreslogs i föregående tabell.](../media-draft/create-text-analytics-account.PNG)
 
-6. Select **Create** at the bottom of the page to start the account creation process.  Watch for a notification that the deployment is in progress. You'll then get a notification that the account has been deployed successfully to your resource group.
+6. Välj **Skapa** längst ned på sidan för att starta processen att skapa kontot.  Vänta på ett meddelande om att distributionen pågår. Du får sedan ett meddelande om att kontot har distribuerats till resursgruppen.
 
-![Deployment succeeded notification with a Go to resource button and a Pin to dashboard button.](../media-draft/deploy-resource-group-success.PNG)
+![Meddelandet om att distributionen är klar med knapparna Gå till resurs och Fäst på instrumentpanelen.](../media-draft/deploy-resource-group-success.PNG)
 
-Now that we have our Cognitive Services account, let's find the access key so we can start calling the API. 
+Nu när vi har vårt Cognitive Services-konto kan vi leta reda på åtkomstnyckeln. Därefter ska vi börja anropa API:n. 
 
-7. Click on the **Go to resource** button on the *Deployment succeeded* notification. This action opens the account Quickstart. 
+7. Klicka på knappen **Gå till resurs** i meddelandet *Distributionen lyckades*. Den här åtgärden öppnar kontot Snabbstart. 
 
-1. Select the **Keys** menu item from the menu on the left, or in the *Grab your keys* section of the quickstart.  This action opens the **Manage keys** page.
+1. Välj menyalternativet **Nycklar** i menyn till vänster, eller i avsnittet *Hämta dina nycklar* i snabbstarten.  Åtgärden öppnar sidan **Hantera nycklar**.
 
-1. Copy one of the keys using the copy button. 
+1. Kopiera en av nycklarna med hjälp av kopieringsknappen. 
 
-![Manage keys user interface showing the name of the Cognitive Services account and the Key 1 and Key 2 entries.](../media-draft/manage-keys.PNG)
+![Användargränssnittet för att hantera nycklar visar namnet på Cognitive Services-kontot samt posterna Nyckel 1 och Nyckel 2.](../media-draft/manage-keys.PNG)
 
 > [!IMPORTANT]
-> Always keep your access keys save and never share them. 
+> Se alltid till att dina åtkomstnycklar är skyddade och dela dem aldrig. 
 
-10. Store this key for the rest of this module. We'll use it shortly to make API calls from the testing console and throughout the rest od the module.
+10. Lagra nyckeln för resten av den här modulen. Vi kommer att använda den inom kort för att göra API-anrop från testkonsolen och i resten av modulen.
 
-Now that we have our key we can head over to the testing console and take the API for a spin.
+Nu när vi har vår nyckel kan vi gå vidare till testkonsolen och börja använda API:n.
 
-## Call the API from the testing console
+## <a name="call-the-api-from-the-testing-console"></a>Anropa API:n från testkonsolen
 
-1. Navigate to the [Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7?azure-portal=true) reference documentation in your favorite browser.
+1. Gå till referensdokumentationen för [API för textanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7?azure-portal=true) i webbläsaren.
 
-The landing page displays a menu on the left and content to the right. The menu lists the POST methods you can call on the Text Analytics API. These endpoints are **Detect Language**, **Entities**, **Key Phrases**, and **Sentiment**.  To call one of these operations, we need to do a few things.
-- Select the method we want to call.
-- Select a testing console that matches the region or location we selected earlier in this lesson. 
-- Add the access key that we saved earlier in the lesson to each call.
+På startsidan visas en meny till vänster och innehåll till höger. I menyn visas de POST-metoder som du kan anropa i API för textanalys. De här slutpunkterna är **Identifiera språk**, **Entiteter**, **Nyckelfraser** och **Attityd**.  Vi behöver göra några saker för att kunna anropa en av dessa åtgärder.
+- Välja den metod som vi vill anropa.
+- Välja en testkonsol som matchar regionen eller platsen som vi valde tidigare i den här lektionen. 
+- Lägga till den åtkomstnyckel som vi sparade tidigare i lektionen i varje anrop.
 
-2. Front the left menu, select **Sentiment**. This selection opens the Sentiment documentation to the right. As the documentation shows, we'll be making a REST call in the following format:
+2. Välj **Attityd** i den vänstra menyn. Det här alternativet öppnar attityddokumentationen till höger. Så som visas i dokumentationen kommer vi att göra ett REST-anrop i följande format:
 
 `https://[location].api.cognitive.microsoft.com/text/analytics/v2.0/sentiment` 
 
-We'll pass in our subscription key, or access key, in the **ocp-Apim-Subscription-Key** header.
+Vi ska skicka in vår prenumerationsnyckel eller åtkomstnyckel i rubriken **ocp-Apim-Subscription-Key**.
 
-## Make some API calls
+## <a name="make-some-api-calls"></a>Göra vissa API-anrop
 
-1. Select a region from the list on this page that matches the location we picked when creating our Cognitive Services account earlier in this lesson.  For example, if we chose *West US* earlier when creating the account, then select it here as follows.
-![Screenshot of Text Analytics API reference site with Sentiment menu item selected, followed by West US.](../media-draft/select-testing-console-region.png)
+1. Välj en region i listan på den här sidan som matchar den plats som vi valde när vi skapade vårt Cognitive Services-konto tidigare i den här lektionen.  Om vi exempelvis valde *USA, västra* tidigare när vi skapade kontot, väljer du det här på följande sätt.
+![Skärmbild av en referensplats för API för textanalys med menyalternativet Attityd valt, följt av USA, västra.](../media-draft/select-testing-console-region.png)
 
-1.  The next page that opens is a live, interactive, API console.  Paste the access key you saved earlier into the field on the page labeled **Ocp-Apim-Subscription-Key**. Notice that the key is written automatically into the HTTP request window as a header value.
+1.  Nästa sida som öppnas är en interaktiv API-konsol.  Klistra in den åtkomstnyckel som du sparade tidigare i fältet på sidan med etiketten **Ocp-Apim-Subscription-Key**. Observera att nyckeln skrivs automatiskt till fönstret HTTP-begäran som ett värde för rubriken.
 
-1. Scroll to the bottom of the page and click **Send**. Let's break down what happens by looking at this screen in detail.
+1. Bläddra längst ned på sidan och klicka på **Skicka**. Låt oss se vad som händer genom att titta på den här skärmen i detalj.
 
-In the Headers section of the user interface, we set the access, or subscription, key in the header of our request.
+I avsnittet Rubriker i användargränssnittet anger vi åtkomst eller prenumeration samt nyckel i rubriken för begäran.
 
-![Screenshot of headers section.](../media-draft/2-marker.PNG)
+![Skärmbild av rubrikavsnittet.](../media-draft/2-marker.PNG)
 
-Next we have the request body section which  holds a **documents** array. Each document in the array as three properties. The properties are *"language"*, *"id"*, *"text"*. The *"id"* is a number in this example, but can be anything you want as long as it's unique in the documents array. In this example we're also passing in documents written in three different languages. Over 15 languages are supported in the Sentiment feature of the Text Analytics API. For more info, check out [Supported languages in the Text Analytics API](https://docs.microsoft.com//azure/cognitive-services/text-analytics/text-analytics-supported-languages). The maximum size of a single document is 5,000 characters and one request can have up to 1,000 documents. 
+Därefter har vi avsnittet med begärandetext som innehåller en **dokument**matris. Alla dokument i matrisen har tre egenskaper. Egenskaperna är *”language”*, *”id”* och *”text”*. Egenskapen *”id”* är ett tal i det här exemplet, men kan vara allt du vill så länge det är unikt i dokumentmatrisen. I det här exemplet använder vi också dokument som skrivits på tre olika språk. Över 15 språk stöds i attitydfunktionen i API för textanalys. Mer information finns i [Språk som stöds i API för textanalys](https://docs.microsoft.com//azure/cognitive-services/text-analytics/text-analytics-supported-languages). Den maximala storleken för ett enskilt dokument är 5 000 tecken och en begäran kan innehålla upp till 1 000 dokument. 
 
-![Screenshot of Request Body section](../media-draft/3-marker.PNG)
+![Skärmbild av avsnittet Begärandetext](../media-draft/3-marker.PNG)
 
-The complete request, including the headers and the request URL are displayed in the next section. In this example, you can see that the requests are routed to a URL that begin with `westus`. The URL differs depending on the region you selected.  
+En fullständig begäran, inklusive rubriker och begärans-URL visas i nästa avsnitt. I det här exemplet ser du att begäranden dirigeras till en URL som börjar med `westus`. URL:en ser olika ut beroende på vilken region som du har valt.  
 
-![Section number four.](../media-draft/4-marker.PNG) 
-![Section number five.](../media-draft/5-marker.PNG) 
+![Avsnitt nummer fyra.](../media-draft/4-marker.PNG) 
+![Avsnitt nummer fem.](../media-draft/5-marker.PNG) 
 
-Then we have info about the response. In the example, we see that the request was a success and code `200` was returned. We can also see that the round trip took 38 ms.
+Därefter har vi information om svaret. I det här exemplet ser vi att begäran lyckades och att koden `200` returnerades. Vi kan också se att processen tog 38 msek.
 
-![Section number five.](../media-draft/6-marker.PNG)  
+![Avsnitt nummer fem.](../media-draft/6-marker.PNG)  
 
-Finally, we see the response to our request. The response holds the insight the Text Analytics API had about our documents. An array of documents is returned to us, without the original text. We get back an *"id"* and *"score"* for each document. The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. A score of 0.5 indicates the lack of sentiment, a neutral statement. In this example,  we have two pretty positive documents and one negative document. 
-![Section number five.](../media-draft/7-marker.PNG)  
+Slutligen kan se vi svaret på vår begäran. Svaret innehåller den insikt som API för textanalys hade om våra dokument. En matris med dokument returneras till oss, utan den ursprungliga texten. Vi får tillbaka ett *”id”* och en *”poäng”* för varje dokument. API:n returnerar en numerisk poäng mellan 0 och 1. Poäng nära 1 visar en positiv attityd, medan en poäng nära 0 indikerar en negativ attityd. Ett resultat på 0,5 anger en brist på attityd, dvs. ett neutralt uttryck. I det här exemplet har vi två ganska positiva dokument och ett negativt dokument. 
+![Avsnitt nummer fem.](../media-draft/7-marker.PNG)  
 
-Congratulations! You've made your first call to the Text Analytics API without writing a line of code. Feel free to stay in the console and try out more calls. Here are some suggestions:
+Grattis! Du har gjort ditt första anrop till API för textanalys utan att behöva skriva en enda rad med kod. Passa på att stanna kvar i konsolen och prova fler anrop. Här följer några förslag:
 
-- Change the documents in section number 2 and see what the API returns. 
-- Try the other methods, **Detect Language**, **Entities** and **Key Phrases**, using the same  subscription key.
-- Try to make a call from a different region with your subscription and observe what happens. 
+- Ändra dokumenten i avsnitt nummer 2 och se vad API:n returnerar. 
+- Prova de andra metoderna **Identifiera språk**, **Entiteter** och **Nyckelfraser**, med hjälp av samma prenumerationsnyckel.
+- Testa att göra ett anrop från en annan region med din prenumeration och se vad som händer. 
 
-The API testing console is a great way to explore the capabilities of this API. Now that you've explored for yourself, let's move on to putting this intelligence into a real-world scenario.
+API-testkonsolen är ett bra sätt att utforska funktionerna i den här API:n. Nu när du har utforskat på egen hand, ska vi gå vidare till att använda den här kunskapen i ett verkligt scenario.

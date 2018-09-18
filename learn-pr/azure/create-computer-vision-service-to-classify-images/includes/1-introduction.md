@@ -1,13 +1,13 @@
-End users often post content that may be inappropriate for work in their personal online interactions. As a lead developer at Contoso Beverage Distribution, you are responsible for building and maintaining a line-of-business app that lets your frontline distributors scan and upload images of store shelves where they are restocking. 
+Slutanvändare publicerar ofta innehåll som kan vara olämpligt för arbetet i sina personliga onlineinteraktioner. Som en chefsutvecklare på Contoso Beverage Distribution är du ansvarig för att bygga och underhålla en verksamhetsspecifik app som låter dina distributörer skanna och överföra bilder av butikshyllor där de fyller på lagren. 
 
-You need to validate that any images posted by users respect the content rules set by your company. Your goals are clear; the company doesn't want inappropriate content posted to company sites. Given the advancements in Artificial Intelligence, you decide that rewriting this app to include Computer Vision will proactively prevent these types of incidents from occurring. The service you create will identify images and provide many other functionalities to fulfill your company's needs.
+Du måste verifiera att alla avbildningar som publicerats av användare följer de innehållsregler som ditt företag har tagit fram. Dina mål är tydliga: Företaget vill inte att olämpligt innehåll publiceras på företagets webbplatser. Med de förbättringar i artificiell intelligens som finns tillgängliga, bestämmer du dig för att skriva om den här appen med visuellt innehåll för att proaktivt förhindra att den här typen av incidenter inträffar. Den tjänst du skapar kommer att identifiera avbildningar och ger även många andra funktioner som uppfyller företagets behov.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att:
 
-- Create a Computer Vision API service
-- Analyze an image and identify its content
-- Generate thumbnails
-- Extract printed text
-- Convert handwritten words into text
+- Skapa en tjänst för API för visuellt innehåll
+- Analysera en avbildning och identifiera dess innehåll
+- Generera miniatyrer
+- Extrahera tryckt text
+- Omvandla handskrivna ord till text

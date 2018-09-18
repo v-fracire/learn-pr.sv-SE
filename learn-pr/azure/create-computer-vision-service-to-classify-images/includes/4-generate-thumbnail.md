@@ -1,37 +1,37 @@
-In this unit, you will generate thumbnails from a source image with the Computer Vision API service that we created previously.
+I den här delen genererar du miniatyrer från en källbild med hjälp av tjänsten API för visuellt innehåll som vi skapade tidigare.
 
-# Generate a thumbnail from an image with Computer Vision API
+# <a name="generate-a-thumbnail-from-an-image-with-computer-vision-api"></a>Generera en miniatyr från en bild med hjälp av API för visuellt innehåll
 
-Execute the `az cognitiveservices account keys list` command to retrieve a key used to authenticate against the API. Store the output of that command within the `key` variable.
+Genom att köra kommandot `az cognitiveservices account keys list` hämtas en nyckel som används för att autentisera mot API:t. Lagra utdata från kommandot inom variabeln `key`.
 
-```output
+```azurecli
 key=$(az cognitiveservices account keys list -g ComputerVisionRG --name ComputerVisionService --query key1 -o tsv)
 ```
 
-Execute a `curl` command to do an HTTP request against the Computer Vision API and reuse the previously declared variable `key`.
+Kör kommandot `curl`, så görs en HTTP-begäran mot API för visuellt innehåll. Återanvänd den nyss deklarerade variabeln `key`.
 
-Different parameters can be provided to the API to generate the proper thumbnail for your needs. `width` and `height` are required and will tell the API which size you need for a specific image. Finally, the `smartCropping` parameter generates smarter cropping by analyzing the region of interest in your image to keep it within the thumbnail. As an example, with smart cropping enabled, a cropped profile picture would keep someone's face within the picture frame even when the picture isn't in the same ratio as the one that we asked.
+Genom att ge olika parametrar till API:t kan du generera den miniatyr du behöver. `width` och `height` krävs och anger för API:t vilken storlek du behöver för en viss bild. Avslutningsvis genererar parametern `smartCropping` en smartare beskärning genom att analysera det intressantaste området i bilden och behålla det i miniatyren. När smart beskärning är aktiverat behålls till exempel ansiktet i en beskuren profilbild inom bildramen fastän bilden inte har samma proportioner som den vi efterfrågade.
 
-```bash
-curl -H "Ocp-Apim-Subscription-Key: $key" -H "Content-Type: application/json" "https://westus2.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service/media/mountains.jpg\"}" -o clouddrive/thumbnail.jpg
+```azurecli
+curl -H "Ocp-Apim-Subscription-Key: $key" -H "Content-Type: application/json" "https://westus2.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service/mountains.jpg\"}" -o clouddrive/thumbnail.jpg
 ```
 
-# Downloading the thumbnail
+# <a name="downloading-the-thumbnail"></a>Ladda ned miniatyren
 
-The generated thumbnail will be found in your Azure Cloud Shell storage account within a resource group named `cloud-shell-storage-<region>`.
+Du hittar den genererade miniatyren i ditt Azure Cloud Shell-lagringskonto i en resursgrupp med namnet `cloud-shell-storage-<region>`.
 
-1. Get into the automatically generated storage account.
+1. Öppna det automatiskt genererade lagringskontot.
 
-    ![Screenshot of the generated storage account](../media/4-storage-account.png)
+![image](../images/storage-account.png)
 
-2. Click on the files section.
+2. Klicka på avsnittet för filer.
 
-    ![Screenshot of the storage account with the files section circled](../media/4-storage-account-click-on-files.png)
+![image](../images/storage-account-click-on-files.png)
 
-3. You will find the thumbnail at the root of the container.
+3. Du hittar miniatyren i roten för containern.
 
-    ![Screenshot of the storage account with the thumbnail circled](../media/4-storage-account-thumbnail.png)
+![image](../images/storage-account-thumbnail.png)
 
-4. Click on the file, and then download it.
+4. Klicka på filen och ladda sedan ned den.
 
-From within your download folder, you can open the `100x100`-pixels image with any image viewer.
+I mappen med nedladdade filer kan du öppna bilden med `100x100` bildpunkter med valfritt bildvisningsprogram.

@@ -1,61 +1,61 @@
-It's important to include storage performance considerations in your architecture. Just like network latency, poor performance at the storage layer can impact your end-users' experience. How would you optimize your data storage? What things do you need to consider to ensure that you're not introducing storage bottlenecks into your architecture? Here, we'll take a look at how to optimize your storage performance in your architecture.
+Det är viktigt att du överväger lagringsprestandan i din arkitektur. Dålig prestanda på lagringsnivå kan påverka slutanvändarna precis som långa svarstider i nätverket. Hur kan du optimera din datalagring? Vad behöver du tänka på så att du inte inför flaskhalsar för lagringen i arkitekturen? Nu ska vi gå igenom hur du kan optimera lagringsprestandan i din arkitektur.
 
-## Optimize virtual machine storage performance
+## <a name="optimize-virtual-machine-storage-performance"></a>Optimera lagringsprestandan för virtuella datorer
 
-Let's first take a look at optimizing storage for virtual machines. Disk storage plays a critical role in the performance of your virtual machines, and selecting the right disk type for your application is an important decision.
+Först tittar vi på hur du kan optimera lagringen för virtuella datorer. Disklagringen spelar stor roll för prestandan i dina virtuella datorer, så det är viktigt att välja rätt typ av diskar för appen.
 
-Different applications are going to have different storage requirements. Your application may be sensitive to latency of disk reads and writes or it may require the ability to handle a large number of input/output operations per second (IOPS) or greater overall disk throughput.
+Olika appar har olika krav på lagringen. Appen kan vara känslig för svarstider vid läs- och skrivåtgärder, eller så kan den behöva hantera stora IOPS-volymer eller helt enkelt stora dataflöden.
 
-When building an IaaS workload, which type of disk should you use? There are four options:
+Vilken typ av disk ska du använda när du skapar en IaaS-arbetsbelastning? Det finns fyra alternativ:
 
-- **Local SSD storage** - Each VM has a temporary disk that is backed by local SSD storage. The size of this disk varies depending on the size of the virtual machine. Since this disk is local SSD, the performance is high, but data may be lost during a maintenance event or a redeployment of the VM. This disk is only suitable for temporary storage of data that you do not need permanently. This disk is great for the page or swap file, and for things like tempdb in SQL Server. There is no charge for this storage. It's included in the cost of the VM.
+- **Lokal SSD-lagring** – varje virtuell dator har en tillfällig disk som backas upp av lokal SSD-lagring. Storleken på disken varierar beroende på den virtuella datorns storlek. Eftersom den här disken är en lokal SSD-disk har den bra prestanda, men data kan förloras vid underhåll eller om den virtuella datorn distribueras om. Den här typen av disk passar endast för tillfällig lagring av data som du inte behöver permanent. Den här disken är utmärkt för sidor eller växlingsfiler och för exempelvis tempdb i SQL Server. Den här lagringen är kostnadsfri. Den ingår i kostnaden för den virtuella datorn.
 
-- **Standard storage HDD** - This is spindle disk storage and may fit well where your application is not bound by inconsistent latency or lower levels of throughput. A dev/test workload where guaranteed performance isn't needed is a great use case for this disk type.
+- **Standard Storage HDD** – Det här är axeldisklagring som kan passa bra när programmet inte är känsligt för varierande svarstider eller lägre dataflöden. Ett bra exempel är en arbetsbelastning för utveckling/testning där du inte behöver garanterade prestanda.
 
-- **Standard storage SSD** - This is SSD backed storage and has the low latency of SSD but lower levels of throughput. A non-production web server would be a good use case for this disk type.
+- **Standard Storage SSD** – Det här är SSD-lagring med korta SSD-svarstider, men lägre nivåer för dataflöden. Den här disktypen kan passa bra för webbservrar utanför produktion.
 
-- **Premium storage SSD** - This SSD backed storage is well-suited for those workloads that are going into production, require the greatest reliability and demand consistent low latency, or need high levels of throughput and IOPS. Since these disks have greater performance and reliability capabilities, they are recommended for all production workloads.
+- **Premium Storage SSD** – Den här SSD-lagringen passar bra till arbetsbelastningar som används i produktion där du behöver bästa möjliga tillförlitlighet, korta svarstider samt stora dataflöden och IOPS-volymer. Eftersom de här diskarnas prestanda och tillförlitlighet är bättre, rekommenderas de för alla arbetsbelastningar i produktionen.
 
-Premium storage can attach only to specific virtual machine (VM) sizes. Premium storage capable sizes are designated with an "s" in the name, for example D2**s**_v3 or Standard_F2**s**_v2. Any virtual machine type (with or without an "s" in the name) can attach standard storage HDD or SSD drives.
+Premium Storage kan bara kopplas till virtuella datorer av viss storlek. Premium Storage-kompatibla storlekar betecknas med ett ”s” i namnet, till exempel D2**s**_v3 eller Standard_F2**s**_v2. Du kan koppla HDD- eller SSD-diskar av standardtyp till valfri virtuell dator (med eller utan ett ”s” i namnet).
 
-Disks can be striped using a striping technology (such as Storage Spaces Direct on Windows or mdadm on Linux) to increase the throughput and IOPS by spreading disk activity across multiple disks. Using disk striping allows you to really push the limits of performance for disks, and is often seen in high-performance database systems and other systems with intensive storage requirements.
+Du kan koppla diskar med en stripeteknik (som Storage Spaces Direct i Windows eller mdadm i Linux) om du behöver hantera större dataflöden och IOPS-volymer, genom att diskaktiviteten sprids ut över flera diskar. När du stripekopplar diskarna kan du verkligen få ut mesta möjliga av diskarna, och det här är vanligt i avancerade databassystem och andra system med stora lagringskrav.
 
-When relying on virtual machine workloads, you'll need to evaluate the performance requirements of your application to determine the underlying storage you'll provision for your virtual machines.
+När du använder arbetsbelastningar i virtuella datorer måste du utvärdera appens prestandakrav så att du vet hur mycket underliggande lagring du måste etablera för de virtuella datorerna.
 
-## Optimize storage performance for your application
+## <a name="optimize-storage-performance-for-your-application"></a>Optimera lagringsprestanda för appen
 
-While you can use differing storage technologies to improve the raw disk performance, you can also address the performance of access to data at the application layer. Let's take a look at a few ways you can do this.
+Även om du kan använda olika lagringstekniker för att förbättra diskens prestanda kan du även påverka prestandan för dataåtkomsten på programnivå. Nu ska vi gå igenom hur du kan göra det.
 
-### Caching
+### <a name="caching"></a>Cachelagring
 
-A common approach to improve application performance is to integrate a caching layer between your application and your data store. A cache typically stores data in memory and allows for fast retrieval. This data can be frequently accessed data, data you specify from a database, or temporary data such as user state. You'll have control over the type of data stored, how often it refreshes, and when it expires. By co-locating this cache in the same region as your application and database, you'll reduce the overall latency between the two. Pulling data out of the cache will almost always be faster than retrieving the same data from a database, so by using a caching layer you can substantially improve the overall performance of your application. The following illustration shows how an application retrieves data from a database, stores it in a cache, and uses the cached value as needed.
+Ett vanligt sätt att förbättra appars prestanda är att integrera ett cachelager mellan appen och ditt datalager. Vid cachelagring lagras data normalt i minnet så att de snabbt kan hämtas. Det här kan vara data som används ofta, data du anger från en databas eller tillfälliga data som exempelvis användartillstånd. Du har kontroll över vilken typ av data som lagras, hur ofta den uppdateras och när den upphör att gälla. Genom att placera den här cachelagringen i samma region som programmet och databasen minskar du svarstiderna mellan dem. Det är nästan alltid snabbare att hämta data från cachelagringen än att hämta samma data från en databas, så med ett cachelager kan du förbättra programmets prestanda avsevärt. Följande bild visar hur ett program hämtar data från en databas, lagrar den i ett cacheminne och använder det cachelagrade värdet vid behov.
 
-![An illustration showing that retrieving data from cache is faster than retrieving from a database.](../media/4-cache.png)
+![En bild som visar att det är snabbare att hämta data från cachen än att hämta från en databas.](../media/4-cache.png)
 
-Azure Redis Cache is a caching service on Azure. It's based upon the open-source Redis cache. Azure Redis Cache is a fully managed service offering by Microsoft. You select the performance tier that you require and configure your application to use the service.
+Azure Redis Cache är en cachelagringstjänst i Azure. Den baseras på Redis Cache (öppen källkod). Azure Redis Cache är en helt hanterad tjänst från Microsoft. Du väljer vilken prestandanivå du behöver och konfigurerar appen för användning av tjänsten.
 
-### Polyglot persistence
+### <a name="polyglot-persistence"></a>Flerspråkig persistens
 
-Polyglot persistence is the usage of different data storage technologies to handle your storage requirements.
+Flerspråkig persistens är användningen av olika datalagringstekniker vid hanteringen av olika lagringskrav.
 
-Consider an e-commerce example. You may store application assets in a blob store, product reviews and recommendations in a NoSQL store, and user profile or account data in a SQL database. The following illustration shows how an application might use multiple data storage techniques to store different types of data.
+Tänk dig t.ex. en onlinebutik. Du kan lagra programresurser i Blob Store, produktrecensioner och rekommendationer i ett NoSQL-lager, samt användarprofiler eller kontouppgifter i en SQL-databas. Följande bild visar hur ett program kan använda flera tekniker för datalagring till att lagra olika typer av data.
 
-![An illustration showing usage of different data storage methods within the same application to increase performance and reduce cost.](../media/4-polyglotpersistence.png)
+![En bild som visar användningen av olika datalagringsmetoder inom samma program för att öka prestandan och minska kostnaderna.](../media/4-polyglotpersistence.png)
 
-This is important, as different data stores are designed for certain use cases, or may be more accessible because of cost. As an example, storing blobs in a SQL database may be costly and slower to access than directly from a blob store.
+Det här är viktigt eftersom olika datalager är utformade för olika användningsfall, och kan vara mer tillgängliga på grund av kostnaderna. Att lagra blobbar i en SQL-databas kan vara både dyrare och leda till längre svarstider än att använda dem direkt från Blob Store.
 
-Using many backing stores increases solution complexity. Consider how you meet your non-functional requirements across those data stores, and how service degradation impacts your overall application. Also consider how data is kept consistent between those data stores. 
+Om du använder många lagringsenheter ökar lösningens komplexitet. Fundera på hur du uppfyller de icke-funktionella kraven med de olika datalagren och hur försämringar i tjänsten påverkar appen som helhet. Tänk även på hur data hålls konsekventa mellan de olika datalagren. 
 
-**Eventual Consistency** often provides a good balance, but several different consistency models are available, depending on the service.
+**Eventuell konsekvens** ger ofta en bra balans, men det finns flera olika konsekvensmodeller beroende på tjänsten.
 
-Eventual consistency means that replica data stores will eventually converge if there are no further writes. If a write is made to one of the data stores, reads from another may provide slightly out-of-date data. Eventual consistency enables higher scale because there is a low latency for reads and writes, rather than waiting to check if information is consistent across all stores.
+Eventuell konsekvens innebär att replikdatalagren så småningom konvergeras om inga ytterligare skrivningar görs. Om en skrivning görs till ett av datalagren kan läsningar från ett annat lager visa inaktuella data. Du kan använda eventuell konsekvens i större skala eftersom läsningar och skrivningar har korta svarstider, på grund av att informationens konsekvens inte behöver kontrolleras i alla datalager.
 
-## Lamna Healthcare example
+## <a name="lamna-healthcare-example"></a>Lamna Healthcare-exempel
 
-Lamna Healthcare's patient booking system is hosted across two Azure regions, West Europe and Australia East. They're using virtual machines as the front-end nodes to deploy their website, and have Azure SQL DB deployed in West Europe as primary and Australia East as a readable secondary. Their front-end nodes don't require high levels of disk throughput, but do require consistent latency performance and production reliability and have used Premium SSD backed storage.
+Bokningssystemet för Lamna Healthcares patienter körs i två Azure-regioner, Europa, västra och Australien, östra. De använder virtuella datorer som klientnoder när webbplatsen distribueras och de har en Azure SQL-databas distribuerad i regionen Europa, västra som primär lagring samt regionen Australien, östra som ett sekundärt läsbart lager. Klientnoderna behöver inte hantera några stora dataflöden, men de behöver korta svarstider och hög tillförlitlighet, så därför används Premium SSD-lagring.
 
-They are hosting an Azure Redis Cache locally in each Azure region to store the common user requests and availability of doctors. Caching has been implemented to optimize the performance of the most common data read activities observed on the application.
+De kör Azure Redis Cache lokalt i respektive Azure-region för att lagra vanliga användarförfrågningar och läkarnas tillgänglighet. Cachelagringen är implementerad för att optimera prestandan för de vanligaste dataläsningsåtgärderna i programmet.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-We've covered a few examples of how you can improve storage performance in your infrastructure layer by choosing the right disk architecture and at the application level through the use of caching and selecting the right data platform for your data. A properly architected solution will ensure that access to data performs as well as possible. Now let's take a look at how we can identify performance issues in an architecture.
+Vi har gått igenom några exempel på hur du kan förbättra lagringsprestandan på infrastrukturnivån genom att välja rätt diskarkitektur, samt på programnivå med hjälp av cachelagring och att välja rätt dataplattform för dina data. När du har rätt arkitektur i din lösning får du bästa möjliga prestanda för dina data. Nu ska vi gå igenom hur du kan identifiera prestandaproblem i en arkitektur.

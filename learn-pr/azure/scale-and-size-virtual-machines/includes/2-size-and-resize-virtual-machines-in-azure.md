@@ -1,61 +1,61 @@
-Your server needs enough resources to handle daily demand. A typical strategy is to choose a VM size at creation that is sufficient for typical workloads and then resize it when demand changes.
+Din server måste ha tillräckligt med resurser för att hantera dagliga begäran. En typisk strategi är att välja en VM-storlek vid skapandet som är tillräcklig för typiska arbetsbelastningar och sedan ändra storlek när efterfrågan förändras.
 
-In the toy company scenario, this strategy would be useful to manage resources for your medium-term growth. You can increase the size of your VM to handle the added demand as your business grows.
+I scenariot med leksakerna skulle den här strategin vara användbar för att hantera resurser för din tillväxt på medellång sikt. Du kan öka storleken på den virtuella datorn för att hantera ökad efterfrågan när företaget växer.
 
-## What is virtual machine size?
+## <a name="what-is-virtual-machine-size"></a>Vad är storleken på den virtuella datorn?
 
-The _size_ of a virtual machine is a measure of its CPU, memory, disk, and expected network bandwidth. Virtual machines are available in a predetermined number of sizes. For example, the **Standard_F32s_v2** size has 32 virtual CPUs, 64 GiB of memory, a 256 GiB local SSD, and 14,000 of Mbps expected network bandwidth.
+_Storleken_ på en virtuell dator är ett mått på dess processor, minne, disk och förväntad nätverksbandbredd. Virtuella datorer är tillgängliga i ett förinställt antal storlekar. Till exempel har storleken **Standard_F32s_v2** 32 virtuella processorer, 64 GiB minne, en lokal SSD på 256 GiB och en förväntad nätverksbandbredd på 14 000 Mbit/s.
 
-When you create a new virtual machine in Azure, you must choose a size. Larger sizes cost more. The goal is to choose a size that can handle your workload without configuring more power than you need.
+När du skapar en ny virtuell dator i Azure måste du välja en storlek. Större storlekar kostar mer. Målet är att välja en storlek som kan hantera din arbetsbelastning utan att konfigurera mer kraft än du behöver.
 
-## What is virtual machine type?
+## <a name="what-is-virtual-machine-type"></a>Vad är en typ av virtuell dator?
 
-The _type_ of a virtual machine is the workload for which the VM has been optimized. For example, some VMs are targeted at CPU-intensive tasks like hosting a web server. Others are intended for storage-focused jobs like running a database.
+Den virtuella datorns _typ_ är arbetsbelastningen som den virtuella datorn har optimerats för. Vissa virtuella datorer är till exempel avsedda för processorintensiva uppgifter som att vara värd för en webbserver. Andra är avsedda för lagringsfokuserade jobb som att köra en databas.
 
-There are _types_ that correspond to each core hardware component in a modern computer: **compute**, **memory**, **storage**, and **GPU**. There's also a **general purpose** type if you need a balanced combination of resources. The following table lists the types and the VM sizes that are part of that type along with a brief description of the target workload.
+Det finns _typer_ som motsvara varje kärnkomponent för maskinvaran i en modern dator: **beräkning**, **minne**, **lagring** och **GPU**. Det finns också en typ för **generell användning** om du behöver en balanserad kombination av resurser. Följande tabell visar typerna och VM-storlekarna som är en del av typen tillsammans med en kort beskrivning av målarbetsbelastningen.
 
-|Type|Sizes|Description|
+|Typ|Storlekar|Beskrivning|
 |---|---|---|
-|General purpose|B, Ds_v3, D_v3, some DS_v2, some D_v2, A_v2|General purpose machines have a balanced CPU to memory ratio. General purpose machines are good for testing or development servers, also small to medium database, or low to medium traffic web servers.|
-|Compute optimized|Fs_v2, Fs, F|Compute optimized virtual machines have a higher CPU to memory ratio than general purpose machines, for tasks that require extra processing power, such as application servers, network appliances, or medium traffic web servers.|
-|Memory optimized|Es_v3, E_v3, M, GS, G, some DS_v2, some D_v2|Memory optimized virtual machines have a high memory to CPU ratio. These machines are good for relational database servers, servers that require or perform a lot of caching, or perform in-memory analytics.|
-|Storage optimized|Ls|These virtual machines are configured for high disk throughput and IO operations to suit Big Data, SQL, and NoSQL databases.|
-|GPU|NV, NC, NC_v2, NC_v3, ND|GPU virtual machines are specialized for tasks such as heavy duty graphic rendering or video editing, also model training and inferencing (ND series) with deep learning. You can choose single or multiple GPUs for these machines.|
-|High performance compute|H|The fastest, most powerful CPUs are available in these virtual machines. You can also add high-throughput network interfaces (RDMA).|
+|Generell användning|B, Ds_v3, D_v3, vissa DS_v2, vissa D_v2, A_v2|Datorer för generell användning har ett balanserat förhållande av CPU-till-minne. Datorer för generell användning är bra för testning eller utveckling för servrar, även små till medelstora databaser eller webbservrar med låg till medelhög trafik.|
+|Beräkningsoptimerad|Fs_v2, Fs, F|Virtuella datorer som är beräkningsoptimerade har ett högre förhållande mellan processor och minne än datorer för generell användning, för uppgifter som kräver extra processorkraft, till exempel programservrar, nätverksenheter eller webbservrar med medelhög trafik.|
+|Minnesoptimerad|Es_v3, E_v3, M, GS, G, vissa DS_v2, vissa D_v2|Minnesoptimerade virtuella datorer är avsedda att ha ett högt förhållande minne-till-CPU. Sådana datorer är bra för relationsdatabasservrar, servrar som kräver eller utför mycket cachelagring eller utför minnesinterna analyser.|
+|Lagringsoptimerad|Ls|De är konfigurerade för högt diskgenomflöde och I/O-åtgärder som passar databaser för stordata, SQL och NoSQL.|
+|GPU|NV, NC, NC_v2, NC_v3, ND|Virtuella GPU-datorer är specialiserade på uppgifter som tung grafikåtergivning eller videoredigering och även träning av modeller och inferensjobb med djupinlärning (ND-serien). Du kan välja en eller flera GPU:er för sådana datorer.|
+|Databehandling med höga prestanda|H|De snabbaste och kraftfullaste processorerna finns i dessa virtuella datorer. Du kan även lägga till nätverksgränssnitt för stora dataflöden (RDMA).|
 
-## Clusters
+## <a name="clusters"></a>Kluster
 
-The physical server hardware in Azure regions is grouped together into clusters. Each cluster can support several different virtual machine sizes based on the physical hardware.
+Maskinvaran för den fysiska servern i Azure-regioner grupperas ihop i kluster. Varje kluster kan stödja flera olika virtuella datorstorlekar baserat på den fysiska maskinvaran.
 
-When you create a virtual machine and choose a specific size, the virtual machine is provisioned to an appropriate hardware cluster for that size. Although you can resize virtual machines after creation, the resizing options may be limited by the hardware cluster chosen for the initial size.
+När du skapar en virtuell dator och väljer en viss storlek etableras den virtuella datorn till ett lämpligt maskinvarukluster för den storleken. Trots att du kan ändra storlek på virtuella datorer när du har skapat dem kan alternativen för storleksändring begränsas av maskinvaruklustret som har valts för den ursprungliga storleken.
 
-## What is vertical scaling?
+## <a name="what-is-vertical-scaling"></a>Vad är vertikal skalning?
 
-_Vertical scaling_ is the process of changing the _size_ of a virtual machine. You can _scale up_ by choosing a more powerful size to handle increased demand or _scale down_ to allocate fewer resources and reduce costs. The following illustration shows an example of changing the size of a virtual machine.
+_Vertikal skalning_ är processen för att ändra _storlek_ på en virtuell dator. Du kan _skala upp_ genom att välja en kraftfullare storlek för att hantera ökad efterfrågan eller _skala ned_ för att allokera färre resurser och minska kostnaderna. Följande bild visar ett exempel på att ändra storleken för en virtuell dator.
 
-![An illustration showing scaling up and scaling down of a virtual machine to change the performance capabilities.](../media/2-ScaleUpDown.png)
+![En bild som visar upp- och nedskalning av en virtuell dator för att ändra prestandafunktionerna.](../media/2-ScaleUpDown.png)
 
-You can resize a VM using the Azure portal, Azure PowerShell, or the Azure command-line interface (CLI).
+Du kan ändra storlek för en virtuell dator med hjälp av Azure-portalen, Azure PowerShell eller Azure-kommandoradsgränssnittet (CLI).
 
-### Resize in the portal
+### <a name="resize-in-the-portal"></a>Ändra storlek i portalen
 
-In the Azure portal, you can resize a virtual machine by selecting the virtual machine, clicking the **Size** entry, and selecting an entry from the **Choose a size** blade. 
+I Azure-portalen kan du ändra storlek på en virtuell dator genom att välja den virtuella datorn, klicka på posten **Storlek** och välja en post i bladet **Välj en storlek**. 
 
-If the virtual machine is running at the time, the available sizes you can select from will depend on the available sizes in your region. You will only see resize options compatible with the same hardware cluster that the virtual machine is currently running on; this is sometimes called a *size family*. If you choose a new size while the virtual machine is running, the VM will be restarted automatically to apply the new size.
+Om den virtuella datorn körs vid den aktuella tidpunkten beror de storlekar du kan välja bland på vilka storlekar som är tillgängliga i din region. Du ser endast alternativ för att ändra storlek som är kompatibel med samma maskinvarukluster som den virtuella datorn körs på. Det kallas ibland för en *storleksfamilj*. Om du väljer en ny storlek medan den virtuella datorn körs startas din VM om automatiskt för att tillämpa den nya storleken.
 
-If the size you are looking for is not visible in the portal when the virtual machine is running, then you can shut down the virtual machine to see more options. When the machine is in the **stopped (deallocated)** state, you will be able to select sizes from other hardware in the same region.
+Om storleken du letar efter inte visas i portalen när den virtuella datorn körs kan du stänga av den virtuella datorn för att se fler alternativ. När datorn är i tillståndet **Stoppad (frigjord)** kan du välja storlekar från annan maskinvara i samma region.
 
-### Resize with PowerShell
+### <a name="resize-with-powershell"></a>Ändra storlek med PowerShell
 
-You can use PowerShell to perform vertical scaling interactively or with scripts. Scripts are good for complex scenarios; for example, if you need to resize several VMs at once. They are also convenient if you need to perform the resize during non-working hours to avoid user disruption.
+Du kan använda PowerShell för att utföra vertikal skalning interaktivt eller med skript. Skript är bra för avancerade scenarier, till exempel om du vill ändra storlek på flera virtuella datorer samtidigt. De är också praktiskt om du vill ändra storleken under icke-arbetstid för att undvika störningar för användaren.
 
-The following cmdlet lists VM sizes of the same size-family as the current hardware:
+Följande cmdlet visar en lista över storlekar för virtuella datorer i samma storleksfamilj som den aktuella maskinvaran:
 
 ```PowerShell
 Get-AzureRmVMSize -ResourceGroupName "myResourceGroup" -VMName "MyVM"
 ```
 
-If the desired size is displayed, use the following cmdlet to change the virtual machine size:
+Om önskad storlek visas använder du följande cmdlet för att ändra storlek på den virtuella datorn:
 
 ```PowerShell
 $vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "MyVM"
@@ -63,7 +63,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
 ```
 
-If the desired size is not displayed with the machine running, use the following commands to deallocate the virtual machine, resize the machine, and start the machine again:
+Om den önskade storleken inte visas när datorn körs använder du följande kommandon för att frigöra den virtuella datorn, ändra storlek på datorn och starta den igen:
 
 ```PowerShell
 Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "MyVM" -Force
@@ -73,4 +73,4 @@ Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
 Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "MyVM"
 ```
 
-Virtual machines in Azure can be resized as needed to increase performance or decrease costs. Performing the resize manually, either with the portal or a script, is useful to handle gradual business growth or when you know about a change in demand ahead-of-time. In the toy-company scenario, they could scale up before a holiday to handle the spike in demand and then scale down afterward.
+Storleken på virtuella datorer i Azure kan ändras efter behov för att öka prestanda eller minska kostnaderna. Det är praktiskt att utföra storleksändringen manuellt, antingen med portalen eller ett skript, för att hantera gradvis företagstillväxt eller när du vet om en förändring av efterfrågan i förväg. I scenariot med leksaksaffären kunde de skala upp före semestern för att hantera efterfrågantopparna och sedan skala ned efteråt.

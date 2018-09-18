@@ -1,28 +1,28 @@
 
-In the previous exercise, we performed the following tasks using the Azure portal:
+I den föregående övningen utförde vi följande uppgifter med hjälp av Azure-portalen.
 
-- View OS disk cache status
-- Change the cache settings of the OS disk
-- Add a data disk to the VM
-- Change caching type on a new data disk
+- Visa status för OS-diskcache
+- Ändra inställningarna för cachelagring för OS-disken
+- Lägga till en datadisk i en virtuell dator
+- Ändra typ av cachelagring på en ny datadisk
 
-Let's practice these operations using Azure PowerShell. We're going to use the VM we created in the previous exercise. The operations in this lab assume:
+Nu övar vi på dessa åtgärder med hjälp av Azure PowerShell. Vi använder den virtuella dator som vi skapade i den föregående övningen. Åtgärderna i den här labben förutsätter att:
 
-- Our VM exists and is called **fotoshareVM**
-- Our VM lives in a resource group called **fotoshare-rg**
+- Vår virtuella dator finns och heter **fotoshareVM**
+- Vår virtuella dator finns i en resursgrupp som heter **fotoshare-rg**
 
-If you've gone with a different set of names, just replace these values with yours. 
+Om du har använt andra namn ersätter du bara de här värdena med dina. 
 
-Here's the current state of our VM disks from the last exercise:
+Här är det aktuella tillståndet för våra VM-diskar från föregående övning. 
 
-![Screenshot of our OS and data disks, both set to Read-only caching.](../media-draft/disks-final-config-portal.PNG)
+![Skärmbild på våra OS- och datadiskar som båda är inställda på skrivskyddad cachelagring.](../media-draft/disks-final-config-portal.PNG)
 
-We used the portal to set the **HOST CACHING** field for both the OS and data disks. Keep this initial state in mind as we work through the following steps. 
+Vi har använt portalen för att ange fältet ***HOST CACHING** (Cachelagring för värd) för både för OS- och datadiskar. Tänk på detta inledande tillstånd när vi går igenom följande steg. 
 
-### Set up some variables
-First, let's  store some resource names so we can use them later.
+### <a name="set-up-some-variables"></a>Konfigurera några variabler
+Först ska vi lagra vissa resursnamn så att vi kan använda dem senare.
 
-Use the Azure Cloud Shell terminal on the right to run the following PowerShell commands:
+Använd Azure Cloud Shell-terminalen till höger för att köra följande Powershell-kommandon. 
 
 ```powershell
 $myRgName = "fotoshare-rg"
@@ -30,114 +30,114 @@ $myVMName = "fotoshareVM"
 ```
 
 > [!TIP]
-> You'll have to set these variables again if your Cloud Shell session times out. So, if possible, work through this entire lab in a single session. 
+> Du måste ange dessa variabler igen om tidsgränsen uppnås för Cloud Shell-sessionen. Om möjligt bör du därför gå igenom hela den labben i en enda session. 
 
-### Get info about our VM
+### <a name="get-info-about-our-vm"></a>Få information om vår virtuella dator
 
-Run the following command to get back the properties of our VM:
+Kör följande kommando för att hämta egenskaperna för den virtuella datorn.
  
 ```powershell
 $myVM = Get-AzureRmVM -ResourceGroupName $myRgName -VMName $myVMName
 ```
-We store the response in our `$myVM` variable. We can run the following command to just show us the properties we specify here:
+Vi lagrar svaret i variabeln `$myVM`. Vi kan köra följande kommando för att bara visa de egenskaper som vi anger här.
 
 ```powershell
 $myVM | select-object -property ResourceGroupName, Name, Type, Location
 ```
 
-As the following screenshot shows, this VM is indeed the VM we're after. So, let's move on. 
+Som följande skärmbild visar är den här virtuella datorn verkligen den virtuella dator som vi letar efter. Därför går vi vidare. 
 
-![PowerShell console showing results of last 4 commands that we ran.](../media-draft/ps-commands-1.PNG)
+![PowerShell-konsolen som visar resultatet av senaste 4 kommandona som vi körde.](../media-draft/ps-commands-1.PNG)
 
-### View OS disk cache status
+### <a name="view-os-disk-cache-status"></a>Visa status för OS-diskcache
 
-We can check the caching  setting through  the `StorageProfile` object, as follows:
+Vi kan kontrollera inställningen cachelagring via `StorageProfile`-objektet på följande sätt.
 
 ```powershell
 $myVM.StorageProfile.OsDisk.Caching
 ```
-In this example, the current value is `None`. Let's change it back to the default for an OS disk.
+I det här exemplet är det aktuella värdet **Inget**. Vi ändrar tillbaka det till standardinställningen för en OS-disk.
 
-![PowerShell console showing our OS disk having a caching value of "None".](../media-draft/ps-oscaching-none.PNG)
+![PowerShell-konsolen som visar vår OS-disk med cachelagringsvärdet ”Inget”.](../media-draft/ps-oscaching-none.PNG)
 
-### Change the cache settings of the OS disk
+### <a name="change-the-cache-settings-of-the-os-disk"></a>Ändra inställningarna för cachelagring för OS-disken
 
-We can set the value for the cache type using the same `StorageProfile` object, as follows:
+Vi kan ange värdet för cachelagringstyp med hjälp av samma StorageProfile-objekt på följande sätt.
  
 ```powershell
 $myVM.StorageProfile.OsDisk.Caching = "ReadWrite"
 ```
 
-This command runs fast, which should tell you it's doing something locally. The command just changes the property on the `myVM` object. As the following screenshot shows, if you refresh the `$myVM` variable,  the caching value won't have changed on the VM:
+Det här kommandot körs snabbt, vilket bör innebär att det utför arbete lokalt. Kommandot ändrar bara egenskapen för myVM-objektet. Som följande skärmbild visar kommer cachelagringsvärdet inte att ha ändrats på den virtuella datorn om du uppdaterar variabeln `$myVM`.
 
-![PowerShell console showing that refreshing our "myVM" object resets the caching to "none" because we didn't actually update the VM.](../media-draft/ps-commands-2.PNG)
+![PowerShell-konsolen som visar att när ”myVM”-objektet uppdateras så återställs cachelagringsvärdet till ”Inget” eftersom vi i själva verket inte uppdaterade den virtuella datorn.](../media-draft/ps-commands-2.PNG)
 
-To  make the change on the VM itself, call `Update-AzureRmVM`, as follows:
+För att göra ändringen i på själva den virtuella datorn anropar du `Update-AzureRmVM` på följande sätt.
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName $myRGName -VM $myVM
 ```
 
-Notice that this call takes a while to complete. That's because we're updating the actual VM, and Azure restarts the VM  to make the change.
+Observera att det här anropet tar en stund att slutföra. Det beror på att vi uppdaterar den faktiska virtuella datorn, och Azure startar om den virtuella datorn för att göra ändringen.
 
-![PowerShell console showing our OS disk having a caching value of "None".](../media-draft/ps-oscaching-rw.PNG)
+![PowerShell-konsolen som visar vår OS-disk med cachelagringsvärdet ”Inget”.](../media-draft/ps-oscaching-rw.PNG)
 
-If you refresh the `$myVM` variable again, you'll see the change on the object. Looking at the disk in the portal, you'd also see the change there. Let's move on to creating a new data disk.  
+Om du uppdaterar variabeln `$myVM` igen visas ändringen för objektet. Om du tittar på disken i portalen ser du ändringen även där. Nu går vi vidare till att skapa en ny datadisk.  
 
-### List data disk info
+### <a name="list-data-disk-info"></a>Lista information om datadisk
 
-To see what data disks we have on our VM, run the following command: 
+För att se vilka datadiskar vi har på den virtuella datorn kör du följande kommando. 
 
 ```powershell
 $myVM.StorageProfile.DataDisks
 ```
 
-We have only one data disk at the moment. The `Lun` field is important. It's the unique **L**ogical **U**nit **N**umber. When we add another data disk, we'll give it a unique `Lun` value. 
+Vi har endast en datadisk för tillfället. Fältet `Lun` är viktigt. Det är det unika **L**ogical **U**nit **N**umber (LUN). När vi lägger till en till datadisk ger vi den ett unikt `Lun`-värde. 
 
-### Add a new data disk to our VM 
+### <a name="add-a-new-data-disk-to-our-vm"></a>Lägga till en ny datadisk till den virtuella datorn 
 
-For convenience, we'll store our new disk name:
+För enkelhetens skull sparar vi vårt nya disknamn.
 
 ```powershell
 $newDiskName = "fotoshareVM-data2"
 ```
 
-Run the following `Add-AzureRmVMDataDisk` command to define a new disk:
+Kör följande `Add-AzureRmVMDataDisk`-kommando för att definiera en ny disk. 
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $myVM -Name $newDiskName  -LUN 1  -DiskSizeinGB 1 -CreateOption Empty
 ```
 
-We've given this disk a `Lun` value of `1` because it's not taken. We defined the disk we want to create, so it's time to run `Update-AzureRmVM` to make the actual change: 
+Vi har gett den här disken LUN-värdet 1 eftersom det inte är upptaget. Vi har definierat den disk som vi vill skapa, så det är dags att köra `Update-AzureRmVM` för att göra den faktiska ändringen. 
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName $myRGName -VM $myVM
 ```
 
-Let's look at our data disk info again:
+Vi tar en titt på vår datadiskinfo igen.
 
 ```powershell
 $myVM.StorageProfile.DataDisks
 ```
 
-![PowerShell console showing our two data disks.](../media-draft/2-data-disks-part1.png)
+![PowerShell-konsolen som visar våra två datadiskar.](../media-draft/2-data-disks-part1.png)
 
-We now have two disks. Our new disk has a `Lun` of `1` and the default value for `Caching` is `None`. Let's change that value.
+Nu har vi två diskar. Vår nya disk har **LUN**-värdet 1 och standardvärdet för **Cachelagring**, som är **Inget**. Låt oss ändra det värdet.
 
-### Change cache settings of new data disk
+### <a name="change-cache-settings-of-new-data-disk"></a>Ändra inställningar för cachelagring för en ny datadisk
 
-We modify properties of a virtual machine data disk with the `Set-AzureRmVMDataDisk` cmdlet, as follows:
+Vi ändrar egenskaperna för en ny virtuell datordatadisk med cmdleten `Set-AzureRmVMDataDisk` enligt följande.
 
 ```powershell
 Set-AzureRmVMDataDisk -Lun "1" -Caching ReadWrite
 ```
 
-As always, commit the changes with `Update-AzureRmVM`:
+Som alltid checkar vi in ändringarna med `Update-AzureRmVM`.
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName $myRGName -VM $myVM
 ```
 
-Here's a view from the portal of what we've accomplished in this exercise. Our VM now has two data disks, and we've adjusted all **HOST CACHING** settings. We did all of that with just a few commands. That's the power of Azure PowerShell.
+Här är en vy från portalen för det vi har gjort i den här övningen. Vår virtuella dator har nu två datadiskar, och vi har justerat alla inställningar för **HOST Caching** (Cachelagring för värd). Vi gjorde allt detta med bara några få kommandon. Det är kraften hos Azure PowerShell.
 
-![Azure portal showing our two data disks.](../media-draft/disks-final-config-portal2.png)
+![PowerShell-konsolen som visar våra två datadiskar.](../media-draft/disks-final-config-portal2.png)

@@ -1,55 +1,54 @@
-::: zone pivot="csharp"
-Let's integrate the Azure Storage client library into your .NET Core console application.
+::: zone pivot="csharp" Nu ska vi integrera Azure Storage-klientbiblioteket i ditt .NET Core-konsolprogram.
 
-The Azure storage client library for .NET is distributed with NuGet. You will want to add the **WindowsAzure.Storage** package to your .NET or .NET Core applications.
+Azure Storages klientbibliotek för .NET distribueras med NuGet. Du kan lägga till **WindowsAzure.Storage**-paketet till dina .NET- eller .NET Core-program.
 
-## Add the Azure Storage NuGet package
+## <a name="add-the-azure-storage-nuget-package"></a>Lägga till NuGet-paketet för Azure Storage
 
-1. Switch to the correct folder if you are using the Cloud Shell.
+1. Växla till rätt mapp om du använder Cloud Shell.
 
-1. Add the **WindowsAzure.Storage** package to the application.
+1. Lägg till **WindowsAzure.Storage**-paketet i programmet.
 
     ```bash
     dotnet add package WindowsAzure.Storage
     ```
 
-1. This should result in some console activity while the client library and all the required dependencies are downloaded. Once it's done, go ahead and build and run the app again to make sure everything is ready to go.
+1. Detta resulterar i viss konsolaktivitet medan klientbiblioteket och alla de nödvändiga beroendena laddas ned. När det är klart går du vidare och skapar och kör appen igen för att kontrollera att allt fungerar.
 
     ```bash
     dotnet run
     ```
 
-1. As before, it should output "Hello, World!".
+1. Som tidigare bör den visa ”Hello, World!”.
 
 ::: zone-end
 
 ::: zone-pivot="javascript"
 
-Let's integrate the **Microsoft Azure Storage Client Library for Node.js and JavaScript** into your application.
+Nu ska vi integrera **Microsoft Azure Storage-klientbibliotek för Node.js och JavaScript** i ditt program.
 
-The client library for Node.js is available through the Node Package manager (NPM). You will want to add the **azure-storage** package to your **packages.json** file.
+Klientbiblioteket för Node.js är tillgängligt via NPM (Node Package Manager). Du kan lägga till paketet **azure-storage** i din **packages.json**-fil.
 
 > [!NOTE]
-> The **Microsoft Azure Storage Client Library for Node.js and JavaScript** is intended for server applications. If you are doing client-side JavaScript, you will want to use the **Azure Storage Client Library for JavaScript** which provides the same functionality but is tailored to running in a browser.
+> **Microsoft Azure Storage-klientbibliotek för Node.js och JavaScript** är avsett att användas i serverprogram. Om du använder JavaScript för klientsidan kan du använda **Azure Storage-klientbibliotek för JavaScript** som fungerar på samma sätt, men som är skräddarsytt för att köras i en webbläsare.
 
-## Add the Azure Storage package
+## <a name="add-the-azure-storage-package"></a>Lägga till Azure Storage-paketet
 
-1. Switch to the correct folder if you are using the Cloud Shell.
+1. Växla till rätt mapp om du använder Cloud Shell.
 
-1. Add the **azure-storage** package to the application. Make sure to supply the `--save` option so it persists to **packages.json**.
+1. Lägg till paketet **azure-storage** i programmet. Se till att ange `--save`-alternativet så att det finns kvar i **packages.json**.
 
     ```bash
     npm install azure-storage --save
     ```
 
-1. This should result in some console activity while the client library and all the required dependencies are downloaded. Once it's done, go ahead and build and run the app again to make sure everything is ready to go.
+1. Detta resulterar i viss konsolaktivitet medan klientbiblioteket och alla de nödvändiga beroendena laddas ned. När det är klart går du vidare och skapar och kör appen igen för att kontrollera att allt fungerar.
 
     ```bash
     node index.js
     ```
 
-1. As before, it should output "Hello, World!".
+1. Som tidigare bör den visa ”Hello, World!”.
 
 ::: zone-end
 
-Now that we have the necessary libraries in place, let's look at the common tasks you'll do in your code to work with Azure storage.
+Nu när vi har nödvändiga bibliotek på plats kan vi titta på vanliga åtgärder som du kommer att utföra i din kod när du arbetar med Azure Storage.

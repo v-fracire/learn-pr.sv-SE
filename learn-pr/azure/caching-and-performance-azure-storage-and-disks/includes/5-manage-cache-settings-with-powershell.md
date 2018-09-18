@@ -1,9 +1,9 @@
-Creating administration scripts is a powerful way to optimize your work flow. You can automate common, repetitive tasks. Once a script has been verified, it will run consistently, which will likely reduce errors. In the previous exercise, we created a VM, added a data disk, and changed cache settings, all through the Azure portal. What if we needed to repeat these tasks across many VMs, in many regions? Let's use Azure PowerShell!
+Att skapa administrationsskript är ett kraftfullt sätt att optimera ditt arbetsflöde. Du kan automatisera återkommande, repetitiva uppgifter. När ett skript har verifierats körs det konsekvent, vilket troligen minskar förekomsten av fel. I den föregående övningen skapade vi en virtuell dator, lade till en datadisk och ändrade cacheinställningarna – allt via Azure-portalen. Hur går det till om vi behöver upprepa dessa uppgifter för många virtuella datorer i många regioner? Vi använder Azure Powershell!
 
-## What is Azure PowerShell?
-Azure PowerShell is a module that you add to Windows PowerShell to let you connect to your Azure subscription and manage resources. Azure PowerShell requires Windows PowerShell to function. Windows PowerShell provides services like the shell window, command parsing, and so on. Azure PowerShell adds the Azure-specific commands.
+## <a name="what-is-azure-powershell"></a>Vad är Azure PowerShell?
+Azure PowerShell är en modul som du lägger till i PowerShell så att du kan ansluta till din Azure-prenumeration och hantera resurser. Azure PowerShell kräver PowerShell för att fungera. PowerShell tillhandahåller tjänster som gränssnittsfönster, kommandoparsning och så vidare. Azure PowerShell lägger till Azure-specifika kommandon.
 
-For example, Azure PowerShell provides the **New-AzureRmVM** command that creates a virtual machine for you inside your Azure subscription. To use it, you would launch the PowerShell application and then issue a command like this example:
+Azure PowerShell tillhandahåller till exempel kommandot **New-AzureRmVM**, som skapar en virtuell dator åt dig i din Azure-prenumeration. För att använda det startar du PowerShell-programmet och sedan anger ett kommando som i det här exemplet:
 
 ```powershell
 New-AzureRmVm `
@@ -13,37 +13,37 @@ New-AzureRmVm `
     ...
 ```
 
-Azure PowerShell is available two ways: inside a browser via the Azure Cloud Shell or with a local install on Linux, Mac, or Windows.
+Azure PowerShell finns tillgängligt på två sätt: i en webbläsare via Azure Cloud Shell eller via en lokal installation på Linux, Mac eller Windows.
 
-## What are PowerShell cmdlets?
+## <a name="what-are-powershell-cmdlets"></a>Vad är PowerShell-cmdletar?
 
-A PowerShell command is called a **cmdlet** (pronounced "command-let"). A cmdlet is a command that manipulates a single feature. The term **cmdlet** is intended to imply "small command." By convention, cmdlet authors are encouraged to keep cmdlets simple and single-purpose.
+Ett PowerShell-kommando kallas för en **cmdlet** (uttalas ”command-let”). En cmdlet är ett kommando som manipulerar en enskild funktion. Termen **cmdlet** är tänkt att avse ett ”litet kommando”. Enligt konventionen uppmuntras de som skriver cmdletar att hålla dem enkla med ett enda syfte.
 
-The base PowerShell product ships with cmdlets that work with features such as sessions and background jobs. You add modules to your PowerShell installation to get cmdlets that manipulate other features. For example, there are third-party modules to work with ftp, administer your operating system, access the file system, and so on.
+PowerShell-grundprodukten levereras med cmdletar för funktioner som sessioner och bakgrundsjobb. Du lägger till moduler i PowerShell-installationen för att hämta cmdletar som manipulerar andra funktioner. Det finns till exempel moduler från tredje part för att arbeta med ftp, administrera operativsystemet, använda filsystemet och så vidare.
 
-Cmdlets follow a verb-noun naming convention; for example, **Get-Process**, **Format-Table**, and **Start-Service**. There's also a convention for verb choice: "get" to retrieve data, "set" to insert or update data, "format" to format data, "out" to direct output to a destination, and so on.
+Cmdletar följer en namngivningskonvention med verb-substantiv, till exempel **Get-Process**, **Format-Table** eller **Start-Service**. Dessutom finns en konvention för valet av verb: ”get” för att hämta data, ”set” för att infoga eller uppdatera data, ”format” för att formatera data, ”out” för att skicka utdata till ett mål och så vidare.
 
-Cmdlet authors are encouraged to include a help file for each cmdlet. The **Get-Help** cmdlet displays the help file for any cmdlet:
+De som skriver cmdletar uppmanas att inkludera en hjälpfil för varje cmdlet. Cmdleten **Get-Help** visar hjälpfilen för en cmdlet:
 
 ```
 Get-Help <cmdlet-name> -detailed
 ```
-## What is AzureRM?
+## <a name="what-is-azurerm"></a>Vad är AzureRM?
 
-**AzureRM** is the formal name for the Azure PowerShell module that has a set of cmdlets to work with Azure features (the **RM** in the name stands for **Resource Manager**). It contains hundreds of cmdlets that let you control nearly every aspect of every Azure resource. You can work with resource groups, storage, virtual machines, Azure Active Directory, containers, machine learning, and so on.
+**AzureRM** är det formella namnet på Azure PowerShell-modulen som har en uppsättning cmdletar för arbete med Azure-funktioner (**RM** i namnet står för **Resource Manager**). Den innehåller hundratals cmdletar som gör att du kan styra nästan alla aspekter av varje Azure-resurs. Du kan arbeta med resursgrupper, lagring, virtuella datorer, Azure Active Directory, containers, maskininlärning och så vidare.
 
-## PowerShell cmdlets for managing Azure disk caching
+## <a name="powershell-cmdlets-for-managing-azure-disk-caching"></a>PowerShell-cmdletar för att hantera Azure-diskcachelagring
 
-Azure PowerShell has specific cmdlets to help manage VMs and disks. 
+Azure PowerShell har specifika cmdletar som hjälper till med hanteringen av virtuella datorer och diskar. 
 
-The following table lists some of the cmdlets we'll use in the next exercise:
+I följande tabell visas några av de cmdlets som vi kommer att använda i nästa övning.
 
-|Command  |Description  |
+|Kommando  |Beskrivning  |
 |---------|---------|
-|`Get-AzureRmVM`     |  Gets the properties of a virtual machine.       | 
-|`Update-AzureRmVM`     |  Updates the state of an Azure virtual machine.       |        
-|`New-AzureRmDiskConfig`     |  Creates a configurable disk object.       |        
-|`Add-AzureRmVMDataDisk`     |  Adds a data disk to a virtual machine.   |      
+|`Get-AzureRmVM`     |  Hämtar egenskaperna för en virtuell dator.       |        $myVM
+|`Update-AzureRmVM`     |  Uppdaterar tillståndet för en virtuell Azure-dator.       |        
+|`New-AzureRmDiskConfig`     |  Skapar ett konfigurerbart diskobjekt.       |        
+|`Add-AzureRmVMDataDisk`     |  Lägger till en datadisk till en virtuell dator.   |      
 
 
-Let's use these cmdlets in the next exercise to manage caching on our VM.
+Vi använder dessa cmdlets i nästa övning för att hantera cachelagring på den virtuella datorn.

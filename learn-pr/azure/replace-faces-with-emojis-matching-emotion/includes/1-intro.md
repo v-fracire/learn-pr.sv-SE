@@ -1,39 +1,39 @@
-TheMojifier is a Slack _slash_ command which replaces peoples faces in images with emojis matching their emotion, like so:
+TheMojifier är ett Slack- och _snedstrecks_kommando som ersätter folks ansikten i bilder med en emoji som matchar deras känsla så här:
 
-![Example image](/media-drafts/example-mojify-image.png)
+![Exempelbild](/media-drafts/example-mojify-image.png)
 
-It's designed to work from Slack as a custom command, you can name the command how you want, for this document I've named it `mojify`.
+Det har utformats för att fungera från Slack som ett anpassat kommando. Du kan namnge kommandot som du vill. För det här dokumentet har jag gett det namnet `mojify`.
 
-To execute the commmand type `/mojify <image to mojify>`, like so:
+Kör kommandot genom att skriva `/mojify <image to mojify>` så här:
 
-![Example Image](/media-drafts/9.slack-type-mojify.png)
+![Exempelbild](/media-drafts/9.slack-type-mojify.png)
 
-The mojifier then:
+Sedan gör mojifier följande:
 
-1.  Calculates the emotion of any people in the image.
-2.  Matches emotions to emojis.
-3.  Replaces the faces with emojis.
-4.  Posts the image back to Twitter as a reply.
+1.  Beräknar känslorna hos alla personer i bilden.
+2.  Matchar känslouttryck till emojier.
+3.  Ersätter ansiktena med emojier.
+4.  Publicerar bilden tillbaka till Twitter som ett svar.
 
-It’s written using TypeScript and several Azure technologies including [Azure Functions](https://azure.microsoft.com/services/functions/&WT.mc_id=mojifier-sandbox-ashussai) and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=mojifier-sandbox-ashussai)
+Det skrivs med TypeScript och flera Azure-tekniker, inklusive [Azure Functions](https://azure.microsoft.com/services/functions/&WT.mc_id=mojifier-sandbox-ashussai) och [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=mojifier-sandbox-ashussai)
 
-In this tutorial I’m going to explain how TheMojifier was made and show you how to create your own Slack command using Azure technologies.
+I den här självstudien förklarar jag hur TheMojifier skapades och visar hur du skapar ditt eget Slack-kommando med hjälp av Azure-tekniker.
 
-> TODO, where will this be now?
-> All the code for Mojifier is available on [GitHub](https://github.com/jawache/mojifier)
+> ATT GÖRA: var ska det här finnas nu?
+> All kod för Mojifier finns på [GitHub](https://github.com/jawache/mojifier)
 
-# Requirements
+# <a name="requirements"></a>Krav
 
-To build the mojifier, we need to use several Azure services.
+För att kunna skapa mojifier behöver vi använda flera Azure-tjänster.
 
-## Azure Cognitive Services
+## <a name="azure-cognitive-services"></a>Azure Cognitive Services
 
-Azure Cognitive Services are a set of high-level APIs you can use to add advanced AI functionality into your application quickly. If you can make an HTTP request, you can use Cognitive Services.
+Azure Cognitive Services är en uppsättning högnivå-API:er som du kan använda för att lägga till avancerade AI-funktioner i ditt program snabbt. Om du kan göra en HTTP-begäran kan du använda Cognitive Services.
 
-[More info](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=mojifier-sandbox-ashussai)
+[Mer information](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=mojifier-sandbox-ashussai)
 
-## Azure Functions
+## <a name="azure-functions"></a>Azure Functions
 
-As powerful as Logic Apps are sometimes you need to write business logic using the full expressiveness of a programming language. Azure Functions is a technology that lets you host snippets of code that can respond to events or HTTP requests, Azure handles all of the scaling issues for you and you only pay for what you use.
+Logic Apps är kraftfulla, men ibland behöver du skriva affärslogik med hjälp av den fullständiga syntaxen i ett programmeringsspråk. Azure Functions är en teknik som gör att du kan agera värd för kodavsnitt som kan svara på händelser eller HTTP-begäranden. Azure hanterar alla skalningsproblem åt dig, och du betalar bara för det du använder.
 
-[More info](https://azure.microsoft.com/services/functions/&WT.mc_id=mojifier-sandbox-ashussai)
+[Mer information](https://azure.microsoft.com/services/functions/&WT.mc_id=mojifier-sandbox-ashussai)

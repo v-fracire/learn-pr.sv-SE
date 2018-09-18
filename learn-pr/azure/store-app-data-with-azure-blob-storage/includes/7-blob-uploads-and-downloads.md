@@ -22,7 +22,7 @@ Nu ska vi slutföra vår app genom att lägga till uppladdnings- och nedladdning
 
 Vi laddar upp en blob genom att implementera metoden `BlobStorage.Save` med hjälp av `GetBlockBlobReference` för att få en `CloudBlockBlob` från behållaren. `FilesController.Upload` skickar filströmmen till `Save`, så att vi kan använda `UploadFromStreamAsync` till att genomföra uppladdningen för maximal effektivitet.
 
-Öppna `BlobStorage.cs` i redigeraren och ersätt `Save` med följande kod:
+I redigeraren ersätter du `Save` i `BlobStorage.cs` med följande kod:
 
 ```csharp
 public Task Save(Stream fileStream, string name)
@@ -36,7 +36,7 @@ public Task Save(Stream fileStream, string name)
 ```
 
 > [!NOTE]
-> Den strömbaserade uppladdningskod som visas här är effektivare än att läsa filen till en bytematris innan den skickas till Azures blobblagring. Men den ASP.NET Core `IFormFile`-teknik som vi använder för att hämta filen från klienten är inte en verklig strömmande implementering från slutpunkt till slutpunkt och passar bara till att hantera uppladdningar av små filer. Se avsnittet Ytterligare läsning i slutet av den här modulen för mer information om helt strömmade filuppladdningar.
+> Den strömbaserade uppladdningskod som visas här är effektivare än att läsa filen till en bytematris innan den skickas till Azures bloblagring. Men den ASP.NET Core `IFormFile`-teknik som vi använder för att hämta filen från klienten är inte en verklig strömmande implementering från slutpunkt till slutpunkt och passar bara till att hantera uppladdningar av små filer. Se avsnittet Ytterligare läsning i slutet av den här modulen för mer information om helt strömmade filuppladdningar.
 
 ### <a name="download"></a>Ladda ned
 
@@ -70,7 +70,7 @@ az webapp config appsettings set --name <your-unique-app-name> --resource-group 
 Nu ska vi distribuera appen. Nedanstående kommandon publicerar webbplatsen till mappen `pub`, zippar upp den till `site.zip` och distribuerar zip-filen till App Service.
 
 > [!NOTE]
-> Kontrollera att gränssnittet finns i katalogen `FileUploader` för följande kommandon.
+> Se till att gränssnittet fortfarande körs i katalogen `mslearn-store-data-in-azure/store-app-data-with-azure-blob-storage/src/start` innan du kör följande kommandon.
 
 ```azurecli
 dotnet publish -o pub

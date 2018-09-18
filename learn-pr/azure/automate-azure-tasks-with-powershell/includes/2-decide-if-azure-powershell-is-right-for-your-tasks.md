@@ -5,7 +5,7 @@ Du behöver något som är enkelt för administratörer att lära sig, men som �
 ## <a name="what-tools-are-available"></a>Vilka verktyg är tillgängliga?
 Azure tillhandahåller tre administrationsverktyg som du kan välja mellan: 
 
-- Azure-portalen 
+- Azure Portal 
 - Azure CLI
 - Azure PowerShell
 

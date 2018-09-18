@@ -1,12 +1,12 @@
-Here, you learned how to use a load balancer as part of a solution for delivering high availability for virtual machines hosted in Azure. This included the load balancer itself, the associated virtual networks, rules to control the balancing algorithm, and health probes that identify which virtual machines are running correctly.
+Här har du lärt dig att använda en lastbalanserare som en del av en lösning för att leverera hög tillgänglighet för virtuella datorer i Azure. Det ingår i själva lastbalanseraren, de associerade virtuella nätverken, regler för att kontrollera balansalgoritmen och hälsotillståndsavsökningar som identifierar vilka virtuella datorer som körs korrekt.
 
-## Clean up
+## <a name="clean-up"></a>Rensa
 <!---TODO: Update for sandbox?--->
 
-Running virtual machines and scale sets incurs costs against your subscription. You should remove unneeded resources to avoid unnecessary charges. The easiest way to clean up your Azure subscription is to remove the resource group; this will also delete all the resources in the group. When you are finished with this module, please run the following Azure PowerShell cmdlet:
+Körning av virtuella datorer och skalningsuppsättningar medför kostnader för din prenumeration. Du bör ta bort de resurser du inte behöver så att du undviker onödiga kostnader. Det enklaste sättet att rensa i din Azure-prenumeration är att ta bort den associerade resursgruppen. Då tas även alla resurser i gruppen bort. När du är färdig med den här modulen kör du följande Azure PowerShell-cmdlet:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name woodgrove-RG
 ```
 
-When you are asked to confirm the delete, answer **Yes**. The command may take several minutes to complete as resources are deleted.
+När du uppmanas att bekräfta borttagningen svarar du **Ja**. Det kan ta flera minuter att köra kommandot och ta bort resurserna.

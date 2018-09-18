@@ -12,10 +12,10 @@ Nu när du förstår hur enheter för programbegäran används för att faststä
 
     Inställning | Föreslaget värde | Beskrivning
     --------|-----------------|-------------
-    Databas-id      | Användare         | Ange *Användare* som namn på den nya databasen. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg.
-    Samlings-id    | WebCustomers  | Ange *WebCustomers* som namn på din nya samling. Samma teckenkrav gäller för samlings-ID:n som databasnamn.
+    Databas-ID      | Produkter         | Ange *Produkter* som namn på den nya databasen. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg.
+    Samlings-ID    | Kläder  | Ange *Kläder* som namn på den nya samlingen. Samma teckenkrav gäller för samlings-ID:n som databasnamn.
     Lagringskapacitet | Obegränsat     | Använd standardvärdet **Obegränsat**. Det här värdet är databasens lagringskapacitet som gör det möjligt att skala upp din databas vid behov.
-    Partitionsnyckeln    | UserID        | UserID är en bra partitionsnyckel i ett scenario med nätbutiker, eftersom så många frågor baseras på kund-ID:n.
+    Partitionsnyckeln    | productId        | productId är en bra partitionsnyckel i ett scenario med nätbutiker, eftersom många frågor baseras på produkt-ID:t.
     Dataflöde       |1 000 RU        | Ändra genomflödet till 1 000 enheter för programbegäran per sekund (RU/s). 1 000 är det minsta RU/s-värde som du kan ange för att aktivera automatisk skalning.
     
     För tillfället markerar vi inte alternativet **Etablera databasens dataflöde** och vi lägger inte heller till några unika nycklar i samlingen.

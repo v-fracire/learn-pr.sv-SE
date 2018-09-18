@@ -1,49 +1,49 @@
-The Azure portal is the easiest way to create resources such as VMs when you are getting started. However, it's not necessarily the most efficient or quickest way to work with Azure, particularly if you need to create several resources together. In our case, we will eventually be creating dozens of VMs to handle different tasks. Creating them manually in the Azure portal wouldn't be a fun task!
+Azure-portalen är det enklaste sättet att skapa resurser såsom virtuella datorer när du kör igång. Det är dock inte nödvändigtvis det effektivaste eller snabbaste sättet att arbeta med Azure, särskilt om du vill skapa flera resurser tillsammans. I vårt fall kommer vi så småningom att skapa flera virtuella datorer för att hantera olika uppgifter. Det vore inte särskilt roligt att skapa dem manuellt i Azure-portalen!
 
-Let's look at some other ways to create and administer resources in Azure:
+Vi tittar på några andra metoder för att skapa och administrera resurser i Azure:
 
 - [Azure Resource Manager](#Azure_RM)
 - [Azure PowerShell](#Azure_PowerShell)
 - [Azure CLI](#Azure_CLI)
 - [Azure REST API](#Azure_REST_API)
 - [Azure Client SDK](#Azure_Client_SDK)
-- [Azure VM Extensions](#Azure_VMExtensions)
+- [Azure VM-tillägg](#Azure_VMExtensions)
 - [Azure Automation Services](#Azure_Automation)
 
 <a name="Azure_RM" />
 
-## Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Let's assume you want to create a copy of a VM with the same settings. You could create a VM image, upload it to Azure, and reference it as the basis for your new VM. This process is inefficient and time-consuming. Azure provides you with the option to create a template from which to create an exact copy of a VM.
+Anta att du vill skapa en kopia av en virtuell dator med samma inställningar. Du kan skapa en avbildning av en virtuell dator, överföra den till Azure och referera till den som underlag för den nya virtuella datorn. Den här processen är ineffektiv och tidskrävande. Med Azure kan du skapa en mall och använda den för att skapa en exakt kopia av en virtuell dator.
 
-Typically, your Azure infrastructure will contain many resources, many of them related to one another in some way. For example, the VM we created has the virtual machine itself, storage, network interface, web server, and a database - all created together to run the WordPress site. **Azure Resource Manager** makes working with these related resources more efficient. It organizes resources into named **resource groups** that let you deploy, update, or delete all of the resources together. When we created the WordPress site, we identified the resource group as part of the VM creation, and Resource Manager placed the associated resources into the same group.
+Vanligtvis innehåller din Azure-infrastruktur många resurser, varav många är relaterade till varandra på något sätt. Till exempel har den virtuella dator som vi skapade den virtuella datorn själv, lagring, nätverksgränssnitt, webbserver och en databasen – alla skapade tillsammans för att köra WordPress-webbplatsen. **Azure Resource Manager** gör det effektivare att arbeta med dessa relaterade resurser. Den ordnar resurser i namngivna **resursgrupper** som du kan använda för att distribuera, uppdatera eller ta bort alla resurser samtidigt. När vi skapade WordPress-webbplatsen identifierade vi resursgruppen som en del av att skapa den virtuella datorn. Resource Manager placerade därefter de associerade resurserna i samma grupp.
 
-Resource Manager also allows you to create _templates_, which can be used to create and deploy specific configurations.
+Med Resource Manager kan du även skapa _mallar_ som kan användas för att skapa och distribuera specifika konfigurationer.
 
-### What are Resource Manager templates?
+### <a name="what-are-resource-manager-templates"></a>Vad är Resource Manager-mallar?
 
-**Resource Manager templates** are JSON files that define the resources you need to deploy for your solution.
+**Resource Manager-mallar** är JSON-filer som definierar de resurser du behöver för att distribuera lösningen.
 
-You can create resource templates from the **Settings** section for a specific VM by selecting the Automation script option.
+Du kan skapa resursmallar från avsnittet **Inställningar** för en specifik virtuell dator genom att välja alternativet för automatiseringsskript.
 
-![Automation script for our VM](../media-draft/4-automation-script.png)
+![Automatiseringsskript för vår virtuella dator](../media-draft/4-automation-script.png)
 
-You have the option to save the resource template for later use or immediately deploy a new VM based on this template. For example, you might create a VM from a template in a test environment and find it doesn’t quite work to replace your on-premises machine. You can delete the resource group, which deletes all of the resources, tweak the template, and try again. If you only want to make changes to the existing deployed resources, you can change the template used to create it and deploy it again. Resource Manager will change the resources to match the new template.
+Du har möjlighet att spara resursmallen för senare användning eller omedelbart distribuera en ny virtuell dator baserat på den här mallen. Till exempel skapar du kanske en virtuell dator från en mall i en testmiljö och upptäcker att den inte riktigt fungerar som ersättning för din lokala dator. Du kan ta bort resursgruppen, vilket tar bort alla resurser, justera mallen och försöka igen. Om du bara vill göra ändringar i befintliga distribuerade resurser kan du ändra den mall som används för att skapa den och distribuera den igen. Resource Manager ändrar resurserna för att matcha den nya mallen.
 
-Once you have it working the way you want it, you can take that template and easily re-create multiple versions of your infrastructure, such as staging and production. You can parameterize fields such as the VM name, network name, storage account name, etc., and load the template repeatedly, using different parameters to customize each environment.
+När det fungerar på det sätt du vill kan du använda den mallen och enkelt skapa flera versioner av infrastrukturen, till exempel mellanlagring och produktion. Du kan parameterisera fält som den virtuella datorns namn, nätverksnamn, lagringskontonamn osv. och läsa in mallen upprepade gånger med olika parametrar för att anpassa varje miljö.
 
-You can use automation scripting tools such as the Azure CLI, Azure PowerShell, or even the Azure REST APIs with your favorite programming language to process resource templates, making this a powerful tool for quickly spinning up your infrastructure.
+Du kan använda skriptverktyg för automatisering som Azure CLI, Azure PowerShell eller till och med Azures REST API:er med det programmeringsspråk du föredrar för att bearbeta resursmallarna. Detta gör det här till ett kraftfullt verktyg för att snabbt få fart på din infrastruktur.
 
 <a name="Azure_PowerShell" />
 
-## Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 
-Creating administration scripts is a powerful way to optimize your workflow. You can automate everyday, repetitive tasks, and once a script has been verified, it will run consistently, likely reducing errors. **Azure PowerShell** is ideal for one-off interactive tasks and/or the automation of repeated tasks.
+Att skapa administrationsskript är ett kraftfullt sätt att optimera ditt arbetsflöde på. Du kan automatisera vanliga, repetitiva uppgifter och när ett skript har verifierats kan det kan köras konsekvent, vilket minskar risken för fel. **Azure PowerShell** är perfekt för interaktiva engångsuppgifter och/eller automatisering av återkommande uppgifter.
 
 > [!NOTE]
-> PowerShell is a cross-platform shell that provides services like the shell window and command parsing. Azure PowerShell is an optional add-on package that adds the Azure-specific commands (referred to as **cmdlets**). You can learn more about installing and using Azure PowerShell in a separate training module.
+> PowerShell är ett plattformsoberoende gränssnitt som tillhandahåller tjänster som gränssnittsfönstret och kommandoparsning. Azure PowerShell är ett valfritt tilläggspaket som lägger till Azure-specifika kommandon (kallas för **cmdletar**). Du kan lära dig mer om att installera och använda Azure PowerShell i en separat utbildningsmodul.
 
-For example, you can use the `New-AzureRmVM` cmdlet to create a new Azure virtual machine.
+Du kan till exempel använda cmdleten `New-AzureRmVM` för att skapa en ny virtuell Azure-dator.
 
 ```powershell
 New-AzureRmVm `
@@ -57,16 +57,16 @@ New-AzureRmVm `
     -OpenPorts 80,3389
 ```
 
-As shown here, you supply various parameters to handle the large number of VM configuration settings available. Most of the parameters have reasonable values; you only need to specify the required parameters. Learn more about creating and managing VMs with Azure PowerShell in the **Automate Azure tasks using scripts with PowerShell** module.
+Enligt vad som visas här kan du ange olika parametrar för att hantera det stora antalet tillgängliga konfigurationsinställningar för virtuella datorer. De flesta av parametrarna har rimliga värden, så du behöver bara ange de parametrar som krävs. Läs mer om att skapa och hantera virtuella datorer med Azure PowerShell i modulen **Automatisera Azure-åtgärder med hjälp av PowerShell-skript**.
 <a name="Azure_CLI" />
 
-## Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
-Another option for scripting and command-line Azure interaction is the **Azure CLI**.
+Ett annat alternativ för Azure interaktion via skriptning och kommandorad är **Azure CLI**.
 
-The Azure CLI is Microsoft's cross-platform command-line tool for managing Azure resources such as virtual machines and disks from the command line. It's available for macOS, Linux, and Windows, or in the browser using the Cloud Shell. Like Azure PowerShell, the Azure CLI is a powerful way to streamline your administrative workflow. Unlike Azure PowerShell, the Azure CLI does not need PowerShell to function.
+Azure CLI är Microsofts plattformsoberoende kommandoradsverktyg för att hantera Azure-resurser såsom virtuella datorer och diskar från kommandoraden. Det finns för macOS, Linux och Windows eller i webbläsaren med hjälp av Cloud Shell. Liksom Azure PowerShell är Azure CLI ett kraftfullt sätt att effektivisera det administrativa arbetsflödet. Till skillnad från Azure PowerShell behöver Azure CLI inte PowerShell för att fungera.
 
-For example, you can create an Azure VM with the `az vm create` command.
+Du kan till exempel skapa en virtuell Azure-dator med kommandot `az vm create`.
 
 ```bash
 az vm create \
@@ -77,41 +77,41 @@ az vm create \
     --admin-password aReallyGoodPasswordHere
 ```
 
-The Azure CLI can be used with other scripting languages, for example, Ruby and Python. Both languages are commonly used on non-Windows-based machines where the developer might not be familiar with PowerShell.
+Azure CLI kan användas med andra skriptspråk, till exempel Ruby och Python. Båda språken används ofta på icke-Windows-baserade datorer där utvecklaren kanske inte är bekant med PowerShell.
 
-Learn more about creating and managing VMs in the **Manage virtual machines with the Azure CLI tool** module.
+Läs mer om att skapa och hantera virtuella datorer i modulen **Hantera virtuella datorer med Azure CLI-verktyget**.
 
-## Programmatic (APIs)
+## <a name="programmatic-apis"></a>Programmatiskt (API:er)
 
-Generally speaking, both Azure PowerShell and Azure CLI are good options if you have simple scripts to run and want to stick to command-line tools. When it comes to more complex scenarios, where the creation and management of VMs form part of a larger application with complex logic, another approach is needed.
+Både Azure PowerShell och Azure CLI är generellt sett bra alternativ om du har enkla skript som ska köras och om du vill hålla dig till kommandoradsverktygen. När det gäller mer komplicerade scenarier där skapandet och hanteringen av virtuella datorer utgör en del av ett större program med komplex logik krävs en annan metod.
 
-You can interact with every type of resource in Azure programmatically.
+Du kan interagera med alla typer av resurser i Azure programmatiskt.
 
 <a name="Azure_REST_API" />
 
-### Azure REST API
+### <a name="azure-rest-api"></a>Azure REST API
 
-The Azure REST API provides developers with operations categorized by resource as well as the ability to create and manage VMs. Operations are exposed as URIs with corresponding HTTP methods (`GET`, `PUT`, `POST`, `DELETE`, and `PATCH`) and a corresponding response.
+Med Azure REST API får utvecklarna sina åtgärder kategoriserade efter resurs, samt möjlighet att skapa och hantera virtuella datorer. Åtgärder görs tillgängliga som URI:er med motsvarande HTTP-metoder (`GET`, `PUT`, `POST`, `DELETE` och `PATCH`) och ett motsvarande svar.
 
-The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. With this API, you have operations to:
+Med Azure Compute-API:erna får du programmatisk åtkomst till virtuella datorer och deras stödresurser. Med detta API får du åtgärder för att:
 
-- Create and manage availability sets
-- Add and manage virtual machine extensions
-- Create and manage managed disks, snapshots, and images
-- Access the platform images available in Azure
-- Retrieve usage information of your resources
-- Create and manage virtual machines
-- Create and manage virtual machine scale sets
+- Skapa och hantera tillgänglighetsuppsättningar
+- Lägga till och hantera VM-tillägg
+- Skapa och hantera hanterade diskar, ögonblicksbilder och avbildningar
+- Komma åt plattformsavbildningar som är tillgängliga i Azure
+- Hämta användningsinformation för dina resurser
+- Skapa och hantera virtuella datorer
+- Skapa och hantera VM-skalningsuppsättningar
 
 <a name="Azure_Client_SDK" />
 
-### Azure Client SDK
+### <a name="azure-client-sdk"></a>Azure Client SDK
 
-Even though the REST API is platform and language agnostic, most often developers will look toward a higher level of abstraction. The Azure Client SDK encapsulates the Azure REST API, making it much easier for developers to interact with Azure.
+Även om REST API är plattforms- och språkoberoende, vill de flesta utvecklare ha en högre abstraktionsnivå. Azure Client SDK kapslar in Azure REST API, vilket gör det enklare för utvecklarna att interagera med Azure.
 
-The Azure Client SDKs are available for a variety of languages and frameworks, including .NET-based languages such as C#, Java, Node.js, PHP, Python, Ruby, and Go.
+Azure Client SDK:er är tillgängliga för olika språk och ramverk, däribland .NET-baserade språk som C#, Java, Node.js, PHP, Python, Ruby och Go.
 
-Here's an example snippet of C# code to create an Azure VM using the `Microsoft.Azure.Management.Fluent` NuGet package:
+Här är ett kodfragment med C#-kod som skapar en virtuell Azure-dator med hjälp av NuGet-paketet `Microsoft.Azure.Management.Fluent`:
 
 ```csharp
 var azure = Azure
@@ -134,7 +134,7 @@ azure.VirtualMachines.Define(vmName)
     .Create();
 ```
 
-Here's the same snippet in Java using the **Azure Java SDK**:
+Här är samma kodavsnitt i Java med hjälp av **Azure Java SDK**:
 
 ```java
 String vmName = "test-wp1-eus-vm";
@@ -154,26 +154,26 @@ VirtualMachine virtualMachine = azure.virtualMachines()
 
 <a name="Azure_VMExtensions" />
 
-## Azure VM Extensions
+## <a name="azure-vm-extensions"></a>Azure VM-tillägg
 
-Let's assume you want to configure and install additional software on your virtual machine after the initial deployment. You want this task to use a specific configuration, monitored and executed automatically.
+Anta att du vill konfigurera och installera ytterligare programvara på din virtuella dator efter den första distributionen. Du vill att den här uppgiften ska använda en specifik konfiguration, övervakas och köras automatiskt.
 
-**Azure VM extensions** are small applications that allow you to configure and automate tasks on Azure VMs after initial deployment. **Azure VM extensions** can be run with the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal.
+**Azure VM-tillägg** är små program som gör att du kan konfigurera och automatisera uppgifter på virtuella Azure-datorer efter den första distributionen. **Azure VM-tillägg** kan köras med Azure CLI, PowerShell, Azure Resource Manager-mallar och Azure-portalen.
 
-You bundle extensions with a new VM deployment or run them against an existing system.
+Du paketerar tillägg med en ny VM-distribution eller kör dem mot ett befintligt system.
 
 <a name="Azure_Automation" />
 
-## Azure Automation Services
+## <a name="azure-automation-services"></a>Azure Automation Services
 
-Saving time, reducing errors, and increasing efficiency are some of the most significant operational management challenges faced when managing remote infrastructure. If you have a lot of infrastructure services, you might want to consider using higher-level services in Azure to help you operate from a higher level.
+Att spara tid, minska fel och öka effektiviteten är några av de viktigaste driftsutmaningarna vid hantering av infrastruktur för fjärråtkomst. Om du har flera infrastrukturtjänster bör du överväga att använda tjänster på högre nivå i Azure för att underlätta ditt arbete.
 
-**Azure Automation** allows you to integrate services that allow you to automate frequent, time-consuming, and error-prone management tasks with ease. These services include **process automation**, **configuration management**, and **update management**.
+Med **Azure Automation** kan du integrera tjänster för att enkelt automatisera återkommande, tidskrävande och felbenägna hanteringsuppgifter. Tjänsterna omfattar bland annat **processautomatisering**, **konfigurationshantering** och **uppdateringshantering**.
 
-- **Process Management**. Let's assume you have a VM that is monitored for a specific error event. You want to take action and fix the problem as soon as it's reported. Process automation allows you to set up watcher tasks that can respond to events that may occur in your datacenter.
+- **Processhantering**. Anta att du har en virtuell dator som övervakas för en särskild felhändelse. Du vill vidta åtgärder och lösa problemet så fort det rapporteras. Med processautomatisering kan du konfigurera bevakaruppgifter som kan svara på händelser som kan uppstå i datacentret.
 
-- **Configuration Management**.  Perhaps you want to track software updates that become available for the operating system that runs on your VM. There are specific updates you may want to include or exclude. Configuration management allows you to track these updates and take action as required. You use **System Center Configuration Manager** to manage your company's PC, servers, and mobile devices. You can extend this support to your Azure VMs with Configuration Manager.
+- **Konfigurationshantering**.  Du vill kanske spåra programuppdateringar som blir tillgängliga för det operativsystem som körs på den virtuella datorn. Det finns specifika uppdateringar som du kan vilja inkludera eller exkludera. Konfigurationshantering gör att du kan spåra de här uppdateringarna och vidta åtgärder vid behov. Du använder **System Center Configuration Manager** för att hantera företagets PC-datorer, servrar och mobila enheter. Du kan utöka det här stödet till dina virtuella Azure-datorer med Configuration Manager.
 
-- **Update Management**. This is used to manage updates and patches for your VMs. With this service, you're able to assess the status of available updates, schedule installation, and review deployment results to verify updates applied successfully. Update management incorporates services that provide process and configuration management. You enable update management for a VM directly from your **Azure Automation** account. You can also allow update management for a single virtual machine from the virtual machine blade in the portal.
+- **Uppdateringshantering**. Det här används till att hantera uppdateringar och korrigeringar för dina virtuella datorer. Med den här tjänsten kan du utvärdera statusen för tillgängliga uppdateringar, schemalägga installation och granska distributionsresultat för att verifiera att uppdateringarna tillämpas korrekt. Uppdateringshantering omfattar tjänster som ger process- och konfigurationshantering. Du aktiverar uppdateringshantering för en virtuell dator direkt via ditt **Azure Automation**-konto. Du kan även tillåta uppdateringshantering för en enskild virtuell dator från bladet för virtuella datorer i portalen.
 
-As you can see, Azure provides a variety of tools to create and administer resources so that you can integrate management operations into a process _that works for you_. Let's examine some of the other Azure services to make sure your infrastructure resources are running smoothly.
+Som du ser erbjuder Azure en mängd olika verktyg för att skapa och administrera resurser, så att du kan integrera hanteringsåtgärder i en process _som passar dig_. Nu ska vi undersöka några av de andra Azure-tjänsterna för att se till att dina infrastrukturresurser körs problemfritt.

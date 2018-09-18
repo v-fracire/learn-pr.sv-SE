@@ -1,24 +1,24 @@
-You've successfully created a full-featured, serverless application using Azure services.
+Du har skapat ett komplett, serverlöst program med hjälp av Azure-tjänster.
 
-## Clean up
+## <a name="clean-up"></a>Rensa
 <!---TODO: Update for sandbox--->
 
-When you are done working with this application, you can use the following command to delete all resources created during the tutorial:
+När du har arbetat klart med det här programmet kan du använda följande kommando för att ta bort alla resurser som skapades under självstudien:
 
 ```azurecli
 az group delete --name first-serverless-app
 ```
 
-Type `y` when prompted.  
+Skriv `y` när du uppmanas att göra det.  
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-In this module, you learned how to:
-  - Configure Azure Blob storage to host a static website and uploaded images.
-  - Upload images to Azure Blob storage using Azure Functions.
-  - Resize images using Azure Functions.
-  - Store image metadata in Azure Cosmos DB. 
-  - Use the Cognitive Services Computer Vision API to auto-generate image captions.
-  - Use Azure Active Directory to secure the web app by authenticating users.
+I den här modulen har du lärt dig att:
+  - Konfigurera Azure Blob Storage att lagra en statisk webbplats och uppladdade bilder.
+  - Ladda upp bilder till Azure Blob Storage med hjälp av Azure Functions.
+  - Ändra storlek på bilder med hjälp av Azure Functions.
+  - Lagra bildmetadata i Azure Cosmos DB. 
+  - Använd API:et för visuellt innehåll i Cognitive Services för att skapa bildtexter automatiskt.
+  - Använd Azure Active Directory för att skydda webbappen med användarautentisering.
 
-To learn how to connect even more services to Functions, continue to the [Functions with Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-twitter-email) tutorial.
+Om du vill lära dig hur du ansluter ännu fler tjänster till Functions, fortsätter du med självstudien [Functions med Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-twitter-email).

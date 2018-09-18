@@ -1,111 +1,111 @@
-Lamna Healthcare hosts a legacy internal application and web portal for its clinicians to manage patient health data. The organization has received many requests for this application to be available to caregivers who are often on-site with patients and therefore outside of the network. 
+Lamna Healthcare har ett äldre internt program och en webbportal som dess läkare använder för att hantera patienternas hälsodata. Organisationen har fått många begäranden om att det här programmet ska bli tillgängligt för vårdgivare som ofta är på plats med patienter och därför är utanför nätverket. 
 
-A recent data leak by malicious agents has forced the company to tighten its password policies. They are now requiring users to change their passwords more frequently and use longer, more complex passwords. This has led to the unwanted side-effect of users recording complex passwords insecurely as they struggle to remember multiple sets of credentials created for different administrative roles. 
+En nyligen inträffad dataläcka från skadliga aktörer har tvingad företaget att stärka sina lösenordsprinciper. De kräver nu att användare ändrar sina lösenord oftare och att de använder längre, mer avancerade lösenord. Detta har medfört den oönskade sidoeffekten att användarna antecknar komplexa lösenord på ett osäkert sätt, eftersom de har svårt att komma ihåg flera uppsättningar med autentiseringsuppgifter som har skapats för olika administrativa roller. 
 
-Here, we'll discuss identity as a security layer for internal and external applications, the benefits of single sign-on (SSO) and multi-factor authentication (MFA) to provide identity security, and why to consider replicating on-premises identities to Azure Active Directory.
+Här diskuterar vi identitet som ett säkerhetslager för interna och externa program, fördelarna med enkel inloggning (SSO) och multifaktorautentisering (MFA) för att tillhandahålla identitetssäkerhet, samt varför du bör överväga att replikera lokala identiteter till Azure Active Directory.
 
-## Identity as a layer of security
+## <a name="identity-as-a-layer-of-security"></a>Identitet som ett säkerhetslager
 
-Digital identities are an integral part of today's business and social interactions on-premises and online. In the past, identity and access services were restricted to operating within a company's internal network, using protocols such as Kerberos and LDAP that were designed for this purpose. More recently, mobile devices have become the primary way people interact with digital services. Customers and employees alike expect to be able to access services from anywhere at any time, which has driven the development of identity protocols that can work at internet scale across many disparate devices and operating systems.
+Digitala identiteter är en central del av dagens verksamheter och social kommunikation lokalt och online. Tidigare var identitets-och åtkomsttjänster begränsade till att arbeta i ett företags interna nätverk med hjälp av protokoll som Kerberos och LDAP som utformats för detta ändamål. På senare tid har mobila enheter blivit det vanligaste sättet att interagera med digitala tjänster. Kunder och anställda räknar med att komma åt tjänster var och när som helst, vilket har drivit utvecklingen av identitetsprotokoll som fungerar i Internetskala på många olika enheter och operativsystem.
 
-As they evaluate the capabilities their architecture has around identity, Lamna Healthcare is looking at ways they can bring the following capabilities into their application:
+Lamna Healthcare utvärderar vilka funktioner deras arkitektur har vad gäller identitet och undersöker hur de kan implementera följande funktioner i sitt program:
 
-- Provide single-sign on to application users
-- Enhance the legacy application to use modern authentication with minimal effort
-- Enforce multi-factor authentication for all logins outside the company's network
-- Develop an application to allow patients to enroll and securely manage their account data
+- Tillhandahålla enkel inloggning för programanvändare
+- Förbättra det äldre programmet till att använda modern autentisering med minimal arbetsinsats
+- Använda multifaktorautentisering för alla inloggningar utanför företagets nätverk
+- Utveckla ett program för att tillåta patienter att registrera och hantera sina kontodata på ett säkert sätt
 
-## Single sign-on
+## <a name="single-sign-on"></a>Enkel inloggning
 
-The more identities a user has to manage, the greater the risk of a credential-related security incident. More identities mean more passwords to remember and change. Password policies can vary between applications, and as complexity requirements increase, it makes it more difficult for users to remember them.
+Ju fler identiteter en användare behöver hantera, desto större risk för en säkerhetsincident relaterad till autentiseringsuppgifterna. Fler identiteter innebär flera lösenord för att komma ihåg och ändra. Lösenordsprinciper kan variera mellan program, och när kraven på komplexitet ökar blir det svårare för användare att komma ihåg dem.
 
-On the other side is the management required for all those identities. Additional strain is placed on help desks as they deal with account lockouts and password reset requests. If a user leaves an organization, tracking down all those identities and ensuring they are disabled can be challenging. If an identity is overlooked, this could allow access when it should have been eliminated.
+Dessutom krävs omfattande hantering av alla dessa identiteter. Det leder även till ökad arbetsbörda för supportavdelningen att hantera kontolåsningar och begäranden för återställning av lösenord. Om en användare lämnar en organisation kan det vara svårt att spåra alla dessa identiteter och se till att de inaktiveras. Om en identitet är förbises möjliggör detta åtkomst när den borde ha tagits bort.
 
-With single sign-on, users only need to remember one ID and one password. Access across applications is granted to a single identity tied to a user, simplifying the security model. As users change roles or leave an organization, access modifications are tied to the single identity, greatly reducing the effort needed to change or disable accounts. Using single sign-on for accounts will make it easier for users to manage their identities, and will increase the security capabilities in your environment.
+Med enkel inloggning behöver användarna bara komma ihåg ett ID och ett lösenord. Åtkomst för flera program beviljas till en enda identitet som är kopplad till en användare, vilket förenklar säkerhetsmodellen. När användare byter roller eller lämnar en organisation är åtkomständringarna knutna till en enda identitet, vilket avsevärt minskar det arbete som krävs för att ändra eller inaktivera konton. Med enkel inloggning för konton blir det enklare för användarna att hantera sina identiteter, och det ökar säkerhetsfunktionerna i din miljö.
 
-### SSO with Azure Active Directory
+### <a name="sso-with-azure-active-directory"></a>Enkel inloggning med Azure Active Directory
 
-Azure Active Directory (AD) is a cloud-based identity service. It has built in support for synchronizing with your existing on-premises Active Directory or can be used stand-alone.
+Azure Active Directory (AD) är en molnbaserad identitetstjänst. Det har inbyggt stöd för att synkronisera med din befintliga lokala Active Directory eller kan användas fristående.
 
-This means that all your applications, whether on-premises, in the cloud (including Office 365), or even mobile can share the same credentials. 
+Det innebär att alla dina program, oavsett om de är lokala, molnbaserade (inklusive Office 365) eller mobila kan dela samma autentiseringsuppgifter. 
 
-Administrators and developers can control access to data and applications using centralized rules and policies configured in Azure AD.
+Administratörer och utvecklare kan styra åtkomst till data och program med hjälp av centraliserade regler och principer som konfigureras i Azure AD.
 
-In addition, Microsoft is uniquely positioned to combine multiple data sources into an intelligent security graph that can provide threat analysis and real-time identity protection to all accounts in Azure Active Directory (even accounts that are synchronized from your on-premises AD).
+Microsoft har dessutom en unik möjlighet att kombinera flera datakällor till en intelligent säkerhetsgraf som ger hotanalyser och identitetsskydd i realtid till alla konton i Azure Active Directory (även konton som synkroniseras från din lokala AD).
 
-### Synchronize directories with AD Connect
+### <a name="synchronize-directories-with-ad-connect"></a>Synkronisera kataloger med AD Connect
 
-Azure AD Connect will integrate your on-premises directories with Azure Active Directory. Azure AD Connect provides the newest capabilities and replaces older versions of identity integration tools such as DirSync and Azure AD Sync.
+Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. Azure AD Connect innehåller de nyaste funktionerna och ersätter äldre versioner av identitetsintegrationsverktyg som DirSync och Azure AD Sync.
 
-It's a single tool to provide an easy deployment experience for synchronization and sign in.
+Det är ett enda verktyg som innehåller allt som krävs för en enkel distributionsupplevelse för synkronisering och inloggning.
 
 ![AAD Connect](../media-draft/AADCONNECTxprs_960.jpg)
 
-Lamna Healthcare requires that authentication occurs primarily against on-premises DCs, but also requires cloud authentication in a disaster recovery scenario. They don't have any requirements not already supported by Azure AD.
+Lamna Healthcare kräver att autentisering sker främst mot lokala domänkontrollanter, men kräver även molnautentisering i ett katastrofåterställningsscenario. De har inte några krav som inte redan stöds av Azure AD.
 
-Lamna Healthcare has made the decision to move forward with the following configuration:
+Lamna Healthcare har bestämt sig för att gå vidare med följande konfiguration:
 
-- Use Azure AD Connect to synchronize groups, user accounts, and password hashes stored in their on-premises Active Directory to Azure AD
-  - This can be used as a back-up if pass-through authentication is unavailable
-- Configure pass-through authentication using an on-premises authentication agent installed on an on-premises Windows Server
-- Use the seamless single sign-on feature of Azure AD to automatically sign in users from on-premises domain-joined PCs
-  - Reduces user friction by suppressing multiple authentication requests
+- Använda Azure AD Connect till att synkronisera grupper, användarkonton och lösenordshashar som lagras i deras lokala Active Directory till Azure AD
+  - Detta kan användas som en reservmetod om direktautentisering inte är tillgänglig
+- Konfigurera direktautentisering med hjälp av lokal autentiseringsagent som är installerad på en lokal Windows Server
+- Använda funktionen för smidig enkel inloggning i Azure AD för att automatiskt logga in användare från lokala domänanslutna datorer
+  - Minska friktionen för användare genom att utelämna flera autentiseringsbegäranden
 
-## Authentication & access
+## <a name="authentication--access"></a>Autentisering och åtkomst
 
-Lamna Healthcare's security policy requires that all logins occurring outside the company's perimeter network are authenticated with an additional factor of authentication. This requirement combines two aspects of the Azure AD service: multi-factor authentication and conditional access policies.
+Lamna Healthcares säkerhetsprincip kräver att alla inloggningar som sker utanför företagets perimeternätverk autentiseras med ytterligare en autentiseringsfaktor. Det här kravet kombinerar två delar av Azure AD-tjänsten: multifaktorautentisering och principer för villkorlig åtkomst.
 
-### Multi-factor authentication
+### <a name="multi-factor-authentication"></a>Multifaktorautentisering
 
-Multi-factor authentication (MFA) provides additional security for your identities by requiring two or more elements for full authentication. These elements fall into three categories:
+Multifaktorautentisering (MFA) ger ökad säkerhet för dina identiteter genom att kräva två eller flera element för fullständig autentisering. De här elementen är indelade i tre kategorier:
 
-- *something you know*
-- *something you possess*
-- *something you are*
+- *något du känner till*
+- *något du har*
+- *något du är*
 
-**Something you know** would be a password, or the answer to a security question. **Something you possess** could be a mobile app that receives a notification or a token generating device. **Something you are** is typically some sort of biometric property such as a fingerprint or face scan used on many mobile devices.
+**Något du känner** kan vara ett lösenord eller svaret på en säkerhetsfråga. **Något du har** kan vara en mobilapp som får ett meddelande eller en tokengenererande enhet. **Något du är** är vanligtvis någon form av biometrisk egenskap, till exempel ett fingeravtryck eller ansiktsskanning som används i många mobila enheter.
 
-Using multi-factor authentication increases security of your identity by limiting the impact of credential exposure. An attacker who has a user's password would also need to have possession of their phone or their face in order to fully authenticate. Authentication with only a single factor verified is insufficient and the attacker would be unable to use those credentials to authenticate. The benefits this brings to security are huge, and it can't be repeated enough to enable MFA wherever possible.
+Användning av multifaktorautentisering ökar säkerheten för din identitet genom att begränsa effekten av exponering av autentiseringsuppgifter. En angripare som har en användares lösenord skulle även behöva ha tillgång till användarens telefon eller ansikte för att kunna autentisera fullständigt. Autentisering med bara en enda verifierad faktor är otillräckligt, och angriparen skulle inte kunna använda de autentiseringsuppgifterna för att autentisera. Detta medför stora säkerhetsfördelar, och det är mycket viktigt att multifaktorautentisering aktiveras närhelst det är möjligt.
 
-Azure AD has MFA capabilities built in, and will integrate with other third-party MFA providers. It's provided free of charge to any user who has the Global Administrators role in Azure AD, as these are highly sensitive accounts. All other accounts can have MFA enabled by purchasing licenses with this capability and assigning a license to the account.
+Azure AD har funktioner för multifaktorautentisering inbyggda och kommer att integrera med andra tredjepartsleverantörer för multifaktorautentisering. Det tillhandahålls kostnadsfritt till alla användare som har rollen Global administratör i Azure AD eftersom dessa är mycket känsliga konton. Alla andra konton kan ha multifaktorautentisering aktiverat genom att köpa licenser med den här funktionen och tilldela en licens till kontot.
 
-### Conditional access policies
+### <a name="conditional-access-policies"></a>Principer för villkorsstyrd åtkomst
 
-Along with MFA, ensuring that additional requirements are met before granting access can add another layer of protection. Blocking logins from a suspicious IP address, or denying access from devices without malware protection could limit access from risky sign ins.
+Tillsammans med multifaktorautentisering går det att lägga till ytterligare en skyddsnivå genom att se till att ytterligare krav är uppfyllda innan åtkomst beviljas. Att blockera inloggningar från en misstänkt IP-adress eller neka åtkomst från enheter utan skydd mot skadlig kod kan begränsa åtkomst från riskfyllda inloggningar.
 
-Azure Active Directory provides a conditional access policies (CAP) feature that includes support for access policies based on group, location, or device state. The location feature allows Lamna to differentiate IP addresses that don't belong to their network, and satisfies their security policy to require multi-factor authentication from all such locations.
+Azure Active Directory tillhandahåller en funktion för principer för villkorsstyrd åtkomst som har stöd för åtkomstprinciper baserat på grupp, plats eller enhetstillstånd. Platsfunktionen gör att Lamna kan särskilja IP-adresser som inte tillhör deras nätverk och uppfyller deras säkerhetsprincip, och kräva multifaktorautentisering från alla sådana platser.
 
-Lamna Healthcare has created a [conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) that requires users accessing the application from an IP address outside of the company network to be challenged with MFA.
+Lamna Healthcare har skapat en [princip för villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) som kräver att användare som kommer åt programmet från en IP-adress utanför företagsnätverket prövas med multifaktorautentisering.
 
-![conditional access](../media-draft/conditional-access.png)
+![villkorsstyrd åtkomst](../media-draft/conditional-access.png)
 
-## Securing legacy applications
+## <a name="securing-legacy-applications"></a>Säkra äldre program
 
-Lamna Healthcare employees require secure remote access to their administrative application hosted on-premises. Users currently authenticate to the application using Windows Integrated Authentication (WIA) from their domain-joined machines, behind the corporate firewall. Although a project to incorporate modern authentication mechanisms into the application has been planned, there's considerable business pressure to enable remote access capabilities as soon as possible. Azure Application Proxy can quickly, easily, and securely allow the application to be accessed remotely without any code changes.
+Lamna Healthcares anställda behöver säker fjärråtkomst till sina administrativa program som finns lokalt. Användarna autentiserar för närvarande till programmet med hjälp av Windows-integrerad autentisering (WIA) från sina domänanslutna datorer bakom företagets brandvägg. Ett projekt för att införliva moderna autentiseringsmekanismer i programmet har planerats, men det finns betydande tryck på verksamheten att aktivera funktionerna för fjärråtkomst så snart som möjligt. Azure-programproxy kan snabbt, enkelt och säkert tillåta att programmet nås via en fjärranslutning utan några kodändringar.
 
-Azure AD Application Proxy is:
+Azure AD-programproxy är:
 
-- Simple
-  - You don't need to change or update your applications to work with Application Proxy.
-  - Your users get a consistent authentication experience. They can use the MyApps portal to get single sign-on to both SaaS apps in the cloud and your apps on-premises.
-- Secure
-  - When you publish your apps using Azure AD Application Proxy, you can take advantage of the rich authorization controls and security analytics in Azure. You get cloud-scale security and Azure security features like conditional access and two-step verification.
-  - You don't have to open any inbound connections through your firewall to give your users remote access.
-- Cost-effective
-  - Application Proxy works in the cloud, so you can save time and money. On-premises solutions typically require you to set up and maintain DMZs, edge servers, or other complex infrastructures.
+- Enkelt
+  - Du behöver inte ändra eller uppdatera dina program för att fungera med programproxy.
+  - Användarna får en konsekvent autentiseringsupplevelse. De kan använda MyApps-portalen för att få enkel inloggning till både SaaS-appar i molnet och dina appar lokalt.
+- Säkerhet
+  - När du publicerar dina appar med Azure AD-programproxy kan dra du nytta av de omfattande auktoriseringskontrollerna och säkerhetsanalyserna i Azure. Du får säkerhet på molnskala och Azure-säkerhetsfunktioner som villkorsstyrd åtkomst och tvåstegsverifiering.
+  - Du behöver inte öppna några inkommande anslutningar via brandväggen för att ge dina användare fjärråtkomst.
+- Kostnadseffektivt
+  - Programproxy fungerar i molnet så att du kan spara tid och pengar. Lokala lösningar kräver normalt att du konfigurerar och underhåller DMZ:er, gränsservrar eller andra komplexa infrastrukturer.
 
-Azure AD Application Proxy is comprised of two components: a connector agent that sits on a Windows server within your corporate network and an external endpoint, either the MyApps portal or an external URL. When a user navigates to the endpoint, they authenticate with Azure AD and are routed to the on-premises application via the connector agent.
+Azure Active Directory-programproxy består av två komponenter: en anslutningsagent som finns på en Windows-server i företagsnätverket och en extern slutpunkt, antingen MyApps-portalen eller en extern URL. När en användare navigerar till slutpunkten autentiserar denne med Azure AD och dirigeras till det lokala programmet via anslutningsagenten.
 
-## Working with consumer identities
+## <a name="working-with-consumer-identities"></a>Arbeta med konsumentidentiteter
 
-Since integrating modern authentication with their existing application, Lamna Healthcare has quickly acknowledged the power a managed identity system such as Azure AD can bring to their organization. The leadership team is now interested in exploring other ways Microsoft identity services can add business value. They have now focused their attention on external customers and how modernization of existing customer interactions could provide tight integration with third-party identity providers such as Google, Facebook, and LinkedIn.
+Sedan Lamna Healthcare integrerade modern autentisering med sitt befintliga program har de snabbt insett de möjligheter som ett system för hanterad identitet såsom Azure AD kan ge deras organisation. Ledningen vill nu utforska andra sätt som Microsofts identitetstjänster kan ge affärsvärde på. De riktar nu sin uppmärksamhet på externa kunder och hur modernisering av befintliga kundinteraktioner skulle kunna ge nära integrering med identitetsleverantörer från tredje part, till exempel Google, Facebook och LinkedIn.
 
-Azure AD B2C is an identity management service built on the solid foundations of Azure Active Directory that enables you to customize and control how customers sign up, sign in, and manage their profiles when using your applications. This includes applications developed for iOS, Android, and .NET, among others. Azure AD B2C provides a social identity login experience, while at the same time protecting your customer identity profile information. Azure AD B2C directories are distinct from standard Azure AD directories and can be created in the Azure portal.
+Azure AD B2C är en identitetshanteringstjänst som bygger på de gedigna grunderna i Azure Active Directory och som hjälper dig att anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklas för bland annat iOS, Android och .NET. Azure AD B2C tillhandahåller en inloggningsupplevelse för social identitet och skyddar dessutom profilinformationen för dina kundidentiteter. Azure AD B2C-kataloger skiljer sig från vanliga Azure AD-kataloger och kan skapas i Azure-portalen.
 
-## Identity management at Lamna Healthcare
+## <a name="identity-management-at-lamna-healthcare"></a>Identitetshantering på Lamna Healthcare
 
-We've seen here how Lamna Healthcare has used identity management solutions on Azure to improve the security of their environment. They've started by providing users a single sign-on experience to minimize the accounts users have to deal with, and reduce the operational complexity that excess accounts bring. They have enforced MFA for access to their application and have updated a legacy application to use modern authentication with minimal effort. They've also learned how they can improve their ability to work with consumer identities, improving the application usability for their patients.
+Vi har sett hur Lamna Healthcare har använt identitetshanteringslösningar på Azure för att förbättra säkerheten för deras miljö. De har börjat genom att ge användarna enkel inloggning för att minimera det antal konton som användarna behöver hantera och minska den driftskomplexitet som ett överdrivet antal konton medför. De har tillämpat multifaktorautentisering för åtkomst till sina program och har uppdaterat ett äldre program till att använda modern autentisering med minimal arbetsinsats. De har även lärt sig hur de kan förbättra sin förmåga att arbeta med konsumentidentiteter, vilket förbättrar programmets användbarhet för patienterna.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, we have seen how a number of Azure Active Directory features can be combined to provide a solid identity solution for securing access to applications, regardless of their location. Identity is a critical layer of security. When designed well and included in your architecture, you can ensure your environment is secure.
+I den här enheten har vi gått igenom hur ett antal Azure Active Directory-funktioner kan kombineras för att tillhandahålla en stabil identitetslösning för att skydda åtkomst till program, oavsett vilken plats de har. Identitet är ett kritiskt säkerhetslager. När det är väl utformat och ingår i arkitekturen kan du säkerställa att din miljö är säker.

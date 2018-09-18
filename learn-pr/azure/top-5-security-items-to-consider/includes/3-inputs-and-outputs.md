@@ -1,31 +1,31 @@
-The most prevalent security weakness of applications today is to not correctly process input received from external sources, particularly _user input_. You should always take a close look at any input to make sure it has been validated before it is used. Failing to do this can result in data loss or exposure, escalation of privilege, or even execution of malicious code on other users' computers!
+Den vanligaste säkerhetsbristen i program i dag är att inte korrekt bearbeta indata som tas emot från externa källor, särskilt _användarinmatning_. Du bör alltid kontrollera indata noggrant för att se till att de verifieras innan de används. Om du inte gör detta kan det leda till förlust eller exponering av data, eskalering av privilegier eller till och med körning av skadlig kod på andra användares datorer!
 
-The tragic thing is that this is an easy problem to solve. Here we will cover how to treat data; when it’s received, when it’s displayed on the screen, and when it's stored for later use.
+Det som är så onödigt med dessa problem att de enkelt kan lösas. Här går vi igenom hur du behandlar data: när de tas emot, när de visas på skärmen och när de är sparas för senare användning.
 
-## Why do we need to validate our input?
+## <a name="why-do-we-need-to-validate-our-input"></a>Varför behöver vi verifiera våra indata?
 
-Imagine that you are building an interface to allow a user to create an account on your website. Our profile data includes a name, email, and a nickname that we will display to everyone who visits the site. What if a new user creates a profile and enters a nickname that includes some SQL commands? For example - what if our bad user enters something like:
+Anta att du skapar ett gränssnitt för att användare ska kunna skapa ett konto på din webbplats. Våra profildata inkluderar ett namn, en e-postadress och ett smeknamn som vi visar för alla som besöker webbplatsen. Vad händer om en ny användare skapar en profil och anger ett smeknamn som innehåller vissa SQL-kommandon? Vad händer om våra illasinnade användare anger något i still med följande:
 
 ```output
 Eve'); DROP TABLE Users;--
 ```
 
-If we just blindly insert this value into a database, it could potentially alter the SQL statement to execute commands we absolutely don't want to run! This is referred to as a "SQL Injection" attack and is one of the _many_ types of exploits that can potentially be done when you don't properly handle inputs. So, what can we do to fix this? This unit will teach you when to sanitize input, how to encode output, and how to create parameterized queries (which solves the above exploit!). These are the three main defense techniques against malicious input being entered into your applications.
+Om vi utan vidare infogar det här värdet i en databas kan det potentiellt ändra SQL-instruktionen till att köra kommandon som vi absolut inte vill! Det här kallas en ”SQL-inmatningsattack” och är en av de _många_ typer av kryphål som potentiellt kan utföras när indata inte hanteras på rätt sätt. Vad kan vi då göra för att åtgärda detta? I den här enheten får du lära dig när indata ska saneras, hur utdata ska kodas samt hur du skapar parametriserade frågor (vilket löser kryphålet ovan!). Det här är de tre huvudsakliga försvarsteknikerna mot skadliga indata som försöker inmatas i dina program.
 
-## When do I need to validate input?
+## <a name="when-do-i-need-to-validate-input"></a>När behöver jag verifiera indata?
 
-The answer is _always_. You must validate **every** input for your application. This includes parameters in the URL, input from the user, data from the database, data from an API and anything that is passed in the clear that a user could potentially manipulate. Always use a whitelist approach, which means you only accept "known good" input, instead of a blacklist (where you specifically look for bad input) because it's impossible to think of a complete list of potentially dangerous input.  Do this work on the server, not the client-side (or in addition to the client-side), to ensure that your defenses cannot be circumvented. Treat **ALL** data as untrusted and you will protect yourself from most of the common web app vulnerabilities.
+Svaret är _alltid_. Du måste verifiera **alla** indata till ditt program. Detta inkluderar parametrar i URL:en, indata från användare, data från databasen, data från ett API och allt som skickas i klartext som en användare potentiellt kan manipulera. Använd alltid metoden med en vitlista, vilket innebär att du bara godkänner indata som är ”bekräftat goda” i stället för en svartlista (där du specifikt letar efter felaktiga indata) eftersom det är omöjligt att skapa en fullständig lista över potentiellt skadliga indata.  Utför det här arbetet på serversidan, inte på klientsidan (eller utöver klientsidan) så att dina försvar inte kan kringgås. Om du behandlar **ALLA** data som ej betrodda skyddar du mot de flesta vanliga säkerhetshoten för webbappar.
 
-If you are using ASP.NET, the framework provides [great support for validating input](https://docs.microsoft.com/aspnet/web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites) on both the client and server side.
+Om du använder ASP.NET ger ramverket [utmärkt stöd för att verifiera indata](https://docs.microsoft.com/aspnet/web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites) på både klient- och servernsidan.
 
-If you are using another web framework, there are some great techniques for doing input validation available on the [OWASP Input Validation Cheatsheet](https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet).
+Om du använder ett annat webbramverk finns det vissa bra metoder för att utföra verifiering av indata tillgängliga på [OWASP:s översiktsblad om verifiering av indata](https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet).
 
 
-## Always use parameterized queries
+## <a name="always-use-parameterized-queries"></a>Använd alltid parametriserade frågor
 
-SQL databases are commonly used to store data - we might be storing our profile information in SQL Server for example.  Never create inline SQL or other database queries "on the fly" in your code and send it directly to the database, this is a recipe for disaster, as we saw above.
+SQL-databaser används ofta för att lagra data. Till exempel kan vi lagra vår profilinformation i SQL Server.  Skapa aldrig infogat SQL eller andra databasfrågor ”i farten” i koden och skicka den direkt till databasen – som vi såg ovan kan resultatet bli katastrofalt.
 
-For example, **do not do this** (known as inline SQL):
+Till exempel ska du **inte göra detta** (kallas även infogat SQL):
 
 ```csharp
 string userName = ... // receive input from the user BEWARE!
@@ -33,7 +33,7 @@ string userName = ... // receive input from the user BEWARE!
 string query = "SELECT *  FROM  [dbo].[users] WHERE userName = '" + userName + "'";
 ```
 
-Here we concatenate text strings together to create the query, taking the input from the user and generating a dynamic SQL query to lookup the user. Again, if an evil user realized we were doing this, or just _tried_ different input styles to see if there was a vulnerability, we could end up with a major disaster. Instead, prefer to use parameterized SQL statements, or even better - stored procedures:
+Här sammanfogar vi textsträngar för att skapa frågan. Vi använder indata från användaren och genererar en dynamisk SQL-fråga för att leta upp användaren. Om en illasinnad användare skulle inse att vi gör detta eller helt enkelt _prova_ olika indataformat för att se om det finns en sårbarhet kan det leda till en stor katastrof. I stället bör vi använda parametriserade SQL-instruktioner eller ännu bättre – lagrade procedurer:
 
 ```sql
 -- Lookup a user
@@ -45,14 +45,35 @@ CREATE PROCEDURE sp_findUser
 SELECT *  FROM  [dbo].[users] WHERE userName = @UserName
 ```
 
-Then you can invoke the procedure from your code safely, passing it the `userName` string without worrying about it being treated as part of the SQL statement.
+Sedan kan du anropa proceduren från din kod på ett säkert sätt; du skickar strängen `userName` utan att behöva bekymra dig om den behandlas som en del av SQL-instruktionen.
 
-## Always encode your output
+## <a name="always-encode-your-output"></a>Koda alltid dina utdata
 
-Any output you present visually or in files should always be encoded and escaped. This can protect you in case something was missed in the sanitization pass, or the code accidentally generates something that can be used maliciously. This will make sure that everything is displayed as _output_ and not inadvertently interpreted as something that should be executed. This is another very common attack technique referred to as "Cross-Site Scripting" (XSS).
+Alla utdata som du presenterar visuellt eller i filer ska alltid kodas och undantas. Detta kan skydda dig om något förbises i saneringsomgången eller om koden av misstag genererar något som kan användas i skadligt syfte. På så sätt ser du till att allt visas som _utdata_ och inte oavsiktligt tolkas som något som ska köras. Det här är en annan mycket vanlig angreppsmetod som kallas ”skriptkörning över flera webbplatser” (XSS, Cross-Site Scripting).
 
-Since this is such as common requirement, this is another areas where ASP.NET will do the work for you. By default, [all output is already encoded](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting?view=aspnetcore-2.1). If you are using another web framework, you can verify your options for output encoding on websites with the [OWASP XSS Prevention Cheatsheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet).
+Eftersom det här är ett vanligt krav utgör det här ytterligare ett område där ASP.NET gör arbetet åt dig. Som standard [är alla utdata redan kodade](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting?view=aspnetcore-2.1). Om du använder ett annat webbramverk kan du kontrollera dina alternativ för utdatakodning på webbplatser med [OWASP:s översiktsblad om XSS-skydd](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet).
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Santizing and validating your input is a necessary requirement to ensure your input is valid and safe to use and store. Most modern web frameworks offer built-in features which can automate some of this work - make sure to check your preferred framework's documentation and see what features it offers. Also, keep in mind that while the most common place this occurs is in web applications, other types of applications can have similar issues - so don't think you're safe if you are writing that cool desktop app! You still need to properly handle user input to ensure someone doesn't use your app to corrupt your data, or damage your company's reputation.
+Att sanera och verifiera dina indata är ett nödvändigt krav för att se till att dina indata är giltiga och säkra att använda och lagra. De flesta moderna webbramverk har inbyggda funktioner som kan automatisera en del av det här arbetet – läs dokumentationen för det ramverk du väljer och se vilka funktioner det erbjuder. Tänk även på att även om webbplatser är det vanligaste stället där detta inträffar så kan det förekomma liknande problem i andra typer av program. Även den där häftiga skrivbordsappen som du skriver kan drabbas! Du behöver fortfarande kunna hantera indata från användare för att säkerställa att ingen använder din app för att skada dina data eller företagets rykte.
+
+
+## <a name="knowledge-check"></a>Kunskapskontroll
+
+Vilka av följande datakällor behöver saneras?
+* Data från ett tredjeparts-API
+* Data från URL-parametern
+* Data som samlas in från användaren via ett inmatningsfält
+* Alla ovanstående (rätt svar)
+
+Vilka av följande data behöver kodas för utdata?
+* Data som sparas i databasen
+* Datum som ska visas på skärmen (rätt svar)
+* Data som skickas till ett tredjeparts-API
+* Data i URL-parametrarna
+
+Parametriserade frågor (lagrade procedurer i SQL) är alltid ett säkrare alternativ för att kommunicera med databasen eftersom:
+* De är mer organiserad än infogade databaskommandon och därför mindre förvirrande för användaren.
+* Det finns en tydlig beskrivning av skriptet i den lagrade proceduren, vilket ger bättre insyn.
+* Hackare kan inte programmera i SQL.
+* Parametriserade frågor ersätter variabler innan frågor körs, vilket förhindrar att koden skickas som en variabel. (rätt svar)

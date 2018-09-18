@@ -7,7 +7,7 @@ De tillgängliga verktygen är:
 - Portalen
 - Kommandoradsgränssnittet (CLI)
 - Azure PowerShell
-- Hanteringsklientbiblioteken.
+- Klientbibliotek för hantering
 
 Portalen har ett grafiskt användargränssnitt med knappbeskrivningar för varje inställning. Detta gör den enkel att använda och användbar för att lära dig mer om alternativen.
 

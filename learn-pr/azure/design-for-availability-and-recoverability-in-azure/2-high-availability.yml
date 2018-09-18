@@ -1,46 +1,51 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-availability-and-recoverability.2-high-availability
-title: Build a highly available architecture
+title: Skapa en arkitektur med hög tillgänglighet
 metadata:
-  title: Build a highly available architecture
-  description: Build a highly available architecture
+  title: Skapa en arkitektur med hög tillgänglighet
+  description: Skapa en arkitektur med hög tillgänglighet
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: e79f3bce5e25dd0f92602b9880cb6d6df99b8fa0
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44247695"
 durationInMinutes: 20
-content: |
+content: >
   [!include[](includes/2-high-availability.md)]
 quiz:
-  title: 'Knowledge Check - Build a highly available architecture'
+  title: Knowledge Check – Skapa en arkitektur med hög tillgänglighet
   questions:
-  - content: 'An SLA is important to define for your service because:'
+  - content: Ett serviceavtal är viktigt att definiera för tjänsten eftersom
     choices:
-    - content: 'It helps you determine your backup retention requirements.'
+    - content: Det hjälper dig att fastställa krav för kvarhållning av säkerhetskopior
       isCorrect: false
-      incorrectExplanation: 'Backup retention is important to define, but it is not driven by SLA.'
-    - content: 'It helps you determine the availability of your service that you will commit to your customers.'
+      incorrectExplanation: Det är viktigt att definiera kvarhållning av säkerhetskopior, men det styrs inte av serviceavtal.
+    - content: Det hjälper dig att fastställa tillgängligheten för tjänsten som du erbjuder kunderna
       isCorrect: true
-      correctExplanation: 'Service level agreement is a commitment you are making to your customers for the availability of your service.'
-    - content: 'You can use it to convince your manager to automate virtual machine creation.'
+      correctExplanation: Serviceavtal är ett åtagande som du gör för kunderna för tjänstens tillgänglighet.
+    - content: Du kan använda det för att övertyga din chef att automatisera skapandet av virtuella datorer
       isCorrect: false
-      incorrectExplanation: 'While this is a good discussion to have, your SLA will likely not have any impact on the outcome.'
-    - content: 'You use it to define the RBAC settings for your resources.'
+      incorrectExplanation: Samtidigt som det är bra att ha den diskussionen är det inte sannolikt att serviceavtalet påverkar resultatet.
+    - content: Du kan använda det för att definiera dina resursers RBAC-inställningar
       isCorrect: false
-      incorrectExplanation: 'RBAC settings are important, but they are not related to the SLA of your application.'
-  - content: 'Which of the following is not used in a highly available architecture?'
+      incorrectExplanation: RBAC-inställningar är viktiga, men relaterar inte till programmets serviceavtal.
+  - content: Vilket av följande används inte i en arkitektur med hög tillgänglighet?
     choices:
-    - content: 'Load balancing'
+    - content: Belastningsutjämning
       isCorrect: false
-      incorrectExplanation: 'Load balancing is typically used in a highly available architecture to distribute load to available systems and remove failed systems from load.'
-    - content: 'Availability zones'
+      incorrectExplanation: Belastningsutjämning används vanligen i en arkitektur med hög tillgänglighet för att distribuera belastning på tillgängliga system och ta bort misslyckade system från belastningen.
+    - content: Tillgänglighetszoner
       isCorrect: false
-      incorrectExplanation: 'Availability zones are used in a highly available architecture to distribute systems across multiple datacenters within a region.'
-    - content: 'Availability sets'
+      incorrectExplanation: Tillgänglighetszoner används i en arkitektur med hög tillgänglighet för att distribuera system till flera datacenter inom en region.
+    - content: Tillgänglighetsuppsättningar
       isCorrect: false
-      incorrectExplanation: 'Availability sets are used in a highly available architecture to minimize the impact from localized failures and maintenance events.'
-    - content: 'A recovery service vault'
+      incorrectExplanation: Tillgänglighetsuppsättningar används i en arkitektur med hög tillgänglighet för att minimera påverkan från lokaliserade fel och underhållshändelser.
+    - content: Ett Recovery Service-valv
       isCorrect: true
-      correctExplanation: 'Recovery service vaults provide a destination for backups, but they are not part of a highly available architecture.'
+      correctExplanation: Recovery Service-valv tillhandahåller ett mål för säkerhetskopior, men är inte en del av en arkitektur med hög tillgänglighet.

@@ -5,12 +5,12 @@ durationInMinutes: 3
 metadata:
   title: 'Kunskapskontroll: Skapa ett lagringskonto'
   description: Frågor om lagringskontons egenskaper och hur de skapas.
-  ms.openlocfilehash: ab689dd2ef9802ce036ec683909b291c3b342370
-  ms.sourcegitcommit: c07e11980180ae35cb3485548f81e16152d77781
+  ms.openlocfilehash: 9bf936e876598090ffb3972f21928ce8f7b0f33c
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/02/2018
-  ms.locfileid: "43471751"
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43824095"
 quiz:
   title: 'Kunskapskontroll: Skapa ett lagringskonto'
   questions:
@@ -27,7 +27,7 @@ quiz:
       isCorrect: false
     - content: Unikt inom din Azure-prenumeration.
       isCorrect: false
-    - content: Globalt unikt
+    - content: Unikt globalt.
       isCorrect: true
       correctExplanation: Lagringskontots namn används som en del av URI:n för API-åtkomst, så det måste vara globalt unikt.
   - content: När skulle du skapa lagringskonton i ett typiskt projekt?

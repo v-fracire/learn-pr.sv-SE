@@ -1,31 +1,12 @@
 <!--Video script: It began with Personal Digital Assistants, then smartphones and now everything from smart watches to smart thermostats are connecting people with more information than ever before. Once limited to just PCs, the Internet now allows anything that has valuable information to go online. How does this trend have the potential to impact all aspects of IT professional’s role? More importantly, how can IT professionals prepare for the Internet of Things?-->
 
-Improving your hard skills is just one of the steps necessary for success in
-this changing technological landscape. Gone are the days of getting years
-between new product releases as the Internet of Things allows for sweeping
-changes across industries. IT professionals will be required to possibly prepare
-quarterly, if not more frequent, updates to all company assets connected to
-their network.
+Att förbättra dina kunskaper är bara ett av de steg som krävs för att lyckas i det här föränderliga tekniska landskapet. Den tid är förbi när det var flera år mellan nya produktversioner, eftersom IOT tillåter ständiga ändringar i alla branscher. IT-personalen kommer att behöva förbereda sig kvartalsvis, om inte ännu oftare, med uppdateringar av alla företagets tillgångar som är anslutna till nätverket.
 
-The amount of data that the Internet of Things can capture will create a unique
-opportunity for IT Operations. Businesses will be looking to IT Ops to help them
-understand what data to collect and help them unleash the full potential of that
-data. As an example, IoT can be harnessed to capture and run predictive
-analytics on data from heart monitors alerting users when they’re at risk of a
-heart episode. These same heart monitors could possibly collect information
-enabling doctors to make more informed treatment plans for their patients.
+Mängden data som IoT kan samla in skapar en unik möjlighet för IT-avdelningen. Företagen behöver IT-specialister som kan hjälpa dem att förstå vilka data som ska samlas in och hjälpa dem att använda dessa data på bästa sätt. Exempelvis kan IoT användas till att samla in och köra förutsägelseanalys av data från hjärtövervakare som varnar användarna när de riskerar att få hjärtproblem. Samma hjärtövervakare kan även samla in information som hjälper läkarna att sammanställa välgrundade behandlingsplaner för sina patienter.
 
-The greatest IoT opportunity for IT Operations is data security. Taking the time
-to update your network security knowledge and skills could enable your
-organization to understand the IT Operations role in addressing potential
-security breaches. Security positions are already in high demand and the need
-for experienced data security professionals will increase more companies deploy
-Internet of Things solutions.
+Den största IoT-möjligheten för IT-avdelningen är datasäkerhet. Genom att du tar dig tid att uppdatera dina kunskaper om nätverkssäkerhet blir det lättare för organisationen att förstå IT-avdelningens roll när det gäller att hantera potentiella säkerhetsöverträdelser. Det är redan stor efterfrågan på säkerhetspersonal och behovet av erfarna datasäkerhetsexperter ökar när företagen distribuerar IoT-lösningar.
 
-Internet of Things has created virtually unlimited possibilities across all
-industries, not just a select few. IoT will lead to unprecedented opportunities
-for any IT professional willing to embrace the technology and become an
-authority in it.
+IoT har skapat praktiskt taget obegränsade möjligheter i alla branscher, inte bara ett fåtal. IoT innebär helt nya möjligheter för all IT-personal som är villig att lära sig tekniken och bli expert på den.
 
 <!--Reference links: 
 

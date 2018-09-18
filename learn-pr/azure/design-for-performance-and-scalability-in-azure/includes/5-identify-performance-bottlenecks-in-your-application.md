@@ -1,82 +1,82 @@
-End users are expecting more from their applications. They want to have a great user experience and not be impacted by performance issues. How do you integrate performance bottleneck identification into your architecture? In this unit, we will look at both processes and tools that can help ensure that your application performs well, and help you track down why if it doesn't.
+Slutanvändarna förväntar sig mer av sina appar. De vill ha en bättre användarupplevelse och inte påverkas av prestandaproblem. Hur kan du integrera kontroller av flaskhalsar i din arkitektur? I den här enheten går vi igenom både processer och verktyg som kan vara till hjälp när du ska se till att ditt program körs smidigt, och som kan identifiera varför det inte gör det.
 
-## Importance of requirements
+## <a name="importance-of-requirements"></a>Vikten av att definiera krav
 
-Before we talk about performance, it's important to talk about requirements. In theory, we could keep improving scalability and performance further and further without end. At some point, however, more improvement is prohibitively expensive, difficult, and doesn't have enough business impact to be worthwhile. 
+Innan vi pratar om prestanda är det viktigt att ta upp vilka krav som gäller. I teorin kan vi fortsätta att förbättra skalbarhet och prestanda i all evinnerlighet. Förr eller senare blir det dock orimligt dyrt och svårt utan tillräcklig inverkan på verksamheten för att vara värt det. 
 
-Our **non-functional requirements** help us find that point. These particular requirements don't tell us what our app must *do*. Instead, they tell us what quality levels it must meet. As examples, we can define these non-functional requirements to tell us:
+Våra **icke-funktionella krav** hjälper oss att hitta när det inträffar. Dessa särskilda krav säger ingenting om vad vår app måste *göra*. De berättar snarare vilka kvalitetsnivåer som måste uppfyllas. Som exempel kan definiera vi dessa icke-funktionella krav som säger följande:
 
-- How fast a transaction must return under a given load.
-- How many simultaneous connections we need to support before we start returning errors.
-- In the event of server failure, what is the maximum amount of time our application is allowed be down before a back-up is online.
+- hur snabbt en transaktion måste returnera ett svar vid en given belastning
+- hur många samtidiga anslutningar vi måste kunna hantera innan det börjar genereras fel
+- hur länge appen får vara inaktiv innan en säkerhetskopia aktiveras vid ett serverfel.
 
-Defining these requirements in advance of building your solution is critical to ensure that the application meets expectations but doesn't require more effort or expend more money than necessary. We can also plan our monitoring and operations rules around these non-functional requirements. 
+Det är viktigt att definiera de här kraven innan du skapar din lösning så att appen uppfyller förväntningarna, men inte förbrukar mer arbete eller pengar än nödvändigt. Vi kan också planera regler för övervakning och åtgärder kring dessa icke-funktionella krav. 
 
-Discuss requirements with your stakeholders or customers, document them, and communicate them broadly to ensure that everyone agrees on what "good performance" means.
+Diskutera kraven med dina intressenter eller kunder, dokumentera dem och förmedla dem öppet så att alla är överens om vad bra prestanda innebär.
 
-## DevOps and application performance
+## <a name="devops-and-application-performance"></a>DevOps och appars prestanda
 
-The idea behind DevOps is that we don't have development and infrastructure silos in our organization. Instead, they work together to effectively build, deploy, monitor, and maintain apps in streamlined process.
+Tanken bakom DevOps är att vi inte har silos för utveckling och infrastruktur i vår organisation. De här områdena är snarare integrerade så att du effektivt kan skapa, distribuera, övervaka och hantera dina appar smidigt.
 
-The planning, development, testing, and monitoring is carried out in an iterative approach. Performance and quality of our application become a part of our software development life cycle, rather than an afterthought as we deploy into a live environment. The following illustration shows where opportunities for collaboration exist in the software development lifecycle.
+Planering, utveckling, testning och övervakning görs iterativt. En apps prestanda och kvalitet ingår i utvecklingens livscykel snarare än att vara något vi tänker på först när appen distribueras i produktionsmiljö. I följande bild visas olika tillfällen till samarbete i programutvecklingens livscykel.
 
-![An illustration showing the steps of a software lifecycle arranged into a loop to show how each stage feeds into the next.](../media/5-devops-cycle.png)
+![En bild som visar stegen i livscykeln för ett program ordnade i en loop som visar hur varje steg knyter an till nästa.](../media/5-devops-cycle.png)
 
-This approach aligns with a DevOps concept called "shifting left". In other words, bring your quality control checks earlier into your deployment and release process. This allows you to catch end-user impacting issues earlier in the process. As we operate in a continuous cycle, we limit the amount of manual interaction and automate as much as possible. 
+Det här sättet att tänka liknar ett DevOps-begrepp som kallas för ”shifting left”. Utför med andra ord kvalitetskontrollen tidigare under utvecklingscykeln. Då kan du identifiera problem som påverkar slutanvändarna tidigare. Eftersom vi arbetar i en kontinuerlig cykel begränsar vi mängden manuell interaktion och kan automatisera så mycket som möjligt. 
 
-One way we make performance part of our DevOps process is to carry out performance or load tests to validate that the application meets the non-functional requirements prior to a deployment into production.
+Ett sätt att göra prestandan till en del av vår DevOps-process är att utföra prestanda- och belastningstester som verifierar att appen uppfyller de icke-funktionella kraven innan den distribueras till produktion.
 
-Ideally, we could carry out performance and load tests in an environment that is exactly like production while not impacting our actual production servers. When leveraging the cloud, you fully have this ability. You can automate the creation of a production-like environment, perform testing, and then destroy the environment to minimize cost. This approach to automation can provide reassurance that your application can handle the scale you require now, as well as respond to future growth.
+Det bästa vore att utföra prestanda- och belastningstester i en miljö som är identisk med produktionsmiljön men utan att de faktiska produktionsservrarna påverkas. När du använder dig av molnet kan du göra precis det. Du kan skapa en produktionslik miljö automatiskt, utföra dina tester och sedan ta bort miljön för att spara pengar. Den här automatiseringen kan förvissa dig om att appen kan hantera både den skala du behöver nu och framtida tillväxt.
 
-Application performance monitoring becomes a core part of this. If we're running performance and load tests on our application or want to keep our production performance in check, we want to understand what parts of our application may be performing non-optimally. Let's take a look at some ways to do this.
+Övervakningen av appens prestanda är en viktig del i det här. När vi kör prestanda- och belastningstester för appen eller vill hålla koll på prestanda i produktionsmiljön är det viktigt att förstå vilka delar av appen som kanske inte fungerar optimalt. Nu ska vi titta på några sätt att göra det här.
 
-## Performance monitoring options in Azure
+## <a name="performance-monitoring-options-in-azure"></a>Alternativ för prestandaövervakning i Azure
 
-Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and associated resources.
+Övervakning handlar om att samla in och analysera data för att avgöra prestanda, hälsotillstånd och tillgänglighet för affärsappar och tillhörande resurser.
 
-We want to be kept informed that our application is running smoothly. Proactive notifications can be used to inform about critical issues that arise. There are many layers of monitoring to consider, mainly the infrastructure layer and the application layer.
+Vi vill hela tiden veta om våra appar körs utan problem. Proaktiva aviseringar kan användas till att informera om kritiska problem som uppstår. Det finns många övervakningsnivåer att tänka på, men de viktigaste är infrastrukturnivån och programnivån.
 
-### Azure Monitor
+### <a name="azure-monitor"></a>Azure Monitor
 
-Azure Monitor provides a single management point for infrastructure-level logs and monitoring for most of your Azure services. It collects metrics, activity logs, and diagnostic logs and more. Azure Monitor provides us with a range of features including:
+I Azure Monitor har du en enda hanteringsplats för loggar på infrastrukturnivå och övervakning av de flesta av dina Azure-tjänster. Här samlas mått, aktivitetsloggar, diagnostikloggar och mycket annat. I Azure Monitor finns bland annat följande funktioner:
 
-- Azure alerts to proactively notify or take action on any breaches to metrics or activities arising.
-- Use Azure Dashboards to combine many monitoring sources into one view of our application.
+- Azure-aviseringar som proaktivt informerar eller kan vidta åtgärder vid onormala mått eller aktiviteter.
+- Med Azure-instrumentpaneler kan du kombinera flera övervakningskällor till en enda vy över appen.
 
-Azure Monitor is the place to start for all your near real-time resource metric insights. Many Azure resources will start outputting metrics automatically once deployed. For example, Azure Web App instances will output compute and application request metrics. Metrics from Application Insights are also collated here in addition to VM host diagnostic metrics. VM guest diagnostic metrics will also appear once you opt in.
+Azure Monitor är rätt ställe att börja på när det gäller insikter kring realtidsmått för resurser. Många Azure-resurser börjar generera mått automatiskt när de distribueras. Azure Web App-instanser skickar exempelvis mått kring förfrågningar om beräkningar och appar. Förutom diagnostiska mått för VM-värden samlas även mått från Application Insights här. Diagnostiska mått för VM-gäster visas också om du aktiverar det.
 
-### Log Analytics
+### <a name="log-analytics"></a>Log Analytics
 
-Centralized logging can help you uncover hidden issues that may be difficult to track down. With Log Analytics you can query and aggregate data across logs. This cross-source correlation can help you identify issues or performance problems that may not be evident when looking at logs or metrics individually. The following illustration shows how Log Analytics acts as a central hub for monitoring data. Log Analytics receives monitoring data from your Azure resources and makes it available to consumers for analysis or visualization.
+Med centraliserad loggning kan du upptäcka dolda problem som kan vara svåra att spåra. Med Log Analytics kan du köra frågor mot och aggregera data från flera loggar. Den här korrelationen mellan flera källor gör det enklare att identifiera problem och flaskhalsar som kanske inte framträder tydligt när du tittar på enskilda loggar eller mått. Bild som visar hur Log Analytics fungerar som ett centralt nav för övervakning av data. Log Analytics tar emot övervakningsdata från dina Azure-resurser och gör dem tillgängliga för konsumenter för analyser och visualisering.
 
-![An illustration showing the role of Log Analytics in resource monitoring.](../media/5-log-analytics.png)
+![Bild som visar Log Analytics roll för resursövervakning.](../media/5-log-analytics.png)
 
-You can collate a wide range of data sources, security logs, Azure activity logs, server, network, and application logs. You can also push on-premises System Center Operations Manager data to Log Analytics in hybrid deployment scenarios and have Azure SQL Database send diagnostic information directly into Log Analytics for detailed performance monitoring.
+Du kan samla en mängd olika datakällor, säkerhetsloggar, Azure-aktivitetsloggar, serverloggar, nätverksloggar och programloggar. Du kan också skicka lokala System Center Operations Manager-data till Log Analytics om du har en hybriddistribution, och låta Azure SQL Database skicka diagnostisk information direkt till Log Analytics för detaljerad prestandaövervakning.
 
-Centralized logging can be massively beneficial for troubleshooting all types of scenarios, including performance issues. It's a key part of a good monitoring strategy for any architecture.
+Centraliserad loggning kan vara mycket användbart när du ska felsöka alla typer av scenarier, även vid prestandaproblem. Det är en viktig del av din övervakningsstrategi oavsett arkitektur.
 
-## Application performance management
+## <a name="application-performance-management"></a>Hantering av programprestanda
 
-Deep application issues are often tricky to track down. This is where integrating telemetry into an application by using an application performance management solution (APM) to track down low-level application performance and behavior can be beneficial. This telemetry can include individual page request times, exceptions within your application, and even custom metrics to track business logic. This telemetry can provide a wealth of insight into what is going on within your application.
+Djupgående programproblem är ofta svåra att spåra. Det är därför det kan vara bra att integrera telemetri i programmet med hjälp av en hanteringslösning för programprestanda (APM) som spårar programprestanda och beteenden på låg nivå. Den här telemetrin kan innehålla svarstider för enskilda sidor, undantag i programmet och även anpassade mått för spårning av affärslogik. Den här telemetrin kan ge mängder av information om vad som händer i ditt program.
 
-On Azure, Application Insights is a service that provides this deep application performance management. You install a small instrumentation package in your application, and set up an Application Insights resource in the Microsoft Azure portal. The instrumentation monitors your app and sends telemetry data to the portal.
+Application Insights en tjänst i Azure som tillhandahåller den här typen av djupgående prestandahantering för dina program. Du installerar ett litet instrumentationspaket i ditt program och konfigurerar en Application Insights-resurs i Microsoft Azure-portalen. Instrumentationen övervakar din app och skickar telemetridata till portalen.
 
-Telemetry from the host environments, such as performance counters, Azure diagnostics, and Docker logs, can be ingested. You can also set up web tests that periodically send synthetic requests to your web service. You could even configure your application to send custom events and metrics that you write yourself in the client or server code. For example, application-specific events such as items sold or games won.
+Du kan infoga telemetri från värdmiljöerna som prestandaräknare, Azure-diagnostik och Docker-loggar. Du kan också konfigurera webbtester som regelbundet skickar syntetiska förfrågningar till din webbtjänst. Du kan även konfigurera programmet så att det skickar anpassade händelser och mått som du skriver själv i klient- eller serverkoden. Det kan till exempel vara programspecifika händelser som sålda artiklar eller vunna spel.
 
-Application Insights stores its data in a common repository, and metrics are shared with Azure Monitor. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Log Analytics query language.
+Application Insights lagrar data i en vanlig databas och måtten delas med Azure Monitor. Du kan använda dig av delade funktioner som aviseringar, instrumentpaneler och djupanalys med Log Analytics-frågespråket.
 
-A common pattern used in determining the availability of a web application is the health endpoint monitoring pattern. This pattern is used to monitor web applications and associated back-end services, to ensure that they're available and performing correctly. The pattern is implemented by querying a particular uri. The endpoint checks on the status of many components, including the back-end services that the app depends on, rather than just the availability of the front end itself. This acts as a service-level health check that returns an indication of the overall health of the service.
+Ett vanligt mönster som används till att avgöra tillgängligheten för en webbapp är mönstret Health Endpoint Monitoring (slutpunktsövervakning av tillstånd). Det här mönstret används till att övervaka webbappar och tillhörande tjänster på serversidan för att säkerställa att de är tillgängliga och fungerar korrekt. Mönstret implementeras genom att du kör en fråga mot en viss URI. Slutpunkten kontrollerar statusen för ett flertal komponenter. Inte bara att klientdelen är tillgänglig utan även tjänster på serversidan som appen är beroende av. Det här fungerar som en tillståndskontroll på tjänstnivå och ger en indikation om hela tjänstens övergripande tillstånd.
 
-Use an APM solution such as Application Insights to gain a deep understanding of your application and correlate activity across your application. This can help you understand how a specific action works in the client browser, on the server, and through to downstream services. It will also provide insight into trends, provide notifications when there is a problem, and help identify where the problem is and how to fix it, before your users are aware.
+Använd en APM-lösning som Application Insights när du vill få djupare insikter i ditt program och korrelera aktiviteterna i programmet. Då kan du få bättre förståelse för hur en viss åtgärd fungerar i klientwebbläsaren, på servern och i underordnade tjänster. Du kan också få insikter om trender och få meddelanden om problem, samt identifiera var problemet uppstår och hur du åtgärdar det innan användarna märker någonting.
 
-## Performance monitoring at Lamna Healthcare
+## <a name="performance-monitoring-at-lamna-healthcare"></a>Prestandaövervakning på Lamna Healthcare
 
-Lamna Healthcare has implemented a web-based patient booking system using virtual machines and an Azure SQL database across two Azure regions. They've decided to use the VM Agent and Log Analytics to monitor the performance of the underlying front-end virtual machines.
+Lamna Healthcare har implementerat ett webbaserat system för patientbokningar med virtuella datorer och en Azure SQL-databas i två Azure-regioner. De bestämde sig för att övervaka prestanda för klientdelens underliggande virtuella datorer med VM Agent och Log Analytics.
 
-They use Azure Monitor to understand the performance of their Azure SQL databases and capture key performance metrics including CPU % and deadlocks.
+De använder Azure Monitor till att bättre förstå prestandan i Azure SQL-databaserna och fånga upp prestandarelaterade nyckeltal som processoranvändning och låsningar.
 
-Application Insights has been configured to capture availability and telemetry information. The team has changed their new booking functionality to send custom event telemetry to Application Insights. The team now has an approach to understanding the volume of business-related events taking place, and they can get much better insight into what's going on within their application.
+Application Insights har konfigurerats för att samla in information om tillgänglighet och telemetri. Teamet har ändrat funktionen för nya bokningar så att anpassad telemetri om händelser skickas till Application Insights. Teamet har nu ett sätt att förstå vilka volymer av affärsrelaterade händelser som inträffar och kan få bättre insikt i vad som händer i programmet.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-We've taken a look at some processes, tools, and best practices to help you track down performance issues and ensure that your application is performing at its best. Let's wrap up what we've learned throughout this module.
+Vi har tittat på några processer, verktyg och metodtips för att spåra prestandaproblem och se till att ditt program fungerar så bra som möjligt. Låt oss sammanfatta vad vi har lärt oss i den här modulen.

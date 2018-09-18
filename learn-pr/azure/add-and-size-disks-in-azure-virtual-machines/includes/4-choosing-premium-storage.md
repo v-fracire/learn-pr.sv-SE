@@ -1,47 +1,47 @@
-Some applications place greater demands on data storage than others. For example, Microsoft Exchange servers and SharePoint servers need high-performance disks to run at their best.
+Vissa program har större krav på datalagring än andra. Microsoft Exchange-servrar och SharePoint-servrar måste till exempel ha högpresterande diskar för att kunna köras på ett optimalt sätt.
 
-Let's revisit the scenario of migrating the case histories database for your law firm into Azure. You want to make sure that your lawyers and other staff can access case details as fast as possible. The firm is growing,  and you want your database to handle increased demand.
+Nu ska vi gå tillbaka till scenariot för att migrera databasen med fallhistorik för din advokatbyrå till Azure. Du vill se till att dina advokater och andra anställda kan komma åt informationen så snabbt som möjligt. Företaget växer och du vill att din databas ska kunna hantera en ökad efterfrågan.
 
-One way you can  maximize the performance of virtual machines (VMs) in Azure is to use premium storage for virtual hard drives (VHDs). Premium storage delivers faster input and output (IO) than standard storage. Faster disk IO results in better performance for disk-intensive applications.
+Ett sätt som du kan maximera prestandan för virtuella datorer på i Azure, är att använda Premium Storage för virtuella hårddiskar (VHD). Premium Storage ger snabbare indata och utdata (I/O) än Standard Storage. Snabbare disk-I/O ger bättre prestanda för hårddiskintensiva program.
 
-Let's compare the performance tiers for storage and learn more about premium storage accounts.
+Vi ska jämföra prestandanivåerna för lagring och lära oss mer om Premium Storage-konton.
 
-## How premium storage differs from standard storage
+## <a name="how-premium-storage-differs-from-standard-storage"></a>Hur skiljer sig Premium Storage från Standard Storage?
 
-In Azure, premium storage is implemented on solid-state drives (SSDs). SSDs have higher IO performance than hard disk drives (HDDs) and can be more reliable because they have no moving parts. A read or write head doesn't have to move to the correct location on a disk to find the data requested. 
+I Azure implementeras Premium Storage på solid state-hårddiskar (SSD). SSD:er har högre I/O-prestanda än hårddiskar (HDD:er) och kan vara mer tillförlitliga eftersom de inte har några rörliga delar. Ett läs- eller skrivhuvud behöver inte flyttas till rätt plats på en disk för att kunna hitta de data som efterfrågas. 
 
-Standard storage is implemented on HDDs. Standard storage a billed at a lower rate. Choose standard storage to control costs, and choose premium storage when fast IO performance is required.
+Standard Storage implementeras på HDD:er. Standard Storage kostar mindre. Välj Standard Storage för att styra kostnader och välj Premium Storage när snabb I/O-prestanda krävs.
 
-You can also choose to use a mix of standard and premium storage per disk in a single VM.
+Du kan också välja att använda en blandning av Standard Storage och Premium Storage per disk på en enskild virtuell dator.
 
 > [!NOTE]
-> If you're using managed disks, you have a third option: standard SSDs. Standard SSDs are intermediate in both performance and price between standard HDDs and premium SSDs but are not available for unmanaged disks. You will learn more about standard SSDs later in this module.
+> Om du använder hanterade diskar har du ett tredje alternativ: Standard SSD:er. Standard SSD:er ligger mittemellan Standard HDD:er och Premium SSD:er i både prestanda och pris, men de går inte att använda på ohanterade diskar. Du kommer lära dig mer om Standard SSD:er senare i den här modulen.
 
-## Premium storage accounts
+## <a name="premium-storage-accounts"></a>Premium Storage-konton
 
-VHDs are stored in Azure general-purpose storage accounts as page blobs. To use premium storage for your VHDs, you must store VHDs in a **premium storage account**. You choose the performance tier of a storage account when you create it, and you cannot change this setting later.
+I Azure lagras virtuella hårddiskar på ett Azure-lagringskonto för generell användning som sidblobbar. Om du vill använda Premium Storage för dina VHD:er måste du lagra dem på ett **Premium Storage-konto**. Du väljer prestandanivån för ett lagringskonto när du skapar det och du kan inte ändra den här inställningen senare.
 
 > [!IMPORTANT]
-> Premium storage may not be available in all Azure regions. To check the availability in your region, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/).
+> Premium Storage kanske inte finns tillgängligt i alla Azure-regioner. Du kan kontrollera tillgängligheten för din region i [Produkttillgänglighet per region](https://azure.microsoft.com/en-us/global-infrastructure/services/).
 
-### Data replication and premium storage accounts
+### <a name="data-replication-and-premium-storage-accounts"></a>Datareplikering och Premium Storage-konton
 
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Azure Storage replication copies your data so that it's protected from planned and unplanned events like transient hardware failures, network or power outages, massive natural disasters, and so on. You can choose to replicate your data within the same data center, across zonal data centers within the same region, and even across regions. There are four types of replication:
+Datan på ditt Microsoft Azure-lagringskonto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet. Azure Storage-replikering kopierar dina data så att de är skyddade mot planerade och oplanerade händelser som tillfälliga maskinvarufel, elavbrott, naturkatastrofer och så vidare. Du kan välja att replikera dina data inom samma datacenter, över zonindelade datacentra inom samma region, och till och med i olika regioner. Det finns fyra typer av replikering:
 
-- **Locally redundant storage (LRS)** - Azure replicates the data within the same Azure data center. The data remains available if a node fails. However, if an entire data center fails, data may be unavailable.
-- **Geo-redundant storage (GRS)** - Azure replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even if there's a complete regional outage or a disaster in which the primary region isn't recoverable.
-- **Read-access geo-redundant storage (RA-GRS)** - Azure provides read-only access to the data in the secondary location, and geo-replication across two regions. If a data center fails, the data remains readable but can't be modified.
-- **Zone-redundant storage (ZRS)** - Azure replicates your data synchronously across three storage clusters in a single region. Each storage cluster is physically separated from the others and resides in its own availability zone (AZ). With this type of replication, you can still access and manage your data in the event that a zone becomes unavailable.
+- **Lokalt redundant lagring (LRS)** – Azure replikerar datan inom samma Azure-datacenter. Datan förblir tillgänglig om en nod slutar att fungera. Men om hela datacentret slutar att fungera, kanske datan inte är tillgänglig.
+- **Geo-redundant lagring (GRS)** – Azure replikerar datan till en sekundär region som ligger hundratals kilometer från den primära regionen. Om ditt lagringskonto har GRS aktiverat, är dina data beständiga även om det sker ett fullständig regionalt strömavbrott eller en katastrof där den primära regionen inte återställas.
+- **Geo-redundant lagring med läsåtkomst (RA-GRS)** – Azure tillhandahåller skrivskyddad åtkomst till data på den sekundära platsen och geo-replikering mellan två regioner. Om ett datacenter slutar att fungera förblir datan läsbar, men den kan inte ändras.
+- **Zonredundant lagring (ZRS)** – Azure replikerar dina data synkront över tre lagringskluster i en enda region. Varje lagringskluster är fysiskt avgränsat från de andra och ligger i sin egen tillgänglighetszon (AZ). Med den här typen av replikering har du fortfarande åtkomst till och kan hantera dina data även om en zon blir otillgänglig.
 
-Standard storage accounts support all replication types, but premium storage accounts only support locally redundant storage (LRS). Since VMs themselves run in a single region, this restriction isn't normally an issue for VHD storage.
+Standard Storage-konton stöder alla typer av replikering, men Premium Storage-konton har endast stöd för lokalt redundant lagring (LRS). Eftersom de virtuella datorerna körs i en enda region, är den här begränsningen normalt inte något problem vid VHD-lagring.
 
-## Migrating from standard storage to premium storage
+## <a name="migrating-from-standard-storage-to-premium-storage"></a>Migrera från Standard Storage till Premium Storage
 
-It's best to create VHDs in the correct type of storage account in the first place. However, sometimes requirements change, demands increase, or you realize that you chose the wrong type. Consider a move to premium storage in these situations.
+Det är bäst att skapa virtuella hårddiskar i rätt typ av lagringskonto direkt. Men kraven förändras ibland, efterfrågan ökar eller du upptäcker att du har valt fel typ. Överväg att flytta till Premium Storage i sådana situationer.
 
-Before starting a migration, consider that it will involve some downtime during which the VM will be unavailable to users.
+Innan du påbörjar en migrering bör du fundera på om det kommer att medföra något driftstopp när den virtuella datorn inte är tillgänglig för användarna.
 
 > [!NOTE]
-> For full details of the migration from standard to premium storage, see [Migrating to Azure Premium Storage (Unmanaged Disks)](https://docs.microsoft.com/azure/storage/common/storage-migration-to-premium-storage).
+> Fullständig information om migrering från Standard till Premium Storage finns i [Migrera till Azure Premium Storage (ohanterade diskar)](https://docs.microsoft.com/azure/storage/common/storage-migration-to-premium-storage).
 
-When you create a VM in Azure, you need to find the right balance between cost and performance. Premium storage is a good choice for disk-intensive applications such as databases because it supports faster IO than standard storage.
+När du skapar en virtuell dator i Azure måste du hitta rätt balans mellan pris och prestanda. Premium Storage är ett bra val för hårddiskintensiva program som databaser, eftersom den har stöd för snabbare I/O än Standard Storage.

@@ -1,16 +1,16 @@
-You’ve successfully completed the end-to-end scenario of connecting a remote coffee machine to Azure IoT Central to monitor and manage the machine as maintenance issues arise.
+Du har slutfört slutpunkt till slutpunkt-scenariot för en fjärransluten kaffebryggare till Azure IoT Central, för att övervaka och hantera maskinen efter hand som underhållsproblem uppstår.
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-In this tutorial, you learned how to:
+I den här självstudien lärde du dig att:
 > [!div class="checklist"]
-> * Create an Azure IoT Central custom application
-> * Create and define your device template
-> * Connect your coffee machine to the application
-> * Validate your connection and data flow
-> * Configure rules for maintenance notifications
+> * Skapa ett anpassat Azure IoT Central-program
+> * Skapa och definiera din enhetsmall
+> * Ansluta din kaffebryggare till programmet
+> * Kontrollera din anslutning och ditt dataflöde
+> * Konfigurera regler för underhållsmeddelanden
 
-To learn more about Azure IoT Central: 
+Läs mer om Azure IoT Central: 
 
 > [!div class="nextstepaction"]
-> [Azure IoT Central Documentation](https://docs.microsoft.com/en-us/azure/iot-central/)
+> [Dokumentation om Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/)

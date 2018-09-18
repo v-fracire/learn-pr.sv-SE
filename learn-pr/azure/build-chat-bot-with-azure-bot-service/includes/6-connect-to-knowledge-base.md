@@ -1,18 +1,18 @@
-In this unit, you will connect your bot to the QnA Maker knowledge base you built earlier so the bot can carry on an intelligent conversation. Connecting to the knowledge base involves retrieving some information from the QnA Maker portal, copying it into the Azure portal, updating the bot code, and then redeploying the bot to Azure.
+I den här övningen ansluter du din chattrobot till QnA Maker-kunskapsbasen du skapade tidigare, så att chattroboten kan föra en intelligent konversation. När du ansluter till kunskapsbasen hämtas en del information från QnA Maker-portalen. Den kopieras till Azure Portal, chattrobotens kod uppdateras och sedan distribueras chattroboten till Azure igen.
 
-1. Return to the [QnA Maker portal](https://www.qnamaker.ai/) and click your name in the upper-right corner. Select **Manage endpoint keys** from the menu that drops down. Click **Show** to show the primary endpoint key, and **Copy** to copy it to the clipboard. Then, paste it into a text file so you can easily retrieve it in a moment.
+1. Gå tillbaka till den [QnA Maker-portalen](https://www.qnamaker.ai/) och klicka på ditt namn i det övre högra hörnet. Välj **Hantera slutpunktsnycklar** från listrutan. Klicka på **Visa** för att visa den primära slutpunktsnyckeln och på **Kopiera** för att kopiera den till Urklipp. Klistra sedan in den i en textfil så att du enkelt kan få tag på den om en stund.
 
-1. Click **My knowledge bases** in the menu at the top of the page. Then, click **View Code** for the knowledge base that you created earlier.
+1. Klicka på **Mina kunskapsbaser** i menyn längst upp på sidan. Klicka sedan på **Visa kod** för kunskapsbasen du skapade tidigare.
 
-1. Copy the knowledge base ID from the first line and the host name from the second line. Paste them into a text file, as well. Then, close the dialog. **Do not** include the "https://" prefix in the host name that you copy.
+1. Kopiera kunskapsbasens ID från den första raden och värdnamnet från den andra raden. Klistra in även dem i en textfil. Stäng sedan dialogrutan. Ta **inte** med prefixet ”https://” i värdnamnet som du kopierar.
 
-    ![Screenshot of the QnA Maker portal showing the Sample HTTP Request with the endpoint knowledge base ID and host name highlighted.](../media/6-copy-endpoint-info.png)
+    ![Skärmbild av QnA Maker-portalen som visar ett exempel på en HTTP-begäran, med namnet på slutpunktens kunskapsbas-ID och värdnamn markerade.](../media/6-copy-endpoint-info.png)
 
-1. Return to the web app bot in the Azure portal. Click **Application settings** in the menu on the left and scroll down until you find application settings named "QnAKnowledgebaseId," "QnAAuthKey," and "QnAEndpointHostName." Paste the knowledge base ID and host name obtained in Step 3 and the endpoint key obtained in Step 1 into these fields. Then, click **Save**.
+1. Återgå till din robot för webbappar i Azure-portalen. Klicka på **Programinställningar** i menyn till vänster och rulla nedåt tills du hittar programinställningarna QnAKnowledgebaseId, QnAAuthKey och QnAEndpointHostName. Klistra in kunskapsbasens ID och värdnamn från steg 3 och slutpunktsnyckeln från steg 1 i de här fälten. Klicka sedan på **Spara**.
 
-    ![Screenshot of the Azure portal showing the bot blade and Application Settings details with the Application Settings menu item and appropriate setting keys highlighting.](../media/6-enter-app-settings.png)
+    ![Skärmbild av Azure Portal som visar robotbladet och programinställningar med menyalternativet Programinställningar och lämplig inställning av nycklar markerade.](../media/6-enter-app-settings.png)
 
-1. Return to Visual Studio Code and replace the contents of **app.js** with the code below. Then, save the file.
+1. Gå tillbaka till Visual Studio Code och ersätt innehållet i **app.js** med koden nedan. Spara sedan filen.
 
     ```JavaScript
     var restify = require('restify');
@@ -61,10 +61,10 @@ In this unit, you will connect your bot to the QnA Maker knowledge base you buil
     ```
 
     > [!Note]
-    > The call to create a `QnAMakerDialog` instance on line 30. This creates a dialog that integrates a bot built with the Azure Bot Service with a knowledge base built Microsoft QnA Maker.
+    > Anrop för att skapa en `QnAMakerDialog`-instans på rad 30. Det här skapar en dialogruta som integrerar en robot som skapats med Azure Bot Service med en kunskapsbas som skapats med Microsoft QnA Maker.
 
-1. Click the **Source Control** button in the activity bar in Visual Studio Code. Type "Connected to knowledge base" into the message box, and click the check mark to commit your changes. Then, click the ellipsis and use the **Publish Branch** command to push these changes to the remote repository (and therefore. to the Azure Web App).
+1. Klicka på knappen **Källkodskontroll** i aktivitetsfältet i Visual Studio Code. Skriv ”Connected to knowledge base” i meddelanderutan och klicka på bockmarkeringen för att bekräfta ändringarna. Klicka på ellipsen och använd kommandot **Publicera gren** till att skicka ändringarna till fjärrdatabasen (och därmed till Azure Web App).
 
-1. Return to the web app bot in the Azure portal and click **Test in Web Chat** on the left to open the test console. Type "What's the most popular software programming language in the world?" into the box at the bottom of the chat window and press **Enter**. Confirm that the bot responds.
+1. Gå tillbaka till din Web App Bot i Azure-portalen och klicka på **Testa i webbchatt** till vänster för att öppna testkonsolen. Skriv ”What's the most popular software programming language in the world?” i fältet längst ned i chattfönstret och tryck på **Retur**. Kontrollera att roboten svarar.
 
-Now that the bot is connected to the knowledge base, the final step is to test it in the wild. And what could be wilder than testing it with Skype?
+Nu när roboten är ansluten till kunskapsbasen ska vi slutligen testa den i verkligheten. Och vad kan vara mer verkligt än att testa den med Skype?

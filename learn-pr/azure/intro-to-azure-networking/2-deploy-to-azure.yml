@@ -4,12 +4,12 @@ title: Distribuera din webbplats till Azure
 metadata:
   title: Distribuera din webbplats till Azure
   description: Se hur ett grundläggande program med tre nivåer kan se ut på Azure.
-  ms.openlocfilehash: 3bbacd16929ffb05448a2d3e60cd37c637275229
-  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  ms.openlocfilehash: 0809d5d93ec39ed4113f1511564633ef396ed2ad
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43477801"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43791482"
 durationInMinutes: 7
 content: >
   [!include[](includes/2-deploy-to-azure.md)]

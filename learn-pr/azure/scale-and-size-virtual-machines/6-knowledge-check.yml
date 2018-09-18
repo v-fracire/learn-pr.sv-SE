@@ -1,38 +1,39 @@
 ### YamlMime:ModuleUnit
 uid: learn.scale-and-size-virtual-machines.6-knowledge-check
-title: "Knowledge check: Scale and size virtual machines"
+title: 'Kunskapskontroll: Skala och storleksändra virtuella datorer'
 durationInMinutes: 3
-
 metadata:
-  title: "Knowledge check: Scale and size virtual machines"
-  description: Questions about scaling and sizing virtual machines in Azure.
-
+  title: 'Kunskapskontroll: Skala och storleksändra virtuella datorer'
+  description: Frågor om att skala och ändra storlek på virtuella datorer i Azure.
+  ms.openlocfilehash: 8c27602c6efc9f5c1f581ff176b561a378a82309
+  ms.sourcegitcommit: 4d2d6d8c52fa24ae1c5c06cf4cb3afa09d8c8363
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44255500"
 quiz:
-  title: "Knowledge check: Scale and size virtual machines"
+  title: 'Kunskapskontroll: Skala och storleksändra virtuella datorer'
   questions:
- 
-  - content: "True or false: when using virtual machine scale sets with autoscale, the autoscale rules can be configured to change the _size_ of the virtual machines in your scale set."
+  - content: 'Sant eller falskt: När du använder VM-skalningsuppsättningar med automatisk skalning, kan reglerna för automatisk skalning konfigureras till att ändra _storlek_ på de virtuella datorerna i din skalningsuppsättning.'
     choices:
-    - content: "True"
+    - content: Sant
       isCorrect: false
-    - content: "False"
+    - content: Falskt
       isCorrect: true
-      correctExplanation: "Autoscale changes the number of instances in your scale set, it does not change the size of the instances."
-
-  - content: "What is typically the most important criterion to use when choosing a _type_ for your virtual machine?"
+      correctExplanation: Automatisk skalning ändrar antalet instanser i din skalningsuppsättning, men den ändrar inte storleken på instanserna.
+  - content: Vad är vanligtvis det viktigaste kriteriet när du väljer en _typ_ för din virtuella dator?
     choices:
-    - content: "Your workload; that is, the kind of operations you expect the virtual machine to perform most often."
+    - content: Din arbetsbelastning, det vill säga den typ av åtgärder du förväntar dig att den virtuella datorn ska utföra oftast.
       isCorrect: true
-      correctExplanation: "Virtual machine _type_ describes the mix of CPU, GPU, memory, storage, and networking bandwidth allocated to a VM. Your goal is to find the best match of resources for your workload."
-    - content: "The brand of the underlying hardware."
+      correctExplanation: Den virtuella datorns _typ_ beskriver vilken blandning av CPU, GPU, minne, lagring och nätverksbandbredd som allokeras till en virtuell dator. Målet är att hitta den bästa matchningen av resurser för din arbetsbelastning.
+    - content: Märket på den underliggande maskinvaran.
       isCorrect: false
-    - content: "The operating systems and images that the type supports."
+    - content: De operativsystem och avbildningar som typen har stöd för.
       isCorrect: false
-       
-  - content: "Suppose you work for a government department responsible for severe-weather alerts. You can achieve the performance you need using one large VM or two small VMs with a load balancer. Which configuration is likely to be a better choice?"
+  - content: Anta att du arbetar för en offentlig myndighet som är ansvarig för vädervarningar. Du kan uppnå den prestanda du behöver med en stor virtuell dator eller två små virtuella datorer med en lastbalanserare. Vilken konfiguration är troligen det bästa alternativet?
     choices:
-    - content: "One VM"
+    - content: En virtuell dator
       isCorrect: false
-    - content: "Two VMs and a load balancer"
+    - content: Två virtuella datorer och lastbalanserare
       isCorrect: true
-      correctExplanation: "Multiple VMs is appropriate because it provides redundancy. If one of the VMs crashes, the other can continue to service requests."
+      correctExplanation: Flera virtuella datorer är lämpligt eftersom det ger redundans. Om någon av de virtuella datorerna kraschar, kan den andra fortsätta att hantera tjänstbegäranden.

@@ -1,11 +1,11 @@
-Once deployed, bots can be connected to channels such as Skype, Slack, Microsoft Teams, and Facebook Messenger, where you can interact with them the way you would with a person. In this unit, you will add the bot to your Skype contacts and carry on a conversation with it in Skype.
+När chattroboten har distribuerats kan du ansluta den till kanaler som Skype, Slack, Microsoft Teams och Facebook Messenger, där du kan interagera med dem på samma sätt som med en person. I den här enheten lägger du till chattroboten bland dina Skype-kontakter och för en konversation med den i Skype.
 
-1. If Skype isn't already installed on your computer, please install it now. You can [download Skype](https://www.skype.com/en/download-skype/skype-for-computer/) for Windows, macOS, or Linux.
+1. Om du inte har installerat Skype i datorn ska du göra det nu. Du kan [ladda ned Skype](https://www.skype.com/en/download-skype/skype-for-computer/) för Windows, macOS eller Linux.
 
-1. Return to your web app bot in the Azure portal and click **Channels** in the menu on the left. Click the **Skype** icon. Then, click **Cancel** at the bottom of the blade.
+1. Gå tillbaka till din webbappsrobot i Azure Portal och klicka på **Kanaler** i menyn till vänster. Klicka på ikonen för **Skype**. Klicka sedan på **Avbryt** längst ned på bladet.
 
-1. Click **Skype**. Then, click **Add to Contacts** to add the bot as a Skype contact and launch Skype.
+1. Klicka på **Skype**. Klicka sedan på **Lägg till bland kontakter** för att lägga till chattroboten som en Skype-kontakt och starta Skype.
 
-1. Start a conversation with by typing "hi" into the Skype window. Then, converse with the bot by asking it questions and seeing how it responds. Refer to the **Factbot.tsv** file that you used to populate the knowledge base in [Exercise 2](#Exercise2) for examples of questions to ask.
+1. Starta en konversation genom att skriva ”hi” i Skype-fönstret. Kommunicera sedan med roboten genom att ställa frågor och se hur den svarar. Du kan se exempel på frågor att ställa i filen **Factbot.tsv**, som du använde till att fylla i kunskapsbasen i [Övning 2](#Exercise2).
 
-You now have a fully functional bot created with the Azure Bot Service, infused with intelligence by Microsoft QnA Maker, and available for anyone in the world to interact with. Feel free to plug your bot into other channels and test it in different scenarios. And if you would like to make the bot smarter, consider expanding the knowledge base with additional questions and answers. For example, you could use the [online FAQ](https://docs.microsoft.com/azure/bot-service/bot-service-resources-bot-framework-faq?view=azure-bot-service-3.0) for the Bot Framework to train the bot to answer questions about the framework itself.
+Nu har du en fungerande chattrobot som skapats med Azure Bot Service, fyllts med intelligens via Microsoft QnA Maker och som vem som helst i världen kan interagera med. Anslut gärna chattroboten till andra kanaler och prova den i olika situationer. Och om du vill göra chattroboten smartare kan du utöka kunskapsbasen med fler frågor och svar. Du kan till exempel använda [vanliga frågor och svar](https://docs.microsoft.com/azure/bot-service/bot-service-resources-bot-framework-faq?view=azure-bot-service-3.0) för Bot Framework om du vill träna chattroboten att besvara frågor om själva ramverket.

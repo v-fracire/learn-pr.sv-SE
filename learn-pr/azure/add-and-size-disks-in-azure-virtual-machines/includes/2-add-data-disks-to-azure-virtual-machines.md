@@ -1,46 +1,46 @@
-Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. These disks are called virtual hard disks (VHDs).
+Precis som alla andra datorer använder virtuella Azure-datorer diskar för att lagra operativsystemet, programmen och data. Dessa diskar kallas för virtuella hårddiskar (VHD).
 
-Suppose you have created a virtual machine (VM) in Azure, which will host the database of case histories that your law firm relies on. A well-designed disk configuration is fundamental to good performance and resilience for SQL Server.
+Vi antar att du har skapat en virtuell dator i Azure, som ska vara värd för databasen med fallhistorik som din advokatbyrå använder. En väl utformad diskkonfiguration är nyckeln till bra prestanda och flexibilitet för SQL Server.
 
-In this unit, you'll learn how to choose the right configuration values for your disks and how to attach those disks to a VM.
+I den här kursdelen får du lära dig att välja rätt konfigurationsvärden för dina diskar och hur du kopplar de diskarna till en virtuell dator.
 
-## How disks are used by VMs
+## <a name="how-disks-are-used-by-vms"></a>Hur diskar används av virtuella datorer
 
-VMs use disks for three different purposes:
+Virtuella datorer använder diskar i tre olika syften:
 
-- **Operating system storage**. Every VM includes one disk that stores the operating system. This drive is registered as a SATA drive and labeled as the C: drive in Windows and mounted at "/" in Unix-like operating systems. It has a maximum capacity of 2048 gigabytes (GB), and its content is taken from the VM image you used to create the VM.
-- **Temporary storage**. Every VM also includes a temporary VHD that is used for page and swap files. Data on this drive may be lost during a maintenance event or redeployment. The drive is labeled as D: on a Windows VM by default. Do not use this drive to store important data that you do not want to lose.
-- **Data storage**. A data disk is any other disk attached to a VM. You use data disks to store files, databases, and any other data that you need to persist across reboots. Some VM images include data disks by default. You can also add your own data disks up to the maximum number specified by the size of the VM. Each data disk is registered as a SCSI drive and has a max capacity of 4095 GB. You can choose drive letters or mount points for your data drives.
+- **Lagring av operativsystem**. Varje virtuell dator innehåller en disk som lagrar operativsystemet. Den här enheten är registrerad som en SATA-enhet och märkt som C:-enheten i Windows. Den monteras på ”/” i Unix-liknande operativsystem. Den har en maximal kapacitet på 2 048 gigabyte (GB) och dess innehåll hämtas från den virtuella datoravbildning som du använde för att skapa den virtuella datorn.
+- **Tillfällig lagring**. Varje virtuell dator innehåller också en tillfällig virtuell hårddisk som används för sidor och växlingsfiler. Data på den här enheten kan gå förlorade vid underhåll eller omdistribution. Enheten är märkt som D: på en virtuell Windows-dator som standard. Använd inte den här enheten för att lagra viktiga data som du inte vill förlora.
+- **Datalagring**. En datadisk är alla andra diskar som är anslutna till en virtuell dator. Du kan använda datadiskar för att lagra filer, databaser och alla andra data som du behöver bevara mellan omstarter. Vissa virtuella datoravbildningar innefattar datadiskar som standard. Du kan också lägga till dina egna datadiskar upp till det maximala antal som anges av storleken på den virtuella datorn. Varje datadisk är registrerad som en SCSI-enhet och har en maximal kapacitet på 4 095 GB. Du kan välja enhetsbeteckningar eller monteringspunkter för dina enheter.
 
-## Storing VHD files
+## <a name="storing-vhd-files"></a>Lagra VHD-filer
 
-In Azure, VHDs are stored in an Azure storage account as **page blobs**.
+I Azure lagras virtuella hårddiskar på ett Azure-lagringskonto som **sidblobbar**.
 
-This table shows the various kinds of storage accounts and which objects can be used with each.
+I den här tabellen visas de olika typerna av lagringskonton och vilka objekt som kan användas med vart och ett.
 
-|**Type of storage account**|**General-purpose standard**|**General-purpose premium**|**Blob storage, hot and cool access tiers**|
+|**Typ av lagringskonto**|**Allmän standard**|**Allmän premium**|**Blobblagring, frekvent och lågfrekvent åtkomstnivå**|
 |-----|-----|-----|-----|
-|**Services supported**| Azure Blob storage, Azure Files, Azure Queue storage | Blob storage | Blob storage|
-|**Types of blobs supported**|Block blobs, page blobs, and append blobs | Page blobs | Block blobs and append blobs|
+|**Tjänster som stöds**| Azure-blobblagring, Azure Files, Azure-kölagring | Blobblagring | Blobblagring|
+|**Typer av blobbar som stöds**|Blockblobbar, sidblobbar och tilläggsblobbar | Sidblobbar | Blockblobbar och bilageblobbar|
 
-Because VHDs are stored as page blobs, and only standard storage supports page blobs, you need a standard storage account to store VHDs.
+Eftersom VHD:er lagras som sidblobbar och endast standardlagring stöder sidblobbar, behöver du ett standardlagringskonto för att kunna lagra virtuella hårddiskar.
 
-## Attach data disks to VMs
+## <a name="attach-data-disks-to-vms"></a>Koppla datadiskar till virtuella datorer
 
-You can add data disks to a virtual machine at any time by attaching them to the VM. Attaching a disk associates the VHD file with the VM. 
+Du kan lägga till datadiskar till en virtuell dator när som helst genom att koppla dem till den virtuella datorn. När du ansluter en disk associeras VHD-filen med den virtuella datorn. 
 
-The VHD can't be deleted from storage while it's attached.
+Den virtuella hårddisken kan inte tas bort från lagringen när den är ansluten.
 
-### Attach an existing data disk to an Azure VM
+### <a name="attach-an-existing-data-disk-to-an-azure-vm"></a>Koppla en befintlig datadisk till en virtuell Azure-dator
 
-You may already have a VHD that stores the data you want to use in your Azure VM. In our law firm scenario, for example,  perhaps you've already converted your physical disks to VHDs locally. In this case, you can use the PowerShell `Add-AzureRmVhd` cmdlet to upload it to the storage account. This cmdlet is optimized for transferring VHD files and may complete the upload faster than other methods. The transfer is completed by using multiple threads for best performance. Once the VHD has been uploaded, attach it to an existing VM as a data disk. This approach an excellent way to deploy data of all types to Azure VMs. The data is automatically present in the VM, and there's no need to partition or format the new disk.
+Du kanske redan har en virtuell hårddisk som lagrar data som du vill använda i din virtuella Azure-dator. I vårt scenario med advokatbyrån kanske du redan har konverterat dina fysiska diskar till virtuella hårddiskar lokalt. I det här fallet kan du använda PowerShell-cmdleten `Add-AzureRmVhd` till att överföra den till lagringskontot. Denna cmdlet är optimerad för att överföra VHD-filer och kan slutföra överföringen snabbare än andra metoder. Överföringen slutförs med hjälp av flera trådar för att få bästa prestanda. När den virtuella hårddisken har överförts, kopplar du den till en befintlig virtuell dator som en datadisk. Det här är en utmärkt metod för att distribuera alla typer av data till virtuella Azure-datorer. Datan finns automatiskt i den virtuella datorn och du behöver inte partitionera eller formatera den nya disken.
 
-### Attach a new data disk to an Azure VM
+### <a name="attach-a-new-data-disk-to-an-azure-vm"></a>Koppla en ny datadisk till en virtuell Azure-dator
 
-You can use the Azure portal to add a new, empty data disk to a VM. 
+Du kan använda Azure Portal för att lägga till en ny, tom datadisk till en virtuell dator. 
 
-It will create a **.vhd** file as a page blob in the storage account that you specify, and it attaches that .vhd file as a data disk to the VM. 
+Det skapar en **.vhd**-fil som en sidblobb i lagringskontot som du anger, samt kopplar .vhd-filen som en datadisk till den virtuella datorn. 
 
-Before you can use the new VHD to store data, you have to initialize, partition, and format the new disk. We'll practice these steps in the next exercise.
+Innan du kan använda den nya virtuella hårddisken för att lagra data, måste du initiera, partitionera och formatera den nya disken. Vi ska öva på de här stegen i nästa övning.
 
-In physical on-premises servers, you store data on physical hard disks. You store data in an Azure virtual machine (VM) on virtual hard disks (VHDs). These VHDs are stored as page blobs in Azure storage accounts. For example, when you migrate your law firm's database of case histories to Azure, you must create VHDs where the database files will be saved.
+I fysiska, lokala servrar lagrar du data på fysiska hårddiskar. Du lagrar data på en virtuell Azure-dator på virtuella hårddiskar (VHD:er). Dessa virtuella hårddiskar lagras på Azure-lagringskonton som sidblobbar. När du exempelvis migrerar din advokatbyrås databas med fallhistorik till Azure, måste du skapa virtuella hårddiskar där databasfilerna ska sparas.

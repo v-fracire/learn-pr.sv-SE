@@ -1,25 +1,25 @@
-Your company has compute workloads deployed to several regions to make sure you have a local presence to serve your distributed customer base. 
+Företaget har compute-arbetsbelastningar distribuerade till flera regioner för att se till att du har en lokal närvaro för att betjäna din distribuerade kundbas. 
 
-Your aim is to place a container registry in each region where images are run. This strategy will allow for network-close operations, enabling fast, reliable image layer transfers. 
+Ditt mål är att placera ett containerregister i varje region där avbildningar körs. Den här strategin tillåter nätverksnära åtgärder, vilket tillåter snabba, tillförlitliga överföringar av bildlager. 
 
-Geo-replication enables an Azure container registry to function as a single registry, serving several regions with multi-master regional registries.
+Med georeplikering kan ett Azure-containerregister fungera som ett enda register för flera regioner, med regionala register som har flera huvudregister.
 
-A geo-replicated registry provides the following benefits:
+Ett georeplikerat register ger följande fördelar:
 
-- Single registry/image/tag names can be used across multiple regions
-- Network-close registry access from regional deployments
-- No additional egress fees, as images are pulled from a local, replicated registry in the same region as your container host
-- Single management of a registry across multiple regions
+- Namn på register/avbildningar/taggar kan användas i flera regioner
+- Nätverksnära registeråtkomst från regionala distributioner
+- Inga ytterligare avgifter för utgående trafik eftersom avbildningarna hämtas från ett lokalt, replikerat register i samma region som containervärden
+- Enkel hantering av ett register i flera regioner
 
-## Replicate an image to multiple locations
+## <a name="replicate-an-image-to-multiple-locations"></a>Replikera en avbildning till flera platser
 
-You'll use the `az acr replication create` Azure CLI command to replicate your container images from one region to another. In this example, you'll create a replication for the `japaneast` region. Update `<acrName>` with the name of your Container Registry.
+Du kommer att använda Azure CLI-kommandot `az acr replication create` för att replikera dina containeravbildningar från en region till en annan. I det här exemplet skapar du en replikering för regionen `japaneast`. Ersätt `<acrName>` med namnet på ditt Container Registry.
 
 ```azurecli
 az acr replication create --registry <acrName> --location japaneast
 ```
 
-The output should look similar to the following:
+Utdata bör se ut ungefär så här:
 
 ```console
 {
@@ -38,13 +38,13 @@ The output should look similar to the following:
 }
 ```
 
-As a final step. You are able to retrieve all container image replicas created. You'll use the `az acr replication list` command to retrieve this list. Update `<acrName>` with the name of your Container Registry.
+Som ett sista steg. Du kan hämta alla repliker som containeravbildningsrepliker som skapades. Du använder kommandot `az acr replication list` för att hämta den här listan. Ersätt `<acrName>` med namnet på ditt Container Registry.
 
 ```azurecli
 az acr replication list --registry <acrName> --output table
 ```
 
-The output should look similar to the following:
+Utdata bör se ut ungefär så här:
 
 ```console
 NAME       LOCATION    PROVISIONING STATE    STATUS
@@ -53,19 +53,19 @@ japaneast  japaneast   Succeeded             Ready
 eastus     eastus      Succeeded             Ready
 ```
 
-Keep in mind that you are not limited to the Azure CLI to list your image replicas. From within the Azure portal, selecting `Replications` for an Azure Container Registry displays a map that details current replications. Container images can be replicated to additional regions by selecting the regions on the map.
+Tänk på att du inte är begränsad till Azure CLI för att lista dina avbildningsrepliker. Om du väljer `Replications` inom Azure-portalen för ett Azure Container Registry så visas en karta över aktuella replikeringar. Du kan replikera containeravbildningar till ytterligare regioner genom att välja regionerna på kartan.
 
-![Container replication map as seen in the Azure portal](../media/replication-map.png)
+![Karta över containerreplikering i Azure-portalen](../media/replication-map.png)
 
-## Clean up
+## <a name="clean-up"></a>Rensa
 <!---TODO: Update for sandbox?--->
 
-At this point, you can cleanup the created resources by deleting the resource group. To do so, use the `az group delete` command.
+Nu kan du rensa alla resurser du har skapat genom att ta bort resursgruppen. Det gör du med kommandot `az group delete`.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-You've now successfully replicated a container image to multiple Azure datacenters using the Azure CLI. 
+I den här modulen har du replikerat en containeravbildning till flera Azure-datacenter med Azure CLI. 

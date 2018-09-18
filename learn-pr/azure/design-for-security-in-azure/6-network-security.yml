@@ -1,46 +1,51 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-security.6-network-security
-title: Network security
+title: Nätverkssäkerhet
 metadata:
-  title: Network security
-  description: In this unit we'll discuss how to secure your network infrastructure
+  title: Nätverkssäkerhet
+  description: I den här delen ska vi titta närmare på hur du kan skydda din nätverksinfrastruktur
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 90be1e461ce19e0bd7a18e869397db2d0ab3abfa
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44240765"
 durationInMinutes: 5
-content: |
+content: >
   [!include[](includes/6-network-security.md)]
 quiz:
-  title: 'Knowledge Check - Network security'
+  title: Kunskapskontroll – Nätverkssäkerhet
   questions:
-  - content: 'Azure NSGs can be used to secure communication between which of the following?'
+  - content: Azure NSG:er kan användas för att skydda kommunikationen mellan vilka av följande?
     choices:
-    - content: 'Communication between virtual machines and the internet'
+    - content: Kommunikation mellan virtuella datorer och Internet
       isCorrect: false
-      incorrectExplanation: 'NSGs can be used to secure this communication flow, but this is not the only correct choice.'
-    - content: 'Communication between virtual machines within a VNet'
+      incorrectExplanation: NSG:er kan användas för att skydda det här kommunikationsflödet, men detta är inte det enda rätta alternativet.
+    - content: Kommunikation mellan virtuella datorer i ett virtuellt nätverk
       isCorrect: false
-      incorrectExplanation: 'NSGs can be used to secure this communication flow, but this is not the only correct choice.'
-    - content: 'Communication with systems in an on-premises network'
+      incorrectExplanation: NSG:er kan användas för att skydda det här kommunikationsflödet, men detta är inte det enda rätta alternativet.
+    - content: Kommunikation med system i ett lokalt nätverk
       isCorrect: false
-      incorrectExplanation: 'NSGs can be used to secure this communication flow, but this is not the only correct choice.'
-    - content: 'All of the above'
+      incorrectExplanation: NSG:er kan användas för att skydda det här kommunikationsflödet, men detta är inte det enda rätta alternativet.
+    - content: Alla alternativ ovan
       isCorrect: true
-      correctExplanation: 'NSGs can be used to secure all of the above communication flows.'
-  - content: 'Which of the following is not a method of protecting internet facing services from network attacks?'
+      correctExplanation: NSG:er kan användas för att skydda alla ovanstående kommunikationsflöden.
+  - content: Vilken av följande är inte en metod för att skydda Internetanslutna tjänster mot nätverksattacker?
     choices:
-    - content: 'Azure DDoS'
+    - content: Azure DDoS
       isCorrect: false
-      incorrectExplanation: 'Azure DDoS can be used to protect your internet facing services from a DoS attack. '
-    - content: 'Azure Application Gateway WAF'
+      incorrectExplanation: 'Azure DDoS kan användas för att skydda Internetanslutna tjänster mot en DoS-attack. '
+    - content: Azure Application Gateway WAF
       isCorrect: false
-      incorrectExplanation: 'Application Gateway WAF can be used to protect your internet facing services from attacks such as XSS and SQL injection.'
-    - content: 'Azure Disk Encryption'
+      incorrectExplanation: Application Gateway WAF kan användas för att skydda Internetanslutna tjänster mot attacker, som till exempel XSS- och SQL-inmatning.
+    - content: Azure Disk Encryption
       isCorrect: true
-      correctExplanation: 'Azure Disk Encryption protects your virtual machine VHDs from exposure, but does not provide protection from network based attacks.'
-    - content: 'A network virtual appliance'
+      correctExplanation: Azure Disk Encryption skyddar den virtuella datorns virtuella hårddiskar från exponering, men ger inget skydd mot nätverksbaserade attacker.
+    - content: En virtuell nätverksinstallation
       isCorrect: false
-      incorrectExplanation: 'Network virtual appliances can provide customized network protection for your internet facing resources.'
+      incorrectExplanation: Virtuella nätverksinstallationer kan ange anpassat nätverksskydd för dina Internetanslutna resurser.

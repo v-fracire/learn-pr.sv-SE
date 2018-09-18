@@ -1,46 +1,51 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-performance-and-scalability.3-optimize-network-performance
-title: Optimize network performance
+title: Optimera nätverksprestanda
 metadata:
-  title: Optimize network performance
-  description: In this unit we'll discuss how to optimize network performance for your architecture
+  title: Optimera nätverksprestanda
+  description: I den här utbildningsenheten kommer vi att diskutera hur du kan optimera nätverkets prestanda för din arkitektur
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 17e61feab838fa6c88befcd8164cd46b8b7b1dd2
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44231358"
 durationInMinutes: 5
-content: |
+content: >
   [!include[](includes/3-optimize-network-performance.md)]
 quiz:
-  title: 'Knowledge Check - Optimize network performance'
+  title: Kunskapskontroll – Optimera nätverksprestanda
   questions:
-  - content: 'Network latency is'
+  - content: Nätverkets svarstid är
     choices:
-    - content: 'The amount of throughput available on the network'
+    - content: Mängden tillgängligt dataflöde i nätverket
       isCorrect: false
-      incorrectExplanation: 'Network throughput is a measure of capacity, and is not the same as network latency.'
-    - content: 'The amount of time it takes for information to be sent from a source to a destination'
+      incorrectExplanation: Dataflödet i nätverket är ett mått på kapacitet och är inte detsamma som svarstiden i nätverket.
+    - content: Hur lång tid det tar för information att skickas från källa till mål
       isCorrect: true
-      correctExplanation: 'The amount of time it takes for information to be sent from a source to a destination is known as network latency.'
-    - content: 'The TTL of an asset in my content delivery network'
+      correctExplanation: Hur lång tid det tar för information att skickas från källa till mål kallas för nätverksfördröjningen.
+    - content: TTL-värdet för en tillgång i mitt nätverk för innehållsleverans
       isCorrect: false
-      incorrectExplanation: 'The TTL of an asseet on a content delivery network relates to how often it is refreshed from the original source, and is not related to network latency.'
-    - content: 'A private circuit between an on-premises network and Azure'
+      incorrectExplanation: TTL-värde för en tillgång i ett nätverk för innehållsleverans relaterar till hur ofta den uppdateras från den ursprungliga källan och är inte relaterat till nätverksfördröjningen.
+    - content: En privat anslutning mellan ett lokalt nätverk och Azure
       isCorrect: false
-      incorrectExplanation: 'ExpressRoute is a private circuit between an on-premises network and Azure, and while it can improve latency, it is not a defintion of the term.'
-  - content: 'Our web application is hosted in East US. Which of the following would optimize network latency for users that are located around the globe in the most cost effective manner?'
+      incorrectExplanation: ExpressRoute är en privat anslutning mellan ett lokalt nätverk och Azure, och även om det kan förbättra svarstiden är det inte en definition av termen.
+  - content: Vår webbapp körs i regionen USA, östra. Vad av följande kan du göra för att optimera svarstiden i nätverket för användare runtom i världen på det mest kostnadseffektiva sättet?
     choices:
-    - content: 'Deploy ExpressRoute to each of your users'
+    - content: Distribuera ExpressRoute till alla dina användare
       isCorrect: false
-      incorrectExplanation: 'ExpressRoute is provisioned for a network location, not per user. While it may improve performance for users at that location, users outside of that location will not use ExpressRoute and therefore their performance will not be impacted.'
-    - content: 'Use a content delivery network to place assets and content closer to your users'
+      incorrectExplanation: ExpressRoute har etablerats för en nätverksplats, inte per användare. Prestanda för användare på den platsen kan förbättras, men användare utanför den platsen kommer inte att använda ExpressRoute, och därför påverkas inte deras prestanda.
+    - content: Använda ett nätverk för innehållsleverans så att du kan placera tillgångar och innehåll närmare användarna
       isCorrect: true
-      correctExplanation: 'By using a content delivery network, assets are cached at locations that are physically closer to end users and will reduce the amount of time to load them. This will cost-effectively improve network latency for users around the globe.'
-    - content: 'Use Traffic Manager in performance routing mode'
+      correctExplanation: Genom att använda ett nätverk för innehållsleverans kan tillgångar cachelagras på platser som fysiskt ligger närmare slutanvändarna, vilket minskar tiden att läsa in dem. Detta förbättrar nätverksfördröjningen för användare i hela världen på ett kostnadseffektivt sätt.
+    - content: Använda läget för prestandaroutning i Traffic Manager
       isCorrect: false
-      incorrectExplanation: 'Traffic Manager is a DNS load balancer that can help improve the time to connect to resources, but would also require locating web services in multiple locations and is not the most cost-effective way to address this problem.'
-    - content: 'Deploy more instances in East US to server the extra user load'
+      incorrectExplanation: Traffic Manager är en DNS-lastbalanserare som bidrar till att förbättra tiden att ansluta till resurser, men kräver även att du lokaliserar webbtjänster på flera platser och är inte det mest kostnadseffektiva sättet att åtgärda det här problemet.
+    - content: Distribuera fler instanser i regionen USA, östra för att hantera belastningen
       isCorrect: false
-      incorrectExplanation: 'Adding more instances will increase the amount of load the service in East US can handle, but will not address the network latency for users distributed globally.'
+      incorrectExplanation: Om du lägger till fler instanser ökar belastningen som tjänsten i USA, östra kan hantera, men det kommer inte tillrätta med nätverksfördröjningen för användare som är globalt distribuerade.

@@ -1,4 +1,4 @@
-Nu är det dags att köra vår app i Azure. Vi behöver skapa en Azure App Service-app, konfigurera den med MSI och vår valvkonfiguration samt distribuera vår kod.
+Nu är det dags att köra vår app i Azure. Vi behöver skapa en Azure App Service-app, konfigurera den med en hanterad identitet och vår valvkonfiguration samt distribuera vår kod.
 
 ## <a name="create-the-app-service-plan-and-app"></a>Skapa App Service-planen och appen
 
@@ -21,9 +21,9 @@ När vi distribuerar till Azure följer vi rekommenderade metoder för App Servi
 az webapp config appsettings set --name <your-unique-app-name> --resource-group keyvault-exercise-group --settings VaultName=<your-unique-vault-name>
 ```
 
-## <a name="enable-msi"></a>Aktivera MSI
+## <a name="enable-managed-identity"></a>Aktivera hanterad identitet
 
-Aktivering av MSI i en app görs på en rad:
+Det är enkelt att aktivera en hanterad identitet för en app:
 
 ```azurecli
 az webapp identity assign --name <your-unique-app-name> --resource-group keyvault-exercise-group
@@ -36,7 +36,7 @@ Kopiera värdet **principalId** från de JSON-utdata du får. PrincipalId är de
 Nu måste du ge din appidentitet behörighet att hämta och lista hemligheter från valvet för produktionsmiljön. Använd värdet **principalId** som du kopierade i föregående steg som värde för **object-id** i kommandot nedan.
 
 ```azurecli
-az keyvault set-policy --name <your-unique-vault-name> --object-id <your-msi-principleid> --secret-permissions get list
+az keyvault set-policy --name <your-unique-vault-name> --object-id <your-managed-identity-principleid> --secret-permissions get list
 ```
 
 ## <a name="deploy-the-app-and-try-it-out"></a>Distribuera appen och testa den

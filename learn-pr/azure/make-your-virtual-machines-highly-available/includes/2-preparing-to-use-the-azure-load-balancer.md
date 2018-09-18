@@ -1,99 +1,99 @@
-Suppose your company wants to see if Azure Load Balancer will support your Enterprise Resource Planning (ERP) application. Your application has a web interface for users and runs on multiple servers. Each server has a local copy of the ERP database, which is synced across all servers.
+Anta att ditt företag vill se om Azure Load Balancer stöder ditt ERP-program (Enterprise Resource Planning). Programmet har ett webbgränssnitt för användare och körs på flera servrar. Varje server har en lokal kopia av ERP-databasen som är synkroniserad över alla servrar.
 
-Here, you will look at how a load balancer can help provide high availability of services. You will identify the difference between the basic and standard load balancer options and see how to create a load balancer for Azure Virtual Machines.
+Här tittar vi på hur en lastbalanserare kan hjälpa dig att ge hög tillgänglighet för tjänster. Du identifierar skillnaden mellan alternativen Basic- och Standard-lastbalanserare och ser hur du skapar en lastbalanserare för virtuella Azure-datorer.
 
-## What is load balancing?
+## <a name="what-is-load-balancing"></a>Vad är belastningsutjämning?
 
-_Load balancing_ describes various techniques for distributing workloads across multiple devices, such as compute, storage, and networking devices. The goal of load balancing is to optimize the use of multiple resources, to make the most efficient use of these resources as an infrastructure is scaled out, and to ensure services are maintained if some components are unavailable.
+_Belastningsutjämning_ beskriver olika metoder för att distribuera arbetsbelastningar på flera enheter, till exempel beräkning, lagring och nätverk. Målet med belastningsutjämning är att optimera användningen av flera resurser, att använda dessa resurser på det effektivaste sättet när en infrastruktur skalas ut samt att säkerställa att tjänster bevaras om vissa komponenter är inte tillgängliga.
 
-Here, we'll look at Azure's load balancing support for virtual machines (VMs).
+Här går vi igenom stödet för belastningsutjämning för virtuella datorer (VM) i Azure.
 
-### What is high availability?
+### <a name="what-is-high-availability"></a>Vad är hög tillgänglighet?
 
-High availability (HA) measures the ability of an application or service to remain accessible despite a failure in any system component. Ideally, there will be not be any noticeable loss of service.
+Hög tillgänglighet (HA) mäter möjligheten för program eller tjänster att förbli tillgängliga även om det uppstår fel i någon systemkomponent. I det ideala fallet sker ingen märkbar tjänstförlust.
 
-Load balancing is fundamental to the delivery of HA because it allows multiple VMs to act as a pool of servers. The pool can continue to service requests even if some VMs crash or are taken offline for maintenance.
+Belastningsutjämning är av stor vikt för leverans av hög tillgänglighet eftersom det gör att flera virtuella datorer fungerar som en pool med servrar. Poolen kan fortsätta behandla begäranden även om några av de virtuella datorerna kraschar eller tas offline för underhåll.
 
-## What is Azure Load Balancer?
+## <a name="what-is-the-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
-**Azure Load Balancer** is an Azure service that distributes incoming requests across multiple VMs in a pool. It distributes incoming network traffic across a set of healthy VMs and avoids any VM that is not able to respond.
+**Azure Load Balancer** är en Azure-tjänst som distribuerar inkommande begäranden mellan flera virtuella datorer i en pool. Den distribuerar inkommande nätverkstrafik mellan en uppsättning felfria virtuella datorer och undviker alla virtuella datorer som inte kan svara.
 
- Azure Load Balancer operates at Layer-4 (TCP, UDP) of the OSI 7-layer model. It can be configured to support TCP and UDP application scenarios where the traffic is inbound to Azure VMs, as well as outbound scenarios where other Azure services are passing TCP and UDP traffic out through Azure VMs to external endpoints.
+Azure Load Balancer fungerar på lager 4 (TCP, UDP) i OSI:s 7-lagermodell. Den kan konfigureras att stödja TCP- och UDP-tillämpningsscenarier där trafiken är inkommande till virtuella Azure-datorer samt utgående scenarier där andra Azure-tjänster skickar TCP- och UDP-trafik via virtuella Azure-datorer till externa slutpunkter.
 
-## Public vs. internal load balancers
+## <a name="public-vs-internal-load-balancers"></a>Offentliga kontra interna lastbalanserare
 
-An Azure Load Balancer can be either _public_ or _internal_ depending on the source of incoming requests.
+En Azure Load Balancer kan vara antingen _offentlig_ eller _intern_ beroende på källan för inkommande begäranden.
 
-A **public load balancer** handles client requests from outside of your Azure infrastructure. The public IP address of the load balancer is automatically configured as the load balancer's front end when you create the public IP and the load balancer resource. The following illustration shows a public load balancer.
+En **offentlig lastbalanserare** hanterar klientbegäranden som härrör utanför Azure-infrastrukturen. Lastbalanserarens offentliga IP-adress konfigureras automatiskt som lastbalanserarens serverdel när du skapar den offentliga IP-adressen och lastbalanserarens resurs. Följande bild visar en offentlig lastbalanserare.
 
-![An illustration showing a public load balancer distributing client requests from the internet to three VMs on a virtual network.](../media-draft/2-public-load-balancer.png)
+![En bild som visar en offentlig lastbalanserare som distribuerar klientbegäranden från Internet till tre virtuella datorer i ett virtuellt nätverk.](../media-draft/2-public-load-balancer.png)
 
-An **internal load balancer** processes requests from within a virtual network (or through a VPN). It distributes requests to resources within that virtual network. The load balancer, front-end IP addresses, and virtual networks are not directly accessible from the internet. The following illustration shows an architecture containing both a public and internal load balancer. The public load balancer handles external requests while the internal load balancer forwards the requests to the internal VMs and databases for processing.
+En **intern lastbalanserare** bearbetar begäranden som härrör inifrån ett virtuellt nätverk (eller via ett VPN). Den distribuerar begäranden till resurser inom det virtuella nätverket. Lastbalanseraren, klientdels-IP-adresser och virtuella nätverk är inte direkt åtkomliga från Internet. Följande bild visar en arkitektur som innehåller både en offentlig och en intern lastbalanserare. Den offentliga lastbalanseraren hanterar externa begäranden medan den interna lastbalanseraren vidarebefordrar begärandena till de interna virtuella datorerna och databaserna för bearbetning.
 
-![An illustration showing a public load balancer forwarding client requests to an internal load balancer. The internal load balancer then distributes requests to a web tier subnet or database tier subnet based on the type of the request. Both the web tier subnet and the database tier subnet have multiple servers to handle requests.](../media-draft/2-internal-load-balancer.png)
+![En bild som visar en offentlig lastbalanserare som vidarebefordrar klientbegäranden till en intern lastbalanserare. Den interna lastbalanseraren distribuerar sedan begäranden till ett undernät på webbnivå eller ett undernät på databasnivån baserat på typen av begäran. Både undernätet på webbnivå och undernätet på databasnivå har flera servrar för att hantera begäranden.](../media-draft/2-internal-load-balancer.png)
 
-## How does Azure Load Balancer work?
+## <a name="how-does-the-azure-load-balancer-work"></a>Hur fungerar Azure Load Balancer?
 
-Azure Load Balancer uses information configured in **rules** and **health probes** to determine how new inbound traffic that is received on a load balancer's **front end** is distributed to VM instances in a **back-end pool**.
+Azure Load Balancer använder information som konfigureras i **regler** och **hälsoavsökningar** för att avgöra hur ny inkommande trafik som tas emot i lastbalanserarens **klientdel** ska distribueras till VM-instanser i en **serverdelspool**.
 
-### Front end
+### <a name="frontend"></a>Klientdel
 
-The load balancer front end is an IP configuration, containing one or more public IP addresses, that enables access to the load balancer and its applications over the Internet.
+Lastbalanserarens klientdel är en IP-konfiguration som innehåller en eller flera offentliga IP-adresser som ger åtkomst till lastbalanseraren och dess program via Internet.
 
-### Back end address pool
+### <a name="backend-address-pool"></a>Serverdelsadresspool
 
-Virtual machines connect to a load balancer using their virtual network interface card (vNIC). The back-end address pool contains the IP addresses of the vNICs that are connected to the load balancer. If you place all your VMs in an availability set, you can use this to easily add your VMs to a back-end pool when you're configuring the load balancer.
+Virtuella datorer ansluter till en lastbalanserare med ett virtuellt nätverkskort (vNIC). Serverdelsadresspoolen innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Om du placerar alla dina virtuella datorer i en tillgänglighetsuppsättning kan du använda detta för att enkelt lägga till de virtuella datorerna i en serverdelspool när du konfigurerar lastbalanseraren.
 
-### Health probe
+### <a name="health-probe"></a>Hälsoavsökning
 
-Load balancers use _health probes_ to determine which virtual machines can service requests. The load balancer will only distribute traffic to VMs that are available and operational. 
+Lastbalanserare använder _hälsoavsökningar_ för att avgöra vilka virtuella datorer som kan bearbeta begäranden. Lastbalanseraren distribuerar endast trafik till virtuella datorer som är tillgängliga och i drift. 
 
-A health probe monitors specific ports on each VM. You can define what type of response corresponds to "health"; for example, you might require an `HTTP 200 Available` response from a web application. By default, a VM will be marked as "unavailable" after two consecutive failures at 15-second intervals.
+En hälsoavsökning övervakar specifika portar på varje virtuell dator. Du kan definiera vilken typ av svar som motsvarar ”hälsa”. Du kan till exempel kräva ett `HTTP 200 Available`-svar från ett webbprogram. Som standard markeras en virtuell dator som ”ej tillgänglig” efter två fel i rad med intervall om 15 sekunder.
 
-### Load balancer rules
+### <a name="load-balancer-rules"></a>Regler för lastbalanserare
 
-Load balancer _rules_ define how traffic is distributed to backend VMs. The goal is to distribute requests fairly across the healthy VMs in the back-end pool.
+_Regler_ för lastbalanserare definierar hur trafik ska distribueras till de virtuella serverdelsdatorerna. Målet är att distribuera begäranden på ett jämnt sätt över de felfria virtuella datorerna i serverdelspoolen.
 
-Azure Load Balancer uses a hash-based algorithm to rewrite the headers of inbound packets. By default, Load Balancer creates a hash from:
+Azure Load Balancer använder en hash-baserad algoritm för att skriva om huvudena i inkommande paket. Som standard skapar lastbalanseraren en hash från:
 
-- Source IP addresses
-- Source ports
-- Destination IP addresses
-- Destination ports
-- IP protocol numbers
+- källans IP-adress
+- källporten
+- mål-IP-adressen
+- målporten
+- IP-protokollnumret
 
-This mechanism ensures that all packets within a packet client flow are sent to the same backend VM instance. A new flow from a client will use a different randomly allocated source port. This mean that the hash will change, and the load balancer may send this flow to a different back-end endpoint.
+Den här mekanismen säkerställer att alla paket i ett paketklientflöde skickas till samma VM-serverdelsinstans. Ett nytt flöde från en klient använder en annan slumpmässigt allokerad källport. Därför ändras hashen, och lastbalanseraren kan skicka detta flöde till en annan serverdelsslutpunkt.
 
-## Basic vs. Standard Load Balancer SKUs
+## <a name="basic-vs-standard-load-balancer-skus"></a>Basic- kontra Standard-lastbalanser-SKU:er
 
-There are two versions of Azure Load Balancer: **Basic** and **Standard**. They differ in scale, features, and pricing. For example:
+Det finns två typer av Azure-lastbalanserare: **Basic** och **Standard**. De skiljer sig åt vad gäller skala, funktioner och priser. Exempel:
 
-- Standard supports HTTPS while Basic does not
-- Pool size can be much larger in Standard
-- Basic is no-cost while Standard is charged based on rules and throughput.
+- Standard stöder HTTPS, men det gör inte Basic
+- Poolstorleken kan vara mycket högre i Standard
+- Basic är kostnadsfri medan Standard debiteras baserat på regler och dataflöde.
 
-Standard is a superset of Basic, so any scenario suitable for Basic should also work on Standard. The Basic SKU is generally intended for prototyping and testing while Standard is recommended for production.
+Standard är en överordnad uppsättning av Basic, så alla scenarier som är lämpliga för Basic bör även fungera med Standard. Basic-SKU:n är generellt avsedd för prototyper och testning medan Standard rekommenderas för produktion.
 
-## Start the deployment of a basic public load balancer
+## <a name="start-the-deployment-of-a-basic-public-load-balancer"></a>Starta distributionen av en offentlig Basic-lastbalanserare
 
-To create a load-balanced VM system, you need to create the load balancer itself, create a virtual network to contain your virtual machines, and then add VMs to the virtual network.
+För att skapa ett belastningsutjämnat VM-system behöver du skapa själva lastbalanseraren, skapa ett virtuellt nätverk som ska innehålla dina virtuella datorer och sedan lägga till de virtuella datorerna till det virtuella nätverket.
 
-To create the load balancer using the Azure portal, you define the following:
+För att skapa lastbalanseraren med hjälp av Azure-portalen definierar du:
 
-- Load balancer name
-- Type: public or internal
-- SKU: Basic or Standard
-- Public IP address: dynamic or static
-- Resource group and location
+- Lastbalanserarens namn
+- Typ: offentlig eller intern
+- SKU: Basic eller Standard
+- Offentlig IP-adress: dynamisk eller statisk
+- Resursgrupp och plats
 
-Your back-end VMs will all be connected to the same virtual network, so you need to configure this resource next:
+De virtuella serverdelsdatorerna kommer alla att vara anslutna till samma virtuella nätverk (vNET), så nästa steg är att konfigurera den här resursen:
 
-- Virtual network name
-- Address space to use, such as 172.20.0.0/16
-- Resource group
-- Name for the subnet to use
-- Address space for the subnet (must be within the main space), such as 172.20.0.0/24
+- Namn på vNET
+- Det adressutrymme som ska användas, till exempel 172.20.0.0/16
+- Resursgrupp
+- Namn för det undernät som ska användas
+- Adressutrymmet för undernätet (måste vara inom huvudutrymmet), till exempel 172.20.0.0/24
 
-You then need to create and deploy your backend VMs and configure them to use your virtual network. You should also place your VMs into the same availability set. Availability sets define the level of fault tolerance across a group of VMs, but for load balancing, they also help you assign your VMs to back-end pools.
+Sedan behöver du skapa och distribuera dina virtuella serverdelsdatorer och konfigurera dem att till använda ditt virtuella nätverk. Du bör även placera dina virtuella datorer i samma tillgänglighetsuppsättning. Tillgänglighetsuppsättningar definierar nivån av feltolerans för en grupp med virtuella datorer, men för belastningsutjämning hjälper de dig även att tilldela dina virtuella datorer till serverdelspooler.
 
-You have now seen how to use Azure Load Balancer as part of a high-availability solution. Next, you will use these steps to deploy your own load balancer.
+Du har nu sett hur du använder en Azure Load Balancer som en del av en lösning för hög tillgänglighet. Härnäst använder du dessa steg för att distribuera din egen lastbalanserare.

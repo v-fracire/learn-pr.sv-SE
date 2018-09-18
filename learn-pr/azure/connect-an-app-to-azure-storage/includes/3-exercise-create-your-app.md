@@ -1,20 +1,20 @@
-Recall that we are working on a photo-sharing application that will use Azure Storage to manage pictures and other bits of data we store on behalf of our users.
+Du kommer kanske ihåg att vi arbetar med ett bilddelningsprogram som använder Azure Storage till att hantera bilder och andra data som vi lagrar åt våra användare.
 
 ::: zone pivot="csharp"
 
-To simplify our scenario so that we can focus on the Storage APIs, we will create a new .NET Core Console application. We will also assume it always has network connectivity. However, you should always harden your app to ensure network failures will not impact the user experience, or result in a failure of the application itself.
+För att förenkla vårt scenario så att vi kan fokusera på Storage-API:erna, skapar vi ett nytt .NET Core-konsolprogram. Vi förutsätter också det alltid är anslutet till nätverket. Du bör dock alltid förstärka din app för att säkerställa att nätverksfel inte påverkar användarupplevelsen, eller leder till fel i programmet.
 
-## Create a .NET Core application
+## <a name="create-a-net-core-application"></a>Skapa ett .NET Core-program
 
-.NET Core is a cross-platform version of .NET that runs on macOS, Windows, and Linux. You can install the tools locally, or use the Cloud Shell on the right side of the window to execute the below steps. 
+.NET Core är en plattformsoberoende version av .NET som körs på macOS, Windows och Linux. Du kan installera verktyg lokalt eller använda Cloud Shell på höger sida i fönstret för att köra stegen nedan. 
 
-1. Sign into the Cloud Shell or open a command line session and create a new .NET Core Console application with the name "PhotoSharingApp". You can add the `-o` or `--output` flag to create the app in a specific folder.
+1. Logga in på Cloud Shell eller öppna en kommandoradssession och skapa ett nytt .NET Core-konsolprogram med namnet ”PhotoSharingApp”. Du kan lägga till `-o`- eller `--output`-flaggan för att skapa appen i en viss mapp.
 
     ```bash
     dotnet new console --name PhotoSharingApp
     ```
 
-1. Run the app to make sure it builds and executes correctly. It should display "Hello, World!" to the console.
+1. Kör appen för att kontrollera att den skapas och körs korrekt. Den bör visa ”Hello, World!” i konsolen.
 
     ```bash
     cd PhotoSharingApp
@@ -25,36 +25,36 @@ To simplify our scenario so that we can focus on the Storage APIs, we will creat
 
 ::: zone pivot="javascript"
 
-To simplify our scenario so that we can focus on the Storage APIs, we will create a new Node.js application that can run from the console. We will also assume it always has network connectivity. However, you should always harden your app to ensure network failures will not impact the user experience, or result in a failure of the application itself.
+För att förenkla vårt scenario så att vi kan fokusera på Storage-API:erna, skapar vi ett nytt Node.js-program som kan köras från konsolen. Vi förutsätter också det alltid är anslutet till nätverket. Du bör dock alltid förstärka din app för att säkerställa att nätverksfel inte påverkar användarupplevelsen, eller leder till fel i programmet.
 
-## Create a Node.js application
+## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
-Node.js is a popular framework for running JavaScript apps. It is most commonly used for web apps, but you can use it to run logic from the command line as well. If you have the tools installed locally, you can run the following steps from a command line. Alternatively, you can use the Cloud Shell on the right side of the window to execute the below steps.
+Node.js är ett populärt ramverk för att köra JavaScript-appar. Det används oftast för webbappar, men du kan använda det till att köra logik från kommandoraden också. Om du har de verktyg som installerats lokalt kan du köra följande steg från en kommandorad. Du kan också använda Cloud Shell på höger sida i fönstret för att köra stegen nedan.
 
-1. Sign into the Cloud Shell or open a command line session and create a new folder named "PhotoSharingApp".
+1. Logga in på Cloud Shell eller öppna en kommandoradssession och skapa en ny mapp med namnet ”PhotoSharingApp”.
 
     ```bash
     mkdir PhotoSharingApp
     ```
 
-1. Change into the new folder and create a **package.json** file with the Node Package Manager (NPM) that will describe our new app.
-    - Name it "PhotoSharingApp".
-    - You can take defaults for all the other prompts.
+1. Ändra till den nya mappen och skapa en **package.json**-fil med den Node Package Manager (NPM) som innehåller en beskrivning av vår nya app.
+    - Ge den namnet ”PhotoSharingApp”.
+    - Du kan använda standardinställningarna för alla övriga uppmaningar.
 
     ```bash
     cd PhotoSharingApp
     npm init
     ```
 
-1. Create a new source file **index.js** which will be where our code will go.
+1. Skapa en ny källfil med namnet **index.js** som kommer att vara den plats där vår kod hamnar.
 
     ```bash
     touch index.js
     ```
 
-1. Open the **index.js** file with an editor. If you are using the Cloud Shell, you can type `code .` to open an editor.
+1. Öppna filen **index.js** med ett redigeringsprogram. Om du använder Cloud Shell kan du skriva `code .` för att öppna ett redigeringsprogram.
 
-1. Put the following program into the **index.js** file.
+1. Placera följande program i filen **index.js**.
 
     ```javascript
     #!/usr/bin/env node
@@ -65,9 +65,9 @@ Node.js is a popular framework for running JavaScript apps. It is most commonly 
     
     main();
     ```
-1. Save the file - you can use the "..." menu on the top right corner of the Cloud Shell editor.
+1. Spara filen. Du kan använda ”...”-menyn i det övre högra hörnet av Cloud Shell-redigeringsprogrammet.
 
-1. Run the app to make sure it executes correctly. It should display "Hello, World!" to the console.
+1. Kör appen för att kontrollera att den körs korrekt. Den bör visa ”Hello, World!” i konsolen.
 
     ```bash
     node index.js

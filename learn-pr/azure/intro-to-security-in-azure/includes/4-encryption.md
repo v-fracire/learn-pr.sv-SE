@@ -1,70 +1,70 @@
-For most organizations, data is the most valuable and irreplaceable asset. Encryption serves as the last and strongest line of defense in a layered security strategy. 
+För de flesta organisationer är data den mest värdefulla och oersättliga tillgången. Kryptering fungerar som den sista och starkaste försvarslinjen i en skiktad säkerhetsstrategi. 
 
-Contoso Shipping knows that encryption is the only protection their data has once it leaves the datacenter as it heads to those mobile apps.
+Contoso Shipping vet att kryptering är det enda skydd deras data har när de lämnar datacentret och skickas till de där mobilapparna.
 
-## What is encryption?
+## <a name="what-is-encryption"></a>Vad är kryptering?
 
-Encryption is the process of making data unreadable and unusable. To use or read the encrypted data, it must be *decrypted*, which requires the use of a secret key. There are two top-level types of encryption: **symmetric** and **asymmetric**.
+Kryptering är en process där data görs oläsliga och oanvändbara. För att krypterade data ska kunna användas eller läsas måste de *dekrypteras*, vilket kräver användning av en hemlig nyckel. Det finns två överordnade typer av kryptering: **symmetrisk** och **asymmetrisk**.
 
-Symmetric encryption uses the same key to encrypt and decrypt the data. Consider a desktop password manager application. You enter your passwords and they are encrypted with your own personal key (your key is often derived from your master password). When the data needs to be retrieved, the same key is used and the data is decrypted.
+Vid symmetrisk kryptering används samma nyckel för att kryptera och dekryptera data. Ett exempel kan vara ett lösenordshanteringsprogram. Du anger dina lösenord och de krypteras med din egen personliga nyckel (din nyckel härleds ofta från ditt huvudlösenord). När data behöver hämtas används samma nyckel och informationen dekrypteras.
 
-Asymmetric encryption uses a public key and private key pair. Either key can encrypt but a single key can't decrypt its own encrypted data. To decrypt, you need the paired key. Asymmetric encryption is used for things like Transport Layer Security (TLS) (used in HTTPS) and data signing.
+Vid asymmetrisk kryptering används ett par med en offentlig nyckel och en privat nyckel. Båda nycklarna kan kryptera, men inte dekryptera, sina egna krypterade data. För att dekryptera krävs den parade nyckeln. Asymmetrisk kryptering används för sådant som TLS (används i https) och datasignering.
 
-Both symmetric and asymmetric encryption play a role in properly securing your data. 
+Både symmetrisk och asymmetrisk kryptering är viktigt för att skydda data på rätt sätt. 
 
-Encryption is typically approached in two ways: encryption at rest and encryption in transit.
+Inom kryptering skiljer man på kryptering i vila och kryptering under överföring.
 
-## Encryption in transit
+## <a name="encryption-in-transit"></a>Kryptering under överföring
 
-Data in transit is the data actively moving from one location to another, such as across the internet or through a private network. Secure transfer can be handled by several different layers. It could be done by encrypting the data at the application layer prior to sending it over a network. HTTPS is an example of application layer in transit encryption. 
+Data under överföring är de data som aktivt flyttar från en plats till en annan, till exempel via internet eller via ett privat nätverk. Säker överföring kan hanteras av flera olika lager. Det kan göras genom att data krypteras på programnivå innan de skickas över ett nätverk. HTTPS är ett exempel på överföringskryptering av programlager. 
 
-You can also set up a secure channel, like a virtual private network (VPN), at a network layer, to transmit data between two systems. 
+Du kan också ställa in en säker kanal, t.ex. en VPN-anslutning i ett nätverkslager, för att överföra data mellan två system. 
 
-Encrypting data in transit protects the data from outside observers and provides a mechanism to transmit data while limiting risk of exposure. 
-
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
-![Encryption in transit](../media-COPIED-FROM-DESIGNFORSECURITY/encryption-in-transit.png)
-
-
-## Encryption at rest
-
-Data at rest is the data that has been stored on a physical medium. This could be data stored on the disk of a server, data stored in a database, or data stored in a storage account. Regardless of the storage mechanism, encryption of data at rest ensures that the stored data is unreadable without the keys and secrets needed to decrypt it. If an attacker was to obtain a hard drive with encrypted data and did not have access to the encryption keys, the attacker would not compromise the data without great difficulty.
-
-The actual data that is encrypted could vary in its content, usage, and importance to the organization. This could be financial information critical to the business, intellectual property that has been developed by the business, personal data about customers or employees that the business stores, and even the keys and secrets used for the encryption of the data itself.
+Kryptering av data under överföring skyddar data från utomstående observatörer och tillhandahåller en mekanism för överföring av data samtidigt som risken för exponering minskar. 
 
 <!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
-![Encryption at rest](../media-COPIED-FROM-DESIGNFORSECURITY/encryption-at-rest.png)
+![Kryptering under överföring](../media-COPIED-FROM-DESIGNFORSECURITY/encryption-in-transit.png)
 
-## Encryption on Azure
 
-Let's take a look at some ways that Azure enables you to encrypt data across services.
+## <a name="encryption-at-rest"></a>Kryptering i vila
 
-### Encrypt raw storage
+Vilande data är data som har lagrats på ett fysiskt medium. Detta kan vara data som lagras på en serverdisk, data som lagras i en databas eller data som lagras i ett lagringskonto. Oavsett lagringsmekanism garanterar krypteringen av vilande data att dessa lagrade data inte kan läsas utan de nycklar och hemligheter som krävs för att dekryptera dem. Om en angripare får åtkomst till en hårddisk med krypterade data, men inte har tillgång till krypteringsnycklarna, är det extremt svårt för angriparen att komma åt dessa data.
 
-Azure Storage Service Encryption for data at rest helps you protect your data to meet your organizational security and compliance commitments. With this feature, the Azure storage platform automatically encrypts your data before persisting it to Azure Managed Disks, Azure Blob storage, Azure Files, or Azure Queue storage, and decrypts the data before retrieval. The handling of encryption, encryption at rest, decryption, and key management in Storage Service Encryption is transparent to applications using the services.
+Vilka data som krypteras, vad de används för och hur viktiga de är för organisationen kan variera. Det kan röra sig om finansiell information som är viktig för företaget, immateriell egendom som har utvecklats av företaget, personliga data som företaget lagrar om kunder eller anställda eller de nycklar och hemligheter som används för själva datakrypteringen.
 
-### Encrypt virtual machines
+<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
+![Kryptering i vila](../media-COPIED-FROM-DESIGNFORSECURITY/encryption-at-rest.png)
 
-Storage Service Encryption provides low-level encryption protection for data written to physical disk, but how do you protect the virtual hard disks (VHDs) of virtual machines? If a malicious attacker gained access to your Azure subscription and exfiltrated the VHDs of your virtual machines, how would you ensure they would be unable to access data stored on the VHD?
+## <a name="encryption-on-azure"></a>Kryptering i Azure
 
-Azure Disk Encryption is a capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption leverages the industry-standard BitLocker feature of Windows and the dm-crypt feature of Linux to provide volume encryption for the OS and data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets (and you can use managed service identities for accessing Key Vault).
+Nu ska vi se hur du kan kryptera data i olika tjänster i Azure.
 
-For Contoso Shipping, using VMs was one of their first moves toward the cloud. Having all the VHDs encrypted is a very easy, low-impact way to ensure they are doing all they can to secure their data.
+### <a name="encrypt-raw-storage"></a>Kryptera lagring av rådata
 
-### Encrypt databases
+Med Kryptering för lagringstjänst (SSE) för vilande data kan du skydda dina data i enlighet med säkerhets- och efterlevnadskraven i din organisation. Med den här funktionen krypterar Azures lagringsplattform automatiskt dina data innan de lagras i Azure Managed Disks, Azure Blob Storage, Azure Files eller Azure Queue Storage, och dekrypterar dem innan de hämtas. Hanteringen av kryptering, kryptering i vila, dekryptering och nyckelhantering i Kryptering för lagringstjänst är transparent för program som använder tjänsterna.
 
-Transparent data encryption (TDE) helps protect Azure SQL Database and Azure Data Warehouse against the threat of malicious activity. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed Azure SQL Database instances.
+### <a name="encrypt-virtual-machines"></a>Kryptera virtuella datorer
 
-TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. By default, Azure provides a unique encryption key per logical SQL Server instance and handles all the details. Bring your own key (BYOK) is also supported with keys stored in Azure Key Vault.
+Kryptering av lagringstjänst tillhandahåller krypteringsskydd på låg nivå för data som skrivs till en fysisk disk, men hur skyddar du de virtuella hårddiskarna på virtuella datorer? Vad händer om en angripare får åtkomst till din Azure-prenumeration och extraherar de virtuella hårddiskarna från dina virtuella datorer? Hur kan du vara säker på att angriparen inte kan komma åt data som lagras på de virtuella hårddiskarna?
 
-Because TDE is enabled by default, Contoso Shipping can be confident they have the proper protections in place for data stored in their databases.
+Azure Disk Encryption (ADE) är en funktion som hjälper dig att kryptera dina IaaS-baserade virtuella Windows- och Linux-diskar. ADE använder branschstandardfunktionen BitLocker i Windows och DM-Crypt i Linux för att tillhandahålla volymkryptering för operativsystemet och datadiskarna. Lösningen är integrerad med Azure Key Vault och hjälper dig att kontrollera och hantera diskkrypteringsnycklarna och hemligheterna (och du kan använda hanterade tjänstidentiteter för att komma åt nyckelvalvet).
 
-### Encrypt secrets
+Att använda virtuella datorer var ett av de första stegen mot molnet för Contoso Shipping. Att kryptera alla de virtuella hårddiskarna är ett mycket enkelt sätt med låg verksamhetspåverkan för att säkerställa att de gör allt de kan för att skydda sina data.
 
-We've seen that the encryption services all use keys to encrypt and decrypt data, so how do we ensure that the keys themselves are secure? Corporations may also have passwords, connection strings, or other sensitive pieces of information that they need to securely store.
+### <a name="encrypt-databases"></a>Kryptera databaser
 
-Azure Key Vault is a cloud service that works as a secure secrets store. Key Vault allows you to create multiple secure containers, called vaults. These vaults are backed by hardware security modules (HSMs). Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing TLS certificates, providing the features required for a robust certificate life cycle management solution. Key Vault is designed to support any type of secret. These secrets could be passwords, database credentials, API keys, and certificates.
+Med transparent datakryptering (TDE) kan du skydda Azure SQL Database och Azure Data Warehouse mot skadlig aktivitet. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser.
 
-Because Azure AD identities can be granted access to use Azure Key Vault secrets, applications with managed service identities enabled can automatically and seamlessly acquire the secrets they need.
+TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln. Som standard tillhandahåller Azure en unik krypteringsnyckel per logisk SQL-server och hanterar all information. BYOK (Bring Your Own Key) stöds även med nycklar som lagras i Azure Key Vault.
 
-Encryption is often the last layer of defense from attackers and is an important piece of a layered approach to securing your systems. Azure provides built-in capabilities and services to encrypt and protect data from unintended exposure. Protection of customer data stored within Azure services is of paramount importance to Microsoft and should be included in any design. Foundational services such as Azure Storage, Azure Virtual Machines, Azure SQL Database, and Azure Key Vault can help secure your environment through encryption.
+Eftersom transparent datakryptering är aktiverad som standard kan Contoso vara säkra på att de har rätt skydd för data som lagras i deras databaser.
+
+### <a name="encrypt-secrets"></a>Kryptera hemligheter
+
+Vi har sett att alla krypteringstjänster använder nycklar för att kryptera och dekryptera data. Men hur ser vi till att själva nycklarna är säkra? Företag kanske också har lösenord, anslutningssträngar och andra känsliga uppgifter som måste lagras på ett säkert sätt.
+
+Azure Key Vault är en molntjänst som fungerar som ett säkert lager för hemligheter. Du kan skapa flera säkra containrar, kallade valv, i Key Vault. De här valven förlitar sig på säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vault kontrollerar och loggar dessutom åtkomsten till allt som lagras i valven. Azure Key Vault kan hantera förfrågningar om och förnyelser av TLS-certifikat (Transport Layer Security), och ger tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat. Key Vault har stöd för alla typer av hemligheter. Exempel på sådana hemligheter är lösenord, databasautentiseringsuppgifter, API-nycklar och certifikat.
+
+Eftersom Azure AD-identiteter kan beviljas behörighet att använda Azure Key Vault-hemligheter, kan MSI-aktiverade program automatiskt och smidigt hämta de hemligheter som de behöver.
+
+Kryptering är ofta den sista skyddsbarriären mot angripare och en viktig del i en skiktbaserad strategi för att skydda dina system. Azure tillhandahåller inbyggda funktioner och tjänster som krypterar data och skyddar data mot oavsiktlig exponering. Skydd av kunddata som lagras i Azure-tjänster har högsta prioritet för Microsoft och ska integreras i all design. Grundläggande tjänster som Azure Storage, Azure Virtual Machines, Azure SQL Database och Azure Key Vault hjälper dig att skydda din miljö genom kryptering.

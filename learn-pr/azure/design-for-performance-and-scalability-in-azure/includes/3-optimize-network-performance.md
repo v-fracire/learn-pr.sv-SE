@@ -1,84 +1,84 @@
-Network performance can have a dramatic impact on a user's experience. In complex architectures with many different services, minimizing the latency at each hop can have a huge impact on the overall performance. In this unit, we'll talk about the importance of network latency and how to reduce it within your architecture. We'll also discuss how Lamna Healthcare adopted strategies to minimize network latency between their Azure resources as well as between their users and Azure.
+Nätverkets prestanda kan ha en enorm påverkan på en användares upplevelse. I komplexa arkitekturer med många olika tjänster kan en minimering av fördröjningen vid varje hopp ha stor inverkan på den övergripande prestandan. I det här avsnittet ska vi tala om betydelsen av svarstider för nätverk och hur du kan minska dem i din arkitektur. Vi kommer även att visa hur Lamna Healthcare använder strategier för att minimera nätverkets svarstider mellan olika Azure-resurser samt mellan användare och Azure.
 
-## The importance of network latency
+## <a name="the-importance-of-network-latency"></a>Betydelsen av svarstider för nätverk
 
-Latency is a measure of delay. Network latency is the time needed to get from a source to a destination across some network infrastructure. This time period is commonly known as a round-trip delay, or the time taken to get from the source to destination and back again.
+Svarstiden är ett mått på fördröjning. Svarstider för nätverk är den tid som behövs för att komma från en källa till ett mål i nätverksinfrastrukturen. Den här tidsperioden kallas för en fram- och återförsening. Det är den tid det tar att hämta från källan till målet och tillbaka igen.
 
-In a traditional datacenter environment, latency may be minimal since resources often share the same location and a common set of infrastructure. The time taken to get from source to destination is lower when resources are physically close together.
+I en traditionell datacentermiljö kan fördröjningen vara minimal, eftersom resurserna ofta finns på samma plats och har en gemensam infrastruktur. Den tid det tar att hämta från källan till målet är kortare när resurserna är fysiskt nära varandra.
 
-In comparison, a cloud environment is built for scale. Cloud-hosted resources may not be in the same rack, datacenter, or even region. This distributed approach can have an impact on the round-trip time of your network communications. While all Azure regions are interconnected by a high-speed fiber backbone, the speed of light is still a physical limitation. Calls between services in different physical locations will still have network latency directly correlated to the distance between them.
+En molnmiljö är däremot byggd för skalning. Molnbaserade resurser finns kanske inte i samma rack, datacenter eller ens region. Den här distribuerade metoden kan påverka kommunikationstiden för din nätverkskommunikation. Även om alla Azure-regioner är sammankopplade i ett fiberstamnätverk med hög hastighet, är ljusets hastighet fortfarande en fysisk begränsning. Anrop mellan tjänster på olika fysiska platser kommer fortfarande att påverkas av en nätverksfördröjning som är direkt korrelerad till avståndet mellan dem.
 
-On top of this, the chattier an application, the more round trips that are required. Each round trip comes with a latency tax, with each round trip adding to the overall latency. The following illustration shows how the latency perceived by the user is the combination of the roundtrips required to service the request.
+Utöver detta ger en högre chattnivå i ett program ett större antal nätverksförfrågningar. Varje kommunikation ökar fördröjningen och den övergripande svarstiden. Följande bild som visar hur svarstiden uppfattas av användaren, är en kombination av det som krävs för att hantera begäran.
 
-![An illustration showing network latency among resources placed at different geographical locations in the cloud.](../media/3-networkLatency.png)
+![En bild som visar nätverksfördröjningen mellan resurser som har placerats på olika geografiska platser i molnet.](../media/3-networkLatency.png)
 
-Now let's take a look at how to improve performance between Azure resources and from your end users to your Azure resources.
+Nu ska vi ta en titt på hur vi kan förbättra prestandan mellan Azure-resurser, samt från slutanvändarna till Azure-resurserna.
 
-## Latency among multiple Azure Resources
+## <a name="latency-among-multiple-azure-resources"></a>Fördröjning mellan flera Azure-resurser
 
-Imagine that Lamna Healthcare is piloting a new patient booking system using one web server and one database in the West Europe Azure region. The website is retrieving static media assets (images, JavaScript, style sheets) from Azure blob storage in the same region. This architecture minimizes the data time on the wire as resources are co-located inside an Azure region.
+Anta att Lamna Healthcare testkör ett nytt patientbokningssystem med hjälp av en webbserver och en databas i Azure-regionen Europa, västra. Webbplatsen hämtar statiska medietillgångar (bilder, JavaScript, formatmallar) från Azures blobblagring i samma region. Den här arkitekturen minimerar datatiden via kabeln, eftersom resurserna befinner sig på samma plats i en Azure-region.
 
-Suppose that the pilot of the system went well and has been expanded to users in Australia. Those users will incur the round-trip time from Ireland to Australia to view the website, and their end-user experience will be poor due to the network latency.
+Anta att pilotsystemet föll väl ut och har utökats till användare i Australien. Dessa användare ökar kommunikationstiden från Irland till Australien för att visa webbplatsen och slutanvändarens upplevelse är dålig på grund av nätverkets svarstider.
 
-The Lamna Healthcare team decide to host another front-end instance and storage account in the Australia East region to reduce user latency. While this design helps reduce the time for the web server to return content to end users, their experience is still poor since there's significant latency communicating between the front-end web server in Australia East and the database in West Europe.
+Lamna Healthcare-teamet beslutar sig för att vara värd för ytterligare en instans på klientsidan och ett lagringskonto i regionen Australien, östra för att minska svarstiden för användarna. Den här utformningen hjälper till att minska tiden för webbservern att returnera innehållet till slutanvändarna, men upplevelsen blir fortfarande sämre eftersom det blir längre svarstider i kommunikationen mellan klientwebbservern i Australien, östra och databasen i Europa, västra.
 
-There are a few ways we could reduce the remaining latency:
+Det finns några olika sätt att minska den återstående svarstiden:
 
-- Create a read-replica of the database in Australia East. This would allow reads to perform well, but writes would still incur latency. Azure SQL Database geo-replication allows for read-replicas.
-- Sync your data between regions with Azure SQL Data Sync.
-- Use a globally distributed database such as Azure Cosmos DB. This would allow both reads and writes to occur regardless of location.
+- Skapa en skrivskyddad replik av databasen i Australien, östra. Det skulle innebära att läsning fungerar bra, men att skriva skulle fortfarande medföra fördröjning. Geo-replikering i Azure SQL Database möjliggör skrivskyddade repliker.
+- Synkronisera dina data mellan regioner med Azure SQL Data Sync.
+- Använd en globalt distribuerad databas som exempelvis Azure Cosmos DB. Detta gör det möjligt att både läsa och skriva oavsett plats.
 
-The goal here is to minimize the network latency between each layer of the application. How this is solved depends on your application and data architecture, but Azure provides mechanisms to solve this on several services.
+Avsikten är att minimera nätverksfördröjningen mellan olika lager i programmet. Hur detta kan lösas beror på ditt program och dataarkitekturen, men Azure tillhandahåller mekanismer för att lösa detta för flera tjänster.
 
-## Latency in the context of users to Azure
+## <a name="latency-in-the-context-of-users-to-azure"></a>Fördröjning som gäller användare i Azure
 
-We've looked at the latency between our Azure resources, but we should also consider the latency between users and our cloud application. We're looking to optimize delivery of the front end-user interface to our users. Let's take a look at some ways to improve the network performance between end users and the application.
+Vi har tittat på fördröjningen mellan Azure-resurser, men vi bör också beakta fördröjningen mellan användarna och vårt molnprogram. Vi vill optimera leveransen av slutanvändargränssnittet för våra användare. Låt oss ta en titt på några sätt att förbättra nätverkets prestanda mellan slutanvändare och programmet.
 
-### Use a DNS load balancer for endpoint path optimization
+### <a name="use-a-dns-load-balancer-for-endpoint-path-optimization"></a>Använda en DNS-lastbalanserare för sökvägsoptimering för slutpunkt
 
-In the Lamna Healthcare example, we saw that the team created an additional web front-end node in Australia East. However, end users have to explicitly specify which front-end endpoint they want to use. As the designer of a solution, Lamna Healthcare wants to make the experience as smooth as possible for their users.
+I exemplet med Lamna Healthcare såg vi att teamet skapade ytterligare en webbnod på klientsidan i Australien, östra. Slutanvändarna måste dock uttryckligen ange vilken slutpunkt på klientsidan som de vill använda. Lamna Healthcare, som utformar lösningen, vill göra upplevelsen så smidig som möjligt för sina användare.
 
-Azure Traffic Manager could help. Traffic Manager is a DNS-based load balancer that enables you to distribute traffic within and across Azure regions. Rather than having the user browse to a specific instance of our web front end, Traffic Manager can route users based upon a set of characteristics:
+Azure Traffic Manager kan vara till hjälp. Traffic Manager är en DNS-baserad lastbalanserare som gör det möjligt att distribuera trafik inom och mellan Azure-regioner. I stället för att låta användaren bläddra till en specifik instans på webbplatsens klientdel, kan Traffic Manager dirigera användarna baserat på en uppsättning egenskaper:
 
-- **Priority** - You specify an ordered list of front-end instances. If the one with the highest priority is unavailable, Traffic Manager will route the user to the next available instance.
-- **Weighted** - You would set a weight against each front-end instance. Traffic Manager then distributes traffic according to those defined ratios.
-- **Performance** - Traffic Manager routes users to the closest front-end instance based on network latency.
-- **Geographic** - You could set up geographical regions for front-end deployments, routing your users based upon data sovereignty mandates or localization of content.
+- **Prioritet** – Du anger en sorterad lista över instanserna på klientsidan. Om den som har högst prioritet inte är tillgänglig dirigerar Traffic Manager användaren till nästa tillgängliga.
+- **Viktad** – Du anger en viktning för varje instans på klientsidan. Traffic Manager distribuerar sedan trafiken enligt de definierade förhållandena.
+- **Prestanda** – Azure Traffic Manager dirigerar användarna till den närmaste instansen på klientsidan baserat på nätverksfördröjningen.
+- **Geografisk** – Du kan konfigurera geografiska regioner för klientdistributioner, vilket dirigerar användarna baserat på regler för datasuveränitet eller lokalisering av innehåll.
 
-Traffic Manager profiles can also be nested. You could first route your users across different geographies (for example, Europe and Australia) using geographic routing and then route them to local front-end deployments using the performance routing method.
+Traffic Manager-profiler kan även kapslas. Du kan först dirigera användarna i olika geografiska områden (till exempel Europa och Australien) med hjälp av geografisk routning och sedan dirigera till lokala klientdistributioner med routningsmetoden för prestanda.
 
-Consider that Lamna Healthcare has deployed a web front end in West Europe and Australia. Assume they have deployed Azure SQL Database with their primary deployment in West Europe, and a read replica in Australia East. Let's also assume the application can connect to the local SQL instance for read queries.
+Vi ser att Lamna Healthcare har distribuerat en klientdelswebbplats i Europa, västra och Australien. Anta att de har distribuerat Azure SQL Database med den primära distributionen i Europa, västra och en skrivskyddad replik i Australien, östra. Låt oss också anta att programmet kan ansluta till den lokala SQL-instansen för att läsa frågor.
 
-The team deploy a Traffic Manager instance in performance mode and add the two front-end instances as Traffic Manager profiles. As an end user, you navigate to a custom domain name (for example, lamnahealthcare.com) which routes to Traffic Manager. Traffic Manager then returns the DNS name of the West Europe or Australia East front end based on the best network latency performance.
+Teamet distribuerar en Traffic Manager-instans i prestandaläge och lägger till två klientdelsinstanser som Traffic Manager-profiler. Som slutanvändare navigerar du till ett anpassat domännamn (till exempel lamnahealthcare.com) som dirigeras till Traffic Manager. Traffic Manager returnerar sedan DNS-namnet för klientdelen för Europa, västra eller Australien, östra baserat på bästa svarstid i nätverket.
 
-It's important to note that this load balancing is only handled via DNS, there's no inline load balancing or caching that's happening here, Traffic Manager is simply returning the DNS name of the closest front end to the user.
+Det är viktigt att observera att belastningsutjämningen endast hanteras via DNS, det sker ingen inbyggd belastningsutjämning eller cachelagring. Traffic Manager returnerar helt enkelt DNS-namnet för den närmaste klientdelen till användaren.
 
-### Use CDN to cache content close to users
+### <a name="use-cdn-to-cache-content-close-to-users"></a>Använda CDN för att cachelagra innehåll nära användarna
 
-The website will likely be using some form of static content (either whole pages or assets such as images and videos). This content could be delivered to users faster by using a content delivery network (CDN) such as Azure CDN. 
+Webbplatsen kommer sannolikt att använda någon form av statiskt innehåll (antingen hela sidor eller tillgångar som bilder och videor). Det här innehållet kan levereras till användarna snabbare genom att använda ett nätverk för innehållsleverans (CDN), till exempel Azure CDN. 
 
-When Lamna deploys content to Azure CDN, those items are copied to multiple servers around the globe. Let's say one of those items is a video served from blob storage: `HowToCompleteYourBillingForms.MP4`. The team then configure the website so that each user's link to the video will actually reference the CDN edge server nearest them, rather than referencing blob storage. This approach puts content closer to the destination, reducing latency and improving user experience. The following illustration shows how using Azure CDN puts content closer to the destination which reduces latency and improves the user experience.
+När Lamna distribuerar innehåll till Azure CDN kopieras dessa objekt till flera servrar i hela världen. Anta att ett av dessa objekt är en video som hanteras från blobblagringen: `HowToCompleteYourBillingForms.MP4`. Teamet kan sedan konfigurera webbplatsen så att varje användares länk till videon faktiskt hänvisar till den CDN-gränsserver som är närmast – i stället för till blobblagringen. Den här metoden placerar innehållet närmare till målet, vilket minskar svarstiden och förbättrar användarupplevelsen. Följande bild visar hur användningen av Azure CDN för ditt innehåll närmare till målet, vilket minskar svarstider och förbättrar användarupplevelsen.
 
-![An illustration showing usage of Azure content delivery network to reduce latency.](../media/3-cdnSketch.png)
+![En bild som visar användningen av Azures nätverk för innehållsleverans för att minska svarstiden.](../media/3-cdnSketch.png)
 
-Content delivery networks _can_ also be used to host cached dynamic content. Extra consideration is required, though, since cached content may be out of date compared with the source. Context expiration can be controlled by setting a time to live (TTL). If the TTL is too high, out-of-date content may be displayed and the cache would need to be purged.
+Nätverk för innehållsleverans _kan_ också användas som värd för cachelagrat dynamiskt innehåll. Ytterligare överväganden krävs dock eftersom cachelagrat innehåll kan vara inaktuellt jämfört med källan. Upphörande av kontexten kan kontrolleras genom att ange ett TTL-värde (Time to Live). Om TTL-värdet är för högt kan inaktuellt innehåll visas och cachen måste då rensas.
 
-One way to handle cached content is with a feature called **dynamic site acceleration**, which can increase performance of webpages with dynamic content. Dynamic site acceleration can also provide a low-latency path to additional services in your solution (for example, an API endpoint).
+Ett sätt att hantera cachelagrat innehåll på är en funktion som kallas **acceleration av dynamisk webbplats**, som kan öka prestandan på webbsidor med dynamiskt innehåll. Acceleration av dynamisk webbplats kan även ge en sökväg med kort svarstid till ytterligare tjänster i din lösning (till exempel en API-slutpunkt).
 
-### Use ExpressRoute for connectivity from on-premises to Azure
+### <a name="use-expressroute-for-connectivity-from-on-premises-to-azure"></a>Använda ExpressRoute för anslutningar från en lokal plats till Azure
 
-Optimizing network connectivity from your on-premises environment to Azure is also important. For users connecting to applications, whether they're hosted on virtual machines or on PaaS offerings like Azure App Service, you'll want to ensure they have the best connection to your applications. 
+Det är också viktigt att optimera nätverksanslutningarna från din lokala miljö till Azure. För användare som ansluter till program, oavsett om de finns på virtuella datorer eller i PaaS-tjänster som Azure App Service, bör du se till att de har en optimal anslutning till dina program. 
 
-You can always use the public internet to connect users to your services, but internet performance can vary and may be impacted by outside issues. On top of that, you may not want to expose all of your services over the internet, and you may want a private connection to your Azure resources.
+Du kan alltid använda offentligt Internet för att ansluta användare till dina tjänster, men Internetprestandan kan variera och påverkas av utanförliggande problem. Dessutom kanske du inte vill exponera alla dina tjänster via Internet, utan du vill ha en privat anslutning till Azure-resurserna.
 
-Site-to-site VPN over the internet is also an option, but for high throughput architectures, VPN overhead and internet variability can increase latency noticeably.
+VPN för plats till plats via Internet är också ett alternativ, men för arkitekturer med stora dataflöden kan VPN-hanteringen och Internetvariationer märkbart öka svarstiden.
 
-Azure ExpressRoute can help. ExpressRoute is a private, dedicated connection between your network and Azure, giving you guaranteed performance and ensuring that your end users have the best path to all of your Azure resources. The following illustration shows how ExpressRoute Circuit provides connectivity between on-premises applications and Azure resources.
+Azure ExpressRoute kan vara till hjälp. ExpressRoute är en privat, dedikerad anslutning mellan ditt nätverk och Azure, som ger garanterad prestanda och ser till att slutanvändarna har den bästa sökvägen till alla dina Azure-resurser. Följande bild visar hur ExpressRoute-kretsen tillhandahåller anslutningen mellan dina lokala program och Azure-resurser.
 
-![An architectural diagram showing an ExpressRoute Circuit connecting the customer network with Azure resources.](../media/3-expressroute-connection-overview.png)
+![Ett arkitekturdiagram som visar en ExpressRoute-krets som ansluter kundens nätverk med Azure-resurser.](../media/3-expressroute-connection-overview.png)
 
-Once again looking at Lamna's scenario, they decide to further improve end-user experience for users who are in their facilities by provisioning an ExpressRoute circuit in both Australia East and West Europe. This gives their end users a direct connection to their booking system and ensures the lowest latency possible for their application.
+Vi tittar på Lamnas scenario en gång till. De beslutar sig för att ytterligare förbättra slutanvändarupplevelsen för användare som besöker deras verksamhet genom att etablera en ExpressRoute-krets i både Australien, östra och Europa, västra. Detta ger slutanvändarna en direktanslutning till bokningssystemen och garanterar lägsta möjliga svarstid för programmen.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Considering the impact of network latency on your architecture is important to ensure the best possible performance for your end users. We've taken a look at some options to lower network latency between end users and Azure and between Azure resources. Next, we'll talk about optimizing storage performance.
+Det är viktigt att beakta hur svarstiderna påverkar arkitekturen för att garantera att slutanvändarna får bästa möjliga prestanda. Vi har tagit en titt på några alternativ som minskar svarstiderna mellan användarna och Azure och mellan Azure-resurser. Härnäst ska vi tala om hur du optimerar lagringsprestanda.

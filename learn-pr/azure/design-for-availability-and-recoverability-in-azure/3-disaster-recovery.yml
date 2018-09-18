@@ -1,40 +1,45 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-availability-and-recoverability.3-disaster-recovery
-title: Develop a disaster recovery strategy
+title: Utveckla en strategi för haveriberedskap
 metadata:
-  title: Develop a disaster recovery strategy
-  description: Develop a disaster recovery strategy
+  title: Utveckla en strategi för haveriberedskap
+  description: Utveckla en strategi för haveriberedskap
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: 6882d44d026538d0acffcac28691523acd5521a1
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44233993"
 durationInMinutes: 20
-content: |
+content: >
   [!include[](includes/3-disaster-recovery.md)]
 quiz:
-  title: 'Knowledge Check - Develop a disaster recovery strategy'
+  title: Kunskapskontroll – Utveckla en strategi för haveriberedskap
   questions:
-  - content: 'Which of the following can be excluded from your recovery steps in your recovery plan?'
+  - content: Vad av följande kan uteslutas från dina återställningssteg i din återställningsplan?
     choices:
-    - content: 'How to restore backups'
+    - content: Återställa säkerhetskopior
       isCorrect: false
-      incorrectExplanation: 'The steps needed to restore backups are a critical piece of a recovery plan.'
-    - content: 'How to fail over to replicated systems'
+      incorrectExplanation: De nödvändiga stegen för att återställa säkerhetskopior är en viktig del av en återställningsplan.
+    - content: Så här redundansväxlar du till replikerade system
       isCorrect: false
-      incorrectExplanation: 'The process to fail over to replicated systems is a critical piece of a recovery plan.'
-    - content: 'How to reestablish network connectivity to on-premises or external networks'
+      incorrectExplanation: Processen för att redundansväxla till replikerade system är en viktig del av en återställningsplan.
+    - content: Återupprätta nätverksanslutning till lokala eller externa nätverk
       isCorrect: false
-      incorrectExplanation: 'Network connectivity to on-premises or external networks are often critical pieces of infrastructure. The steps to reestablish after failure are critical pieces of a recovery plan.'
-    - content: 'All of the above are important details to include in a recovery plan.'
+      incorrectExplanation: Nätverksanslutning till lokala eller externa nätverk är ofta viktiga delar av infrastrukturen, och stegen för att återupprätta efter fel är viktiga delar av en återställningsplan.
+    - content: Allt ovanstående är viktig information som ska ingå i en återställningsplan
       isCorrect: true
-      correctExplanation: 'All of the above are important details to include in a recovery plan.'
-  - content: 'By storing data on Azure Blob storage, you are fully protected in the event of a disaster.'
+      correctExplanation: Allt ovanstående är viktig information som ska ingå i en återställningsplan
+  - content: När du lagrar data i Azure Blob Storage är du helt skyddad vid en eventuell katastrof.
     choices:
-    - content: 'True'
+    - content: Sant
       isCorrect: false
-      incorrectExplanation: 'Blob storage replication can help you recover from Azure service-level issues, but it will not protect you from localized disasters, such as data loss or corruption.'
-    - content: 'False'
+      incorrectExplanation: Blob Storage-replikering kan hjälpa till att återställa från problem med Azure på tjänstnivå, men det skyddar dig inte mot lokaliserade katastrofer som dataförlust eller skadade data.
+    - content: Falskt
       isCorrect: true
-      correctExplanation: 'Blob storage replication can help you recover from Azure service-level issues, but it will not protect you from localized disasters, such as data loss or corruption.'
+      correctExplanation: Blob Storage-replikering kan hjälpa till att återställa från problem med Azure på tjänstnivå, men det skyddar dig inte mot lokaliserade katastrofer som dataförlust eller skadade data.

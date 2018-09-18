@@ -1,35 +1,35 @@
-Now that we have a storage account, let's look at how we work with the queue that it will hold.
+Nu när vi har ett lagringskonto kan vi titta närmare på hur vi arbetar med kön som kontot ska innehålla.
 
-To access a queue, you need three pieces of information:
+Du behöver tre uppgifter för att använda en kö:
 
- 1. Storage account name
- 2. Queue name
- 3. Authorization token
+ 1. Namn på lagringskontot
+ 2. Könamn
+ 3. Auktoriseringstoken
 
-This information is used by both applications that talk to the queue (the web front end that adds messages and the mid-tier that processes them).
+Den här informationen används av båda programmen som pratar med kön (webbklientdelen som lägger till meddelanden och mellannivån som bearbetar dem).
 
-## Queue identity
+## <a name="queue-identity"></a>Köidentitet
 
-Every queue has a name that you assign during creation. The name must be unique within your storage account but doesn't need to be globally unique (unlike the storage account name).
+Varje kö har ett namn som du tilldelar under skapandet. Namnet måste vara unikt inom lagringskontot, men det behöver inte vara globalt unikt (till skillnad från namnet på lagringskontot).
 
-The combination of your storage account name and your queue name uniquely identifies a queue.
+Kombinationen av namnet på lagringskontot och könamnet ger en unik identifikation av kön.
 
-## Access authorization
+## <a name="access-authorization"></a>Åtkomstauktorisering
 
-Every request to a queue must be authorized and there are several options to choose from.
+Varje begäran till en kö måste auktoriseras och det finns flera alternativ att välja bland.
 
-| Authorization Type | Description |
+| Typ av auktorisering | Beskrivning |
 |--------------------|-------------|
-| **Azure Active Directory** | you can use role-based authentication and identify specific clients based on AAD credentials. |
-| **Shared Key** | Sometimes referred to as an **account key**, this is an encrypted key signature associated with the storage account. Every storage account has two of these keys that can be passed with each request to authenticate access. Using this approach is like using a root password - it provides _full access_ to the storage account. |
-| **Shared access signature** | A shared access signature (SAS) is a generated URI that grants limited access to objects in your storage account to clients. You can restrict access to specific resources, permissions, and scope to a data range to automatically turn off access after a period of time.  |
+| **Azure Active Directory** | Du kan använda rollbaserad autentisering och identifiera specifika klienter baserat på AAD-autentiseringsuppgifterna. |
+| **Delad nyckel** | Det här kallas ibland för en **kontonyckel** och är en krypterad nyckelsignatur som är associerad med lagringskontot. Varje lagringskonto har två sådana nycklar som kan skickas med varje begäran för att autentisera åtkomsten. Den här metoden fungerar ungefär som ett rotlösenord – den ger _fullständig åtkomst_ till lagringskontot. |
+| **Signatur för delad åtkomst** | En signatur för delad åtkomst (SAS) är en genererad URI som ger klienter begränsad åtkomst till objekt i lagringskontot. Du kan begränsa åtkomsten till specifika resurser och behörigheter, och ange ett dataintervall för att automatiskt inaktivera åtkomsten efter en viss tidsperiod.  |
 
 > [!NOTE]
-> We will use the account key authorization because it is the simplest way to get started working with queues, however it's recommended that you either use shared access signature (SAS) or Azure Active Directory (AAD) in production apps.
+> Vi använder auktorisering med kontonyckel eftersom det är det enklaste sättet att komma igång med köer, men vi rekommenderar att du antingen använder signatur för delad åtkomst (SAS) eller Azure Active Directory (AAD) för appar i produktion.
 
-### Retrieving the account key
+### <a name="retrieving-the-account-key"></a>Hämta kontonyckeln
  
-Your account key is available in the **Settings > Access keys** section of your storage account in the Azure portal, or you can retrieve it through the command line:
+Du hittar din kontonyckel under **Inställningar > Åtkomstnycklar** för lagringskontot i Azure Portal. Du kan också hämta den via kommandoraden:
 
 ```azurecli
 az storage account keys list ...
@@ -39,25 +39,25 @@ az storage account keys list ...
 Get-AzureRmStorageAccountKey ...
 ```
 
-## Accessing queues
+## <a name="accessing-queues"></a>Åtkomst till köer
 
-You access a queue using a REST API. To do this, you'll use a URL that combines the name you gave the storage account with the domain `queue.core.windows.net` and the path to the queue you want to work with. For example: `http://<storage account>.queue.core.windows.net/<queue name>`. An `Authorization` header must be included with every request. The value can be any of the three authorization styles.
+Du kan komma åt en kö via ett REST API. Det gör du med en URL som kombinerar lagringskontots namn med domänen `queue.core.windows.net` och sökvägen till kön som du vill arbeta med. Till exempel: `http://<storage account>.queue.core.windows.net/<queue name>`. Du måste ta med en `Authorization`-rubrik i varje begäran. Värdet kan vara någon av de tre typerna av auktorisering.
 
-### Using the Azure Storage Client Library for .NET
+### <a name="using-the-azure-storage-client-library-for-net"></a>Använda Azure Storage-klientbiblioteket för .NET
 
-The Azure Storage Client Library for .NET is a library provided by Microsoft that formulates REST requests and parses REST responses for you. This greatly reduces the amount of code you need to write. Access using the client library still requires the same pieces of information (storage account name, queue name, and account key); however, they are organized differently.
+Azure Storage-klientbiblioteket för .NET är ett bibliotek som tillhandahålls av Microsoft samt som formulerar REST-begäranden och parsar REST-svar åt dig. Detta minskar avsevärt den mängd kod som du behöver skriva. När du får åtkomst med klientbiblioteket behöver du fortfarande samma uppgifter (lagringskontots namn, könamn och kontonyckel), men de är ordnade på ett annat sätt.
 
-The client library uses a **connection string** to establish your connection. Your connection string is available in the **Settings** section of your Storage Account in the Azure portal, or through the Azure CLI and PowerShell.
+Klientbiblioteket använder en **anslutningssträng** för att upprätta din anslutning. Du hittar anslutningssträngen i avsnittet **Inställningar** för lagringskontot i Azure Portal. Du kan också använda Azure CLI eller PowerShell.
 
-A connection string is a string that combines a storage account name and account key and must be known to the application to access the storage account. The format looks like this:
+En anslutningssträng är en sträng med ett lagringskontonamn och en kontonyckel. Den måste vara känd för att programmet ska komma åt lagringskontot. Formatet ser ut ungefär så här:
 
 ```csharp
 string connectionString = "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net"
 ```
 
 > [!WARNING]
-> This string value should be stored in a secure location since anyone who has access to this connection string would be able to manipulate the queue.
+> Strängvärdet bör lagras på en säker plats eftersom alla som har åtkomst till den här anslutningssträngen kan göra ändringar i kön.
 
-Notice that the connection string doesn't include the queue name. The queue name is supplied in your code when you establish a connection to the queue.
+Observera att anslutningssträngen inte innehåller könamnet. Könamnet anges i koden när du upprättar en anslutning till kön.
 
-Let's get our connection string from Azure and set up a new application to use it.
+Vi hämtar vår anslutningssträng från Azure och konfigurerar ett nytt program som ska använda den.

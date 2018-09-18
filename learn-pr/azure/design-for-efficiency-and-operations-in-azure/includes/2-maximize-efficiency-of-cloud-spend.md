@@ -1,124 +1,124 @@
-You are a solution architect. Your organization, Lamna Healthcare has moved its workloads to the cloud. Recently, the bill for these resources and workflows has increased more than Lamna had anticipated. You have been asked to determine whether the increase is natural, efficient growth, or whether the cost can be reduced by being more efficient with the organization's cloud resources.
+Du är en lösningsarkitekt. Din organisation Lamna Healthcare har flyttat sina arbetsbelastningar till molnet. Kostnaden för dessa resurser och arbetsflöden har nyligen ökat mer än vad Lamna hade förväntat sig. Du har blivit ombedd att avgöra om ökningen är naturlig, beror på effektiv tillväxt eller om du kan minska kostnaderna genom att utnyttja organisationens molnresurser på ett effektivare sätt.
 
-## How the cloud changes your expenses
+## <a name="how-the-cloud-changes-your-expenses"></a>Hur molnet ändrar dina utgifter
 
-One of the differences between the public cloud and on-premises infrastructure is how you pay for the services you use. In an on-premises datacenter, hardware procurement time is long, hardware is sized for maximum capacity, and some of the costs, such as power and space, can be hidden from the business unit consuming the resources. Purchasing physical infrastructure ties up investments in long-term assets, hindering your ability to be agile with your resources.
+En av skillnaderna mellan det offentliga molnet och en lokal infrastruktur är hur du betalar för tjänsterna som du använder. I ett lokalt datacenter tar det tid att köpa in maskinvara, maskinvaran storleksanpassas för att få maximal kapacitet och vissa av kostnaderna, till exempel elförsörjning och utrymme, kan vara dolda från affärsenheten som förbrukar resurserna. Att köpa av fysisk infrastruktur binder upp investeringar i långsiktiga tillgångar och hindrar din förmåga att vara effektiv med dina resurser.
 
-Shifting to the cloud introduces a pay-for-what-you-use cost model. You no longer need to tie up investments in assets, and if your resource requirements change, you can respond by adding, moving, or removing resources. Workloads vary between and within services, demand can be unpredictable, and your growth patterns shift over time. Since you only pay for what you use in the cloud, your cost structure can move in sync with the changes in resources.
+När du flyttar till molnet får du en kostnadsmodell där du betalar per användning för det du använder i stället. Du behöver inte längre binda upp investeringar i tillgångar och om resurskraven ändras kan du svara genom att lägga till, flytta eller ta bort resurser. Arbetsbelastningar varierar mellan och inom tjänster, efterfrågan kan vara oförutsägbar och dina tillväxtmönster ändras över tid. Eftersom du bara betalar för det du använder i molnet, kan din kostnadsstruktur ändras i takt med resursändringarna.
 
-Cloud infrastructure can handle fluctuating resource usage scenarios. Resources that have significant periods of inactivity can be shut down when not in use and not incur any cost at all. Resources can grow with a successful service as it grows, rather than having to wait for the next procurement cycle. More resources can be dynamically added and removed to respond to predictable and unpredictable bursts of demand. The following illustration shows why the on-premises infrastructure cannot handle all these fluctuating scenarios.
+Molninfrastrukturen kan hantera scenarier med varierande resursanvändning. Resurser med längre perioder av inaktivitet kan stängas av när de inte används och orsakar därmed inte några kostnader alls. Du kan utöka resurserna direkt när en framgångsrik tjänst växer, i stället för att vänta till nästa inköpscykel. Fler resurser kan läggas till dynamiskt och tas bort för att svara på förutsägbara och oförutsedda ökningar i efterfrågan. Följande bild visar varför den lokala infrastrukturen inte kan hantera alla dessa varierande scenarier.
 
-![An illustration showing disadvantages of using on-premises infrastructure.](../media/cloudcomputingpatterns.png)
+![Bild som visar nackdelarna med att använda en lokal infrastruktur.](../media/cloudcomputingpatterns.png)
 
-In an efficient architecture, provisioned resources match the demand for those resources. If a virtual machine is less than 10% utilized the majority of the time, you are wasting resources, both in compute and cost. Conversely, a virtual machine that is running 90% utilized is using the majority of the available resources and is an efficient use of money. Running a system to 100% utilization runs the risk of introducing performance issues. It is important to ensure that maximizing efficiency doesn't negatively impact the performance of your system. Demand is rarely constant, so adjusting resources when possible to match demand is important to ensure efficiency.
+I en effektiv arkitektur matchar etablerade resurser behovet av dessa resurser. Om en virtuell dator används mindre än 10 % större delen av tiden slösar du resurser, både i beräkning och kostnad. Omvänt kan en virtuell dator som utnyttjas till 90 % använda det mesta av de tillgängliga resurserna och är en effektiv användning av kostnaden. Att köra ett system med 100 % utnyttjandegrad innebär en risk för prestandaproblem. Det är viktigt att se till att en maximering av effektiviteten inte negativt påverkar systemets prestanda. Efterfrågan är sällan konstant, så att justera resurser när så är möjligt för att matcha efterfrågan är viktigt när man vill säkerställa effektiviteten.
 
-## Track your cloud spend
+## <a name="track-your-cloud-spend"></a>Spåra dina molnutgifter
 
-In order to make intelligent decisions, you need data. By looking at where your money is going, you can start comparing that to utilization to uncover where you may have waste within your environment.
+Du behöver data för att kunna fatta intelligenta beslut. Genom att ta reda på vart pengarna tar vägen och jämföra det med utnyttjandet, kan du få fram var du kan ha outnyttjade resurser i din miljö.
 
-An export of your billing data is available at any time. Using your billing data, you can track where your costs are going and how they're allocated across your resources. The challenge is that the billing data shows cost but not utilization. You'll have data that indicates you're paying for that large VM, but how much are you actually using it?
+En export av din faktureringsinformation finns tillgänglig när du vill. Med hjälp av din faktureringsinformation kan du spåra var dina kostnader uppstår och hur de är allokerade till dina resurser. Det svåra är att faktureringsinformationen visar kostnaden, men inte användningen. Du har information som visar att du betalar för en stor virtuell dator, men hur mycket använder du den egentligen?
 
-Azure Cost Management gives you insights where your spend is going, as well as underutilized resources. Azure Cost Management tracks your total spend, cost by service, and cost over time. You can drill down into resource types and instances. You can also break down your costs by organization or cost center by tagging resources with those categories.
+Med Azure Cost Management kan du se vad du betalar för samt vilka underutnyttjade resurser du har. Azure Cost Management spårar dina totala kostnader, kostnad per tjänst och kostnad över tid. Du kan öka detaljnivån till resurstyper och instanser. Du kan också dela upp dina kostnader per organisation eller kostnadsställe genom taggning av resurser med dessa kategorier.
 
-Azure Advisor also has a cost component. It recommends VM resizing, buying reserved instances when more cost effective than pay-as-you-go instances. It identifies unused ExpressRoute circuits and idle virtual network gateways. Advisor makes additional recommendations in the areas of performance, high availability, and security.
+Azure Advisor innehåller också en kostnadskomponent. Den rekommenderar storleksändringar av virtuella datorer och köp av reserverade instanser, när detta är mer kostnadseffektivt än instanserna som du betalar för per användning. Den identifierar oanvända ExpressRoute-kretsar och inaktiva virtuella nätverksgatewayer. Advisor gör ytterligare rekommendationer för prestanda, hög tillgänglighet och säkerhet.
 
-The important part is to take time to review your spend and evaluate where your money is going. Identify areas of inefficiency to ensure you're operating as efficiently as possible.
+Det viktiga är att ta sig tid att granska utgifterna och se vart dina pengar tar vägen. Identifiera ineffektiva områden för att säkerställa att allt fungerar så effektivt som möjligt.
 
-## Organize to optimize
+## <a name="organize-to-optimize"></a>Organisera för att optimera
 
-Putting some organization to your resources can help track where some of your costs are going. There are ways to group resources together, establishing a relationship so you know where your costs are related. From a billing perspective, resources can be easily grouped by:
+Att organisera dina resurser kan hjälpa dig spåra var en del av dina kostnader uppstår. Det finns olika sätt att gruppera resurser och upprätta en relation på, för att du ska se hur dina kostnader är relaterade till varandra. Ur ett faktureringsperspektiv kan resurser enkelt grupperas genom att:
 
-- Assigning resources to different subscriptions.
-- Assigning resources to different resource groups.
-- Applying tags to resources.
+- Tilldela resurser till olika prenumerationer.
+- Tilldela resurser till olika resursgrupper.
+- Tillämpa taggar på resurser.
 
-Using subscriptions and resource groups to organize resources is an easy way to logically group resources and can be leveraged when going through billing data. Tags come into play when resource relationships span the boundaries of subscriptions and resource groups. Tags are key/value pairs that can be added to any resource, and are exposed in billing data, allowing you to associate a department or cost center with your resource. Tags improve your ability to report on cost, as well as giving each department in your organization accountability for their own costs. The following illustration shows how you can apply the same tag to resources in different resource groups and even in different subscriptions.
+Att använda prenumerationer och resursgrupper till att organisera resurser är ett enkelt sätt att logiskt gruppera resurser på och kan användas när du går igenom faktureringsdata. Taggar kan användas i resursrelationer som sträcker sig över gränserna för prenumerationer och resursgrupper. Taggar är nyckel/värde-par som kan läggas till i alla resurser och som exponeras i faktureringsdata. Detta innebär att du kan associera en avdelning eller kostnadscenter med din resurs. Med taggar är det enklare att rapportera kostnader, samtidigt som varje avdelning i din organisation får ansvar för sina egna kostnader. Följande bild visar hur du kan använda samma tagg för resurser i olika resursgrupper, och till och med i olika prenumerationer.
 
-![An illustration showing resources organized using tags, resource groups, and subscriptions.](../media/tagging.png)
+![Bild av resurser som ordnats med hjälp av taggar, resursgrupper och prenumerationer.](../media/tagging.png)
 
-Adding some organization to your resources can go a long way and can really aid in your ability to understand where your costs are going. Now let's take a look at some ways to optimize costs.
+Att ordna dina resurser kan vara till stor hjälp och verkligen underlätta din förståelse för var dina kostnader uppstår. Nu ska vi ta en titt på några metoder för att optimera kostnaderna.
 
-## Optimizing IaaS costs
+## <a name="optimizing-iaas-costs"></a>Optimera kostnader för IaaS
 
-For organizations using virtual machines, the cost associated with virtual machines is often the biggest portion of spend. The compute costs are typically the biggest piece, followed by storage. Taking time to optimize pay-for-what-you-use resources can have a large impact on the size of your monthly bill.
+Kostnaden för virtuella datorer är ofta den största delen av kostnaderna för organisationer som använder virtuella datorer. Beräkningskostnaderna är vanligtvis den största delen, följt av lagring. Att ta sig tid att optimera resurser där du betalar för det du använder kan ha en stor inverkan på storleken på din månatliga faktura.
 
-Let's take a look at best practices to reduce your compute and storage costs.
+Nu ska vi gå igenom några tips för hur du kan sänka dina beräknings- och lagringskostnader.
 
-### Compute
+### <a name="compute"></a>Beräkning
 
-There are different options available to achieve cost savings for virtual machines.
+Det finns olika alternativ för att uppnå kostnadsbesparingar för virtuella datorer.
 
-- Choose a smaller virtual machine instance size.
-- Reduce the number of hours a virtual machine runs.
-- Use discounts for the compute costs.
+- Välj en mindre storlek på instansen för den virtuella datorn.
+- Minska antalet timmar som en virtuell dator körs.
+- Använd rabatter på beräkningskostnaderna.
 
-#### Right size virtual machines
+#### <a name="right-size-virtual-machines"></a>Rätt storlek på virtuella datorer
 
-Right sizing a virtual machine is the process of matching the virtual machine size with the resource demand required of the VM. If a VM is running 25% idle, reducing the size of the VM will immediately reduce your cost. Virtual machine costs are linear within an instance family; each next size larger will double your cost. Conversely, reducing a VM by a single instance size will reduce your cost in half. The following illustration shows a 50% savings achieved by moving one size down within the same series.
+Att uppnå rätt storlek på en virtuell dator är en process som matchar storleken på virtuella datorn med det resursbehov som krävs av den. Om en virtuell dator som körs är inaktiv till 25 %, kommer en minskning av storleken på den virtuella datorn sänka dina kostnader omedelbart. Kostnaderna för virtuella datorer är linjära inom en instansfamilj – varje nästa större storlek kommer att fördubbla dina kostnader. Omvänt kommer en minskning av en virtuell dator med en enda instansstorlek halvera dina kostnader. Följande illustration visar en besparing på 50 % som uppnås genom att gå ned en storlek inom samma serie.
 
-![An illustration to demonstrate savings achieved by downsizing an under-utilized virtual machine.](../media/vm-resize.png)
+![En illustration för att demonstrera besparingar som uppnås genom att minska storleken på en underutnyttjad virtuell dator.](../media/vm-resize.png)
 
-Azure Advisor identifies which virtual machines are underutilized. Advisor monitors your virtual machine usage for 14 days and then identifies underutilized virtual machines. Virtual machines whose CPU utilization is 5 percent or less and network usage is 7 MB or less for four or more days are considered underutilized virtual machines.
+Azure Advisor identifierar vilka virtuella datorer som är underutnyttjade. Advisor övervakar din användning av virtuella datorer under 14 dagar och identifierar de datorer som används lite. Virtuella datorer vars processoranvändning är 5 % eller mindre och vars nätverksanvändning är 7 MB eller mindre under minst fyra dagar, anses vara virtuella datorer med låg användning.
 
-#### Implement shutdown schedules for virtual machines
+#### <a name="implement-shutdown-schedules-for-virtual-machines"></a>Implementera avstängningsscheman för virtuella datorer
 
-If you have VM workloads that are only used periodically, but are running continuously, you're wasting money. These VMs can be shut down when not in use, and started back up on a schedule, saving you compute costs while the VM is deallocated. This is particularly applicable for development environments, where it's often the case that development happens only during business hours. You can deallocate these systems in the off-hours, stopping your compute costs from accruing.
+Om du har arbetsbelastningar i en virtuell dator som endast används ibland men körs kontinuerligt, slösar du pengar. De här virtuella datorerna kan stängas av när de inte används och sedan startas igen enligt ett schema, vilket gör att du sparar in på beräkningskostnaderna när den virtuella datorn har frigjorts. Detta gäller särskilt för utvecklingsmiljöer där utveckling ofta utförs under kontorstid. Du kan frigöra systemen när de inte används, vilket stoppar dina beräkningskostnader under den tiden.
 
-Use Azure Automation to limit the periods your VMs run to only those times that your workloads require.
+Använd Azure Automation till att begränsa de perioder då dina virtuella datorer körs till de tillfällen som arbetsbelastningarna kräver.
 
-You can also use the auto-shutdown feature on a virtual machine to schedule a one-off automated shutdown.
+Du kan också använda funktionen för automatisk avstängning på en virtuell dator, om du vill schemalägga en engångsavstängning.
 
-#### Apply compute cost discounts
+#### <a name="apply-compute-cost-discounts"></a>Tillämpa rabatter på beräkningskostnaden
 
-The Azure Hybrid Benefit allows you to further optimize your costs for both Windows Server and SQL Server by allowing you to use your on-premises Windows Server or SQL Server licenses with Software Assurance to be used as a discount toward the compute cost of these VMs, eliminating the costs for Windows and SQL Server on enabled instances.
+Med Azure Hybrid-förmånen kan du ytterligare optimera dina kostnader för både Windows Server och SQL Server, genom att använda dina lokala Windows Server- eller SQL Server-licenser med Software Assurance. Den används som en rabatt för beräkningskostnaden för dessa virtuella datorer, vilket eliminerar kostnaderna för Windows och SQL Server på aktiverade instanser.
 
-Some virtual machines need to be up and running all the time. Maybe you have a web application server farm for a production workload or maybe a domain controller supporting various servers on a virtual network. If you know with certainty that these virtual machines will run over the coming year or maybe longer, you can get further cost savings by purchasing a reserved instance. Azure Reserved Virtual Machine Instances can be purchased for one year or three years of compute capacity, at a discount compared to pay-as-you-go compute resources. Azure Reserved Virtual Machine Instances can significantly reduce your virtual machine costs, up to 72 percent on pay-as-you-go prices, with one-year or three-year upfront commitment. The following illustration shows savings achieved when you combine your on-premises license with the Azure Hybrid Benefit and when you combine your on-premises license with both Azure RI and the Azure Hybrid Benefit.
+Vissa virtuella datorer måste vara igång hela tiden. Du kanske har en servergrupp för webbprogram i en produktionsarbetsbelastning, eller kanske en domänkontrollant som stöder olika servrar i ett virtuellt nätverk. Om du säkert vet att de virtuella datorerna ska köras under det kommande året eller kanske längre, kan du uppnå ytterligare besparingar genom att köpa en reserverad instans. Azure Reserved Virtual Machine Instances med beräkningskapacitet kan köpas för ett eller tre år, med en rabatt som kan jämföras med beräkningsresurser där du betalar per användning. Azure Reserved Virtual Machine Instances kan avsevärt minska kostnaderna för din virtuella dator. Du kan minska kostnaderna med upp till 72 % (jämfört med användningsbaserad betalning) genom att betala ett eller tre år i förskott. Följande bild visar hur mycket du sparar om du kombinerar din lokala licens med Azure Hybrid-förmånen och om du kombinerar din lokala licens med både Azure RI och Azure Hybrid-förmånen.
 
-![An illustration showing the savings on Azure products when you have on-premises licenses with Software Assurance.](../media/ahub-save.png)
+![Bild som visar besparingarna på Azure-produkter om du har lokala licenser med Software Assurance.](../media/ahub-save.png)
 
-### Virtual machine disk storage cost optimization
+### <a name="virtual-machine-disk-storage-cost-optimization"></a>Disklagring och kostnadsoptimering för virtuella datorer
 
-For workloads that do not require high reliability and performance disks, you can use the reduced-cost standard storage. You might choose to use standard storage for development and test environments that are not required to be an identical match for a production workload.
+Du kan använda prisreducerad standardlagring för arbetsbelastningar som inte kräver hög tillförlitlighet eller prestandadiskar. Du kan välja att använda standardlagring för utvecklings- och testmiljöer som inte behöver vara en identisk matchning av en produktionsarbetsbelastning.
 
-Ensure you don't have any orphaned disks remaining in your environment. Disks that aren't associated with a VM still incur storage costs. If you've removed a VM but not the disks, the orphaned disks may be a place to reduce your storage cost.
+Se till att det inte finns några överblivna diskar som är kvar i din miljö. Diskar som inte är associerade med en virtuell dator kan fortfarande medföra kostnader för lagringen. Om du har tagit bort en virtuell dator men inte diskarna, kan de överblivna diskarna vara något som minskar lagringskostnaderna.
 
-Similar to orphaned disks, if you have any orphaned snapshots lingering around, take some time to clean them up. Pricing for these is lower than the disks themselves, but it's still a good practice to eliminate costs of unnecessary resources.
+På samma sätt om du har överblivna ögonblicksbilder bör du ägna en stund åt att rensa dem. Prissättningen för dessa är lägre än själva diskarna, men det är ändå en bra idé att eliminera kostnaderna för onödiga resurser.
 
-## Optimizing PaaS costs
+## <a name="optimizing-paas-costs"></a>Optimera kostnader för PaaS
 
-PaaS services are typically optimized for costs over IaaS services, but there are opportunities to identify waste and optimize for minimal costs. Let's take a look at ways to reduce Azure SQL Database and Azure Blob storage costs.
+PaaS-tjänster är vanligtvis optimerade för kostnader i IaaS-tjänster, men det finns möjligheter att identifiera slöseri och optimera för minimala kostnader. Låt oss ta en titt på olika sätt att minska kostnaderna för Azure SQL Database och Azure Blob Storage.
 
-### Optimizing Azure SQL Database costs
+### <a name="optimizing-azure-sql-database-costs"></a>Optimera kostnader för Azure SQL Database
 
-When creating an Azure SQL database, you have to select an Azure SQL Server and decide on a performance tier. Each tier provides a performance level either in database transaction units (DTUs) or virtual cores (vCores). For database loads that are steady, it's easy to optimize by selecting the properly sized tier for the needed performance. But what if your database has unpredictable bursts or spikes in activity? Elastic pools can reduce costs for unpredictable workloads.
+När du skapar en Azure SQL-databas måste du välja en Azure SQL Server och en prestandanivå. Varje nivå är en prestandanivå för antingen databastransaktionsenheter (DTU) eller virtuella kärnor. För databasbelastningar som är konstanta är det enkelt att optimera genom att välja rätt storleksnivå för den prestanda som krävs. Men vad händer om din databas råkar ut för oförutsägbara aktivitetsökningar? Elastiska pooler kan sänka kostnaderna vid oförutsägbara arbetsbelastningar.
 
-SQL Database elastic pools are a simple, cost-effective solution for managing and scaling several databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources at a set price. Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
-The more databases you can add to a pool, the greater your savings become. The following illustration shows the capabilities of the three types of Elastic Database Pools: basic, standard, and premium.  Basic auto scales up to 5 eDTUs per DB, standard auto scales up to 100 eDTUs per DB, and Premium that auto scales up to 1000 eDTUs per DB.
+Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav. Databaserna i en elastisk pool finns på en enda Azure SQL Database-server och delar ett bestämt antal resurser till ett fast pris. Pooler lämpar sig väl för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar.
+Ju fler databaser du kan lägga till i en pool, desto större blir dina besparingar. Följande bild visar funktionerna i de tre typerna av Elastic Database-pooler: Basic, Standard och Premium.  Basic har automatisk skalning för upp till 5 eDTU:er per databas, Standard har automatisk skalning för upp till 100 eDTU:er per databas och Premium har automatisk skalning för upp till 1 000 eDTU:er per databas.
 
-![An illustration showing auto-scaling capacity of different types of Elastic Database Pools.](../media/sqldb-elastic-pools.png)
+![Bild som visar kapaciteten för automatisk skalning för olika typer av Elastic Database-pooler.](../media/sqldb-elastic-pools.png)
 
-Elastic pools are a great way to spread costs across multiple databases and can make a significant impact on reducing your Azure SQL Database costs.
+Elastiska pooler är ett bra sätt att sprida kostnader över flera databaser och kan ha en betydande inverkan på att minska dina kostnader för Azure SQL Database.
 
-### Optimizing Blob storage costs
+### <a name="optimizing-blob-storage-costs"></a>Optimera kostnader för blobblagring
 
-Blob storage is a cost-effective way to store data, but as the amount of data grows, your bill can benefit from optimizing how the data is stored.
+Blobblagring är ett kostnadseffektivt sätt att lagra data på, men när mängden data växer kan du sänka kostnaderna genom att optimera hur datan lagras.
 
-Let's return to Lamna Healthcare. You have a medical-imaging application that stores images in blob storage. Due to the quantity and size of the images, the storage ends up being a notable cost for the application. When an image has been taken for a patient, it's likely that in the first week, that image will be viewed several times, and the performance of image retrieval is expected to be high. Conversely, an image taken two years ago may be accessed infrequently and has a lower retrieval performance expectation. You can use storage tiering to optimize the cost of image retrieval, given the reduced performance required as the image ages.
+Nu ska vi återgå till Lamna Healthcare. Du har en program för medicinska avbildningar som lagrar avbildningarna i en blobblagring. På grund av antalet och storleken på avbildningarna utgör lagringen en avsevärd del av kostnaden för programmet. När en avbildning har gjorts för en patient är det troligt att den avbildningen kommer att visas flera gånger under den första veckan och prestandan för hämtningen av avbildningen förväntas vara hög. Däremot visas en avbildning som gjordes för två år sedan sällan och den har därför en lägre förväntad hämtningsprestanda. Du kan använda lagringsnivåer till att optimera kostnaden för hämtning av avbildningar, med hänsyn taget till den nedsatta prestanda som krävs när avbildningen blir äldre.
 
-Azure Storage offers three storage tiers for blob object storage. The Azure hot storage tier is optimized for storing data that is accessed frequently. The Azure cool storage tier is optimized for storing data that is infrequently accessed and stored for at least 30 days. The Azure archive storage tier is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements.
+Azure Storage erbjuder tre lagringsnivåer för lagring av blobbobjekt. Azures frekventa lagringsnivå är optimerad för att lagra data som används ofta. Azures lågfrekventa lagringsnivå är optimerad för att lagra data som inte används ofta och som har lagrats i minst 30 dagar. Arkivlagringsnivån i Azure är optimerad för att lagra data som används sällan och som lagrats i minst 180 dagar med flexibla svarstidskrav.
 
-- **Hot access tier** - Highest storage costs but the lowest access costs.
-- **Cool access tier** - Lower storage costs and higher access costs compared to hot storage. This tier is intended for data that will stay in the cool tier for at least 30 days.
-- **Archive access tier** - Lowest storage cost and highest data retrieval costs compared to hot and cool storage. This tier is intended for data that can tolerate several hours of retrieval latency and will stay in the archive tier for at least 180 days.
+- **Frekvent åtkomstnivå** – De högsta lagringskostnaderna, men de lägsta åtkomstkostnaderna.
+- **Lågfrekvent åtkomstnivå** – Lägre lagringskostnader och högre åtkomstkostnader jämfört med frekvent lagring. Den här nivån är avsedd för data som ska finnas kvar på den lågfrekventa nivån i minst 30 dagar.
+- **Arkivåtkomstnivå** – Lägst lagringskostnad och högst kostnad för datahämtning, jämfört med frekvent och lågfrekvent lagring. Den här nivån är avsedd för data som kan tolerera flera timmars fördröjning vid hämtning och som finns kvar på arkivnivån i minst 180 dagar.
 
-For Lamna Healthcare, keeping new images on the hot access tier for a month makes sense, so that viewing the most recent images performs as fast as possible. You could then move images over one year old to the archive tier since it is likely that these images will not be retrieved. This would reduce their costs associated with storing these images.
+För Lamna Healthcare är det rimligt att ha nya avbildningar på frekvent åtkomstnivå i en månad, för att kunna visa de senaste avbildningarna så snabbt som möjligt. Du kan sedan flytta avbildningar som är över ett år gamla till arkivnivån, eftersom det är troligt att dessa avbildningar inte kommer att hämtas. Detta minskar kostnaderna för att lagra avbildningarna.
 
-## Cost optimization at Lamna Healthcare
+## <a name="cost-optimization-at-lamna-healthcare"></a>Kostnadsoptimering på Lamna Healthcare
 
-Lamna Healthcare is making strides on reducing their costs. They have organized a monthly review of their costs, and each department has access to Azure Cost Management, where they can review their costs throughout the month. They've identified a number of places where reserved instances can be used and have purchased several to take advantage of this discount. They have implemented automated processes to stop development environments in off-hours, saving them additional costs during times when these resources were not being used. 
+Lamna Healthcare gör framsteg i att minska sina kostnader. De har vidtagit en månatlig granskning av sina kostnader och varje avdelning har åtkomst till Azure Cost Management, där de kan granska sina kostnader under månaden. De har identifierat ett antal platser där reserverade instanser kan användas och har köpt flera stycken för att dra nytta av rabatten. De har implementerat automatiserade processer för att stoppa utvecklingsmiljöer när de inte används, vilket ger lägre kostnader. 
 
-Along with the optimization of blob storage for their imaging storage, they've managed to drop their bill notably over the past couple of months.
+Tillsammans med optimeringen av blobblagring för avbildningar har de kunnat sänka sina kostnader avsevärt under de senaste månaderna.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Optimizing the cost of your cloud infrastructure involves tracking your spend and ensuring that your resource utilization matches the demands of your workloads. Using the right quality and performance tier for your resources further optimizes your cloud costs.
+Att optimera kostnaden för din molninfrastruktur innebär att spåra kostnader och säkerställa att resursanvändningen överensstämmer med kraven för dina arbetsbelastningar. Med rätt kvalitet och prestandanivå för dina resurser optimeras dina molnkostnader ytterligare.

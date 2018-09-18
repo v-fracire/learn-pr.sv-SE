@@ -1,83 +1,82 @@
-Let's update our function implementation to call the Text Analytics API service and get back a sentiment score.
+Nu uppdaterar vi vår funktionsimplementering för att anropa API för textanalys-tjänsten och få en sentimentpoäng.
 
-1. Select our function, [!INCLUDE [func-name-discover](./func-name-discover.md)], in the Function Apps portal.
+1. Välj vår funktion, [!INCLUDE [func-name-discover](./func-name-discover.md)], i Function Apps-portalen.
 
-1. Expand the **View files** menu on the right of the screen.
+1. Utöka menyn **Visa filer** till höger på skärmen.
 
-1. Under the **View files** tab, select **index.js** to open the code file in the editor.
+1. Under fliken **Visa filer** väljer du **index.js** för att öppna kodfilen i redigeringsprogrammet.
 
-1. Replace the entire content of the code file with the following JavaScript.
+1. Ersätt hela innehållet i kodfilen med följande JavaScript.
 
 [!code-javascript[](../code/discover-sentiment-sort.js?highlight=7)]
 
-Let's look at what's happening in this code:
+Vi tittar på vad som händer i den här koden:
 
-- To call the text analytics service, set `accessKey`, highlighted in the code snippet, to the key you saved earlier.
-- Update `uri` to the region from which you obtained your access key, if that region is different than *westus* shown in this example.
-- At the bottom of the code file, we've defined a `documents` array. This array is the payload we send to the Text Analytics service. 
-- The `documents` array has a single entry in this case, which is the queue message that triggered our function. Although we only have one document in our array, it doesn't mean that our solution can only handle one message at a time. The Azure Functions runtime retrieves and processes messages in batches, calling several instances of our function *in parallel*. Currently, the default batch size is 16 and the maximum batch size is 32.
-- The `id` must be unique within the array. The `language` property specifies the language of the document text.  
-- We then call our method `get_sentiments`, which uses the HTTPS module to make the call to Text Analytics API. Notice that we pass our subscription, or access, key in the header of every request.
-- When the service returns, our `response_handler` is called and we log the response to the console using `context.log` 
+- För att anropa textanalystjänsten anger du `accessKey`, som är markerat i kodavsnittet, till den nyckel som du sparade tidigare.
+- Uppdatera `uri` till den region som du fick åtkomstnyckeln från om regionen skiljer sig från *westus* som visas i det här exemplet.
+- Längst ned i kodfilen har vi definierat en `documents`-matris. Den här matrisen är den nyttolast som vi skickar till textanalystjänsten. 
+- `documents`-matrisen innehåller en enda post i det här fallet, vilket är det kömeddelande som utlöste vår funktion. Även om vi har bara ett dokument i matrisen betyder det inte att vår lösning bara kan hantera ett meddelande i taget. Azure Functions-körmiljön hämtar och bearbetar meddelanden i batchar och anropar flera instanser av funktionen *parallellt*. För närvarande är standardstorleken för batchar 16, och den maximala batchstorleken är 32.
+- `id` måste vara unikt i matrisen. Egenskapen `language` anger språket i dokumenttexten.  
+- Vi anropar sedan metoden `get_sentiments`, som använder HTTPS-modulen för att göra anrop till API för textanalys. Observera att vi skickar vår prenumerationsnyckel, eller åtkomstnyckel, i huvudet för varje begäran.
+- När tjänsten returnerar anropas vår `response_handler`, och vi loggar svaret till konsolen med hjälp av `context.log` 
 
-## Try it out
+## <a name="try-it-out"></a>Prova
 
-Before we look at sorting into queues, let's take what we have for a test run. 
+Innan vi tittar på att sortera i köer gör vi en testkörning av det vi har hittills. 
 
-1.  With our function, [!INCLUDE [func-name-discover](./func-name-discover.md)], selected in the Function Apps portal, click on the Test menu item on the far left to expand it.
+1.  Med funktionen [!INCLUDE [func-name-discover](./func-name-discover.md)] vald i Function Apps-portalen klickar du på menyalternativet Testa längst till vänster så att det expanderas.
 
-2. Select the **Test** menu item and verify that you have the test panel open. The following screenshot shows what it should look like. 
+2. Välj menyalternativet **Testa** och se till att testpanelen är öppen. Det bör se ut ungefär som på följande skärmbild. 
 
-![Screenshot showing the function Test Panel expanded.](../media-draft/test-panel-open-small.png)
+![Skärmbild som visar funktionen Testpanel expanderad.](../media-draft/test-panel-open-small.png)
 
-3. Add a string of text into the request body as shown in the screenshot. 
+3. Lägg till en textsträng i begärandetexten enligt det som visas på skärmbilden. 
 
-1.  Click **Run** at the bottom of the test panel.
+1.  Klicka på **Kör** längst ned på testpanelen.
 
-1. Make sure the **Logs** tab is expanded at the bottom left of the main screen, under the code editor. 
+1. Kontrollera att fliken **Loggar** expanderas längst ned till vänster på huvudskärmen under kodredigeraren. 
 
-1. Verify that the **Logs** tab displays log information that the function completed. The window will also display the response from the Text Analytics API call. 
+1. Kontrollera att fliken **Loggar** visar logginformation som funktionen har slutfört. I fönstret visas även svaret från API för textanalys-anropet. 
 
-![Screenshot showing Test Panel and result of a successful test.](../media-draft/sentiment-response-log1.png)
+![Skärmbild som visar testpanelen och resultatet av ett lyckat test.](../media-draft/sentiment-response-log1.png)
 
-Congratulations! The [!INCLUDE [func-name-discover](./func-name-discover.md)] works as designed. In  this example, we passed in a very upbeat message and received a score of over 0.98. Try changing the message to something less optimistic, rerun the test and note the response.
+Grattis! [!INCLUDE [func-name-discover](./func-name-discover.md)] fungerar som avsett. I det här exemplet skickade vi ett väldigt positivt meddelande och fick ett resultat på över 0,98. Försök att ändra meddelandet till något mindre optimistiskt. Kör sedan testet och notera svaret.
 
-## Try it out again (optional)
+## <a name="try-it-out-again-optional"></a>Prova igen (valfritt)
 
-Let's repeat the test. This time, instead of using the Test window of the portal, we'll actually place a message into the input queue and watch what happens. 
+Vi upprepar testet. I stället för att använda testfönstret i portalen placerar vi den här gången ett meddelande i indatakön och ser vad som händer. 
 
-1. Navigate to your resource group in the **Resource Groups** section of the portal.
+1. Gå till din resursgrupp i delen **Resursgrupper** i portalen.
 
-1. Select the resource group used in this lesson.
+1. Välj den resursgrupp som används i den här enheten.
 
-1. In the **Resource group** panel that appears, locate the Storage 
-Account entry and select it.
+1. I panelen **Resursgrupp** som visas letar du reda på lagringskontot och markerar det.
 
-![Screenshot storage account selected in the Resource Group window.](../media-draft/select-storage-account.png)
+![Skärmbild av valt lagringskonto i fönstret Resursgrupp.](../media-draft/select-storage-account.png)
 
-1. Select **Storage Explorer (preview)** from the left menu of the Storage Account main window.  This action opens the Azure Storage Explorer inside the portal. Your screen should look like the following screenshot at this stage. 
+1. Välj **Storage Explorer (förhandsversion)** på den västra menyn i lagringskontots huvudfönster.  Den här åtgärden öppnar Azure Storage Explorer i portalen. Skärmen bör likna följande skärmbild i det här stadiet. 
 
-![Screenshot of storage explorer showing our storage account, with no queues currently.](../media-draft/sa-no-queue.png)
+![Skärmbild av Storage Explorer som visar vårt lagringskonto utan köer för närvarande.](../media-draft/sa-no-queue.png)
 
-As you can see, we don't have any queues in this storage account yet, so let's fix that.
+Som du ser har vi inte några köer än i det här lagringskontot än, så vi tar och fixar det.
 
-1. If you remember from earlier in this lesson, we named the queue associated with our trigger **new-feedback-q**. Right-click on the **Queues** item in the storage explorer and select *Create Queue*.
+1. Som du kanske kommer ihåg från en tidigare del i den här enheten gav vi kön ett namn som är associerat med vår utlösare **new-feedback-q**. Högerklicka på objektet **Queues** (Köer) i lagringsutforskaren och välj *Skapa kö*.
 
-1. In the dialog that opens, enter **new-feedback-q** and click **OK**. We now have our input queue. 
+1. I den dialogruta som öppnas anger du **new-feedback-q** och klickar på **OK**. Nu har vi vår indatakö. 
 
-1. Select the new queue in the left-hand menu to see the data explorer for this queue. As expected, the queue is empty. Let's add a message to the queue using the **Add Message** command at the top of the window.
+1. Välj den nya kön på menyn till vänster så ser du datautforskaren för den här kön. Som förväntat är kön tom. Vi lägger till ett meddelande till kön med kommandot **Lägg till meddelande** överst i fönstret.
 
-1. In the **Add Message** dialog, enter "This message came from our input queue, new-feedback-q" into the **Message text** field and click **OK** at the bottom of the dialog. 
+1. I dialogrutan **Lägg till meddelande** anger du ”Det här meddelandet kom från vår indatakö, new-feedback-q” i fältet **Meddelandetext** och klickar på **OK** längst ned i dialogrutan. 
 
-1. Observe the message, similar to the message in the following screenshot, in the data explorer.
-![Screenshot of storage explorer showing our storage account, with the message we created in the queue.](../media-draft/message-in-input-queue.png)
+1. Observera meddelandet, som liknar meddelandet på följande skärmbild, i datautforskaren.
+![Skärmbild av lagringsutforskaren som visar vårt lagringskonto med det meddelande som vi skapade i kön.](../media-draft/message-in-input-queue.png)
 
-1. After a few seconds, click **Refresh** to refresh the view of the queue. Observe that the queue is empty once again. Something must have read the message from the queue. 
+1. Efter några sekunder klickar du på **Uppdatera** för att uppdatera vyn av kön. Observera att kön är tom igen. Något måste ha läst meddelandet från kön. 
 
-1. Navigate back to our function in the portal and open the **Monitor** tab. Select the newest message and in the list. Observe that our function processed the queue message we had posted to the new-feedback-q.
+1. Gå tillbaka till vår funktion i portalen och öppna fliken **Övervaka**. Välj det senaste meddelandet i listan. Observera att vår funktion bearbetade det kömeddelande som vi hade publicerat till new-feedback-q.
 
-![Screenshot of Monitor dashboard showing an entry that tells us that our function processed the queue message that we posted to new-feedback-q.](../media-draft/message-in-monitor.png)
+![Skärmbild av instrumentpanelen för övervakning som visar en post som talar om för oss att vår funktion bearbetade det kömeddelande som vi publicerade till new-feedback-q.](../media-draft/message-in-monitor.png)
 
-In this test, we did a complete round trip of posting something into our queue and then seeing the function process it.
+I det här testet gjorde vi en fullständig tur och retur-resa genom att publicera något till kön och sedan se hur funktionen bearbetade det.
 
-We're making progress with our solution! Our function is now doing something useful. It's receiving text from our input queue and then calling out to the Text Analytics API service to get a sentiment score.  We've also learned how to test our function through the Azure portal and the Storage Explorer. In the next exercise, we'll see how easy it is to write to queues using output bindings.
+Vi gör framsteg med lösningen! Vår funktion utför nu något användbart. Den tar emot text från våra indatakö och anropar sedan API för textanalys-tjänsten för att få en sentimentpoäng.  Vi har också lärt oss att testa funktionen via Azure-portalen och Storage Explorer. I nästa övning ser vi hur enkelt det är att skriva till köer med hjälp av utdatabindningar.

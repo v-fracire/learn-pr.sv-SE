@@ -11,6 +11,7 @@ Här visas hur du hanterar dessa typer av affärskrav genom att skapa flera Azur
 ## <a name="learning-objectives"></a>Utbildningsmål
 
 I den här modulen kommer du att göra följande:
- - Bestämma hur många lagringskonton du behöver för projektet
- - Fastställa lämpliga inställningar för varje lagringskonto
- - Skapa ett lagringskonto med Azure-portalen
+
+ - Bestämma hur många lagringskonton du behöver för projektet.
+ - Fastställa lämpliga inställningar för varje lagringskonto.
+ - Skapa ett lagringskonto med hjälp av Azure Portal.

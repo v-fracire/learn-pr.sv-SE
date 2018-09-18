@@ -1,28 +1,28 @@
-Before the load balancer will function correctly, you must configure settings that control the load balancer's behavior. Here, you will look at configuring the network, health probe, security rules, load-balancing rules, and server pool.
+För att lastbalanseraren ska fungera korrekt måste du konfigurera inställningar som styr lastbalanserarens beteende. Här går du igenom konfiguration av nätverket, hälsoavsökning, säkerhetsregler, belastningsutjämningsregler och serverpoolen.
 
-## Steps for configuring a basic public load balancer
+## <a name="steps-to-configure-a-basic-public-load-balancer"></a>Steg för att konfigurera en Basic Public Load Balancer
 
-The following is an overview of the main configuration steps for a basic public load balancer. The steps for a standard load balancer and for an internal load balancer will be similar.
+Följande är en översikt över de viktigaste konfigurationsstegen för en Basic Public Load Balancer; stegen för en Standard Load Balancer och för en intern lastbalanserare kommer att vara liknande.
 
-### Backend servers
+### <a name="backend-servers"></a>Serverdelsservrar
 
-First, you need to configure your backend VM pool. The VMs should be in the same availability set and have their own public IP address (although this will not actually be used by your public endpoints).
+Först måste du konfigurera din pool med virtuella serverdelsdatorer. De virtuella datorerna ska vara i samma tillgänglighetsuppsättning och ha sina egna offentliga IP-adresser (även om detta inte faktiskt används av dina offentliga slutpunkter).
 
-You must create a new virtual network and define a subnet for the VM pool to use.
+Du måste skapa ett nytt virtuellt nätverk (vNet) och definiera ett undernät som VM-poolen ska använda.
 
- When you have multiple VMs providing the same services, you should use a **network security group (NSG)** to ensure that the same firewall rules are in place across the VM pool (although this is not part of the actual load-balancing process). For example, for VMs hosting web applications, you will need to create inbound security rules on port 80 for HTTP or port 8080 for HTTPS.
+Det hör inte direkt till belastningsutjämning, men när du har flera virtuella datorer som tillhandahåller samma tjänster bör du använda en **nätverkssäkerhetsgrupp (NSG)** så att samma brandväggsregler används i hela VM-poolen. För virtuella datorer som är värd för webbprogram behöver du till exempel skapa inkommande säkerhetsregler på port 80 för HTTP och port 8080 för HTTPS.
 
-### Public IP address
+### <a name="public-ip-address"></a>Offentlig IP-adress
 
-When you create a public basic load balancer using the portal, the **public IP address** is automatically configured as the load balancer's front end.
+När du skapar en offentlig Basic-lastbalanserare med hjälp av portalen konfigureras den **offentliga IP-adressen** automatiskt som lastbalanserarens klientdel.
 
-Part of the configuration of the load balancer is the **back-end address pool**, containing the IP addresses of each VM's virtual NICs that are connected to the load balancer and used to distribute traffic to the VMs. 
+En del av konfigurationen av lastbalanseraren är **serverdelsadresspoolen**, som innehåller IP-adresserna för varje virtuella dators nätverkskort som är anslutet till lastbalanseraren och används för att distribuera trafik till de virtuella datorerna. 
 
-### Health probe
+### <a name="health-probe"></a>Hälsoavsökning
 
-The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks.
-By default, there are 15 seconds between probe attempts. After two consecutive probe failures, a VM is considered unhealthy.
+Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller.
+Som standard går det 15 sekunder mellan avsökningsförsöken, och efter två avsökningsfel i rad betraktas en virtuell dator som defekt.
 
-### Rules
+### <a name="rules"></a>Regler
 
-The load balancer rule specifies the port that the front end is listening on, and the port used to send traffic to the backend.
+Lastbalanserarens regel anger den port som klientdelen lyssnar på och den port som används för att skicka trafik till serverdelen.

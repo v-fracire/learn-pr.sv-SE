@@ -1,185 +1,185 @@
-Dashboards are a flexible tool for managing different aspects of Azure services through the Portal. They make it convenient to monitor the state of your services. Because they are shareable, they help ensure that everyone on your team sees the same data and stays aware of the state of your critical components. Let's create a new dashboard and add some tiles to it.
+Med instrumentpaneler har du ett flexibelt verktyg för att hantera olika delar av Azure-tjänsterna via portalen. De gör det enkelt att övervaka status för dina tjänster. Och eftersom de går att dela är det lättare att se till att alla i teamet ser samma data och är medvetna om tillståndet för viktiga komponenter. Nu ska vi skapa en ny instrumentpanel och lägga till några paneler.
 
-## Create a new dashboard
+## <a name="create-a-new-dashboard"></a>Skapa en ny instrumentpanel
 
-1. In the Azure portal, click the **New Dashboard** button.
+1. Klicka på knappen **Ny instrumentpanel** i Azure Portal.
 
-1. In the box saying **My Dashboard**, change the name to **Customer Dashboard**.
+1. I rutan **Min instrumentpanel** ändrar du namnet till **Kundens instrumentpanel**.
 
-## Add and configure the Clock Tile
+## <a name="add-and-configure-the-clock-tile"></a>Lägga till och konfigurera klockpanelen
 
-1. In the tile gallery, drag the clock onto the workspace. Place it on the top right of the available space.
+1. Gå till panelgalleriet och dra klockan till arbetsytan. Placera den längst upp till höger i det tillgängliga utrymmet.
 
-1. On the **Edit clock** blade, change the Location to **Pacific Time (US & Canada)**.
+1. Gå till bladet **Redigera klockan** och ändra platsen till **Pacific Time (USA och Kanada)**.
 
-1. Under **Time format**, click **24 hour**.
+1. Gå till **Tidsformat** och klicka på **24-timmars**.
 
-1. Click **Done**.
+1. Klicka på **Klar**.
 
-1. Repeat the preceding four steps, except select **Eastern Time (US & Canada)**. You should now have two clocks, one showing the time on the West Coast, the other on the East Coast.
+1. Upprepa de fyra stegen ovan, men välj **Eastern Time (USA och Kanada)** som plats. Du bör nu ha två klockor, en som visar tiden på USA:s västkust och den andra på USA:s östkust.
 
-## Resize a tile
+## <a name="resize-a-tile"></a>Ändra storlek på en panel
 
-1. In the **Tile Gallery** pane, click **All resources**, and then drop the tile onto the top left-hand side of the new dashboard workspace.
+1. Gå till fönstret **Panelgalleri** och klicka på **Alla resurser**. Dra och släpp sedan panelen längst upp till vänster på den nya instrumentpanelsytan.
 
-1. Click the tile, right-click the ellipsis, and then click **6x6**.
+1. Klicka på panelen, högerklicka på ellipsen och klicka på **6 x 6**.
 
-1. Click the gray corner on the bottom right-hand side of the tile, and resize the tile to 3.5 vertically by six horizontally. Note that when you finish resizing, it adjusts to 4x6.
+1. Klicka på det grå hörnet längst ned till höger på panelen och ändra storlek på panelen till 3,5 lodrätt gånger 6 vågrätt. Observera att när du är klar har den ändrat storlek till 4 x 6.
 
-1. In the Tile Gallery, click the **Resource Groups** tile, and drag it onto the workspace. Place it underneath the **All resources** tile.
+1. Klicka på panelen **Resursgrupper** i Panelgalleriet och dra den till arbetsytan. Placera den nedanför panelen **Alla resurser**.
 
-1. In the Tile Gallery, click the **Service Health** tile, and drag it onto the workspace. Place it to the right of the **All resources** tile.
+1. Klicka på panelen **Service Health** i Panelgalleriet och dra den till arbetsytan. Placera den till höger om panelen **Alla resurser**.
 
-1. Continue to add the following tiles, rearranging them to fit:
+1. Fortsätt lägga till följande paneler och ordna dem enligt önskemål:
 
-    - Help + Support
-    - Quick Tasks
+    - Hjälp + Support
+    - Snabbuppgifter
     - Marketplace
-    - What's New
+    - Nyheter
 
-1. When you have added these tiles, click **Done customizing**. The **Customer Dashboard** dashboard should appear.
+1. När du har lagt till panelerna klickar du på **Anpassning klar**. Instrumentpanelen **Kundens instrumentpanel** bör nu visas.
 
-## Clone a dashboard
+## <a name="clone-a-dashboard"></a>Klona en instrumentpanel
 
-You now want to create a very similar dashboard for some other customers.
+Nu ska du skapa en liknande instrumentpanel för några andra kunder.
 
-1. Click the **Clone** button.
+1. Klicka på knappen **Klona**.
 
-1. Rename the dashboard from **Clone of Customer Dashboard** to **Azure AD Admin Dashboard**.
+1. Byt namn på instrumentpanelen från **Klon av Kundens instrumentpanel** till **Instrumentpanel för Administrationscenter för Azure AD**.
 
-1. On the **Resource Groups** tile, click the dustbin icon to delete this tile.
+1. På panelen **Resursgrupper** klickar du på papperskorgen för att ta bort panelen.
 
-1. From the Tile Gallery, add the following tiles:
+1. I Panelgalleriet lägger du till följande paneler:
 
-    - Organization Identity
-    - Users and Groups
-    - User Activity Summary
-    - Welcome to the Azure AD Admin Center
+    - Organisationsidentitet
+    - Användare och grupper
+    - Sammanfattning av användaraktivitet
+    - Välkommen till Administrationscenter för Azure AD
 
-1. Reposition the tiles as necessary, and then click **Done customizing**.
+1. Ordna om panelerna som du vill och klicka sedan på **Anpassningen är klar**.
 
-## Share a dashboard
+## <a name="share-a-dashboard"></a>Dela en instrumentpanel
 
-You now want to make this dashboard available to other users. To do this, carry out the following steps:
+Nu ska du göra instrumentpanelen tillgänglig för andra användare. Gör så här:
 
-1. Ensure that the Azure Active Directory (Azure AD) Admin dashboard is selected, and then click **Share**.
+1. Markera administratörsinstrumentpanelen för Azure Active Directory (Azure AD) och klicka sedan på **Dela**.
 
-1. On the **Sharing and access control** blade, ensure that **Publish to the 'dashboards' resource group** is selected.
+1. På bladet **Delning och åtkomstkontroll** kontrollerar du att **Publicera till instrumentpanelens resursgrupp** är markerat.
 
-1. Set the **Location** to one that is appropriate for your geography. Typically, this value defaults to your nearest data center.
+1. Ange **Plats** som något som är lämpligt för ditt geografiska område. Som standard är värdet ditt närmaste datacenter.
 
-1. Click **Publish**, and then close the **Sharing + access control** blade.
+1. Klicka på **Publicera** och stäng bladet **Delning och åtkomstkontroll**.
 
-1. Click **Azure AD Admin Dashboard**, and then select **Customer Dashboard**.
+1. Klicka på **Instrumentpanel för Azure AD-administratör** och välj **Kundens instrumentpanel**.
 
-    Note that in **All resources**, a Shared dashboard resource has appeared, and that in **Resource groups**, a dashboards resource group has also appeared.
+    Observera att i **Alla resurser** visas nu en delad instrumentpanelresurs, och i **Resursgrupper** visas också en resursgrupp med instrumentpaneler.
 
-1. Repeat steps 1 to 3 to share the Customer Dashboard.
+1. Dela Kundens instrumentpanel genom att upprepa steg 1 till 3.
 
-## Edit a dashboard.json file
+## <a name="edit-a-dashboardjson-file"></a>Redigera en instrumentpanelsfil (JSON)
 
-To show how you can download and edit a dashboard file, carry out the following steps:
+Så här kan du ladda ned och redigera en instrumentpanelsfil:
 
-1. Click **Download**.
+1. Klicka på **Hämta**.
 
-1. Open Windows Explorer, and navigate to your Downloads folder.
+1. Öppna Utforskaren i Windows och gå till mappen Hämtade filer.
 
-1. Find the *Customer Dashboard.json* file and double-click it.
+1. Leta rätt på filen *Kundens instrumentpanel.json* och dubbelklicka på den.
 
-1. In your file editor, look for the text *ClockPart*.
+1. I din filredigerare letar du rätt på texten *ClockPart*.
 
-1. On the first occurrence of ClockPart, change the previous **rowSpan** value to 1.
+1. Vid den första förekomsten av ClockPart ändrar du det tidigare värdet för **rowSpan** till 1.
 
-1. On the second occurrence of Clockpart, also change the previous **rowSpan** value to 1.
+1. Vid den andra förekomsten av ClockPart ändrar du också det tidigare värdet för **rowSpan** till 1.
 
-1. On the second occurrence of Clockpart, change the Y value from 2 to 1.
+1. Vid den andra förekomsten av Clockpart ändrar du Y-värdet från 2 till 1.
 
-1. Save the *Customer Dashboard.json* file and close your code editor.
+1. Spara filen *Kundens instrumentpanel.json* och stäng kodredigeraren.
 
-1. On the Azure dashboard, click **Upload**.
+1. På Azure-instrumentpanelen klickar du på **Ladda upp**.
 
-1. In the **Open** dialog box, browse to the Downloads folder, and double-click *Customer Dashboard.json*.
+1. I dialogrutan **Öppna** bläddrar du till mappen Hämtade filer och dubbelklickar på *Kundens instrumentpanel.json*.
 
-    Note that the clocks have resized to one row high, and the bottom clock has moved up one row.
+    Observera att klockornas storlek har ändrats till en rads höjd, och klockan längst ned har flyttats upp en rad.
 
-## Select a shared dashboard
+## <a name="select-a-shared-dashboard"></a>Välja en delad instrumentpanel
 
-You've realized that you don't like the smaller clocks, and you want to return to the earlier shared version of the Customer Dashboard. You can do that either by editing the file and uploading it again or by accessing the shared version. To do that, carry out the following steps:
+Du har insett att du inte gillar de mindre klockorna utan vill återgå till den tidigare delade versionen av Kundens instrumentpanel. Du kan göra det, antingen genom att redigera filen och ladda upp den igen, eller genom att öppna den delade versionen. Gör så här:
 
-1. Click the down arrow next to **Customer Dashboard**.
+1. Klicka på den nedåtriktade pilen bredvid **Kundens instrumentpanel**.
 
-1. Click **Browse all dashboards**.
+1. Klicka på **Bläddra bland alla instrumentpaneler**.
 
-1. On the **All dashboards** blade, under **TYPE**, select **Shared dashboards**.
+1. På bladet **Alla instrumentpaneler** går du till **TYP** och väljer **Delade instrumentpaneler**.
 
-1. Click **Customer Dashboard**.
+1. Klicka på **Kundens instrumentpanel**.
 
-1. Close the **All dashboards** blade.
+1. Stäng bladet **Alla instrumentpaneler**.
 
-    Note that the clocks have returned to their original size.
+    Observera att klockorna nu har återgått till sin ursprungliga storlek.
 
-## Switch to full screen
+## <a name="switch-to-full-screen"></a>Växla till helskärm
 
-1. Click the down arrow next to **Customer Dashboard**. 
+1. Klicka på den nedåtriktade pilen bredvid **Kundens instrumentpanel**. 
 
-    Note that there is another Customer Dashboard, without the shared symbol next to it. Click that version of Customer Dashboard, and the clocks become small again.
+    Du ser att det finns ytterligare en Kundens instrumentpanel, utan delningssymbolen bredvid. Klicka på den versionen av Kundens instrumentpanel, så blir klockorna små igen.
 
-1. Switch back to the shared Customer Dashboard.
+1. Växla tillbaka till den delade versionen av Kundens instrumentpanel.
 
-1. Click the **Full Screen** button. 
+1. Klicka på knappen **Helskärm**. 
 
-    Note that the browser menus and bars have all disappeared.
+    Nu försvinner webbläsarmenyerna och fälten.
 
-1. Click the **Exit Full Screen** to return to the standard screen.
+1. Klicka på **Avsluta helskärmsläge** för att återgå till standardskärmen.
 
-## Unshare a dashboard
+## <a name="unshare-a-dashboard"></a>Ta bort delning av en instrumentpanel
 
-If you want to prevent a shared dashboard from being available for selection, you can _unshare_ it. To unshare a dashboard, carry out the following steps:
+Om du inte vill att en instrumentpanel ska vara tillgänglig för delning kan du _ta bort delningen_. Om du vill ta bort delning av en instrumentpanel gör du så här:
 
-1. Click the **Unshare** button. The **Sharing + access control** blade appears.
+1. Klicka på knappen **Sluta dela**. Sidan **Delning och åtkomstkontroll** visas.
 
-1. Click the **Unpublish** button.
+1. Klicka på knappen **Avpublicera**.
 
-1. In the confirmation message box, click **OK**.
+1. I bekräftelserutan klickar du på **OK**.
 
-1. Click the down arrow next to **Customer Dashboard**.
+1. Klicka på den nedåtriktade pilen bredvid **Kundens instrumentpanel**.
 
-1. Click **Browse all dashboards**.
+1. Klicka på **Bläddra bland alla instrumentpaneler**.
 
-1. On the **All dashboards** blade, under **TYPE**, select **Shared dashboards**.
+1. På bladet **Alla instrumentpaneler** går du till **TYP** och väljer **Delade instrumentpaneler**.
 
-    Note that **Customer Dashboard** no longer appears in the list of available dashboards.
+    Nu tas **Kundens instrumentpanel** bort från listan med tillgängliga instrumentpaneler.
 
-1. Close the **All dashboards** blade.
+1. Stäng bladet **Alla instrumentpaneler**.
 
-## Delete a dashboard
+## <a name="delete-a-dashboard"></a>Ta bort en instrumentpanel
 
-1. Ensure that the **Azure AD Admin** dashboard is selected.
+1. Kontrollera att Instrumentpanel för **Azure AD-administratör** har markerats.
 
-1. Click the **Delete** button.
+1. Klicka på knappen **Ta bort**.
 
-1. In the **Confirmation** message box, select the checkbox to confirm that this dashboard will no longer be visible, and then click **OK**.
+1. I meddelanderutan **Bekräftelse** markerar du kryssrutan för att bekräfta att den här instrumentpanelen inte ska visas längre. Klicka sedan på **OK**.
 
-## Reset a dashboard
+## <a name="reset-a-dashboard"></a>Återställa en instrumentpanel
 
-1. Ensure that **Customer Dashboard** is selected.
+1. Kontrollera att **Kundens instrumentpanel** är markerad.
 
-1. Click **Edit**.
+1. Klicka på **Redigera**.
 
-1. Right-click on the workspace, and click **Reset to default state**.
+1. Högerklicka på arbetsytan och klicka på **Återställ till standardtillstånd**.
 
-1. In the **Reset dashboard to default state** message box, click **Yes**.
+1. I meddelanderutan **Återställ instrumentpanelen till standardtillstånd** väljer du **Ja**.
 
-    Note that the Customer Dashboard has reset to its default tiles.
+    Kundens instrumentpanel återställs nu till standardpanelerna.
 
-1. Click **Done customizing**.
+1. Klicka på **Anpassningen är klar**.
 
-1. Click your name at the top right of the portal.
+1. Klicka på ditt namn högst upp till höger i portalen.
 
-1. Click **Sign out**.
+1. Klicka på **Logga ut**.
 
-1. Close your browser.
+1. Stäng webbläsaren.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-You have now created and edited dashboards, shared them, altered them as **.JSON** files, unshared and finally, reset them to the default state. You should now be able to see what powerful tools dashboards can be and how you can use them to create efficient interfaces for differing roles within an organization.
+Nu har du skapat och redigerat instrumentpaneler, delat dem, ändrat dem som **.JSON**-filer, tagit bort delning och slutligen återställt dem till standard. Du har fått se vilka effektiva verktyg instrumentpaneler kan vara, och hur du kan använda dem för att skapa praktiska gränssnitt för olika roller i en organisation.

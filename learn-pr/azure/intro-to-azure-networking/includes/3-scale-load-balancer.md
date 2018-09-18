@@ -16,10 +16,10 @@ _Återhämtning_ avser ett systems förmåga att fortsätta fungera under avvika
 
 Exempel på sådana förhållanden:
 
-- Naturkatastrofer
-- Systemunderhåll, både planerat och oplanerat, bland annat programuppdateringar och säkerhetskorrigeringar
-- Toppar i trafiken på webbplatsen
-- Hot från parter med ont uppsåt, till exempel distribuerade överbelastningsattacker (DDoS)
+- Naturkatastrofer.
+- Systemunderhåll, både planerat och oplanerat, bland annat programuppdateringar och säkerhetskorrigeringar.
+- Toppar i trafiken på webbplatsen.
+- Hot från parter med ont uppsåt, till exempel distribuerade överbelastningsattacker (DDoS).
 
 Tänk dig att marknadsavdelningen vill ha en utförsäljning för att marknadsföra en serie nya produkter. Du kan förvänta dig en hög topp i trafiken under den här tiden. Den här toppen kan överbelasta bearbetningssystemet, så att det blir långsamt eller stannar helt och dina användare blir besvikna. Du kan ha upplevt den här besvikelsen själv. Har du någonsin velat ha biljetter till ett evenemang men upptäckt att webbplatsen inte reagerar?
 
@@ -35,7 +35,7 @@ Lösningen är att använda en belastningsutjämnare för att distribuera trafik
 
 Här är ett diagram.
 
-![Belastningsutjämna trafik mellan virtuella datorer](../media-draft/load-balancer.png)
+![Diagram över belastningsutjämnad trafik mellan virtuella datorer](../media-draft/load-balancer.png)
 
 Du ser att belastningsutjämnaren tar emot användarens begäran. Belastningsutjämnaren dirigerar begäran till någon av de virtuella datorerna på webbnivån. Om en virtuell dator inte är tillgänglig eller inte svarar slutar belastningsutjämnaren att skicka trafik till den. Belastningsutjämnaren dirigerar sedan trafik till en av de tillgängliga servrarna.
 
@@ -49,11 +49,11 @@ Azure Load Balancer är en tjänst för belastningsutjämning som Microsoft till
 
 Du kan manuellt konfigurera programvara för belastningsutjämning på en virtuell dator. Nackdelen är att du nu har ett ytterligare system som du behöver underhålla. Om belastningsutjämnaren blir otillgänglig eller kräver rutinunderhåll kommer du tillbaka till det ursprungliga problemet.
 
-I stället kan du använda Azure Load Balancer eftersom du inte behöver underhålla någon infrastruktur eller programvara – Azure tar hand om underhållet åt dig.
+I stället kan du använda Azure Load Balancer eftersom du inte behöver underhålla någon infrastruktur eller programvara. Azure tar hand om underhållet åt dig.
 
-Här är ett diagram som visar flera virtuella datorer på varje nivå. På varje nivå finns en Azure Load Balancer som distribuerar trafik mellan de virtuella datorerna i poolen.
+Här är ett diagram som visar flera virtuella datorer på varje nivå. På varje nivå finns en Azure Load Balancer, som distribuerar trafik mellan de virtuella datorerna i poolen.
 
-![Belastningsutjämna trafik mellan virtuella datorer med Azure Load Balancer](../media-draft/azure-load-balancer.png)
+![Diagram över belastningsutjämnad trafik mellan virtuella datorer med hjälp av Azure Load Balancer](../media-draft/azure-load-balancer.png)
 
 ## <a name="what-about-dns"></a>Hur är det med DNS?
 
@@ -65,12 +65,12 @@ Du kan ta med din egen DNS-server eller använda Azure DNS, en värdtjänst för
 
 Här är ett diagram som visar Azure DNS. När användaren navigerar till contoso.com dirigerar Azure DNS trafik till belastningsutjämnaren.
 
-![Använda Azure DNS för att tilldela ett DNS-namn](../media-draft/dns.png)
+![Diagram som visar hur Azure DNS används för att tilldela ett DNS-namn](../media-draft/dns.png)
 
 ## <a name="summary"></a>Sammanfattning
 
 Med belastningsutjämning har din näthandelswebbplats nu högre tillgänglighet och återhämtning. När du utför underhåll eller när trafiken ökar tillfälligt kan belastningsutjämnaren distribuera trafik till ett annat tillgängligt system.
 
-Du kan konfigurera en egen belastningsutjämnare på en virtuell dator, men **Azure Load Balancer** minskar behovet av underhåll eftersom det inte finns någon infrastruktur eller programvara att underhålla.
+Du kan konfigurera en egen belastningsutjämnare på en virtuell dator, men Azure Load Balancer minskar behovet av underhåll eftersom det inte finns någon infrastruktur eller programvara att underhålla.
 
 DNS mappar användarvänliga namn till deras IP-adresser, ungefär som en telefonkatalog mappar namn på personer och företag till telefonnummer. Du kan ta med en egen DNS-server eller använda Azure DNS.

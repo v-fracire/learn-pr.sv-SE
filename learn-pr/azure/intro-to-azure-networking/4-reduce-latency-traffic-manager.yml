@@ -1,15 +1,15 @@
 ### YamlMime:ModuleUnit
 uid: learn.intro-to-azure-networking.4-reduce-latency-traffic-manager
-title: Minska svarstiden med Traffic Manager
+title: Minska svarstiderna med Azure Traffic Manager
 metadata:
-  title: Minska svarstiden med Traffic Manager
+  title: Minska svarstiderna med Azure Traffic Manager
   description: Läs om hur Traffic Manager kan minska svarstiden och skapa återhämtning i olika geografiska områden.
-  ms.openlocfilehash: fa64f6d6e7bfe0f991bf15002f24690a2c02f0fd
-  ms.sourcegitcommit: 40481ae733648a8b13402bf276d7acfd4da440f6
+  ms.openlocfilehash: 491f3b1797b3e1b10335424f6365f5c08ae774bb
+  ms.sourcegitcommit: b97ed72bd7e3fb77b49de71e8ef35d3f70dfd636
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/03/2018
-  ms.locfileid: "43477853"
+  ms.lasthandoff: 09/05/2018
+  ms.locfileid: "43790173"
 durationInMinutes: 7
 content: >
   [!include[](includes/4-reduce-latency-traffic-manager.md)]

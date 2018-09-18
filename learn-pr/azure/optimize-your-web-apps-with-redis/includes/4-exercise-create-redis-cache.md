@@ -1,69 +1,51 @@
-Let's create an Azure Redis Cache instance to store and return commonly used values.
+Nu skapar vi en Azure Redis Cache för att lagra och returnera värden som används ofta.
 
 <!-- TODO: do we need to activate the sandbox here? -->
 
-## Create a Redis cache in Azure
+## <a name="create-a-redis-cache-in-azure"></a>Skapa en Redis-cache på Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
 
-1. Click **Create a resource**, click **Databases**, and click **Redis Cache**.
+1. Klicka på **Skapa en resurs**, klicka på **Databaser** och klicka på **Redis Cache**.
 
-    The following screenshot shows the Redis Cache location within the various database resource options on the Azure portal.
+    Följande skärmbild visar Redis Cache-platsen i de olika alternativen för databasresurser på Azure-portalen.
 
-    ![Screenshot showing the Azure portal database options, with the Create a resource, Database, and Redis Cache options highlighted.](../media/4-create-a-cache-1.png)
+    ![Skärmbild som visar Azure-portalens databasalternativ, med alternativen Skapa en resurs, Databas och Redis Cache markerade.](../media/4-create-a-cache-1.png)
 
-### Identify the location for the cache
+### <a name="identify-the-location-for-the-cache"></a>Identifiera platsen för cachen
 
 <!-- Resource selection -->
 [!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
-### Configure your cache
+### <a name="configure-your-cache"></a>Konfigurera din cache
 
-Apply the following settings on the cache.
+Använd följande inställningar för cachen.
 
-1. **DNS Name:** Create a globally unique name such as **ContosoSportsApp1028**.
+1. **DNS-namn:** Skapa ett globalt unikt namn, till exempel **ContosoSportsApp1028**.
 
-1. **Subscription:** Select the Azure Sandbox subscription.
+1. **Prenumeration**: välj Azure Sandbox-prenumerationen.
 
-1. **Resource group:** Select <rgn>[Sandbox resource group name]</rgn> for the Resource Group.
+1. **Resursgrupp**: välj <rgn>[Namn på Sandbox-resursgrupp]</rgn> för resursgruppen.
 
-1. **Location:** Normally, you would select a location near your customers - in this case, the East Coast. However, the Azure Sandbox only allows specific regions to be selected for resources as noted above. Please select one of those locations.
+1. **Plats:** normalt väljer du en plats nära dina kunder – i det här fallet östkusten. Azure Sandbox tillåter dock bara att specifika regioner väljs för resurser enligt det som anges ovan. Välj någon av dessa platser.
 
-1. **Pricing tier:** Select **Basic C0**. This is the lowest tier you can use. Production apps would likely want to store more data and utilize some of the Premium features such as clustering which would require a higher tier selection.
+1. **Prisnivå:** Välj **Basic C0**. Det här är den lägsta nivån som du kan använda. Produktionsappar vill förmodligen lagra mer data och använda vissa Premium-funktioner, till exempel klustring, vilket kräver val av en högre nivå.
 
-1. Click **Create**.
+1. Klicka på **Skapa**.
 
-    The following screenshot shows a representative configuration used to create a new Redis Cache resource. Note that yours will be slightly different due to the Azure Sandbox.
+    Följande skärmbild visar en typisk konfiguration som används för att skapa en ny Redis Cache-resurs. Observera att din kommer att se något annorlunda ut på grund av Azure Sandbox.
 
-    ![Screenshot showing the Azure portal blade when creating a new Redis Cache resource, populated with an example configuration DNS name, subscription, new resource group, location, and pricing tier.](../media/4-create-a-cache-2.png)
+    ![Skärmbild som visar bladet för Azure-portalen när du skapar en ny Redis Cache-resurs, med exempel på DNS-namn, prenumeration, ny resursgrupp, plats och prisnivå.](../media/4-create-a-cache-2.png)
 
 > [!IMPORTANT]
-> You will have to wait until the cache is deployed before continuing. This process might take some time.
+> Du måste vänta tills cachen distribueras innan du fortsätter. Den här processen kan ta lite tid.
 
-## Verify your data
+## <a name="retrieve-the-access-keys-and-host-name"></a>Hämta åtkomstnycklarna och värdnamnet
 
-You can use the **Console** feature in the Azure portal to issue commands to your Redis cache instance after it has been created.
+1. Navigera till din nya cacheinstans i Azure-portalen och välj **Inställningar** > **Åtkomstnycklar**. 
 
-1. Locate your Redis cache by selecting **All Resources** in the left-hand sidebar and using the filter box on the left to select Redis Cache instances. Alternatively, you can use the search box at the top and type the name of the cache.
+1. Kopiera den **Primära anslutningssträngen (StackExchange.Redis)** till en säker plats. Du behöver den i nästa övning.
 
-1. Select your Redis cache instance.
+    Den här nyckeln innehåller din primära nyckel och värdnamnet i en fullständig anslutningssträng, för användning i programinställningarna för **StackExchange.Redis**-paketet som vi kommer att använda.
 
-1. In the **Overview** blade for your Redis Cache, select **Console**. This will open a Redis console, which allows you to enter low-level Redis commands.
-
-1. Type **ping**. Verify that the value returned is **PONG**.
-
-1. Type **set test one**. Verify that the value returned is **OK**.
-
-1. Type **get test**. Verify that the value returned is **"one"**.
-
-1. Switch back to the **Overview** panel either through the breadcrumb bar on the top, or use the scrollbar to slide the view back to the left.
-
-## Retrieve the access keys and host name
-
-1. Select **Settings** > **Access keys**. 
-
-1. Copy the **Primary connection string (StackExchange.Redis)** to a safe place, you will need it for the next exercise.
-
-    This key includes your primary key and host name in a complete connection string for use within your application settings for the **StackExchange.Redis** package we are going to use.
-
-Next, let's learn about some of the commands we can use to interrogate the cache.
+Nu går vi igenom några av de kommandon som vi kan använda för att fråga ut cachen.

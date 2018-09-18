@@ -1,156 +1,156 @@
-Performing a migration of on-premises servers to Azure requires planning and care. You can move them all at once, or more likely, in small batches or even individually. Before you create a single VM, you should sit down and sketch out your current infrastructure model and see how it might map to the cloud.
+Att utföra en migrering av lokala servrar till Azure kräver planering och noggrannhet. Du kan flytta dem alla samtidigt eller (mer sannolikt) i små batchar eller rentav en och en. Innan du skapar en enskild virtuell dator bör du skapa en skiss av den aktuella infrastrukturmodellen och se hur den skulle kunna mappas till molnet.
 
-Let's walk through a checklist of things to think about.
+Vi går igenom en checklista med saker att tänka på.
 
-- [Start with the network](#Network)
-- [Name the VM](#Name_VM)
-- [Decide the location for the VM](#VM_Location)
-- [Determine the size of the VM](#VM_Size)
-- [Understanding the pricing model](#VM_Cost)
-- [Storage for the VM](#VM_Storage)
-- [Select an operating system](#VM_OS)
+- [Börja med nätverket](#Network)
+- [Namnge den virtuella datorn](#Name_VM)
+- [Välja plats för den virtuella datorn.](#VM_Location)
+- [Välja storlek på den virtuella datorn](#VM_Size)
+- [Förstå prismodellen](#VM_Cost)
+- [Lagring för den virtuella datorn](#VM_Storage)
+- [Välja ett operativsystem](#VM_OS)
 
 <a name="Network" />
 
-## Start with the network
+## <a name="start-with-the-network"></a>Börja med nätverket
 
-The first thing you should think about isn't the virtual machine at all - it's the network.
+Det första du bör tänka på är inte den virtuella datorn – det är nätverket.
 
-Virtual networks (VNets) are used in Azure to provide private connectivity between Azure Virtual Machines and other Azure services. VMs and services that are part of the same virtual network can access one another. By default, services outside the virtual network cannot connect to services within the virtual network. You can, however, configure the network to allow access to the external service, including your on-premises servers.
+Virtuella nätverk (VNet) används i Azure för privata anslutningar mellan virtuella Azure-datorer och andra Azure-tjänster. Virtuella datorer och tjänster som ingår i samma virtuella nätverk har åtkomst till varandra. Som standard kan tjänster utanför det virtuella nätverket inte ansluta till tjänster i det virtuella nätverket. Du kan dock konfigurera nätverket för att tillåta åtkomst till den externa tjänsten, inklusive dina lokala servrar.
 
-This latter point is why you should spend some time thinking about your network configuration. Network addresses and subnets are not trivial to change once you have them set up, and if you plan to connect your private company network to the Azure services, you will want to make sure you consider the topology before putting any VMs into place.
+Den senare aspekten är anledningen till att du noggrant bör överväga nätverkskonfigurationen. Nätverksadresser och undernät är inte helt enkla att ändra när du väl har konfigurerat dem, och om du planerar att ansluta företagets privata nätverk till Azure-tjänster bör du ta hänsyn till topologin innan du etablerar några virtuella datorer.
 
-When you set up a virtual network, you specify the available address spaces, subnets, and security. If the VNet will be connected to other VNets, you must select address ranges that are not overlapping. This is the range of private addresses that the VMs and services in your network can use. You can use unrouteable IP addresses such as 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16, or define your own range. Azure will treat any address range as part of the private VNet IP address space if it is only reachable within the VNet, within interconnected VNets, and from your on-premises location. If someone else is responsible for the internal networks, you should work with that person before selecting your address space to make sure there is no overlap and to let them know what space you want to use, so they don’t try to use the same range of IP addresses.
+När du installerar ett virtuellt nätverk anger du tillgängliga adressutrymmen, undernät och säkerhet. Om det virtuella nätverket ska anslutas till andra virtuella nätverk måste du välja adressintervall som inte överlappar varandra. Detta är det intervall med privata adresser som de virtuella datorerna och tjänsterna i nätverket kan använda. Du kan använda ej rountningsbara IP-adresser såsom 10.0.0.0/8, 172.16.0.0/12 eller 192.168.0.0/16 eller definiera egna intervall. Azure behandlar alla adressintervall som en del av det privata VNet:ets IP-adressutrymme om det endast kan nås inom VNet, inom sammankopplade VNets och från din lokala plats. Om någon annan ansvarar för de interna nätverken bör du samarbeta med den personen innan du väljer adressutrymme för att kontrollera att det inte finns någon överlappning och meddela om vilket utrymme du vill använda, så att den personen inte försöker använda samma IP-adressintervall.
 
-### Segregate your network
+### <a name="segregate-your-network"></a>Särskilja nätverket
 
-After deciding the virtual network address space(s), you can create one or more subnets for your virtual network. You do this to break up your network into more manageable sections. For example, you might assign 10.1.0.0 to VMs, 10.2.0.0 to back-end services, and 10.3.0.0 to SQL Server VMs.
+När du har valt adressutrymmen för det virtuella nätverket kan du skapa ett eller flera undernät för det virtuella nätverket. Du gör detta för att dela in nätverket i mer hanterbara avsnitt. Du kan till exempel tilldela 10.1.0.0 till virtuella datorer, 10.2.0.0 till serverdelstjänster och 10.3.0.0 till virtuella SQL Server-datorer.
 
 > [!NOTE]
-> Azure reserves the first four addresses and the last address in each subnet for its use.
+> Azure reserverar de fyra första adresserna och den sista adressen i varje undernät för dess användning.
 
-### Secure the network
+### <a name="secure-the-network"></a>Skydda nätverket
 
-By default, there is no security boundary between subnets, so services in each of these subnets can talk to one another. However, you can set up Network Security Groups (NSGs), which allow you to control the traffic flow to and from subnets and to and from VMs. NSGs act as software firewalls, applying custom rules to each inbound or outbound request at the network interface and subnet level. This allows you to fully control every network request coming in or out of the VM.
+Som standard finns ingen säkerhetsgräns mellan undernät, så tjänster i vart och ett av dessa undernät kan kommunicera med varandra. Du kan dock konfigurera nätverkssäkerhetsgrupper (NSGs), så att du kan styra trafikflödet till och från undernät och till och från virtuella datorer. NSG:er fungerar som programvarubrandväggar. De tillämpar anpassade regler för varje inkommande eller utgående begäran på nätverksgränssnitts- och undernätsnivå. På så sätt kan du styra varje nätverksbegäran som kommer in eller skickas ut från den virtuella datorn.
 
-## Plan each VM deployment
+## <a name="plan-each-vm-deployment"></a>Planera distribution av varje virtuell dator
 
-Once you have mapped out your communication and network requirements, you can start thinking about the VMs you want to create. A good plan is to select a server and take an inventory:
+När du har klargjort dina kommunikations och nätverkskrav kan börja du tänka på de virtuella datorer som du vill skapa. En bra plan är att välja en server och undersöka följande punkter:
 
-- What does the server communicate with?
-- What ports are open?
-- What OS is used?
-- How much disk space is in use?
-- What kind of data does this use? Are there restrictions (legal or otherwise) with not having it on-premises?
-- What sort of CPU, memory, and disk I/O load does the server have? Is there burst traffic to account for?
+- Vad kommunicerar servern med?
+- Vilka portar är öppna?
+- Vilket operativsystem används?
+- Hur mycket diskutrymme används?
+- Vilken typ av data använder detta? Finns det begränsningar (juridiska eller andra) förknippat med att den inte är lokal?
+- Vilken typ av processor, minne och diskens I/O-belastning har servern? Finns det burst-trafik att ta hänsyn till?
 
-We can then start to answer some of the questions Azure will have for a new virtual machine.
+Vi kan sedan börja besvara några frågor som Azure har för en ny virtuell dator.
 
 <a name="Name_VM" />
 
-### Name the VM
+### <a name="name-the-vm"></a>Namnge den virtuella datorn
 
-One piece of information people often don't put much thought into is the **name** of the VM. The VM name is used as the computer name, which is configured as part of the operating system. You can specify a name of up to 15 characters on a Windows VM and 64 characters on a Linux VM.
+En sak som det ofta inte läggs så stor vikt vid är **namnet** för den virtuella datorn. Den virtuella datorns namn används som datornamn, vilket konfigureras som en del av operativsystemet. Du kan ange ett namn på upp till 15 tecken på en virtuell Windows-dator och 64 tecken på en virtuell Linux-dator.
 
-This name also defines a manageable **Azure resource**, and it's not trivial to change later. That means you should choose names that are meaningful and consistent, so you can easily identify what the VM does. A good convention is to include the following information in the name:
+Det här namnet definierar även en hanterbar **Azure-resurs**, och det är inte helt enkelt att ändra senare. Det betyder att du bör välja namn som är meningsfulla och konsekventa så att du lätt kan identifiera vad den virtuella datorn gör. En bra regel är att inkludera följande information i namnet:
 
-| Element | Example | Notes |
+| Element | Exempel | Anteckningar |
 | --- | --- | --- |
-| Environment |dev, prod, QA |Identifies the environment for the resource |
-| Location |uw (US West), ue (US East) |Identifies the region into which the resource is deployed |
-| Instance |01, 02 |For resources that have more than one named instance (web servers, etc.) |
-| Product or Service |service |Identifies the product, application, or service that the resource supports |
-| Role |sql, web, messaging |Identifies the role of the associated resource | 
+| Miljö |dev, prod, QA |Identifierar miljön för resursen |
+| Plats |uw (USA, västra), ue (USA, östra) |Identifierar den region som resursen distribueras till |
+| Instans |01, 02 |För resurser som har mer än en namngiven instans (webbservrar osv.) |
+| Produkt eller tjänst |tjänst |Identifierar den produkt, det program eller den tjänst som resursen har stöd för |
+| Roll |sql, webb, meddelanden |Identifierar rollen för den associerade resursen | 
 
-For example, `devusc-webvm01` might represent the first development web server hosted in the US South Central location. 
+Till exempel kan `devusc-webvm01` representera den första utvecklingswebbservern som finns på platsen USA, södra centrala. 
 
-#### What is an Azure resource?
+#### <a name="what-is-an-azure-resource"></a>Vad är en Azure-resurs?
 
-An **Azure resource** is a manageable item in Azure. Just like a physical computer in your datacenter, VMs have several elements that are needed to do their job:
+En **Azure-resurs** är ett hanterbart objekt i Azure. Precis som en fysisk dator i datacentret har virtuella datorer flera element som behövs för att de ska kunna utföra sitt arbete:
 
-- The VM itself
-- Storage account for the disks
-- Virtual network (shared with other VMs and services)
-- Network interface to communicate on the network
-- Network Security Group(s) to secure the network traffic
-- Public Internet address (optional)
+- Själva den virtuella datorn
+- Lagringskonto för diskarna
+- Virtuellt nätverk (delat med andra virtuella datorer och tjänster)
+- Nätverksgränssnitt för att kommunicera på nätverket
+- Nätverkssäkerhetsgrupper för att skydda nätverkstrafiken
+- Offentlig Internet-adress (valfritt)
 
-Azure will create all of these resources if necessary, or you can supply existing ones as part of the deployment process. Each resource needs a name that will be used to identify it. If Azure creates the resource, it will use the VM name to generate a resource name - another reason to be very consistent with your VM names!
+Azure skapar alla dessa resurser vid behov, eller så kan du ange befintliga resurser som en del av distributionsprocessen. Varje resurs måste ha ett namn som används för att identifiera den. Om Azure skapar resursen används den virtuella datorns namn för att generera ett resursnamn – ytterligare en orsak att vara mycket konsekvent med dina VM-namn!
 
 <a name="VM_Location" />
 
-### Decide the location for the VM
+### <a name="decide-the-location-for-the-vm"></a>Välja plats för den virtuella datorn.
 
-Azure has datacenters all over the world filled with servers and disks. These datacenters are grouped into geographic _regions_ ('West US', 'North Europe', 'Southeast Asia', etc.) to provide redundancy and availability.
+Azure har datacenter över hela världen fyllda med servrar och diskar. Dessa datacenter är grupperade i geografiska _regioner_ (”USA, västra”, ”Europa, norra”, ”Sydostasien” osv.) för att ge redundans och tillgänglighet.
 
-When you create and deploy a virtual machine, you must select a region where you want the resources (CPU, storage, etc.) to be allocated. This lets you place your VMs as close as possible to your users to improve performance and to meet any legal, compliance, or tax requirements.
+När du skapar och distribuerar en virtuell dator måste du välja en region där du vill att resurserna (CPU, lagring osv.) ska allokeras. På så sätt kan du placera dina virtuella datorer så nära användarna som möjligt för att förbättra prestanda och för att uppfylla juridiska krav, efterlevnadskrav eller skattemässiga krav.
 
 <a name="VM_Size" />
 
-### Determine the size of the VM
+### <a name="determine-the-size-of-the-vm"></a>Välja storlek på den virtuella datorn
 
-Once you have the name and location set, you need to decide on the size of your VM. Rather than specify processing power, memory, and storage capacity independently, Azure provides different _VM sizes_ that offer variations of these elements in different sizes. Azure provides a wide range of VM size options allowing you to select the appropriate mix of compute, memory, and storage for what you want to do.
+När du har valt namn och plats måste du bestämma storleken på den virtuella datorn. I stället för att välja beräkningskapacitet, minne och lagringskapacitet oberoende av varandra tillhandahåller Azure olika _VM-storlekar_ som erbjuder varianter av dessa element i olika storlekar. Azure tillhandahåller ett brett utbud av VM-storleksalternativ så att du kan välja den lämpligaste kombinationen av beräkning, minne och lagring för det du vill utföra.
 
-The best way to determine the appropriate VM size is to consider the type of workload your VM needs to run. Based on the workload, you're able to choose from a subset of available VM sizes. Workload options are classified as follows on Azure:
+Det bästa sättet att fastställa rätt VM-storlek är att tänka på vilken typ av arbetsbelastning den virtuella datorn ska köra. Baserat på arbetsbelastningen kan du välja bland en delmängd av tillgängliga VM-storlekar. Alternativ för arbetsbelastningar klassificeras på följande sätt i Azure:
 
-| Option              | Description |
+| Alternativ              | Beskrivning |
 |---------------------|-------------|
-| **General purpose** | General-purpose VMs are designed to have a balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
-| **Compute optimized** | Compute optimized VMs are designed to have a high CPU-to-memory ratio. Suitable for medium traffic web servers, network appliances, batch processes, and application servers. |
-| **Memory optimized** | Memory optimized VMs are designed to have a high memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics. |
-| **Storage optimized** | Storage optimized VMs are designed to have high disk throughput and IO. Ideal for VMs running databases. |
-| **GPU** | GPU VMs are specialized virtual machines targeted for heavy graphics rendering and video editing. These VMs are ideal options for model training and inferencing with deep learning. |
-| **High performance computes** | High performance compute is the fastest and most powerful CPU virtual machines with optional high-throughput network interfaces. |
+| **Generell användning** | Virtuella datorer för generell användning är avsedda att ha ett balanserat förhållande CPU-till-minne. Utmärkt för testning och utveckling, små till medelstora databaser och webbservrar med låg till medelhög trafik. |
+| **Beräkningsoptimerad** | Beräkningsoptimerade virtuella datorer är avsedda att ha ett högt förhållande CPU-till-minne. Lämpliga för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar. |
+| **Minnesoptimerad** | Minnesoptimerade virtuella datorer är avsedda att ha ett högt förhållande minne-till-CPU. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser. |
+| **Lagringsoptimerad** | Lagringsoptimerade virtuella datorer är utformade för att ha högt diskgenomflöde och I/O. Perfekt för virtuella datorer som kör databaser. |
+| **GPU** | Virtuella GPU-datorer är specialiserade virtuella datorer som är avsedda för krävande grafikrendering och videoredigering. Dessa virtuella datorer är ett perfekt alternativ för modellträning och inferensjobb med djupinlärning. |
+| **Databehandling med höga prestanda** | Databehandling med höga prestanda är virtuella datorer med snabbaste och mest kraftfulla processorerna med valfria nätverksgränssnitt för högt genomflöde. |
 
-You're able to filter on the workload type when you configure the VM size in the Azure. The size you choose directly affects the cost of your service. The more CPU, memory, and GPU you need, the higher the price point.
+Du kan filtrera på arbetsbelastningstyp när du konfigurerar VM-storlek i Azure. Den storlek du väljer påverkar direkt kostnaden för tjänsten. Ju mer processorkraft, minne och GPU du behöver, desto högre blir prisnivån.
 
 <a name="VM_Cost" />
 
-### Understanding the pricing model
+### <a name="understanding-the-pricing-model"></a>Förstå prismodellen
 
-There are two separate costs the subscription will be charged for every VM: compute and storage.
+Det finns två separata kostnader som prenumerationen kommer att debiteras för varje virtuell dator: beräkning och lagring.
 
-**Compute costs** - Compute expenses are priced on a per-hour basis but billed on a per-minute basis. For example, you are only charged for 55 minutes of usage if the VM is deployed for 55 minutes. You are not charged for compute capacity if you stop and deallocate the VM since this releases the hardware. The hourly price varies based on the VM size and OS you select. The cost for a VM includes the charge for the Windows operating system. Linux-based instances are cheaper because there is no operating system license charge.
+**Beräkningskostnader** – beräkningsutgifter prissätts per timme men debiteras per minut. Till exempel debiteras du bara för 55 minuters användning om den virtuella datorn har körts i 55 minuter. Du debiteras inte för beräkningskapacitet om du stoppar och frigör den virtuella datorn eftersom detta frigör maskinvaran. Priset per timme varierar beroende på VM-storleken och det operativsystem du väljer. Kostnaden för en virtuell dator innefattar priset för Windows-operativsystemet. Linux-baserade instanser är billigare eftersom de inte medför någon licensavgift för operativsystemet.
 
 > [!TIP]
-> You might be able to save money by reusing existing licenses for Windows with the **Azure Hybrid benefit**.
+> Du kan kanske spara pengar genom att återanvända befintliga licenser för Windows med **Azure Hybrid-förmånen**.
 
-**Storage costs** - You are charged separately for the storage the VM uses. The status of the VM has no relation to the storage charges that will be incurred; even if the VM is stopped/deallocated and you aren’t billed for the running VM, you will be charged for the storage used by the disks.
+**Lagringskostnader** – Du debiteras separat för den lagring som den virtuella datorn använder. Status för den virtuella datorn har ingen relation till de lagringsdebiteringar som sker; även om den virtuella datorn stoppas/frigörs och du inte debiteras för den virtuella dator som körs kommer du att debiteras för det lagringsutrymme som används av diskarna.
 
-You're able to choose from two payment options for compute costs.
+Du kan välja mellan två betalningsalternativ för beräkningskostnaderna.
 
-| Option | Description |
+| Alternativ | Beskrivning |
 |--------|-------------|
-| **Pay as you go** | With the **pay-as-you-go** option, you pay for compute capacity by the second, with no long-term commitment or upfront payments. You're able to increase or decrease compute capacity on demand as well as start or stop at any time. Prefer this option if you run applications with short-term or unpredictable workloads that cannot be interrupted. For example, if you are doing a quick test, or developing an app in a VM, this would be the appropriate option. |
-| **Reserved Virtual Machine Instances** | The Reserved Virtual Machine Instances (RI) option is an advance purchase of a virtual machine for one or three years in a specified region. The commitment is made up front, and in return, you get up to 72% price savings compared to pay-as-you-go pricing. **RIs** are flexible and can easily be exchanged or returned for an early termination fee. Prefer this option if the VM has to run continuously, or you need budget predictability, **and** you can commit to using the VM for at least a year. |
+| **Betala per användning** | Med alternativet **betala per användning** kan du betala för beräkningskapaciteten per sekund, utan långsiktiga åtaganden eller förskottsbetalning. Du kan öka eller minska beräkningskapacitet på begäran samt starta eller stoppa när som helst. Överväg det här alternativet om du kör program med kortsiktiga eller oförutsägbara arbetsbelastningar som inte får avbrytas. Om du till exempel gör ett snabbtest eller utvecklar en app på en virtuell dator är detta ett lämpligt alternativ. |
+| **Reserverade VM-instanser** | Alternativet Reserverade VM-instanser (RI) är ett förköp av en virtuell dator för ett eller tre år i en specifik region. Åtagandet görs i förväg och i utbyte får du upp till 72 % lägre avgifter jämfört med priser för betala per användning. **RI** är flexibla och kan enkelt bytas ut eller returneras mot en avgift för tidig uppsägning. Överväg det här alternativet om den virtuella datorn måste köras kontinuerligt eller om du behöver förutsägbara avgifter **och** du kan åta dig att använda den virtuella datorn minst ett år. |
 
 <a name="VM_Storage" />
 
-### Storage for the VM
+### <a name="storage-for-the-vm"></a>Lagring för den virtuella datorn
 
-All Azure virtual machines will have at least two virtual hard disks (VHDs). The first disk stores the operating system, and the second is used as temporary storage. You can add additional disks to store application data; the maximum number is determined by the VM size selection (typically two per CPU). It's common to create one or more data disks, particularly since the OS disk tends to be quite small. Also, separating out the data to different VHDs allows you to manage the security, reliability, and performance of the disk independently.
+Alla virtuella Azure-datorer har minst två virtuella hårddiskar (VHD). Den första disken lagrar operativsystemet och andra används som tillfällig lagring. Du kan lägga till ytterligare diskar för att lagra programdata; det maximala antalet bestäms av valet för VM-storlek (vanligtvis två per processor). Det är vanligt att skapa en eller flera datadiskar, särskilt eftersom operativsystemdisken tenderar att vara ganska liten. Genom att dela upp data på flera virtuella hårddiskar kan du hantera säkerheten, tillförlitligheten och prestanda för en disk oberoende av de andra diskarna.
 
-The data for each VHD is held in **Azure Storage** as page blobs, which allows Azure to allocate space only for the storage you use. It's also how your storage cost is measured; you pay for the storage you are consuming.
+Data för varje VHD lagras i **Azure Storage** som sidblobbar, vilket gör att Azure kan tilldela utrymme bara för den lagring du använder. Det är även så din lagringskostnad mäts; du betalar för den lagring som du förbrukar.
 
-#### What is Azure Storage?
+#### <a name="what-is-azure-storage"></a>Vad är Azure Storage?
 
-Azure Storage is Microsoft's cloud-based data storage solution. It supports almost any type of data and provides security, redundancy, and scalable access to the stored data. A storage account provides access to objects in Azure Storage for a specific subscription. VMs always have one or more storage accounts to hold each attached virtual disk.
+Azure Storage är Microsofts molnbaserade lösning för datalagring. Den har stöd för nästan alla typer av data och ger säkerhet, redundans och skalbar åtkomst till lagrade data. Ett lagringskonto ger åtkomst till objekt i Azure Storage för en viss prenumeration. Virtuella datorer har alltid ett eller flera lagringskonton för att hantera varje ansluten virtuell disk.
 
-Virtual disks can be backed by either **Standard** or **Premium** Storage accounts. Azure Premium Storage leverages solid-state drives (SSDs) to enable high performance and low latency for VMs running I/O-intensive workloads. Use Azure Premium Storage for production workloads, especially those that are sensitive to performance variations or are I/O intensive. For development or testing, Standard storage is fine.
+Virtuella diskar kan backas av antingen **Standard** eller **Premium** Storage-konton. Azure Premium Storage använder SSD-diskar för att ge höga prestanda och kort svarstid för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Använd Azure Premium Storage för produktionsarbetsbelastningar, särskilt de som är känsliga för variationer eller är I/O-intensiva. För utveckling och testning räcker det med Standard-lagring.
 
-When you create disks, you will have two options for managing the relationship between the storage account and each VHD. You can choose either **unmanaged disks** or **managed disks**.
+När du skapar diskar har du två alternativ för att hantera relationen mellan lagringskontot och varje VHD. Du kan välja antingen **ohanterade diskar** eller **hanterade diskar**.
 
-| Option | Description |
+| Alternativ | Beskrivning |
 |--------|-------------|
-| **Unmanaged disks** | With unmanaged disks, you are responsible for the storage accounts that are used to hold the VHDs that correspond to your VM disks. You pay the storage account rates for the amount of space you use. A single storage account has a fixed-rate limit of 20,000 I/O operations/sec. This means that a storage account is capable of supporting 40 standard virtual hard disks at full utilization. If you need to scale out with more disks, then you'll need more storage accounts, which can get complicated. |
-| **Managed disks** | Managed disks are the **newer and recommended disk storage model**. They elegantly solve this complexity by putting the burden of managing the storage accounts onto Azure. You specify the size of the disk, up to 4 TB, and Azure creates and manages both the disk _and_ the storage. You don't have to worry about storage account limits, which makes managed disks easier to scale out. |
+| **Ohanterade diskar** | Med ohanterade diskar ansvarar du för de lagringskonton som används för att lagra de virtuella hårddiskar som motsvarar diskarna på din virtuella dator. Du betalar lagringskontoavgifter för den mängd utrymme du använder. Ett lagringskonto har en fast gräns på 20 000 I/O-åtgärder per sekund. Det betyder att ett lagringskonto kan hantera 40 virtuella standardhårddiskar vid maximal användning. Om du behöver skala ut med fler diskar behöver du fler lagringskonton, vilket kan vara komplicerat. |
+| **Hanterade diskar** | Hanterade diskar är den **nyare och rekommenderade disklagringsmodellen**. De löser elegant den här komplexiteten genom att lägga ansvaret för hanteringen av lagringskonton på Azure. Du anger storleken på disken, upp till 4 TB, så skapar och hanterar Azure både disken _och_ lagringen. Du behöver inte bekymra dig om begränsningar i lagringskontot, vilket gör hanterade diskar lättare att skala ut. |
 
 <a name="VM_OS" />
 
-### Select an operating system
+### <a name="select-an-operating-system"></a>Välja ett operativsystem
 
-Azure provides a variety of OS images that you can install into the VM, including several versions of Windows and flavors of Linux. As mentioned earlier, the choice of OS will influence your hourly compute pricing as Azure bundles the cost of the OS license into the price.
+Azure erbjuder en mängd olika OS-avbildningar som du kan installera på den virtuella datorn, inklusive flera versioner av Windows och varianter av Linux. Såsom nämnts tidigare påverkar valet av operativsystem det timbaserade beräkningspriset eftersom Azure tar med kostnaden för OS-licensen i priset.
 
-If you are looking for more than just base OS images, you can search the Azure Marketplace for more sophisticated install images that include the OS and popular software tools installed for specific scenarios. For example, if you needed a new WordPress site, the standard technology stack would consist of a Linux server, Apache web server, a MySQL database, and PHP. Instead of setting up and configuring each component, you can leverage a Marketplace image and install the entire stack all at once.
+Om du vill ha mer än bara grundläggande OS-avbildningar kan du söka på Azure Marketplace efter mer avancerade installationsavbildningar som innehåller operativsystemet och populära programvaruverktyg som installeras för specifika scenarier. Om du till exempel behöver en ny WordPress-webbplats skulle standardteknikstacken bestå av en Linux-server, en Apache-webbserver, en MySQL-databas samt PHP. I stället för att installera och konfigurera varje komponent kan du utnyttja en Marketplace-avbildning och installera hela stacken på en gång.
 
-Finally, if you can't find a suitable OS image, you can create your disk image with what you need, upload it to Azure storage, and use it to create an Azure VM. Keep in mind that Azure only supports 64-bit operating systems.
+Om du inte hittar en lämplig OS-avbildning kan du skapa diskavbildningen med det du behöver, ladda upp den till Azure Storage och använda den för att skapa en virtuell Azure-dator. Tänk på att Azure endast stöder 64-bitars operativsystem.

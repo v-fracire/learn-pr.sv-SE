@@ -1,66 +1,68 @@
-Lets' assume you're using an on-premises PostgreSQL database. You're managing all security aspects and locked down all access to your servers using the standard PostgreSQL server level firewall rules. You now have a good understanding of how to configure the same server level firewall rules in Azure.
+Anta att du använder en lokal PostgreSQL-databas. Du hanterar alla säkerhetsaspekter och låser all åtkomst till dina servrar med brandväggsregler på PostgreSQL-standardservernivå. Nu har du goda kunskaper om hur du konfigurerar brandväggsregler på samma servernivå i Azure.
 
-You now have the chance to connect to one of the previous Azure Databases for PostgreSQL servers you created using `psql`.
+Nu har du chansen att ansluta till någon av de tidigare Azure-databaserna för PostgreSQL-servrar du har skapat med `psql`.
 
-## Allow Azure service access
+## <a name="allow-azure-service-access"></a>Tillåta åtkomst till Azure-tjänst
 
-Before we begin. You'll have to allow access to Azure services if you want to use PowerShell and `psql` to connect to your server. Recall, that you can allow access in two ways.
+Innan vi börjar. Du måste tillåta åtkomst till Azure-tjänster om du vill använda PowerShell och `psql` för att ansluta till din server. Kom ihåg att du kan tillåta åtkomst på två sätt.
 
-Your first option is to enable **Allow access to Azure services**. Allowing access will create a firewall rule even though the rule isn't entered in the list of custom rules you create.
+Ditt första alternativ är att aktivera **Allow access to Azure services** (Tillåt åtkomst till Azure-tjänster). Om du tillåter åtkomst skapas en brandväggsregel även om regeln inte finns med på listan över anpassade regler som du skapar.
 
-Your second option is to create a firewall rule that allows access to all IP addresses. The rule will include the IP address for the client running PowerShell that you'll use to execute `psql` from.
+Ditt andra alternativ är att skapa en brandväggsregel som tillåter åtkomst till alla IP-adresser. Regeln innehåller IP-adressen för den klient som kör PowerShell som du använder för att köra `psql` från.
 
-You also need to disable the **Enforce SSL connection**.
+Du måste också inaktivera **Framtvinga SSL-anslutning**.
 
-Let's begin.
+Nu sätter vi igång.
 
-Sign in to [the Azure portal](https://portal.azure.com?azure-portal=true). Navigate to the server resource for which you would like to create a firewall rule.
+Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true). Gå till serverresursen du vill skapa en brandväggsregel för.
 
-Select the **Connection Security** option to open the connection security blade to the right.
+Välj alternativet **Anslutningssäkerhet** för att öppna bladet Anslutningssäkerhet till höger.
 
-![Screenshot of the Azure portal showing the Connection security section of the PostgreSQL database resource blade.](../media-draft/7-db-security-settings.png)
+![Säkerhetsinställningar för PostgreSQL-databas](../media-draft/7-db-security-settings.png)
 
-Recall, you want to allow access to PowerShell clients running `psql`.
+Kom ihåg att du inte vill tillåta åtkomst till PowerShell-klienter som kör `psql`.
 
-You can choose to either:
+Du kan välja att antingen:
 
-- Set **Allow access to Azure services** to **ON**
-- Set **Enforce SSL connection** to **DISABLED**
-- Click the **Save** button to save your changes
+- Ställ in **Allow access to Azure services** (Tillåt åtkomst till Azure-tjänster) på **PÅ**
+- Ställ in **Framtvinga SSL-anslutning** på **INAKTIVERAD**
+- Klicka på knappen **Spara** för att spara ändringarna
 
-Or, you can add a firewall rule to allow access to all IP addresses by adding a firewall rule. Use the following values:
+Eller så kan du lägga till en brandväggsregel för att tillåta åtkomst till alla IP-adresser genom att lägga till en brandväggsregel. Ange följande värden:
 
-- Rule Name: `AllowAll`
-- Start IP: `0.0.0.0`
-- End IP: `255.255.255.255`
-- Set **Enforce SSL connection** to **DISABLED**
-- Click the **Save** button to save your changes
+- Regelnamn: `AllowAll`
+- Start-IP: `0.0.0.0`
+- Slut-IP: `255.255.255.255`
+- Ställ in **Framtvinga SSL-anslutning** på **INAKTIVERAD**
+- Klicka på knappen **Spara** för att spara ändringarna
 
 > [!Warning]
-> Creating this firewall rule will allow any IP address on the Internet to attempt to connect to your server. Even though clients will not be able access the server without the username and password, enable this rule with caution and make sure you understand the security implications. In production environments, you'll only allow access to specific client IP addresses.
+> Om du skapar den här brandväggsregeln får alla IP-adresser på Internet tillåtelse att försöka ansluta till din server. Trots att klienter inte får åtkomst till servern utan användarnamnet och lösenordet ska du aktivera den här regeln med försiktighet och kontrollera att du förstår säkerhetsriskerna. I produktionsmiljöer tillåter du endast åtkomst till specifika IP-adresser.
 
-For the next steps, you'll start an Azure Cloud Shell session. This lab uses `bash` as the command-line environment.
+För nästa steg startar du en Azure Cloud Shell-session. I den här labbuppgiften används `bash` som kommandoradsmiljö.
 
-- Open the Cloud Shell from the Azure portal. Go to [Azure portal](https://portal.azure.com?azure-portal=true) and click the Open Cloud Shell button:
+- Öppna Open Shell från Azure-portalen. Gå till [Azure-portalen ](https://portal.azure.com?azure-portal=true) och klicka på Open Cloud Shell-knappen:
 
-- In case you have several subscriptions, check to make sure you're using the correct subscription when asked. You can also run the following command to set the active subscription. Remember to replace the zeros with your subscription identifier.
+  ![Cloud Shell-knapp](../media-draft/cloud-shell-button.png)
+
+- Om du har flera prenumerationer kontrollerar du att du använder rätt prenumeration när du blir ombedd. Du kan även köra följande kommando för att ange den aktiva prenumerationen. Kom ihåg att ersätta nollorna med ditt prenumerations-ID.
 
    ```bash
    az account set --subscription 00000000-0000-0000-0000-000000000000
    ```
 
-- Connect psql to your server using the following command:
+- Anslut psql till din server med följande kommando:
 
   ```bash
   psql --host=<server-name>.postgres.database.azure.com --username=<admin-user>@<server-name> --dbname=postgres
   ```
 
-   Recall, `server-name`, and `admin-user` are the values you chose for the administrator account when you created the server. `postgres` is the default management database every PostgreSQL server is created with. You'll be prompted for the password you provided when you created the server.
+   Kom ihåg att `server-name` och `admin-user` är värdena du valde för administratörskontot när du skapade servern. `postgres` är standarddatabasen för hantering som varje PostgreSQL-server skapas med. Du blir uppmanad att ange lösenordet som du angav när du skapade servern.
 
-- Once successfully connected, execute the `\l` command to list all databases.
+- När du är ansluten kör du kommandot `\l` för att lista alla databaser.
 
-   This command will result in two or more default databases returned from.
+   Det här kommandot leder till två eller fler standarddatabaser som returneras.
 
-- When you're finished executing psql operations on your server, execute the command `\q` to quit `psql`.
+- När du är klar med att köra psql-åtgärder på servern kör du kommandot `\q` för att avsluta `psql`.
 
-- Finally, to exit Cloud Shell, execute the command `exit`.
+- För att till slut avsluta Cloud Shell kör du kommandot `exit`.

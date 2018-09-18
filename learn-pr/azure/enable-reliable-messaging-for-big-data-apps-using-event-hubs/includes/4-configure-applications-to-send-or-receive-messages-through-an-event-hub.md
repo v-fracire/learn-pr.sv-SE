@@ -27,7 +27,7 @@ Om du har en mottagarapp som lagrar meddelanden i Azure Blob Storage måste du o
 
 ## <a name="the-azure-cli-commands-for-creating-a-general-purpose-standard-storage-account"></a>Azure CLI-kommandon för att skapa ett allmänt standardlagringskonto
 
-1. Skapa lagringskontot (generell användning V2) i din resursgrupp och på samma Azure-datacenterplats som du använde när du skapade resursgruppen.
+1. Skapa ett V2-lagringskonto för generell användning i din resursgrupp och på samma Azure-datacenterplats som du använde när du skapade resursgruppen.
 
     ```azurecli
     az storage account create --name <storage account name> --resource-group <resource group name> --location <location> --sku Standard_RAGRS --encryption blob

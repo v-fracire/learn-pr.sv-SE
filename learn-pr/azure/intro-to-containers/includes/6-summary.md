@@ -1,7 +1,7 @@
-You have now learned the basics of working with containers. You have installed Docker, which lets you create and run images on your local Windows, MacOS, or Linux computer. Then you learned some basic Docker commands. And finally, you created your own images and learned how to store them in Docker Hub.
+Nu har du lärt dig grunderna i att arbeta med containrar. Du har installerat Docker, som gör att du kan skapa och köra avbildningar på din lokala dator med Windows, MacOS eller Linux. Efter det har du lärt dig några grundläggande Docker-kommandon. Och slutligen skapade du dina egna avbildningar och lärde dig att lagra dem i Docker Hub.
 
-## Additional resources
+## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Learn more about Docker](https://www.docker.com/)
-- [Learn about Docker for Azure](https://docs.docker.com/docker-for-azure/)
-- [Learn more about Docker Hub](https://hub.docker.com/)
+- [Mer information om Docker](https://www.docker.com/)
+- [Lär dig mer om Docker för Azure](https://docs.docker.com/docker-for-azure/)
+- [Mer information om Docker Hub](https://hub.docker.com/)

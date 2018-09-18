@@ -1,103 +1,103 @@
-In this exercise, you will use the Azure portal to create a virtual machine scale set with rules for autoscaling.
+I den här övningen använder du Azure Portal till att skapa en VM-skalningsuppsättning med regler för automatisk skalning.
 
-## Create a virtual machine scale set
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
-1. In the Azure portal, click **Create a resource**.
+1. Klicka på **Skapa en resurs** i Azure Portal.
 
-1. In the search box, type **scale set** and press ENTER. In the **Results** blade, click **Virtual machine scale set**, and in the **Virtual machine scale set** blade, click **Create**.
+1. I sökrutan skriver du **skalningsuppsättning** och trycker på Retur. På bladet **Resultat** klickar du på **VM-skalningsuppsättning**, och på bladet **VM-skalningsuppsättningar** klickar du på **Skapa**.
 
-1. In the **Create virtual machine scale set** blade, enter the following values (replacing `<your initials>`, `<date>`, and `<time>` with relevant data), and then click **Create**.
+1. På bladet **Skapa VM-skalningsuppsättningar** anger du följande värden (byt ut `<your initials>`, `<date>` och `<time>` mot relevanta data) och klickar sedan på **Skapa**.
 
-    |Setting|Value|
+    |Inställning|Värde|
     |---|---|
-    |Virtual machine scale set name|WebServerSS|
-    |Resource group|Use existing - ExerciseRG|
-    |Username|LocalAdmin|
-    |Password and Confirm password|Adm1nPa$$word|
-    |Instance count|2|
-    |Instance size|D2s_v3|
-    |Choose load balancing options|Load balancer|
-    |Public IP address name|WebServerPubIP|
-    |Domain name label|`<your initials><date><time>` (for example ja0904181202)|
+    |Namn på VM-skalningsuppsättning|WebServerSS|
+    |Resursgrupp|Använd befintlig – ExerciseRG|
+    |Användarnamn|LocalAdmin|
+    |Lösenord och Bekräfta lösenord|Adm1nPa$$word|
+    |Antal instanser|2|
+    |Instansstorlek|D2s_v3|
+    |Välj alternativ för belastningsutjämning|Lastbalanserare|
+    |Offentlig IP-adress|WebServerPubIP|
+    |Domännamnsetikett|`<your initials><date><time>` (till exempel ja0904181202)|
 
-1. Wait for the scale set to be created.
+1. Vänta tills skalningsuppsättningen har skapats.
 
-1. Navigate to the **ExerciseRG** resource group. In the **ExerciseRG** blade, click the **WebServerSS** object, and in the **WebServerSS** blade, click **Instances**. Note the two virtual machine instances running within the scale set.
+1. Navigera till resursgruppen **ExerciseRG**. På bladet **ExerciseRG** klickar du på objektet **WebServerSS**, och på bladet **WebServerSS** klickar du på **Instanser**. Lägg märke till de två VM-instanser som körs i skalningsuppsättningen.
 
-## Create and apply autoscale rules
+## <a name="create-and-apply-autoscale-rules"></a>Skapa och använda regler för automatisk skalning
 
-1. In the **WebServerSS** blade, click **Scaling**. On the **WebServerSS - Scaling** blade, click **Enable autoscale**.
+1. På bladet **WebServerSS** klickar du på **Skalning**. På bladet **WebServerSS – Skalning** klickar du på **Aktivera autoskalning**.
 
-1. On the **WebServerSS - Scaling** blade, click **Add a rule**.
+1. På bladet **WebServerSS – Skalning** klickar du på **Lägg till en regel**.
 
-1. In the Scale rule blade, enter the following information to create a rule to scale out an extra two virtual machines when average CPU usage is more than 75% over a five-minute period, and then click **Add**.
+1. På bladet Skalningsregel anger du följande information, så att du skapar en regel som skalar ut med två extra virtuella datorer när den genomsnittliga processoranvändningen är mer än 75 % i fem minuter, och klickar sedan på **Lägg till**.
 
-    |Setting|Value|
+    |Inställning|Värde|
     |---|---|
-    |Time aggregation|Average|
-    |Metric name|Percentage CPU|
-    |Time grain statistic|Average|
-    |Operator|Greater than|
-    |Threshold|75|
-    |Duration (in minutes)|5|
-    |Operation|Increase count by|
-    |Instance count|2|
-    |Cool down (minutes)|5|
+    |Tidsmängd|Medelvärde|
+    |Måttnamn|Processorprocentandel|
+    |Tidsintervallstatistik|Medelvärde|
+    |Operator|Större än|
+    |Tröskelvärde|75|
+    |Varaktighet (i minuter)|5|
+    |Åtgärd|Öka antalet med|
+    |Antal instanser|2|
+    |Väntetid (minuter)|5|
 
-1. On the **WebServerSS - Scaling** blade, click **Add a rule**.
+1. På bladet **WebServerSS – Skalning** klickar du på **Lägg till en regel**.
 
-1. In the Scale rule blade, enter the following information to create a rule to scale in one server at a time when average CPU usage is below 30% over a five-minute period, and then click **Add**.
+1. På bladet Skalningsregel anger du följande information, så att du skapar en regel som skalar ned med en server åt gången när den genomsnittliga processoranvändningen är mindre än 30 % i fem minuter, och klickar sedan på **Lägg till**.
 
-    |Setting|Value|
+    |Inställning|Värde|
     |---|---|
-    |Time aggregation|Average|
-    |Metric name|Percentage CPU|
-    |Time grain statistic|Average|
-    |Operator|Less than|
-    |Threshold|30|
-    |Duration (in minutes)|5|
-    |Operation|Decrease count by|
-    |Instance count|1|
-    |Cool down (minutes)|5|
+    |Tidsmängd|Medelvärde|
+    |Måttnamn|Processorprocentandel|
+    |Tidsintervallstatistik|Medelvärde|
+    |Operator|Mindre än|
+    |Tröskelvärde|30|
+    |Varaktighet (i minuter)|5|
+    |Åtgärd|Minska antalet med|
+    |Antal instanser|1|
+    |Väntetid (minuter)|5|
 
-1. On the **WebServerSS - Scaling** blade, in the **Autoscale setting name** box, type **WebAutoscaleSetting**. Next to **Instance limits**, set the following values and then click **Save**.
+1. På bladet **WebServerSS – Skalning**, i rutan **Namn på autoskalningsinställning**, skriver du **WebAutoscaleSetting**. Bredvid **Instansgränser** anger du följande värden och klickar sedan på **Spara**.
 
-    |Setting|Value|
+    |Inställning|Värde|
     |---|---|
     |Minimum|2|
-    |Maximum|8|
-    |Default|2|
+    |Maximal|8|
+    |Standard|2|
 
-## Generate load to demonstrate autoscaling
+## <a name="generate-load-to-demonstrate-autoscaling"></a>Generera belastning för att se den automatiska skalningen
 
-Now you will use the CPUStress.exe tool to generate load on the virtual machines in the scale set and demonstrate automatic scaling out.
+Nu ska du använda verktyget CPUStress.exe till att generera belastning på de virtuella datorerna i skalningsuppsättningen så att du ser den automatiska utskalningen.
 
-1. To determine the public IP address to connect to, browse to the **ExerciseRG** resource group. In the **ExerciseRG** blade, click the **WebServerSSlb** object.
+1. Du ser vilken offentliga IP-adress du ska ansluta till om du bläddrar till resursgruppen **ExerciseRG**. På bladet **ExerciseRG** klickar du på objektet **WebServerSSlb**.
 
-1. On the **WebServerSSlb** blade, click Frontend IP configuration and make a note of the public IP address shown. Close the **LoadBalancerFrontEnd** blade.
+1. På bladet **WebServerSSlb** klickar du på IP-konfiguration för klientdel och skriver ned den offentliga IP-adress som visas. Stäng bladet **LoadBalancerFrontEnd**.
 
-1. To determine the port number to connect to, on the **WebServerSSlb** blade, click **Inbound NAT rules**. Note down the custom port number in the Service column for each virtual machine.
+1. Du ser vilket portnummer du ska ansluta till om du går till bladet **WebServerSSlb** och klickar på **Ingående NAT-regler**. Skriv ned portnumret i kolumnen Tjänst för varje virtuell dator.
 
-1. On your local computer, start the **Remote Desktop Connection**. In the **Computer** box, type the public IP address of the load balancer, followed by a colon and then the port number value for Instance 0, (for example, 40.67.191.221:50000) and then click Connect.
+1. Starta **Anslutning till fjärrskrivbord** lokalt. I rutan **Dator** skriver du den offentliga IP-adressen till belastningsutjämnaren, följt av ett kolon och sedan portnumret för instans 0 (till exempel 40.67.191.221:50000). Klicka på Anslut.
 
-1. In the **Windows Security** dialog box, click **More choices**, click **Use a different account**, in the **User name** box type **LocalAdmin**, in the **Password** box type **Adm1nPa$$word**, and then click **OK**.
+1. I dialogrutan **Windows-säkerhet** klickar du på **Fler alternativ** och **Använd ett annat konto**. I rutan **Användarnamn** skriver du **LocalAdmin** och i rutan **Lösenord** skriver du **Adm1nPa$ word**. Klicka sedan på **OK**.
 
-1. In the **Remote Desktop Connection** dialog box, click **Yes**.
+1. I dialogrutan **Anslutning till fjärrskrivbord** klickar du på **Ja**.
 
-1. In the virtual machine remote desktop, open Internet Explorer, and in the **Set up Internet Explorer** dialog box, click **OK**.
+1. Öppna Internet Explorer på den virtuella datorns fjärrskrivbord. I dialogrutan **Konfigurera Internet Explorer** klickar du på **OK**.
 
-1. In **Internet Explorer**, in the address bar, type **http://download.sysinternals.com/files/CPUSTRES.zip** and press ENTER. In the **Internet Explorer** dialog box, click **Add**. In the **Trusted Sites** dialog box, click **Add** and then click **Close**.
+1. I adressfältet i **Internet Explorer** skriver du **http://download.sysinternals.com/files/CPUSTRES.zip** och trycker på Retur. I dialogrutan **Internet Explorer** klickar du på **Lägg till**. I dialogrutan **Betrodda platser** klickar du på **Lägg till** och sedan på **Stäng**.
 
-1. If the download prompt does not appear automatically, you may need to enter the URL again and press ENTER. In the **Internet Explorer** dialog box, click **Save**. Once the download is complete, click **Open folder**.
+1. Om nedladdningsprompten inte visas automatiskt kan du behöva ange webbadressen igen och trycka på Retur. I dialogrutan **Internet Explorer** klickar du på **Spara**. När nedladdningen är färdig klickar du på **Öppna mapp**.
 
-1. In the **Downloads** folder, double-click **CPUSTRES**, and then double-click the **CPUSTRES** application. In the **Compressed (zipped) folders** dialog box, click **Run**.
+1. I mappen **Hämtade filer** dubbelklickar du på **CPUSTRES** och sedan på programmet **CPUSTRES**. I dialogrutan **Komprimerade mappar** klickar du på **Kör**.
 
-1. In the **CPU Stress** window, under **Thread 1**, in the **Activity** drop-down, select **Maximum**. Under **Thread 2**, click the **Active** checkbox, and in the **Activity** drop-down, select **Maximum**.
+1. I fönstret **CPU Stress** (CPU-belastning) under **Thread 1** (Tråd 1) går du till listrutan **Activity** (Aktivitet) och väljer **Maximum** (Maximal). Under **Thread 2** (Tråd 2) markerar du kryssrutan **Active** (Aktiv) och i listrutan **Activity** (Aktivitet) väljer du **Maximum** (Maximal).
 
-1. Click the Start button, then click **Task Manager**. In Task Manager, click **More details**, and confirm that the CPU is over 75%.
+1. Klicka på knappen Start och sedan på **Aktivitetshanteraren**. I Aktivitetshanteraren klickar du på **Mer information** och kontrollerar att CPU-värdet är över 75 %.
 
-1. Repeat the installation and launch of **CPUSTRES** on the other virtual machine in the scale set and then wait for five minutes.
+1. Upprepa installationen och starten av **CPUSTRES** på den andra virtuella datorn i skalningsuppsättningen och vänta i fem minuter.
 
-1. In the Azure portal, browse to the **ExerciseRG** resource group, and in the **ExerciseRG** blade, click the **WebServerSS** object, and in the **WebServerSS** blade, click **Instances**. Note how many virtual machine instances are displayed within the scale set and the status.
+1. Bläddra till resursgruppen **ExerciseRG** i Azure Portal. Gå till bladet **ExerciseRG** och klicka på objektet **WebServerSS**. På bladet **WebServerSS** klickar du på **Instanser**. Notera hur många virtuella datorinstanser som visas i skalningsuppsättningen och deras status.
 
-Here, you created a virtual machine scale set with two virtual machines. You then created rules to automatically scale out and scale in the scale set and added the rules to an autoscale profile.
+Här har du skapat en VM-skalningsuppsättning med två virtuella datorer. Sedan skapade du regler för att automatiskt skala ut och skala in skalningsuppsättningen, och lade till reglerna i en profil för automatisk skalning.

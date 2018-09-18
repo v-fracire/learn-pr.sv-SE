@@ -9,12 +9,12 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: b1f1fd5afaa153340eee740bd0071fc8295c63e6
-  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.openlocfilehash: 2de603cd1ad3f12b84e27c922d0f04aab19fce07
+  ms.sourcegitcommit: b7b4489eb7352bcc722ed6c2ff27b70dd212e9c5
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/09/2018
-  ms.locfileid: "44245723"
+  ms.lasthandoff: 09/14/2018
+  ms.locfileid: "45621842"
 durationInMinutes: 10
 content: >
   [!include[](includes/3-design-for-security.md)]
@@ -29,23 +29,23 @@ quiz:
     - content: Finansiella data som stöd för verksamheten
       isCorrect: false
       incorrectExplanation: Det är viktigt att ge dessa data rätt säkerhetsskydd men det är inte det enda rätta valet.
-    - content: Data som innehåller immateriell egendom
+    - content: Immateriella rättigheter
       isCorrect: false
       incorrectExplanation: Det är viktigt att ge dessa data rätt säkerhetsskydd men det är inte det enda rätta valet.
     - content: Alla alternativ ovan kan behöva säkerhetsskydd
       isCorrect: true
       correctExplanation: Alla alternativ ovan kan ha ytterligare säkerhetsskydd.
-  - content: Vilket av följande är ett exempel på en attack du kan se på perimeternivå?
+  - content: Vilket av följande är ett exempel på en attack du kan se på princip- och åtkomstnivå?
     choices:
     - content: Exponerade autentiseringsuppgifter som publicerats online
-      isCorrect: false
-      incorrectExplanation: Exponerade autentiseringsuppgifter är en enorm risk för en organisation men är inte en perimeterattack.
-    - content: En SYN flood-attack
       isCorrect: true
-      correctExplanation: SYN flood-attacker är en typ av DoS-attack som ofta sker i nätverksperimetern.
-    - content: Door drafting för att komma in i ett datacenter
+      correctExplanation: Exponerade autentiseringsuppgifter är en enorm risk för en organisation och gäller på princip- och åtkomstnivå.
+    - content: En SYN flood-attack
       isCorrect: false
-      incorrectExplanation: Door drafting är en attack på den fysiska nivån.
+      incorrectExplanation: SYN flood-attacker är en typ av DoS-attack som ofta sker i nätverksperimetern.
+    - content: Följa efter en anställd in i ett datacenter utan at behöva ange autentiseringsuppgifter
+      isCorrect: false
+      incorrectExplanation: Att följa efter en anställd in i ett datacenter är ett angrepp på fysisk nivå.
     - content: Utpressningstrojaner som krypterar diskarna för en virtuell dator
       isCorrect: false
       incorrectExplanation: Utpressningstrojaner är en attack på VM-/beräkningsnivå.

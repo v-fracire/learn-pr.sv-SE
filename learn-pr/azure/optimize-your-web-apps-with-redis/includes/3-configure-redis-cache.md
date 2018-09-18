@@ -1,78 +1,69 @@
-Your sports statistics development team has decided that caching could dramatically improve performance for recently requested data. Your next step is to create and configure an Azure Redis Cache instance.
+Ditt utvecklingsteam för sportstatistik har kommit fram till att cachelagring avsevärt skulle kunna förbättra prestanda för nyligen begärda data. Nästa steg är att skapa och konfigurera en Azure Redis Cache-instans.
 
-## Create and configure the Azure Redis Cache instance
+## <a name="create-and-configure-the-azure-redis-cache-instance"></a>Skapa och konfigurera Azure Redis Cache-instansen
 
-You can create a Redis cache using the Azure portal, the Azure CLI, or Azure PowerShell. There are several parameters you will need to decide in order to configure the cache properly for your purposes.
+1. Öppna [Azure-portalen](https://portal.azure.com/?azure-portal=true) i webbläsaren.
 
-### Name
+1. Klicka på **Skapa en resurs**.
 
-The Redis cache will need a globally unique name. The name has to be unique within Azure because it is used to generate a public-facing URL to connect and communicate with the service.
+1. Sök efter **Redis Cache**.
 
-The name must be between 1 and 63 characters, composed of numbers, letters, and the '-' character. The cache name can't start or end with the '-' character, and consecutive '-' characters aren't valid.
+1. Klicka på **Skapa**.
 
-### Resource Group
+1. Du kan lägga till en Azure Redis Cache-instans från databasresurser i Azure Portal.
 
-The Azure Redis Cache is a managed resource and needs a _resource group_ owner. You can either create a new resource group, or use an existing one in a susbcription you are part of.
+1. Ange ett globalt unikt namn. Namnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och tecknet ”-”. Cachenamnet får inte inledas eller avslutas med tecknet ”-” eller ha flera ”-” i följd.
 
-### Location
+1. Ange prenumerationen där den nya Azure Redis Cache-instansen ska skapas.
 
-You will need to decide where the Redis cache will be physically located by selecting an Azure region. You should always place your cache instance and your application in the same region. Connecting to a cache in a different region can significantly increase latency and reduce reliability. If you are connecting to the cache outside of Azure, then select a location close to where the application consuming the data is running.
+1. Namnge den resursgrupp där du vill skapa din cache. Genom att samla alla resurser för en app i en grupp kan du hantera dem tillsammans.
 
-> [!IMPORTANT]
-> Put the Redis cache as close to the data _consumer_ as you can.
+1. Placera alltid din cacheinstans och ditt program i samma region/plats. Om du ansluter till en cache i en annan region kan latensen öka och tillförlitligheten minska avsevärt. Om du ansluter till cachen utanför Azure ska du välja en plats som ligger nära platsen där programmet som förbrukar data körs.
 
-### Pricing tier
+    > [!IMPORTANT]
+    > Det är mycket viktigare att cachen är nära datakonsumenten än datalagret.
 
-As mentioned in the last unit, there are three pricing tiers available for an Azure Redis Cache.
+1. Välj prisnivå. 
+    - Vi rekommenderar att du alltid använder Standard eller Premium-nivån för produktionssystem. Basic-nivån är ett system med en nod utan datareplikering och serviceavtal. Använd också minst ett C1-cacheminne. C0-cacheminnen är avsedda för enkla scenarier för utveckling/testning eftersom de har en delad processorkärna och mycket lite minne.
 
-- **Basic**: Basic cache ideal for development/testing. Is limited to a single server, 53 GB of memory, and 20,000 connections. There is no SLA for this service tier.
-- **Standard**: Production cache which supports replication and includes an 99.99% SLA. It supports two servers (master/slave), and has the same memory/connection limits as the Basic tier.
-- **Premium**: Enterprise tier which builds on the Standard tier and includes persistence, clustering, and scale-out cache support. This is the highest performing tier with up to 530 GB of memory and 40,000 simultaneous connections.
+    - Med Premium-nivån kan du bevara data på två sätt för att tillhandahålla katastrofåterställning:
 
-You can control the amount of cache memory available on each tier - this is selected by choosing a cache level from C0-C6 for Basic/Standard and P0-P4 for Premium. Check the [pricing page](https://azure.microsoft.com/en-us/pricing/details/cache/) for full details.
+        - RDB-persistens tar en periodisk ögonblicksbild och kan återskapa cachen med hjälp av ögonblicksbilden om fel uppstår.
 
-> [!TIP]
-> Microsoft recommends you always use Standard or Premium Tier for production systems. The Basic Tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are really meant for simple dev/test scenarios since they have a shared CPU core and very little memory.
+            ![Skärmbild av Azure Portal med alternativen för RDB-persistens på en ny Redis Cache-instans.](../media/3-redis-persistence-1.png)
 
-The Premium tier allows you to persist data in two ways to provide disaster recovery:
+        - AOF-persistens sparar alla skrivåtgärder till en logg som sparas minst en gång per sekund. Detta skapar större filer än RDB men har mindre dataförlust.
 
-1. RDB persistence takes a periodic snapshot and can rebuild the cache using the snapshot in case of failure.
+            ![Skärmbild av Azure Portal med alternativen för AOF-persistens på en ny Redis Cache-instans.](../media/3-redis-persistence-2.png)
 
-    ![Screenshot of the Azure portal showing the RDB persistence options on a new Redis cache instance.](../media/3-redis-persistence-1.png)
+    - Skydda din cache med ett virtuellt nätverk.
+      Om du har en Redis Cache på Premium-nivå kan du distribuera den till ett virtuellt nätverk i molnet. Cachen blir bara tillgänglig för andra virtuella datorer och program i samma virtuella nätverk.
 
-2. AOF persistence saves every write operation to a log that is saved at least once per second. This creates bigger files than RDB but has less data loss.
+    - Distribuera din cache med klustring.
+      Med en Redis Cache på Premium-nivå kan du implementera klustring för att automatiskt fördela din datamängd mellan flera noder. Implementera klustring genom att ange antalet shards till högst 10. Kostnaden som uppstår är kostnaden för den ursprungliga noden multiplicerat med antalet shards.
 
-    ![Screenshot of the Azure portal showing the AOF persistence options on a new Redis cache instance.](../media/3-redis-persistence-2.png)
+    - Migrera från Azure Managed Cache Service.
+      Beroende på vilka Managed Cache Service-funktioner du använder går det att migrera program som använder Azure Managed Cache Service till Azure Redis Cache med minimala ändringar i ditt program. API:erna inte är exakt samma, men de liknar varandra. Mycket av din befintliga kod som använder cachen via Managed Cache Service kan återanvändas med minimala ändringar.
 
-There are several other settings which are only available to the **Premium** tier.
+## <a name="accessing-the-redis-instance"></a>Åtkomst till Redis-instans
 
-### Virtual Network support
+Redis stöder en uppsättning av [kända kommandon](https://redis.io/commands). Ett kommando utfärdas vanligen som `COMMAND parameter1 parameter2 parameter3`.
 
-If you create a premium tier Redis cache, you can deploy it to a virtual network in the cloud. Your cache will be available to only other virtual machines and applications in the same virtual network. This provides a higher level of security when your service and cache are both hosted in Azure, or are connected through an Azure virtual network VPN.
+Här följer några vanliga kommandon som du kan använda:
 
-### Clustering support
-
-With a premium tier Redis cache, you can implement clustering to automatically split your dataset among multiple nodes. To implement clustering, you specify the number of shards to a maximum of 10. The cost incurred is the cost of the original node, multiplied by the number of shards.
-
-## Accessing the Redis instance
-
-Redis supports a set of [known commands](https://redis.io/commands). A command is typically issued as `COMMAND parameter1 parameter2 parameter3`.
-
-Here are some common commands you can use:
-
-| Command | Description |
+| Kommando | Beskrivning |
 |---------|-------------|
-| `ping` | Ping the server. Returns "PONG". |
-| `set [key] [value]` | Sets a key/value in the cache. Returns "OK" on success. |
-| `get [key]` | Gets a value from the cache. |
-| `exists [key]` | Returns '1' if the **key** exists in the cache, '0' if it doesn't. |
-| `type [key]` | Returns the type associated to the value for the given **key**. |
-| `incr [key]` | Increment the given value associated with **key** by '1'. The value must be an integer or double value. This returns the new value. |
-| `incrby [key] [amount]` | Increment the given value associated with **key** by the specified amount. The value must be an integer or double value. This returns the new value. |
-| `del [key]` | Deletes the value associated with the **key**. |
-| `flushdb` | Delete _all_ keys and values in the database. |
+| `ping` | Pinga servern. Returnerar ”PONG”. |
+| `set [key] [value]` | Ställer in en nyckel/värde i cacheminnet. Returnerar ”OK” om åtgärden lyckades. |
+| `get [key]` | Hämtar ett värde från cachen. |
+| `exists [key]` | Returnerar ”1” om **nyckeln** finns i cacheminnet och ”0” om det inte gör det. |
+| `type [key]` | Returnerar typen som är associerad till värdet för den angivna **nyckeln**. |
+| `incr [key]` | Öka det angivna värdet som är associerat med **nyckeln** med ”1”. Värdet måste vara ett heltal eller ett double-värde. Det här returnerar det nya värdet. |
+| `incrby [key] [amount]` | Öka det angivna värdet som är associerat med **nyckeln** med den angivna mängden. Värdet måste vara ett heltal eller ett double-värde. Det här returnerar det nya värdet. |
+| `del [key]` | Tar bort värdet som är associerat med **nyckeln**. |
+| `flushdb` | Ta bort _alla_ nycklar och värden i databasen. |
 
-Redis has a command-line tool (**redis-cli**) you can use to experiment directly with these commands. Here are some examples.
+Redis har ett kommandoradsverktyg (**redis-cli**) som du kan använda för att experimentera direkt med dessa kommandon. Här följer några exempel.
 
 ```output
 > set somekey somevalue
@@ -87,7 +78,7 @@ OK
 (string) 0
 ```
 
-Here's an example of working with the `INCR` commands. These are convenient because they provide atomic increments _across multiple applications_ that are using the cache.
+Här är ett exempel på hur du arbetar med kommandot `INCR`. De är praktiska eftersom de erbjuder atomiska steg _över flera program_ som använder cacheminnet.
 
 ```output
 > set counter 100
@@ -100,17 +91,17 @@ OK
 (integer)
 ```
 
-### Adding an expiration time to values
+### <a name="adding-an-expiration-time-to-values"></a>Lägga till en förfallotid för värden
 
-Caching is important because it allows us to store commonly used values in memory. However, we also need a way to expire values when they are stale. In Redis this is done by applying a _time to live_ (TTL) to a key.
+Cachelagring är viktig eftersom den gör att vi kan lagra vanliga värden i minnet. Men vi behöver också ett sätt att se till att värden förfaller när de är inaktuella. I Redis gör du det genom att tillämpa TTL (_time to live_) på en nyckel.
 
-When the TTL elapses, the key is automatically deleted, exactly as if the DEL command were issued. Here are some notes on TTL expirations.
+När TTL går ut tas nyckeln bort automatiskt, precis som om kommandot DEL skulle användas. Här är några anteckningar om TTL-förfallotider.
 
-- Expirations can be set using seconds or milliseconds precision.
-- The expire time resolution is always 1 millisecond.
-- Information about expires are replicated and persisted on disk, the time virtually passes when your Redis server remains stopped (this means that Redis saves the date at which a key will expire).
+- Förfallotider kan ställas in med sekund- eller millisekundprecision.
+- Upplösningen för förfallotid är alltid 1 millisekund.
+- Information om förfallotid replikeras och sparas på disk, och tiden passerar praktiskt taget när Redis-servern förblir stoppad (det innebär att Redis sparar det datum då en nyckel upphör att gälla).
 
-Here is an example of an expiration:
+Här är ett exempel på en förfallotid:
 
 ```output
 > set counter 100
@@ -124,13 +115,13 @@ OK
 (nil)
 ```
 
-## Accessing a Redis cache from a client
+## <a name="accessing-a-redis-cache-from-a-client"></a>Få åtkomst till Redis Cache från en klient
 
-When connecting to an Azure Redis Cache instance, clients need the host name, port, and an access key for the cache. You can retrieve this information in the Azure portal through the **Settings > Access Keys** page. 
+När du ansluter till en Azure Redis Cache-instans behöver klienter värdnamnet, portarna och en åtkomstnyckel för cachen. Du kan hämta den här informationen i Azure-portalen via sidan **Inställningar > Åtkomstnycklar**. 
 
-- The host name is the public Internet address of your cache, which was created using the name of the cache. For example `sportsresults.redis.cache.windows.net`.
+- Värdnamnet är den offentliga Internet-adressen för cacheminnet, som skapades med cachenamnet. Till exempel `sportsresults.redis.cache.windows.net`.
 
-- The access key acts as a password for your cache. There are two keys created: primary and secondary. You can use either key, two are provided in case you need to change the primary key. You can switch all of your clients to the secondary key, and regenerate the primary key. This would block any applications using the original primary key. Microsoft recommends periodically regenerating the keys - much like you would your personal passwords.
+- Åtkomstnyckeln fungerar som lösenord för cachen. Två nycklar har skapats: primär och sekundär. Du kan använda endera av nycklarna, men det tillhandahålls två ifall du behöver ändra den primära nyckeln. Du kan växla alla dina klienter till den sekundära nyckeln och återskapa primärnyckeln. Det skulle blockera de program som använder den ursprungliga primärnyckeln. Microsoft rekommenderar att du regelbundet återskapar nycklar – precis som du bör göra med dina personliga lösenord.
 
 > [!WARNING]
-> Your access keys should be considered confidential information, treat them like you would a password. Anyone who has an access key can perform any operation on your cache!
+> Dina åtkomstnycklar ska betraktas som konfidentiell information, så behandla dem som du behandlar lösenord. Vem som helst som har en åtkomstnyckel kan utföra vilka åtgärder som helst i cacheminnet!

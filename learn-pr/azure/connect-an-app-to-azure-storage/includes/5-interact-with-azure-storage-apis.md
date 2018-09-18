@@ -1,21 +1,21 @@
-Azure Storage provides a Representational State Transfer (REST) based web API to work with the containers and data stored in each account. There are independent APIs available to work with each type of data you can store. Recall that we have four specific data types:
+Azure Storage tillhandahåller en REST-baserad webb-API för de containrar och data som lagras på varje konto. Det finns fristående API:er som kan arbeta med varje typ av data som du kan lagra. Du kanske kommer ihåg att vi har fyra specifika datatyper:
 
-- **Blobs** for unstructured data such as binary and text files.
-- **Queues** for persistent messaging.
-- **Tables** for structured storage of key/values.
-- **Files** for traditional SMB file shares.
+- **Blobbar** för ostrukturerade data, till exempel binära filer och textfiler.
+- **Köer** för beständiga meddelandefunktioner.
+- **Tabeller** för strukturerad lagring av nyckel/värden.
+- **Filer** för traditionella SMB-filresurser.
 
-## Using the REST API
+## <a name="using-the-rest-api"></a>Använda REST API
 
-The Storage REST APIs are accessible from services running in Azure over a virtual network, or over the Internet from any application that can send an HTTP/HTTPS request and receive an HTTP/HTTPS response.
+REST API:er i Storage är tillgängliga från tjänster som körs i Azure via ett virtuellt nätverk, eller via Internet från program som kan skicka en HTTP/HTTPS-begäran och få ett HTTP/HTTPS-svar.
 
-For example, if you wanted to list all the blobs in a container, you would send something like:
+Om du vill visa alla blobbar i en container skulle du till exempel skicka något som liknar:
 
 ```http
 GET https://[url-for-service-account]/?comp=list&include=metadata
 ```
 
-This would return an XML block with data specific to the account:
+Detta returnerar ett XML-block med data som är specifika för kontot:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -65,27 +65,20 @@ This would return an XML block with data specific to the account:
 </EnumerationResults>  
 ```
 
-However, this approach requires a lot of manual parsing and creation of HTTP packets to work with each API. For this reason, Azure provides pre-built _client libraries_ that make working with the service easier for common languages and frameworks.
+Den här metoden kräver dock en hel del manuell parsning och att HTTP-paket skapas som kan arbeta med varje API. Därför erbjuder Azure färdiga _klientbibliotek_ som gör det lättare att arbeta med tjänsten för vanliga språk och ramverk.
 
-## Using a client library
+## <a name="using-a-client-library"></a>Använda ett klientbibliotek
 
-Client libraries can save a significant amount of work for application developers because the API is tested and it often provides nicer wrappers around the data models sent and received by the REST API.
+Klientbibliotek kan spara mycket arbete för programutvecklarna, eftersom API:n har testats. Det ger ofta bättre omslutningar runt datamodeller som skickas och tas emot av REST API:n.
 
 :::row:::
     :::column:::
-        Microsoft has Azure client libraries that support a number of languages and frameworks including:
-        - .NET
-        - Java
-        - Python
-        - Node.js
-        - Go
-    :::column-end::::
-    :::column:::
-        <br> ![Sample logos of supported frameworks you can use with Azure](../media/4-common-tools.png)
+        Microsoft har Azure-klientbibliotek som stöder ett antal språk och ramverk, till exempel: – .NET – Java – Python – Node.js – Go :::column-end:::: :::column:::
+        <br> ![Exempel på logotyper av ramverk som stöds och som du kan använda med Azure](../media/4-common-tools.png)
     :::column-end:::
 :::row-end:::
 
-For example, to retrieve the same list of blobs in C#, we could use the following code snippet:
+Vi kan till exempel använda följande kodfragment till att hämta samma lista med blobbar i C#:
 
 ```csharp
 CloudBlobDirectory directory = ...;
@@ -97,7 +90,7 @@ foreach (IEnumerable<IListBlobItem> blob in directory.ListBlobs(
 }
 ```
 
-Or in JavaScript:
+Eller i JavaScript:
 
 ```javascript
 const containerName = "...";
@@ -113,6 +106,6 @@ blobService.listBlobsSegmented(containerName, null, function (error, results) {
 ```
 
 > [!NOTE]
-> The client libraries are just thin _wrappers_ over the REST API. They are doing exactly what you would do if you used the web services directly. These libraries are also open source making them very transparent. Look for them on GitHub.
+> Klientbiblioteken är bara tunna _omslutningar_ över REST API:n. De gör exakt vad du skulle göra om du använde webbtjänsterna direkt. Dessa bibliotek består även av öppen källkod, vilket gör dem mycket transparenta. Leta efter dem på GitHub.
 
-Let's add the client library support for our application.
+Nu ska vi lägga till klientbiblioteksstöd för vårt program.

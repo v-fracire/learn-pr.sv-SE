@@ -14,9 +14,9 @@ Tidigare tog vi upp att Azure Cost Management och Azure Advisor kan rekommendera
 
 ![En illustration för att demonstrera besparingar som uppnås genom att minska storleken på en underutnyttjad virtuell dator.](../media-drafts/4-vm-resize.png)
 
-För stora virtuella datorer är en onödig utgift i Azure som är både vanligt förekommande och enkel att rätta till. Du kan ändra storleken på en virtuell dator via Azure Portal, Azure PowerShell eller Azure CLI.
+För stora virtuella datorer är en onödig utgift i Azure som är både vanligt förekommande och enkelt att rätta till. Du kan ändra storleken på en virtuell dator via Azure Portal, Azure PowerShell eller Azure CLI.
 
-> [!NOTE]
+> [!TIP]
 > När du ändrar storlek på en virtuell dator måste du stoppa den, ändra storleken och sedan starta om datorn. Det här kan ta några minuter beroende på hur stor ändringen är. Planera för ett avbrott eller flytta trafiken till en annan instans medan du utför den här uppgiften.
 
 ## <a name="deallocate-virtual-machines-in-off-hours"></a>Frigöra virtuella datorer utanför normal arbetstid

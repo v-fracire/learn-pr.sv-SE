@@ -1,126 +1,126 @@
-In this exercise, you will create a load balancer, a virtual network, and multiple virtual machines using the Azure portal.
+I den här övningen skapar du en lastbalanserare, ett virtuellt nätverk och flera virtuella datorer med hjälp av Azure-portalen.
 
-Suppose you work for Woodgrove Bank, a startup that is about to launch online banking services. This sector is highly competitive, so you need to guarantee of a minimum of 99.99% service availability. You have determined that Azure Load Balancer with a pool of three virtual machines will meet this goal.
+Anta att du arbetar för Woodgrove Bank, ett nystartat företag som håller på att starta onlinetjänster för bankärenden. Konkurrensen är mycket kraftig i den här sektorn, så du måste garantera minst 99,99 % tjänsttillgänglighet. Du har fastställt att en Azure Load Balancer med en pool med tre virtuella datorer uppfyller det här målet.
 
-## Create a public load balancer
+## <a name="create-a-public-load-balancer"></a>Skapa en offentlig lastbalanserare
 
-1. In a browser, navigate to the [Azure portal](https://portal.azure.com/?azure-portal=true) and sign in to your account.
+1. I en webbläsare navigerar du till [Azure-portalen](https://portal.azure.com/?azure-portal=true) och loggar in på ditt konto.
 
-1. In the sidebar, click **Create a resource**. Then, in the **New** blade, click **Networking**, and then click **Load Balancer**.
+1. I sidofältet klickar du på **Skapa en resurs**, och i det **nya** bladet klickar du på **Nätverk** och sedan på **Lastbalanserare**.
 
-1. In the **Create load balancer** blade, enter or select the following information:
-    - Name: **woodgrove-LB**
-    - Type: **Public**
+1. På bladet Skapa lastbalanserare anger eller väljer du följande information:
+    - Namn: **woodgrove-LB**
+    - Typ: **Offentlig**
     - SKU: **Basic**
-    - Public IP address: Select **Create new**. In the text box, type **woodgrove-LB-ip**. Leave the Assignment as **Dynamic**.
-    - Resource group: Select **Create new**, and in the box, type **woodgrove-RG**.
-    - Location: Select a region near you.
+    - Offentlig IP-adress: välj **Skapa ny**, skriv **woodgrove-LB-ip** i textrutan och låt Tilldelning vara kvar som **Dynamisk**
+    - Resursgrupp: välj **Skapa ny** och skriv **woodgrove-RG** i rutan
+    - Plats: Välj en region nära dig
 
-1. Click **Create**.
+1. Klicka på **Skapa**.
 
-1. Wait until the load balancer has deployed before continuing with the exercise.
+1. Vänta tills lastbalanseraren har distribuerats innan du fortsätter med den här övningen.
 
-## Create a virtual network
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. In the left menu, click **Create a resource**. In the **New** blade, click **Networking**, and then click **Virtual network**.
+1. I den vänstra menyn klickar du på **Skapa en resurs**, och i det **nya** bladet klickar du på **Nätverk** och sedan på **Virtuellt nätverk**.
 
-1. In the **Create virtual network** blade, enter or select the following information:
-    - Name: **woodgrove-VNET**
-    - Address space: **172.20.0.0/16**
-    - Resource group: Select **Use existing**, and then select **woodgrove-RG**.
-    - Subnet: **backendSubnet**
-    - Address space: **172.20.0.0/24**
-    - DDoS protection: **Basic**
-    - Service endpoints: **Disabled**
+1. På bladet **Skapa virtuellt nätverk** anger eller väljer du följande information:
+    - Namn: **woodgrove-VNET**
+    - Adressutrymme: **172.20.0.0/16**
+    - Resursgrupp: välj **Använd befintlig** och sedan **woodgrove-RG**.
+    - Undernät: **backendSubnet**
+    - Adressutrymme: **172.20.0.0/24**
+    - DDoS-skydd: **Basic**
+    - Tjänstens slutpunkter: **Inaktiverat**
 
-1. Click **Create**.
+1. Klicka på **Skapa**.
 
-1. Wait until the virtual network has deployed before continuing with the exercise.
+1. Vänta tills det virtuella nätverket har distribuerats innan du fortsätter med den här övningen.
 
-## Create a VM template
+## <a name="create-a-vm-template"></a>Skapa en mall för virtuell dator
 
-Start by defining the basic VM information:
+Börja med att definiera grundläggande information för den virtuella datorn:
 
-1. In the Azure portal, in the left menu, click **Virtual machines**, and then click **Create virtual machine**.
+1. I Azure-portalen går du till den vänstra menyn och klickar på **Virtuella datorer** och sedan på **Skapa virtuell dator**.
 
-1. On the **Compute** blade, in the **Recommended** section, click **Windows Server**.
+1. På bladet Beräkning går du till området **Rekommenderas** och klickar på **Windows Server**.
 
-1. In the **Windows Server** blade, click **Windows Server 2016 Datacenter**.
+1. På bladet **Windows Server** klickar du på **Windows Server 2016 Datacenter**.
 
-1. In the **Windows Server 2016 Datacenter** blade, click **Create**.
+1. På bladet **Windows Server 2016 Datacenter** klickar du på **Skapa**.
 
-1. In the **Basics** blade, in the **Name** box, type **woodgrove-SVR01**.
+1. På bladet **Basic** går du till rutan **Namn** och skriver **woodgrove-SVR01**.
 
-1. In the **Username** and **Password boxes**, type a secure name and password for an administrator account on this server.
+1. I rutorna **Användarnamn** och **Lösenord** skriver du ett säkert namn och lösenord för ett administratörskonto på den här servern.
 
-1. In the **Subscription** box, select your Azure subscription.
+1. I rutan **Prenumeration** väljer du din Azure-prenumeration.
 
-1. Under **Resource group**, select **Use existing**. In the list, select **woodgrove-RG**.
+1. Under **Resursgrupp** väljer du **Använd befintlig**, och i listan väljer du **woodgrove-RG**.
 
-1. In the **Location** drop-down list, select a region near you.
+1. I listrutan **Plats** väljer du en region nära dig.
 
-1. Click **OK**.
+1. Klicka på **OK**.
 
-Choose a size for the VM, and then configure the settings:
+Välj en storlek för den virtuella datorn och konfigurera inställningar:
 
-1. On the **Choose a size** blade, select a **Standard** SKU, such as **D2s_v3**. Then click **Select**.
+1. På bladet **Välj storlek** väljer du en **Standard**-SKU, till exempel **D2s_v3** och klickar sedan på **Välj**.
 
-1. On the **Settings** blade, click **Availability set**.
+1. På bladet **Inställningar** klickar du på **Tillgänglighetsuppsättning**.
 
-1. On the **Change availability set** blade, click **Create new**.
+1. På bladet **Ändra tillgänglighetsuppsättning** klickar du på **Skapa ny**.
 
-1. On the **Create new** blade, in the **Name** box, type **woodgrove-AS**, and then click **OK**.
+1. På bladet **Skapa ny** går du till rutan **Namn**, skriver **woodgrove-AS** och klickar sedan på **OK**.
 
-1. On the **Settings** blade, under **Network Security Group**, click **Advanced**, and then click **(new) woodgrove-SVR01-nsg**.
+1. På bladet **Inställningar** går du till **Nätverkssäkerhetsgrupp**, klickar på **Avancerat** och klickar sedan på **(new) woodgrove-SVR01-nsg**.
 
-1. On the **Create network Security group** blade, in the **Name** box, change the name to **woodgrove-NSG**, and then click **OK**.
+1. På bladet **Skapa nätverkssäkerhetsgrupp** går du till rutan **Namn**, ändrar namnet till **woodgrove-NSG** och klickar sedan på **OK**.
 
-1. On the **Settings** blade, click **OK**.
+1. I bladet **Inställningar** klickar du på **OK**.
 
-Save the settings to a template, so that you can easily deploy multiple VMs.
+Spara inställningarna till en mall så att du enkelt kan distribuera flera virtuella datorer.
 
-1. On the **Create** blade, click **Download template and parameters**.
+1. På bladet **Skapa** klickar du på **Ladda ned mall och parametrar**.
 
-1. On the **Template** blade, click **Add to library**.
+1. På bladet **Mall** klickar du på **Lägg till i bibliotek**.
 
-1. On the **Save template** blade, in the **Name** and **Description** boxes, type **woodgrove-server-template**. Then click **Save**.
+1. På bladet **Spara mallen** går du till rutorna **Namn** och **Beskrivning**, skriver in **woodgrove-server-template** och klickar sedan på **Spara**.
 
 > [!NOTE]
-> If you need to find this template, click **All services** in the left menu, type **template** in the filter box, and then click **Templates (PREVIEW)**.
+> Om du behöver hitta den här mallen klickar du på **Alla tjänster** i den vänstra menyn, skriver **template** (mall) i filterrutan och klickar sedan på **Templates (PREVIEW)** (Mallar (FÖRHANDSVERSION)).
 
-## Use the template to provision the first VM
+## <a name="use-the-template-to-provision-the-first-vm"></a>Använda mallen för att etablera den första virtuella datorn
 
-1. On the **Template** blade, click **Deploy**.
+1. På bladet **Mall** klickar du på **Distribuera**.
 
-1. On the **Custom deployment** blade, under **Resource Group**, select **Use existing**. In the list, select **woodgrove-RG**.
+1. På bladet **Custom deployment** (Anpassad distribution) går du till **Resursgrupp**, väljer **Använd befintlig** och väljer **woodgrove-RG** i listan.
 
-1. On the **Custom deployment** blade, in the **Admin password** box, type the same password that you used previously.
+1. På bladet **Custom deployment** (Anpassad distribution) går du till rutan **Admin password** (Administratörslösenord) och skriver in samma lösenord som du använde tidigare.
 
-1. On the **Custom deployment** blade, select the **I agree to the terms and conditions** check box, and then click **Purchase** (the cost is the regular Azure compute charge, which depends on the VM pricing tier).
+1. På bladet **Custom deployment** (Anpassad distribution) markerar du kryssrutan **I agree to the terms and conditions** (Jag godkänner villkoren) och klickar sedan på **Köp** (kostnaden är den vanliga Azure-beräkningskostnaden, som beror på prisnivån för virtuella datorer).
 
-1. Wait until the VM has deployed before continuing with the exercise. This is so you can be sure that the template is correctly configured before you use it to provision additional VMs, and that all the associated resources have been created.
+1. Vänta tills den virtuella datorn har distribuerats innan du fortsätter med den här övningen; detta är så att du kan vara säker på att mallen är korrekt konfigurerad innan du använder den för att etablera ytterligare virtuella datorer och att alla de associerade resurserna har skapats.
 
-## Use the template to provision two additional VMs
+## <a name="use-the-template-to-provision-two-additional-vms"></a>Använda mallen för att etablera ytterligare två virtuella datorer
 
-1. In the Azure portal, on the **Template** blade, click **Deploy**.
+1. I Azure-bladet går du till bladet **Mall** och klickar på **Distribuera**.
 
-1. On the **Custom deployment** blade, under **Resource Group**, select **Use existing**. In the list, select **woodgrove-RG**.
+1. På bladet **Custom deployment** (Anpassad distribution) går du till **Resursgrupp**, väljer **Använd befintlig** och väljer **woodgrove-RG** i listan.
 
-1. On the **Custom deployment** blade, in the **Virtual Machine Name** box, change the name to **woodgrove-SVR02**.
+1. På bladet **Custom deployment** (Anpassad distribution) går du till rutan **Namn på virtuell dator** och ändrar namnet till **woodgrove-SVR02**.
 
-1. On the **Custom deployment** blade, in the **Network Interface Name** box, change the name to **woodgrovesvr02222**.
+1. På bladet **Custom deployment** (Anpassad distribution) går du till rutan **Network Interface Name** (Namn på nätverksgränssnitt) och ändrar namnet till **woodgrovesvr02222**.
 
-1. On the **Custom deployment** blade, in the **Admin password** box, type the same password that you used previously.
+1. På bladet **Custom deployment** (Anpassad distribution) går du till rutan **Admin password** (Administratörslösenord) och skriver in samma lösenord som du använde tidigare.
 
-1. On the **Custom deployment** blade, in the **Public Ip Address Name** box, change the name to **woodgrove-SVR02-ip**.
+1. På bladet **Custom deployment** (Anpassad distribution) går du till rutan **Public Ip Address Name** (Namn på offentlig IP-adress) och ändrar namnet till **woodgrove-SVR02-ip**.
 
-1. On the **Custom deployment** blade, select the **I agree to the terms and conditions** check box, and then click **Purchase** (the cost is the regular Azure compute charge, which depends on the VM pricing tier).
+1. På bladet **Custom deployment** (Anpassad distribution) markerar du kryssrutan **I agree to the terms and conditions** (Jag godkänner villkoren) och klickar sedan på **Köp** (kostnaden är den vanliga Azure-beräkningskostnaden, som beror på prisnivån för virtuella datorer).
 
-1. Repeat steps 1 - 7, using the following information:
-    - Virtual machine name: **woodgrove-SVR03**
-    - Network interface name: **woodgrovesvr03333**
-    - Public IP address name: **woodgrove-SVRr03-ip**
+1. Upprepa stegen 1–7 med följande information:
+    - Namn på virtuell dator: **woodgrove-SVR03**
+    - Namn på nätverksgränssnitt: **woodgrovesvr03333**
+    - Namn på offentlig IP-adress: **woodgrove-SVRr03-ip**
 
-1. Wait until the VMs have deployed before continuing with the exercise.
+1. Vänta tills de virtuella datorerna har distribuerats innan du fortsätter med den här övningen.
 
-You now have a public load balancer ready to configure, and three VMs ready to use with this load balancer.
+Nu har du en offentlig lastbalanserare som är redo att konfigureras och tre virtuella datorer som är redo att användas med den här lastbalanseraren.

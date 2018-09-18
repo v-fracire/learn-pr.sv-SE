@@ -1,115 +1,115 @@
-Designing for high availability helps keep an application or process running despite unfavorable events and adverse conditions. But what do you do when something so significant happens that you've lost data and it's impossible to keep your apps and processes from going down? When disaster strikes, you need to have a plan. You should know what your goals and expectations are for recovering, what are the costs and limitations of your plan, and how to execute on it.
+Design för hög tillgänglighet bidrar till att hålla igång ett program eller en process trots ogynnsamma händelser och förhållanden. Men vad gör du när det händer något betydande så att du har förlorat data och det är omöjligt att undvika att dina appar och processer stängs av? När katastrofen är framme måste du ha en plan. Du bör veta vad du har för mål och förväntningar för återställning, vad planens kostnader och begränsningar är och hur de ska köras.
 
-## What is disaster recovery?
+## <a name="what-is-disaster-recovery"></a>Vad är haveriberedskap?
 
-Disaster recovery is about *recovering from high-impact events* that result in downtime and loss of data. A disaster is a single, major event with an impact much larger and long-lasting than the application can mitigate through the high-availability portion of its design.
+Haveriberedskap handlar om att *återställa från kraftfulla händelser* som leder till driftstopp och dataförlust. En katastrof är en enskild, stor händelse vars påverkan är mycket större och varaktig än hur mycket programmet kan minimera via designdelen.
 
-The word "disaster" often evokes thoughts of *natural* disasters and external events (earthquakes, floods, tropical storms, and so on) but many other kinds of disasters exist as well. A deployment or upgrade that goes horribly wrong can leave an app in an unrecognizable state. Subtle implementation or configuration errors can write bad data or delete data that's assumed to be permanent. Malicious hackers can corrupt or delete data and inflict other kinds of damage that take an app offline or eliminate some of its functionality.
+Ordet ”katastrof” leder ofta tanken till *naturkatastrofer* och externa händelser (jordbävningar, översvämningar, tropiska stormar med mera) men det finns även många andra typer av katastrofer. En distribution eller uppgradering som går väldigt fel kan göra en app oigenkännlig. Diskreta implementerings- eller konfigurationsfel kan skriva felaktiga data eller ta bort data som antas vara permanenta. Hackare kan skada eller ta bort data och vålla andra typer av skador som kan försättaen app i offlineläge eller eliminera en del av dess funktioner.
 
-Regardless of its cause, the only remedy for a disaster once it has occurred is a well-defined, tested disaster recovery plan and an application that actively supports disaster recovery efforts through its design.
+Oavsett orsak är den enda lösningen på en katastrof när den har inträffat en väldefinierad, testad haveriberedskapsplan och ett program vars design aktivt stöder haveriberedskapsförsök.
 
-## How to create a disaster recovery plan
+## <a name="how-to-create-a-disaster-recovery-plan"></a>Skapa en haveriberedskapsplan
 
-A disaster recovery plan is a single document that details the procedures that are required to recover from data loss and downtime caused by a disaster, and identifies who's in charge of directing those procedures. Operators should be able to use the plan as a manual to restore application connectivity and recover data after a disaster occurs. A detailed, written plan that's dedicated to disaster recovery is critical to ensuring a favorable outcome. The process of creating the plan will help to assemble a complete picture of the application. The resulting written steps will promote good decision-making and follow-through in the panicked, chaotic aftermath of a disaster event.
+En haveriberedskapsplan är ett enskilt dokument som beskriver procedurerna som krävs för att återställa efter dataförlust och stilleståndstid som orsakas av en katastrof och identifierar vem som ansvarar för att dirigera sådana procedurer. Operatörer bör kunna använda planen som en handbok för att återställa anslutningen och data efter en katastrof. En detaljerad, skriftlig haveriberedskapsplan är avgörande för att garantera goda resultat: processen med att skapa en plan hjälper till att sätta ihop en bild av programmet, och de resulterande skriftliga stegen främjar bra beslutsfattande och uppföljning i de panikartade och kaotiska efterdyningarna av en katastrof.
 
-Creating a disaster recovery plan requires expert knowledge of the application's workflows, data, infrastructure, and dependencies.
+Att skapa en haveriberedskapsplan kräver goda kunskaper om programmets arbetsflöden, data, infrastruktur och beroenden.
 
-### Risk assessment and process inventory
+### <a name="risk-assessment-and-process-inventory"></a>Riskbedömning och processinventering
 
-The first step in creating a disaster recovery plan is performing a risk analysis that examines the impact of different kinds of disasters on the application. The exact nature of a disaster isn't as important to the risk analysis as its potential impact through data loss and application downtime. Explore various kinds of hypothetical disasters and try to be specific when thinking about their effects. For example, a targeted malicious attack may modify code or data that results in a different kind of impact than an earthquake that disrupts network connectivity and datacenter availability.
+Det första steget i att skapa en haveriberedskapsplan är att utföra en riskanalys som undersöker programmets påverkan av olika typer av katastrofer. Den exakta typen av en katastrof är inte lika viktig för riskanalysen som dess potentiella påverkan via dataförlust och driftstopp i programmet. Utforska olika typer av hypotetiska katastrofer och försök vara specifik när du tänker på deras effekter. En riktad skadlig attack till exempel leder till andra typer av påverkan än en jordbävning som avbryter nätverksanslutningen och tillgängligheten för datacentret.
 
-The risk assessment needs to consider *every* process that can't afford unlimited downtime, and every category of data that can't afford unlimited loss. When a disaster that affects multiple application components occurs, it's critical that the plan owners can use the plan to take a complete inventory of what needs attention and how to prioritize each item.
+Riskbedömningen behöver överväga *varje* process som inte klarar ett obegränsat driftstopp, och varje kategori med data som inte klarar obegränsad förlust. När det inträffar en katastrof som påverkar flera programkomponenter är det viktigt att planens ägare kan använda planen för att göra en fullständig förteckning över vad som kräver åtgärder och hur varje del ska prioriteras.
 
-Some apps may only constitute a single process or classification of data. This is still important to note, as the application will likely be one component of a larger disaster recovery plan that includes multiple applications with the organization.
+Vissa appar kanske endast utgör en enda process eller klassificering av data. Det är ändå viktigt att notera, eftersom det är sannolikt att programmet är en komponent av en större haveriberedskapsplan som inbegriper flera program i organisationen.
 
-### Recovery objectives
+### <a name="recovery-objectives"></a>Återställningsmål
 
-A complete plan needs to specify two critical business requirements for each process implemented by the application:
+En fullständig plan måste ange två viktiga affärskrav för varje process som implementeras av programmet:
 
-* **Recovery Point Objective (RPO)**: The maximum duration of acceptable data loss. RPO is measured in units of time, not volume: "30 minutes of data", "four hours of data", and so on. RPO is about limiting and recovering from data *loss*, not data *theft*.
-* **Recovery Time Objective (RTO)**: The maximum duration of acceptable downtime, where "downtime" needs to be defined by your specification.
+* **Mål för återställningspunkter (RPO)**: Den maximala mängden acceptabel dataförlust. RPO mäts i tidsenheter, inte volym: ”30 minuters data”, ”fyra timmars data” osv. RPO handlar om att begränsa och återställa från *dataförlust*, inte *datastöld*.
+* **Mål för återställningstid (RTO)**: Den maximala längden på ett acceptabelt driftstopp, där ”driftstopp” måste definieras av din specifikation.
 
-![RTO and RPO](../media-draft/rto-rpo.png)
+![Mål för återställningstid och återställningspunkter (RTO och RPO)](../media-draft/rto-rpo.png)
 
-Each major process or workload that's implemented by an app should have separate RPO and RTO values. Even if you arrive at the same values for different processes, each one should be generated through a separate analysis that examines disaster scenario risks and potential recovery strategies for each respective process.
+Varje större process eller arbetsbelastning som implementeras av en app bör ha separata RPO- och RTO-värden. Även om du kommer till samma värden för olika processer ska vart och ett genereras via en separat analys som undersöker olika katastrofscenariers risker och potentiella återställningsstrategier för varje respektive process.
 
-The process of specifying an RPO and RTO is effectively the creation of disaster recovery requirements for your application. It requires establishing the priority of each workload and category of data and performing a cost-benefit analysis. The analysis includes concerns, such as implementation and maintenance cost, operational expense, process overhead, performance impact, and the impact of downtime and lost data. You'll need to define exactly what "downtime" means for your application, and in some cases, you may establish separate RPO and RTO values for different levels of functionality. Specifying RPO and RTO should be more than simply choosing arbitrary values. Much of the value of a disaster recovery plan comes from the research and analysis that goes into discovering the potential impact of a disaster and the cost of mitigating the risks.
+Processen för att ange RPO och RTO är i praktiken skapandet av krav på haveriberedskap för ditt program. Det kräver upprättande av prioritet för varje arbetsbelastning och kategori av data och utför en kostnadsfördelsanalys som innefattar aspekter som kostnader för implementering och underhåll, driftskostnader, omkostnader för processer och inverkan från driftstopp och förlorade data. Du måste definiera exakt vad ”avbrottstid” innebär för ditt program, och i vissa fall kan du upprätta separata RPO- och RTO-värden för olika funktionsnivåer. Att ange RPO och RTO ska innebära mer än att bara välja valfria värden. En stor del av värdet av en haveriberedskapsplan kommer från forskning och analys som leder till upptäckter av eventuell påverkan från en katastrof och kostnaderna för att minimera riskerna.
 
-RPO and RTO are *objectives*. Disasters are unpredictable, and you may not be able to meet your established RPO and RTO for a given event. The business has agreed to take on the costs required to maintain the agreed-upon RPO and RTO values, and in return those targets should generally be achieved in a disaster recovery scenario. All disaster events should include a post-recovery retrospective that examines strengths and weaknesses, but disasters that result in a failure to meet RPO or RTO merit special attention.
+RPO och RTO är *mål*. Katastrofer är oförutsägbara och du kanske inte kan uppfylla dina etablerade RPO:er och RTO:er för en viss händelse. Företaget har gått med på att ta på sig de kostnader som krävs för att upprätthålla godkända värden för RPO och RTO, och i utbyte skulle de här målen allmänt uppnås i ett haveriberedskapsscenario. Alla katastrofhändelser bör inkludera en tillbakablick efter återställningen som undersöker styrkor och svagheter, men katastrofer som leder till underlåtenhet att uppfylla RPO eller RTO kräver extra uppmärksamhet.
 
-### Detailing recovery steps
+### <a name="detailing-recovery-steps"></a>Information om åtgärder för återställning
 
-The final plan should go into detail about exactly what steps should be taken to restore lost data and application connectivity. Steps often include information about:
+Den slutgiltiga planen ska ange i detalj exakt vilka åtgärder som ska vidtas för att återställa förlorade data och förlorad programanslutning. Stegen omfattar ofta information om:
 
-* **Backups**: How often they're created, where they're located, and how to restore data from them.
-* **Data replicas**: The number and locations of replicas, the nature and consistency characteristics of the replicated data, and how to switch over to a different replica.
-* **Deployments**: How deployments are executed, how rollbacks occur, and failure scenarios for deployments.
-* **Infrastructure**: On-premises and cloud resources, network infrastructure, and hardware inventory.
-* **Dependencies**: External services that are used by the application, including SLAs and contact information.
-* **Configuration and notification**: Flags or options that can be set to gracefully degrade the application, and services that are used to notify users of application impact.
+* **Säkerhetskopior**: hur ofta de skapas, var de finns, hur du återställer data från dem.
+* **Datarepliker**: Antalet repliker och deras platser, replikerade datas natur och konsekvensegenskaper, hur man växlar över till en annan replik.
+* **Distributioner**: Hur distributioner körs, hur återställningar inträffar, scenarier för distribution.
+* **Infrastruktur**: Lokala resurser och molnresurser, nätverksinfrastruktur, maskinvaruinventering.
+* **Beroenden**: Externa tjänster som används av programmet, däribland serviceavtal och kontaktinformation.
+* **Konfiguration och meddelanden**: Flaggor eller alternativ som kan ställas in för att försämra programmet på ett bra sätt, tjänster som används för att meddela användare om programpåverkan.
 
-The exact steps that are required will depend heavily on implementation details of the app, making it important to keep the plan updated. Routinely testing the plan will help identify gaps and outdated sections.
+De exakta åtgärderna som krävs beror mycket på appens implementeringsinformation, vilket gör det viktigt att hålla planen uppdaterad. Regelbundna tester av planen hjälper till att identifiera luckor och inaktuella delar.
 
-## Designing for disaster recovery
+## <a name="designing-for-disaster-recovery"></a>Utforma för haveriberedskap
 
-Disaster recovery is not an automatic feature. It must be designed, built, and tested. An app that needs to support a solid disaster recovery strategy must be built from the ground up with disaster recovery in mind. Azure offers services, features, and guidance to help you create apps that support disaster recovery, but it's up to you to include them in your design.
+Haveriberedskap är ingen automatisk funktion. Den måste utformas, skapas och testas. En app som behöver stödja en solid strategi för haveriberedskap måste vara skapad från grunden med haveriberedskap i åtanke. Azure erbjuder tjänster, funktioner och vägledning för att hjälpa dig att skapa appar som stöder haveriberedskap, men det är upp till dig att lägga till dem i din design.
 
-Designing for disaster recovery has two main concerns:
+Det finns två huvudsakliga frågeställningar när det gäller att utforma för haveriberedskap:
 
-* **Data recovery**: Using backups and replication to restore lost data.
-* **Process recovery**: Recovering services and deploying code to recover from outages.
+* **Dataåterställning**: Använda säkerhetskopiering och replikering för att återställa förlorade data.
+* **Process för återställning**: Återställa tjänster och distribuera kod för att återställa efter avbrott.
 
-### Data recovery and replication
+### <a name="data-recovery-and-replication"></a>Återställning av data och replikering
 
-Replication duplicates stored data between multiple data store replicas. Unlike *backup*, which creates long-lived, read-only snapshots of data for use in recovery, replication creates real-time or near-real-time copies of live data. The goal of replication is to keep replicas synchronized with as little latency as possible while maintaining application responsiveness. Replication is a key component of designing for high availability and disaster recovery, and is a common feature of production-grade applications.
+Replikering duplicerar lagrade data mellan flera datalagringsrepliker. Till skillnad från *säkerhetskopiering*, som skapar långlivade, skrivskyddade ögonblicksbilder av data för användning vid återställning skapar replikering kopior av livedata i realtid eller nästan realtid. Målet med replikering är att hålla repliker synkroniserade med så låg fördröjning som möjligt samtidigt som programmets svarstider bibehålls. Replikering är en viktig del av att utforma för hög tillgänglighet och haveriberedskap och är en vanlig funktion i program i produktionsklassen.
 
-Replication is used to mitigate a failed or unreachable data store by executing a *failover*: changing application configuration to route data requests to a working replica. Failover is often automated, triggered by error detection built into a data storage product, or detection that you implement through your monitoring solution. Depending on the implementation and the scenario, failover may need to be manually executed by system operators.
+Replikering används för att minska ett misslyckat eller otillgängligt datalager genom att köra en *redundans*: ändra programmets konfiguration för att dirigera databegäranden till en aktiv replik. Redundans är ofta automatiserat, utlöst av felidentifiering som skapats i en produkt för lagring av data eller identifiering som du implementerar via din lösning för övervakning. Beroende på implementering och scenario kan redundans köras manuellt av systemoperatörer.
 
-Replication is not something you implement from scratch. Most fully featured database systems and other data storage products and services include some kind of replication as a tightly integrated feature due to its functional and performance requirements. However, it's up to you to include these features in your application design and make appropriate use of them.
+Replikering är inget du implementerar från grunden. De flesta funktionsrika databassystem och andra datalagringsprodukter och tjänster innehåller någon typ av replikering som en väl integrerad funktion på grund av dess krav på funktionalitet och prestanda. Men det är upp till dig att inkludera de här funktionerna i programmets design och använda den på ett lämpligt sätt.
 
-Different Azure services support various levels and concepts of replication. For example:
+Olika Azure-tjänster stöder olika nivåer och begrepp för replikering. Exempel:
 
-* **Azure Storage** replication is effectively automatic. Neither your application nor your operators interact with it directly. Failovers are automatic and transparent, and you simply need to select a replication level that balances cost and risk.
-* **Azure SQL Database** replication is automatic at a small scale, but recovery from a full Azure datacenter or regional outage requires geo-replication. Setting up geo-replication is manual, but it's a first-class feature of the service and well supported by documentation.
-* **Cosmos DB** is a globally distributed database system, and replication is central to its implementation. With Azure Cosmos DB, instead of configuring replication directly, you configure options related to partitioning and data consistency.
+* **Azure Storage**-replikering är i praktiken automatisk. Varken ditt program eller dina operatörer kan interagera med det direkt. Redundanser är automatiska och genomskinliga, och du måste helt enkelt välja en replikeringsnivå som balanserar kostnad och risk.
+* **Azure SQL Database**-replikering är automatisk i liten skala, men återställning från ett fullständigt Azure-datacenter eller regionalt strömavbrott kräver geo-replikering. Konfiguration av geo-replikering görs manuellt men är en förstaklassfunktion i tjänsten och är väl understödd av dokumentation.
+* **Cosmos DB** är ett globalt distribuerat databassystem och replikering är centralt för dess implementering. Med Cosmos DB konfigurerar du alternativ som relaterar till partitionering och datakonsekvens istället för att konfigurera replikering direkt.
 
-Many different replication designs exist that place different priorities on data consistency, performance, and cost. *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. In contrast, *passive* replication performs synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. *Active-active* or *multi-master* replication enables multiple replicas to be used simultaneously, enabling load balancing at the cost of complicating data consistency, while *active-passive* replication reserves replicas for live use only during failover.
+Det finns många olika replikeringsutformningar som har olika prioriteringar för datakonsekvens, prestanda och kostnad. *Aktiv* replikering kräver att uppdateringar sker på flera repliker samtidigt, vilket garanterar konsekvens på bekostnad av dataflöde. Däremot utför *passiv* replikering synkronisering i bakgrunden, vilket tar bort replikering som en begränsning av programprestanda men ökar återställningspunktmålet (RPO). *Aktiv-aktiv*-replikering eller replikering med *flera original* gör det möjligt för flera repliker att användas samtidigt, vilket möjliggör belastningsutjämning till priset av mer komplicerad datakonsekvens, medan *aktiv-passiv*-replikering reserverar repliker för liveanvändning endast under redundans.
 
-![Azure SQL Database geo-replication](../media-draft/geo-replication.png)
+![Azure SQL Database Geo-replikering](../media-draft/geo-replication.png)
 
 > [!IMPORTANT]
-> **Neither replication nor backup are complete disaster recovery solutions on their own**. Data recovery is only one component of disaster recovery, and replication will not fully satisfy many kinds of disaster recovery scenarios. For example, in a data corruption scenario, the nature of the corruption may allow it to spread from the primary data store to the replicas, rendering all the replicas useless and requiring a backup for recovery.
+> **Varken replikering eller säkerhetskopiering är fullständiga lösningar för haveriberedskap på egen hand**. Dataåterställning är enbart en komponent av haveriberedskap, och för många typer av haveriberedskapsscenarier räcker inte bara replikering. I till exempel ett scenario med skadade data kan typen av skada göra att skadan sprider sig från det primära datalagret till replikerna. Det gör alla repliker oanvändbara och kräver en säkerhetskopia för återställning.
 
-### Process recovery
+### <a name="process-recovery"></a>Process för återställning
 
-After a disaster, business data isn't the only asset that needs recovering. Disaster scenarios will also commonly result in downtime, whether it's due to network connectivity problems, datacenter outages, or damaged VM instances or software deployments. The design of your application needs to enable you to restore it to a working state.
+Efter en katastrof är inte affärsdata den enda tillgången som behöver återställas. Katastrofscenarier leder även till driftstopp, oavsett om det beror på problem med nätverksanslutning, datacenteravbrott eller skadade VM-instanser eller skadad distribution av programvara. Programmets design måste göra det möjligt för dig att återställa det till ett fungerande tillstånd.
 
-In most cases, process restoration involves failover to a separate, working deployment. Depending on the scenario, geographic location may be a critical aspect. For example, a large-scale natural disaster that brings an entire Azure region offline will necessitate restoring service in another region. Your application's disaster recovery requirements, especially RTO, should drive your design and help you decide how many replicated environments you should have, where they should be located, and whether they should be maintained in a ready-to-run state or should be ready to accept a deployment in the event of disaster.
+I de flesta fall inbegriper processåterställning redundans till en separat fungerande distribution. Beroende på scenario kan geografisk plats vara en viktig aspekt: till exempel kan en storskalig naturkatastrof som leder till att en hel Azure-region försätts i offlineläge kräva att tjänsten återställs i en annan region. Programmets krav på haveriberedskap, särskilt RTO, bör påverka din design och hjälpa dig att bestämma hur många replikerade miljöer du ska ha, var de ska finnas och om de ska underhållas i ett körklart tillstånd eller om de ska vara redo att godkänna en distribution vid en katastrof.
 
-Depending on the design of your application, there are a few different strategies and Azure services and features that you can take advantage of to improve your app's support for process recovery after a disaster.
+Beroende på programmets design finns det några olika strategier och Azure-tjänster och -funktioner du kan använda för att förbättra appens stöd för processåterställning efter en katastrof.
 
-#### Azure Site Recovery
+#### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Azure Site Recovery is a service that's dedicated to managing process recovery for workloads running on VMs deployed to Azure, VMs running on physical servers, and workloads running directly on physical servers. Site Recovery replicates workloads to alternate locations and helps you to fail over when an outage occurs and supports testing of a disaster recovery plan.
+Azure Site Recovery är en tjänst som är dedikerad för att hantera processåterställning för arbetsbelastningar som körs på virtuella datorer som är distribuerade i Azure, virtuella datorer som körs på fysiska servrar och arbetsbelastningar som körs direkt på fysiska servrar. Site Recovery replikerar arbetsbelastningar till alternativa platser och hjälper dig att växla över när ett avbrott sker och stöder testning av en haveriberedskapsplan.
 
 ![Azure Site Recovery](../media-draft/asr.png)
 
-Site Recovery supports replicating whole VMs and physical server images as well as individual *workloads*, where a workload may be an individual application or an entire VM or operating system with its applications. Any application workload can be replicated, but Site Recovery has first-class integrated support for many Microsoft server applications, such as SQL Server and SharePoint, as well as a handful of third-party applications like SAP.
+Site Recovery stöder replikering av hela virtuella datorer och avbildningar av fysiska servrar och enskilda *arbetsbelastningar*, där en arbetsbelastning kan vara ett enskilt program eller en hel virtuell dator eller operativsystem med sina program. Alla programs arbetsbelastningar kan replikeras, men Site Recovery har ett förstklassigt inbyggt stöd för många Microsoft Server-program, som SQL Server och SharePoint, samt en mängd tredjepartsprogram som SAP.
 
-Any app that runs on VMs or physical servers should at least investigate the use of Azure Site Recovery. It's a great way to discover and explore scenarios and possibilities for process recovery.
+Alla appar som körs på virtuella datorer eller fysiska servrar bör åtminstone undersöka användningen av Azure Site Recovery, eftersom det är ett bra sätt att identifiera och utforska scenarier och möjligheter för återställning av processen.
 
-#### Service-specific features
+#### <a name="service-specific-features"></a>Tjänstspecifika funktioner
 
-For apps that run on Azure PaaS offerings like App Service, most such services offer features and guidance for supporting disaster recovery. In many cases, disaster recovery is automatic and performed transparently by Azure. For certain scenarios, you can use service-specific features to support fast recovery. For example, Azure SQL Server supports geo-replication for quickly restoring service in another region. Azure App Service has a Backup and Restore feature, and the documentation includes guidance for using Azure Traffic Manager to support routing traffic to a secondary region.
+För appar som körs på Azure PaaS-erbjudanden, som App Service, erbjuder de flesta sådana tjänster funktioner och vägledning för att stödja haveriberedskap. I många fall är haveriberedskap automatiskt och utförs av Azure genomskinligt. För vissa scenarier kan du använda tjänstspecifika funktioner för att stödja snabb återställning. Azure SQL Server till exempel stöder geo-replikering för att snabbt återställa tjänsten i en annan region. I Azure App Service finns en funktion för säkerhetskopiering och återställning, och dokumentationen innehåller vägledning för att använda Azure Traffic Manager för att stödja dirigering av trafik till en sekundär region.
 
-![Region pairs](../media-draft/AzRegionPairs.png)
+![Regionpar](../media-draft/AzRegionPairs.png)
 
-## Testing a disaster recovery plan
+## <a name="testing-a-disaster-recovery-plan"></a>Testa en haveriberedskapsplan
 
-Disaster recovery planning doesn't end once you have a completed plan in hand. Testing the plan is a crucial aspect of disaster recovery, to ensure that the directions and explanations are clear and up-to-date.
+Planering för haveriberedskap slutar inte när du har en färdig plan i handen. Det är viktigt för att testa haveriberedskapsplanen för att garantera att anvisningarna och förklaringarna är tydliga och uppdaterade.
 
-Choose intervals to perform different types and scopes of tests, such as testing backups and failover mechanisms every month, and performing a full-scale disaster recovery simulation every six months. Always follow the steps and details exactly as they're documented in the plan, and consider having someone unfamiliar with the plan give perspective on anything that could be made clearer.
+Välj intervaller för att utföra tester av olika typer och omfattningar, som att testa mekanismer för säkerhetskopiering och redundans varje månad och genomföra en fullskalig simulering av haveriberedskap var sjätte månad. Följ alltid anvisningarna och informationen exakt som det står i planen, och överväg att låta någon som är obekant med planen ge sitt perspektiv på vad som kan göras tydligare.
 
-Make sure to include your monitoring system in your testing as well. For example, if your application supports automated failover, introduce failures in a dependency or other critical component to ensure that the application behaves correctly end-to-end, including detection of the failure and triggering of the automated failover.
+Testa även ditt övervakningssystem. Om ditt program till exempel stöder automatisk redundans kan du introducera fel i ett beroende eller någon annan kritisk komponent för att garantera att programmet beter sig korrekt från slutpunkt till slutpunkt, och att det identifierar felet och utlöser den automatiska redundansen.
 
- By carefully identifying your requirements and laying out a plan, you'll be able to determine what types of services you'll need to use to meet your recovery objectives. Azure provides several services and features to help you meet these objectives.
+ Genom att noggrant identifiera dina krav och utforma en plan kan du avgöra vilka typer av tjänster du behöver använda för att uppfylla dina återställningsmål. Azure tillhandahåller flera tjänster och funktioner för att hjälpa dig att uppnå dessa mål.

@@ -1,11 +1,11 @@
-You saw two ways to meet demand using Virtual Machines. If your load is predictable you can use the portal or scripts to manually resize your VMs. For unpredictable demand patterns, a better approach is to use scale sets with autoscale to automatically add and remove instances as demand changes. Multiple VMs have the added benefit of increasing the availability of your system since a failed VM will not disrupt your service.
+Du har sett två sätt att möta efterfrågan med hjälp av virtuella datorer. Om din belastning är förutsägbar kan du använda portalen eller skript för att manuellt ändra storlek på dina virtuella datorer. För oförutsägbara efterfrågemönster är en bättre metod att använda skalningsuppsättningar med autoskalning för att automatiskt lägga till och ta bort instanser allteftersom efterfrågan ändras. Flera virtuella datorer har den ytterligare fördelen att de ökar tillgängligheten för systemet eftersom tjänsten inte störs om en virtuell dator slutar fungera.
 
-## Cleanup
+## <a name="cleanup"></a>Rensa
 
-While a VM is provisioned and running, it incurs costs against your subscription. Because you create all the VMs in the same resource group, the easiest way to clean up your Azure subscription is to remove the resource group, which will remove all its contents. Please run the following PowerShell cmdlet when you are finished with the exercise:
+När en virtuell dator etableras och körs medför den kostnader i din prenumeration. Eftersom du skapade alla virtuella datorer i samma resursgrupp är det enklast att rensa din Azure-prenumeration genom att ta bort resursgruppen. Då tas allt dess innehåll bort. Kör följande PowerShell-cmdlet när du är klar med övningen:
 
    ```powershell
    Remove-AzureRmResourceGroup -Name ExerciseRG
    ```
 
-When you are asked to confirm the delete, answer **Yes**. The command may take several minutes to complete as resources are deleted.
+När du uppmanas att bekräfta borttagningen svarar du **Ja**. Det kan ta flera minuter att köra kommandot och ta bort resurserna.

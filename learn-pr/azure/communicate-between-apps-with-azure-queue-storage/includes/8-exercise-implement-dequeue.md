@@ -1,17 +1,17 @@
-Now we want to complete the application by writing code to read the next message in the queue, process it, and delete it from the queue. 
+Nu gör vi färdigt programmet genom att skriva kod som läser nästa meddelande i kön, bearbetar det och tar bort det från kön. 
 
-We're going to place this code into the same application and execute it when you don't pass any parameters, however in our news service scenario, we would really place this code into our middle-tier servers to process the stories.
+Vi placerar koden i samma program och kör den när du inte skickar några parametrar, men i vårt nyhetsscenario skulle vi egentligen placera koden på våra mellannivåservrar för bearbetning av nyheterna.
 
-## Dequeue a message
+## <a name="dequeue-a-message"></a>Ta bort ett meddelande från kön
 
-Let's add a new method that retrieves the next message from the queue.
+Vi lägger till en ny metod som hämtar nästa meddelande från kön.
 
-1. Switch to the `QueueApp` folder in the Cloud Shell and type `code .` to open the online editor.
+1. Växla till mappen `QueueApp` i Cloud Shell och skriv `code .` för att öppna onlineredigeraren.
  
-1. Open the `Program.cs` source file.
+1. Öppna källfilen `Program.cs`.
 
-1. Create a static method in the `Program` class named `ReceiveArticleAsync` that takes no parameters and returns a `Task<string>`. We'll use this method to pull a news article from the queue and return it.
-    - Go ahead and add the `async` keyword to the method since we'll be using some asynchronous `Task`-based methods.
+1. Skapa en statisk metod i klassen `Program` med namnet `ReceiveArticleAsync` som inte tar några parametrar och returnerar en `Task<string>`. Vi använder den här metoden till att hämta en nyhetsartikel från kön och returnera den.
+    - Gå vidare och lägg till nyckelordet `async` i metoden eftersom vi ska använda en del asynkrona `Task`-baserade metoder.
 
     ```csharp
     static async Task<string> ReceiveArticleAsync()
@@ -34,14 +34,14 @@ Let's add a new method that retrieves the next message from the queue.
     }
     ```
     
-1. In your `ReceiveArticleAsync` method, call the new `GetQueue` method to retrieve your queue reference and assign it to a variable.
+1. I metoden `ReceiveArticleAsync` ska du anropa den nya `GetQueue`-metoden för att hämta köreferensen och tilldela den till en variabel.
 
-1. Next, call the `ExistsAsync` method on the `CloudQueue` object; this will return whether the queue has been created. If we attempt to retrieve a message from a non-existent queue, the API will throw an exception.
-    - This method is asynchronous so use `await` to get the return value.
-    - You should already have the `async` keyword on the `ReceiveArticleAsync` method, but if not add it now.
+1. Anropa sedan metoden `ExistsAsync` i `CloudQueue`-objektet, då returneras information om kön har skapats. Om vi försöker hämta ett meddelande från en kö som inte finns genereras ett undantag i API:t.
+    - Den här metoden är asynkron, så använde `await` för att hämta returvärdet.
+    - Du bör redan ha nyckelordet `async` i metoden `ReceiveArticleAsync`, annars lägger du till det nu.
 
 
-1. Add an `if` block that uses the return value from `ExistsAsync`. We'll add our code to read a value from the queue into the block. Add a final return string to the method that indicates no value was read. Your method should be looking something like this:
+1. Lägg till ett `if`-block som använder returvärdet från `ExistsAsync`. Vi lägger till kod för att läsa in ett värde från kön till blocket. Lägg till en sista retursträngen i metoden som anger att inget värde har lästs. Metoden bör se ut ungefär så här:
 
 ```csharp
 static async Task<string> ReceiveArticleAsync()
@@ -56,13 +56,13 @@ static async Task<string> ReceiveArticleAsync()
 }
 ```
 
-1. Call `GetMessageAsync` on the `CloudQueue` object to get the first `CloudQueueMessage` from the queue. The return value will be `null` if the queue is empty.
+1. Anropa `GetMessageAsync` i `CloudQueue`-objektet för att hämta den första `CloudQueueMessage`-instansen från kön. Det returnerade värdet blir `null` om kön är tom.
 
-1. If it's non-null, use the `AsString` property on the `CloudQueueMessage` object to get the contents of the message.
+1. Om värdet inte är null använder du egenskapen `AsString` i `CloudQueueMessage`-objektet till att hämta meddelandets innehåll.
 
-1. Call `DeleteMessageAsync` on the `CloudQueue` object to delete the message from the queue.
+1. Anropa `DeleteMessageAsync` på `CloudQueue`-objektet för att ta bort meddelandet från kön.
 
-The final method implementation should resemble:
+Implementeringen av den sista metoden bör se ut ungefär så här:
 
 ```csharp
 static async Task<string> ReceiveArticleAsync()
@@ -84,17 +84,17 @@ static async Task<string> ReceiveArticleAsync()
 }
 ```
 
-## Call the ReceiveArticleAsync method
+## <a name="call-the-receivearticleasync-method"></a>Anropa metoden ReceiveArticleAsync
 
-Finally, let's add support to invoke our new method. We'll do this when we don't pass any parameters into the program.
+Slutligen ska vi lägga till stöd för att anropa vår nya metod. Det här gör vi när vi inte skickar några parametrar till programmet.
 
-1. Locate the `Main` method and specifically the `if` block you added earlier to look for parameters.
+1. Leta rätt på metoden `Main`, och i synnerhet `if`-blocket du lade till tidigare för att söka efter parametrar.
 
-1. Add an `else` condition and call the `ReceiveArticleAsync` method. 
+1. Lägg till ett `else`-villkor och anropa metoden `ReceiveArticleAsync`. 
 
-1. Since it's asynchronous, we would normally want to use `await`, however as explained earlier that doesn't work in all versions of C# - so just use the `Result` property to get the return value and print it to the console window.
+1. Eftersom metoden är asynkron vill vi normalt använda `await`, men som vi förklarade tidigare så fungerar inte det i alla versioner av C#. Använd istället egenskapen `Result` till att hämta returvärdet och skriva ut det i konsolfönstret.
 
-Your code should look something like:
+Koden bör se ut ungefär så här:
 
 ```csharp
 if (args.Length > 0)
@@ -108,14 +108,14 @@ else
 }
 ```
 
-## Execute the application
+## <a name="execute-the-application"></a>Köra programmet
 
-The code is now complete. It can now send and retrieve messages. To test it, use `dotnet run` and pass parameters to send messages, and leave off parameters to read a single message.
+Koden är nu färdig. Programmet kan skicka och hämta meddelanden. Testa det med `dotnet run` och ange parametrar för att skicka meddelanden, och kör programmet utan parametrar för att läsa enstaka meddelanden.
 
-If you want to test when a queue doesn't exist, you can delete the queue (and all the data) with the Azure CLI. Make sure to replace the `<connection-string>` parameter (or set the environment variable).
+Om du vill testa programmet när det inte finns någon kö kan du ta bort kön (och alla data) med Azure CLI. Se till att ersätta parametern `<connection-string>` (eller ställa in miljövariabeln).
 
 ```azurecli
 az storage queue delete --name newsqueue --connection-string <connection-string> 
 ```
 
-The next time you add a message, the queue should be re-created.
+Nästa gång du lägger till ett meddelande ska kön återskapas.

@@ -1,23 +1,32 @@
 ### YamlMime:Module
 uid: learn.caching-and-performance-azure-storage-and-disks
 metadata:
-  title: Caching and performance in Azure storage disks
-  description: Learn about disk performance in Azure, and how caching can help optimize read and write access to storage. Compare the types of Azure storage caching, and learn how to enable caching to help optimize the performance of Azure VM disks.
+  title: Cachelagring och prestanda i Azure Storage-diskar
+  description: Läs mer om diskprestanda i Azure och hur cachelagring kan hjälpa dig att optimera läs- och skrivåtkomst till lagring. Jämför typerna av Azure-lagringscache och lär dig att aktivera cachelagring för att optimera prestanda för de virtuella VM-diskarna i Azure.
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-title: Caching and performance in Azure storage disks
-summary: Moving data as fast as possible is good for business. Here, you'll learn about disk performance in Azure, and how caching can help optimize read and write access to storage. Compare the types of Azure storage caching, and learn how to enable caching to help optimize the performance of Azure VM disks.
-abstract: |
-  In this module, you will:
-  - Describe the key considerations around disk performance in Azure (IOPS)
-  - Describe the effects of caching on disk performance in Azure
-  - Enable and manage cache settings with the Azure portal
-  - Enable and manage cache settings with PowerShell
-prerequisites: None
+  ms.openlocfilehash: 5f99121d523bfa3481a3ada294b9a28a64ca9eed
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44233687"
+title: Cachelagring och prestanda i Azure Storage-diskar
+summary: Det är bra för affärerna att flytta data så snabbt som möjligt. Här kan du läsa mer om diskprestanda i Azure och hur cachelagring kan hjälpa dig att optimera läs- och skrivåtkomst till lagring. Jämför typerna av Azure-lagringscache och lär dig att aktivera cachelagring för att optimera prestanda för de virtuella VM-diskarna i Azure.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Beskriv de viktiga övervägandena kring diskprestanda i Azure (IOPS)
+
+  - Beskriv hur cachelagring påverkar diskprestanda i Azure
+
+  - Aktivera och hantera inställningar för cachelagring med Azure Portal
+
+  - Hantera cacheinställningar med PowerShell
+prerequisites: Ingen
 iconUrl: http://via.placeholder.com/120x120
 levels:
 - intermediate

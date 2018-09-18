@@ -1,73 +1,73 @@
-Every function must have one, and only one, trigger binding. It defines how our code is triggered to run. In addition to a trigger, we can define bindings that connect us to data sources. If you remember from our diagram of the solution, we want to send messages to three queues. So, we'll define those connections as output bindings in our function. We could create those bindings through the **Output binding** UI. However, to save time, we'll edit the config file directly.
+Varje funktion måste ha en enda utlösarbindning. Den definierar hur vår kod utlöses för körning. Förutom en utlösare kan vi definiera bindningar som ansluter oss till datakällor. Om du minns från vårt diagram över lösningen vill vi skicka meddelanden till tre köer. Så vi ska definiera anslutningarna som utdatabindningar i vår funktion. Vi skulle kunna skapa bindningarna via användargränssnittet för **utdatabindning**. Men för att spara tid ska vi redigera konfigurationsfilen direkt.
 
-1. Select our function, [!INCLUDE [func-name-discover](./func-name-discover.md)], in the Function Apps portal.
+1. Välj vår funktion, [!INCLUDE [func-name-discover](./func-name-discover.md)], i funktionappsportalen.
 
-1. Expand the **View files** menu on the right of the screen.
+1. Utöka menyn **Visa filer** till höger på skärmen.
 
-1. Under the **View files** tab, select **function.json** to open the config file in the editor.
+1. Under fliken **Visa filer** väljer du **function.json** för att öppna konfigurationsfilen i redigeraren.
 
-1. Replace the entire content of the config file with the following JSON. 
+1. Ersätt hela innehållet i konfigurationsfilen med följande JSON. 
 
 [!code-json[](../code/function.json)]
 
-We've added three new bindings to the config.
+Vi har lagt till tre nya bindningar till konfigurationsfilen.
 
-- Each new binding is of type `queue`. These bindings are for the three queues that we'll populate with our feedback messages to once we know the sentiment of the feedback.
-- Each binding has a direction defined as `out`, since we'll post messages to these queues.
-- Each binding uses the same connection to our storage account.
-- Each binding has a unique `queueName` and `name`.
+- Varje ny bindning är av typen `queue`. De här bindningarna är för de tre köerna som vi ska fylla i våra feedbackmeddelanden till när vi vet feedbackens sentiment.
+- Varje bindning har en riktning som definieras som `out`, eftersom vi ska publicera meddelanden till dessa köer.
+- Varje bindning använder samma anslutning till vårt lagringskonto.
+- Varje bindning har en unik `queueName` och `name`.
 
-Posting a message to a queue is as easy as saying, for example,  `context.bindings.negativeFeedbackQueueItem = "<message>"`.
+Att publicera ett meddelande till kön är lika enkelt som, vi säger `context.bindings.negativeFeedbackQueueItem = "<message>"`.
 
-## Update implementation to sort feedback into queues based on sentiment score
+## <a name="update-implementation-to-sort-feedback-into-queues-based-on-sentiment-score"></a>Uppdatera implementering för sortera feedback i köer baserat på sentimentpoäng
 
-The goal of our feedback sorter is to sort feedback into three buckets, positive, neutral, and negative. So far, we have our input queue, our code to call Text Analytics API, and we've defined our output queues. In this section, we'll add the logic to move messages into those queues based on sentiment.
+Målet med vår feedbacksortering är att sortera feedback i tre buckets, positiv, neutral och negativ. Hittills har vi vår indatakö, vår kod för att anropa API för textanalys och vi har definierat våra utdataköer. I den här delen har vi lagt till logiken för att flytta meddelanden till köerna baserat på sentiment.
 
-1. Navigate to our function, [!INCLUDE [func-name-discover](./func-name-discover.md)], and  open `index.js` in the code editor again.
+1. Gå till vår funktion, [!INCLUDE [func-name-discover](./func-name-discover.md)], och öppna `index.js` i kodredigeraren igen.
 
-1. Replace the implementation with the following update.
+1. Ersätt implementeringen med följande uppdatering.
 [!code-javascript[](../code/discover-sentiment+sort.js?highlight=25-48)]
 
-We've added the highlighted code to our implementation. The code parses the response from the Text Analytics API cognitive service. Based on the sentiment score, the message is forwarded to one of or three output queues. The code to post the message is just setting the correct binding parameter.
+Vi har lagt till den markerade koden i vår implementering. Koden parsar svaret från den kognitiva tjänsten API för textanalys. Baserat på sentimentpoängen vidarebefordras meddelandet till en av de tre utdataköerna. Koden för att publicera meddelandet är bara att ange rätt bindningsparameter.
 
-## Try it out
+## <a name="try-it-out"></a>Prova
 
-To test the updated implementation, we'll head back to the Storage Explorer. 
+För att testa den uppdaterade implementeringen går vi tillbaka till Storage Explorer. 
 
-1. Navigate to your resource group in the **Resource Groups** section of the portal.
+1. Gå till din resursgrupp i delen **Resursgrupper** i portalen.
 
-1. Select the resource group used in this lesson.
+1. Välj resursgruppen som används i den här lektionen.
 
-1. In the **Resource group** panel that opens, locate the Storage Account entry and select it.
-![Screenshot storage account selected in the Resource Group window.](../media-draft/select-storage-account.png)
+1. I panelen **Resursgrupp** som öppnas letar du reda på lagringskontot och markerar det.
+![Skärmbild av valt lagringskonto i fönstret Resursgrupp.](../media-draft/select-storage-account.png)
 
-1. Select **Storage Explorer (preview)** from the left menu of the Storage Account main window.  This action opens the Azure Storage Explorer inside the portal. Your screen should look like the following screenshot at this stage.
-![Screenshot of storage explorer showing our storage account, with one queue currently.](../media-draft/storage-explorer-menu-inputq.png)
+1. Välj **Storage Explorer (förhandsversion)** på den västra menyn i lagringskontots huvudfönster.  Den här åtgärden öppnar Azure Storage Explorer i portalen. Skärmen bör likna följande skärmbild i det här stadiet.
+![Skärmbild av Storage Explorer som visar vårt lagringskonto med en kö.](../media-draft/storage-explorer-menu-inputq.png)
 
-We have one queue listed under the **Queues** collection. This queue is [!INCLUDE [input-q](./q-name-input.md)],  the input queue we defined in the preceding test section of the module.
+Det finns en listad kö under samlingen **Köer**. Kön är [!INCLUDE [input-q](./q-name-input.md)], indatakön vi definierade i det föregående testavsnittet i modulen.
 
-1. Select [!INCLUDE [input-q](./q-name-input.md)] in the left-hand menu to see the data explorer for this queue. As expected, the queue had no data. Let's add a message to the queue using the **Add Message** command at the top of the window. 
+1. Välj [!INCLUDE [input-q](./q-name-input.md)] på menyn till höger så ser du Datautforskaren för den här kön. Som förväntat fanns det inga data i kön. Vi lägger till ett meddelande till kön med kommandot **Lägg till meddelande** överst i fönstret. 
 
-1. In the **Add Message** dialog, enter "I'm having fun with this exercise!" into the **Message text** field and click **OK** at the bottom of the dialog. 
+1. I dialogrutan **Lägg till meddelande** skriver du ”Jag har kul med den här övningen!” i **meddelandetextfältet** och klickar på **OK** längst ned i dialogrutan. 
 
-1. The message is displayed in the data window for [!INCLUDE [input-q](./q-name-input.md)]. After a few seconds, click **Refresh** at the top of the data view to refresh the view of the queue. Observe that the message disappears after a while. So, where did it go?
+1. Meddelandet visas i datafönstret för [!INCLUDE [input-q](./q-name-input.md)]. Efter några sekunder klickar du på **Uppdatera** överst i datavyn för att uppdatera vyn av kön. Lägg märke till att meddelandet försvinner efter en stund. Men vart tog det vägen?
 
-1. Right-click on the **QUEUES** collection in the left-hand menu. Observe that a *new* queue has appeared.
-![Screenshot of Storage Explorer with showing a new queue has been created in the collection. The queue has one message.](../media-draft/sa-new-output-q.png)
+1. Högerklicka på samlingen **KÖER** på menyn till vänster. Observera ett en *ny* kö visas.
+![Skärmbild av Storage Explorer som visar att en ny kö har skapats i samlingen. Kön har ett meddelande.](../media-draft/sa-new-output-q.png)
 
-The queue [!INCLUDE [positive-q](./q-name-positive.md)] was automatically created when a message was posted to it for the first time. With Azure Functions queue output bindings, you don't have to manually create the output queue before posting to it! Now that we see an incoming message has been sorted by our function into [!INCLUDE [positive-q](./q-name-positive.md)], let's see where the following messages land.
+Kön [!INCLUDE [positive-q](./q-name-positive.md)] skapades automatiskt när ett meddelande publicerades till den för första gången. Med Azure Functions-köutdatabindningar måste du inte manuellt skapa utdatakön innan du publicerar till den! Nu när vi ser att ett inkommande meddelande har sorterats av funktionen till [!INCLUDE [positive-q](./q-name-positive.md)] ska vi se var följande meddelande hamnar.
 
-5. Using the same steps as above, add the following messages to [!INCLUDE [input-q](./q-name-input.md)].
+5. Med samma steg som ovan ska du lägga till följande meddelanden i [!INCLUDE [input-q](./q-name-input.md)].
 
-- "I like broccoli!"
-- "Microsoft is a company"
+- ”Jag gillar broccoli!”
+- ”Microsoft är ett företag”
 
-6. Click **Refresh** until [!INCLUDE [input-q](./q-name-input.md)] is empty once again. This process might take a few moments and require several refreshes.
+6. Klicka på **Uppgradera** tills [!INCLUDE [input-q](./q-name-input.md)] är tom igen. Den här processen kan ta en stund och kräver flera uppdateringar.
 
-1. Right-click on the **QUEUES** collection and observe two more queues appearing. The queues are named [!INCLUDE [neutral-q](./q-name-neutral.md)] and [!INCLUDE [negative-q](./q-name-negative.md)]. This might take a few seconds, so continue refreshing the **QUEUES** collection until new queues. When complete, your queue list should look like the following.
+1. Högerklicka på samlingen **KÖER** och lägg märke till att två köer till visas. Köerna heter [!INCLUDE [neutral-q](./q-name-neutral.md)] och [!INCLUDE [negative-q](./q-name-negative.md)]. Det kan ta några sekunder, så fortsätt att uppdatera samlingen **KÖER** till du ser de nya köerna. Din kölista bör se ut ungefär så här när du är klar.
 
-![Screenshot of Storage Explorer menu showing four queues in the QUEUES collection.](../media-draft/sa-final-q-list.png)
+![Skärmbild av Storage Explorer som visar fyra köer i samlingen KÖER.](../media-draft/sa-final-q-list.png)
 
-Click on each queue in the list to see whether they have messages. If you added the suggested messages, you should see one message in [!INCLUDE [positive-q](./q-name-positive.md)], [!INCLUDE [neutral-q](./q-name-neutral.md)], and [!INCLUDE [negative-q](./q-name-negative.md)].
+Klicka på varje kö i listan för att se om de har meddelanden. Om du har lagt till de föreslagna meddelandena bör du se ett meddelande i [!INCLUDE [positive-q](./q-name-positive.md)], [!INCLUDE [neutral-q](./q-name-neutral.md)] och [!INCLUDE [negative-q](./q-name-negative.md)].
 
-Congratulations! We now have a working feedback sorter! As messages arrive in the input queue, our function uses the Text Analytics API service to get a sentiment score. Based on that score, the function forwards the messages to the appropriate queue. While it seems like the function processes only one queue item at a time, the Azure Functions runtime will actually read batches of queue items and spin up other instances of our function to process them in parallel. 
+Grattis! Nu har vi en fungerande feedbacksortering! När meddelanden hamnar i indatakön använder vår funktion tjänsten API för textanalys för att hämta en sentimentpoäng. Baserat på den poängen vidarebefordrar funktionen meddelandena till rätt kö. Även om det verkar som funktionen endast bearbetar ett köobjekt i taget läser Azure Functions-körmiljön faktiskt batchar med köobjekt och startar andra instanser av funktionen för att bearbeta dem parallellt. 

@@ -1,111 +1,111 @@
-As your company deals with highly sensitive data and has large amounts of information it will store in Azure, there are some concerns about the security and reliability of connections over the public Internet. The company isn't willing to migrate wholesale to Azure unless it can demonstrate higher levels of connectivity, security, and reliability.
+Eftersom ditt företag hanterar mycket känsliga data och har stora mängder information som ska lagras i Azure finns det viss oro över säkerheten och tillförlitligheten för anslutningar via det offentliga internet. Företaget är inte villigt att migrera helt till Azure, såvida lösningen inte kan uppvisa en högre anslutningsnivå, högre säkerhet och större tillförlitlighet.
 
-Here, we'll go beyond connections that run over the Internet to dedicated lines direct into the Azure datacenters.
+Här går vi längre än anslutningar som körs via det offentliga Internet till dedikerade anslutningar direkt till Azures datacenter.
 
-## Azure ExpressRoute
+## <a name="azure-expressroute"></a>Azure ExpressRoute
 
-Microsoft Azure ExpressRoute enables organizations to extend their on-premises networks into the Microsoft Cloud over a private connection implemented by a connectivity provider. This arrangement means that the connectivity to the Azure datacenters doesn't go over the Internet but across a dedicated link. ExpressRoute also facilitates efficient connections with other Microsoft cloud-based services, such as Office 365 and Dynamics 365.
+Microsoft Azure ExpressRoute låter organisationer utöka sina lokala nätverk till Microsoft Cloud över en privat anslutning som implementerats av en anslutningsleverantör. Det här arrangemanget innebär att anslutningen till Azures datacenter inte går via Internet utan över en dedikerad länk. ExpressRoute effektiviserar även anslutningar med andra molnbaserade tjänster från Microsoft, till exempel Office 365 och Dynamics 365.
 
-Advantages that ExpressRoute provides include:
+Fördelarna med ExpressRoute är bland annat:
 
-- Faster speeds, from 50 Mbps to 10 Gbps, with dynamic bandwidth scaling
+- Snabbare hastighet, från 50 Mbit/s till 10 Gbit/s, med dynamiska bandbreddsskalning
 
-- Lower latency
+- Kortare svarstid
 
-- Greater reliability though built-in peering
+- Större tillförlitlighet trots inbyggd peering
 
-- Highly secure
+- Mycket säker
 
-ExpressRoute brings a number of further benefits, such as:
+ExpressRoute har ytterligare ett antal fördelar, till exempel:
 
-- Connectivity to all supported Azure services
+- Anslutning till alla Azure tjänster som stöds
 
-- Global connectivity to all regions (requires premium add-on)
+- Global anslutning till alla regioner (kräver premium-tillägg)
 
-- Dynamic routing over Border Gateway Protocol
+- Dynamisk routning över Border Gateway Protocol
 
-- Service-level agreements (SLAs) for connection uptime
+- Serviceavtal (SLA) för oavbruten anslutningstid
 
-- Quality of Service (QoS) for Skype for Business
+- Tjänstkvalitet (QoS) för Skype för företag
 
-Additionally, there's the ExpressRoute premium add-on, which offers benefits such as increased route limits, global service connectivity, and increased virtual network links per circuit.
+Dessutom finns också premiumtillägget ExpressRoute, som ger fördelar som ökade routningsgränser, global tjänstanslutning och ett större antal vNet-länkar per krets.
 
-## ExpressRoute connectivity models
+## <a name="expressroute-connectivity-models"></a>ExpressRoute-anslutningsmodeller
 
-Connections into ExpressRoute can be through the following mechanisms:
+Anslutningar till ExpressRoute kan ske genom följande metoder:
 
-- IP VPN network (any-to-any)
+- P VPN-nätverk (”any-to-any”)
 
-- Virtual cross-connection through an Ethernet exchange
+- Virtuell korsanslutning via ett Ethernet-utbyte
 
-- Point-to-point Ethernet connection
+- Ethernet-anslutning av punkt till punkt-typ
 
- ExpressRoute capabilities and features are all identical across all of the above connectivity models.
+ Alla ExpressRoute-funktioner och egenskaper är identiska i ovanstående anslutningsmodeller.
 
-### What is layer 3 connectivity?
+### <a name="what-is-layer-3-connectivity"></a>Vad är Layer 3-anslutning?
 
-Microsoft uses an industry-standard dynamic routing protocol (BGP) to exchange routes between your on-premises network, your instances in Azure, and Microsoft public addresses. We establish multiple BGP sessions with your network for different traffic profiles.
+Microsoft använder ett branschstandardprotokoll för dynamisk routning (BGP) för att växla vägar mellan det lokala nätverket, dina instanser i Azure och Microsofts offentliga adresser. Vi upprättar flera BGP-sessioner med ditt nätverk för olika trafikprofiler.
 
-### Any-to-any (IPVPN) networks
+### <a name="any-to-any-ipvpn-networks"></a>”Any-to-any”-nätverk (IPVPN)
 
-IPVPN providers typically provide connectivity between branch offices and your corporate datacenter over managed layer 3 connections. With ExpressRoute, the Azure datacenters appear as if they were another branch office.
+IPVPN-leverantörer tillhandahåller vanligtvis anslutning mellan olika avdelningskontor och dina företagsdatacenter över hanterade Layer 3-anslutningar. Med ExpressRoute visas Azures datacenter som om de vore separata avdelningskontor.
 
-### Virtual cross-connection through an Ethernet Exchange
+### <a name="virtual-cross-connection-through-an-ethernet-exchange"></a>Virtuell korsanslutning via ett Ethernet-utbyte
 
-If your organization is co-located with a cloud exchange facility, you request cross-connections to the Microsoft Cloud though your provider's Ethernet exchange. These cross-connections to the Microsoft Cloud can operate at either layer 2 or layer 3 managed connections, as in the networking OSI model.
+Om din organisation är samordnad med en molnutbytesfunktion begär du korsanslutningar till Microsoft Cloud genom din leverantörs Ethernet-utbyte. Korsanslutningarna till Microsoft Cloud kan antingen köras med hanterade Layer 2- eller Layer 3-anslutningar, som i OSI-nätverksmodellen.
 
-### Point-to-point Ethernet connection
+### <a name="point-to-point-ethernet-connection"></a>Ethernet-anslutning av punkt till punkt-typ
 
-Point-to-point Ethernet links can provide layer 2 or managed layer 3 connections between your on-premises datacenters or offices to the Microsoft Cloud.
+Ethernet-länkar av punkt till punkt-typ kan ge hanterade Layer 2- eller Layer 3-anslutningar mellan dina lokala datacenter eller kontor till Microsoft Cloud.
 
-## How ExpressRoute works
+## <a name="how-expressroute-works"></a>Så här fungerar ExpressRoute
 
-Azure ExpressRoute uses a combination of ExpressRoute circuits and routing domains to provide high-bandwidth connectivity to the Microsoft Cloud.
+Azure ExpressRoute använder en kombination av ExpressRoute-kretsar och routningsdomäner för snabba anslutningar till Microsoft Cloud.
 
-### What are ExpressRoute circuits
+### <a name="what-are-expressroute-circuits"></a>Vad är ExpressRoute-kretsar?
 
-An ExpressRoute circuit is the logical connection between your on-premises infrastructure and the Microsoft Cloud. A connectivity provider implements that connection, although some organizations use multiple connectivity providers for redundancy reasons. Each circuit has a fixed bandwidth of either 50, 100, 200 Mbps or 500 Mbps, or 1 Gbps or 10 Gbps, and each of those circuits map to a connectivity provider and a peering location. In addition, each ExpressRoute circuit has default quotas and limits.
+En ExpressRoute-krets är den logiska anslutningen mellan din lokala infrastruktur och Microsoft Cloud. En anslutningsleverantör implementerar anslutningen, även om vissa organisationer använder flera anslutningsleverantörer av redundansskäl. Varje krets har en fast bandbredd på 50, 100, 200 eller 500 Mbit/s alternativ 1 eller 10 Gbit/s och var och en av dessa kretsar mappas till en anslutningsleverantör och en peering-plats. Dessutom har varje ExpressRoute-krets standardkvoter och begränsningar.
 
-An ExpressRoute circuit isn't equivalent to a network connection or a network device. Each circuit is defined by a GUID, called a _service_ or _s-key_. This s-key provides the connectivity link between Microsoft, your connectivity provider, and your organization - it isn't a cryptographic secret. Each s-key has a one-to-one mapping to an Azure ExpressRoute circuit.
+En ExpressRoute-krets motsvarar inte en nätverksanslutning eller en nätverksenhet. Varje krets definieras av ett GUID som kallas en _tjänst_- eller _s-nyckel_. Den här s-nyckeln tillhandahåller anslutningslänken mellan Microsoft, din anslutningsleverantör och organisation – det är inte en kryptografisk hemlighet. Varje s-nyckel har en en-till-en-mappning till en Azure ExpressRoute-krets.
 
-Each circuit can have up to three peerings, which are a pair of BGP sessions that are configured for redundancy. They are:
+Varje krets kan ha upp till tre peering-sessioner, som är ett par BGP-sessioner som har konfigurerats för redundans. De är:
 
-- Azure private
-- Azure public
+- Azure, privat
+- Azure, offentlig
 - Microsoft
 
-### Routing domains
+### <a name="routing-domains"></a>Routningsdomäner
 
-ExpressRoute circuits then map to routing domains, with each ExpressRoute circuit having multiple routing domains. These domains are the same as the three peerings listed above. In an active-active configuration, each pair of routers would have each routing domain configured identically, thus providing high availability. The Azure public and Azure private peering names represent the IP addressing schemes.
+ExpressRoute-kretsarna mappar sedan till routningsdomäner, där varje ExpressRoute-krets har flera routningsdomäner. Dessa domäner är desamma som de tre peering-sessionerna som anges ovan. I en aktiv-aktiv-konfiguration skulle varje routerpar ha en identiskt konfigurerad routningsdomän, vilket ger hög tillgänglighet. De offentliga och privata Azure-peering-namnen representerar IP-adresscheman.
 
-#### Azure private peering
+#### <a name="azure-private-peering"></a>Privat peering i Azure
 
-Azure private peering connects to Azure compute services such as virtual machines and cloud services that are deployed with a virtual network. As far as security goes, the private peering domain is simply an extension of your on-premises network into Azure. You then enable bidirectional connectivity between that network and any Azure virtual networks, making the Azure VM IP addresses visible within your internal network.
-
-> [!NOTE]
-> You can connect only one virtual network to the private peering domain.
-
-#### Azure public peering
-
-Azure public peering enables private connections to services that are available on public IP addresses, such as Azure Storage, Azure SQL databases, and Azure web services. With public peering, you can connect to those service public IP addresses without your traffic being routed over the Internet. Connectivity is always from your WAN to Azure, not the other way around. This is also an all-or-nothing approach, as you can't select the services for which you want public peering enabled.
+Azures privata peering ansluter till Azures beräkningstjänster, till exempel virtuella datorer och molntjänster som distribueras med ett virtuellt nätverk. När det handlar om säkerhet är den privata peeringdomänen helt enkelt en förlängning av ditt lokala nätverk till Azure. Du aktiverar sedan dubbelriktad anslutning mellan nätverket och valfritt virtuellt Azure-nätverk, vilket gör att Azure VM-IP-adresserna blir synliga i ditt interna nätverk.
 
 > [!NOTE]
-> For Azure PaaS services, it's recommended to use Microsoft peering rather than public peering.
+> Du kan bara ansluta ett enda virtuellt nätverk till den privata peering-domänen.
 
-#### Microsoft peering
+#### <a name="azure-public-peering"></a>Offentlig peering i Azure
 
-Microsoft peering supports connections to cloud-based SaaS offerings, such as Office 365 and Dynamics 365. This peering option provides bi-directional connectivity between your company's WAN and Microsoft cloud services.
+Azures offentliga peering gör det möjligt att ha privata anslutningar till tjänster som är tillgängliga via offentliga IP-adresser, som Azure Storage, Azure SQL-databaser och webbtjänster i Azure. Med offentlig peering kan du ansluta till de offentliga IP-adresserna för tjänsten utan att trafiken dirigeras via Internet. Anslutningen är alltid från ditt WAN-nätverk till Azure, inte tvärtom. Detta är också en allt-eller-inget-metod eftersom du inte kan välja vilka tjänster som du vill aktivera offentlig peering för.
 
-### ExpressRoute health
+> [!NOTE]
+> För Azure PaaS-tjänster rekommenderar vi Microsoft-peering i stället för offentlig peering.
 
-As with most features in Microsoft Azure, you can monitor ExpressRoute connections to ensure that they are performing satisfactorily. Monitoring includes coverage of the following areas:
+#### <a name="microsoft-peering"></a>Microsoft-peering
 
-- Availability
-- Connectivity to virtual networks
-- Bandwidth utilization
+Microsoft-peering har stöd för anslutningar till molnbaserade SaaS-erbjudanden, som Office 365 och Dynamics 365. Det här peeringalternativet ger dubbelriktad anslutning mellan ditt företags WAN-nätverk och Microsofts molntjänster.
 
-The key tool for this monitoring activity is Network Performance Monitor, particularly NPM for ExpressRoute.
+### <a name="expressroute-health"></a>ExpressRoute-hälsa
 
-## Summary
+Precis som med de flesta funktioner i Microsoft Azure kan du övervaka ExpressRoute-anslutningar för att säkerställa att de fungerar på ett tillfredsställande sätt. Övervakning innefattar täckning av följande områden:
 
-Azure ExpressRoute is used to create private connections between Azure datacenters and infrastructure on your premises or in a colocation environment. ExpressRoute connections don't go over the public Internet, and they offer more reliability, faster speeds, and lower latencies than typical Internet connections.
+- Tillgänglighet
+- Anslutning till virtuella nätverk
+- Nyttjande av bandbredd
+
+Det viktigaste verktyget för den här övervakningsaktivitet är Network Performance Monitor, i synnerhet NPM för ExpressRoute.
+
+## <a name="summary"></a>Sammanfattning
+
+Med Azure ExpressRoute kan du skapa privata anslutningar mellan Azures datacenter och infrastruktur som finns lokalt eller i en samplaceringsmiljö. ExpressRoute-anslutningar går inte via offentligt internet, och de är tillförlitligare, snabbare och har kortare svarstider och högre säkerhet än vanliga anslutningar över internet.

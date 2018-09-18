@@ -1,34 +1,34 @@
-An Azure function doesn't do work until something tells it to execute. For example, we could create an Azure function to send out a reminder text message to our customers before an appointment. If we don't tell the function when it should run, our customers will never receive a message.
+En Azure-funktion fungerar inte förrän något beordrar den att köra. Vi kan till exempel skapa en Azure-funktion som skickar ett textmeddelande med en påminnelse till våra kunder innan en avtalad tid. Men om vi inte berättar för funktionen när den ska köras så kommer kunderna aldrig att få meddelandet.
 
-Here, you'll examine triggers at a high level and explore the most common types of triggers.
+Här kommer du att titta närmare på utlösare på en hög nivå och utforska de vanligaste typerna av utlösare.
 
-## What is a trigger?
+## <a name="what-is-a-trigger"></a>Vad är en utlösare?
 
-A trigger is a service that defines how an Azure function is invoked. For example, if you want a function to execute every 10 minutes, you could use a timer trigger.
+En utlösare är en tjänst som definierar hur en Azure-funktion anropas. Om du till exempel vill att en funktion ska köras var tionde minut kan du använda en timerutlösare.
 
-Every function must have exactly one trigger associated with it. If you want to execute a piece of logic under multiple conditions, you need to create multiple functions.
+Varje funktion måste ha en utlösare kopplad till den. Om du vill köra en del av en logik under flera olika villkor måste du skapa flera funktioner.
 
-## What is a binding?
+## <a name="what-is-a-binding"></a>Vad är en bindning?
 
-A binding is a connection to data within your function. Bindings are optional and come in the form of input and output bindings. An input binding is the data that your function receives. An output binding is the data that your function sends.
+En bindning är en anslutning till data i din funktion. Bindningar är valfria och finns som indata- och utdatabindningar. En indatabindning är data som funktionen tar emot. En utdatabindning är data som funktionen skickar.
 
-Unlike a trigger, a function can have multiple input and output bindings.
+Till skillnad från utlösare kan en funktion ha flera indata- och utdatabindningar.
 
-## Types of triggers
+## <a name="types-of-triggers"></a>Utlösartyper
 
-Azure Functions support a wide range of trigger types. Here are some of the most common types:
+Azure Functions stöder en mängd olika utlösartyper. Här är några av de vanligaste:
 
-| Type | Purpose |
+| Typ | Syfte |
 | --- | --- |
-| **Timer** | Execute a function at a set interval. |
-| **HTTP** | Execute a function when an HTTP request is received. |
-| **Blob** | Execute a function when a file is uploaded or updated in Azure Blob storage. |
-| **Queue** | Execute a function when a message is added to an Azure Storage queue. |
-| **Cosmos DB** | Execute a function when a document changes in a collection. |
-| **Event Hub** | Execute a function when an event hub receives a new event. |
+| **Timer** | Kör en funktion med bestämda intervall. |
+| **HTTP** | Kör en funktion när en HTTP-begäran tas emot. |
+| **Blob** | Kör en funktion när en fil laddas upp eller uppdateras i Azure Blob Storage. |
+| **Kö** | Kör en funktion när ett meddelande läggs till i en Azure Storage-kö. |
+| **Cosmos DB** | Kör en funktion när ett dokument ändras i en samling. |
+| **Händelsehubb** | Kör en funktion när en händelsehubb tar emot en ny händelse. |
 
-In this module, we're going to focus on the **timer**, **HTTP**, and **blob** types.
+I den här modulen kommer vi att fokusera på **timer-**, **HTTP-** och **blob-** typer.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-To execute an Azure function, we need to use a trigger. Timer, HTTP, and blob triggers are three of the most common trigger types that you'll use to execute serverless logic.
+Vi måste använda en utlösare för att köra en Azure-funktion. Timer-, HTTP- och blobutlösare är tre av de vanligaste utlösartyperna som du använder för att köra logik utan server.

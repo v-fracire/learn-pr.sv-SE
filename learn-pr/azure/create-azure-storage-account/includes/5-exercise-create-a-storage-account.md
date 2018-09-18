@@ -1,4 +1,4 @@
-I den här övningen använder du Azure-portalen för att skapa ett lagringskonto som är lämpligt för en fiktiv webbapp för surfrapporter i södra Kalifornien.
+I den här kursdelen använder du Azure-portalen för att skapa ett lagringskonto som är lämpligt för en fiktiv webbapp för surfrapporter i södra Kalifornien.
 
 ## <a name="design-goals"></a>Designmål
 
@@ -38,7 +38,7 @@ Du väljer en implementering som buffrar uppladdat innehåll i en Azure-kö för
 
 1. **Distributionsmodell**: Välj **Resource Manager**.
     
-    Anledning: **Resurshanterare** är lämplig eftersom den gör att du kan använda en resursgrupp för att hantera webbappen, lagringskontot osv. för programmet.
+    Anledning: **Resource Manager** är lämplig eftersom den gör att du kan använda en resursgrupp för att hantera webbappen, lagringskontot osv. för programmet.
 
 1. **Prestanda**: Välj **Standard**.
 
@@ -56,9 +56,9 @@ Du väljer en implementering som buffrar uppladdat innehåll i en Azure-kö för
    
     Anledning: Du vill att videor ska läsas in snabbt, och därför använder du alternativet med höga prestanda för dina blobar.
    
-Följande skärmbild visar slutförda inställningar för fliken **Grundläggande inställningar**.
-
-![Skärmbild av ett blad för att skapa ett lagringskonto med fliken **Grundläggande inställningar** markerad.](../media-drafts/5-create-storage-account-basics.png)
+    Följande skärmbild visar slutförda inställningar för fliken **Grundläggande inställningar**.
+    
+    ![Skärmbild av ett blad för att skapa ett lagringskonto med fliken **Grundläggande inställningar** markerad.](../media-drafts/5-create-storage-account-basics.png)
 
 ### <a name="configure-the-advanced-options"></a>Konfigurera avancerade alternativ
 
@@ -68,13 +68,13 @@ Följande skärmbild visar slutförda inställningar för fliken **Grundläggand
 
     Anledning: Https via kabeln anses allmänt vara bästa praxis.
 
-1. **Virtuella nätverk**: Välj **Inaktiverat**.
+1. **Virtuellt nätverk**: Lämna inställningen **Inget**. 
 
     Anledning: Innehållet är offentligt, och du behöver tillåta åtkomst från offentliga klienter.
 
-Följande skärmbild visar slutförda inställningar för fliken **Avancerat**.
-
-![Skärmbild av ett blad för att skapa ett lagringskonto med fliken **Avancerat** markerad.](../media-drafts/5-create-storage-account-advanced.png)
+    Följande skärmbild visar slutförda inställningar för fliken **Avancerat**.
+    
+    ![Skärmbild av ett blad för att skapa ett lagringskonto med fliken **Avancerat** markerad.](../media-drafts/5-create-storage-account-advanced.png)
 
 ### <a name="create"></a>Skapa
 

@@ -1,50 +1,50 @@
-Let's put our knowledge of Text Analytics to work in a practical solution. Our solution will focus on Sentiment Analysis  of text documents. Let's set the context by describing the problem we want to tackle. 
+Låt oss använda vår kunskap om API för textanalys till att arbeta med en praktisk lösning. Vår lösning fokuserar på attitydanalys av textdokument. Vi anger kontexten genom att beskriva de problem som vi vill hantera. 
 
-## Manage customer feedback more efficiently
+## <a name="manage-customer-feedback-more-efficiently"></a>Hantera feedback från kunder mer effektivt
 
-Social media is active with talk of your company's product. Your feedback email alias is also active with customers eager to share their opinion of your product.
+Det förekommer många diskussioner om ditt företags produkt på sociala medier. Ditt e-postalias för feedback är också aktivt med kunder som gärna delar med sig av sina uppfattningar om din produkt.
 
-As is the case with any new startup, you live by the mantra of listening to your customers. However, the success of your product has made keeping this promise easier said than done. It's a good problem but a problem all the same. 
+Precis som med alla nylanseringar är du mycket intresserad av att lyssna på kunderna. Dock har produktens framgång inneburit att det är lättare sagt än gjort att göra detta. Det är ett angenämt problem, men ändå ett problem. 
 
-The team can't keep up with the volume of feedback anymore. They need help sorting the feedback so that issues can be managed as efficiently as possible. As the lead developer in the organization, you have been asked to build a solution. 
+Teamet hinner inte med att hantera mängden feedback längre. De behöver hjälp att sortera feedbacken så att eventuella problem kan hanteras så effektivt som möjligt. Eftersom du är chefsutvecklare i organisationen har du blivit ombedd att ta fram en lösning. 
 
-Let's look at some high-level requirements:
+Låt oss titta på några viktiga krav:
 
 
-|Requirement  | Details  |
+|Krav  | Information  |
 |---------|---------|
-|Categorize feedback so we can react to it.     |   Not all feedback is equal. Some is glowing testimony. Other feedback is scathing criticism from a frustrated customer.  Perhaps you can't tell what the customer wants in other cases. <br/><br/>At a minimum, having an indication of the sentiment, or tone, of feedback would help us categorize it.     |
-|The solution should scale up or down to meet demand.    |   We're a startup. Fixed costs are difficult to justify and we haven't figured out  the exact pattern of feedback traffic. We'll need a solution that can tackle bursts of activity, but cost as little as possible during quiet times. <br/><br/> A serverless architecture billed on a consumption plan is a good candidate in this case.     |
-| Produce a Minimal Viable Product (MVP), but make the solution adaptable.    | Today we want to categorize feedback so we can apply our limited resources to the feedback that matters. If a customer is frustrated, we want to know immediately and start chatting to them.  In the future, we'll enhance this solution to do more. One idea for a new feature is to examine key phrases in feedback to detect pain points before they reach critical mass with our customers.   Another idea is to automate responses back to customers who are either positive or neutral. Even though they love us, we want them to know we are still listening to their feedback. <br/><br/>A solution that offers a plug-and-play architecture is a good fit here. We could, for example, use queues as a form of factory line. You perform one task, then place the result into a queue for the next part of the system to pick it up and process.   |
-|Deliver quickly.     |   We've all heard this one before! Remember, this solution is an MVP and we want to test it with our scenario quickly. To deliver at speed and with quality will mean writing less code. <br/><br/> Taking advantage of the Text Analytics API means we don't have to train a model to detect sentiment.  Using Azure Functions and binding to queues declaratively reduces the amount of code we have to write.  A serverless solution also means we don't have to worry about server management.   |
+|Kategorisera feedbacken så att vi kan reagera på den.     |   Feedback kan se olika ut. Viss feedback höjer produkten till skyarna. Annan feedback kan vara svidande kritik från en frustrerad kund.  Och i vissa fall kanske du inte förstår vad kunden vill ha. <br/><br/>Som ett minimum kan en indikation på attityden eller känsla i feedbacken hjälpa oss att kategorisera den.     |
+|Lösningen bör kunna skalas uppåt eller nedåt för att anpassas efter efterfrågan.    |   Vi sätter igång. Fasta kostnader är svåra att ändra och vi har inte kommit fram till något exakt mönster för feedbacktrafiken. Vi behöver en lösning som kan hantera aktivitetstoppar, men kosta så lite som möjligt när det är lugnare. <br/><br/> En serverlös arkitektur som faktureras i en förbrukningsplan kan vara ett smart val i det här fallet.     |
+| Skapa en MVP (Minimal Viable Product), men gör lösningen anpassningsbar.    | I dag vill vi kategorisera feedbacken så att vi kan använda våra begränsade resurser för den feedback som är viktig. Om en kund är frustrerad vill vi veta detta omedelbart och börja chatta med dem.  I framtiden kan vi förbättra den här lösningen för att kunna göra mer. En idé för en ny funktion är att undersöka nyckelfraser i feedbacken och kunna identifiera problemområden innan de når flera kunder.   En annan tanke är att automatisera svar till kunder som är positiva eller neutrala. Även om de älskar oss vill vi att de ska veta att vi ändå lyssnar på deras feedback. <br/><br/>En lösning med en Plug and Play-arkitektur är en bra metod här. Vi kan till exempel använda köer som en form av rad. Du utför en uppgift och placerar sedan resultatet i en kö för att nästa del av systemet ska kunna välja den och bearbeta den.   |
+|Leverera snabbt.     |   Vi hört allt det här förut! Kom ihåg att den här lösningen är en MVP och vi vill testa vårt scenario snabbt. Om du vill leverera snabbt och med kvalitet måste du skriva mindre kod. <br/><br/> Med hjälp av API för textanalys behöver vi inte träna en modell att identifiera attityder.  Med Azure Functions och att binda till köer deklarativt minskar den kod vi måste skriva.  En serverlös lösning innebär också att vi inte behöver bekymra oss om serverhantering.   |
 
-Our proposed solution for each requirement in the preceding table offers a glimpse into how to map requirements to solutions.  Let's now see  what a solution might look like based on Azure.
+Vår föreslagna lösning för behoven i tabellen ovan ger en glimt i hur du kan mappa krav till lösningar.  Låt oss nu se hur en lösning som baseras på Azure kan se ut.
 
-## A solution based on Azure Functions, Azure Queue Storage, and Text Analytics API
+## <a name="a-solution-based-on-azure-functions-azure-queue-storage-and-text-analytics-api"></a>En lösning som baseras på Azure Functions, Azure Queue Storage och API för textanalys
 
-The following diagram is a design proposal for a solution. It uses three core components of Azure - Azure Queue Storage, Azure Functions, and Microsoft Cognitive Services on Azure.
+Följande diagram är ett förslag på design av en lösning. Det använder tre kärnkomponenterna i Azure – Azure Queue Storage, Azure Functions och Microsoft Cognitive Services på Azure.
 
-![Conceptual diagram of a feedback sorting architecture.](../media-draft/proposed-solution.PNG)
+![Konceptuellt diagram av en feedbacksorteringsarkitektur.](../media-draft/proposed-solution.PNG)
 
-The idea is that text documents containing user feedback are placed into a queue that we've named *new-feedback-q* in the preceding diagram. The arrival of a text document into the queue triggers, or starts, an Azure Function. The function reads the new documents from the input queue and sends them for analysis to the Text Analytics API. Based on the results that the API returns, the document is placed into an output queue for further processing.
+Tanken är att textdokument som innehåller användarfeedback placeras i en kö med namnet *new-feedback-q* i föregående diagram. Ett textdokument som kommer till kön utlöser eller startar en Azure-funktion. Funktionen läser nya dokument från indatakön och skickar dem för analys till API för textanalys. Baserat på resultatet som API:n returnerar, placeras dokumentet i en utdatakö för vidare bearbetning.
 
-The result we get back for each document is a sentiment score. The output queues are used to store feedback sorted into positive, neutral, and negative. Hopefully the negative queue will always be empty! :-)   Once we've bucketed each incoming piece of feedback into an output queue based on sentiment, you can imagine adding logic to take action on the messages in each queue. 
+Resultatet som vi får tillbaka för varje dokument är en attitydpoäng. Utdataköer används för att lagra feedback som delats upp i positiv, neutral och negativ. Förhoppningsvis kommer den negativa kön alltid vara tom! :-)   När vi har bucketgrupperat varje inkommande typ av feedback i en utdatakö som baseras på attityder, kan vi lägga till logik för att vidta åtgärder på meddelanden i varje kö. 
 
-Let's look at a flowchart next to see what the function logic needs to do.
+Låt oss titta på ett flödesschema för att se vad funktionslogiken behöver göra.
 
-![Flowchart of the logic inside the Azure function to sort text documents by sentiment into output queues.](../media-draft/flow.PNG)
+![Flödesschemat för logiken i Azure-funktionen sorterar textdokument efter attityd till utdataköer.](../media-draft/flow.PNG)
 
-Our logic is like a router. It takes text input and routes it to an output queue based on the sentiment score of the text. We have a dependency on Text Analytics API. While the logic seems trivial, this function will remove the need for people on the team to analyze feedback manually.
+Vår logik är som en router. Den tar textindatan och dirigerar den till en utdatakö baserat på attitydpoängen för texten. Vi har ett beroende i API för textanalys. Även om logiken verkar trivial, innebär funktionen att personer i teamet inte behöver analysera feedbacken manuellt.
 
-## Steps to implement our solution
+## <a name="steps-to-implement-our-solution"></a>Steg för att implementera vår lösning
 
-To implement the solution described in this unit, we'll need to complete the following steps.
+Om du ska implementera lösningen som beskrivs i den här kursdelen, måste du utföra följande steg.
 
-1. Create a function app to host our solution.
+1. Skapa en funktionsapp som är värd för vår lösning.
 
-1. Look for sentiment in incoming feedback messages using the Text Analytics API. We'll use our access key from the preceding exercise and write some code to send the requests.
+1. Leta efter attityd i inkommande feedbackmeddelanden med hjälp av API för textanalys. Vi använder vår åtkomstnyckel från föregående övning och skriver kod för att skicka våra begäranden.
 
-1. Post feedback to processing queues based on sentiment.
+1. Lämna feedback för bearbetning av köer baserat på attityd.
 
 
-Let's move on to creating our function and function app. 
+Vi går vidare till att skapa vår funktion och funktionsapp. 

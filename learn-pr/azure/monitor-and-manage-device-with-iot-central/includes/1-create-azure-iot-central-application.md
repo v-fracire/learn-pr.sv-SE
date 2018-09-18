@@ -1,33 +1,32 @@
-﻿ In this tutorial, you follow the scenario in which a remote coffee machine is connected to Azure IoT Central for monitoring and management of issues. You can monitor telemetry such as water temperature and humidity, observe the state of your machine, set optimal temperature, receive warranty status, and send commands. When the water temperature of the coffee machine exceeds certain threshold values while your machine is under warranty, Microsoft Flow sends a mobile notification to a remote technician's mobile device. Likewise, if the warranty is expired when the water temperature is outside the expected range, an email from IoT Central is sent to the client’s maintenance department for further action.
+ I den här självstudien får du följa ett scenario där en fjärransluten kaffebryggare ansluts till Azure IoT Central för övervakning och hantering av problem. Du kan övervaka telemetri, till exempel vattentemperatur och fuktighet, observera status för maskinen, ställa in optimal temperatur, se garantistatus och skicka kommandon. Om vattentemperaturen i kaffebryggaren överskrider ett visst tröskelvärde och garantin är giltig, skickar Microsoft Flow en mobilavisering till en fjärrteknikers mobil. Om garantin har gått ut när vattentemperaturen är utanför det förväntade intervallet, skickas ett e-postmeddelande från IoT Central till kundens underhållsavdelning.
 
-To implement the scenario, you begin by creating a device template in Azure IoT Central to define measurements (telemetry and state), settings, properties, and commands. You then connect your coffee machine to Azure IoT Central, followed by configuring rules for maintenance notifications when water temperature is outside the optimal range.
+Om du vill implementera scenariot kan du börja med att skapa en mall för enheten i Azure IoT Central, där du definierar mått (telemetri och status), inställningar, egenskaper och kommandon. Du kan sedan ansluta kaffebryggaren till Azure IoT Central, följt av att konfigurera regler för underhållsmeddelanden när vattentemperaturen är utanför det optimala området.
 
-In this module, you will to:
-- Create an Azure IoT Central custom application 
-- Create and define your device template
-- Connect your coffee machine to the application
-- Validate your connection and data flow
-- Configure rules for maintenance notifications
+I den här modulen kommer du att:
+- Skapa ett anpassat Azure IoT Central-program 
+- Skapa och definiera din enhetsmall
+- Ansluta din kaffebryggare till programmet
+- Kontrollera din anslutning och ditt dataflöde
+- Konfigurera regler för underhållsmeddelanden
  
-## Sign in to Azure IoT Central
-In this unit, you sign in to IoT Central to create a new custom application. A 7-days trial is sufficient to complete units 1–4. If you wish to complete the optional exercise on using Microsoft Flow to send a mobile notification in unit 5, you need to extend the IoT Central trial to 30 days. The extension is enabled if you have an Azure subscription.  
+## <a name="sign-in-to-azure-iot-central"></a>Logga in på Azure IoT Central
+I den här kursdelen loggar du in på IoT Central för att skapa ett nytt anpassat program. En utvärderingsversion på 7 dagar räcker för att slutföra kursdelarna 1–4. Om du vill slutföra den valfria övningen där du använder Microsoft Flow till att skicka en mobilavisering i kursdel 5, måste du utöka utvärderingen av IoT Central till 30 dagar. Tillägget är aktiverat om du har en Azure-prenumeration.  
 
-1. Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. 
+1. Gå till sidan [Application Manager](https://aka.ms/iotcentral) (Programhanterare) i Azure IoT Central. 
 
-1. On the sign in page, enter the email address and password that you use to access your Microsoft account.
+1. På inloggningssidan anger du den e-postadress och det lösenord som du använder för att få åtkomst till ditt Microsoft-konto.
 
-## Create a new custom application
+## <a name="create-a-new-custom-application"></a>Skapa ett nytt anpassat program
 
-1. To create a new Azure IoT Central application, choose **New Application**. 
+1. Börja skapa ett nytt Azure IoT Central-program genom att välja **Nytt program**. 
 
-1. On the Create Application page: 
-    * Choose **Free** for the payment plan
-    * Select **Custom Application** as the application template
-    * Choose a friendly application name, such as **Coffee Maker 01**
-    * Azure IoT Central generates a unique URL prefix for you
-    Choose **Create**
+1. På sidan Skapa program: 
+    * Välj **Kostnadsfri** som betalningsplan
+    * Välj programmallen **Anpassat program** som programmall
+    * Välj ett eget programnamn, exempelvis **Kaffebryggare 01**
+    * Azure IoT Central skapar ett unikt URL-prefix åt dig. Välj **Skapa**
     
    > [!NOTE]
-   > Extending your trial to 30 days is optional, but it is a prerequisite if you wish to complete the exercise on using Microsoft Flow to send a mobile notification in unit 5. The 30-day extension is enabled if you have an Azure subscription. For instruction on enabling the extension, see unit 5 on configuring rules and actions to monitor your coffee machine.
+   > Du kan välja att utöka din prenumeration med 30 dagar om du vill, men det är ett krav om du vill slutföra övningen om att använda Microsoft Flow till att skicka mobilaviseringar i kursdel 5. 30-dagarstillägget är aktiverat om du har en Azure-prenumeration. Anvisningar om hur du aktiverar tillägget finns i kursdel 5 om hur du konfigurerar regler och åtgärder för att övervaka kaffebryggaren.
 
-In this unit, you created an Azure IoT custom application. You may also have chosen to sign up for an Azure subscription. In the next unit, you will continue to build on the application framework that you created. 
+I den här kursdelen har du skapat ett anpassat Azure IoT-program. Du kan även ha valt att registrera dig för en Azure-prenumeration. I nästa kursdel ska vi fortsätta att utveckla det programramverk som du skapade. 

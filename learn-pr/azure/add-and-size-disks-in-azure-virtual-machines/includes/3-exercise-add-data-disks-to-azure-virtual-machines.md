@@ -1,154 +1,154 @@
-In this exercise, let's assume your company runs a Simple Mail Transfer Protocol (SMTP) email server. You want to migrate this server into Azure. You want the SMTP server to store incoming messages for your own domain in a folder called "Drop" on a dedicated VHD.
+I den här övningen antar vi att ditt företag kör en SMTP-e-postserver (Simple Mail Transfer Protocol). Du vill migrera den här servern till Azure. Du vill att SMTP-servern ska lagra inkommande meddelanden för din egen domän i en mapp med namnet ”Drop” på en dedikerad virtuell hårddisk.
 
-The goal of the exercise is to create a Windows virtual machine (VM) and attach a new virtual hard disk (VHD) called "Incoming" to store the "Drop" directory.
+Målet med den här övningen är att skapa en virtuell Windows-dator (VM) och ansluta en ny virtuell hårddisk (VHD) med namnet ”Incoming” (Inkommande) för att lagra katalogen ”Drop”.
 
-## Sign in to Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 <!---TODO: Need update for sanbox?--->
 
-1. Sign in to the [Azure portal](https://portal.azure.com/?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com/?azure-portal=true).
 
-## Create a Windows VM in the Azure portal
+## <a name="create-a-windows-vm-in-the-azure-portal"></a>Skapa en virtuell Windows-dator i Azure-portalen
 
-To create a VM to host the SMTP server with its data drives, follow these steps:
+Skapa en virtuell dator som värd för SMTP-servern med dess dataenheter genom att följa dessa steg:
 
-1. Choose **Create a resource** in the upper left corner of the Azure portal.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
 
-1. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, and then choose **Create**.
+1. I sökrutan ovanför listan över resurser i Azure Marketplace söker du efter och väljer **Windows Server 2016 Datacenter** och därefter **Skapa**.
 
-1. In the **Basics** pane that opens to the right, enter the following property values. 
+1. I fönsterrutan **Basics** (Grundläggande) som öppnas till höger anger du följande egenskapsvärden. 
 
 
-|Property  |Value  |Notes  |
+|Egenskap  |Värde  |Anteckningar  |
 |---------|---------|---------|
-|Name     |   **MailSenderVM**      |         |
-|VM disk type     |  **Standard HDD**       |   Select this value from the dropdown.      |
-|User name     |  **mailmaster**       |         |
-|Password     |  The password must be at least 12 characters long and meet the [defined complexity requirements](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).       | Make sure to remember this user name and password because we'll use them throughout the module.         |
-|Subscription     |  Choose your subscription.       |  Select this value from the dropdown.       |
-|Resource group     |  Select **Create new**, and then type **MailInfrastructure**.       |  We'll gather all resource used in this module into one resource group.       |
-|Location     |   A location near you.      | Select this value from the dropdown.        |
+|Namn     |   **MailSenderVM**      |         |
+|Typ av virtuell datordisk     |  **Standard HDD**       |   Välj det här värdet i listrutan.      |
+|Användarnamn     |  **mailmaster**       |         |
+|Lösenord     |  Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).       | Se till att komma ihåg det här användarnamnet och lösenordet eftersom vi kommer använda dem i hela modulen.         |
+|Prenumeration     |  Välj din prenumeration.       |  Välj det här värdet i listrutan.       |
+|Resursgrupp     |  Välj **Skapa nytt** och skriv sedan **MailInfrastructure**.       |  Vi samlar in alla resurser som används i den här modulen till en resursgrupp.       |
+|Plats     |   En plats nära dig.      | Välj det här värdet i listrutan.        |
 
-4. Select **OK** at the bottom of the **Basics** page to continue to the **Size** configuration pane.
+4. Välj **OK** längst ned på sidan **Basics** (Grundläggande) för att fortsätta till konfigurationsrutan **Storlek**.
 
-1. In the **Size** configuration pane, search for and select **B1ms**, and then click **Select**.
+1. I konfigurationsrutan **Storlek** söker du efter och väljer **B1ms**, och sedan klickar du på **Välj**.
 
-1. In the **Settings** pane, under **Use managed disks**, click **No**. We'll discuss managed disks later in this module.
+1. I fönsterrutan **Inställningar** går du till **Använd hanterade diskar** och klickar på **Nej**. Vi går igenom hanterade diskar senare i den här modulen.
 
-1. In the **Select public inbound ports** dropdown list, select **RDP (3389)**. We'll use this port to remote into our VM after it's created.
+1. I listrutan **Välj offentliga inkommande portar**  väljer du **RDP (3389)**. Vi använder den här porten för att fjärransluta till den virtuella datorn när den har skapats.
 
-1. Leave all the other settings at their default, and then click **OK**.
+1. Lämna alla de andra inställningarna på deras standardvärden och klicka sedan på **OK**.
 
-1. In the **Create** pane, review the configuration.
+1. I fönsterrutan **Skapa** granskar du konfigurationen.
 
-1. When you have reviewed the configuration,  select **Create**. Azure creates and starts the new VM.
+1. När du har granskat konfigurationen väljer du **Skapa**. Azure skapar och startar den nya virtuella datorn.
 
 > [!TIP]
-> Creating your VM and deploying it in Azure can take a few minutes. You can watch the progress in the **Notifications** hub. Azure will display a notification dialog when it finishes.
+> Det kan ta några minuter att skapa den virtuella datorn och distribuera den i Azure. Du kan övervaka förloppet i hubben **Meddelanden**. Azure visar en dialogruta med ett meddelande när det är klart.
 
-## Add an empty data disk to our VM
+## <a name="add-an-empty-data-disk-to-our-vm"></a>Lägga till en tom datadisk till den virtuella datorn
 
-We're going to name the disk stores the "Drop" directory for your SMTP server "Incoming". Let's add a new empty disk to the server using the following steps:
+Vi kommer att ge den disk som lagrar katalogen ”Drop” för SMTP-servern namnet ”Incoming” (Inkommande). Vi lägger till en ny tom disk till servern med följande steg:
 
-1. In the navigation on the left, under **FAVORITES**, select **Virtual machines**.
+1. I navigeringsfönstret till vänster går du till **FAVORITER** och väljer **Virtuella datorer**.
 
-1. In the list of VMs, select **MailSenderVM**.
+1. I listan över virtuella datorer väljer du **MailSenderVM**.
 
-1. Under **SETTINGS** of the **MailSenderVM** configuration menu on the left, select **Disks**.
+1. Under **INSTÄLLNINGAR** i konfigurationsmenyn **MailSenderVM** till vänster väljer du **Diskar**.
 
-1. Under **Data disks**, select **Add data disk**.
+1. Under **Datadiskar** väljer du **Lägg till datadisk**.
 
-1. In the **Attach unmanaged disks** pane, set the following properties.
+1. I fönsterrutan **Attach unmanaged disks** (Anslut ohanterade diskar) anger du följande egenskaper.
 
 
-|Property  |Value  |Notes  |
+|Egenskap  |Värde  |Anteckningar  |
 |---------|---------|---------|
-|Name     |   **MailSenderVMIncoming**      |         |
-|Source type     |  **New (empty disk)**       |   Select this value from the dropdown.       |
-|Account type     |  **Standard HDD**       |  Select this value from the dropdown.        |
+|Namn     |   **MailSenderVMIncoming**      |         |
+|Källtyp     |  **Ny (tom disk)**       |   Välj det här värdet i listrutan.       |
+|Kontotyp     |  **Standard HDD**       |  Välj det här värdet i listrutan.        |
 
 
-6. To the left of the **Storage container** field, select **Browse**.
+6. Till vänster om fältet **Lagringscontainer** väljer du **Bläddra**.
 
-1. In the list of storage accounts, search for the storage account whose name begins with **mailinfrastructure** and select it.
+1. I listan över lagringskonton söker du efter det lagringskonto vars namn börjar med **mailinfrastructure** och väljer det.
 
-1. In the list of containers, click **vhds** and then choose **Select**.
+1. I listan över containrar klickar du på **vhds** och sedan **Välj**.
 
-1. Back on the **Attach unmanaged disk** screen, select **OK**.
+1. När du är tillbaka på skärmen **Attach unmanaged disk** (Anslut ohanterad disk) väljer du **OK**.
 
-1. Back on the **MailSenderVM - Disks** screen, select **Save**.
+1. När du är tillbaka på skärmen **MailSenderVM - Disks** (Diskar) väljer du **Spara**.
 
-We've now defined a disk called **MainSenderVMIncoming**. To use the disk, we'll first need to partition and format it when we log into the VM. 
+Vi har nu definierat en disk med namnet **MainSenderVMIncoming**. För att använda disken behöver vi först partitionera och formatera den när vi loggar in på den virtuella datorn. 
 
-## Partition and format a data disk
+## <a name="partition-and-format-a-data-disk"></a>Partitionera och formatera en datadisk
 
-As with physical disks, initiate and format a partition on a VHD before it can be used.
+På samma sätt som med fysiska diskar initierar och formaterar du en partition på en virtuell hårddisk innan den kan användas.
 
-### Log into our Windows VM using RDP
+### <a name="log-into-our-windows-vm-using-rdp"></a>Logga in på vår virtuella Windows-dator med hjälp av RDP
 
-1. In the **MailSenderVM** virtual machine main screen, select **Overview**.
+1. På huvudskärmen för den virtuella datorn **MailSenderVM** väljer du **Översikt**.
 
-1. Select **Connect** from the top left of the overview screen.
+1. Välj **Anslut** längst upp till vänster på översiktsskärmen.
 
-1. In the **Connect to virtual machine** dialog that opens on the right, select **Download to RDP File**.
+1. I dialogrutan **Ansluta till den virtuella datorn** som öppnas till höger väljer du **Download to RDP File** (Ladda ned till RDP-fil).
 
-   ![Screenshot of the "Connect to virtual machine" dialog with the "Download RDP file" button highlighted.](../media-draft/download-rdp.png)
+   ![Skärmbild av dialogrutan ”Ansluta till den virtuella datorn” med knappen ”Download RDP file” (Ladda ned RDP-fil) markerad.](../media-draft/download-rdp.png)
 
-4. A file called **MailSenderVM.rdp** is downloaded to your local `Downloads` folder. This file is the remote desktop configuration file for the MailSenderVM virtual machine. Open the file to start the connection process.
+4. En fil som heter **MailSenderVM.rdp** laddas ned till din lokala `Downloads`-mapp. Den här filen är konfigurationsfilen för fjärrskrivbord för den virtuella datorn MailSenderVM. Öppna filen för att starta anslutningsprocessen.
 
-1. In the **Remote Desktop Connection** dialog, click **Connect**.
+1. I dialogrutan **Anslutning till fjärrskrivbord** klickar du på **Anslut**.
 
-1. In the **Windows Security** dialog, click **Use another account**.
+1. I dialogrutan **Windows-säkerhet** klickar du på **Använd ett annat konto**.
 
-1. In the **Username** textbox, type **mailmaster**.
+1. I textrutan **Användarnamn** skriver du **mailmaster**.
 
-1. In the **Password** textbox, type the password you entered for this user name in this exercise. 
+1. I textrutan **Lösenord** skriver du det lösenord som du angav för det här användarnamnet i den här övningen. 
 
-1. In the **Remote Desktop Connection** dialog, click **Yes**.
+1. I dialogrutan **Anslutning till fjärrskrivbord** klickar du på **Ja**.
 
-A remote desktop session to the virtual machine is now started. It might take a few moments to sign in for the first time. When sign-in is finished, the **Server Manager** tool will be displayed on the screen.
+En Fjärrinloggningssession till den virtuella datorn startas nu. Det kan ta en stund att logga in för första gången. När inloggningen är klar visas verktyget **Serverhanteraren** på skärmen.
 
-### Partition and format our data disk using Server Manager
+### <a name="partition-and-format-our-data-disk-using-server-manager"></a>Partitionera och formatera datadisken med hjälp av Serverhanteraren
 
-1. When **Server Manager** is displayed, select **File and Storage Services** in the navigation on the left.
+1. När **Serverhanteraren** visas väljer du **File and Storage Services** (Fil- och lagringstjänster) i navigeringsfönstret till vänster.
 
-1. Under **Volumes**, select **Disks**.
+1. Under **Volymer** väljer du **Diskar**.
 
-1. In the list of disks, disk **0** is the operating system disk and disk **1** is the temporary disk. Select disk **2**, which is the new VHD you just added.
+1. I listan över diskar är disk **0** operativsystemdisken och disk **1** är den temporära disken. Väljer disk **2**, som är den nya virtuella hårddisken som du just lade till.
 
-1. At the top of the **VOLUMES** pane, select **TASKS** followed by **New Volume...**. The menu is in the top right of the screen as follows.
+1. Överst på fönsterrutan **VOLYMER** väljer du **UPPGIFTER** följt av **New Volume...** (Ny volym...). Menyn finns längst upp på skärmen enligt följande.
 
-   ![Screenshot of "TASKS" menu expanded to reveal three menu items. They are "New Volume...", "Rescan Storage", and "Refresh".](../media-draft/tasks-menu.png)
+   ![Skärmbild på menyn ”UPPGIFTER” expanderad för att visa tre menykommandon. De är ”New Volume...” (Ny volym...), ”Rescan Storage” (Skanna om lagring) och ”Refresh” (Uppdatera).](../media-draft/tasks-menu.png)
 
 
-1. In the **New Volume** wizard, click **Next**.
+1. I guiden **Ny volym** klickar du på **Nästa**.
 
-1. In the **Select server and disk** page, select **MailSenderVM** and **Disk 2**, and then click **Next**.
+1. På sidan **Select server and disk** (Välj server och disk) väljer du **MailSenderVM** och **Disk 2** och klickar sedan på **Nästa**.
 
-1. In the **Offline or Uninitiated Disk** dialog, click **OK**.
+1. I dialogrutan **Offline or Uninitiated Disk** (Offlinedisk eller oinitierad disk) klickar du på **OK**.
 
-1. In the **Specify the size of the volume** page, click **Next**.
+1. På sidan **Specify the size of the volume** (Ange storlek på volymen) klickar du på **Nästa**.
 
-1. In the **Assign a drive letter** page, select **F:** followed by **Next**.
+1. På sidan **Assign a drive letter** (Tilldela en enhetsbeteckning) väljer du **F:** följt av **Nästa**.
 
-1. In the **Select file system settings** page, in the **Volume label** textbox, type **Incoming** and then select **Next**.
+1. På sidan **Select file system settings** (Välj filsysteminställningar) går du till textrutan **Volume label** (Volymetikett) och skriver **Inkommande** och väljer sedan **Nästa**.
 
-1. In the **Confirm selections** page, select **Create**. Windows initiates the disk and formats the new partition.
+1. På sidan **Confirm selections** (Bekräfta val) väljer du **Skapa**. Windows initierar disken och formaterar den nya partitionen.
 
-1. In the **Completion** page, select **Close**.
+1. På sidan **Completion** (Slutförande) väljer du **Stäng**.
 
-Let's have a look at our new disk volume in File Explorer. 
-1. Open **File Explorer**.
+Nu tittar vi på vår nya diskvolym i Utforskaren. 
+1. Öppna **Utforskaren**.
 
-1. In the navigation in the left, click **This PC** and then double-click **Incoming (F:)**.
+1. I navigeringsfönstret till vänster klickar du på **Den här datorn** och dubbelklickar sedan på **Inkommande (F:)**.
 
-1. Select **Home**, and then **New Folder**.
+1. Välj **Start** och sedan **Ny mapp**.
 
-1. Type **Drop** and then press Enter.
+1. Typ **Drop** och tryck sedan på Retur.
 
-We now have a new volume created on our VHD called **Incoming**, and we've created a folder called **Drop** on that volume.  
+Nu har vi en ny volym som skapats på vår virtuella hårddisk som kallas **Incoming** (Inkommande), och vi har skapat en mapp med namnet **Drop** på volymen.  
 
-1. Close Windows Explorer.
+1. Stäng Utforskaren.
 
-1. On the **Task Bar**, click the **Start** button, click the **Power** button, and then click **Disconnect**.
+1. På **Aktivitetsfältet** klickar du på **Start-knappen** följt av **Strömknappen** och sedan på **Disconnect** (Koppla från).
 
-Congratulations! You've successfully created a Windows VM, attached a new VHD, created a volume on that VHD and added a folder to that volume. If you recall, the disk type we used for the new VHD was a **Standard HDD**. In the next unit, we'll learn the differences between standard and premium storage. 
+Grattis! Du har skapat en virtuell Windows-dator, anslutit en ny virtuell hårddisk, skapat en volym på den virtuella hårddisken och lagt till en mapp i den volymen. Som du kanske kommer ihåg är den disktyp som vi använde för den nya virtuella hårddisken **Standard HDD**. I nästa enhet går vi igenom skillnaderna mellan Standard- och Premium-lagring. 

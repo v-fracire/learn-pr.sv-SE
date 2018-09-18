@@ -1,23 +1,23 @@
 ### YamlMime:Module
 uid: learn.align-requirements-in-azure
+title: Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
+summary: Azure har stöd för tre sätt att distribuera molnresurser – offentliga, privata och hybrida moln. Vilket sätt du väljer påverkar flera faktorer för de tjänster du flyttar till Azure, bland annat kostnad, underhållsbehov och säkerhet. I den här modulen ska vi titta på alla tre typerna och hjälpa dig att fatta ett välgrundat beslut om vilken som passar för dina tjänster. Vi ska också snabbt titta på de tjänstmodeller som stöds av Azure och som kan hjälpa dig att avgöra vilka tjänster du ska börja med när du planerar en Azure-distribution.
 metadata:
-  title: Align requirements with cloud types and service models in Azure
-  description: Azure supports three approaches to deploying cloud resources - public, private, and the hybrid cloud. Selecting between them will change several factors of the services you move into Azure including cost, maintenance requirements, and security. In this module, we will look at all three types and help you make an informed decision about which one to leverage for your services. We'll also quickly look at the service models supported by Azure which can help you determine the services you should start with when planning out an Azure deployment.
+  title: Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
+  description: Azure har stöd för tre sätt att distribuera molnresurser – offentliga, privata och hybrida moln. Vilket sätt du väljer påverkar flera faktorer för de tjänster du flyttar till Azure, bland annat kostnad, underhållsbehov och säkerhet. I den här modulen ska vi titta på alla tre typerna och hjälpa dig att fatta ett välgrundat beslut om vilken som passar för dina tjänster. Vi ska också snabbt titta på de tjänstmodeller som stöds av Azure och som kan hjälpa dig att avgöra vilka tjänster du ska börja med när du planerar en Azure-distribution.
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
-  author: markjulmar
-  ms.author: smmark
-  ms.topic: interactive-tutorial
-  ms.prod: learning-azure
-title: Align requirements with cloud types and service models in Azure
-summary: Azure supports three approaches to deploying cloud resources - public, private, and the hybrid cloud. Selecting between them will change several factors of the services you move into Azure including cost, maintenance requirements, and security. In this module, we will look at all three types and help you make an informed decision about which one to leverage for your services. We'll also quickly look at the service models supported by Azure which can help you determine the services you should start with when planning out an Azure deployment.
-abstract: | 
-  In this module, you will:
-    - Compare each cloud computing deployment model (public, private, and hybrid).
-    - Understand the advantages of each cloud computing service model.
-    - Decide which deployment and service model you should use for your services.
-prerequisites: None
-#TODO: Update icon URL with real image 
+  ms.openlocfilehash: 9a2b12af84234c8d684f5ff3dba7b78bde0a84ce
+  ms.sourcegitcommit: 314b617e66d461bd6bf5aa076aacdc150b773606
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2018
+  ms.locfileid: "43827172"
+abstract: >
+  I den här modulen kommer du att:
+    - Jämföra de olika molndistributionsmodellerna (offentligt, privat och hybrid).
+    - Förstå fördelarna med varje molntjänstsmodell.
+    - Avgöra vilken distributions- och tjänstmodell du bör använda för dina tjänster.
+prerequisites: Inget
 iconUrl: http://via.placeholder.com/120x120
 levels:
 - beginner

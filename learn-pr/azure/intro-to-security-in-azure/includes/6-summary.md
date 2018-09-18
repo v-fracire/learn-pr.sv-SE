@@ -1,9 +1,9 @@
-In this module, we discussed the basic concepts for protecting your infrastructure and data when you work in the cloud.
+I den här modulen beskrevs de grundläggande principerna för att skydda din infrastruktur och dina data när du arbetar i molnet.
 
-**Defense in depth** is the overriding theme - thinking about security as a multi-layer, multi-vector concern. Threats come from places we don't expect, and they can come with strength that will surprise us.
+**Skydd på djupet** är det övergripande temat. Tänk på säkerhet som ett problem med flera lager och flera vektorer. Hot som kommer från platser som vi inte förväntar oss, kan vara så starka att det kommer som en överraskning för oss.
 
-Azure has out-of-the-box help for a great deal of the security issues we face. One of the first steps we should take is assessing how much help from Azure we can use based on whether we're leveraging IaaS, PaaS, or SaaS.
+Azure har färdiga åtgärder mot många av de säkerhetsproblem som vi står inför. Ett av de första stegen som vi ska ta är att bedöma hur mycket av Azures hjälp vi kan dra nytta av, baserat på om vi använder IaaS, PaaS och SaaS.
 
-Azure Security Center centralizes much of the help Azure has to offer. It provides a single dashboard, with a view into many of your services, and helps make sure you are following best practices. Continuously updated machine learning algorithms help identify whether the latest threats are aimed at your resources. And it helps your organization mitigate threats.
+Azure Security Center centraliserar mycket av den hjälp som Azure har att erbjuda. Där finns en enda instrumentpanel med en vy över många av dina tjänster och den hjälper dig att se till att du följer de rekommenderade metoderna. Ständigt uppdaterade maskininlärningsalgoritmer kan identifiera om de senaste hoten riktar sig mot dina resurser. Och det hjälper din organisation att identifiera hot.
 
-Of course, this module is introductory. Security is a deep and complex topic, so whatever your cloud approach, an ongoing security education is necessary. But this module should get you started in the right direction, so you know what you need to learn next.
+Denna modul är naturligtvis bara övergripande. Säkerhet är ett djupgående och komplext ämne, så vad ditt moln än ställs inför är en ständig säkerhetsutbildning nödvändig. Men den här modulen bör få dig att komma igång i rätt riktning, så att du vet vad du behöver lära dig härnäst.

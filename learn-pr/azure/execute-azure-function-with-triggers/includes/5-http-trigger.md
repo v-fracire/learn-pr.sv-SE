@@ -1,4 +1,4 @@
-En HTTP-begäran är en vanlig åtgärd på de flesta plattformar och enheter. Oavsett om det är en begäran för att leta upp ett ord i en ordlista eller för att se den lokala väderleksrapporten skickar vi HTTP-begäranden hela tiden. Med Azure Functions kan vi snabbt skapa en del av en logik som körs när en HTTP-begäran tas emot.  
+En HTTP-begäran är en vanlig åtgärd på de flesta plattformar och enheter. Oavsett om det är en begäran för att leta upp ett ord i en ordlista eller för att se den lokala väderleksrapporten skickar vi HTTP-begäranden hela tiden. Med Azure Functions kan vi snabbt skapa en del av en logik som körs när en HTTP-begäran tas emot.
 
 Här lär du dig att skapa och anropa en Azure-funktion med hjälp av en HTTP-utlösare. Du kommer även att utforska några av de anpassningsalternativ som finns tillgängliga.
 
@@ -30,7 +30,7 @@ Nivån **anonym** innebär att ingen autentisering krävs. Vi använder den här
 
 ## <a name="how-to-create-an-http-trigger"></a>Så här skapar du en HTTP-utlösare
 
-Precis som en timerutlösare kan du skapa en HTTP-utlösare via Azure-portalen. I Azure-funktionen väljer du **HTTP-utlösare** från listan över fördefinierade utlösartyper. Sedan anger du logiken som du vill köra och utför eventuella anpassningar som att begränsa användningen av vissa HTTP-verb. 
+Precis som en timerutlösare kan du skapa en HTTP-utlösare via Azure-portalen. I Azure-funktionen väljer du **HTTP-utlösare** från listan över fördefinierade utlösartyper. Sedan anger du logiken som du vill köra och utför eventuella anpassningar som att begränsa användningen av vissa HTTP-verb.
 
 En inställning som är viktig att förstå är **Parameternamn för förfrågan**. Den här inställningen är en sträng som representerar namnet på den parameter som innehåller information om en inkommande HTTP-begäran. Som standard är namnet på parametern *req*.
 
@@ -38,7 +38,7 @@ En inställning som är viktig att förstå är **Parameternamn för förfrågan
 
 Om du vill anropa en HTTP-utlösare skickar du en HTTP-begäran till webbadressen för din funktion. Gå till sidan med koden för din funktion och välj länken **Hämta funktionswebbadress** för att hämta den här webbadressen.
 
-![Leta reda på webbadressen för funktionen](../media-drafts/5-function-url.png)
+![Skärmbild av Azure Portal som visar ett blad i funktionsappen där knappen för att hämta funktions-URL:en är markerad.](../media/5-function-url.png)
 
 När du har webbadressen för funktionen kan du skicka HTTP-begäranden. Kom ihåg att du antingen kan använda frågesträngsparametrar eller ange data via begärandetexten om funktionen tar emot data.
 

@@ -1,29 +1,29 @@
-In this unit, you will extract handwriting from an image with the Computer Vision API service that we created previously.
+I den här kursdelen kommer du att extrahera handskrift från en bild med tjänsten API för visuellt innehåll som vi skapade tidigare.
 
-# Extracting the handwriting from an image
+# <a name="extracting-the-handwriting-from-an-image"></a>Extrahera handskrift från en bild
 
-Execute the `az cognitiveservices account keys list` command to retrieve a key used to authenticate against the API. Store the output of that command within the `key` variable.
+Genom att köra kommandot `az cognitiveservices account keys list` hämtas en nyckel som används för att autentisera mot API:n. Lagra utdata från kommandot inom variabeln `key`.
 
 ```azurecli
 key=$(az cognitiveservices account keys list -g ComputerVisionRG --name ComputerVisionService --query key1 -o tsv)
 ```
 
-Execute a `curl` command to do an HTTP request against the Computer Vision API and reuse the previously declared variable `key`.
+När du kör kommandot `curl` görs en HTTP-begäran till API för visuellt innehåll. Återanvänd därefter den nyss deklarerade variabeln `key`.
 
-The image we're going to be using for handwriting recognition is a picture of this note board.
+Vi använder en bild av den här anslagstavlan för igenkänningen av handskrift.
 
-![Picture of a handwriting sample on a note](../media/6-handwriting.jpg)
+![Handskrift](../images/handwriting.jpg)
 
 ```azurecli
 curl -H "Ocp-Apim-Subscription-Key: $key" -H "Content-Type: application/json" "https://westus2.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true" -d "{\"url\":\"https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service/handwriting.jpg\"}" -D -
 ```
 
-The command above will output the headers. Copy the `Operation-Location` header value into the command below.
+Kommandot ovan genererar huvudena. Kopiera huvudvärdet `Operation-Location` till kommandot nedan.
 
 ```azurecli
 curl -H "Ocp-Apim-Subscription-Key: $key" "<Operation-Location>"
 ```
 
-You will now receive a JSON file containing the result of the handwriting recognition request.
+Du får nu en JSON-fil som innehåller resultatet av din begäran om handskriftsigenkänning.
 
-Experiment with other images to get different results by changing the URL used in the sample above.
+Experimentera med andra bilder och få andra resultat genom att ändra URL-adressen som användes i exemplet ovan.

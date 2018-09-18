@@ -1,28 +1,27 @@
-Secrets aren't secrets if they are shared with everyone. Storing confidential items like connection strings, security tokens, certificates and passwords in your code is just inviting someone to take them and use them for something other than what you intended them for. Even storing this sort of data in your web configuration is a bad idea - you are essentially allowing anyone who has access to the source code or web server access to your private data.
+Hemligheter är inte hemligheter om de delas med alla. Att lagra konfidentiella objekt som anslutningssträngar, säkerhetstoken, certifikat och lösenord i din kod är en ren inbjudan till att stjäla och använda dem till något som inte är din avsikt. Till och med att lagra den här typen av data i din webbkonfiguration är en dålig idé – det tillåter i stort sätt vem som helst med åtkomst till källkoden eller webbservern att komma åt dina privata data.
 
-Instead, you should always put these secrets into **Azure Key Vault**.
+I stället bör du alltid placera dessa hemligheter i **Azure Key Vault**.
 
-## What is Azure Key Vault
-Azure Key Vault is a *secret store*: a centralized cloud service for storing application secrets. Key Vault keeps your confidential data safe by keeping application secrets in a single central location and providing secure access, permissions control, and access logging.
+## <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
+Azure Key Vault är ett *hemligt arkiv*: en centraliserad molntjänst för lagring av programhemligheter. Key Vault håller dina konfidentiella data säkra genom att lagra programhemligheter på en enda central plats och tillhandahåller säker åtkomst, behörighetskontroll och loggning av användaråtkomst.
 
-Secrets are stored in individual *vaults*, each with their own configuration and security policies to control access. You can then get to your data through a REST API, or through a client SDK available for most languages.
+Hemligheter lagras i enskilda *valv* som alla har sina egna konfigurations- och säkerhetsprinciper för åtkomstkontroll. Du kan sedan komma åt dina data via ett REST-API eller en klient-SDK som är tillgänglig för de flesta språk.
 
 > [!IMPORTANT]
-> **Key Vault is designed to store configuration secrets for server applications.** It's not intended for storing data belonging to your app's users, and it shouldn't be used in the client-side part of an app. This is reflected in its performance characteristics, API, and cost model.
+> **Key Vault är utformat för att lagra konfigurationshemligheter för serverprogram.** Det är inte avsett för att lagra data som tillhör appanvändarna, och det bör inte användas i en apps klientsida. Det återspeglas i dess prestandaegenskaper, API och kostnadsmodell.
 >
-> User data should be stored elsewhere, such as in an Azure SQL database with Transparent Data Encryption, or a storage account with Storage Service Encryption. Secrets used by your application to access those data stores can be kept in Key Vault.
+> Användardata ska lagras någon annanstans, som i en Azure SQL-databas med transparent datakryptering eller ett lagringskonto med Storage Service Encryption. Du kan förvara hemligheter som används av ditt program för att få åtkomst till dessa datalager.
 
-## Why use a Key Vault for my secrets
+## <a name="why-use-a-key-vault-for-my-secrets"></a>Varför bör jag använda ett Key Vault för mina hemligheter?
 
-Key management and storing secrets can be complicated and error-prone when performed manually. Rotating certificates manually means potentially going without for a few hours, or days. As mentioned above, saving your connections strings in your configuration file or code repository means someone could steal your credentials.
+Nyckelhantering och lagring av hemligheter kan vara komplicerat och felbenäget när det utförs manuellt. Att rotera certifikat manuellt innebär potentiellt att de saknas i flera timmar eller dagar. Som nämnts ovan innebär sparande av dina anslutningssträngar i en konfigurationsfil eller kodlagringsplats att någon kan stjäla dina autentiseringsuppgifter.
 
-Key Vault allows users to store connection strings, secrets, passwords, certificates, access policies, file locks (making items in Azure read-only), and automation scripts.  It also logs access and activity, allows you to monitor access control (IAM) in your subscription, and it also has diagnostic, metrics, alerts and troubleshooting tools, to ensure you have the access you need.
+Key Vault gör att användare kan lagra anslutningssträngar, hemligheter, lösenord, certifikat, åtkomstprinciper, fillås (som skrivskyddar objekt i Azure) och automatiseringsskript.  Det loggar även åtkomst och aktivitet, gör att du kan övervaka åtkomstkontroll (IAM) i din prenumeration och erbjuder verktyg för diagnostik, mått, aviseringar och felsökning så att du får den åtkomst du behöver.
 
 ![Azure Key Vault](../media-draft/Key-Vault.png)
 
-<!-- TODO: get link to TC module -->
-You can learn more about using a Key Vault in the module **Managing secrets with Azure Key Vault**.
+<!-- TODO: get link to TC module --> Du kan lära dig mer om hur du använder ett Key Vault i modulen **Managing secrets with Azure Key Vault** (Hantera hemligheter med Azure Key Vault).
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-Credential theft, manual key rotation and certificate renewal can be a thing of the past if you manage your secrets well, using Azue Key Vault.
+Du kan slippa stöld av autentiseringsuppgifter, manuell nyckelrotation och certifikatförnyelse genom att hantera dina hemligheter väl med Azure Key Vault.

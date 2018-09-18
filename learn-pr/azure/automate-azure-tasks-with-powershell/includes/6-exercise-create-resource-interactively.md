@@ -3,6 +3,7 @@ Anta att du arbetar på ett företag som tillverkar en uppsättning verktyg för
 Du håller de här virtuella datorerna åtskilda från företagets egna virtuella testdatorer genom att skapa en dedikerad resursgrupp för dem. Du behöver bara en resursgrupp, så det är lämpligt att använda Azure PowerShell i interaktivt läge för den här uppgiften.
 
 ## <a name="steps-to-create-a-resource-group"></a>Steg för att skapar en resursgrupp
+<!---TODO: Update for sandbox.--->
 
 1. Starta PowerShell.
 
@@ -32,9 +33,9 @@ Du håller de här virtuella datorerna åtskilda från företagets egna virtuell
 
 Du kan också kontrollera att resursgruppen har skapats i Azure Portal. Det gör du genom att logga in på portalen och gå till avsnittet **Resursgrupper** (se nedan). Den nya resursgruppen ska visas i listan.
 
-I den här bilden ser du kategorin Resursgrupper i Azure-portalen.
+I den här bilden ser du kategorin Resursgrupper i Azure Portal.
 
-![Bild av bladet Favoriter i Azure-portalen med kategorin Resursgrupper markerad.](../media/6-listing-resource-groups.png)
+![Bild av bladet Favoriter i Azure Portal med kategorin Resursgrupper markerad.](../media/6-listing-resource-groups.png)
 
 ## <a name="summary"></a>Sammanfattning
 I den här övningen visas ett vanligt mönster för en interaktiv PowerShell-session. Du använde en vanlig cmdlet till att importera AzureRM-modulen och sedan Azure PowerShell-cmdletar till att utföra en viss uppgift. Nu har du en resursgrupp i din prenumeration och är redo att skapa virtuella datorer.

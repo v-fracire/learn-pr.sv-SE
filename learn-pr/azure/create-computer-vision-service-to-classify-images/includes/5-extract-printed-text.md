@@ -1,24 +1,24 @@
-In this unit, you will extract text from an image with the Computer Vision API service that we created previously.
+I den här delen extraherar du text från en bild med tjänsten API för visuellt innehåll som vi skapade tidigare.
 
-# Extracting the text from an image
+# <a name="extracting-the-text-from-an-image"></a>Extrahera texten från en bild
 
-Execute the `az cognitiveservices account keys list` command to retrieve a key used to authenticate against the API. Store the output of that command within the `key` variable.
+Genom att köra kommandot `az cognitiveservices account keys list` hämtas en nyckel som används för att autentisera mot API:t. Lagra utdata från kommandot inom variabeln `key`.
 
 ```azurecli
 key=$(az cognitiveservices account keys list -g ComputerVisionRG --name ComputerVisionService --query key1 -o tsv)
 ```
 
-Execute a `curl` command to do an HTTP request against the Computer Vision API and reuse the previously declared variable `key`.
+Kör kommandot `curl`, så görs en HTTP-begäran mot API för visuellt innehåll. Återanvänd den nyss deklarerade variabeln `key`.
 
-The image we're going to be using for Optical Character Recognition (OCR) is the cover from the book [.NET Microservices: Architecture for Containerized .NET Applications](/dotnet/standard/microservices-architecture/).
+Bilden som vi ska använda för den optiska teckenläsningen (OCR) är ett omslag från boken [.NET Microservices: Architecture for Containerized .NET Applications](/dotnet/standard/microservices-architecture/) (.NET-mikrotjänster: Arkitektur för containerbaserade .NET-program).
 
-![Picture of the cover of the ebook .NET Microservices: Architecture for containerized .NET Application](../media/5-ebook.png)
+![E-bokens omslag](../images/ebook.png)
 
 ```azurecli
 curl -H "Ocp-Apim-Subscription-Key: $key" -H "Content-Type: application/json" "https://westus2.api.cognitive.microsoft.com/vision/v1.0/ocr" -d "{\"url\":\"https://docs.microsoft.com/en-us/learn/modules/create-computer-vision-service/ebook.png\"}" | jq '.'
 ```
 
-The first three properties are the language, the orientation, and the text angle. Then, the `regions` properties will contain a list of values used to show where the text is, its position in the picture, and the actual words it contains.
+De första tre egenskaperna är språk, orientering och textvinkel. Efter det innehåller `regions`-egenskaperna en lista med värden som visar var texten är, dess läge i bilden och orden den innehåller.
 
 ```json
 {
@@ -43,4 +43,4 @@ The first three properties are the language, the orientation, and the text angle
 }
 ```
 
-Experiment with other images to get different results by changing the URL used in the sample above.
+Experimentera med andra bilder och få andra resultat genom att ändra URL-adressen som användes i exemplet ovan.

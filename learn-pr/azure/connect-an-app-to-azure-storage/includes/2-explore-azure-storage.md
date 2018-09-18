@@ -1,69 +1,69 @@
-Let's start by taking a quick look at Azure storage services, data styles, and accounts. 
+Vi börjar med att ta en snabb titt på Azure Storage-tjänster, dataformat och konton. 
 
-Microsoft Azure Storage is a managed service that provides durable, secure, and scalable storage in the cloud. Let's break those terms down.
+Microsoft Azure Storage är en hanterad tjänst som erbjuder hållbar, säker och skalbar lagring i molnet. Vi ska gå igenom termerna.
 
 | | |
 |-|-|
-| **Durable** | Redundancy ensures that your data is safe in the event of transient hardware failures. You can also replicate data across datacenters or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage. |
-| **Secure** | All data written to Azure Storage is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data. |
-| **Scalable** | Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications. |
-| **Managed** | Microsoft Azure handles maintenance and any critical problems for you. |
+| **Hållbar** | Redundans garanterar att dina data är säkra i händelse av tillfälliga maskinvarufel. Du kan också replikera data i datacenter eller geografiska regioner för ytterligare skydd mot lokala allvarliga händelser eller naturkatastrofer. Data som replikeras på det här sättet förblir mycket tillgängliga vid ett oväntat avbrott. |
+| **Skydda** | Alla data som skrivs till Azure Storage krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data. |
+| **Skalbarhet** | Azure Storage är utformat för att vara mycket skalbart för att uppfylla krav på datalagring och prestanda för dagens program. |
+| **Hanterade** | Microsoft Azure tar hand om underhåll och hanterar kritiska problem åt dig. |
 
-A single Azure subscription can host up to 200 storage accounts, each of which can hold 500 TB of data. If you have a business case, you can talk to the Azure Storage team and get approval for up to 250 storage accounts in a subscription which pushes your max storage up to 125 Petabytes!
+En enda Azure-prenumeration kan ha upp till 200 lagringskonton, och var och en kan innehålla 500 TB data. Om du har en affärsstudie kan du prata med Azure Storage-teamet och få godkännande för upp till 250 lagringskonton i en prenumeration som utökar din maxlagring till upp till 125 petabyte!
 
-## Azure data services
+## <a name="azure-data-services"></a>Azure-datatjänster
 
-Azure storage includes four types of data.
+Azure Storage innehåller fyra typer av data.
 
-- **Blobs**: A massively scalable object store for text and binary data.
-- **Files**: Managed file shares for cloud or on-premises deployments.
-- **Queues**: A messaging store for reliable messaging between application components.
-- **Tables**: A NoSQL store for schemaless storage of structured data. This service has been replaced by Cosmos DB and will not discussed here.
+- **Blobar**: En mycket skalbar objektlagring för textdata och binära data.
+- **Files**: Hanterade filresurser för distributioner i molnet eller lokalt.
+- **Köer**: Ett meddelandearkiv för tillförlitliga meddelandefunktioner mellan programkomponenter.
+- **Tabeller**: En NoSQL-lagring av schemalös lagring av strukturerade data. Den här tjänsten har ersatts av Cosmos DB och kommer inte att beskrivas här.
 
-All of these data types in Azure Storage are accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides SDKs for Azure Storage in a variety of languages, as well as a REST API. You can also visually explore your data right in the Azure portal.
+Alla datatyper i Azure Storage är åtkomliga från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller SDK:er för Azure Storage på många olika språk samt en REST API. Du kan även visuellt utforska dina data direkt i Azure-portalen.
 
-### Blob storage
-Azure Blob storage is an object storage solution optimized for storing massive amounts of unstructured data, such as text or binary data. Blob storage is ideal for:
+### <a name="blob-storage"></a>Blob Storage
+Azure Blob Storage är en lösning för objektlagring som är optimerat för att lagra stora mängder ostrukturerade data, exempelvis text eller binära data. Blob Storage är perfekt för att:
 
-- Serving images or documents directly to a browser, including full static websites.
-- Storing files for distributed access.
-- Streaming video and audio.
-- Storing data for backup and restore, disaster recovery, and archiving.
-- Storing data for analysis by an on-premises or Azure-hosted service.
+- Leverera bilder eller dokument direkt till en webbläsare, inklusive en fullständigt statiska webbplatser.
+- Lagra filer för distribuerad åtkomst.
+- Direktuppspelning av video och ljud.
+- Lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering.
+- Lagra data för analys av en tjänst som kan vara lokal eller Azure-baserad.
 
-Azure Storage supports three kinds of blobs:
+Azure Storage stöder tre typer av blobar:
 
-| Blob type | Description |
+| Blobtyp | Beskrivning |
 |-----------|-------------|
-| **Block blobs** | Block blobs are used to hold text or binary files up to ~5 TB (50,000 blocks of 100 MB) in size. The primary use case for block blobs is the storage of files that are read from beginning to end, such as media files or image files for websites. They are named block blobs because files larger than 100 MB must be uploaded as small blocks, which are then consolidated (or committed) into the final blob. |
-| **Page blobs** | Page blobs are used to hold random-access files up to 8 TB in size. Page blobs are used primarily as the backing storage for the VHDs used to provide durable disks for Azure Virtual Machines (Azure VMs). They are named page blobs because they provide random read/write access to 512-byte pages. |
-| **Append blobs** | Append blobs are made up of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources into the same blob. For example, you might write all of your trace logging to the same append blob for an application running on multiple VMs. A single append blob can be up to 195 GB. |
+| **Blockblobar** | Blockblobar används till att lagra text- eller binära filer med en storlek på upp till ~5 TB (50 000 block på 100 MB). I första hand används blockblobar för lagring av filer som läses från början till slut, som mediefiler eller bildfiler för webbplatser. De kallas för blockblobar eftersom filer som är större än 100 MB måste laddas upp som små block, som därefter konsolideras (eller checkas in) i den slutgiltiga bloben. |
+| **Sidblobar** | Sidblobar används för att lagra filer med slumpmässig åtkomst upp till 8 TB. Sidblobar används främst för stödlagring av VHD:erna som används för att tillhandahålla tåliga diskar för Azure Virtual Machines (Azure VMs). De kallas för sidblobar eftersom de erbjuder slumpmässig läs-/skrivåtkomst till sidor på 512 bytes. |
+| **Tilläggsblobar** | Tilläggsblobar består av block precis som blockblobarna, men är optimerade för tilläggsåtgärder. De används ofta för att logga information från en eller flera källor till samma blob. Du kan till exempel skriva all din spårningsloggning till samma tilläggsblob för ett program som körs på flera virtuella datorer. En enda tilläggsblob kan ha upp till 195 GB. |
 
-### Files
-Azure Files enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries. You can also associate a unique URL to any file to allow fine-grained access to a private file for a set period of time. File shares can be used for many common scenarios:
+### <a name="files"></a>Files
+Med Azure Files kan du konfigurera nätverksfilresurser med hög tillgänglighet som kan nås via SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring. Du kan även associera en unik URL till en fil för att ge detaljerad åtkomst till en privat fil för en angiven tidsperiod. Filresurser kan användas för många vanliga scenarier:
 
-- Storing shared configuration files for VMs, tools, or utilities so that everyone is using the same version.
-- Log files such as diagnostics, metrics, and crash dumps.
-- Shared data between on-premises applications and Azure VMs to allow migration of apps to the cloud over a period of time.
+- Lagra delade konfigurationsfiler för virtuella datorer, verktyg och hjälpmedel så att alla använder samma version.
+- Loggfiler, till exempel diagnostik, mått och kraschdumpar.
+- Delade data mellan lokala program och virtuella Azure-datorer för att tillåta migrering av appar till molnet under en viss tidsperiod.
 
-### Queues
-The Azure Queue service is used to store and retrieve messages. Queue messages can be up to 64 KB in size, and a queue can contain millions of messages. Queues are generally used to store lists of messages to be processed asynchronously.
+### <a name="queues"></a>Köer
+Azure-kötjänsten används för att lagra och hämta meddelanden. Kömeddelanden kan vara upp till 64 kB och en kö kan innehålla miljontals meddelanden. Köer används vanligtvis för att lagra listor med meddelanden som ska bearbetas asynkront.
 
-You can use queues to loosely connect different parts of your application together. For example, we could perform image processing on the photos uploaded by our users. Perhaps we want to provide some sort of face detection, or tagging capability so people can search through all the images they have stored in our service. We could use queues to pass messages to our image processing service to let it know that new images have been uploaded and are ready for processing. This sort of architecture would allow you to develop and update each part of the service independently.
+Du kan använda köer för att löst koppla ihop olika delar av programmet. Vi kan till exempel utföra bildbearbetning på fotona som användarna har laddat upp. Vi kanske vill erbjuda någon slags ansiktsavkänning eller taggningsfunktion så att människor kan söka igenom alla bilder de har lagrat i tjänsten. Vi skulle kunna använda köer för att skicka meddelanden till vår bildbehandlingstjänst för att informera om att nya bilder har laddats upp och är redo för bearbetning. Den här sortens arkitektur skulle göra det möjligt för dig att utveckla och uppdatera varje del av tjänsten oberoende.
 
-## Azure storage accounts
+## <a name="azure-storage-accounts"></a>Azure-lagringskonton
 
-To access any of these services from an application, you have to create a _storage account_. The storage account provides a unique namespace in Azure to store and access your data objects. A storage account contains any blobs, files, queues, tables, and VM disks that you create under that account.
+För att få åtkomst till några av tjänsterna från ett program måste du skapa ett _lagringskonto_. Azure-lagringskontot tillhandahåller en unik namnrymd i Azure där du kan lagra och få åtkomst till dina dataobjekt. Ett lagringskonto innehåller alla blobar, filer, köer, tabeller och VM-diskar som du skapar med det kontot.
 
-### Creating a storage account
+### <a name="creating-a-storage-account"></a>Skapa ett lagringskonto
 
-You can create an Azure storage account using the Azure portal, Azure PowerShell, or Azure CLI. Azure Storage provides three distinct account options, with different pricing and features supported.
+Du kan skapa ett Azure Storage-konto med hjälp av Azure Portal, Azure PowerShell eller Azure CLI. Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds.
 
 > [!div class="mx-tableFixed"]
-> | Account type | Description |
+> | Kontotyp | Beskrivning |
 > |--------------|-------------|
-> | **General-purpose v2 (GPv2)** | General-purpose v2 (GPv2) accounts are storage accounts that support all of the latest features for blobs, files, queues, and tables. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices. |
-> | **General-purpose v1 (GPv1)** | General-purpose v1 (GPv1) accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. For example, cool storage and archive storage are not supported in GPv1. Pricing is lower for GPv1 transactions, so workloads with high churn or high read rates may benefit from this account type. |
-> | **Blob storage accounts** | A legacy account type, blob storage accounts support all the same block blob features as GPv2, but are limited to supporting only block and append blobs. Pricing is broadly similar to pricing for general-purpose v2 accounts. |
+> | **General-purpose v2 (GPv2)** | GPv2-konton (General-purpose v2) är lagringskonton som stöder alla de senaste funktionerna för blobar, filer, köer och tabeller. Prisstrukturen för GPv2-konton har utformats för att erbjuda de lägsta gigabytepriserna. |
+> | **General-purpose v1 (GPv1)** | GPv1-konton (General-purpose v1) ger åtkomst till alla Azure Storage-tjänster, men erbjuder kanske inte de senaste funktionerna eller det lägsta gigabytepriset. Lågfrekvent lagring och arkivlagring är två exempel på funktioner som inte stöds av GPv1. Transaktionspriserna är lägre för GPPv1, så arbetsbelastningar med hög omsättning eller många läsåtgärder kan ha nytta av den här kontotypen. |
+> | **Blob Storage-konton** | En äldre kontotyp, Blob Storage-konton, stöder samma funktioner för blockblobar som GPv2, men stödet är begränsat till blockblobar och tilläggsblobar. Prisstrukturen liknar den som används för GPv2-konton. |
     
-If you are interested in learning more about creating storage accounts, make sure to go through the **Create an Azure storage account** module in the learning portal.
+Om du vill veta mer om att skapa lagringskonton ska du gå igenom modulen **Skapa ett Azure Storage-konto** i utbildningsportalen.

@@ -1,87 +1,87 @@
-The out of the box experience with an Azure DevOps Project creates build and release pipelines that make sense for the technologies picked. For this module, you created a build and release pipeline that makes sense for a node.js app running in a container hosted in a Kubernetes cluster. 
+Den färdiga funktionen med ett Azure DevOps-projekt skapar bygg- och versionspipelines som passar för de tekniker som valts. För den här modulen skapade du en bygg- och versionspipeline som passar för en Node.js-app som körs i en container i ett Kubernetes-kluster. 
 
-Often times we need to customize the build and release pipelines to do specific things for our project. The build and release pipelines in VSTS are 100% customizable. You can make the pipelines do whatever you need it to do.
+Ofta behöver vi anpassa bygg- och versionspipelines för att utföra vissa åtgärder för projektet. Bygg- och versionspipelines i VSTS är 100 % anpassningsbara. Du kan göra så att pipelines utför vad du än behöver.
 
-In this unit, learn how to customize your build and release pipelines.
+I den här enheten lär du dig att anpassa dina bygg- och versionspipelines.
 
-## Customize the build pipeline
+## <a name="customize-the-build-pipeline"></a>Anpassa bygg-pipelinen
 
-The build engine in VSTS is just a task runner, doing one task, after another. To customize the build, you just add or remove tasks and fill out the correct parameters for the task.
+Byggmotorn i VSTS är bara en uppgiftskörare som utför uppgifter en efter en. Om du vill anpassa bygget behöver du bara lägga till eller ta bort uppgifter och fylla i rätt parametrar för uppgiften.
 
-Out of the box, VSTS comes with about 100 tasks that you can use. If you need to do something that doesn't exist out of the box, check the marketplace where there are over 700 build and release tasks ready to be downloaded and used. You also have the ability to write your own custom tasks.
+VSTS levereras med cirka 100 uppgifter som du kan använda. Om du behöver göra något som inte finns inbyggt kan du söka på marknadsplatsen, där det finns över 700 bygg- och versionsuppgifter att ladda ned och använda. Du kan även skriva dina egna anpassade uppgifter.
 
-For this unit, you will customize the build pipeline by installing the marketplace tasks WhiteSource Bolt to do security scanning of our code.
+För den här enheten anpassar du bygg-pipelinen genom att installera marknadsplatsuppgifterna WhiteSource Bolt för att genomföra säkerhetsgenomsökning av koden.
 
-1. Browse to the Azure DevOps Project in the Azure portal and click on the build definition link  
-![Build Link](/media-draft/3-buildlink.png)
+1. Bläddra till Azure DevOps-projektet i Azure-portalen och klicka på länken för byggdefinition  
+![Bygglänk](/media-draft/3-buildlink.png)
 
-2. This takes you to the build pipelines page. Click on the build and select `Edit`  
-![Edit Build](/media-draft/3-editbuild.png)
+2. Det här leder till sidan för bygg-pipelines. Klicka på bygget och välj `Edit`  
+![Edit Build](/media-draft/3-editbuild.png) (Redigera bygge)
 
-3. This takes you to the build definition. Click on the `+` to add a task to Agent Job 1  
-![Add Task](/media-draft/3-addtask.png)
+3. Det här leder till sidan för byggdefinitionen. Klicka på `+` för att lägga till en uppgift i Agent Job 1 (Agentjobb 1)  
+![Add Task](/media-draft/3-addtask.png) (Lägg till uppgift)
 
-4. In the text field, type `bolt` and click `Get it free`  
-![Get it free](/media-draft/3-getitfree.png)
+4. I textfältet skriver du `bolt` och klickar på `Get it free`  
+![Get it free](/media-draft/3-getitfree.png) (Skaffa det kostnadsfritt)
 
-5. This takes you to the WhiteSource Bolt Marketplace page. Click `Get it free`  
-![Get White Source Bolt Free](/media-draft/3-getwhitesourceboltfree.png)
+5. Det här leder till marknadsplatssidan för WhiteSource Bolt. Klicka på `Get it free`  
+![Get White Source Bolt Free](/media-draft/3-getwhitesourceboltfree.png) (Skaffa WhiteSource Bolt kostnadsfritt)
 
-6. Choose your VSTS organization and then click `Install`  
-![Install](/media-draft/3-install.png)
+6. Välj din VSTS-organisation och klicka sedan på `Install`  
+![Install](/media-draft/3-install.png) (Installera)
 
-7. Activate WhiteSource Bolt by following the directions here <https://www.whitesourcesoftware.com/whitesource_bolt_visualstudio_2017/#activate>
+7. Aktivera WhiteSource Bolt genom att följa anvisningarna här <https://www.whitesourcesoftware.com/whitesource_bolt_visualstudio_2017/#activate>
 
-8. Go back to your Azure portal with the DevOps project loaded and click the build pipeline link  
-![Build Pipeline Link](/media-draft/3-buildpipelinelink.png)
+8. Gå tillbaka till Azure-portalen med DevOps-projektet inläst och klicka på länken för bygg-pipeline  
+![Länk för bygg-pipeline](/media-draft/3-buildpipelinelink.png)
 
-9. Select your build and click `Edit`  
-![Edit Build](/media-draft/3-editbuild.png)
+9. Välj ditt bygge och klicka på `Edit`  
+![Edit Build](/media-draft/3-editbuild.png) (Redigera bygge)
 
-10. Click the `+` Add a task to Agent job 1, type in `bolt` in the search field and click `Add`  
-![Add Bolt](/media-draft/3-addbolt.png)
+10. Klicka på `+` för att lägga till en uppgift i agentjobb 1, skriv `bolt` i sökfältet och klicka på `Add`  
+![Add Bolt](/media-draft/3-addbolt.png) (Lägg till Bolt)
 
-11. This adds the WhiteSource Bolt task to the bottom of the task list, drag it to the top  
-![Bolt at Top](/media-draft/3-boltattop.png)
+11. Det här lägger till WhiteSource Bolt-uppgiften längst ned i uppgiftslistan; dra upp den längst upp  
+![Bolt längst upp](/media-draft/3-boltattop.png)
 
-12. Click `Save & queue` and select `Save & queue`  
-![Save and Queue](/media-draft/3-saveandqueue.png)
+12. Klicka på `Save & queue` och välj `Save & queue`  
+![Save and Queue](/media-draft/3-saveandqueue.png) (Spara och placera i kö)
 
-13. Click `Save & queue`  
-![Save and Queue Dialog](/media-draft/3-saveandqueuedialog.png)
+13. Klicka på `Save & queue`  
+![Dialogrutan Save and Queue](/media-draft/3-saveandqueuedialog.png) (Spara och placera i kö)
 
-This saves the modified build pipeline and queues the build. After the build finishes, looking at the build `WhiteSource Bolt Build Report`, you can see the source code was scanned by WhiteSource Bolt looking for security vulnerabilities.
+Det här sparar den ändrade bygg-pipelinen och placerar bygget i kö. När bygget är klart kan du se i byggets `WhiteSource Bolt Build Report` att källkoden söktes igenom av WhiteSource Bolt för att hitta eventuella säkerhetsrisker.
 
-![Build report](/media-draft/3-buildreport.png)
+![Byggrapport](/media-draft/3-buildreport.png)
 
-## Customize the release pipeline
+## <a name="customize-the-release-pipeline"></a>Anpassa versionspipelinen
 
-Like the build, the release pipeline is task runner and can be customized the same way. For this unit, you will add a web performance test at the end of the release. This will verifying that your app is deployed and running successfully in the Kubernetes cluster.
+Liksom bygget är versionspipelinen en uppgiftskörare och kan anpassas på samma sätt. För den här enheten läggar du till ett webbprestandatest i slutet av versionen. Det här verifierar att appen har distribuerats och körts i Kubernetes-klustret.
 
-1. Browse to the DevOps project in the Azure Portal and click on the link for the release pipeline  
-![Release Link](/media-draft/3-releaselink.png)
+1. Bläddra till DevOps-projektet i Azure-portalen och klicka på länken för versiondefinition  
+![Versionslänk](/media-draft/3-releaselink.png)
 
-2. This takes you to the release pipeline page. Click your release pipeline and click on `Edit`  
-![Edit Release Pipeline](/media-draft/3-editreleasepipeline.png)
+2. Det här leder till sidan för versionspipelinen. Klicka på releasepipelinen och klicka på `Edit`  
+![Edit Release Pipeline](/media-draft/3-editreleasepipeline.png) (Redigera versionspipeline)
 
-3. Click on the tasks in your release `Dev` stage  
-![Release Stage](/media-draft/3-releasestage.png)
+3. Klicka på uppgifterna i `Dev`-steget i versionen  
+![Release Stage](/media-draft/3-releasestage.png) (Versionssteg)
 
-4. Click on the `+` Add a task to Phase1, type `web test` in the search field and click `Add` for the Cloud-based Web Performance Test task  
-![Add Web Test](/media-draft/3-addwebtest.png)
+4. Klicka på `+` för att lägga till en uppgift i Phase1 (Fas1), skriv `web test` i sökfältet och klicka på `Add` för den molnbaserade uppgiften Web Performance Test (Webbprestandatest)  
+![Add Web Test](/media-draft/3-addwebtest.png) (Lägg till webbtest)
 
-5. Edit the Quick Web Performance Test task by clicking on it and adding the url to your app in the Website URL (to find the url, go to the Azure portal DevOps project page and on the right-hand side, right-click your sample app external endpoint and copy link) and then for TestName, enter in `Ping Test`  
-![Copy URL](/media-draft/3-copyurl.png)  
-![Edit Web Test Task](/media-draft/3-editwebtesttask.png)
+5. Redigera uppgiften Quick Web Performance Test (Snabbt webbprestandatest) genom att klicka på den och lägga till URL:en till din app i webbplats-URL:en (du hittar URL:en genom att gå till Azure-portalens DevOps-projektsida, högerklicka på den externa slutpunkten för exempelappen till höger och kopiera länken) och sedan ange `Ping Test` för TestName (Testnamn)  
+![Copy URL](/media-draft/3-copyurl.png) (Kopiera URL)  
+![Edit Web Test Task](/media-draft/3-editwebtesttask.png) (Redigera uppgiften Webbtestning)
 
-6. Click `Save`  
-![Save Release](/media-draft/3-saverelease.png)
+6. Klicka på `Save`  
+![Save Release](/media-draft/3-saverelease.png) (Spara version)
 
-Now, when you run a release, after deploying the new helm package, a web test is run hitting the app url successfully.
+När du nu kör en version körs ett webbtest som besöker app-URL:en efter att det nya Helm-paketet har distribuerats.
 
-![Web Test](/media-draft/3-webtest.png)
+![Web Test (Webbtest)](/media-draft/3-webtest.png)
 
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you learned how to customize your build and release pipelines. You also learned how to install and use tasks from the Marketplace.
+I den här enheten lärde du dig att anpassa dina bygg- och versionspipelines. Du lärde dig även att installera och använda uppgifter från marknadsplatsen.

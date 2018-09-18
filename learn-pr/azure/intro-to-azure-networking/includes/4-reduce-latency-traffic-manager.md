@@ -20,29 +20,29 @@ Din e-handelswebbplats levererar standard-HTML, CSS, JavaScript och bilder. När
 
 Azure tillhandahåller datacenter i regioner över hela världen.
 
-Beakta kostnaden för att bygga ett datacenter. Kostnaderna för utrustning inte är den enda faktorn; du måste tillhandahålla ström, kylning och personal för att hålla systemen igång på varje plats. Det kan vara orimligt dyrt att replikera hela datacentret. Men om du gör det med Azure kan det kosta mycket mindre eftersom Azure redan har utrustning och personal på plats.
+Tänk på kostnaden för att bygga ett datacenter. Kostnaderna för utrustning är inte den enda faktorn. Du måste se till att det finns el, kylning och personal som håller systemen igång på varje plats. Det kan vara orimligt dyrt att replikera hela datacentret. Men om du gör det med Azure kan det kosta mycket mindre eftersom Azure redan har utrustning och personal på plats.
 
 Ett sätt att minska svarstiden är att tillhandahålla exakta kopior av din tjänst i flera regioner. Här är ett diagram.
 
-![E-handelswebbplats som körs i regionerna USA, östra, Europa, norra och Asien, östra](../media-draft/global-deployment.png)
+![Karta som visar e-handelswebbplatsen som körs i regionerna östra USA, norra Europa och östra Asien](../media-draft/global-deployment.png)
 
-Diagrammet visar din e-handelswebbplats som körs i tre Azure-regioner: USA, östra, Europa, norra och Asien, östra. Lägg märke till DNS-namnet för var och en. Hur kan du ansluta användare till den tjänst som ligger närmast geografiskt, men under domänen contoso.com?
+Diagrammet visar din e-handelswebbplats som körs i tre Azure-regioner: östra USA, norra Europa och östra Asien. Lägg märke till DNS-namnet för var och en. Hur kan du ansluta användare till den tjänst som ligger närmast geografiskt, men under domänen contoso.com?
 
 ## <a name="use-traffic-manager-to-route-users-to-the-closest-endpoint"></a>Använda Traffic Manager för att dirigera användare till den närmaste slutpunkten
 
-En lösning är **Traffic Manager**. Traffic Manager använder den DNS-server som är närmast användaren för att dirigera användartrafik till en globalt distribuerad slutpunkt. Här är ett diagram.
+Ett svar är **Azure Traffic Manager**. Traffic Manager använder den DNS-server som är närmast användaren för att dirigera användartrafik till en globalt distribuerad slutpunkt. Här är ett diagram.
 
-![Använda Traffic Manager för att dirigera en användare i Italien till närmaste slutpunkt](../media-draft/traffic-manager.png)
+![En karta som visar hur Traffic Manager används för att dirigera en användare i Italien till närmaste slutpunkt](../media-draft/traffic-manager.png)
 
 Traffic Manager ser inte den trafik som skickas mellan klienten och servern. I stället dirigerar den klientwebbläsaren till en föredragen slutpunkt. Traffic Manager kan dirigera trafik på ett par olika sätt, till exempel till slutpunkten med kortast svarstid.
 
-Det visas inte här, men den här konfigurationen skulle även kunna innehålla en lokal distribution som körs i Kalifornien. Du kan ansluta Traffic Manager till dina egna lokala nätverk, så att du kan underhålla dina befintliga datacenterinvesteringar. Eller så kan du flytta ditt program helt och hållet till molnet. Valet är ditt.
+Det visas inte här, men den här konfigurationen skulle även kunna innehålla en lokal distribution som körs i Kalifornien. Du kan ansluta Traffic Manager till dina egna lokala nätverk och dra nytta av befintliga datacenterinvesteringar. Eller så kan du flytta ditt program helt och hållet till molnet. Valet är ditt.
 
-## <a name="compare-azure-load-balancer-to-traffic-manager"></a>Jämföra Azure Load Balancer med Traffic Manager
+## <a name="compare-load-balancer-to-traffic-manager"></a>Jämföra Load Balancer med Traffic Manager
 
 Azure Load Balancer distribuerar trafiken inom samma region för att göra dina tjänster mer tillgängliga och motståndskraftiga. Traffic Manager fungerar på DNS-nivå och dirigerar klienten till en önskad slutpunkt. Den här slutpunkten kan vara till den region som ligger närmast dina användare.
 
-Både Azure Load Balancer och Traffic Manager hjälper dig att göra dina tjänster mer motståndskraftiga, men på något olika sätt. När Azure Load Balancer identifierar en virtuell dator som inte svarar dirigerar den trafiken till andra virtuella datorer i poolen. Traffic Manager övervakar hälsan för dina slutpunkter. När Traffic Manager hittar en slutpunkt som inte svarar dirigerar den däremot trafiken till nästa närmaste slutpunkt som svarar.
+Både Load Balancer och Traffic Manager hjälper dig att göra dina tjänster mer motståndskraftiga, men på något olika sätt. När Load Balancer identifierar en virtuell dator som inte svarar dirigerar den trafiken till andra virtuella datorer i poolen. Traffic Manager övervakar hälsan för dina slutpunkter. När Traffic Manager hittar en slutpunkt som inte svarar dirigerar den däremot trafiken till nästa närmaste slutpunkt som svarar.
 
 ## <a name="summary"></a>Sammanfattning
 

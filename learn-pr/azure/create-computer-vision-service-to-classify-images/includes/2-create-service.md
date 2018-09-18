@@ -1,22 +1,22 @@
-In this unit, you will create a Computer Vision API service using the Azure CLI.
+I den här lektionen skapar du en tjänst för API:t för visuellt innehåll med hjälp av Azure CLI.
 
-# Exercise: Create a Computer Vision service
+# <a name="exercise-create-a-computer-vision-service"></a>Övning: Skapa en tjänst för visuellt innehåll
 
-[Computer Vision](/azure/cognitive-services/computer-vision/home) is part of [Azure Cognitive Services](/azure/cognitive-services/welcome), which is a complete set of machine learning algorithms available as a service for anyone to use. Instead of generating enough data to train a model from scratch, we make available pre-trained models for anyone to use.
+[Visuellt innehåll](/azure/cognitive-services/computer-vision/home) ingår i [Microsoft Cognitive Services](/azure/cognitive-services/welcome), som är en fullständig uppsättning maskininlärningsalgoritmer som är tillgänglig som en tjänst för allmän användning. I stället för att du ska behöva generera tillräckligt med data för att träna en modell från grunden så tillhandahåller vi förtränade modeller för allmän användning.
 
-Among the many services available, we provide services that can handle voice, image, video, search, language, and more.
+Bland de många tjänsterna vi gör tillgängliga finns tjänster som kan hantera röst, bild, video, sökning, språk och mer.
 
-In this exercise, we're going to focus on creating the necessary service that will allow us to handle images. After this exercise, you will be able to create an API endpoint that will be able to identify images.
+I den här övningen ska vi fokusera på att skapa tjänsten som gör det möjligt för oss att hantera bilder. Efter den här övningen kommer du att kunna skapa en API-slutpunkt som kan identifiera bilder.
 
-# Create a Computer Vision API service
+# <a name="create-a-computer-vision-api-service"></a>Skapa en tjänst för API för visuellt innehåll
 
-Before you create your Computer Vision API service, you need a *resource group* to deploy it to. A resource group is a logical collection into which all Azure resources are deployed and managed.
+Innan du skapar tjänsten för API för visuellt innehåll måste du ha en *resursgrupp* att distribuera den till. En resursgrupp är en logisk samling där alla Azure-resurser distribueras och hanteras.
 
 ```azurecli
 az group create --name ComputerVisionRG --location westus2
 ```
 
-Once you've created the resource group, create the service with the `az cognitiveservices account create` command and the name of your service. 
+När du har skapat resursgruppen skapar du en tjänst med kommandot `az cognitiveservices account create` och namnet på din tjänst. 
 
 ```azurecli
 az cognitiveservices account create --kind ComputerVision -l westus2 -n ComputerVisionService --sku F0 -g ComputerVisionRG

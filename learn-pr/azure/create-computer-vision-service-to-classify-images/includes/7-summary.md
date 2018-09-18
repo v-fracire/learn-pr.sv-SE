@@ -1,7 +1,7 @@
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this module, you have learned how to analyze images with the Computer Vision API service.
+I den här modulen har du lärt dig hur du analyserar bilder med tjänsten API för visuellt innehåll.
 
-You analyzed images to know what they are, as well as generated thumbnails. Then, you performed Optical Character Recognition (OCR) on printed text and converted handwriting into printed characters.
+Du analyserade bilder för att ta reda på mer om dem, och du genererade miniatyrer. Därefter utförde du optisk teckenläsning (OCR) på tryckt text och konverterade handskrift till tryckta tecken.
 
-This module provides the basis for integrating visual Cognitive Services within an application written in any language.
+Den här modulen utgör grunden för att integrera Cognitive Services för visuellt innehåll i ett program som skrivits på valfritt språk.

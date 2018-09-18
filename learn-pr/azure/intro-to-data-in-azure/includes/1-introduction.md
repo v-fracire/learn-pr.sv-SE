@@ -1,6 +1,6 @@
-Anta att du hanterar en utbildningsportal om onlineförsäljning för din organisation. De flesta i säljteamet är utspridda på olika platser, så de måste ha tillgång till onlineportalen. Den är ännu viktigare när organisationen fortsätter att utveckla säljpersonalens kunskaper och kompetens.
+Anta att du hanterar en utbildningsportal om onlineförsäljning för din organisation. Många i säljteamet finns ofta på olika platser, så de måste ha tillgång till onlineportalen. Den är ännu viktigare när organisationen fortsätter att utveckla säljpersonalens kunskaper och kompetens.
 
-Dina utbildningsdata är resurskrävande. De innehåller video av hög kvalitet, detaljerade säljsimuleringar och stora databaser med användarnas data och framsteg. För närvarande lagras allt utbildningsmaterial lokalt. Du har en djärv plan för att lägga till nya kurser och vill slippa att hela tiden behöva lägga till mer lokal lagringskapacitet.
+Ditt utbildningsmaterial innehåller video av hög kvalitet, detaljerade säljsimuleringar och stora databaser med användarnas data och framsteg. För närvarande lagras allt utbildningsmaterial lokalt. Du har en djärv plan för att lägga till nya kurser och vill slippa att hela tiden behöva öka den lokala lagringskapaciteten.
 
 Du letar efter en lagringslösning som är säker, beständig, skalbar och enkelt kan nås oavsett var användarna befinner sig.
 

@@ -1,66 +1,66 @@
-Microsoft Cognitive Services is a rich suite of intelligent services that we can use to enrich our apps. We explored a small part of the Text Analytics API service to find out higher-level information about text. We used the service to analyze text feedback from customers for sentiment. We created a solution hosted in Azure Functions to sort these text messages into different buckets, or queues, for further processing.
+Microsoft Cognitive Services är en omfattande uppsättning intelligenta tjänster som vi kan använda för att utöka våra appar. Vi utforskat en liten del av tjänsten API för textanalys för att få generell information om text. Vi använde tjänsten för att analysera textfeedback från kunder efter attityd. Vi har skapat en lösning i Azure Functions för att sortera dessa textmeddelanden i olika buckets eller köer för vidare bearbetning.
 
-Once you know how to call a REST API, then you can easily integrate these intelligent services into your solutions. They all follow a similar pattern:
+När du vet hur du anropar REST API kan du enkelt integrera dessa intelligenta tjänster i dina lösningar. Alla följer ett liknande mönster:
 
-- Sign up for an access key
-- Explore in the API testing console
-- Formulate requests using the access key and the correct region.
-- POST requests from your solution and parse the responses for insights.
+- Registrera dig för en åtkomstnyckel
+- Utforska i API-testkonsolen
+- Formulera begäranden med åtkomstnyckeln och rätt region.
+- Publicera begäranden från din lösning och parsa svaren i analyssyfte.
 
-We added this intelligence to serverless logic created in Azure Functions. You can easily call these services from other types of apps. There are many client libraries, tutorials and,  quickstarts to get you started.
+Vi har lagt till den här intelligensen i serverlös logik som skapats i Azure Functions. Du kan enkelt anropa dessa tjänster från andra typer av appar. Det finns många klientbibliotek, självstudier och snabbstarter som hjälper dig igång.
 
-## Suggestions for further enhancement of our solution
+## <a name="suggestions-for-further-enhancement-of-our-solution"></a>Förslag på ytterligare förbättringar av vår lösning
 
-Here are some ideas for you to consider if you want to take what we did further. 
+Här följer några tips om du vill lära dig mer. 
 
-- Test the solution with more text examples and decide whether the thresholds we set to categorize sentiment scores into positive, negative, and neutral are appropriate. 
-- Consider adding another function into your function app that reads messages from the [!INCLUDE [negative-q](./q-name-negative.md)] queue and calls the Text Analytics API to find key phrases in the text.
-- Our input queue contains raw text feedback. In the real-world, we would associate feedback with some form of user ID such as email address, account number, and so on. So, enhance the input queue items to be JSON documents containing and ID field and the text. Then use that ID when working with the text message.
- - Currently our solution is "hard coded" to English. Think about what changes you would do to make it capable or handling text in all languages supported by the Text Analytics API.  
+- Testa lösningen med fler textexempel och se om de tröskelvärden som vi angav för att kategorisera attitydpoäng i positiva, negativa och neutrala är lämpliga. 
+- Lägg till en annan funktion i din funktionsapp som läser meddelanden från [!INCLUDE [negative-q](./q-name-negative.md)]-kön och anropar API för textanalys för att hitta nyckelfraser i texten.
+- Vår indatakö innehåller feedback som råtext. I verkligheten skulle vi associera feedbacken med någon form av användar-ID, till exempel e-postadress, kontonummer etc. Därför förbättrar vi indataköns objekt till JSON-dokument som innehåller ID-fält och text. Använd sedan detta ID när du arbetar med textmeddelandet.
+ - För närvarande är vår lösning ”hårdkodad” på engelska. Tänk på vilka ändringar du gör så att de kan hantera text på alla språk som stöds av API för textanalys.  
 
-Now that you know how to call one of these Cognitive Services APIs, take a look at some of the other services and think about how you might use them in your solutions. 
+Nu när du vet hur du anropar ett par av dessa Cognitive Services-API:er, kan vi ta en titt på några av de andra tjänsterna och se hur du kan använda dem i dina lösningar. 
 
-## Further reading
+## <a name="further-reading"></a>Ytterligare läsning
 
-- [Text Analytics overview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)
-- [How to detect sentiment in Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
-- [Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services/)
+- [Översikt över Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)
+- [Identifiera attityd i Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
+- [Dokumentation om Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 
-## Clean up resources
+## <a name="clean-up-resources"></a>Rensa resurser
 
-*Resources* in Azure refer to function apps, functions, storage accounts, and so forth. They are grouped into *resource groups*, and you can delete everything in a group by deleting the group.
+*Resurser* i Azure avser funktionsappar, funktioner, lagringskonton och så vidare. Dessa grupperas i *resursgrupper*. Du kan ta bort allt innehåll i en grupp genom att ta bort gruppen.
 
-You created resources to complete this module. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+Du skapade resurser för att kunna slutföra den här modulen. Det är möjligt att du debiteras för de här resurserna beroende på din [kontostatus](https://azure.microsoft.com/account/) och dina [tjänstpriser](https://azure.microsoft.com/pricing/). Om du inte behöver resurserna längre så visar vi hur du tar bort dem här:
 
-1. In the Azure portal, go to the **Resource group** page.
+1. Gå till sidan **Resursgrupp** i Azure Portal.
 
-   To get to that page from the function app page, select the **Overview** tab and then select the link under **Resource group**.
+   För att gå till den sidan från sidan för funktionsappar väljer du fliken **Översikt** och länken under **Resursgrupp**.
 
-   To get to that page from the dashboard, select **Resource groups**, and then select the resource group that you used for this module. 
+   För att komma till den sidan från instrumentpanelen väljer du **Resursgrupper** och sedan väljer du den resursgrupp som du använde för den här modulen. 
 
 > [!NOTE]
-> The default name of the resource group we suggested for this module was [!INCLUDE [resource-group-name](./rg-name.md)] but it is possible that you used another name.
+> Standardnamnet på den resursgrupp som vi föreslog för den här modulen var [!INCLUDE [resource-group-name](./rg-name.md)], men det är möjligt att du har använt ett annat namn.
 
-2. In the **Resource group** page, review the list of included resources, and verify that they are the ones you want to delete.
+2. Granska listan över de resurser som ingår på sidan **Resursgrupp** och kontrollera att det är dem som du vill ta bort.
 
-3. Select **Delete resource group**, and follow the instructions.
+3. Välj **Ta bort resursgrupp** och följ instruktionerna.
 
-   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+   Borttagningen kan ta några minuter. När du är färdig visas ett meddelande i några sekunder. Du kan även välja klockikonen längst upp på sidan för att se meddelandet.
 
-## Further Reading
+## <a name="further-reading"></a>Ytterligare läsning
 
-While this is not intended to be an exhaustive list, the following are some resources related to the topics covered in this module that you might find interesting.
+Även om detta inte är avsett att vara en fullständig förteckning, kan följande resurser som rör de ämnen som beskrivs i den här modulen vara intressanta.
 
- * [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/)
+ * [Azure Functions-dokumentation](https://docs.microsoft.com/azure/azure-functions/)
 
 * [The Azure Functions Challenge](https://aka.ms/afc)
 
 * [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook/)
 
- * [How to use Queue storage from Node.js](https://docs.microsoft.com/azure/storage/queues/storage-nodejs-how-to-use-queues)
+ * [Använda Queue Storage från Node.js](https://docs.microsoft.com/azure/storage/queues/storage-nodejs-how-to-use-queues)
 
- * [Introduction to Azure Cosmos DB: SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
+ * [Introduktion till Azure Cosmos DB: SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
 
-* [A technical overview of Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)
+* [En teknisk översikt över Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)
 
-* [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)
+* [Dokumentation om Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)

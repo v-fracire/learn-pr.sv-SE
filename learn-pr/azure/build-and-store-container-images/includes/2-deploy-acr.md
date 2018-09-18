@@ -1,24 +1,24 @@
-In this unit, you will create an Azure container registry using the Azure CLI.
+I den här utbildningsenheten skapar du ett Azure-containerregister med Azure CLI.
 
-## Create an Azure container registry
+## <a name="create-an-azure-container-registry"></a>Skapa ett Azure-containerregister
 
-Before you create your Azure container registry, you need a *resource group* to deploy it to. A resource group is a logical collection into which all Azure resources are deployed and managed.
+Innan du skapar Azure-containerregistret måste du ha en *resursgrupp* att distribuera den till. En resursgrupp är en logisk samling där alla Azure-resurser distribueras och hanteras.
 
-Create a resource group with the `az group create` command. In the following example, a resource group named *myResourceGroup* is created in the *eastus* region:
+Skapa en resursgrupp med kommandot `az group create`. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Once you've created the resource group, create an Azure container registry with the `az acr create` command. The container registry name must be unique within Azure, and contain between 5 and 50 alphanumeric characters. Replace `<acrName>` with a unique name for your registry.
+När du har skapat resursgruppen skapar du ett Azure-containerregister med kommandot `az acr create`. Namnet på containerregistret måste vara unikt i Azure och innehålla mellan 5 och 50 alfanumeriska tecken. Ersätt `<acrName>` med ett unikt namn för ditt register.
 
-For this example, a premium registry SKU is deployed. The premium SKU is required for geo-replication. For more information on Container Registry SKUs, see, [Azure Container Registry SKUs](https://docs.microsoft.com/azure/container-registry/container-registry-skus)
+I det här exemplet distribueras en premium-SKU för registret. Premium-SKU:n krävs för georeplikering. Mer information om SKU:er för Container Registry finns i [SKU:er i Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-skus)
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Premium
 ```
 
-Here's example output for a new Azure container registry:
+Här är exempel på utdata för ett nytt Azure-containerregister:
 
 ```console
 {
@@ -41,8 +41,8 @@ Here's example output for a new Azure container registry:
 }
 ```
 
-The rest of this module refers to `<acrName>` as a placeholder for the container registry name that you chose in this step.
+I resten av modulen använder vi `<acrName>` som platshållare för det containerregisternamn du väljer i det här steget.
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you created an Azure container registry using the Azure CLI.
+I den här enheten skapade du ett Azure-containerregister med Azure CLI.

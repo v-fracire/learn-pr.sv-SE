@@ -16,11 +16,11 @@ Om du vill kan du konfigurera virtuella nätverk och georedundans när kontot sk
 
 ## <a name="creating-an-azure-cosmos-db-account-in-the-portal"></a>Skapa ett Azure Cosmos DB-konto på portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com?azure-portal=true).
+1. Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true).
 
-1. Klicka på **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.
+1. Klicka på **Skapa en resurs** > **Databaser** > **Cosmos DB**.
    
-   ![Azure Portal-databasfönstret](../media-draft/2-create-nosql-db-databases-json-tutorial.png)
+   ![Fönstret Databaser på Azure Portal](../media-draft/2-create-nosql-db-databases-json-tutorial.png)
 
 1. På sidan **Nytt konto** anger du inställningarna för det nya Azure Cosmos DB-kontot.
  

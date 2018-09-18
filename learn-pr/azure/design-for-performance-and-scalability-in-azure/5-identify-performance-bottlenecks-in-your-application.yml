@@ -1,40 +1,45 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-performance-and-scalability.5-identify-performance-bottlenecks-in-your-application
-title: Identify performance bottlenecks in your application
+title: Identifiera flaskhalsar i appars prestanda
 metadata:
-  title: Identify performance bottlenecks in your application
-  description: In this unit we'll discuss how to identify performance bottlenecks in your application
+  title: Identifiera flaskhalsar i appars prestanda
+  description: I den här utbildningsenheten går vi igenom hur du kan identifiera flaskhalsar i appars prestanda
   ms.date: 09/24/2018
-  #TODO: Update with real author name.
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
+  ms.openlocfilehash: a01a564ec53bf55924adfb91fcf79031bc2396f7
+  ms.sourcegitcommit: f9023fdf01347b57619974b6961e1565cfc483d9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/09/2018
+  ms.locfileid: "44240215"
 durationInMinutes: 5
-content: |
+content: >
   [!include[](includes/5-identify-performance-bottlenecks-in-your-application.md)]
 quiz:
-  title: 'Knowledge Check - Identify performance bottlenecks in your application'
+  title: Kunskapskontroll – Identifiera flaskhalsar i appars prestanda
   questions:
-  - content: 'Which of the following best describes Application Insights?'
+  - content: Vilket av följande alternativ beskriver bäst Application Insights?
     choices:
-    - content: 'A single pane of glass for our monitoring needs in Azure'
+    - content: En enda fönsterruta för alla våra övervakningsbehov i Azure
       isCorrect: false
-      incorrectExplanation: 'While Application Insights can provide a wealth of data on your application performance, is it not a comprehensive Azure monitoring solution.'
-    - content: 'An implementation of the health endpoint monitoring pattern'
+      incorrectExplanation: Även om Application Insights kan ge mängder av information om programmets prestanda, så är det inte en heltäckande Azure-övervakningslösning.
+    - content: En implementering av övervakningsmönstret för slutpunktens tillstånd
       isCorrect: false
-      incorrectExplanation: 'The health endpoint monitoring pattern focuses on monitoring endpoints exposed by your application for overall health.'
-    - content: 'A workspace to enable collection of logs across infrastructure and applications'
+      incorrectExplanation: Övervakningsmönstret för slutpunktens tillstånd fokuserar på att övervaka den övergripande hälsan för slutpunkter som exponeras av ditt program.
+    - content: En arbetsyta där du kan samla loggar från olika appar och delar av infrastrukturen
       isCorrect: false
-      incorrectExplanation: 'Log Analytics is a workspace that enables the collection of logs across infrastructure and applictions.'
-    - content: 'A service to monitor availability, performance, and usage of web applications'
+      incorrectExplanation: Log Analytics är en arbetsyta där du kan samla loggar från olika appar och delar av infrastrukturen.
+    - content: En tjänst som övervakar webbprogrammens tillgänglighet, prestanda och användning
       isCorrect: true
-      correctExplanation: 'Application Insights is a service to monitor availability, performance, and usage of web applications.'
-  - content: 'You can use Log Analytics to track custom logs and metrics.'
+      correctExplanation: Application Insights är en tjänst som övervakar webbprogrammens tillgänglighet, prestanda och användning.
+  - content: Du kan använda Log Analytics till att spåra anpassade loggar och mått.
     choices:
-    - content: 'True'
+    - content: Sant
       isCorrect: true
-      correctExplanation: 'For custom logs and metrics, you can use the HTTP Data Collector API to write data to Log Analytics from any REST API client or an Azure Logic App to write data from a custom workflow.'
-    - content: 'False'
+      correctExplanation: När det gäller anpassade loggar och mått kan du använda HTTP-datainsamlarens API till att skriva data till Log Analytics från valfri REST API-klient, eller en Azure Logic App till att skriva data från ett anpassat arbetsflöde.
+    - content: Falskt
       isCorrect: false
-      incorrectExplanation: 'For custom logs and metrics, you can use the HTTP Data Collector API to write data to Log Analytics from any REST API client or an Azure Logic App to write data from a custom workflow.'
+      incorrectExplanation: När det gäller anpassade loggar och mått kan du använda HTTP-datainsamlarens API till att skriva data till Log Analytics från valfri REST API-klient, eller en Azure Logic App till att skriva data från ett anpassat arbetsflöde.

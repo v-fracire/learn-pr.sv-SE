@@ -1,18 +1,18 @@
-Security is currently top-of-mind for most people working in IT, and this is especially true when it comes to software. It seems we are constantly hearing about companies and governments that we entrusted our private data to, being compromised. When this happens - either maliciously or accidentally, it costs them customers and, ultimately money.
+Säkerhet är för närvarande främsta fokus för de flesta personer som arbetar inom IT och detta gäller särskilt när det gäller programvara. Det verkar som om vi ständigt hör talas om att företag och myndigheter som vi gett förtroendet att hantera våra privata data utsätts för attacker. När detta sker – oavsiktligt eller illvilligt – kostar det dem kunder och i slutänden pengar.
 
-Did you know that the most common cause of data breaches is poor security in software? It's true.  This means that the pressure is on for software developers to be more diligent than ever. But where do they start? This module is the start of your journey into the world of application security, with the top five defenses for web applications. Learn how to secure your web applications on Azure and protect your apps against the most common and dangerous web application attacks.
+Visste du att den vanligaste orsaken till dataintrång är dålig säkerhet i programvaran? Det är sant.  Det innebär att programutvecklarna måste vara mer noggranna än någonsin. Men var ska de börja? Denna modul är början av din resa till en värld av programsäkerhet, där vi visar de fem främsta försvaren för webbprogram. Lär dig att skydda dina webbprogram i Azure och dina appar mot de vanligaste och farligaste webbprogramattackerna.
 
-## Learning objectives
+## <a name="learning-objectives"></a>Utbildningsmål
 
-In this module, you will:
+I den här modulen kommer du att:
 
-* Use Azure Security Center
-* Verify your application's inputs and outputs
-* Store your secrets into Key Vault
-* Ensure you are using the latest version of your framework, and its security features
-* Validate that your program dependencies and libraries are safe to use
+* Använda Azure Security Center
+* Kontrollera indata och utdata för dina program
+* Lagra dina hemligheter i Key Vault
+* Kontrollera att du använder den senaste versionen av ditt ramverk och dess säkerhetsfunktioner
+* Kontrollera att dina programberoenden och bibliotek är säkra att använda
 
-## Prerequisites
+## <a name="prerequisites"></a>Förutsättningar
 
-* Learners should be experienced web developers.
-* Learners should have access to Azure.
+* Eleverna bör vara erfarna webbutvecklare.
+* Eleverna måste ha åtkomst till Azure.

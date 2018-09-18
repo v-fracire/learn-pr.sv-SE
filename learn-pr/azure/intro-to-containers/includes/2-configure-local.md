@@ -1,40 +1,40 @@
-Before you run a container or container-integrated application in Azure, you'll most likely work in a local development environment like your laptop. This unit helps you prepare your system for container development with Docker.
+Innan du kör en container eller ett containerintegrerat program i Azure kommer du förmodligen arbeta i en lokal utvecklingsmiljö, som din bärbara dator. I den här lektionen förbereder du ditt system för containerutveckling med Docker.
 
-## Docker for Windows and Mac
+## <a name="docker-for-windows-and-mac"></a>Docker för Windows och Mac
 
-Docker, Inc. has published two applications to install and configure local container development environments. Essentially, each application prepares your system with Docker tooling, such as the necessary CLI and automation tools. A virtual machine is also created that hosts the Docker platform. The environment is configured such that Docker commands are passed through to the virtual machine. Each of these applications is similar in functionality and includes the following features:
+Docker, Inc. har publicerat två program för att installera och konfigurera lokala miljöer för containerutveckling. I princip utrustar varje program datorn med Docker-verktyg, till exempel verktyg som krävs för CLI och automatisering. En virtuell dator skapas också som blir värd för Docker-plattformen. Miljön är konfigurerad så att Docker-kommandon skickas till den virtuella datorn. Dessa program fungerar ungefär likadant och innehåller följande funktioner:
 
-- **Docker platform:** The core components necessary to create and run containers.
-- **Docker CLI:** The command-line interface for interacting with Docker containers.
-- **Docker Compose:** Automation tooling for defining and running multi-container applications.
+- **Docker-plattformen:** De kärnkomponenter som behövs för att skapa och köra containrar.
+- **Docker CLI:** Kommandoradsgränssnittet för interaktion med Docker-containrar.
+- **Docker Compose:** Automationsverktyg som definierar och kör program med flera containrar.
 
-Open the appropriate link below in a new tab to install Docker on your operating system. 
+Öppna motsvarande länk nedan i en ny flik för att installera Docker i ditt operativsystem. 
 
-- [Docker for Windows](https://www.docker.com/docker-windows)
-- [Docker for Mac](https://www.docker.com/docker-mac)
+- [Docker för Windows](https://www.docker.com/docker-windows)
+- [Docker för Mac](https://www.docker.com/docker-mac)
 
-## Docker for Windows environments
+## <a name="docker-for-windows-environments"></a>Docker för Windows-miljöer
 
-When you use Docker for Windows, two environments are available: Linux and Windows. Using the Linux environment allows you to run Linux containers on your Windows system. You can select an environment by right-clicking on the Docker task bar icon, selecting **Switch to Linux containers**, and following the on-screen prompts.
+När du använder Docker för Windows är två miljöer tillgängliga: Linux och Windows. I Linux-miljön kan du köra Linux-containrar på ditt Windows-system. Du kan välja en miljö genom att högerklicka på ikonen Docker i aktivitetsfältet, välja alternativet att **växla till Linux-containrar** och följa anvisningarna på skärmen.
 
-![Docker for Windows, switch to Linux containers](../media-draft/2-docker-linux.png)
+![Docker för Windows, växla till Linux-containrar](../media-draft/2-docker-linux.png)
 
 > [!NOTE]
-> The steps in this tutorial assume that your system is configured to work with Linux containers.
+> I den här självstudien förutsätter vi att datorn är konfigurerad att fungera med Linux-containrar.
 
-## Docker on Linux
+## <a name="docker-on-linux"></a>Docker på Linux
 
-If you're working on a Linux-based system, the Docker server components and CLI tools can be manually installed. Follow the instructions found on [About Docker CE](https://docs.docker.com/install/#server) for your specific Linux distribution.
+Om du arbetar i ett Linux-baserat system kan Dockers serverkomponenter och CLI-verktyg installeras manuellt. Följ anvisningarna i [Om Docker CE](https://docs.docker.com/install/#server) för din specifika Linux-distribution.
 
-## Validate configuration
+## <a name="validate-configuration"></a>Verifiera konfigurationen
 
-To validate that Docker has been successfully installed and configured, open a terminal and run the following command:
+Du kan kontrollera att Docker har installerats och konfigurerats genom att öppna en terminal och köra följande kommando:
 
 ```bash
 docker search nginx
 ```
 
-If you see output similar to the following, your environment is ready for the next unit.
+Om du ser utdata som liknar följande är miljön redo för nästa lektion.
 
 ```output
 NAME                                                   DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
@@ -65,6 +65,6 @@ ansibleplaybookbundle/nginx-apb                        An APB to deploy NGINX   
 mailu/nginx                                            Mailu nginx frontend                            0                                       [OK]
 ```
 
-## Summary
+## <a name="summary"></a>Sammanfattning
 
-In this unit, you prepared a local container development environment. In the next unit, you will learn about some basic Docker operations.
+I det här avsnittet förbereder du en lokal miljö för containerutveckling. I nästa avsnitt lär du dig några grundläggande Docker-åtgärder.
