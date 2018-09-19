@@ -1,0 +1,47 @@
+### YamlMime:Module
+uid: learn.create-neural-network-with-dsvm
+metadata:
+  title: Skapa neurala nätverk med TensorFlow på Azure Data Science Virtual Machine
+  description: Lär dig använda TensorFlow för att träna ett djupt neuralt nätverk i Azure Data Science Virtual Machine.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 4448fa9010ac9f00360d1c629d981671b572e4dd
+  ms.sourcegitcommit: b6f5aa15bae13cb0f53667fba1d404b7bec76f67
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/17/2018
+  ms.locfileid: "45778788"
+title: Skapa neurala nätverk med TensorFlow på Azure Data Science Virtual Machine
+summary: Lär dig använda TensorFlow för att träna ett djupt neuralt nätverk i Azure Data Science Virtual Machine.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Skapa en Linux Data Science Virtual Machine i Azure
+
+  - ansluta till din DSVM via fjärrskrivbordet
+
+  - träna upp en TensorFlow-modell att klassificera bilder som innehåller varmkorvar och bilder som INTE innehåller varmkorvar
+
+  - Använd modellen i en Python-app
+prerequisites: >
+  - En [Xfce](https://xfce.org/)-fjärrskrivbordsklient som [X2Go](https://wiki.x2go.org/doku.php/download:start)
+iconUrl: /learn/achievements/create-neural-network-with-dsvm.svg
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+- azure-virtual-machines
+units:
+- learn.create-neural-network-with-dsvm.0-overview
+- learn.create-neural-network-with-dsvm.1-create-dsvm
+- learn.create-neural-network-with-dsvm.2-connect-to-dsvm
+- learn.create-neural-network-with-dsvm.3-train-tensorflow-model
+- learn.create-neural-network-with-dsvm.4-create-client-app
+- learn.create-neural-network-with-dsvm.5-knowledge-check
+- learn.create-neural-network-with-dsvm.6-delete-env-summary
+achievement: learn.create-neural-network-with-dsvm.badge
