@@ -1,2 +1,0 @@
-> [!NOTE]
-> <span data-ttu-id="e3d29-101">Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?azure-portal=true) innan du börjar.</span><span class="sxs-lookup"><span data-stu-id="e3d29-101">If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?azure-portal=true) before you begin.</span></span>
