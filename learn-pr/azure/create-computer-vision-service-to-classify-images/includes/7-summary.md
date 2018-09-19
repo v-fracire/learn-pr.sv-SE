@@ -1,7 +1,0 @@
-## <a name="summary"></a><span data-ttu-id="ddcc4-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="ddcc4-101">Summary</span></span>
-
-<span data-ttu-id="ddcc4-102">I den här modulen har du lärt dig hur du analyserar bilder med tjänsten API för visuellt innehåll.</span><span class="sxs-lookup"><span data-stu-id="ddcc4-102">In this module, you have learned how to analyze images with the Computer Vision API service.</span></span>
-
-<span data-ttu-id="ddcc4-103">Du analyserade bilder för att ta reda på mer om dem, och du genererade miniatyrer.</span><span class="sxs-lookup"><span data-stu-id="ddcc4-103">You analyzed images to know what they are, as well as generated thumbnails.</span></span> <span data-ttu-id="ddcc4-104">Därefter utförde du optisk teckenläsning (OCR) på tryckt text och konverterade handskrift till tryckta tecken.</span><span class="sxs-lookup"><span data-stu-id="ddcc4-104">Then, you performed Optical Character Recognition (OCR) on printed text and converted handwriting into printed characters.</span></span>
-
-<span data-ttu-id="ddcc4-105">Den här modulen utgör grunden för att integrera Cognitive Services för visuellt innehåll i ett program som skrivits på valfritt språk.</span><span class="sxs-lookup"><span data-stu-id="ddcc4-105">This module provides the basis for integrating visual Cognitive Services within an application written in any language.</span></span>
