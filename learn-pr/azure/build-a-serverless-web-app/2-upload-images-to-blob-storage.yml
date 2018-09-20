@@ -1,0 +1,22 @@
+### YamlMime:ModuleUnit
+uid: learn.build-a-serverless-web-app.2-upload-images-to-blob-storage
+title: <span data-ttu-id="d78df-101">Ladda upp bilder till Blob Storage med Azure Functions</span><span class="sxs-lookup"><span data-stu-id="d78df-101">Upload images to Blob storage with Azure Functions</span></span>
+metadata:
+  title: <span data-ttu-id="d78df-102">Ladda upp bilder till Blobblagring med Azure Functions</span><span class="sxs-lookup"><span data-stu-id="d78df-102">Upload images to Blob storage with Azure Functions</span></span>
+  description: <span data-ttu-id="d78df-103">Ladda upp bilder till Blobblagring med Azure Functions</span><span class="sxs-lookup"><span data-stu-id="d78df-103">Upload images to Blob storage with Azure Functions</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  zone_pivot_groups: dev-lang-csharp-javascript
+  ms.openlocfilehash: 7ae0243bd58c894f7a068a180ee4cbf7d96ff5b6
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355351"
+durationInMinutes: 15
+interactive: bash-editor
+azureSandbox: true
+content: '[!include[](includes/2-upload-images-to-blob-storage.md)]'

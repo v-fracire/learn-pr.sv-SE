@@ -1,0 +1,34 @@
+### YamlMime:LearningPath
+uid: learn.work-with-relational-data-in-azure
+metadata:
+  title: Arbeta med relationsdata i Azure
+  description: Azure har stöd för flera populära SQL-baserade databaslösningar, inklusive SQL Server, PostgreSQL och MySQL. Lär dig att använda dessa lösningar för företagsdata i Azure till att lagra och hämta appens data i molnet.
+  brand: azure
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 2a1f91994e47d94a8b63f318582ed11b681a7b49
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357092"
+title: Arbeta med relationsdata i Azure
+summary: Azure har stöd för flera populära SQL-baserade databaslösningar, inklusive SQL Server, PostgreSQL och MySQL. Lär dig att använda dessa lösningar för företagsdata i Azure till att lagra och hämta appens data i molnet.
+prerequisites: Ingen
+iconUrl: /learn/achievements/work-with-relational-data-in-azure.svg
+levels:
+- intermediate
+roles:
+- developer
+products:
+- azure
+- azure-sql-database
+- azure-cloud-shell
+- azure-clis
+modules:
+- learn.provision-azure-sql-db
+- learn.create-azure-db-for-postgresql
+achievement: learn.work-with-relational-data-in-azure.trophy

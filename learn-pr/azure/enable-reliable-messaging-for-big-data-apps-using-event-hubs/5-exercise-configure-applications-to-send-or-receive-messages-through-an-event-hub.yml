@@ -1,0 +1,21 @@
+### YamlMime:ModuleUnit
+uid: learn.enable-reliable-messaging-for-big-data-applications-using-azure-event-hubs.5-exercise-configure-applications-to-send-or-receive-messages-through-an-event-hub
+title: <span data-ttu-id="293e5-101">Övning – Konfigurera appar för att skicka eller ta emot meddelanden via en händelsehubb</span><span class="sxs-lookup"><span data-stu-id="293e5-101">Exercise - Configure applications to send or receive messages through an Event Hub</span></span>
+metadata:
+  title: <span data-ttu-id="293e5-102">Övning – Konfigurera appar för att skicka eller ta emot meddelanden via en händelsehubb</span><span class="sxs-lookup"><span data-stu-id="293e5-102">Exercise - Configure applications to send or receive messages through an Event Hub</span></span>
+  description: <span data-ttu-id="293e5-103">Konfigurera appar för att skicka eller ta emot meddelanden via en händelsehubb</span><span class="sxs-lookup"><span data-stu-id="293e5-103">Configure applications to send or receive messages through an Event Hub</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: de40d61e225340c649c9efec1ac10093508b9459
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360108"
+interactive: bash
+azureSandbox: true
+durationInMinutes: 10
+content: '[!include[](includes/5-exercise-configure-applications-to-send-or-receive-messages-through-an-event-hub.md)]'

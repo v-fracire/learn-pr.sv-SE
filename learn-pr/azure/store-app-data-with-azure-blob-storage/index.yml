@@ -1,0 +1,42 @@
+### YamlMime:Module
+uid: learn.store-app-data-with-azure-blob-storage
+metadata:
+  title: Lagra programdata med Azure Blob Storage
+  description: Skapa en app som lagrar användarnas filer i Azure Blob Storage.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 636b580a243112d866cd7f407f1d897d7849fa0e
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360039"
+title: Lagra programdata med Azure Blob Storage
+summary: Skapa en app som lagrar användarnas filer i Azure Blob Storage.
+abstract: >
+  I den här modulen kommer du att:
+    - organisera dina data med Azure Blob Storage
+    - skapa lagringsresurser för lagring av blobar
+    - lagra och hämta data från Azure Blob Storage
+prerequisites: Ingen
+iconUrl: /learn/achievements/store-app-data-with-azure-blob-storage.svg
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+- azure-storage
+units:
+- learn.store-app-data-with-azure-blob-storage.1-introduction
+- learn.store-app-data-with-azure-blob-storage.2-what-are-blobs
+- learn.store-app-data-with-azure-blob-storage.3-design-organization-strategy
+- learn.store-app-data-with-azure-blob-storage.4-create-storage-resources
+- learn.store-app-data-with-azure-blob-storage.5-configure-and-initialize-the-client-library
+- learn.store-app-data-with-azure-blob-storage.6-getting-blob-references
+- learn.store-app-data-with-azure-blob-storage.7-blob-uploads-and-downloads
+- learn.store-app-data-with-azure-blob-storage.8-cleanup-next-steps-knowledge-check
+achievement: learn.store-app-data-with-azure-blob-storage.badge
