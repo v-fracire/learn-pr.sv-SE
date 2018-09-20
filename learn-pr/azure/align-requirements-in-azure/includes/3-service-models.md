@@ -1,0 +1,13 @@
+<span data-ttu-id="b3105-101">Databehandlingsresurser i molnet levereras som tre olika tjänstmodeller.</span><span class="sxs-lookup"><span data-stu-id="b3105-101">Cloud computing resources are delivered using three different service models.</span></span>
+
+- <span data-ttu-id="b3105-102">Med **infrastruktur som en tjänst (IaaS)** får du en infrastruktur för omedelbar databearbetning som du kan etablera och hantera via internet.</span><span class="sxs-lookup"><span data-stu-id="b3105-102">**Infrastructure-as-a-service (IaaS)** provides instant computing infrastructure that you can provision and manage over the Internet.</span></span>
+- <span data-ttu-id="b3105-103">Med **plattform som en tjänst (PaaS)** får du färdiga utvecklings- och distributionsmiljöer som du kan använda till att leverera egna molntjänster.</span><span class="sxs-lookup"><span data-stu-id="b3105-103">**Platform as a service (PaaS)** provides ready-made development and deployment environments that you can use to deliver your own cloud services.</span></span>
+- <span data-ttu-id="b3105-104">**Programvara som en tjänst (SaaS)** levererar program över Internet som en webbaserad tjänst.</span><span class="sxs-lookup"><span data-stu-id="b3105-104">**Software as a service (SaaS)** delivers applications over the Internet as a web-based service.</span></span>
+
+#### <a name="iaas-versus-sass-versus-paas"></a><span data-ttu-id="b3105-105">IaaS jämfört med SaaS och PaaS</span><span class="sxs-lookup"><span data-stu-id="b3105-105">IaaS versus Sass versus PaaS</span></span>
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yEbs]
+
+<span data-ttu-id="b3105-106">När du väljer tjänstmodell bör du fundera på vem som ska ansvara för databearbetningsresursen.</span><span class="sxs-lookup"><span data-stu-id="b3105-106">When choosing a service model, consider which party should be responsible for the computing resource.</span></span> <span data-ttu-id="b3105-107">I ditt scenario kan du bestämma du hur mycket delat hanteringsansvar du vill ha.</span><span class="sxs-lookup"><span data-stu-id="b3105-107">Based on your scenario, you can decide how much shared management responsibility you want.</span></span> <span data-ttu-id="b3105-108">På bilden nedan finns en lista över de resurser som du hanterar och som din tjänstleverantör hanterar i varje molntjänstkategori.</span><span class="sxs-lookup"><span data-stu-id="b3105-108">The following illustration shows a list of resources that you manage and that your service provider manages in each cloud service category.</span></span>
+
+![En bild som visar ansvarsnivån för delad hantering i varje molntjänstkategori.](../media/3-shared-responsibility.png)
