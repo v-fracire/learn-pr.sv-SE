@@ -1,0 +1,21 @@
+### YamlMime:ModuleUnit
+uid: learn.implement-message-workflows-with-service-bus.5-exercise-write-code-that-uses-service-bus-queues
+title: Övning – Skriva kod som använder Service Bus-köer
+metadata:
+  title: Övning – Skriva kod som använder Service Bus-köer
+  description: Övning – Skriva kod som använder Service Bus-köer
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: f919275792e15422eeaddf35e72686809f75fab7
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355863"
+interactive: bash-editor
+azureSandbox: true
+durationInMinutes: 10
+content: '[!include[](includes/5-exercise-write-code-that-uses-service-bus-queues.md)]'

@@ -1,0 +1,3 @@
+Den här modulen har visat hur du skapar ett Azure Cosmos DB-konto som du kan använda för verkliga scenarier som t.ex. nätbutiksappar. Genom att skapa en databas med en smart partitionsnyckel, kommer du att kunna skala vågrätt när dina behov för att lagra data växer. Du har även lärt dig om behovet av en enhet för programbegäran till ditt program, och hur du ställer in den när kontot skapas så att du kan skala upp dataflödet senare om användarnas efterfrågan ökar.
+
+[!include[](../../../includes/azure-sandbox-cleanup.md)]

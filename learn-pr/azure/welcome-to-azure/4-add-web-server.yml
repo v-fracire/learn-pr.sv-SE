@@ -1,0 +1,22 @@
+### YamlMime:ModuleUnit
+uid: learn.welcome-to-azure.4-add-web-server
+title: Lägga till en webbserver
+metadata:
+  title: Lägga till en webbserver
+  description: Väck liv i din virtuella dator genom att konfigurera en webbserver och servera lite anpassat innehåll.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  zone_pivot_groups: platform-cloud
+  ms.openlocfilehash: 69adb321f5035be2ca3ede3546eb3a48ee413394
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360964"
+interactive: bash
+azureSandbox: true
+durationInMinutes: 5
+content: '[!include[](includes/4-add-web-server.md)]'

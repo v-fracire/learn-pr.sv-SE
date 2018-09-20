@@ -1,0 +1,3 @@
+Du har lärt dig hur du använder Azure Functions för att hantera affärslogiktjänster i molnet. Det är ett bra sätt att lägga till värdbaserade tjänster i din lösning som kan skalas och växa med verksamheten. Du kan arbeta med koden i valfritt språk och låta Azure hantera infrastrukturen. Functions kan integreras med andra tjänster, t.ex. Event Grid, GitHub, Twilio, Microsoft Graph och Logic Apps så att du snabbt och enkelt kan skapa komplexa och robusta serverlösa arbetsflöden.
+
+[!include[](../../../includes/azure-sandbox-cleanup.md)]

@@ -1,0 +1,57 @@
+### YamlMime:ModuleUnit
+uid: learn.azure-container-registry.knowledge-check
+title: Kunskapskontroll
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll om Azure Container Registry.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 89fbd644018188c7f24fc6c5fbb5ee129559c6ad
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359428"
+durationInMinutes: 5
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande är inte en fördel med att använda Azure Container Registry?
+    choices:
+    - content: Replikera containeravbildningar till många Azure-datacenter.
+      incorrectExplanation: Det här görs med funktionen för georeplikering i Azure Container Registry.
+      isCorrect: false
+    - content: Hämta containeravbildningar från Container Registry med valfri teknik för Docker-containers.
+      isCorrect: false
+      incorrectExplanation: Container Registry kan användas med valfri Docker-relaterad teknik.
+    - content: Göra containeravbildningar offentligt tillgängliga för hämtningsåtgärder.
+      isCorrect: true
+      correctExplanation: Container Registry är ett privat register. Avbildningar som lagras i Container Registry kan inte användas utan autentisering.
+    - content: Skapa containeravbildningar utan lokalt installerade Docker-verktyg.
+      isCorrect: false
+      incorrectExplanation: Du kan skapa containeravbildningar i molnet med Azure Container Registry Build.
+  - content: Vilken autentiseringsmetod rekommenderas för Azure Container Registry?
+    choices:
+    - content: Administratörskonto.
+      incorrectExplanation: Även om du kan skapa ett administratörskonto för Azure Container Registry så är inte det här den autentiseringsmetod som rekommenderas.
+      isCorrect: false
+    - content: Användarnamn och lösenord.
+      incorrectExplanation: Du kan aktivera ett containerregister i Azure för administratörskonton med användarnamn och lösenord. Det här är dock inte den autentiseringsmetod som rekommenderas.
+      isCorrect: false
+    - content: Huvudnamn för Azure-tjänsten.
+      isCorrect: true
+      correctExplanation: Med huvudnamn för Azure-tjänsten får du detaljerad åtkomst till containeravbildningar i Azure Container Registry. Du kan ge skrivskyddad eller fullständig åtkomst till containerregistret med ett huvudnamn för tjänsten.
+    - content: Ingen autentisering.
+      incorrectExplanation: Azure Container Registry är ett privat register och kan inte användas utan autentisering.
+      isCorrect: false
+  - content: Georeplikering är tillgänglig i standard-SKU:n för Container Registry.
+    choices:
+    - content: Sant.
+      incorrectExplanation: Georeplikering är bara tillgängligt i premium-SKU:n.
+      isCorrect: false
+    - content: Falskt.
+      isCorrect: true
+      correctExplanation: Georeplikering är bara tillgängligt i premium-SKU:n.

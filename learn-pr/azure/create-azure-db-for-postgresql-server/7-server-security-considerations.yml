@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.create-azure-db-for-postgresql.server-security-considerations
+title: Säkerhetsöverväganden för server
+metadata:
+  title: Säkerhetsöverväganden för server
+  description: Det finns ett antal alternativ för att begränsa åtkomsten till din Azure Database for PostgreSQL-server och -databaser. Se hur du konfigurerar Azure Database for PostgreSQL-anslutningens säkerhetsinställningar.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 75c4edccc24756954e6c7a7338b2aeae63633b55
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46354878"
+durationInMinutes: 7
+content: '[!include[](includes/7-server-security-considerations.md)]'

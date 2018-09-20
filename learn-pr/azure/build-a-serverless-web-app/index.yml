@@ -1,0 +1,53 @@
+### YamlMime:Module
+uid: learn.build-a-serverless-web-app
+metadata:
+  title: Skapa en webbapp utan server
+  description: Distribuera en enkel webbapp som gör det möjligt för användare att ladda upp bilder via ett HTML-baserat användargränssnitt (UI). I webbappen används en serverlös serverdel för att automatiskt tagga och lagra bildtexter som beskriver bilderna.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: d27ab38ca1f162097a4fe2e6a82d45bb8621010c
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46354656"
+title: Skapa en webbapp utan server
+summary: Distribuera en enkel webbapp som gör det möjligt för användare att ladda upp bilder via ett HTML-baserat användargränssnitt (UI). I webbappen används en serverlös serverdel för att automatiskt tagga och lagra bildtexter som beskriver bilderna.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Konfigurera Azure Blob Storage att lagra en statisk webbplats och ladda upp bilder
+
+  - Ladda upp bilder till Azure Blob Storage med hjälp av Azure Functions
+
+  - Ändra storlek på bilder med hjälp av Azure Functions
+
+  - Lagra bildmetadata i Azure Cosmos DB
+
+  - Använda API:et för visuellt innehåll i Cognitive Services för att skapa bildtexter automatiskt
+
+  - Använda Azure Active Directory för att skydda webbappen med användarautentisering
+prerequisites: Ingen
+iconUrl: /learn/achievements/build-a-serverless-web-app.svg
+levels:
+- intermediate
+roles:
+- developer
+products:
+- azure
+- azure-cosmos-db
+- azure-cloud-shell
+- azure-functions
+- azure-portal
+units:
+- learn.build-a-serverless-web-app.1-create-web-app-in-blob-storage
+- learn.build-a-serverless-web-app.2-upload-images-to-blob-storage
+- learn.build-a-serverless-web-app.3-resize-images-with-functions
+- learn.build-a-serverless-web-app.4-store-image-metadata-with-cosmos
+- learn.build-a-serverless-web-app.5-add-captions-with-computer-vision
+- learn.build-a-serverless-web-app.6-add-authentication
+- learn.build-a-serverless-web-app.7-test-and-cleanup
+achievement: learn.build-a-serverless-web-app.badge

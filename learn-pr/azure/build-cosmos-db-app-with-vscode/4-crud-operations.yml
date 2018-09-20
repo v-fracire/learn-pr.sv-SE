@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.cosmos-db-app-with-vscode.4-crud-operations
+metadata:
+  title: Skapa, läsa, uppdatera och ta bort NoSQL-data programmässigt
+  description: Skapa, läsa, uppdatera och ta bort dokument programmässigt
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: cd95ca3f6199202c6862288d4cafd3e24a52600b
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360711"
+title: Skapa, läsa, uppdatera och ta bort NoSQL-data programmässigt
+durationInMinutes: 10
+content: '[!include[](includes/4-crud-operations.md)]'

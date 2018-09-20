@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.introduction-to-azure-virtual-machines.4-describe-other-create-vm-options
+title: Tillgängliga alternativ för att skapa och hantera en virtuell Azure-dator
+metadata:
+  title: Tillgängliga alternativ för att skapa och hantera en virtuell Azure-dator
+  description: Tillgängliga alternativ för att skapa och hantera en virtuell Azure-dator
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 820a8c5eeb91f18527d91812562a4eaca5512134
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355492"
+durationInMinutes: 15
+content: '[!include[](includes/4-describe-other-create-vm-options.md)]'

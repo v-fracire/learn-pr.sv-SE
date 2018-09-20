@@ -1,0 +1,21 @@
+### YamlMime:ModuleUnit
+uid: learn.build-a-serverless-web-app.1-create-web-app-in-blob-storage
+title: Skapa en webbapp i Azure Blob Storage
+metadata:
+  title: Skapa en webbapp i Azure Blob Storage
+  description: Skapa en webbapp i Azure Blob Storage
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 774c6012f927429442f0dd0c205378a927e74370
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356583"
+durationInMinutes: 20
+interactive: bash-editor
+azureSandbox: true
+content: '[!include[](includes/1-create-web-app-in-blob-storage.md)]'

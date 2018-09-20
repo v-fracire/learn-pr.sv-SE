@@ -1,0 +1,3 @@
+I den här modulen har du utforskat fyra olika Azure-tjänster som gör det möjligt att skapa pålitliga och motståndskraftiga distribuerade program. Valet mellan dem handlar om att bestämma vilken typ av data som behöver överföras mellan komponenter (meddelanden eller händelser) och sedan vilka funktioner du behöver leverera och bearbeta data.
+
+Fortsätt med andra Microsoft Learn-moduler som visar hur du använder var och en av dessa meddelandekomponenter i Azure!

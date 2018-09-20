@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.add-and-size-disks-in-azure-virtual-machines.4-choosing-premium-storage
+title: Bestämma om du vill använda Premium-lagring
+metadata:
+  title: Bestämma om du vill använda Premium-lagring
+  description: Bestämma om du vill använda Premium-lagring
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 305e6abdc79e0d984595d98f56d0931462dd4c48
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357455"
+durationInMinutes: 10
+content: '[!include[](includes/4-choosing-premium-storage.md)]'
