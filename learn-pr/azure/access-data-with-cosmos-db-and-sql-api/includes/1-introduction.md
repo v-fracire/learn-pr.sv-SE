@@ -1,0 +1,17 @@
+<span data-ttu-id="1451d-101">Att lägga till data och fråga efter data i databasen bör vara enkelt.</span><span class="sxs-lookup"><span data-stu-id="1451d-101">Adding data and querying data in your database should be straightforward.</span></span> 
+
+<span data-ttu-id="1451d-102">Tänk dig att du arbetar hos en återförsäljare av kläder online och att du behöver lägga till data om ditt lager i din e-handelsdatabas i Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="1451d-102">Imagine you work for an online clothing retailer and you need to add inventory data to your e-commerce database in Azure Cosmos DB.</span></span> <span data-ttu-id="1451d-103">När data är i databasen kan du fråga i den med hjälp av välbekanta SQL-frågor (ja, precis som dem du använder i SQL Server) och utföra komplexa åtgärder genom att använda lagrade procedurer och användardefinierade funktioner.</span><span class="sxs-lookup"><span data-stu-id="1451d-103">Once the data is in the database, you can query it by using familiar SQL queries (yes, just like the ones you use in SQL Server) and perform complex operations by using stored procedures and user-defined functions (UDFs).</span></span>
+
+<span data-ttu-id="1451d-104">Azure Cosmos DB tillhandahåller en datautforskare på Azure Portal som du kan använda för att utföra alla dessa åtgärder – lägga till data, ändra data och skapa och köra lagrade procedurer.</span><span class="sxs-lookup"><span data-stu-id="1451d-104">Azure Cosmos DB provides a Data Explorer in the Azure portal that you can use to perform all these operations: adding data, modifying data, and creating and running stored procedures.</span></span> <span data-ttu-id="1451d-105">Datautforskaren kan användas på Azure Portal eller kopplas bort och användas i en fristående webbläsare, vilket ger ytterligare utrymme att arbeta med dina data.</span><span class="sxs-lookup"><span data-stu-id="1451d-105">The Data Explorer can be used in the Azure portal or it can be undocked and used in a standalone web browser, providing additional space to work with your data.</span></span>
+
+## <a name="learning-objectives"></a><span data-ttu-id="1451d-106">Utbildningsmål</span><span class="sxs-lookup"><span data-stu-id="1451d-106">Learning objectives</span></span>
+
+<span data-ttu-id="1451d-107">I den här modulen kommer du att göra följande:</span><span class="sxs-lookup"><span data-stu-id="1451d-107">In this module, you will:</span></span>
+
+- <span data-ttu-id="1451d-108">Skapa produktkatalogdokument i Datautforskaren</span><span class="sxs-lookup"><span data-stu-id="1451d-108">Create product catalog documents in the Data Explorer</span></span>
+- <span data-ttu-id="1451d-109">Köra Azure Cosmos DB-frågor</span><span class="sxs-lookup"><span data-stu-id="1451d-109">Perform Azure Cosmos DB queries</span></span>
+- <span data-ttu-id="1451d-110">Skapa och köra åtgärder mot dokument genom att använda lagrade procedurer</span><span class="sxs-lookup"><span data-stu-id="1451d-110">Create and run operations on your documents by using stored procedures</span></span>
+
+## <a name="prerequisites"></a><span data-ttu-id="1451d-111">Krav</span><span class="sxs-lookup"><span data-stu-id="1451d-111">Prerequisites</span></span>
+
+- <span data-ttu-id="1451d-112">Förståelse för databaser och frågor</span><span class="sxs-lookup"><span data-stu-id="1451d-112">Have an understanding of databases and queries</span></span>
