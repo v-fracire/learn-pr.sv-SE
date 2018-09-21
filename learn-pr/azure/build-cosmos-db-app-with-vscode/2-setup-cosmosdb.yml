@@ -1,0 +1,20 @@
+### YamlMime:ModuleUnit
+uid: learn.cosmos-db-app-with-vscode.2-setup-cosmosdb
+metadata:
+  title: Skapa Azure Cosmos DB-resurser i Visual Studio Code
+  description: Lär dig hur du skapar Azure Cosmos DB-resurser genom att använda Azure Cosmos DB-tillägget för Visual Studio Code.
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 65c902318eccd97e4be628fcb13495a34b06bd1a
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356607"
+title: Skapa Azure Cosmos DB-resurser i Visual Studio Code
+durationInMinutes: 12
+azureSandbox: true
+content: '[!include[](includes/2-setup-cosmosdb.md)]'
