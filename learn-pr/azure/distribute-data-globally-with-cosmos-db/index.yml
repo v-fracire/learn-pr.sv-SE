@@ -1,0 +1,43 @@
+### YamlMime:Module
+uid: learn.distribute-data-globally-with-cosmos-db
+metadata:
+  title: Distribuera dina data globalt med Azure Cosmos DB
+  description: Lär dig hur du distribuerar dina data globalt med Azure Cosmos DB.
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: b45ee8db884a8fb2414206464e65610f0753c148
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356191"
+title: Distribuera dina data globalt med Azure Cosmos DB
+summary: Lär dig hur du distribuerar dina data globalt med Azure Cosmos DB.
+abstract: >
+  I den här modulen får du göra följande:
+    - Lära dig mer om fördelarna med att skriva och replikera data till flera regioner över hela världen
+    - Ändra läs- och skrivprioriteringarna för de regioner där dina data finns
+    - Ändra inställningen för konsekvens för din databas
+cardDescription: Distribuera dina data globalt med Azure Cosmos DB
+prerequisites: Inget
+iconUrl: /learn/achievements/distribute-data-globally-with-cosmos-db.svg
+levels:
+- intermediate
+roles:
+- developer
+products:
+- azure
+- azure-cosmos-db
+- azure-clis
+- azure-portal
+units:
+- learn.distribute-data-globally-with-cosmos-db.1-introduction
+- learn.distribute-data-globally-with-cosmos-db.2-global-distribution
+- learn.distribute-data-globally-with-cosmos-db.3-multi-region-write
+- learn.distribute-data-globally-with-cosmos-db.4-change-priorities
+- learn.distribute-data-globally-with-cosmos-db.5-data-consistency-levels
+- learn.distribute-data-globally-with-cosmos-db.6-summary-cleanup
+achievement: learn.distribute-data-globally-with-cosmos-db.badge
