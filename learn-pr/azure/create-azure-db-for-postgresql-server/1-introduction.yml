@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.create-azure-db-for-postgresql.introduction
+title: <span data-ttu-id="4554d-101">Introduktion till Azure Database for PostgreSQL</span><span class="sxs-lookup"><span data-stu-id="4554d-101">Introduction to Azure Database for PostgreSQL</span></span>
+metadata:
+  title: <span data-ttu-id="4554d-102">Introduktion till Azure Database for PostgreSQL</span><span class="sxs-lookup"><span data-stu-id="4554d-102">Introduction to Azure Database for PostgreSQL</span></span>
+  description: <span data-ttu-id="4554d-103">Introduktion till Azure Database for PostgreSQL</span><span class="sxs-lookup"><span data-stu-id="4554d-103">Introduction to Azure Database for PostgreSQL</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: cf157cba19e16663640c2ce95c21feaad356bdcb
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357956"
+durationInMinutes: 2
+content: '[!include[](includes/1-introduction.md)]'

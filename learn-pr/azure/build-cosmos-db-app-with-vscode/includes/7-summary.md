@@ -1,0 +1,3 @@
+<span data-ttu-id="ca988-101">I den här modulen har du skapat ett .NET Core-konsolprogram som skapar, uppdaterar och tar bort användarposter, ställer frågor till användarna med hjälp av SQL och LINQ, samt kör en lagrad procedur för att fråga efter objekt i databasen.</span><span class="sxs-lookup"><span data-stu-id="ca988-101">In this module you've created a .NET Core console application that creates, updates, and deletes user records, queries the users by using SQL and LINQ, and runs a stored procedure to query items in the database.</span></span>
+
+[!include[](../../../includes/azure-sandbox-cleanup.md)]

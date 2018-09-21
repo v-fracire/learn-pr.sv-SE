@@ -1,0 +1,19 @@
+### YamlMime:ModuleUnit
+uid: learn.chain-azure-functions-data-using-input-output-bindings.6-write-data-with-output-bindings-portal-lesson
+metadata:
+  title: <span data-ttu-id="3f2cf-101">Skriva data med utdatabindningar</span><span class="sxs-lookup"><span data-stu-id="3f2cf-101">Write data with output bindings</span></span>
+  description: <span data-ttu-id="3f2cf-102">I den här praktiska kursdelen skriver vi data från Azure-funktionen till Azure Cosmos DB med hjälp av en utdatabindning.</span><span class="sxs-lookup"><span data-stu-id="3f2cf-102">In this hands-on unit, we'll write data from our Azure function to Azure Cosmos DB with the help of an output binding.</span></span>
+  ms.date: 09/24/2018
+  author: andrewjbyrne
+  ms.author: anbyrne
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: f409e1ff1b432b6686a9228071c103b83acbd217
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359103"
+title: <span data-ttu-id="3f2cf-103">Skriva data med utdatabindningar</span><span class="sxs-lookup"><span data-stu-id="3f2cf-103">Write data with output bindings</span></span>
+durationInMinutes: 3
+content: '[!include[](includes/6-write-data-with-output-bindings-portal-lesson.md)]'

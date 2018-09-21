@@ -1,0 +1,57 @@
+### YamlMime:ModuleUnit
+uid: learn.caching-and-performance-azure-storage-and-disks.7-summary
+title: <span data-ttu-id="d22bf-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d22bf-101">Summary</span></span>
+metadata:
+  title: <span data-ttu-id="d22bf-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d22bf-102">Summary</span></span>
+  description: <span data-ttu-id="d22bf-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d22bf-103">Summary</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 2a607f558758763e280a575a129795ff0900ece5
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357159"
+durationInMinutes: 3
+content: >
+  [!include[](includes/7-summary.md)]
+quiz:
+  title: <span data-ttu-id="d22bf-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="d22bf-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="d22bf-105">Vilket cachelagringsalternativ är ett bra val för skrivintensiva åtgärder som lagring av loggfiler?</span><span class="sxs-lookup"><span data-stu-id="d22bf-105">Which caching option is a good choice for write-heavy operations such as storing log files?</span></span>
+    choices:
+    - content: <span data-ttu-id="d22bf-106">Skrivskyddad</span><span class="sxs-lookup"><span data-stu-id="d22bf-106">Read-only</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d22bf-107">Skrivskyddad cachelagring fungerar bra för datadiskar, till exempel TempDB-data.</span><span class="sxs-lookup"><span data-stu-id="d22bf-107">Read-only caching works well for data disks, including TempDB data.</span></span> <span data-ttu-id="d22bf-108">Men den förbättrar inte prestanda för skrivintensiva åtgärder och kan till och med orsaka lite lägre prestanda.</span><span class="sxs-lookup"><span data-stu-id="d22bf-108">However, it does not improve performance of write-heavy operations and may even cause a slight decrease in performance.</span></span>
+    - content: <span data-ttu-id="d22bf-109">Läsa/skriva</span><span class="sxs-lookup"><span data-stu-id="d22bf-109">Read/write</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d22bf-110">Det här är ett bra alternativ om appen hanterar skrivning av cachelagrade data till beständiga diskar när det behövs.</span><span class="sxs-lookup"><span data-stu-id="d22bf-110">This is a good option if your app properly handles writing cached data to persistent disks when needed.</span></span>
+    - content: <span data-ttu-id="d22bf-111">Ingen</span><span class="sxs-lookup"><span data-stu-id="d22bf-111">None</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d22bf-112">Skrivintensiva åtgärder har allmänt sett ingen nytta av cachelagring.</span><span class="sxs-lookup"><span data-stu-id="d22bf-112">Write-heavy operations generally do not benefit from caching.</span></span> <span data-ttu-id="d22bf-113">”Ingen” är förmodligen det bästa alternativet för en disk dedikerad till loggfiler.</span><span class="sxs-lookup"><span data-stu-id="d22bf-113">'None' is probably the best choice for a disk dedicated to log files.</span></span>
+  - content: <span data-ttu-id="d22bf-114">För vilken typ av disk startar Azure om den virtuella datorn för att kunna ändra cachelagringstyp?</span><span class="sxs-lookup"><span data-stu-id="d22bf-114">For which type of disk does Azure restart the VM in order to change caching type?</span></span>
+    choices:
+    - content: <span data-ttu-id="d22bf-115">Data</span><span class="sxs-lookup"><span data-stu-id="d22bf-115">Data</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d22bf-116">Att ändra cacheinställningen för en datadisk frånkopplar och återansluter måldisken men startar inte om den virtuella datorn.</span><span class="sxs-lookup"><span data-stu-id="d22bf-116">Changing the cache setting of a data disk detaches and reattaches the target disk but does not restart the VM.</span></span>
+    - content: <span data-ttu-id="d22bf-117">Operativsystem (OS)</span><span class="sxs-lookup"><span data-stu-id="d22bf-117">Operating system (OS)</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d22bf-118">Att ändra cacheinställningen för OS-disken kräver omstart av den virtuella datorn.</span><span class="sxs-lookup"><span data-stu-id="d22bf-118">Changing the cache setting of the OS disk requires a VM restart.</span></span>
+    - content: <span data-ttu-id="d22bf-119">Temporär</span><span class="sxs-lookup"><span data-stu-id="d22bf-119">Temporary</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d22bf-120">Du kan inte ändra cachelagringsalternativ på en temporär disk.</span><span class="sxs-lookup"><span data-stu-id="d22bf-120">You can't change caching options on a temporary disk.</span></span>
+    - content: <span data-ttu-id="d22bf-121">Zonredundant lagring (ZRS)</span><span class="sxs-lookup"><span data-stu-id="d22bf-121">Zone-redundant storage (ZRS)</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d22bf-122">Ett premiumlagringskonto stöder inte ZRS.</span><span class="sxs-lookup"><span data-stu-id="d22bf-122">A premium storage account doesn't support ZRS.</span></span>
+  - content: <span data-ttu-id="d22bf-123">Anta att du använder Azure PowerShell för att hantera en virtuell dator.</span><span class="sxs-lookup"><span data-stu-id="d22bf-123">Suppose you are using Azure PowerShell to manage a VM.</span></span> <span data-ttu-id="d22bf-124">Du har ett lokalt objekt som representerar den virtuella datorn och du har gjort flera uppdateringar av det lokala objektet.</span><span class="sxs-lookup"><span data-stu-id="d22bf-124">You have a local object that represents the VM and you've made several updates to that local object.</span></span> <span data-ttu-id="d22bf-125">Vilken PowerShell-cmdlet skulle du använda för at tillämpa de lokala ändringarna på den faktiska virtuella datorn?</span><span class="sxs-lookup"><span data-stu-id="d22bf-125">Which PowerShell cmdlet would you use to apply those local changes to the actual VM?</span></span>
+    choices:
+    - content: <span data-ttu-id="d22bf-126">Update-AzureRmVM</span><span class="sxs-lookup"><span data-stu-id="d22bf-126">Update-AzureRmVM</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d22bf-127">Denna cmdlet uppdaterar tillståndet för en virtuell Azure-dator till tillståndet för ett virtuell dator-objekt.</span><span class="sxs-lookup"><span data-stu-id="d22bf-127">This cmdlet updates the state of an Azure virtual machine to the state of a virtual machine object.</span></span>
+    - content: <span data-ttu-id="d22bf-128">Set-AzureRmVM</span><span class="sxs-lookup"><span data-stu-id="d22bf-128">Set-AzureRmVM</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="d22bf-129">New-AzureRmVM</span><span class="sxs-lookup"><span data-stu-id="d22bf-129">New-AzureRmVM</span></span>
+      isCorrect: false

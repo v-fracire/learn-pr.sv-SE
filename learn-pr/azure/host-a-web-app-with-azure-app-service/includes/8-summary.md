@@ -1,0 +1,5 @@
+<span data-ttu-id="4e20a-101">Du har skapat och distribuerat ett komplett webbprogram med Azure App Services.</span><span class="sxs-lookup"><span data-stu-id="4e20a-101">You've successfully created and deployed a full-featured web application to Azure App Service.</span></span>
+
+<span data-ttu-id="4e20a-102">I App Service är det enklare att hantera och kontrollera webbappar jämfört med traditionella värdalternativ.</span><span class="sxs-lookup"><span data-stu-id="4e20a-102">App Service simplifies managing and controlling your web app in comparison to traditional hosting options.</span></span> <span data-ttu-id="4e20a-103">Med App Service krävs mindre tid och arbete för att köra och hantera en webbapp, samtidigt som du har tillgång till avancerade molnfunktioner som automatisk skalning och Git-integrering.</span><span class="sxs-lookup"><span data-stu-id="4e20a-103">App Service can help you reduce the time and effort spent running and managing your web app, and provide advanced cloud features such as auto scaling and Git integration.</span></span>
+
+[!include[](../../../includes/azure-sandbox-cleanup.md)]
