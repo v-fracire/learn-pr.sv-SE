@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.interactive-deep-learning.7-summary-and-knowledge-check
+title: Sammanfattning
+metadata:
+  title: Sammanfattning
+  description: Sammanfattning
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 2a6f770fc032421778d9b8865ddc2324b1b481e7
+  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/20/2018
+  ms.locfileid: "46484422"
+durationInMinutes: 1
+content: >
+  [!include[](includes/7-summary-and-knowledge-check.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande beskriver bäst utmaningarna med beroenden när du använder DSVM för djupinlärning?
+    choices:
+    - content: DSVM är i en sandbox-miljö och tillhandahåller inte direkt stöd för installation av nya paket.
+      isCorrect: false
+      incorrectExplanation: DSVM är en virtuell dator. Den levereras med många förinstallerade program för att hjälpa dig med datavetenskaps- och AI-projekt, men du kan installera vad du vill.
+    - content: DSVM stöder endast CNTK och Cognitive Service-beroenden.
+      incorrectExplanation: DSVM tillhandahåller stöd som är tillgängligt direkt för många populära ramverk som PyTorch, Chainer och Tensorflow.
+      isCorrect: false
+    - content: Vissa ramverk och paket för djupinlärning kräver olika miljöer, GPU-drivrutiner och binära paket
+      isCorrect: true
+      correctExplanation: Att hantera beroenden mellan alla ramverk du använder för djupinlärning kan vara en utmaning. Om du kör en Docker-container för att gruppera och isolera dessa beroenden kan det hjälpa dig med den här utmaningen.
+  - content: Anta att du har experimenterat med djupinlärning i en Docker-container. Din DSVM körs på en virtuell Linux-dator som också har GPU:er. Vilket av följande kommandon kör du för att etablera en container med nödvändiga komponenter för att köra kod på GPU:n?
+    choices:
+    - content: docker run --useGPU
+      isCorrect: false
+      incorrectExplanation: Kommandot docker run har ingen parameter med namnet --useGPU
+    - content: nvidia-docker run
+      isCorrect: true
+      correctExplanation: Det här kommandot kan används till att köra en container som använder GPU:er.
+    - content: docker-nvidia run
+      isCorrect: false
+      incorrectExplanation: Det här kommandot finns inte.

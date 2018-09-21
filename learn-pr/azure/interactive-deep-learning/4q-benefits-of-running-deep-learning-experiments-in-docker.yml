@@ -1,0 +1,54 @@
+### YamlMime:ModuleUnit
+uid: learn.interactive-deep-learning.4q-benefits-of-running-deep-learning-experiments-in-docker
+title: Testa dina kunskaper
+metadata:
+  title: Testa dina kunskaper
+  description: Testa dina kunskaper
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: fab76bfb0f9de183a37f1d8aba022b434294ce85
+  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/20/2018
+  ms.locfileid: "46484321"
+durationInMinutes: 2
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande beskriver CUDA?
+    choices:
+    - content: Det är en parallell databehandlingsplattform och ett API.
+      isCorrect: true
+      correctExplanation: CUDA är en parallell databehandlingsplattform och en API-modell skapad av NVIDIA. CUDA-plattformen är ett programvarulager som ger direktåtkomst till GPU:ns virtuella instruktionsuppsättning och parallella databehandlingselement, för körning av beräkningskernels.
+    - content: Det är en mycket kraftfull processor.
+      isCorrect: false
+      incorrectExplanation: CUDA är ett programvarulager och har utformats för GPU:er.
+    - content: Det är en djupinlärningsmodell som används för bildklassificering.
+      isCorrect: false
+      incorrectExplanation: CUDA-aktiverade GPU:er kan ge betydligt bättre beräkningsprestanda vid träning av neurala nätverk, men det här är bara ett av dess användningsområden.
+  - content: Vilket av följande beskriver Docker?
+    choices:
+    - content: Docker är en specialmaskinvara för träning av neurala nätverk.
+      isCorrect: false
+      incorrectExplanation: Docker är faktiskt programvara som utför virtualisering på systemnivå, så kallad containerisering.
+    - content: Docker är en öppen plattform för distribuerade program.
+      isCorrect: true
+      correctExplanation: Docker är en öppen plattform för utvecklare och systemadministratörer där de kan skapa, leverera och köra distribuerade program på bärbara datorer, virtuella datorer i datacenter eller i molnet. Det är ett datorprogram som utför virtualisering på systemnivå, så kallad containerisering.
+    - content: Docker är ett bibliotek för webbappar.
+      isCorrect: false
+      incorrectExplanation: Docker är en programvaruplattform men inte ett bibliotek för att hjälpa dig att skapa webbappar.
+  - content: Vad är huvudfördelen med att använda NVIDIA Docker?
+    choices:
+    - content: Du kan köra och skapa Docker-containrar i Windows.
+      isCorrect: false
+      incorrectExplanation: NVIDIA Docker kan bara köras i Linux.
+    - content: Du kan skapa och köra Docker-containrar som utnyttjar NVIDIA-GPU:er.
+      isCorrect: true
+      correctExplanation: NVIDIA utvecklade nvidia-docker som ett projekt med öppen källkod för att stödja drivrutinsagonstisk CUDA-avbildning och som en wrapper som vet hur rätt GPU-komponenter ska monteras i containern vid start.
+    - content: Du kan containerisera CPU-accelererade program.
+      isCorrect: false
+      incorrectExplanation: Med NVIDIA Docker kan du containerisera dina GPU-accelererade appar.

@@ -1,0 +1,49 @@
+### YamlMime:ModuleUnit
+uid: learn.distribute-data-globally-with-cosmos-db.5-data-consistency-levels
+metadata:
+  title: Välja en konsekvensnivå
+  description: Lär dig hur konsekvensnivåer i Azure Cosmos DB kan användas till att maximera hög tillgänglighet och minimera svarstider, och fastställ rätt konsekvensnivå för ditt program.
+  displayType: one-column
+  ms.openlocfilehash: e90f3d4f444418309010d7c6443cfc1d8138ed93
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356596"
+title: Välja en konsekvensnivå
+durationInMinutes: 10
+content: >
+  [!include[](includes/5-data-consistency-levels.md)]
+quiz:
+  title: Kunskapstest
+  questions:
+  - content: Vilken konsekvensnivå är lämpligast för användardata i en e-handelsdatabas? Användarna måste garanteras att deras beställningar innehåller alla artiklar de har lagt i varukorgen.
+    choices:
+    - content: Stark
+      isCorrect: false
+      incorrectExplanation: Stark konsekvens är inte tillgängligt för databaser som replikerats i flera regioner.
+    - content: Begränsad föråldring
+      isCorrect: false
+      incorrectExplanation: Begränsad föråldring kan leda till att bara vissa av användarnas artiklar visas i varukorgen.
+    - content: Session
+      isCorrect: true
+      correctExplanation: Rätt, session är den bästa konsekvensinställningen för användardata som innehåller varukorgsinformation. Sessionskonsekvens säkerställer att alla artiklar som användaren lägger i varukorgen visas när de granskar varukorgen.
+    - content: Konsekvent prefix
+      isCorrect: false
+      incorrectExplanation: Konsekvent prefix kan leda till att bara vissa av användarnas artiklar visas i varukorgen.
+    - content: Slutlig
+      isCorrect: false
+      incorrectExplanation: Slutlig konsekvens kan leda till en situation där en varukorg inte visar alla artiklar som användaren hade lagt i den.
+  - content: Vilken konsekvensnivå förbrukar minst antal enheter för programbegäran (RU) per åtgärd?
+    choices:
+    - content: Stark
+      isCorrect: false
+    - content: Begränsad föråldring
+      isCorrect: false
+    - content: Session
+      isCorrect: false
+    - content: Konsekvent prefix
+      isCorrect: false
+    - content: Slutlig
+      isCorrect: true
+      correctExplanation: Kostnaden för en läsåtgärd med slutlig konsekvens förbrukar minst antal RU per sekund.

@@ -1,0 +1,11 @@
+- USA, västra 2
+- USA, västra centrala
+- USA, södra centrala
+- USA, centrala
+- USA, östra
+- Europa, västra
+- Asien, sydöstra
+- Japan, östra
+- Brasilien, södra
+- Australien, sydöstra
+- Indien, centrala

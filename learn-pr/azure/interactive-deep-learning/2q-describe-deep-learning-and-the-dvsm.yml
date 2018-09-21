@@ -1,0 +1,54 @@
+### YamlMime:ModuleUnit
+uid: learn.interactive-deep-learning.2q-describe-deep-learning-and-the-dvsm
+title: Testa dina kunskaper
+metadata:
+  title: Testa dina kunskaper
+  description: Testa dina kunskaper
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: a3b3b0539c2f89a4a1c93f48ba3084555483a216
+  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/20/2018
+  ms.locfileid: "46484281"
+durationInMinutes: 2
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande beskriver bäst skillnaden mellan traditionell maskininlärning och djupinlärning?
+    choices:
+    - content: I traditionell maskininlärning använder vi alla typer av modeller – diagrambaserade, algebraiska och sannolikhetsbaserade. I djupinlärning använder vi bara linjära modeller.
+      isCorrect: false
+      incorrectExplanation: Djupinlärning hittar rätt matematisk manipulering för att omvandla indata till utdata, oavsett om det är ett linjär förhållande eller ett icke-linjärt förhållande.
+    - content: I traditionell maskininlärning görs funktionerna för hand. I djupinlärning lärs de in.
+      isCorrect: true
+      correctExplanation: I djupinlärning är funktionsextraheringen en process som lärs in genom att indata representeras som vektorer och transformeras med ett antal smarta linjära algebraåtgärder till givna utdata.
+    - content: I traditionell maskininlärning modelleras algoritmerna efter hjärtat. Djupinlärning modelleras efter hjärnan.
+      isCorrect: false
+      incorrectExplanation: Djupinlärning hanterar algoritmer som inspireras av strukturen och funktioner i hjärnan som kallas för artificiella neurala nätverk. Men maskininlärning modelleras inte efter hjärtat.
+  - content: Vad händer om du distribuerar DSVM-avbildningen (Data Science Virtual Machine) på en CPU-baserad virtuell Azure-dator?
+    choices:
+    - content: Allt går sönder eftersom du bara kan distribuera DSVM på en GPU-baserad virtuell Azure-dator.
+      isCorrect: false
+      incorrectExplanation: DSVM fungerar sömlöst med både GPU- och CPU-baserade virtuella datorer.
+    - content: Allt fungerar bra eftersom djupinlärningsramverken återgår till CPU-läge.
+      isCorrect: true
+      correctExplanation: DSVM fungerar sömlöst med både GPU- och CPU-baserade virtuella datorer.
+    - content: Du måste uppdatera de förinstallerade djupinlärningsramverken för att köras på CPU:n.
+      isCorrect: false
+      incorrectExplanation: DSVM fungerar sömlöst med både GPU- och CPU-baserade virtuella datorer.
+  - content: Varför används GPU:er ofta för djupinlärning?
+    choices:
+    - content: Matrisalgebra i djupinlärning kräver mycket parallell beräkning och GPU:er passar väldigt bra med den typen av beräkning.
+      correctExplanation: Den serie av matrisåtgärder som vi beräknar som en del av den linjära algebrakomponenten tenderar att vara beräkningsmässigt expansiv och är ofta tungt parallelliserbar, vilket kräver specialiserad databearbetning, t.ex. grafikprocessorer (GPU), för att kunna beräkna effektivt.
+      isCorrect: true
+    - content: GPU:er gör så att modeller för djupinlärning konvergeras under gradientsökning.
+      isCorrect: false
+      incorrectExplanation: Konvergens i en djupinlärningsmodell under gradientsökning är oberoende av vilken processor som används.
+    - content: GPU:er behövs för att utvärdera en förlustfunktion.
+      isCorrect: false
+      incorrectExplanation: GPU:er behövs inte för att utvärdera en förlustfunktion.
