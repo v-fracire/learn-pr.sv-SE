@@ -1,0 +1,53 @@
+### YamlMime:ModuleUnit
+uid: learn.create-computer-vision-service.7-summary
+title: Sammanfattning och kunskapskontroll
+metadata:
+  title: Sammanfattning och kunskapskontroll
+  description: Sammanfattning och kunskapskontroll
+  ms.date: 09/24/2018
+  author: AndrewJByrne
+  ms.author: marouill
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 931c47e93c694b823427af0464937d07a5411945
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355788"
+durationInMinutes: 5
+content: >
+  [!include[](includes/7-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: När du analyserar en bild med hjälp av API för visuellt innehåll kan du ange visuella funktionstyper som ska returneras.  Vilket av följande är en giltig visuell funktionstyp när du anropar åtgärden ”analysera”?
+    choices:
+    - content: 'Filmer '
+      isCorrect: false
+      incorrectExplanation: Filmer är inte en giltig visuell funktionstyp.
+    - content: Djur
+      isCorrect: false
+      incorrectExplanation: Djur är inte en giltig visuell funktionstyp.
+    - content: Kändisar
+      isCorrect: true
+      correctExplanation: De två visuella funktionstyperna du kan ange är Kändisar och Landmärken.
+  - content: Vilket av följande beskriver vad *smart beskärning* gör när du genererar en miniatyrbild med `generateThumbnail` åtgärden?
+    choices:
+    - content: Den beskär bilder från det övre vänstra hörnet.
+      isCorrect: false
+      incorrectExplanation: Att beskära en bild från det övre vänstra hörnet kan resultera i att du tar bort en betydande del av bilden, även kallat intressant område.
+    - content: Det centrerar miniatyrbilden i det intressanta området.
+      isCorrect: true
+      correctExplanation: Om parametern 'smartCropping' är sann tillämpar API smart beskärning för att centrera miniatyrbilden i det intressanta området. Annars beskär den mot mitten.
+  - content: Du integrerar API för visuellt innehåll till din lösning. Du har skapat ett Cognitive Services-konto för tjänsten API för visuellt innehåll i regionen usaöstra. Vilket av följande är den korrekta adressen för att komma åt åtgärden `ocr`?
+    choices:
+    - content: eastus2.api.cognitive.microsoft.com/vision/v2.0/ocr
+      isCorrect: false
+      incorrectExplanation: Du har inte registrerat dig för en åtkomstnyckel för att göra en begäran från denna regionen. Kom ihåg att slutpunkten anger den region som du valde när du registrerade dig, tjänstens URL och en resurs som används på begäran.
+    - content: eastus.api.cognitive.microsoft.com/vision/v2.0/describe
+      isCorrect: false
+      incorrectExplanation: Den här adressen skickar en begäran till resursentiteten.
+    - content: eastus.api.cognitive.microsoft.com/vision/v2.0/ocr
+      isCorrect: true
+      correctExplanation: Slutpunkten anger den region som du valde när du registrerade dig, tjänstens URL och en resurs som används på begäran.

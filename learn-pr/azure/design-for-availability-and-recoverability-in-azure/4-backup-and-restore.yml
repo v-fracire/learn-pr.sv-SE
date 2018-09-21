@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-availability-and-recoverability.4-backup-and-restore
+title: Skydda dina data med säkerhetskopiering och återställning
+metadata:
+  title: Skydda dina data med säkerhetskopiering och återställning
+  description: Skydda dina data med säkerhetskopiering och återställning
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 5e18a24fb15d47403353af4e7e7b466b6dc9c043
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46354668"
+durationInMinutes: 15
+content: >
+  [!include[](includes/4-backup-and-restore.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Sant eller falskt: har alla datalagringsalternativ från Azure automatisk säkerhetskopiering av data?'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Automatisk säkerhetskopiering ingår inte i samtliga datalagringsprodukter för Azure. Det ingår, till exempel, inte i Azure Blobs.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: De flesta Azure-tjänster innehåller integrerade funktioner för säkerhetskopiering, men det är inte alltid aktiverat som standard. Du kan också lägga till tjänster som Azure Backup-agenten vid behov för att se till att alla dina data skyddas.
+  - content: Varför är det viktigt att testa återställningar regelbundet?
+    choices:
+    - content: Du kan verifiera integriteten hos dina säkerhetskopior.
+      isCorrect: false
+      incorrectExplanation: När du testar återställningar regelbundet kan du validera säkerhetskopiornas integritet, men det är inte det enda rätta valet.
+    - content: Du kan bekanta dig med återställningsprocessen.
+      isCorrect: false
+      incorrectExplanation: När du testar återställningar regelbundet kan du bli mer bekant med återställningsprocessen, men det är inte det enda rätta valet.
+    - content: Du kan identifiera brister i processen för säkerhetskopiering och återställning.
+      isCorrect: false
+      incorrectExplanation: När du testar återställningar regelbundet kan du identifiera brister i processen för säkerhetskopiering och återställning, men det är inte det enda rätta valet.
+    - content: Alla alternativ ovan.
+      isCorrect: true
+      correctExplanation: Allt detta är fördelar med att testa din återställningsprocess.

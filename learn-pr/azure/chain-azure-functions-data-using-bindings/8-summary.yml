@@ -1,0 +1,67 @@
+### YamlMime:ModuleUnit
+uid: learn.chain-azure-functions-data-using-input-output-bindings.8-summary
+title: Sammanfattning
+metadata:
+  title: Vad vi har lärt oss
+  description: Sammanfattning
+  ms.date: 09/24/2018
+  author: andrewjbyrne
+  ms.author: anbyrne
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 7f72a24bc1323b3adc1ab6844563c82fb7a54798
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359156"
+durationInMinutes: 5
+content: >
+  [!include[](includes/8-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande är det rätta namnet på filen som innehåller konfigurationsdata för funktioner?
+    choices:
+    - content: config.txt
+      isCorrect: false
+      incorrectExplanation: Konfigurationen är skriven i JSON.
+    - content: config.json
+      isCorrect: false
+      incorrectExplanation: Det är en JSON-fil, men detta är inte rätt namn.
+    - content: function.json
+      isCorrect: true
+      correctExplanation: Konfigurationen har namnet `function.json`, som innehåller JSON-konfigurationsdata som bindningsdeklarationer.
+  - content: Vilka av följande är indatabindningstyper som stöds?
+    choices:
+    - content: Cosmos DB
+      isCorrect: true
+      correctExplanation: Azure Cosmos DB-indatabindningen använder SQL API för att hämta en eller flera Azure Cosmos DB-dokument och skickar dem till indataparametern för funktionen.
+    - content: SendGrid
+      isCorrect: false
+      incorrectExplanation: SendGrid är en indatabindningstyp som inte stöds.
+    - content: Service Bus
+      isCorrect: false
+      incorrectExplanation: Service Bus är en indatabindningstyp som inte stöds.
+  - content: Hur många utlösare måste en funktion ha?
+    choices:
+    - content: noll
+      isCorrect: false
+      incorrectExplanation: En funktion måste ha exakt en utlösare.
+    - content: en
+      isCorrect: true
+      correctExplanation: En funktion måste ha exakt en utlösare.
+    - content: två
+      isCorrect: false
+      incorrectExplanation: En funktion måste ha exakt en utlösare.
+  - content: Vilka av följande rader JavaScript skriver ”hello bindings” till en Azure Queue Storage-kö med en funktionsparameter som har namnet **myQueueItem**?
+    choices:
+    - content: context.myQueueItem = "hello bindings";
+      isCorrect: false
+      incorrectExplanation: Detta är rätt parameternamn åtkomsten till den måste ske via kontexten för objektet.
+    - content: context.bindings.myQueueItem = "hello bindings";
+      isCorrect: true
+      correctExplanation: context.bindings returnerar ett namngivet objekt som innehåller alla indata och utdata.
+    - content: myQueueItem = "hello bindings";
+      isCorrect: false
+      incorrectExplanation: Detta är rätt parameternamn åtkomsten till den måste ske via kontexten för objektet.

@@ -1,0 +1,3 @@
+![Begreppet behandling är mitten av vårt solsystem](../media/5-heading.png)
+
+Azure tillhandahåller flera tjänster för att utföra molnberäkning, men vilken tjänst som är rätt beror på dina affärsbehov. Kom ihåg att det finns vissa överlappningar i funktionerna. I en serverfri arkitektur kan du till exempel använda antingen Azure-containrar eller Azure Functions. I slutändan är rätt beslut avhängigt både tjänstens funktioner och utvecklingsteamets kunskaper.

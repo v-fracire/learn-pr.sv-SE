@@ -1,0 +1,50 @@
+### YamlMime:ModuleUnit
+uid: learn.create-cosmos-db-for-scale.3-what-is-a-request-unit
+metadata:
+  title: Vad är en enhet för programbegäran i Azure Cosmos DB?
+  description: Vad är en enhet för programbegäran i Azure Cosmos DB?
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: a77dfdfbb762a9d0bf428a7434d821a50df5b2bb
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359164"
+title: Vad är en enhet för programbegäran?
+durationInMinutes: 8
+content: "[!include[](includes/3-what-is-a-request-unit.md)] \n"
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket är det minsta värde som du bör ange för dataflödet när du skapar ett Azure Cosmos DB-konto och du vill vara säker på att det kan växa med behoven i programmet?
+    choices:
+    - content: 400 RU/s
+      isCorrect: false
+      incorrectExplanation: Ett dataflöde på 1 000 RU/s är det lägsta värdet för att aktivera autoskalning av din databas.
+    - content: 1 000 RU/s
+      isCorrect: true
+      correctExplanation: Ett dataflöde på 1 000 RU/s är det lägsta värdet för att aktivera autoskalning av din databas.
+    - content: 1 400 RU/s
+      isCorrect: false
+      incorrectExplanation: Ett dataflöde på 1 000 RU/s är det lägsta värdet för att aktivera autoskalning av din databas.
+    - content: 250 000 RU/s
+      isCorrect: false
+      incorrectExplanation: Ett dataflöde på 1 000 RU/s är det lägsta värdet för att aktivera autoskalning av din databas.
+  - content: Om du tänker skriva ett dokument på 4 KB till en Azure Cosmos DB-databas 100 gånger per sekund och läsa det 500 gånger per sekund, hur många enheter för programbegäran ska du då etablera för att säkerställa att ditt konto inte är hastighetsbegränsat?
+    choices:
+    - content: 400 RU/s
+      isCorrect: false
+      incorrectExplanation: Du behöver minst 1 350 RU/s för det här scenariot. För att undvika hastighetsbegränsning bör du etablera 1 400 RU/s, eftersom du behöver mer än 1 350 RU/s och enheter för programbegäran etableras i enheter om 100 (1 300, 1 400, 1 500 osv.).
+    - content: 1 000 RU/s
+      isCorrect: false
+      incorrectExplanation: Du behöver minst 1 350 RU/s för det här scenariot. För att undvika hastighetsbegränsning bör du etablera 1 400 RU/s, eftersom du behöver mer än 1 350 RU/s och enheter för programbegäran etableras i enheter om 100 (1 300, 1 400, 1 500 osv.).
+    - content: 1 300 RU/s
+      isCorrect: false
+      incorrectExplanation: Du behöver minst 1 350 RU/s för det här scenariot. För att undvika hastighetsbegränsning bör du etablera 1 400 RU/s, eftersom du behöver mer än 1 350 RU/s och enheter för programbegäran etableras i enheter om 100 (1 300, 1 400, 1 500 osv.).
+    - content: 1 400 RU/s
+      isCorrect: true
+      correctExplanation: Du behöver minst 1 350 RU/s för det här scenariot. För att undvika hastighetsbegränsning bör du etablera 1 400 RU/s, eftersom du behöver mer än 1 350 RU/s och enheter för programbegäran etableras i enheter om 100 (1 300, 1 400, 1 500 osv.).

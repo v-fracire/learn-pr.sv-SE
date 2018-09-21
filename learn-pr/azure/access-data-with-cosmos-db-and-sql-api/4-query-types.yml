@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.access-data-with-cosmos-db-and-sql-api.4-query-types
+metadata:
+  title: Frågetyper
+  description: Lär dig vilka typer av frågor du kan använda i Azure Cosmos DB för att hämta dina data.
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 7fc9ea37fb83060d26c5f9e7cf4ee76dab6180e7
+  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/20/2018
+  ms.locfileid: "46484316"
+title: Frågetyper
+durationInMinutes: 5
+content: >
+  [!include[](includes/4-query-types.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilken är den enda obligatoriska satsen i en SQL-fråga?
+    choices:
+    - content: SELECT
+      isCorrect: true
+      correctExplanation: SELECT är den enda obligatoriska satsen i en SQL-fråga.
+    - content: FROM
+      isCorrect: false
+      incorrectExplanation: FROM är en valfri sats i en SQL-fråga.
+    - content: WHERE
+      isCorrect: false
+      incorrectExplanation: WHERE är en valfri sats i en SQL-fråga.
+  - content: Vilken fråga hämtar en sorterad lista över produkt-ID:n och beskrivningar, med början vid det största produkt-ID:t och slut vid det minsta produkt-ID:t?
+    choices:
+    - content: SELECT p.productId FROM Products p ORDER BY p.productId ASC
+      isCorrect: false
+      incorrectExplanation: Detta skulle bara returnera produkt-ID:n i stigande ordning.
+    - content: SELECT p.id FROM Products p ORDER BY p.productId DESC
+      isCorrect: false
+      incorrectExplanation: Detta skulle bara returnera ID:n i fallande ordning
+    - content: SELECT p.productId, p.description FROM Products p ORDER BY p.productId DESC
+      isCorrect: true
+      incorrectExplanation: Detta skulle returnera både produkt-ID och beskrivning men i stigande ordning.

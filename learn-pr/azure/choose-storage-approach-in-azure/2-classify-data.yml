@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.choose-storage-approach-in-azure.2-classify-data
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.date: 09/24/2018
+  author: mimig1
+  ms.author: mimig
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: a353b13f282c1a40b5650cdcb30470570e9f24d2
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46361415"
+title: Klassificera dina data
+durationInMinutes: 10
+content: >
+  [!include[](includes/2-classify-data.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilken typ av data är en JSON-fil ett exempel på?
+    choices:
+    - content: Strukturerade
+      isCorrect: false
+      incorrectExplanation: Halvstrukturerade data innehåller taggar som gör att du kan organisera och ordna data hierarkiskt.
+    - content: Halvstrukturerade
+      isCorrect: true
+      correctExplanation: Halvstrukturerade data innehåller taggar som gör att du kan organisera och ordna data hierarkiskt.
+    - content: Ostrukturerade
+      isCorrect: false
+      incorrectExplanation: Halvstrukturerade data innehåller taggar som gör att du kan organisera och ordna data hierarkiskt.
+  - content: Vilken typ av data är en video ett exempel på?
+    choices:
+    - content: Strukturerade
+      isCorrect: false
+      incorrectExplanation: Ostrukturerade data levereras ofta i filer. En video kan ha en övergripande struktur, men de data som utgör själva videon är ostrukturerade.
+    - content: Halvstrukturerade
+      isCorrect: false
+      incorrectExplanation: Ostrukturerade data levereras ofta i filer. En video kan ha en övergripande struktur, men de data som utgör själva videon är ostrukturerade.
+    - content: Ostrukturerade
+      isCorrect: true
+      correctExplanation: Ostrukturerade data levereras ofta i filer. En video kan ha en övergripande struktur, men de data som utgör själva videon är ostrukturerade.

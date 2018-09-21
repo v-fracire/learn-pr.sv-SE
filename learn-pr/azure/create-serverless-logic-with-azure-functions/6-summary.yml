@@ -1,0 +1,57 @@
+### YamlMime:ModuleUnit
+uid: learn.create-serverless-logic-with-functions.6-summary
+title: Sammanfattning
+metadata:
+  title: Sammanfattning
+  description: Sammanfattning
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: aae90b81a478b5f1ece9708dc528bdae43b8748b
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355268"
+azureSandbox: true
+durationInMinutes: 3
+content: >
+  [!include[](includes/6-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande definierar bäst serverlös logik?
+    choices:
+    - content: Kod du skriver som inte körs på servrar.
+      isCorrect: false
+      incorrectExplanation: Serverlöst betyder inte att det inte finns några servrar – det betyder bara att utvecklaren inte behöver bekymra sig om servrar. Istället hanteras servrarna av en molntjänstleverantör som Azure.
+    - content: Kod du skriver som körs på servrar du hanterar.
+      isCorrect: false
+      incorrectExplanation: Serverlöst betyder inte att det inte finns några servrar – det betyder bara att utvecklaren inte behöver bekymra sig om servrar. Istället hanteras servrarna av en molntjänstleverantör som Azure.
+    - content: Kod du skriver som körs på servrar som en molntjänstleverantör hanterar.
+      isCorrect: true
+      correctExplanation: Serverlöst betyder inte att det inte finns några servrar – det betyder bara att utvecklaren inte behöver bekymra sig om servrar. Istället hanteras servrarna av en molntjänstleverantör som Azure.
+  - content: Vad kallas den container som grupperar funktioner i en logisk enhet för enklare hantering, distribution och delning av resurser?
+    choices:
+    - content: Resursgrupp
+      isCorrect: false
+      incorrectExplanation: En funktionsapp är ett sätt att ordna och gemensamt hantera funktioner. En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans av Azure App Service. Alla funktioner i en funktionsapp delar samma prisplan, kontinuerlig distribution och runtime-version.
+    - content: Funktionsapp
+      isCorrect: true
+      correctExplanation: En funktionsapp är ett sätt att ordna och gemensamt hantera funktioner. En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans av Azure App Service. Alla funktioner i en funktionsapp delar samma prisplan, kontinuerlig distribution och runtime-version.
+    - content: Funktionssamling
+      isCorrect: false
+      incorrectExplanation: En funktionsapp är ett sätt att ordna och gemensamt hantera funktioner. En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans av Azure App Service. Alla funktioner i en funktionsapp delar samma prisplan, kontinuerlig distribution och runtime-version.
+  - content: Vi skyddar vår funktion mot okända HTTP-anrop genom att kräva att en funktionsspecifik API-nyckel överförs vid varje anrop. Vilket av följande är namnhuvudet i HTTP-begäranden som måste innehålla den här nyckeln?
+    choices:
+    - content: x-functions-key
+      isCorrect: true
+      correctExplanation: API:et kan ingå i en frågesträng med namnet ”code” eller i HTTP-huvudet x-functions-key.
+    - content: x-requested-with
+      isCorrect: false
+      incorrectExplanation: API:et kan ingå i en frågesträng med namnet ”code” eller i HTTP-huvudet x-functions-key.
+    - content: x-csrf-token
+      isCorrect: false
+      incorrectExplanation: API:et kan ingå i en frågesträng med namnet ”code” eller i HTTP-huvudet x-functions-key.
