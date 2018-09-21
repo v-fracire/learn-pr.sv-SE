@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.pillars-of-a-great-azure-architecture.4-design-for-performance-and-scalability
+title: Design för prestanda och skalbarhet
+metadata:
+  title: Design för prestanda och skalbarhet
+  description: Design för prestanda och skalbarhet
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 3a4e72716f92c8d1ee691b2306fb044a2f65f71f
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357575"
+durationInMinutes: 10
+content: >
+  [!include[](includes/4-design-for-performance-and-scalability.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande är ett exempel på uppskalning?
+    choices:
+    - content: Uppdatera programmet för användning av en kötjänst
+      isCorrect: false
+      incorrectExplanation: Det kan vara ett smart arkitektoniskt val att inkludera en kötjänst i programmet men det är inte ett exempel på uppskalning.
+    - content: Lägga till fler webbservrar i en webbservergrupp
+      isCorrect: false
+      incorrectExplanation: Att lägga till fler webbservrar i en webbservergrupp är ett exempel på utskalning.
+    - content: Lägga till en ytterligare virtuell dator i ett databaskluster
+      isCorrect: false
+      incorrectExplanation: Att lägga till en ytterligare virtuell dator i ett databaskluster är inte ett exempel på uppskalning.
+    - content: Uppdatera en virtuell dator till en större storlek
+      isCorrect: true
+      correctExplanation: Att ändra en virtuell dator till en större storlek ökar antalet tillgängliga resurser för instansen, och är ett exempel på uppskalning.
+  - content: Vilket av följande är ett exempel på utskalning?
+    choices:
+    - content: Uppdatera en virtuell dator till en större storlek
+      isCorrect: false
+      incorrectExplanation: Att ändra en virtuell dator till en större storlek ökar antalet tillgängliga resurser för instansen, och är ett exempel på uppskalning.
+    - content: Lägga till mer lagringsutrymme på en virtuell dator
+      isCorrect: false
+      incorrectExplanation: Att lägga till mer lagringsutrymme på en virtuell dator är inte ett exempel på utskalning.
+    - content: Lägga till fler webbservrar i en webbservergrupp
+      isCorrect: true
+      correctExplanation: Att lägga till fler webbservrar i en webbservergrupp är ett exempel på utskalning.
+    - content: Replikera säkerhetskopieringar i en annan region
+      isCorrect: false
+      incorrectExplanation: Att replikera säkerhetskopieringar i en annan region gäller inte för skalning av resurser.

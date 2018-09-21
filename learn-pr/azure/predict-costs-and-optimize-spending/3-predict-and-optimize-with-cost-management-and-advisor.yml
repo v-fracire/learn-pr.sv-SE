@@ -1,0 +1,39 @@
+### YamlMime:ModuleUnit
+uid: learn.predict-costs-and-optimize-spending.3-predict-and-optimize-with-cost-management-and-advisor
+title: Förutse och optimera med Cost Management och Azure Advisor
+metadata:
+  title: Förutse och optimera med Cost Management och Azure Advisor
+  description: Här kommer vi att diskutera hur du förutser och optimerar med Cost Management och Azure Advisor
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 48ccc42636b10326007e475e7d37e24aefc58f5e
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46354851"
+durationInMinutes: 15
+content: >
+  [!include[](includes/3-predict-and-optimize-with-cost-management-and-advisor.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Sant eller falskt: Azure Advisor ger endast rekommendationer om kostnader.'
+    choices:
+    - content: Sant
+      incorrectExplanation: Azure Advisor ger rekommendationer om hög tillgänglighet, säkerhet, prestanda och kostnader.
+      isCorrect: false
+    - content: "False"
+      correctExplanation: Azure Advisor ger rekommendationer om hög tillgänglighet, säkerhet, prestanda och kostnader.
+      isCorrect: true
+  - content: Med Azure Cost Management kan du _________.
+    choices:
+    - content: Se historiska genomgångar av vilka tjänster du spenderar pengar på.
+      correctExplanation: Cost Management analyserar var du historiskt har spenderat pengar, och du kan jämföra med budgetar du har satt upp.
+      isCorrect: true
+    - content: Se uppskattningar av vad dina tjänster kan kosta om du gör ändringar.
+      incorrectExplanation: Du ser kostnadsberäkningarna i priskalkylatorn i Azure. Cost Management analyserar var du historiskt har spenderat pengar, och du kan jämföra med budgetar du har satt upp.
+      isCorrect: false
