@@ -1,0 +1,434 @@
+### YamlMime:Achievements
+achievements:
+- uid: learn.build-a-serverless-web-app.badge
+  type: badge
+  title: Skapa en serverlös webbapp
+  summary: Märke för modulen Skapa en serverlös webbapp.
+  iconUrl: /learn/achievements/build-a-serverless-web-app.svg
+- uid: learn.connect-app-to-azure-storage.badge
+  type: badge
+  title: Anslut en app till Azure Storage
+  summary: Anslut en app till Azure Storage
+  iconUrl: /learn/achievements/connect-an-app-to-azure-storage.svg
+- uid: learn.create-azure-storage-account.badge
+  type: badge
+  title: Skapa ett Azure Storage-konto
+  summary: Skapa ett märke för Azure Storage-konto
+  iconUrl: /learn/achievements/create-azure-storage-account.svg
+- uid: learn.create-serverless-logic-with-functions.badge
+  type: badge
+  title: Skapa serverlös logik med Azure Functions
+  summary: Skapa serverlös logik med Azure Functions
+  iconUrl: /learn/achievements/create-serverless-logic-with-azure-functions.svg
+- uid: learn.host-a-web-application-with-azure-web-apps.badge
+  type: badge
+  title: Var värd för ett webbprogram med Azure App-tjänsten
+  summary: Var värd för ett webbprogram med Azure Web Apps-märket
+  iconUrl: /learn/achievements/host-a-web-app-with-azure-app-service.svg
+- uid: learn.publish-azure-web-app-with-visual-studio.badge
+  type: badge
+  title: Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
+  summary: Publicera en Azure-webbapp med Visual Studio för Windows eller Mac
+  iconUrl: /learn/achievements/publish-azure-web-app-with-visual-studio.svg
+- uid: learn.administer-containers-in-azure.trophy
+  type: trophy
+  title: Pokal för Administrera containrar i Azure
+  summary: Pokal för utbildningsvägen Administrera containrar i Azure
+  iconUrl: /learn/achievements/administer-containers-in-azure.svg
+- uid: learn.create-serverless-applications.trophy
+  type: trophy
+  title: Pokal för Skapa serverlösa program
+  summary: Pokal för utbildningsvägen Skapa serverlösa program
+  iconUrl: /learn/achievements/create-serverless-applications.svg
+- uid: learn.administer-infrastructure-resources-in-azure.trophy
+  type: trophy
+  title: Pokal för Administrera infrastrukturresurser i Azure
+  summary: Pokal för utbildningsvägen Administrera infrastrukturresurser i Azure
+  iconUrl: /learn/achievements/administer-infrastructure-resources-in-azure.svg
+- uid: learn.cloud-foundations.trophy
+  type: trophy
+  title: Pokal för Grunderna om molnet
+  summary: Pokal för utbildningsvägen Grunderna om molnet.
+  iconUrl: /learn/achievements/cloud-foundations.svg
+- uid: learn.connect-your-services-together.trophy
+  type: trophy
+  title: Pokal för Koppla samman dina tjänster
+  summary: Pokal för utbildningsvägen Koppla samman dina tjänster.
+  iconUrl: /learn/achievements/connect-your-services-together.svg
+- uid: learn.architect-great-solutions-in-azure.trophy
+  type: trophy
+  title: Pokal för Skapa fantastiska lösningar i Azure
+  summary: Pokal för utbildningsvägen Skapa fantastiska lösningar i Azure.
+  iconUrl: /learn/achievements/architect-great-solutions-in-azure.svg
+- uid: learn.deploy-a-website-with-azure-app-service.trophy
+  type: trophy
+  title: Pokal för Distribuera en webbplats med Azure App Service
+  summary: Pokal för utbildningsvägen Distribuera en webbplats med Azure App Service.
+  iconUrl: /learn/achievements/deploy-a-website-with-azure-app-service.svg
+- uid: learn.work-with-nosql-data-in-azure-cosmos-db.trophy
+  type: trophy
+  title: Pokal för Arbeta med NoSQL-data i Azure Cosmos DB
+  summary: Pokal för utbildningsvägen Arbeta med NoSQL-data i Azure Cosmos DB.
+  iconUrl: /learn/achievements/work-with-nosql-data-in-azure-cosmos-db.svg
+- uid: learn.work-with-relational-data-in-azure.trophy
+  type: trophy
+  title: Pokal för Arbeta med relationsdata i Azure
+  summary: Pokal för utbildningsvägen Arbeta med relationsdata i Azure.
+  iconUrl: /learn/achievements/work-with-relational-data-in-azure.svg
+- uid: learn.secure-your-cloud-data.trophy
+  type: trophy
+  title: Pokal för Skydda dina molndata
+  summary: Pokal för utbildningsvägen Skydda dina molndata.
+  iconUrl: /learn/achievements/secure-your-cloud-data.svg
+- uid: learn.store-data-in-azure.trophy
+  type: trophy
+  title: Pokal för Lagra data i Azure
+  summary: Pokal för utbildningsvägen Lagra data i Azure.
+  iconUrl: /learn/achievements/store-data-in-azure.svg
+- uid: learn.automate-azure-tasks-with-powershell.badge
+  type: badge
+  title: Märke för Automatisera Azure-åtgärder med hjälp av PowerShell-skript
+  summary: Översikt över Automatisera Azure-åtgärder med hjälp av PowerShell-skript
+  iconUrl: /learn/achievements/automate-azure-tasks-with-powershell.svg
+- uid: learn.create-azure-db-for-postgresql.badge
+  type: badge
+  title: Märke för Skapa en PostgreSQL DB-server via Azure CLI
+  summary: Översikt över Skapa en PostgreSQL DB-server via Azure CLI
+  iconUrl: /learn/achievements/create-azure-db-for-postgresql-server.svg
+- uid: learn.create-linux-vm-in-azure.badge
+  type: badge
+  title: Märke för Skapa en virtuell Linux-dator i Azure
+  summary: Översikt över Skapa en virtuell Linux-dator i Azure
+  iconUrl: /learn/achievements/create-linux-virtual-machine-in-azure.svg
+- uid: learn.choose-messaging-model.badge
+  type: badge
+  title: Märke för Välja meddelandemodell
+  summary: Översikt över märket för Välja meddelandemodell
+  iconUrl: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
+- uid: learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.badge
+  type: badge
+  title: Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure
+  summary: Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure
+  iconUrl: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
+- uid: learn.prepare-azure-dev-environment.badge
+  type: badge
+  title: Märke för Förbereda utvecklingsmiljön i Azure
+  summary: Översikt över märket för Förbereda utvecklingsmiljön i Azure
+  iconUrl: /learn/achievements/prepare-your-dev-environment-for-azure-development.svg
+- uid: learn.manage-resources-with-azure-portal.badge
+  type: badge
+  title: Märke för Hantera resurser med Azure Portal
+  summary: Översikt över märket för Hantera resurser med Azure Portal
+  iconUrl: /learn/achievements/manage-resources-with-azure-portal.svg
+- uid: learn.control-azure-services-with-cli.badge
+  type: badge
+  title: Märke för Styr Azure-tjänster med CLI
+  summary: Översikt över märket för Styr Azure-tjänster med CLI
+  iconUrl: /learn/achievements/control-azure-services-with-cli.svg
+- uid: learn.azure-services-features.badge
+  type: badge
+  title: Märke för Introduktion till tjänster och funktioner i Azure
+  summary: Översikt över Introduktion till tjänster och funktioner i Azure
+  iconUrl: /learn/achievements/tour-azure-services-and-features.svg
+- uid: learn.migrate-sql-server-relational-data.badge
+  type: badge
+  title: Migrera dina relationsdata i SQL Server till Azure SQL
+  summary: Migrera dina relationsdata i SQL Server till Azure SQL
+  iconUrl: /learn/achievements/migrate-sql-server-to-azure-sql.svg
+- uid: learn.communicate-between-applications-with-azure-queue-storage.badge
+  type: badge
+  title: Kommunicera mellan program med Azure Queue Storage
+  summary: Kommunicera mellan program med Azure Queue Storage
+  iconUrl: /learn/achievements/communicate-between-apps-with-storage-queues.svg
+- uid: learn.caching-and-performance-azure-storage-and-disks.badge
+  type: badge
+  title: Cachelagring och prestanda i Azure Storage och diskar
+  summary: Cachelagring och prestanda i Azure Storage och diskar
+  iconUrl: /learn/achievements/caching-and-performance-azure-storage-and-disks.svg
+- uid: learn.create-a-windows-vm-in-azure.badge
+  type: badge
+  title: Skapa en virtuell Windows-dator i Azure
+  summary: Skapa en virtuell Windows-dator i Azure
+  iconUrl: /learn/achievements/create-windows-virtual-machine-in-azure.svg
+- uid: learn.web-app-with-mean-on-linux-vm.badge
+  type: badge
+  title: Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure
+  summary: Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure
+  iconUrl: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
+- uid: learn.optimize-web-app-with-redis.badge
+  type: badge
+  title: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+  summary: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+  iconUrl: /learn/achievements/optimize-web-apps-with-redis.svg
+- uid: learn.manage-secrets-with-azure-key-vault.badge
+  type: badge
+  title: Hantera hemligheter i dina webbappar med Azure Key Vault
+  summary: Hantera hemligheter i dina webbappar med Azure Key Vault
+  iconUrl: /learn/achievements/manage-secrets-with-azure-key-vault.svg
+- uid: learn.secure-azure-resources-with-rbac.badge
+  type: badge
+  title: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
+  summary: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
+  iconUrl: /learn/achievements/secure-azure-resources-with-rbac.svg
+- uid: learn.secure-access-azure-ad-multi-factor-authentication.badge
+  type: badge
+  title: Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication
+  summary: Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication
+  iconUrl: /learn/achievements/secure-azure-resources-with-conditional-access.svg
+- uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.badge
+  type: badge
+  title: Dela din plats som ett SMS-meddelande med Azure Functions och Twilio
+  summary: Dela din plats som ett SMS-meddelande med Azure Functions och Twilio
+  iconUrl: /learn/achievements/send-location-over-sms-from-mobile-using-azure-functions-twilio.svg
+- uid: learn.manage-vms-with-azure-cli-data.badge
+  type: badge
+  title: Hantera virtuella datorer med Azure CLI
+  summary: Hantera virtuella datorer med Azure CLI
+  iconUrl: /learn/achievements/manage-vms-with-azure-cli.svg
+- uid: learn.deploy-a-website-with-azure-virtual-machines.trophy
+  type: trophy
+  title: Pokal för Distribuera en webbplats med Azure Virtual Machines
+  summary: Pokal för utbildningsvägen Distribuera en webbplats med Azure Virtual Machines.
+  iconUrl: /learn/achievements/deploy-a-website-with-azure-virtual-machines.svg
+- uid: learn.store-app-data-with-azure-blob-storage.badge
+  type: badge
+  title: Lagra data för webbappar med Azure Blob Storage
+  summary: Lagra data för webbappar med Azure Blob Storage
+  iconUrl: /learn/achievements/store-app-data-with-azure-blob-storage.svg
+- uid: learn.enable-reliable-messaging-for-big-data-applications-using-azure-event-hubs.badge
+  type: badge
+  title: Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs
+  summary: Modulen Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs
+  iconUrl: /learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
+- uid: learn.secure-your-azure-sql-database.badge
+  type: badge
+  title: Skydda en Azure SQL Server-databas
+  summary: Skydda en Azure SQL Server-databas
+  iconUrl: /learn/achievements/secure-your-azure-sql-database.svg
+- uid: learn.intro-to-compute.badge
+  type: badge
+  title: Märke för Introduktion till databehandling
+  summary: Märke för modulen Introduktion till databehandling.
+  iconUrl: /learn/achievements/intro-to-azure-compute.svg
+- uid: learn.intro-to-data-in-azure.badge
+  type: badge
+  title: Märke för Introduktion till data i Azure
+  summary: Märke för modulen Introduktion till data i Azure.
+  iconUrl: /learn/achievements/intro-to-azure-networking.svg
+- uid: learn.introduction-to-azure-virtual-machines.badge
+  type: badge
+  title: Introduktion till Azure Virtual Machines
+  summary: Introduktion till Azure Virtual Machines
+  iconUrl: /learn/achievements/intro-to-azure-virtual-machines.svg
+- uid: learn.cosmos-db-app-with-vscode.badge
+  type: badge
+  title: Skapa en Azure Cosmos DB-app i Visual Studio Code
+  summary: Märke för modulen Skapa en Azure Cosmos DB-app i Visual Studio Code.
+  iconUrl: /learn/achievements/build-cosmos-db-app-with-vscode.svg
+- uid: learn.create-cosmos-db-for-scale.badge
+  type: badge
+  title: Skapa en Azure Cosmos DB-databas som kan skalas
+  summary: Märke för modulen Skapa en Azure Cosmos DB-databas som kan skalas.
+  iconUrl: /learn/achievements/create-cosmos-db-for-scale.svg
+- uid: learn.manage-resources-in-azure.trophy
+  type: trophy
+  title: Pokal för Hantera resurser i Azure
+  summary: Pokal för utbildningsvägen Hantera resurser i Azure.
+  iconUrl: /learn/achievements/manage-resources-with-azure-portal.svg
+- uid: learn.ci-cd-pipelines-azure-devops.badge
+  type: badge
+  title: Skapa pipelines för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps
+  summary: Märke för modulen Skapa pipelines för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps.
+  iconUrl: /learn/achievements/build-ci-cd-pipelines-using-azure-devops.svg
+- uid: learn.top-5-security-items-to-consider.badge
+  type: badge
+  title: De 5 främsta säkerhetsposterna att tänka på innan du skickar till produktion
+  summary: De 5 främsta säkerhetsposterna att tänka på innan du skickar till produktion
+  iconUrl: /learn/achievements/top-5-security-items-to-consider.svg
+- uid: learn.interactive-deep-learning.badge
+  type: badge
+  title: Interaktiv djupinlärning med Jupyter, Docker och PyTorch på Data Science Virtual Machine
+  summary: Interaktiv djupinlärning med Jupyter, Docker och PyTorch på Data Science Virtual Machine.
+  iconUrl: /learn/achievements/interactive-deep-learning.svg
+- uid: learn.create-computer-vision-service.badge
+  type: badge
+  title: Behandla bilder med tjänsten Visuellt innehåll
+  summary: Märke för modulen Behandla bilder med tjänsten Visuellt innehåll.
+  iconUrl: /learn/achievements/create-computer-vision-service-to-classify-images.svg
+- uid: learn.monitor-manage-device-with-iotcentral.badge
+  type: badge
+  title: Märke för Övervaka och hantera din kaffebryggare med Azure IoT Central
+  summary: Märke för modulen ”Övervaka och hantera en kaffebryggare med Azure IoT Central”.
+  iconUrl: /learn/achievements/monitor-and-manage-device-with-iot-central.svg
+- uid: learn.align-requirements-in-azure.badge
+  type: badge
+  title: Märke för Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
+  summary: Märke för modulen Hitta rätt molntyper och tjänstmodeller i Azure för olika behov.
+  iconUrl: /learn/achievements/align-requirements-in-azure.svg
+- uid: learn.choose-storage-approach-in-azure.badge
+  type: badge
+  title: Märke för Välja metod för lagring i Azure
+  summary: Märke för modulen ”Välja metod för lagring i Azure”.
+  iconUrl: /learn/achievements/choose-storage-approach-in-azure.svg
+- uid: learn.azure-container-registry.badge
+  type: badge
+  title: Märke för Skapa och lagra containeravbildningar med Azure Container Registry
+  summary: Märke för modulen ”Skapa och lagra containeravbildningar med Azure Container Registry”.
+  iconUrl: /learn/achievements/build-and-store-container-images.svg
+- uid: learn.build-azure-bot-services-bot.badge
+  type: badge
+  title: Märke för Skapa en chattrobot med Azure Bot Service
+  summary: Märke för modulen ”Skapa en chattrobot med Azure Bot Service”.
+  iconUrl: /learn/achievements/build-chat-bot-with-azure-bot-service.svg
+- uid: learn.classify-images-with-custom-vision-services.badge
+  type: badge
+  title: Märke för Klassificera bilder med Microsoft Custom Vision Service
+  summary: Märke för modulen ”Klassificera bilder med Microsoft Custom Vision Service”.
+  iconUrl: /learn/achievements/classify-images-with-custom-vision-service.svg
+- uid: learn.create-neural-network-with-dsvm.badge
+  type: badge
+  title: Märke för Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine
+  summary: Märke för modulen ”Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine”.
+  iconUrl: /learn/achievements/create-neural-network-with-dsvm.svg
+- uid: learn.design-for-efficiency-and-operations.badge
+  type: badge
+  title: Märke för Designa för effektivitet och drift
+  summary: Märke för modulen ”Designa för effektivitet och drift”.
+  iconUrl: /learn/achievements/design-for-efficiency-and-operations-in-azure.svg
+- uid: learn.design-for-performance-and-scalability.badge
+  type: badge
+  title: Märke för Designa för prestanda och skalbarhet
+  summary: Märke för modulen ”Designa för prestanda och skalbarhet”.
+  iconUrl: /learn/achievements/design-for-performance-and-scalability-in-azure.svg
+- uid: learn.design-for-security.badge
+  type: badge
+  title: Märke för Designa för säkerhet
+  summary: Märke för modulen ”Designa för säkerhet”.
+  iconUrl: /learn/achievements/design-for-security-in-azure.svg
+- uid: learn.execute-azure-function-with-triggers.badge
+  type: badge
+  title: Märke för Köra en Azure-funktion med utlösare
+  summary: Märke för modulen ”Köra en Azure-funktion med utlösare”.
+  iconUrl: /learn/achievements/execute-azure-function-with-triggers.svg
+- uid: learn.intro-to-containers.badge
+  type: badge
+  title: Märke för Introduktion till containrar
+  summary: Märke för modulen ”Introduktion till containrar”.
+  iconUrl: /learn/achievements/intro-to-containers.svg
+- uid: learn.predict-costs-and-optimize-spending.badge
+  type: badge
+  title: Märke för Förutse kostnader och optimera utgifter för Azure
+  summary: Märke för modulen ”Förutse kostnader och optimera utgifter för Azure”.
+  iconUrl: /learn/achievements/predict-costs-optimize-spending-on-azure.svg
+- uid: learn.principles-cloud-computing.badge
+  type: badge
+  title: Märke för Principerna bakom molntjänster
+  summary: Märke för modulen ”Principerna bakom molntjänster”.
+  iconUrl: /learn/achievements/principles-cloud-computing.svg
+- uid: learn.provision-azure-sql-db.badge
+  type: badge
+  title: Märke för Tillhandahålla en Azure SQL-databas för att lagra appdata
+  summary: Märke för modulen ”Tillhandahålla en Azure SQL-databas för att lagra appdata”.
+  iconUrl: /learn/achievements/provision-azure-sql-db.svg
+- uid: learn.run-docker-containers-aci.badge
+  type: badge
+  title: Märke för Köra Docker-containrar med Azure Container Instances (ACI)
+  summary: Märke för modulen ”Köra Docker-containrar med Azure Container Instances (ACI)”.
+  iconUrl: /learn/achievements/run-docker-with-azure-container-instances.svg
+- uid: learn.access-data-with-cosmos-db-and-sql-api.badge
+  type: badge
+  title: Märke för Lagra och komma åt data med Cosmos DB och SQL API
+  summary: Märke för modulen ”Lagra och komma åt data med Cosmos DB och SQL API”.
+  iconUrl: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
+- uid: learn.configure-the-network-for-your-virtual-machines.badge
+  type: badge
+  title: Konfigurera nätverket för dina virtuella datorer
+  summary: Konfigurera nätverket för dina virtuella datorer
+  iconUrl: /learn/achievements/configure-network-for-azure-virtual-machines.svg
+- uid: learn.introduction-to-security.badge
+  type: badge
+  title: Introduktion till säkerhet i Azure
+  summary: Introduktion till säkerhet i Azure
+  iconUrl: /learn/achievements/intro-to-security-in-azure.svg
+- uid: learn.secure-your-azure-virtual-machine-disks.badge
+  type: badge
+  title: Skydda dina virtuella Azure-datordiskar
+  summary: Skydda dina virtuella Azure-datordiskar
+  iconUrl: /learn/achievements/secure-your-azure-virtual-machine-disks.svg
+- uid: learn.make-your-virtual-machines-highly-available.badge
+  type: badge
+  title: Skapa hög tillgänglighet för dina virtuella datorer
+  summary: Skapa hög tillgänglighet för dina virtuella datorer
+  iconUrl: /learn/achievements/make-your-virtual-machines-highly-available.svg
+- uid: learn.implement-message-workflows-with-service-bus.badge
+  type: badge
+  title: Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus
+  summary: Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus
+  iconUrl: /learn/achievements/implement-message-workflows-with-service-bus.svg
+- uid: learn.intro-to-azure-networking.badge
+  type: badge
+  title: Märke för Introduktion till Azure-nätverk
+  summary: Introduktion till Azure-nätverk
+  iconUrl: /learn/achievements/intro-to-azure-networking.svg
+- uid: learn.pillars-of-a-great-azure-architecture.badge
+  type: badge
+  title: Märket Grundpelare för en bra Azure-arkitektur
+  summary: Märket Grundpelare för en bra Azure-arkitektur
+  iconUrl: /learn/achievements/pillars-of-a-great-azure-architecture.svg
+- uid: learn.add-and-size-disks-in-azure-virtual-machines.badge
+  type: badge
+  title: Lägg till och ändra storlek på diskar i Azure Virtual Machines
+  summary: Lägg till och ändra storlek på diskar i Azure Virtual Machines
+  iconUrl: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
+- uid: learn.scale-and-size-virtual-machines.badge
+  type: badge
+  title: Skala och storleksändra virtuella datorer i Azure
+  summary: Skala och storleksändra virtuella datorer i Azure
+  iconUrl: /learn/achievements/scale-and-size-virtual-machines.svg
+- uid: learn.manage-iot-devices.badge
+  type: badge
+  title: Lär dig att hantera IoT-enheter som IT-administratör
+  summary: Märke för modulen Lär dig att hantera IoT-enheter som IT-administratör
+  iconUrl: /learn/achievements/manage-your-iot-devices.svg
+- uid: learn.the-mojifier.badge
+  type: badge
+  title: Skapa ett Slack-kommando som ersätter folks ansikten med emojis
+  summary: Skapa ett Slack-kommando som ersätter folks ansikten med emojis
+  iconUrl: /learn/achievements/replace-faces-with-emojis-matching-emotion.svg
+- uid: learn.work-with-mutable-and-partial-data-in-a-redis-cache.badge
+  type: badge
+  title: Arbeta med föränderliga och partiella data i en Redis-cache
+  summary: Arbeta med föränderliga och partiella data i en Redis-cache
+  iconUrl: /learn/achievements/work-with-mutable-and-partial-data-in-a-redis-cache.svg
+- uid: learn.chain-azure-functions-data-using-input-output-bindings.badge
+  type: badge
+  title: Länka Azure Functions-data med hjälp av i/o-bindningar
+  summary: Länka Azure Functions-data med hjälp av i/o-bindningar
+  iconUrl: /learn/achievements/chain-azure-functions-data-using-bindings.svg
+- uid: learn.design-for-availability-and-recoverability.badge
+  type: badge
+  title: Designa för tillgänglighet och återställning i Azure
+  summary: Designa för tillgänglighet och återställning i Azure
+  iconUrl: /learn/achievements/design-for-availability-and-recoverability-in-azure.svg
+- uid: learn.welcome-to-azure.badge
+  type: badge
+  title: Välkommen till Azure
+  summary: Välkommen till Azure
+  iconUrl: /learn/achievements/welcome-to-azure.svg
+- uid: learn.classify-user-feedback-with-the-text-analytics-api.badge
+  type: badge
+  title: Klassificera bilder med Microsoft Custom Vision Service
+  summary: Märke för modulen Klassificera bilder med Microsoft Custom Vision Service
+  iconUrl: /learn/achievements/classify-user-feedback-with-the-text-analytics-api.svg
+- uid: learn.distribute-data-globally-with-cosmos-db.badge
+  type: badge
+  title: Distribuera dina data globalt med Azure Cosmos DB
+  summary: Distribuera dina data globalt med Azure Cosmos DB
+  iconUrl: /learn/achievements/work-with-nosql-data-in-azure-cosmos-db.svg
+metadata:
+  ms.openlocfilehash: 7f1cf4e965ca83bb470aabaaa5cf5c2a8a7d38a3
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46354515"
