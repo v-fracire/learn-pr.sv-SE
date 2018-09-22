@@ -1,0 +1,9 @@
+<span data-ttu-id="89b48-101">I den här modulen har du lärt dig att skydda dina program i Azure mot vanliga attacker.</span><span class="sxs-lookup"><span data-stu-id="89b48-101">In this module, you learned how to safeguard your applications in Azure against common attacks.</span></span> <span data-ttu-id="89b48-102">Vi tittade på flera viktiga säkerhetstips:</span><span class="sxs-lookup"><span data-stu-id="89b48-102">We looked at several key security tips:</span></span>
+
+- <span data-ttu-id="89b48-103">Använda Azure Security Center</span><span class="sxs-lookup"><span data-stu-id="89b48-103">Use Azure Security Center</span></span>
+- <span data-ttu-id="89b48-104">Verifiera indata och utdata för dina program</span><span class="sxs-lookup"><span data-stu-id="89b48-104">Verify your application inputs and outputs</span></span>
+- <span data-ttu-id="89b48-105">Lagra dina hemligheter i Key Vault</span><span class="sxs-lookup"><span data-stu-id="89b48-105">Store your secrets into Key Vault</span></span>
+- <span data-ttu-id="89b48-106">Se till att du använder den senaste versionen av ditt ramverk och dess säkerhetsfunktioner</span><span class="sxs-lookup"><span data-stu-id="89b48-106">Ensure you are using the latest version of your framework, and using its security features</span></span>
+- <span data-ttu-id="89b48-107">Kontrollera att programberoenden och bibliotek är säkra att använda</span><span class="sxs-lookup"><span data-stu-id="89b48-107">Verify your program dependencies and libraries are safe to use</span></span>
+
+<span data-ttu-id="89b48-108">Om du följer de fem punkterna i den här listan har du tagit stora steg mot att garantera att dina program är och förblir säkra.</span><span class="sxs-lookup"><span data-stu-id="89b48-108">By following the five items in this list, you will have taken leaps and strides towards ensuring that your applications are safe and that they remain that way.</span></span>

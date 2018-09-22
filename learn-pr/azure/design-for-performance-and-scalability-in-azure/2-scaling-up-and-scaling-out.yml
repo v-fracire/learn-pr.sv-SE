@@ -1,0 +1,65 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.2-scaling-up-and-scaling-out
+title: <span data-ttu-id="d9e55-101">Att skala upp och skala ut</span><span class="sxs-lookup"><span data-stu-id="d9e55-101">Scaling up and scaling out</span></span>
+metadata:
+  title: <span data-ttu-id="d9e55-102">Att skala upp och skala ut</span><span class="sxs-lookup"><span data-stu-id="d9e55-102">Scaling up and scaling out</span></span>
+  description: <span data-ttu-id="d9e55-103">I den här enheten diskuterar vi hur du kan skala upp och skala ut i din arkitektur</span><span class="sxs-lookup"><span data-stu-id="d9e55-103">In this unit we'll discuss how to leverage scaling up and scaling out in your architecture</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 5686d5ab64b46b7ea17bd9c541234975d2a809e6
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360543"
+durationInMinutes: 15
+content: >
+  [!include[](includes/2-scaling-up-and-scaling-out.md)]
+quiz:
+  title: <span data-ttu-id="d9e55-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="d9e55-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="d9e55-105">Vilket av följande beskriver bäst att skala ut?</span><span class="sxs-lookup"><span data-stu-id="d9e55-105">Which is the most accurate description of scaling out?</span></span>
+    choices:
+    - content: <span data-ttu-id="d9e55-106">Att öka mängden resurser för en instans</span><span class="sxs-lookup"><span data-stu-id="d9e55-106">Increasing the amount of resources allocated to an instance</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-107">Att öka mängden resurser för en enskild instans är en beskrivning av att skala upp</span><span class="sxs-lookup"><span data-stu-id="d9e55-107">Increasing the amount of resources of a single instance is a description for scaling up</span></span>
+    - content: <span data-ttu-id="d9e55-108">Att öka antalet instanser som hanterar förfrågningar</span><span class="sxs-lookup"><span data-stu-id="d9e55-108">Increasing the number of instances serving requests</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d9e55-109">Skala ut innebär att man ökar antalet instanser som hanterar förfrågningar.</span><span class="sxs-lookup"><span data-stu-id="d9e55-109">Scaling out increases the number of instances service requests.</span></span>
+    - content: <span data-ttu-id="d9e55-110">Att lägga till ytterligare lagring för en virtuell dator</span><span class="sxs-lookup"><span data-stu-id="d9e55-110">Adding additional storage to a virtual machine</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-111">Att lägga till ytterligare lagringsutrymme är inte ett exempel på att skala ut.</span><span class="sxs-lookup"><span data-stu-id="d9e55-111">Adding additional storage is not an example of scaling out.</span></span>
+    - content: <span data-ttu-id="d9e55-112">Att nå den maximala skalningsnivån för en app</span><span class="sxs-lookup"><span data-stu-id="d9e55-112">Reaching the maximum level of scale for your application</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-113">Att nå den maximala skalningsnivån för ditt program kan åstadkommas genom att skala ut, men det är inte en korrekt beskrivning av att skala ut.</span><span class="sxs-lookup"><span data-stu-id="d9e55-113">Reaching the maximum level of scale for your application can be addressed by scaling out, but is not an accurate description of scaling out.</span></span>
+  - content: <span data-ttu-id="d9e55-114">Vilket av följande beskriver bäst nedskalning?</span><span class="sxs-lookup"><span data-stu-id="d9e55-114">Which is the most accurate description of scaling down?</span></span>
+    choices:
+    - content: <span data-ttu-id="d9e55-115">Att minska antalet instanser som hanterar förfrågningar</span><span class="sxs-lookup"><span data-stu-id="d9e55-115">Decreasing the number of instances serving requests</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-116">Att minska antalet instanser som hanterar förfrågningar är att skala in</span><span class="sxs-lookup"><span data-stu-id="d9e55-116">Decreasing the number of instances serving requets is scaling in</span></span>
+    - content: <span data-ttu-id="d9e55-117">Att ta kontroll över appens skalning</span><span class="sxs-lookup"><span data-stu-id="d9e55-117">Taking ownership of how your application scales</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-118">Att ta kontroll över appens skalning är inte att skala ned.</span><span class="sxs-lookup"><span data-stu-id="d9e55-118">Taking ownership of how your application scales is not scaling down.</span></span>
+    - content: <span data-ttu-id="d9e55-119">Att minska mängden resurser som tilldelats en instans</span><span class="sxs-lookup"><span data-stu-id="d9e55-119">Decreasing the amount of resources allocated to an instance</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d9e55-120">Att skala ned är att minska de resurser som en enskild instans har tillgängliga.</span><span class="sxs-lookup"><span data-stu-id="d9e55-120">Scaling down is the reduction of resources that a single instance has available.</span></span>
+    - content: <span data-ttu-id="d9e55-121">Att hålla dig under den maximala skalningsnivån för ditt program</span><span class="sxs-lookup"><span data-stu-id="d9e55-121">Remaining below the maximum level of scale for your application</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-122">Det är inte en beskrivning av att skala ned.</span><span class="sxs-lookup"><span data-stu-id="d9e55-122">This is not a description of scaling down.</span></span>
+  - content: <span data-ttu-id="d9e55-123">Vilket av följande behöver du INTE tänka på när du tar fram en skalningsstrategi för ditt program?</span><span class="sxs-lookup"><span data-stu-id="d9e55-123">Which of the following is NOT a consideration when building a scaling strategy into your application?</span></span>
+    choices:
+    - content: <span data-ttu-id="d9e55-124">Kvarhållningsprinciper för instansens säkerhetskopior</span><span class="sxs-lookup"><span data-stu-id="d9e55-124">The backup retention policies for your instances</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d9e55-125">Även om det är viktigt att definiera kvarhållningsprinciper för säkerhetskopior, så är det inte relaterat till programmets möjlighet att skala.</span><span class="sxs-lookup"><span data-stu-id="d9e55-125">While it is important to define the backup retention policies, it is unrelated to the ability of your application to scale.</span></span>
+    - content: <span data-ttu-id="d9e55-126">Tillståndshanteringen i appen</span><span class="sxs-lookup"><span data-stu-id="d9e55-126">State management of your application</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-127">Tillståndshantering är viktigt att tänka på när du skapar en skalningsstrategi.</span><span class="sxs-lookup"><span data-stu-id="d9e55-127">State management is important to consider when building a scaling strategy.</span></span> <span data-ttu-id="d9e55-128">Skalning kräver att du lagrar användartillstånd utanför de enskilda instanserna så att användarupplevelsen inte bryts när ytterligare instanser läggs till eller tas bort.</span><span class="sxs-lookup"><span data-stu-id="d9e55-128">Scaling requires you to store user state outside of the individual instances to ensure the user experience is not broken as instances are added and removed.</span></span>
+    - content: <span data-ttu-id="d9e55-129">Instansernas starttider</span><span class="sxs-lookup"><span data-stu-id="d9e55-129">Startup time of your instances</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-130">Starttiden är viktig att ta hänsyn till i en skalningsstrategi.</span><span class="sxs-lookup"><span data-stu-id="d9e55-130">Startup time is an important consideration in a scaling strategy.</span></span> <span data-ttu-id="d9e55-131">Ju mer tiden att starta en instans minskar desto snabbare kan ditt program reagera på ökad efterfrågan.</span><span class="sxs-lookup"><span data-stu-id="d9e55-131">As the time to start an instance decreases, the quicker your application can react to increased demand.</span></span>
+    - content: <span data-ttu-id="d9e55-132">Automatisera skalning av dina instanser baserat på mått eller ett schema</span><span class="sxs-lookup"><span data-stu-id="d9e55-132">Automating the scaling of your instances based on a metric or schedule</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d9e55-133">Automatiserad skalning är en viktig del i en skalningsstrategi.</span><span class="sxs-lookup"><span data-stu-id="d9e55-133">Scaling automation is an important piece of a scaling strategy.</span></span> <span data-ttu-id="d9e55-134">När du automatiserar dina skalningsmöjligheter får du bättre möjligheter att hantera variationer i användarbelastningen utan att behöva vidta manuella åtgärder eller råka ut för dåliga användarupplevelser.</span><span class="sxs-lookup"><span data-stu-id="d9e55-134">As you automate your scaling capabilities you will have greater ability to handle fluctuations in user load without manual intervention or poor user experience.</span></span>

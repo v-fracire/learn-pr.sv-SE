@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.pillars-of-a-great-azure-architecture.2-pillars-of-a-great-azure-architecture
+title: <span data-ttu-id="906c1-101">Grundpelare för en bra Azure-arkitektur</span><span class="sxs-lookup"><span data-stu-id="906c1-101">Pillars of a great Azure Architecture</span></span>
+metadata:
+  title: <span data-ttu-id="906c1-102">Grundpelare för en bra Azure-arkitektur</span><span class="sxs-lookup"><span data-stu-id="906c1-102">Pillars of a great Azure Architecture</span></span>
+  description: <span data-ttu-id="906c1-103">Grundpelare för en bra Azure-arkitektur</span><span class="sxs-lookup"><span data-stu-id="906c1-103">Pillars of a great Azure Architecture</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: f902062b46eacfdebcfaca21df66f44fe3d5fcfc
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46361439"
+durationInMinutes: 10
+content: >
+  [!include[](includes/2-pillars-of-a-great-azure-architecture.md)]
+quiz:
+  title: <span data-ttu-id="906c1-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="906c1-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="906c1-105">Vilket av följande är ett exempel på något du kan lösa i säkerhetsgrundpelaren?</span><span class="sxs-lookup"><span data-stu-id="906c1-105">Which of the following would be an example of something you might address in the security pillar?</span></span>
+    choices:
+    - content: <span data-ttu-id="906c1-106">Definiera en princip för säkerhetskopiering av virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="906c1-106">Defining a policy for virtual machine backup</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="906c1-107">Principen för säkerhetskopiering av virtuella datorer är viktig, men den ligger inte inom ramen för säkerhetsgrundpelaren.</span><span class="sxs-lookup"><span data-stu-id="906c1-107">The backup policy for virtual machines is important, but does not fall within the security pillar.</span></span>
+    - content: <span data-ttu-id="906c1-108">Aktivera multifaktorautentisering för alla administrativa konton</span><span class="sxs-lookup"><span data-stu-id="906c1-108">Enabling multi-factor authentication for all administrative accounts</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="906c1-109">Att aktivera multifaktorautentisering är ett bra exempel på något du kan lösa inom ramen för säkerhetsgrundpelaren.</span><span class="sxs-lookup"><span data-stu-id="906c1-109">Enabling multi-factor authentication is a great example of something you might address as part of the security pillar.</span></span>
+    - content: <span data-ttu-id="906c1-110">Utvärdera dina molnutgifter och identifiera områden där du kan spara pengar</span><span class="sxs-lookup"><span data-stu-id="906c1-110">Evaluating your cloud spend to identify areas of cost savings</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="906c1-111">Det är viktigt att identifiera områden där du kan minska kostnaderna, men det här ligger inte inom ramen för säkerhetsgrundpelaren.</span><span class="sxs-lookup"><span data-stu-id="906c1-111">It is important to identify areas where you can reduce cost, but this does not fall within the security pillar.</span></span>
+    - content: <span data-ttu-id="906c1-112">Flytta till en autoskalningstjänst för att dynamiskt hantera variationer i belastningen</span><span class="sxs-lookup"><span data-stu-id="906c1-112">Moving to an autoscaling service to dynamically handle fluctuations in load</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="906c1-113">Att använda autoskalning för att hantera variationer i belastningen är en bra funktion, men den ligger inte inom ramen för säkerhetsgrundpelaren.</span><span class="sxs-lookup"><span data-stu-id="906c1-113">Using autoscaling to handle fluctuations in load is a great capability to leverage, but does not fall within the security pillar.</span></span>
+  - content: <span data-ttu-id="906c1-114">Vilket av följande är ett exempel på något du kan lösa i grundpelaren för tillgänglighet och återställning?</span><span class="sxs-lookup"><span data-stu-id="906c1-114">Which of the following would be an example of something you might address in the availability & recoverability pillar?</span></span>
+    choices:
+    - content: <span data-ttu-id="906c1-115">Definiera en princip för säkerhetskopiering av virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="906c1-115">Defining a policy for virtual machine backup</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="906c1-116">Att definiera en princip för säkerhetskopiering av virtuella datorer är en aktivitet som rör återställning, så det ligger inom ramen för den här grundpelaren.</span><span class="sxs-lookup"><span data-stu-id="906c1-116">Defining a policy for VM backup is an activity focused on recoverability, so it does fall within this pillar.</span></span>
+    - content: <span data-ttu-id="906c1-117">Aktivera multifaktorautentisering för alla administrativa konton</span><span class="sxs-lookup"><span data-stu-id="906c1-117">Enabling multi-factor authentication for all administrative accounts</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="906c1-118">Att aktivera multifaktorautentisering är ett bra exempel på något du kan lösa som en del av säkerhetsgrundpelaren, men det rör inte grundpelaren för tillgänglighet och återställning.</span><span class="sxs-lookup"><span data-stu-id="906c1-118">Enabling multi-factor authentication is a great example of something you might address as part of the security pillar, but it does not apply to the availability & recoverability pillar.</span></span>
+    - content: <span data-ttu-id="906c1-119">Utvärdera dina molnutgifter och identifiera områden där du kan spara pengar</span><span class="sxs-lookup"><span data-stu-id="906c1-119">Evaluating your cloud spend to identify areas of cost savings</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="906c1-120">Det är viktigt att identifiera områden där du kan minska kostnaderna, men det här ligger inte inom ramen för grundpelaren för tillgänglighet och återställning.</span><span class="sxs-lookup"><span data-stu-id="906c1-120">It is important to identify areas where you can reduce cost, but this does not fall within the availability & recoverability pillar.</span></span>
+    - content: <span data-ttu-id="906c1-121">Flytta till en autoskalningstjänst för att dynamiskt hantera variationer i belastningen</span><span class="sxs-lookup"><span data-stu-id="906c1-121">Moving to an autoscaling service to dynamically handle fluctuations in load</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="906c1-122">Att använda autoskalning för att hantera variationer i belastningen är en bra funktion, men det ligger inte inom ramen för grundpelaren för tillgänglighet och återställning.</span><span class="sxs-lookup"><span data-stu-id="906c1-122">Using autoscaling to handle fluctuations in load is a great capability to leverage, but does not fall within the availability & recoverability pillar.</span></span>

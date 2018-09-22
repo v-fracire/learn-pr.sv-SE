@@ -1,0 +1,48 @@
+### YamlMime:Module
+uid: learn.predict-costs-and-optimize-spending
+metadata:
+  title: Förutse kostnader och optimera utgifter för Azure
+  description: Kostnaden är en av molnets viktigaste fördelar, och den kan ha stor inverkan på din verksamhet. Azure innehåller flera verktyg som hjälper dig att få en bättre förståelse för dina molnutgifter och några metodtips som du kan använda för att spara pengar.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 1d96276e4adc74cbbbabb32733e24bc500c24376
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359143"
+title: Förutse kostnader och optimera utgifter för Azure
+summary: Kostnaden är en av molnets viktigaste fördelar, och den kan ha stor inverkan på din verksamhet. Azure innehåller flera verktyg som hjälper dig att få en bättre förståelse för dina molnutgifter och några metodtips som du kan använda för att spara pengar.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Uppskatta kostnader med priskalkylatorn för Azure
+
+  - Förutse och optimera kostnader med Azure Cost Management och Azure Advisor
+
+  - Använd metodtips för att sänka dina infrastrukturkostnader
+
+  - Använd metodtips för att sänka dina licenskostnader
+prerequisites: >
+  - En förståelse för olika alternativ för infrastrukturkomponenter i Azure
+iconUrl: /learn/achievements/predict-costs-and-optimize-spending.svg
+levels:
+- beginner
+roles:
+- solution-architect
+- administrator
+products:
+- azure
+- azure-portal
+- azure-cost-management
+units:
+- learn.predict-costs-and-optimize-spending.1-introduction
+- learn.predict-costs-and-optimize-spending.2-estimate-costs-with-the-azure-pricing-calculator
+- learn.predict-costs-and-optimize-spending.3-predict-and-optimize-with-cost-management-and-advisor
+- learn.predict-costs-and-optimize-spending.4-save-on-infrastructure-costs
+- learn.predict-costs-and-optimize-spending.5-save-on-licensing-costs
+- learn.predict-costs-and-optimize-spending.6-summary
+achievement: learn.predict-costs-and-optimize-spending.badge

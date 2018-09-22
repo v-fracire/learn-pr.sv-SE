@@ -1,0 +1,43 @@
+### YamlMime:Module
+uid: learn.intro-to-azure-networking
+metadata:
+  title: Introduktion till Azure-nätverk
+  description: För att köra din app eller tjänst i molnet behöver du ett snabbt och säkert nätverk. Lär dig mer om grunderna i Azure-nätverk samt hur Azure-nätverk hjälper till att förbättra återhämtningsförmågan och att minska svarstiden.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 31c039ebaec8ca3b61fb9f8b71af794527645530
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357460"
+title: Introduktion till Azure-nätverk
+summary: För att köra din app eller tjänst i molnet behöver du ett snabbt och säkert nätverk. Lär dig mer om grunderna i Azure-nätverk samt hur Azure-nätverk hjälper till att förbättra återhämtningsförmågan och att minska svarstiden.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Lära dig hur virtuella nätverk hjälper dig att isolera nätverk och beräkningsresurser
+
+  - Läs hur Azure Load Balancer hjälper till att förbättra återhämtningsförmågan, det vill säga förmågan att återhämtas när tjänstens drift avbryts
+
+  - Läs hur Traffic Manager kan dirigera trafik till olika slutpunkter, inklusive slutpunkten med kortast svarstid för användaren
+prerequisites: Ingen
+iconUrl: /learn/achievements/intro-to-azure-networking.svg
+levels:
+- beginner
+roles:
+- developer
+- administrator
+- solution-architect
+products:
+- azure
+units:
+- learn.intro-to-azure-networking.1-introduction
+- learn.intro-to-azure-networking.2-deploy-to-azure
+- learn.intro-to-azure-networking.3-scale-load-balancer
+- learn.intro-to-azure-networking.4-reduce-latency-traffic-manager
+- learn.intro-to-azure-networking.5-summary
+achievement: learn.intro-to-azure-networking.badge

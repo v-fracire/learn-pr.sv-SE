@@ -1,0 +1,42 @@
+### YamlMime:ModuleUnit
+uid: learn.secure-access-azure-ad-multi-factor-authentication.6-summary
+metadata:
+  title: <span data-ttu-id="e820f-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e820f-101">Summary</span></span>
+  description: <span data-ttu-id="e820f-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e820f-102">Summary</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: d974b53f5c6b22b7a5b4a11fa588d59a38be2560
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357052"
+title: <span data-ttu-id="e820f-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e820f-103">Summary</span></span>
+durationInMinutes: 5
+content: >
+  [!include[](includes/6-summary.md)]
+quiz:
+  title: <span data-ttu-id="e820f-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="e820f-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="e820f-105">Azure AD är i grunden en Active Directory Domain Services (AD DS)-domänkontrollant som körs i Azure.</span><span class="sxs-lookup"><span data-stu-id="e820f-105">Azure AD is essentially an Active Directory Domain Services (AD DS) domain controller running in Azure.</span></span>
+    choices:
+    - content: <span data-ttu-id="e820f-106">Sant</span><span class="sxs-lookup"><span data-stu-id="e820f-106">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e820f-107">Även om Azure AD utför många av samma funktioner som en traditionell AD DS så är det en molnbaserad tjänst för hantering av flera klientorganisationer, kataloger och identiteter.</span><span class="sxs-lookup"><span data-stu-id="e820f-107">While Azure AD performs many of the same functions as a traditional AD DS, it's a cloud-based multi-tenant, directory, and identity management service.</span></span>
+    - content: <span data-ttu-id="e820f-108">Falskt</span><span class="sxs-lookup"><span data-stu-id="e820f-108">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="e820f-109">AD DS är en serverroll i Windows Server.</span><span class="sxs-lookup"><span data-stu-id="e820f-109">AD DS is a server role on Windows Server.</span></span> <span data-ttu-id="e820f-110">Azure AD är en molnbaserad offentlig katalogtjänst för flera klienter.</span><span class="sxs-lookup"><span data-stu-id="e820f-110">Azure AD is a cloud-based multi-customer public directory service.</span></span>
+  - content: <span data-ttu-id="e820f-111">Vilka tre objekt bör finnas i en effektiv villkorsstyrd åtkomstprincip?</span><span class="sxs-lookup"><span data-stu-id="e820f-111">What three items should exist in a successful conditional access policy?</span></span>
+    choices:
+    - content: <span data-ttu-id="e820f-112">Användare eller grupp, program, tid på dagen</span><span class="sxs-lookup"><span data-stu-id="e820f-112">User or group, application, time of day</span></span>
+      isCorrect: false
+      correctExplanation: <span data-ttu-id="e820f-113">Tiden på dagen är inte ett alternativ i regler för villkorsstyrd åtkomst.</span><span class="sxs-lookup"><span data-stu-id="e820f-113">Time of day is not an option in conditional access rules.</span></span>
+    - content: <span data-ttu-id="e820f-114">Användare eller grupp, program, kontrollen som ska framtvingas</span><span class="sxs-lookup"><span data-stu-id="e820f-114">User or group, application, control to be enforced</span></span>
+      isCorrect: true
+      incorrectExplanation: <span data-ttu-id="e820f-115">Genom att välja dessa tre objekt skapar du fristående, effektiva regler för villkorsstyrd åtkomst.</span><span class="sxs-lookup"><span data-stu-id="e820f-115">Selecting these three items will create self-contained functional conditional access rules.</span></span>
+    - content: <span data-ttu-id="e820f-116">Användare eller grupp, Linux-operativsystem, kontroll som ska framtvingas</span><span class="sxs-lookup"><span data-stu-id="e820f-116">User or group, Linux OS, control to be enforced</span></span>
+      isCorrect: false
+      correctExplanation: <span data-ttu-id="e820f-117">Du kan visserligen välja specifika enhetsplattformar, men Linux stöds inte för närvarande.</span><span class="sxs-lookup"><span data-stu-id="e820f-117">While you can target some device platforms, Linux isn't currently supported.</span></span>

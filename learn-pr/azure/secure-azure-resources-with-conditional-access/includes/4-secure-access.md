@@ -1,0 +1,27 @@
+<span data-ttu-id="38e3f-101">I den föregående övningen aktiverade vi utvärderingslicenser, skapade en katalog, skapade en användare och skapade en grupp för att testa vår lösning.</span><span class="sxs-lookup"><span data-stu-id="38e3f-101">In the previous exercise, we enabled trial licenses, created a directory, created a user, and created a group to test our solution.</span></span> <span data-ttu-id="38e3f-102">I den här kursdelen ska vi skapa vår regel för villkorlig åtkomst för att kräva multifaktorautentisering för Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="38e3f-102">In this unit, we will create our conditional access rule to require Azure Multi-Factor Authentication for the Azure portal.</span></span>
+
+## <a name="enable-conditional-access-based-multi-factor-authentication"></a><span data-ttu-id="38e3f-103">Aktivera multifaktorautentisering baserat på villkorlig åtkomst</span><span class="sxs-lookup"><span data-stu-id="38e3f-103">Enable conditional access-based Multi-Factor Authentication</span></span>
+
+<span data-ttu-id="38e3f-104">Villkorlig åtkomst gör att administratörer kan konfigurera när de vill, och när de inte vill, att något ska hända.</span><span class="sxs-lookup"><span data-stu-id="38e3f-104">Conditional access allows administrators to configure when they do or do not want something to happen.</span></span> <span data-ttu-id="38e3f-105">De kan använda flera regler parallellt för att bevilja eller neka åtkomst till resurser.</span><span class="sxs-lookup"><span data-stu-id="38e3f-105">They can use multiple rules in parallel to grant or deny access to resources.</span></span> <span data-ttu-id="38e3f-106">Här är den regel som vi behöver skapa:</span><span class="sxs-lookup"><span data-stu-id="38e3f-106">Here's the rule that we need to create:</span></span>
+
+<span data-ttu-id="38e3f-107">**Vid åtkomst till Azure Portal – kräv multifaktorautentisering**</span><span class="sxs-lookup"><span data-stu-id="38e3f-107">**When accessing the Azure portal - Require multi-factor authentication**</span></span>
+
+<span data-ttu-id="38e3f-108">Följande steg beskriver steg för steg hur du skapar en regel för villkorlig åtkomst som kräver att användarna utför multifaktorautentisering när de ansluter till Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="38e3f-108">The steps that follow will walk you through the process to create a conditional access rule to require users to perform multi-factor authentication when they access the Azure portal.</span></span>
+
+1. <span data-ttu-id="38e3f-109">Gå till **Azure Active Directory** > **Villkorlig åtkomst**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-109">Browse to **Azure Active Directory** > **Conditional access**.</span></span>
+
+1. <span data-ttu-id="38e3f-110">Klicka på **Ny princip**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-110">Click **New policy**.</span></span>
+
+1. <span data-ttu-id="38e3f-111">Ge principen namnet **Require MFA for Azure portal** (Kräv MFA för Azure Portal).</span><span class="sxs-lookup"><span data-stu-id="38e3f-111">Name the policy **Require MFA for Azure portal**.</span></span>
+
+1. <span data-ttu-id="38e3f-112">Välj **Användare och grupper** under **Tilldelningar** > **Användare och grupper**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-112">Under **Assignments** > **Users and groups**, select **Users and groups**.</span></span> <span data-ttu-id="38e3f-113">Välj gruppen som vi skapade, **CA-MFA-AzurePortal**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-113">Select the group that we created **CA-MFA-AzurePortal**.</span></span> <span data-ttu-id="38e3f-114">Klicka på **Klar**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-114">and click **Done**.</span></span>
+
+1. <span data-ttu-id="38e3f-115">Välj **Microsoft Azure Management** (Microsoft Azure-hantering) under **Molnappar** > **Välj appar**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-115">Under **Cloud apps** > **Select apps**, select **Microsoft Azure Management**.</span></span>
+
+1. <span data-ttu-id="38e3f-116">Välj **Kräv multifaktorautentisering** under **Åtkomstkontroller** > **Bevilja**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-116">Under **Access controls** > **Grant**, select **Require multi-factor authentication**.</span></span>
+
+1. <span data-ttu-id="38e3f-117">Välj **På** för **Aktivera princip**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-117">Set **Enable policy** to **On**.</span></span>
+
+1. <span data-ttu-id="38e3f-118">Klicka på **Skapa**.</span><span class="sxs-lookup"><span data-stu-id="38e3f-118">Click **Create**.</span></span>
+
+<span data-ttu-id="38e3f-119">I den här kursdelen har du lärt dig hur du skapar en regel för villkorsstyrd åtkomst.</span><span class="sxs-lookup"><span data-stu-id="38e3f-119">In this unit, you learned how to create a conditional access rule.</span></span> <span data-ttu-id="38e3f-120">Regeln kräver multifaktorautentisering för åtkomst till Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="38e3f-120">The rule requires Multi-Factor Authentication when accessing the Azure portal.</span></span>

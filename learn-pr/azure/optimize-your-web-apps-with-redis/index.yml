@@ -1,0 +1,51 @@
+### YamlMime:Module
+uid: learn.optimize-web-app-with-redis
+metadata:
+  title: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+  description: Använd Redis-cachelagring i Azure för att minska belastningen på databaser. Använd olika arkitekturer för cachelagring för att stödja större belastningar i distribuerade och stora miljöer.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 036ae24a22ed012ecb92bc87cec625aa2d3d8273
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356151"
+title: Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis
+summary: Använd Redis-cachelagring i Azure för att minska belastningen på databaser. Använd olika arkitekturer för cachelagring för att stödja större belastningar i distribuerade och stora miljöer.
+abstract: >
+  I den här modulen kommer du att göra följande:
+
+  - Lära dig vad en Redis-cache är och hur du kan använda den för dina affärsbehov
+
+  - Skapa en design och planera att använda en Redis-cache
+
+  - Etablera en Redis-cache i Azure
+
+  - Ansluta en webbapp till cachen
+prerequisites: >
+  - Erfarenhet av apputveckling
+
+  - Uppleva att använda data i appar
+
+  - Grundläggande .NET-kunskaper
+iconUrl: /learn/achievements/optimize-web-apps-with-redis.svg
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+- azure-redis-cache
+units:
+- learn.optimize-web-app-with-redis.1-introduction
+- learn.optimize-web-app-with-redis.2-decide-if-you-want-use-redis-in-azure
+- learn.optimize-web-app-with-redis.3-configure-redis-cache
+- learn.optimize-web-app-with-redis.4-exercise-create-redis-cache
+- learn.optimize-web-app-with-redis.5-execute-redis-commands
+- learn.optimize-web-app-with-redis.6-exercise-connect-an-app-to-the-cache
+- learn.optimize-web-app-with-redis.7-summary
+achievement: learn.optimize-web-app-with-redis.badge
