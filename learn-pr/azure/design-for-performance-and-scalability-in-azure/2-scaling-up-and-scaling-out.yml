@@ -1,0 +1,65 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.2-scaling-up-and-scaling-out
+title: Att skala upp och skala ut
+metadata:
+  title: Att skala upp och skala ut
+  description: I den här enheten diskuterar vi hur du kan skala upp och skala ut i din arkitektur
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 5686d5ab64b46b7ea17bd9c541234975d2a809e6
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360543"
+durationInMinutes: 15
+content: >
+  [!include[](includes/2-scaling-up-and-scaling-out.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande beskriver bäst att skala ut?
+    choices:
+    - content: Att öka mängden resurser för en instans
+      isCorrect: false
+      incorrectExplanation: Att öka mängden resurser för en enskild instans är en beskrivning av att skala upp
+    - content: Att öka antalet instanser som hanterar förfrågningar
+      isCorrect: true
+      correctExplanation: Skala ut innebär att man ökar antalet instanser som hanterar förfrågningar.
+    - content: Att lägga till ytterligare lagring för en virtuell dator
+      isCorrect: false
+      incorrectExplanation: Att lägga till ytterligare lagringsutrymme är inte ett exempel på att skala ut.
+    - content: Att nå den maximala skalningsnivån för en app
+      isCorrect: false
+      incorrectExplanation: Att nå den maximala skalningsnivån för ditt program kan åstadkommas genom att skala ut, men det är inte en korrekt beskrivning av att skala ut.
+  - content: Vilket av följande beskriver bäst nedskalning?
+    choices:
+    - content: Att minska antalet instanser som hanterar förfrågningar
+      isCorrect: false
+      incorrectExplanation: Att minska antalet instanser som hanterar förfrågningar är att skala in
+    - content: Att ta kontroll över appens skalning
+      isCorrect: false
+      incorrectExplanation: Att ta kontroll över appens skalning är inte att skala ned.
+    - content: Att minska mängden resurser som tilldelats en instans
+      isCorrect: true
+      correctExplanation: Att skala ned är att minska de resurser som en enskild instans har tillgängliga.
+    - content: Att hålla dig under den maximala skalningsnivån för ditt program
+      isCorrect: false
+      incorrectExplanation: Det är inte en beskrivning av att skala ned.
+  - content: Vilket av följande behöver du INTE tänka på när du tar fram en skalningsstrategi för ditt program?
+    choices:
+    - content: Kvarhållningsprinciper för instansens säkerhetskopior
+      isCorrect: true
+      correctExplanation: Även om det är viktigt att definiera kvarhållningsprinciper för säkerhetskopior, så är det inte relaterat till programmets möjlighet att skala.
+    - content: Tillståndshanteringen i appen
+      isCorrect: false
+      incorrectExplanation: Tillståndshantering är viktigt att tänka på när du skapar en skalningsstrategi. Skalning kräver att du lagrar användartillstånd utanför de enskilda instanserna så att användarupplevelsen inte bryts när ytterligare instanser läggs till eller tas bort.
+    - content: Instansernas starttider
+      isCorrect: false
+      incorrectExplanation: Starttiden är viktig att ta hänsyn till i en skalningsstrategi. Ju mer tiden att starta en instans minskar desto snabbare kan ditt program reagera på ökad efterfrågan.
+    - content: Automatisera skalning av dina instanser baserat på mått eller ett schema
+      isCorrect: false
+      incorrectExplanation: Automatiserad skalning är en viktig del i en skalningsstrategi. När du automatiserar dina skalningsmöjligheter får du bättre möjligheter att hantera variationer i användarbelastningen utan att behöva vidta manuella åtgärder eller råka ut för dåliga användarupplevelser.

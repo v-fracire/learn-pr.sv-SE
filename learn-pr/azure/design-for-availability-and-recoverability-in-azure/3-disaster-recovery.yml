@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-availability-and-recoverability.3-disaster-recovery
+title: Utveckla en strategi för haveriberedskap
+metadata:
+  title: Utveckla en strategi för haveriberedskap
+  description: Utveckla en strategi för haveriberedskap
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 3955af1f310742bdb6912d5da07f5004d40287f1
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46354785"
+durationInMinutes: 20
+content: >
+  [!include[](includes/3-disaster-recovery.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vad av följande kan uteslutas från dina återställningssteg i din återställningsplan?
+    choices:
+    - content: Återställa säkerhetskopior
+      isCorrect: false
+      incorrectExplanation: De nödvändiga stegen för att återställa säkerhetskopior är en viktig del av en återställningsplan.
+    - content: Så här redundansväxlar du till replikerade system
+      isCorrect: false
+      incorrectExplanation: Processen för att redundansväxla till replikerade system är en viktig del av en återställningsplan.
+    - content: Återupprätta nätverksanslutning till lokala eller externa nätverk
+      isCorrect: false
+      incorrectExplanation: Nätverksanslutning till lokala eller externa nätverk är ofta kritiska delar av infrastrukturen. Stegen för att återupprätta efter fel är viktiga delar av en återställningsplan.
+    - content: Inget av ovanstående bör undantas i en återställningsplan.
+      isCorrect: true
+      correctExplanation: Alla de här procedurerna krävs i en återställningsplan.
+  - content: 'Sant eller falskt: replikering av data och säkerhetskopiering av data är samma sak.'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Replikering av data och säkerhetskopiering av data gör båda kopior av dina data, men frekvensen och användningen av kopiorna skiljer sig så att dessa betraktas som olika begrepp.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: Replikering skapar realtids- eller nära realtidskopior av livedata för användning i redundans under körning. Säkerhetskopiering skapar långlivade, skrivskyddade ögonblicksbilder av data för användning i återställning,

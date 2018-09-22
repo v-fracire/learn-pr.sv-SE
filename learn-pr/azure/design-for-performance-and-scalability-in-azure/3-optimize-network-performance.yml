@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-performance-and-scalability.3-optimize-network-performance
+title: Optimera nätverksprestanda
+metadata:
+  title: Optimera nätverksprestanda
+  description: I den här utbildningsenheten kommer vi att diskutera hur du kan optimera nätverkets prestanda för din arkitektur
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 4cb23a0d62bc62d7dea8842fa6110b1932694feb
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355831"
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-optimize-network-performance.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: vilket av följande är definitionen av termen nätverksfördröjning?
+    choices:
+    - content: Mängden tillgängligt dataflöde i nätverket
+      isCorrect: false
+      incorrectExplanation: Dataflöde i nätverket är ett mått på nätverkskapacitet.
+    - content: Hur lång tid det tar för information att skickas från källa till mål
+      isCorrect: true
+      correctExplanation: Svarstiden är ett mått på nätverkets överföringstid.
+    - content: TTL-värdet för en tillgång i ett nätverk för innehållsleverans
+      isCorrect: false
+      incorrectExplanation: TTL-värdet för en tillgång i ett nätverk för innehållsleverans relaterar till hur ofta den uppdateras från den ursprungliga källan.
+    - content: En privat anslutning mellan ett lokalt nätverk och Azure
+      isCorrect: false
+      incorrectExplanation: ExpressRoute är en privat anslutning mellan ett lokalt nätverk och Azure, och även om det kan förbättra svarstiden är det inte en definition av termen.
+  - content: Anta att din webbapp körs i regionen USA, östra. Vilket av följande är det mest kostnadseffektiva sättet att optimera svarstiden i nätverket för användare runtom i världen?
+    choices:
+    - content: Distribuera ExpressRoute till alla dina användare
+      isCorrect: false
+      incorrectExplanation: ExpressRoute har etablerats för en nätverksplats, inte per användare.
+    - content: Använda ett nätverk för innehållsleverans så att du kan placera tillgångar och innehåll närmare användarna
+      isCorrect: true
+      correctExplanation: Genom att använda ett nätverk för innehållsleverans kan tillgångar cachelagras på platser som fysiskt ligger närmare slutanvändarna, vilket minskar tiden att läsa in dem. Detta förbättrar nätverksfördröjningen för användare i hela världen på ett kostnadseffektivt sätt.
+    - content: Använda läget för prestandaroutning i Traffic Manager
+      isCorrect: false
+      incorrectExplanation: Traffic Manager är en DNS-lastbalanserare som bidrar till att förbättra tiden att ansluta till resurser, men kräver även att du lokaliserar webbtjänster på flera platser och är inte det mest kostnadseffektiva sättet att åtgärda det här problemet.
+    - content: Distribuera fler instanser i regionen USA, östra för att hantera belastningen
+      isCorrect: false
+      incorrectExplanation: Om du lägger till fler instanser ökar belastningen som tjänsten i USA, östra kan hantera, men det kommer inte tillrätta med nätverksfördröjningen för användare som är globalt distribuerade.

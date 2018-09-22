@@ -1,0 +1,42 @@
+### YamlMime:ModuleUnit
+uid: learn.secure-access-azure-ad-multi-factor-authentication.6-summary
+metadata:
+  title: Sammanfattning
+  description: Sammanfattning
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: d974b53f5c6b22b7a5b4a11fa588d59a38be2560
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357052"
+title: Sammanfattning
+durationInMinutes: 5
+content: >
+  [!include[](includes/6-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Azure AD är i grunden en Active Directory Domain Services (AD DS)-domänkontrollant som körs i Azure.
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Även om Azure AD utför många av samma funktioner som en traditionell AD DS så är det en molnbaserad tjänst för hantering av flera klientorganisationer, kataloger och identiteter.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: AD DS är en serverroll i Windows Server. Azure AD är en molnbaserad offentlig katalogtjänst för flera klienter.
+  - content: Vilka tre objekt bör finnas i en effektiv villkorsstyrd åtkomstprincip?
+    choices:
+    - content: Användare eller grupp, program, tid på dagen
+      isCorrect: false
+      correctExplanation: Tiden på dagen är inte ett alternativ i regler för villkorsstyrd åtkomst.
+    - content: Användare eller grupp, program, kontrollen som ska framtvingas
+      isCorrect: true
+      incorrectExplanation: Genom att välja dessa tre objekt skapar du fristående, effektiva regler för villkorsstyrd åtkomst.
+    - content: Användare eller grupp, Linux-operativsystem, kontroll som ska framtvingas
+      isCorrect: false
+      correctExplanation: Du kan visserligen välja specifika enhetsplattformar, men Linux stöds inte för närvarande.

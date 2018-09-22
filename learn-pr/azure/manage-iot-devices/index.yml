@@ -1,0 +1,37 @@
+### YamlMime:Module
+uid: learn.manage-iot-devices
+metadata:
+  title: Lär dig att hantera IoT-enheter som IT-administratör
+  description: Lär dig vilka verktyg Microsoft erbjuder som hjälp med att distribuera, hantera och skydda dina enheter när IoT bara fortsätter att växa.
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 833fbb8a52a3daf35a64e95d077d070687f39a16
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359068"
+title: Lär dig att hantera IoT-enheter som IT-administratör
+summary: Lär dig vilka verktyg Microsoft erbjuder som hjälp med att distribuera, hantera och skydda dina enheter när IoT bara fortsätter att växa.
+abstract: >
+  I den här modulen kommer du att:
+   - En introduktion till IoT
+   - Interagera med en Raspberry Pi-simulator
+   - Konfigurera Azure IoT Hub för att samla in data
+prerequisites: Ingen
+iconUrl: /learn/achievements/manage-your-iot-devices.svg
+levels:
+- beginner
+roles:
+- administrator
+products:
+- azure
+units:
+- learn.manage-iot-devices.1-intro-to-ops-in-iot
+- learn.manage-iot-devices.2-raspberry-pi-emulator
+- learn.manage-iot-devices.3-connect-device
+- learn.manage-iot-devices.4-summary
+achievement: learn.manage-iot-devices.badge

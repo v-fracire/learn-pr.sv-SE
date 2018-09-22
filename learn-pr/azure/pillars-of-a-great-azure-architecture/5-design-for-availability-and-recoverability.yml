@@ -1,0 +1,48 @@
+### YamlMime:ModuleUnit
+uid: learn.pillars-of-a-great-azure-architecture.5-design-for-availability-and-recoverability
+title: Design för tillgänglighet och återställning
+metadata:
+  title: Design för tillgänglighet och återställning
+  description: Design för tillgänglighet och återställning
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: ce3457feab12a45bbc103e154affbcd13f4a3923
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356271"
+durationInMinutes: 10
+content: >
+  [!include[](includes/5-design-for-availability-and-recoverability.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Anta att du vill öka tillgängligheten för ditt system för att kunna ge ett bättre servicenivåavtal (SLA) åt dina kunder. Vilket av följande är en vägledande princip som du kan använda?
+    choices:
+    - content: Minska ditt mål för maximal varaktighet av acceptabel dataförlust.
+      isCorrect: false
+      incorrectExplanation: Det kan öka återställning, inte tillgänglighet.
+    - content: Kryptera alla data i vila
+      isCorrect: false
+      incorrectExplanation: Det kan öka säkerhet, inte tillgänglighet.
+    - content: Eliminera felkritiska systemdelar
+      isCorrect: true
+      correctExplanation: Designa för tillgänglighet fokuserar på att upprätthålla tjänstens trots tillfälliga förhållanden och lokaliserade fel. Att lägga till redundans för att eliminera felkritiska systemdelar är en viktig strategi för att förbättra tillgängligheten.
+  - content: Vilket av följande skulle påverkas av ditt definierade återställningspunktmål (RPO)?
+    choices:
+    - content: Frekvensen för säkerhetskopior av databasen
+      isCorrect: true
+      correctExplanation: Eftersom målet för återställningspunkten handlar om den mängd dataförlust som är acceptabel, så måste säkerhetskopieringsfrekvensen vara inom den tidsperioden och påverkas direkt av din definierade RPO.
+    - content: Antalet regioner som data replikeras till
+      isCorrect: false
+      incorrectExplanation: Antalet regioner som data replikeras till är ett viktigt övervägande, men påverkas inte av din definierade RPO.
+    - content: Antalet instanser i ett databaskluster
+      isCorrect: false
+      incorrectExplanation: Antalet instanser i ett databaskluster kan vara ett viktigt beslut, men påverkas inte av din definierade RPO.
+    - content: Den typ av lastbalanseringsteknik som används i ditt program
+      isCorrect: false
+      incorrectExplanation: Typen av lastbalanseringsteknik som används i ditt program kan vara ett viktigt beslut, men påverkas inte av ditt definierade mål för återställningspunkten.
