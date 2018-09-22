@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.create-azure-storage-account.6-knowledge-check
+title: '<span data-ttu-id="2b2d4-101">Kunskapskontroll: Skapa ett lagringskonto</span><span class="sxs-lookup"><span data-stu-id="2b2d4-101">Knowledge check: Create a storage account</span></span>'
+durationInMinutes: 3
+metadata:
+  title: '<span data-ttu-id="2b2d4-102">Kunskapskontroll: Skapa ett lagringskonto</span><span class="sxs-lookup"><span data-stu-id="2b2d4-102">Knowledge check: Create a storage account</span></span>'
+  description: <span data-ttu-id="2b2d4-103">Frågor om lagringskontons egenskaper och hur de skapas.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-103">Questions about storage account properties and creation.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 16c86b7ec3c7eb7b0d7ea9d243206c6bfe8b36f0
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360527"
+quiz:
+  title: <span data-ttu-id="2b2d4-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="2b2d4-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="2b2d4-105">Anta att du har två videofiler som lagrats som blobbar.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-105">Suppose you have two video files stored as blobs.</span></span> <span data-ttu-id="2b2d4-106">Den ena videon är affärskritisk och kräver en replikeringsprincip som skapar flera kopior i geografiskt spridda datacenter.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-106">One of the videos is business-critical and requires a replication policy that creates multiple copies across geographically diverse datacenters.</span></span> <span data-ttu-id="2b2d4-107">Den andra videon är icke-kritisk och det räcker med en lokal replikeringsprincip.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-107">The other video is non-critical, and a local replication policy is sufficient.</span></span> <span data-ttu-id="2b2d4-108">Sant eller falskt: För att uppfylla de här begränsningarna måste de två blobarna finnas på separata lagringskonton.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-108">True or false: To satisfy these constraints, the two blobs will need to be in separate storage accounts.</span></span>'
+    choices:
+    - content: <span data-ttu-id="2b2d4-109">Sant</span><span class="sxs-lookup"><span data-stu-id="2b2d4-109">True</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="2b2d4-110">Replikeringsprincip är en egenskap för ett lagringskonto.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-110">Replication policy is a characteristic of a storage account.</span></span> <span data-ttu-id="2b2d4-111">Alla medlemmar i lagringskontot måste använda samma princip.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-111">Every member in the storage account must use the same policy.</span></span> <span data-ttu-id="2b2d4-112">Om vissa data måste använda strategin för geo-replikering och andra data måste använda strategin för lokal replikering behöver du två lagringskonton.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-112">If you need some data to use the geo-replication strategy and other data to use the local replication strategy, then you will need two storage accounts.</span></span>
+    - content: <span data-ttu-id="2b2d4-113">Falskt</span><span class="sxs-lookup"><span data-stu-id="2b2d4-113">False</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2b2d4-114">Replikeringsprincip är en egenskap för ett lagringskonto.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-114">Replication policy is a characteristic of a storage account.</span></span> <span data-ttu-id="2b2d4-115">Alla medlemmar i lagringskontot måste använda samma princip.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-115">Every member in the storage account must use the same policy.</span></span> <span data-ttu-id="2b2d4-116">Om vissa data måste använda strategin för geo-replikering och andra data måste använda strategin för lokal replikering behöver du två lagringskonton.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-116">If you need some data to use the geo-replication strategy and other data to use the local replication strategy, then you will need two storage accounts.</span></span>
+  - content: <span data-ttu-id="2b2d4-117">Namnet på ett lagringskonto måste vara:</span><span class="sxs-lookup"><span data-stu-id="2b2d4-117">The name of a storage account must be:</span></span>
+    choices:
+    - content: <span data-ttu-id="2b2d4-118">Unikt inom resursgruppen som innehåller det.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-118">Unique within the containing resource group.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2b2d4-119">Lagringskontots namn används som en del av URI:n för API-åtkomst, så det måste vara globalt unikt.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-119">The storage account name is used as part of the URI for API access, so it must be globally unique.</span></span>
+    - content: <span data-ttu-id="2b2d4-120">Unikt inom din Azure-prenumeration.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-120">Unique within your Azure subscription.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2b2d4-121">Lagringskontots namn används som en del av URI:n för API-åtkomst, så det måste vara globalt unikt.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-121">The storage account name is used as part of the URI for API access, so it must be globally unique.</span></span>
+    - content: <span data-ttu-id="2b2d4-122">Unikt globalt.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-122">Globally unique.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="2b2d4-123">Lagringskontots namn används som en del av URI:n för API-åtkomst, så det måste vara globalt unikt.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-123">The storage account name is used as part of the URI for API access, so it must be globally unique.</span></span>
+  - content: <span data-ttu-id="2b2d4-124">När skulle du skapa lagringskonton i ett typiskt projekt?</span><span class="sxs-lookup"><span data-stu-id="2b2d4-124">In a typical project, when would you create your storage account(s)?</span></span>
+    choices:
+    - content: <span data-ttu-id="2b2d4-125">I början, under projektkonfigurationen.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-125">At the beginning, during project setup.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="2b2d4-126">Lagringskonton är vanligtvis stabila under ett projekts livslängd.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-126">Storage accounts are usually stable for the lifetime of a project.</span></span> <span data-ttu-id="2b2d4-127">Det är vanligt att skapa dem i början av ett projekt.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-127">It is common to create them at the start of a project.</span></span>
+    - content: <span data-ttu-id="2b2d4-128">Efter distributionen, när projektet är igång.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-128">After deployment, when the project is running.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2b2d4-129">Lagringskonton är vanligtvis stabila under ett projekts livslängd.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-129">Storage accounts are usually stable for the lifetime of a project.</span></span> <span data-ttu-id="2b2d4-130">Det är vanligt att man skapar dem i början av ett projekt.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-130">It is common to create them at the start of a project.</span></span>
+    - content: <span data-ttu-id="2b2d4-131">I slutet, vid rensning av resurser.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-131">At the end, during resource cleanup.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2b2d4-132">Lagringskonton är vanligtvis stabila under ett projekts livslängd.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-132">Storage accounts are usually stable for the lifetime of a project.</span></span> <span data-ttu-id="2b2d4-133">Det är vanligt att man skapar dem i början av ett projekt.</span><span class="sxs-lookup"><span data-stu-id="2b2d4-133">It is common to create them at the start of a project.</span></span>
