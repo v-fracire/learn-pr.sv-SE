@@ -1,0 +1,35 @@
+### YamlMime:ModuleUnit
+uid: learn.distribute-data-globally-with-cosmos-db.3-multi-region-write
+metadata:
+  title: Skriva till flera regioner
+  description: Lär dig hur du använder Azure Cosmos DB till att skriva dina data till flera regioner samtidigt.
+  displayType: one-column
+  ms.openlocfilehash: 516e1abccb14f0cb217689fd1d510c5060e86290
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357807"
+title: Skriva till flera regioner
+durationInMinutes: 5
+content: >
+  [!include[](includes/3-multi-region-write.md)]
+quiz:
+  title: Kunskapstest
+  questions:
+  - content: 'Sant eller falskt: Fördelarna med att skriva till flera regioner är minskad fördröjning, obegränsade skalningsmöjligheter och förbättrad tillgänglighet.'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Skrivning till flera regioner har många prestandafördelar. Till exempel är svarstiderna för skrivåtgärder kortare än för konton som inte har flera original.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Skrivning till flera regioner har många prestandafördelar. Svarstiderna för skrivåtgärder är t.ex. kortare än för konton som inte har flera original.
+  - content: Vad är standardprincipen för konfliktlösning på ett konto med flera original?
+    choices:
+    - content: Last-Writer-Wins (Senaste skrivning vinner)
+      isCorrect: true
+      correctExplanation: Konfliktlösning är inbyggd i Cosmos DB och utförs på servern, i databasmotorn. Last-Writer-Wins är standardinställningen.
+    - content: En anpassad användardefinierad procedur
+      isCorrect: false
+      incorrectExplanation: Användardefinierade procedurer stöds men är inte standardmekanismen för hantering av konflikter.

@@ -1,0 +1,59 @@
+### YamlMime:ModuleUnit
+uid: learn.add-and-size-disks-in-azure-virtual-machines.7-summary
+title: Sammanfattning
+metadata:
+  title: Sammanfattning
+  description: Sammanfattning
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 46789dc6de38bbd51ee4545f692c015b41c0aa7f
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359919"
+durationInMinutes: 3
+content: >
+  [!include[](includes/7-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: I vilka av följande typer av blobar i Azure Storage lagras filer på virtuella hårddiskar?
+    choices:
+    - content: Blockblobar
+      isCorrect: false
+      incorrectExplanation: Virtuella hårddiskar backas upp av sidblobar i Azure Storage. Sidblobar är lämpliga eftersom de är en samling av sidor på 512 byte för slumpmässig läsning och skrivning. Varken blockblobar eller tilläggsblobar är optimerade för slumpmässig läsning och skrivning som är vanliga med virtuella hårddiskar.
+    - content: Tilläggsblobar
+      isCorrect: false
+      incorrectExplanation: Virtuella hårddiskar backas upp av sidblobar i Azure Storage. Sidblobar är lämpliga eftersom de är en samling av sidor på 512 byte för slumpmässig läsning och skrivning. Varken blockblobar eller tilläggsblobar är optimerade för slumpmässig läsning och skrivning som är vanliga med virtuella hårddiskar.
+    - content: Sidblobar
+      isCorrect: true
+      correctExplanation: Virtuella hårddiskar backas upp av sidblobar i Azure Storage. Sidblobar är lämpliga eftersom de är en samling av sidor på 512 byte för slumpmässig läsning och skrivning. Varken blockblobar eller tilläggsblobar är optimerade för slumpmässig läsning och skrivning som är vanliga med virtuella hårddiskar.
+  - content: Vilka av följande datareplikeringsstrategier är det enda alternativet som stöds av ett premiumlagringskonto?
+    choices:
+    - content: Geo-redundant lagring med läsbehörighet (RA-GRS)
+      isCorrect: false
+      incorrectExplanation: Ett premiumlagringskonto stöder bara lokalt redundant lagring som replikeringsalternativ. Lokalt redundant lagring har tre kopior av data i en enda region. För regional haveriberedskap måste du säkerhetskopiera dina VM-diskar i en annan region med hjälp av Azure Backup. Du måste även använda ett konto för geo-redundant lagring som säkerhetskopieringsvalv.
+    - content: Lokalt redundant lagring (LRS)
+      isCorrect: true
+      correctExplanation: Ett premiumlagringskonto stöder bara lokalt redundant lagring som replikeringsalternativ. Lokalt redundant lagring har tre kopior av data i en enda region. För regional haveriberedskap måste du säkerhetskopiera dina VM-diskar i en annan region med hjälp av Azure Backup. Du måste även använda ett konto för geo-redundant lagring som säkerhetskopieringsvalv.
+    - content: Geo-redundant lagring (GRS)
+      isCorrect: false
+      incorrectExplanation: Ett premiumlagringskonto stöder bara lokalt redundant lagring som replikeringsalternativ. Lokalt redundant lagring har tre kopior av data i en enda region. För regional haveriberedskap måste du säkerhetskopiera dina VM-diskar i en annan region med hjälp av Azure Backup. Du måste även använda ett konto för geo-redundant lagring som säkerhetskopieringsvalv.
+    - content: Zonredundant lagring (ZRS)
+      isCorrect: false
+      incorrectExplanation: Ett premiumlagringskonto stöder bara lokalt redundant lagring som replikeringsalternativ. Lokalt redundant lagring har tre kopior av data i en enda region. För regional haveriberedskap måste du säkerhetskopiera dina VM-diskar i en annan region med hjälp av Azure Backup. Du måste även använda ett konto för geo-redundant lagring som säkerhetskopieringsvalv.
+  - content: Vilken av följande disktyper är bara tillgänglig för hanterade diskar?
+    choices:
+    - content: Standard-solid state-hårddiskar (SSD)
+      isCorrect: true
+      correctExplanation: När du väljer hanterade diskar får du alternativet att använda standard-SSD. Den här disktypen ligger mellan Standard HDD och Premium SSD ur ett prestanda- och kostnadsperspektiv.
+    - content: Standardhårddiskar (HDD)
+      isCorrect: false
+      incorrectExplanation: När du väljer hanterade diskar får du alternativet att använda standard-SSD. Den här disktypen ligger mellan Standard HDD och Premium SSD ur ett prestanda- och kostnadsperspektiv.
+    - content: Premium-solid state-hårddiskar (SSD)
+      isCorrect: false
+      incorrectExplanation: När du väljer hanterade diskar får du alternativet att använda standard-SSD. Den här disktypen ligger mellan Standard HDD och Premium SSD ur ett prestanda- och kostnadsperspektiv.
