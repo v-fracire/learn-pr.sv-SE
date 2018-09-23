@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.5-encryption
+title: <span data-ttu-id="74223-101">Kryptering</span><span class="sxs-lookup"><span data-stu-id="74223-101">Encryption</span></span>
+metadata:
+  title: <span data-ttu-id="74223-102">Kryptering</span><span class="sxs-lookup"><span data-stu-id="74223-102">Encryption</span></span>
+  description: <span data-ttu-id="74223-103">I det här avsnittet kommer vi att diskutera hur du använder kryptering för att skydda din arkitektur</span><span class="sxs-lookup"><span data-stu-id="74223-103">In this unit we'll discuss how to use encryption to secure your architecture</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 41ffa78955aa8c93dfb26a840bcdc01c0c8d8b17
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356959"
+durationInMinutes: 10
+content: >
+  [!include[](includes/5-encryption.md)]
+quiz:
+  title: <span data-ttu-id="74223-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="74223-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="74223-105">Sant eller falskt: det är bara virtuella Windows-datorer som kan använda Azure Disk Encryption</span><span class="sxs-lookup"><span data-stu-id="74223-105">True or false: only Windows virtual machines can use Azure Disk Encryption</span></span>'
+    choices:
+    - content: <span data-ttu-id="74223-106">Sant</span><span class="sxs-lookup"><span data-stu-id="74223-106">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="74223-107">Azure Disk Encryption är tillgängligt för både virtuella Windows-datorer och virtuella Linux-datorer.</span><span class="sxs-lookup"><span data-stu-id="74223-107">Azure Disk Encryption is available for both Windows and Linux virtual machines.</span></span>
+    - content: <span data-ttu-id="74223-108">Falskt</span><span class="sxs-lookup"><span data-stu-id="74223-108">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="74223-109">Azure Disk Encryption är tillgängligt för både virtuella Windows-datorer och virtuella Linux-datorer.</span><span class="sxs-lookup"><span data-stu-id="74223-109">Azure Disk Encryption is available for both Windows and Linux virtual machines.</span></span>
+  - content: <span data-ttu-id="74223-110">Vad av följande är en viktig faktor när du klassificerar data?</span><span class="sxs-lookup"><span data-stu-id="74223-110">When classifying data, which of the following is a factor?</span></span>
+    choices:
+    - content: <span data-ttu-id="74223-111">Risknivå för kunder om de exponeras</span><span class="sxs-lookup"><span data-stu-id="74223-111">Level of risk posed to customers if exposed</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="74223-112">Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.</span><span class="sxs-lookup"><span data-stu-id="74223-112">Classifying data that should be encrypted is commonly based on the impact it can have to customers if it is exposed.</span></span>
+    - content: <span data-ttu-id="74223-113">Metod för dataöverföring</span><span class="sxs-lookup"><span data-stu-id="74223-113">Method of data transport</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="74223-114">Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.</span><span class="sxs-lookup"><span data-stu-id="74223-114">Classifying data that should be encrypted is commonly based on the impact it can have to customers if it is exposed.</span></span>
+    - content: <span data-ttu-id="74223-115">Huruvida data lagras på virtuella datorer eller i en databas</span><span class="sxs-lookup"><span data-stu-id="74223-115">Whether the data is stored on virtual machines or in a database</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="74223-116">Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.</span><span class="sxs-lookup"><span data-stu-id="74223-116">Classifying data that should be encrypted is commonly based on the impact it can have to customers if it is exposed.</span></span>
+    - content: <span data-ttu-id="74223-117">Mängden data som lagras</span><span class="sxs-lookup"><span data-stu-id="74223-117">The amount of data stored</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="74223-118">Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.</span><span class="sxs-lookup"><span data-stu-id="74223-118">Classifying data that should be encrypted is commonly based on the impact it can have to customers if it is exposed.</span></span>

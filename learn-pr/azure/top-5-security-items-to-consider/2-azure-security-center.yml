@@ -1,0 +1,31 @@
+### YamlMime:ModuleUnit
+uid: learn.top-5-security-items-to-consider.2-azure-security-center
+title: <span data-ttu-id="c49ae-101">Azure Security Center</span><span class="sxs-lookup"><span data-stu-id="c49ae-101">Azure Security Center</span></span>
+metadata:
+  title: <span data-ttu-id="c49ae-102">Azure Security Center</span><span class="sxs-lookup"><span data-stu-id="c49ae-102">Azure Security Center</span></span>
+  description: <span data-ttu-id="c49ae-103">Azure Security Center</span><span class="sxs-lookup"><span data-stu-id="c49ae-103">Azure Security Center</span></span>
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: f02436ec9ef936eabde1d6958ef2938ee5ab5973
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46354791"
+durationInMinutes: 15
+content: >
+  [!include[](includes/2-azure-security-center.md)]
+quiz:
+  title: <span data-ttu-id="c49ae-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="c49ae-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="c49ae-105">Sant eller falskt: Azure Security Center fungerar för Azure-resurser och lokala resurser.</span><span class="sxs-lookup"><span data-stu-id="c49ae-105">True or false: Azure Security Center works for Azure resources and on-premise resources.</span></span>'
+    choices:
+    - content: <span data-ttu-id="c49ae-106">Sant</span><span class="sxs-lookup"><span data-stu-id="c49ae-106">True</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="c49ae-107">Azure Security Center kan övervaka alla dina tjänster, både i Azure och lokalt.</span><span class="sxs-lookup"><span data-stu-id="c49ae-107">Azure Security Center can monitor all your services, both in Azure and on premises.</span></span>
+    - content: <span data-ttu-id="c49ae-108">Falskt</span><span class="sxs-lookup"><span data-stu-id="c49ae-108">False</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c49ae-109">Azure Security Center är inte begränsat till Azure-värdbaserade resurser.</span><span class="sxs-lookup"><span data-stu-id="c49ae-109">Azure Security Center is not limited to Azure-hosted resources.</span></span>

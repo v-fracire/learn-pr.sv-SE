@@ -1,0 +1,62 @@
+### YamlMime:ModuleUnit
+uid: learn.top-5-security-items-to-consider.3-inputs-and-outputs
+title: <span data-ttu-id="021f8-101">Indata och utdata</span><span class="sxs-lookup"><span data-stu-id="021f8-101">Inputs and Outputs</span></span>
+metadata:
+  title: <span data-ttu-id="021f8-102">Indata och utdata</span><span class="sxs-lookup"><span data-stu-id="021f8-102">Inputs and Outputs</span></span>
+  description: <span data-ttu-id="021f8-103">Indata och utdata</span><span class="sxs-lookup"><span data-stu-id="021f8-103">Inputs and Outputs</span></span>
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 6549bf1ac4fb034b3d0e8a4720364725c36d1f12
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356671"
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-inputs-and-outputs.md)]
+quiz:
+  title: <span data-ttu-id="021f8-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="021f8-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="021f8-105">Vilka av följande datakällor behöver valideras?</span><span class="sxs-lookup"><span data-stu-id="021f8-105">Which of the following data sources need to be validated?</span></span>
+    choices:
+    - content: <span data-ttu-id="021f8-106">Data från ett tredjeparts-API</span><span class="sxs-lookup"><span data-stu-id="021f8-106">Data from a 3rd party API</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-107">Det här är bara en av flera olika källor som behöver verifieras.</span><span class="sxs-lookup"><span data-stu-id="021f8-107">This is just one of many sources that needs to be validated.</span></span>
+    - content: <span data-ttu-id="021f8-108">Data från URL-parametern</span><span class="sxs-lookup"><span data-stu-id="021f8-108">Data from the URL parameter</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-109">Det här är bara en av flera olika källor som behöver verifieras</span><span class="sxs-lookup"><span data-stu-id="021f8-109">This is just one of many sources that needs to be validated</span></span>
+    - content: <span data-ttu-id="021f8-110">Data som samlas in från användaren via ett inmatningsfält</span><span class="sxs-lookup"><span data-stu-id="021f8-110">Data collected from the user via an input field</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-111">Det här är bara en av flera olika källor som behöver verifieras.</span><span class="sxs-lookup"><span data-stu-id="021f8-111">This is just one of many sources that needs to be validated.</span></span>
+    - content: <span data-ttu-id="021f8-112">Alla alternativ ovan</span><span class="sxs-lookup"><span data-stu-id="021f8-112">All of the above</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="021f8-113">Alla dessa datakällor måste verifieras.</span><span class="sxs-lookup"><span data-stu-id="021f8-113">All these sources of data need to be validated.</span></span> <span data-ttu-id="021f8-114">Lita aldrig på data som kan ha ändrats.</span><span class="sxs-lookup"><span data-stu-id="021f8-114">Never trust any data that could have been modified.</span></span>
+  - content: <span data-ttu-id="021f8-115">Parametriserade frågor (lagrade procedurer i SQL) är en säker metod för att kommunicera med databasen eftersom:</span><span class="sxs-lookup"><span data-stu-id="021f8-115">Parameterized queries (stored procedures in SQL) are a secure way to talk to the database because:</span></span>
+    choices:
+    - content: <span data-ttu-id="021f8-116">De är mer organiserad än infogade databaskommandon och därför mindre förvirrande för användaren.</span><span class="sxs-lookup"><span data-stu-id="021f8-116">They are more organized than inline database commands, and therefore less confusing for users.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-117">Organisation av koden är inte orsaken till att parameteriserade frågor är säkrare än infogad SQL.</span><span class="sxs-lookup"><span data-stu-id="021f8-117">Organization of the code is not the reason that parameterized queries are more secure than inline SQL.</span></span>
+    - content: <span data-ttu-id="021f8-118">Det finns en tydlig beskrivning av skriptet i den lagrade proceduren, vilket ger bättre insyn.</span><span class="sxs-lookup"><span data-stu-id="021f8-118">There is a clear outline of the script in the stored procedure, ensuring better visibility.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-119">En tydlig beskrivning av skriptet är inte orsaken till att parameteriserade frågor är säkrare än infogad SQL.</span><span class="sxs-lookup"><span data-stu-id="021f8-119">Clear outline of the script is not the reason that parameterized queries are more secure than inline SQL.</span></span>
+    - content: <span data-ttu-id="021f8-120">Parametriserade frågor ersätter variabler innan frågor körs, vilket förhindrar att koden skickas som en variabel.</span><span class="sxs-lookup"><span data-stu-id="021f8-120">Parameterized queries substitute variables before running queries, meaning it avoids the opportunity for code to be submitted in place of a variable.</span></span>
+      isCorrect: true
+  - content: <span data-ttu-id="021f8-121">Vilka av följande data behöver kodas för utdata?</span><span class="sxs-lookup"><span data-stu-id="021f8-121">Which of the following data needs to be output encoded?</span></span>
+    choices:
+    - content: <span data-ttu-id="021f8-122">Data som sparas i databasen</span><span class="sxs-lookup"><span data-stu-id="021f8-122">Data saved to the database</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-123">Även om data som sparas till databasen måste verifieras för att säkerställa att de är bra så behöver vi inte koda de för utdata.</span><span class="sxs-lookup"><span data-stu-id="021f8-123">Although data saved to the database needs to be validated to ensure the data is good, we do not need to encode it for output.</span></span>
+    - content: <span data-ttu-id="021f8-124">Data att matas ut till skärmen</span><span class="sxs-lookup"><span data-stu-id="021f8-124">Data to be output to the screen</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="021f8-125">Data som skickas ut till skärmen måste alltid vara utdatakodad så att de aldrig tolkas som kod.</span><span class="sxs-lookup"><span data-stu-id="021f8-125">Data sent to the screen needs to be output encoded to ensure it is never interpreted as code.</span></span>
+    - content: <span data-ttu-id="021f8-126">Data som skickas till ett tredjeparts-API</span><span class="sxs-lookup"><span data-stu-id="021f8-126">Data sent to a 3rd party API</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-127">Även om data som skickas till ett tredjeparts-API måste verifieras för att säkerställa att de är bra så behöver vi inte koda de för utdata.</span><span class="sxs-lookup"><span data-stu-id="021f8-127">Although data sent to a 3rd party API needs to be validated to ensure the data is good, we do not need to encode it for output.</span></span>
+    - content: <span data-ttu-id="021f8-128">Data i URL-parametrarna</span><span class="sxs-lookup"><span data-stu-id="021f8-128">Data in the URL parameters</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="021f8-129">Även om data från URL-parametrar måste verifieras innan den används i vårt program så behöver vi inte koda det för utdata.</span><span class="sxs-lookup"><span data-stu-id="021f8-129">Although data from URL Parameters needs to be validated before it is used in our application, we do not need to encode it for output.</span></span>
+      correctExplanation: <span data-ttu-id="021f8-130">Parameterfält som används i parameterfrågor behandlas som data, inte kod, vilket skyddar mot inmatningssårbarheter.</span><span class="sxs-lookup"><span data-stu-id="021f8-130">Parameter fields used in parameterized queries are treated as data, not code, protecting against injection vulnerabilities.</span></span> <span data-ttu-id="021f8-131">Mer information om hur du implementerar parameteriserade frågor finns i [OWASP frågeparameteriseringsfacit]( https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet).</span><span class="sxs-lookup"><span data-stu-id="021f8-131">For more information on how to implement parameterized queries please see the [OWASP Query Parameterization Cheat Sheet]( https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet).</span></span>

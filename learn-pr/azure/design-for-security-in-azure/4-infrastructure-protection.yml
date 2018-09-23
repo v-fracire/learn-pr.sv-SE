@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.4-infrastructure-protection
+title: <span data-ttu-id="2da87-101">Infrastrukturskydd</span><span class="sxs-lookup"><span data-stu-id="2da87-101">Infrastructure protection</span></span>
+metadata:
+  title: <span data-ttu-id="2da87-102">Infrastrukturskydd</span><span class="sxs-lookup"><span data-stu-id="2da87-102">Infrastructure protection</span></span>
+  description: <span data-ttu-id="2da87-103">I den här enheten tittar vi närmare på hur du kan skydda åtkomst till din infrastruktur</span><span class="sxs-lookup"><span data-stu-id="2da87-103">In this unit we'll discuss how to protect access to your infrastructure</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 0a765eaf5c91cc055266d283760bf94f6ba1efa7
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356999"
+durationInMinutes: 10
+content: >
+  [!include[](includes/4-infrastructure-protection.md)]
+quiz:
+  title: <span data-ttu-id="2da87-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="2da87-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="2da87-105">Azure rollbaserad åtkomstkontroll kan användas på alla förutom vilka av följande omfång?</span><span class="sxs-lookup"><span data-stu-id="2da87-105">Azure role-based access control can be applied to all but which of the following scopes?</span></span>
+    choices:
+    - content: <span data-ttu-id="2da87-106">Prenumeration</span><span class="sxs-lookup"><span data-stu-id="2da87-106">Subscription</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2da87-107">Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.</span><span class="sxs-lookup"><span data-stu-id="2da87-107">Role-based access control can only be applied to Azure resources.</span></span>
+    - content: <span data-ttu-id="2da87-108">Resursgrupp</span><span class="sxs-lookup"><span data-stu-id="2da87-108">Resource group</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2da87-109">Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.</span><span class="sxs-lookup"><span data-stu-id="2da87-109">Role-based access control can only be applied to Azure resources.</span></span>
+    - content: <span data-ttu-id="2da87-110">Linux-filsystem</span><span class="sxs-lookup"><span data-stu-id="2da87-110">Linux filesystem</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="2da87-111">Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.</span><span class="sxs-lookup"><span data-stu-id="2da87-111">Role-based access control can only be applied to Azure resources.</span></span>
+    - content: <span data-ttu-id="2da87-112">Resurs</span><span class="sxs-lookup"><span data-stu-id="2da87-112">Resource</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2da87-113">Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.</span><span class="sxs-lookup"><span data-stu-id="2da87-113">Role-based access control can only be applied to Azure resources.</span></span>
+  - content: '<span data-ttu-id="2da87-114">Sant eller falskt: en hanterad identitet för Azure-resurser kan tilldelas till en virtuell dator för att ge den behörighet att starta och stoppa andra virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="2da87-114">True or false: a managed identity for Azure resources could be assigned to a virtual machine to give it rights to start and stop other virtual machines.</span></span>'
+    choices:
+    - content: <span data-ttu-id="2da87-115">Sant</span><span class="sxs-lookup"><span data-stu-id="2da87-115">True</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="2da87-116">Hanterade identiteter för Azure-resurser är en metod för att tilldela identiteter till tjänster.</span><span class="sxs-lookup"><span data-stu-id="2da87-116">Managed identities for Azure resources is a method of assigning an identity to services.</span></span> <span data-ttu-id="2da87-117">Med den här typen av tilldelning kan rollbaserad åtkomstkontroll beviljas för hantering av Azure-tjänster, t.ex. för att starta och stoppa virtuella datorer?</span><span class="sxs-lookup"><span data-stu-id="2da87-117">Through this assignment, role-based access control can be granted to manage Azure services, such as starting and stopping virtual machines?</span></span>
+    - content: <span data-ttu-id="2da87-118">Falskt</span><span class="sxs-lookup"><span data-stu-id="2da87-118">False</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="2da87-119">Hanterade identiteter för Azure-resurser är en metod för att tilldela identiteter till tjänster.</span><span class="sxs-lookup"><span data-stu-id="2da87-119">Managed identities for Azure resources is a method of assigning an identity to services.</span></span> <span data-ttu-id="2da87-120">Med den här typen av tilldelning kan rollbaserad åtkomstkontroll beviljas för hantering av Azure-tjänster, t.ex. för att starta och stoppa virtuella datorer?</span><span class="sxs-lookup"><span data-stu-id="2da87-120">Through this assignment, role-based access control can be granted to manage Azure services, such as starting and stopping virtual machines?</span></span>

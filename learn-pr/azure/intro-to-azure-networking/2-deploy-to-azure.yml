@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-azure-networking.2-deploy-to-azure
+title: <span data-ttu-id="fd8b0-101">Distribuera din webbplats till Azure</span><span class="sxs-lookup"><span data-stu-id="fd8b0-101">Deploy your site to Azure</span></span>
+metadata:
+  title: <span data-ttu-id="fd8b0-102">Distribuera din webbplats till Azure</span><span class="sxs-lookup"><span data-stu-id="fd8b0-102">Deploy your site to Azure</span></span>
+  description: <span data-ttu-id="fd8b0-103">Se hur ett grundläggande program med tre nivåer kan se ut på Azure.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-103">See what a basic three-tier application might look like on Azure.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 3227e19468766eb256fcffb540b78e59dfc554ae
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359487"
+durationInMinutes: 12
+content: >
+  [!include[](includes/2-deploy-to-azure.md)]
+quiz:
+  title: <span data-ttu-id="fd8b0-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="fd8b0-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="fd8b0-105">Vad är en Azure-_region_?</span><span class="sxs-lookup"><span data-stu-id="fd8b0-105">What is an Azure _region_?</span></span>
+    choices:
+    - content: <span data-ttu-id="fd8b0-106">Ett Azure-datacenter inom en viss geografisk plats.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-106">An Azure data center within a specific geographic location.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="fd8b0-107">Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-107">Azure regions help you deliver your apps and services closest to your users.</span></span> <span data-ttu-id="fd8b0-108">USA, västra och Europa, norra är exempel.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-108">West US and North Europe are examples.</span></span>
+    - content: <span data-ttu-id="fd8b0-109">Ett sätt att dela upp nätverk i mindre nätverk.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-109">A way of breaking networks into smaller networks.</span></span>
+      isCorrect: false
+      incorrectExplanation: '<span data-ttu-id="fd8b0-110">Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-110">Azure regions help you deliver your apps and services closest to your users.</span></span> <span data-ttu-id="fd8b0-111">Exempel: USA, västra och Europa, norra.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-111">West US and North Europe are examples.</span></span>'
+    - content: <span data-ttu-id="fd8b0-112">Brandväggsregler som definierar trafikflödet in och ut ur Azure.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-112">Firewall rules which define the flow of traffic in and out of Azure.</span></span>
+      isCorrect: false
+      incorrectExplanation: '<span data-ttu-id="fd8b0-113">Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-113">Azure regions help you deliver your apps and services closest to your users.</span></span> <span data-ttu-id="fd8b0-114">Exempel: USA, västra och Europa, norra.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-114">West US and North Europe are examples.</span></span>'
+  - content: <span data-ttu-id="fd8b0-115">Vilket av följande är sant om virtuella nätverk?</span><span class="sxs-lookup"><span data-stu-id="fd8b0-115">Which of the following is true about virtual networks?</span></span>
+    choices:
+    - content: <span data-ttu-id="fd8b0-116">Du konfigurerar virtuella nätverk via programvara.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-116">You configure virtual networks through software.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="fd8b0-117">Programvara gör att du kan hantera ett virtuellt nätverk precis som ditt eget nätverk.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-117">Software enables you to treat a virtual network just like your own network.</span></span> <span data-ttu-id="fd8b0-118">Azure underhåller den fysiska maskinvaran åt dig.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-118">Azure maintains the physical hardware for you.</span></span>
+    - content: <span data-ttu-id="fd8b0-119">Ett virtuellt nätverk accepterar nätverkstrafik på alla portar.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-119">A virtual network accepts network traffic on all ports.</span></span> <span data-ttu-id="fd8b0-120">Du konfigurerar brandväggen via virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-120">You configure the firewall through virtual machines.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="fd8b0-121">Med programvara kan du hantera ett virtuellt nätverk precis som ditt eget nätverk.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-121">Software enables you to treat a virtual network just like your own network.</span></span> <span data-ttu-id="fd8b0-122">Azure underhåller den fysiska maskinvaran åt dig.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-122">Azure maintains the physical hardware for you.</span></span>
+    - content: <span data-ttu-id="fd8b0-123">Du kan alltid nå virtuella nätverk från Internet.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-123">Virtual networks are always reachable from the internet.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="fd8b0-124">Med programvara kan du hantera ett virtuellt nätverk precis som ditt eget nätverk.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-124">Software enables you to treat a virtual network just like your own network.</span></span> <span data-ttu-id="fd8b0-125">Azure underhåller den fysiska maskinvaran åt dig.</span><span class="sxs-lookup"><span data-stu-id="fd8b0-125">Azure maintains the physical hardware for you.</span></span>
