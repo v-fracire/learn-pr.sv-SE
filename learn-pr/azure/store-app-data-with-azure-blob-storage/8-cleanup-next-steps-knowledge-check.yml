@@ -1,0 +1,62 @@
+### YamlMime:ModuleUnit
+uid: learn.store-app-data-with-azure-blob-storage.8-cleanup-next-steps-knowledge-check
+title: Rensning och kunskapskontroll
+metadata:
+  title: Rensning och kunskapskontroll
+  description: Rensning och kunskapskontroll
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 0eb6be9bb8639ff6bf16b0f313c0202e1d274f63
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46358212"
+durationInMinutes: 2
+content: >
+  [!include[](includes/8-cleanup-next-steps-knowledge-check.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande alternativ beskriver en bra strategi för att skapa lagringskonton och blobcontainers för ditt program?
+    choices:
+    - content: Skapa Azure Storage-konton och containrar direkt, innan du distribuerar ditt program.
+      isCorrect: false
+      incorrectExplanation: Att skapa ett Azure Storage-konto är en administrativ aktivitet och kan göras innan du distribuerar ett program. Det går också snabbt och lätt att skapa en container, det är alltså en bra aktivitet att göra i ditt program.
+    - content: Skapa Azure Storage-konton när programmet behöver dem, men distributionsprocessen ska skapa alla containrar som programmet behöver direkt.
+      isCorrect: false
+      incorrectExplanation: Att skapa ett Azure Storage-konto är en administrativ aktivitet och kan göras innan du distribuerar ett program. Det går också snabbt och lätt att skapa en container, det är alltså en bra aktivitet att göra i ditt program.
+    - content: Skapa Azure Storage-konton direkt, innan du distribuerar programmet och låt programmet skapa containrarna när de behövs.
+      isCorrect: true
+      correctExplanation: Att skapa ett Azure Storage-konto är en administrativ aktivitet och kan göras innan du distribuerar ett program. Det går också snabbt och lätt att skapa en container, det är alltså en bra aktivitet att göra i ditt program.
+  - content: Vilken typ av konfiguration används normalt till att initiera klientbiblioteket för bloblagring i ett program?
+    choices:
+    - content: Ett användarnamn och lösenord för Azure.
+      isCorrect: false
+      incorrectExplanation: Anslutningssträngen för ett lagringskonto innehåller all information som behövs för att ansluta till bloblagringen, i synnerhet kontonamn och kontonyckel.
+    - content: Anslutningssträngen för Azure Storage.
+      isCorrect: true
+      correctExplanation: Anslutningssträngen för ett lagringskonto innehåller all information som behövs för att ansluta till bloblagringen, i synnerhet kontonamn och kontonyckel.
+    - content: Ett globalt, unikt ID (GUID) som representerar programmet.
+      isCorrect: false
+      incorrectExplanation: Anslutningssträngen för ett lagringskonto innehåller all information som behövs för att ansluta till bloblagringen, i synnerhet kontonamn och kontonyckel.
+    - content: ID:n för Azure Storage-kontots datacenter och platser.
+      isCorrect: false
+      incorrectExplanation: Anslutningssträngen för ett lagringskonto innehåller all information som behövs för att ansluta till bloblagringen, i synnerhet kontonamn och kontonyckel.
+  - content: Vad händer när du anropar `GetBlockBlobReference` med namnet på en blob?
+    choices:
+    - content: En ny blockblob skapas i lagringen.
+      isCorrect: false
+      incorrectExplanation: När du hämtar en blobreferens görs inga anrop till Azure Storage, utan istället skapas ett objekt lokalt som sedan kan arbeta med en lagrad blob.
+    - content: Ett `CloudBlockBlob`-objekt skapas lokalt. Inga nätverksanrop görs.
+      isCorrect: true
+      correctExplanation: När du hämtar en blobreferens görs inga anrop till Azure Storage, utan istället skapas ett objekt lokalt som sedan kan arbeta med en lagrad blob.
+    - content: Ett undantag inträffar om inte bloben finns i lagringen.
+      isCorrect: false
+      incorrectExplanation: När du hämtar en blobreferens görs inga anrop till Azure Storage, utan istället skapas ett objekt lokalt som sedan kan arbeta med en lagrad blob.
+    - content: Innehållet i den angivna bloben laddas ned.
+      isCorrect: false
+      incorrectExplanation: När du hämtar en blobreferens görs inga anrop till Azure Storage, utan istället skapas ett objekt lokalt som sedan kan arbeta med en lagrad blob.

@@ -1,0 +1,43 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-data-in-azure.5-knowledge-check
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: e0cdcd2cc0ea3995d0c3d6eb90d920b61e498ab2
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360871"
+title: Kunskapskontroll
+durationInMinutes: 5
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Anta att du arbetar på ett nystartat företag med begränsad budget. Varför kan du föredra Azure-datalagring framför en lokal lösning?
+    choices:
+    - content: För att säkerställa att du kör maskinvara av ett visst märke som gör att du kan samarbeta med den maskinvaruleverantören i marknadsföringssyfte.
+      isCorrect: false
+      incorrectExplanation: Med Azure finns det inga stora, direkta kapitalutgifter (CapEx). Du betalar månatligt för endast de tjänster du använder (OpEx).
+    - content: Tack vare faktureringsmodellen med betala per användning i Azure behöver du inte köpa dyr maskinvara.
+      isCorrect: true
+      correctExplanation: Med Azure finns det inga stora, direkta kapitalutgifter (CapEx). Du betalar månatligt för endast de tjänster du använder (OpEx).
+    - content: För att få fullständig kontroll över platsen för ditt datalager.
+      isCorrect: false
+      incorrectExplanation: Med Azure finns det inga stora, direkta kapitalutgifter (CapEx). Du betalar månatligt för endast de tjänster du använder (OpEx).
+  - content: Vilken av följande situationer skulle ge de största fördelarna med att flytta ett lokalt datalager till Azure?
+    choices:
+    - content: Oförutsägbar efterfrågan på lagring som ökar och minskar flera gånger under året.
+      isCorrect: true
+      correctExplanation: Azure-datalagring är flexibelt. Du kan snabbt och enkelt lägga till och ta bort kapacitet. Du kan öka prestanda för att hantera toppar i belastningen eller minska prestanda och därmed kostnaderna. I samtliga fall betalar du bara för det du använder.
+    - content: Långsiktig och stadig ökning av lagringskrav.
+      isCorrect: false
+      incorrectExplanation: Azure Data Storage är flexibelt. Du kan snabbt och enkelt lägga till och ta bort kapacitet. Du kan öka prestanda för att hantera toppar i belastningen eller minska prestanda och därmed kostnaderna. I samtliga fall betalar du bara för det du använder.
+    - content: Konsekvent och oföränderligt lagringskrav.
+      isCorrect: false
+      incorrectExplanation: Azure Data Storage är flexibelt. Du kan snabbt och enkelt lägga till och ta bort kapacitet. Du kan öka prestanda för att hantera toppar i belastningen eller minska prestanda och därmed kostnaderna. I samtliga fall betalar du bara för det du använder.

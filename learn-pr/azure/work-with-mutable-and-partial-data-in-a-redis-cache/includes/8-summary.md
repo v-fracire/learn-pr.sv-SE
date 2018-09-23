@@ -1,0 +1,4 @@
+Vi såg i modulen hur Azure Redis Cache kan hjälpa dig att förbättra prestanda för vårt program på många sätt. Vi såg först hur transaktioner kan användas för att säkerställa att flera åtgärder anropas tillsammans utan att störas. Vi såg sedan hur man använder förfallotider för att rensa data som inte används längre. Men du kan fortfarande ibland uppleva minnesproblem när du använder en cache och vi talade om hur borttagningsprinciper kan användas för att göra plats för nya data. Slutligen tittade vi på cache-aside-mönstret för att kontrollera att dina vanligaste data lagras i ett cacheminne för att påskynda den tid som krävs för att hämta dem.
+
+<!-- Cleanup sandbox -->
+[!include[](../../../includes/azure-sandbox-cleanup.md)]

@@ -1,0 +1,51 @@
+### YamlMime:ModuleUnit
+uid: learn.store-app-data-with-azure-blob-storage.3-design-organization-strategy
+title: Utforma en strategi för lagringsorganisation
+metadata:
+  title: Utforma en strategi för lagringsorganisation
+  description: Utforma en strategi för lagringsorganisation
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 8da3a8080f571b71fee0dab03a0b1cf2ac26f443
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355044"
+durationInMinutes: 7
+content: >
+  [!include[](includes/3-design-organization-strategy.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilken typ av blob passar bäst för de flesta lagringsscenarierna?
+    choices:
+    - content: Byteblobar
+      isCorrect: false
+      incorrectExplanation: Blockblobar kan laddas upp och laddas ned snabbt tack vare den blockbaserade strukturen.
+    - content: Sidblobbar
+      isCorrect: false
+      incorrectExplanation: Blockblobar kan laddas upp och laddas ned snabbt tack vare den blockbaserade strukturen.
+    - content: Blockblobar
+      isCorrect: true
+      correctExplanation: Blockblobar kan laddas upp och laddas ned snabbt tack vare den blockbaserade strukturen.
+    - content: Tilläggsblobar
+      isCorrect: false
+      incorrectExplanation: Blockblobar kan laddas upp och laddas ned snabbt tack vare den blockbaserade strukturen.
+  - content: Blobar används för *ostrukturerad* datalagring. Vad innebär *ostrukturerad*?
+    choices:
+    - content: Blobar kan inte organiseras eller namnges, de är bara bytesamlingar.
+      isCorrect: false
+      incorrectExplanation: Blobar tillämpar ingen struktur på dina data, vilket betyder att ditt program kan lagra vilken typ av data som helst i en blob.
+    - content: Det finns inga begränsningar för vilka typer av data du kan lagra i blobar.
+      isCorrect: true
+      correctExplanation: Blobar tillämpar ingen struktur på dina data, vilket betyder att ditt program kan lagra vilken typ av data som helst i en blob.
+    - content: Blobar kan inte innehålla strukturerade data som JSON eller XML.
+      isCorrect: false
+      incorrectExplanation: Blobar tillämpar ingen struktur på dina data, vilket betyder att ditt program kan lagra vilken typ av data som helst i en blob.
+    - content: Data som laddas ned från blobar ordnas slumpmässigt och kräver ett klientbibliotek för att parsa dem.
+      isCorrect: false
+      incorrectExplanation: Blobar tillämpar ingen struktur på dina data, vilket betyder att ditt program kan lagra vilken typ av data som helst i en blob.

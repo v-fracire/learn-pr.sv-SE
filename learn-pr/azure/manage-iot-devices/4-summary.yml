@@ -1,0 +1,49 @@
+### YamlMime:ModuleUnit
+uid: learn.manage-iot-devices.4-summary
+metadata:
+  title: Sammanfattning
+  description: Sammanfattning
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 266c371394a46c9fc98e164e2a8700ae830e2ea7
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46358887"
+title: Sammanfattning
+durationInMinutes: 7
+content: >
+  [!include[](includes/4-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter till molnet för lagring eller bearbetning.
+    choices:
+    - content: Sant
+      isCorrect: true
+    - content: Falskt
+      isCorrect: false
+  - content: 'Du kan använda nivån F1: Kostnadsfri för att konfigurera IoT Hub, men det rekommenderas endast för testning.'
+    choices:
+    - content: Sant
+      isCorrect: true
+    - content: Falskt
+      isCorrect: false
+  - content: Vilken av följande principer för delad åtkomst skapas inte som standard?
+    choices:
+    - content: iothubowner
+      isCorrect: false
+      incorrectExplanation: Den här principen skapas som standard.
+    - content: service
+      isCorrect: false
+      incorrectExplanation: Den här principen skapas som standard.
+    - content: device
+      isCorrect: false
+      incorrectExplanation: Den här principen skapas som standard.
+    - content: registryWrite
+      isCorrect: true
+      correctExplanation: Det finns ingen princip som heter registryWrite.
