@@ -1,0 +1,44 @@
+### YamlMime:LearningPath
+uid: learn.cloud-foundations
+metadata:
+  title: Grunderna för Azure
+  description: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
+  brand: azure
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 1582682c81c83811a475b8e9849f7606c36182b5
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357135"
+title: Grunderna för Azure
+summary: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
+prerequisites: Ingen
+iconUrl: /learn/achievements/azure-fundamentals.svg
+levels:
+- beginner
+roles:
+- developer
+- solution-architect
+- administrator
+- business-analyst
+- business-user
+products:
+- azure
+- azure-portal
+- azure-resource-manager
+- azure-storage
+- azure-virtual-machines
+modules:
+- learn.welcome-to-azure
+- learn.principles-cloud-computing
+- learn.azure-services-features
+- learn.intro-to-compute
+- learn.intro-to-data-in-azure
+- learn.intro-to-azure-networking
+- learn.introduction-to-security
+achievement: learn.cloud-foundations.trophy

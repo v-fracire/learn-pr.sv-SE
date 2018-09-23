@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-compute.4-knowledge-check
+title: <span data-ttu-id="21a9e-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="21a9e-101">Knowledge check</span></span>
+metadata:
+  title: <span data-ttu-id="21a9e-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="21a9e-102">Knowledge check</span></span>
+  description: <span data-ttu-id="21a9e-103">Kunskapskontroll för modulen ”Introduktion till Azure-beräkning”.</span><span class="sxs-lookup"><span data-stu-id="21a9e-103">Knowledge check for the 'Introduction to Azure compute' module.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 8a56219bb221c4a1969598fb0a8e8836ae37d168
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46357476"
+durationInMinutes: 2
+content: >
+  [!include[](includes/4-knowledge-check.md)]
+quiz:
+  title: <span data-ttu-id="21a9e-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="21a9e-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="21a9e-105">Astronomiteamet har ett antal program för bildbearbetning som kräver mycket beräkningskraft och minne för att köras.</span><span class="sxs-lookup"><span data-stu-id="21a9e-105">Your astronomy team has a number of image-processing applications that require lots of compute power and memory to run.</span></span> <span data-ttu-id="21a9e-106">Du vill snabbt migrera dessa program till Azure.</span><span class="sxs-lookup"><span data-stu-id="21a9e-106">You want to quickly migrate these applications to Azure.</span></span> <span data-ttu-id="21a9e-107">Vilket av följande alternativ ska du välja?</span><span class="sxs-lookup"><span data-stu-id="21a9e-107">Which of the following options should you choose?</span></span>
+    choices:
+    - content: <span data-ttu-id="21a9e-108">Azure Kubernetes Service (AKS)</span><span class="sxs-lookup"><span data-stu-id="21a9e-108">Azure Kubernetes Service (AKS)</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="21a9e-109">App Service är fullständigt hanterad och skalas automatiskt.</span><span class="sxs-lookup"><span data-stu-id="21a9e-109">App Service is fully managed and scales automatically.</span></span> <span data-ttu-id="21a9e-110">Detta gör att ditt team kan fokusera på det de är bra på, att skriva kod.</span><span class="sxs-lookup"><span data-stu-id="21a9e-110">This allows your team to focus on what their good at, writing code.</span></span>
+    - content: <span data-ttu-id="21a9e-111">Service Fabric</span><span class="sxs-lookup"><span data-stu-id="21a9e-111">Service Fabric</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="21a9e-112">App Service är fullständigt hanterad och skalas automatiskt.</span><span class="sxs-lookup"><span data-stu-id="21a9e-112">App Service is fully managed and scales automatically.</span></span> <span data-ttu-id="21a9e-113">Detta gör att ditt team kan fokusera på det de är bra på, att skriva kod.</span><span class="sxs-lookup"><span data-stu-id="21a9e-113">This allows your team to focus on what their good at, writing code.</span></span>
+    - content: <span data-ttu-id="21a9e-114">App Service</span><span class="sxs-lookup"><span data-stu-id="21a9e-114">App Service</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="21a9e-115">App Service är fullständigt hanterad och skalas automatiskt.</span><span class="sxs-lookup"><span data-stu-id="21a9e-115">App Service is fully managed and scales automatically.</span></span> <span data-ttu-id="21a9e-116">Detta gör att ditt team kan fokusera på det de är bra på, att skriva kod.</span><span class="sxs-lookup"><span data-stu-id="21a9e-116">This allows your team to focus on what their good at, writing code.</span></span>
+  - content: <span data-ttu-id="21a9e-117">Tänkt dig att ditt astronomiteam har kommit fram till vissa astronomiska beräkningar som tar timmar och till och med dagar att slutföra.</span><span class="sxs-lookup"><span data-stu-id="21a9e-117">Suppose your astronomy team has come up against astronomical calculations that are taking hours and even days to complete.</span></span> <span data-ttu-id="21a9e-118">Parallellkörning verkar inte vara till stor hjälp.</span><span class="sxs-lookup"><span data-stu-id="21a9e-118">Parallel execution does not seem to help much.</span></span> <span data-ttu-id="21a9e-119">Vilket av följande alternativ ska du välja?</span><span class="sxs-lookup"><span data-stu-id="21a9e-119">Which of the following options should you choose?</span></span>
+    choices:
+    - content: <span data-ttu-id="21a9e-120">Cloud Services</span><span class="sxs-lookup"><span data-stu-id="21a9e-120">Cloud Services</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="21a9e-121">I Azure Batch finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="21a9e-121">Azure Batch provides cloud-scale job scheduling and compute management with the ability to scale to tens, hundreds, or thousands of VMs.</span></span>
+    - content: <span data-ttu-id="21a9e-122">Azure Batch</span><span class="sxs-lookup"><span data-stu-id="21a9e-122">Azure Batch</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="21a9e-123">I Azure Batch finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="21a9e-123">Azure Batch provides cloud-scale job scheduling and compute management with the ability to scale to tens, hundreds, or thousands of VMs.</span></span>
+    - content: <span data-ttu-id="21a9e-124">Container Instances</span><span class="sxs-lookup"><span data-stu-id="21a9e-124">Container Instances</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="21a9e-125">I Azure Batch finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="21a9e-125">Azure Batch provides cloud-scale job scheduling and compute management with the ability to scale to tens, hundreds, or thousands of VMs.</span></span>

@@ -1,0 +1,13 @@
+<span data-ttu-id="21f1c-101">Bra jobbat!</span><span class="sxs-lookup"><span data-stu-id="21f1c-101">Nice work!</span></span> <span data-ttu-id="21f1c-102">Du har skapat din första virtuella dator och har nu en uppfattning om hur Azure fungerar och hur enkelt det är att ta fram ett system, konfigurera lite programvara och plocka ned allt när systemet inte längre behövs.</span><span class="sxs-lookup"><span data-stu-id="21f1c-102">With your first virtual machine under your belt, you now have a sense of how Azure works and how easy it is to bring up a system, configure some software, and tear everything down when it's no longer needed.</span></span>
+
+<span data-ttu-id="21f1c-103">Azure har tjänster som kan hjälpa dig att omvandla hur din organisation levererar nya funktioner till användarna på sätt som helt enkelt inte är möjliga utan molnets kraft.</span><span class="sxs-lookup"><span data-stu-id="21f1c-103">Azure provides services that can help transform the way your organization delivers new features to your users in ways you simply can't do without the power of the cloud.</span></span>
+
+![En studentmössa som representerar en lyckad början på din utbildningsresa](../media/6-heading.png)
+
+[!include[](../../../includes/azure-sandbox-cleanup.md)]
+
+## <a name="continue-your-azure-journey"></a><span data-ttu-id="21f1c-105">Fortsätt din Azure-resa</span><span class="sxs-lookup"><span data-stu-id="21f1c-105">Continue your Azure journey</span></span>
+
+<span data-ttu-id="21f1c-106">Microsoft Learn ger dig utbildningsvägar som baseras på din roll och dina intressen.</span><span class="sxs-lookup"><span data-stu-id="21f1c-106">Microsoft Learn provides learning paths based on your role and interests.</span></span>
+
+<span data-ttu-id="21f1c-107">Ett bra nästa steg är att ta en titt på utbildningsvägen [Azure grunder](/learn/paths/azure-fundamentals/).</span><span class="sxs-lookup"><span data-stu-id="21f1c-107">A good next step is to check out the [Azure fundamentals](/learn/paths/azure-fundamentals/) learning path.</span></span> <span data-ttu-id="21f1c-108">Du lär dig grundläggande begrepp inom molntjänster och hur Azure-tjänster som beräkning, lagring, nätverk och säkerhet kan hjälpa dig att utnyttja kraften hos molnet och skapa nästa banbrytande idé.</span><span class="sxs-lookup"><span data-stu-id="21f1c-108">You'll learn the fundamental concepts behind cloud computing and how Azure services such as compute, storage, networking, and security can help you unlock the power of the cloud and create that next great breakthrough idea.</span></span>

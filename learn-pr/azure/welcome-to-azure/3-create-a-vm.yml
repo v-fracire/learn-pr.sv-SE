@@ -1,0 +1,31 @@
+### YamlMime:ModuleUnit
+uid: learn.welcome-to-azure.3-create-a-vm
+title: <span data-ttu-id="9105a-101">Skapa en virtuell dator</span><span class="sxs-lookup"><span data-stu-id="9105a-101">Create a virtual machine</span></span>
+metadata:
+  title: <span data-ttu-id="9105a-102">Skapa en virtuell dator</span><span class="sxs-lookup"><span data-stu-id="9105a-102">Create a virtual machine</span></span>
+  description: <span data-ttu-id="9105a-103">Oavsett vad du är intresserad av kan du komma igång med molnet genom att skapa din första virtuella dator.</span><span class="sxs-lookup"><span data-stu-id="9105a-103">No matter your area of interest, get started with the cloud by creating your first virtual machine.</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  zone_pivot_groups: platform-cloud
+  ms.openlocfilehash: 9d69aad8a411847d6b534b252019b6a986aa229a
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355540"
+interactive: bash
+azureSandbox: true
+durationInMinutes: 7
+content: >
+  [!include[](includes/3-create-a-vm.md)]
+tasks:
+- action: exists
+  environment: azure
+  azure:
+    resource:
+      type: Microsoft.Compute/virtualMachines
+      name: myVM
+  hint: <span data-ttu-id="9105a-104">Kör kommandot `az vm create` som det visas för att skapa din virtuella dator.</span><span class="sxs-lookup"><span data-stu-id="9105a-104">Run the `az vm create` command as shown to create your virtual machine.</span></span>

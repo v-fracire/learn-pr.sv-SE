@@ -1,0 +1,17 @@
+<span data-ttu-id="73bb6-101">I föregående övningar så skapade vi en katalog, skapade en användare och en grupp och skapade sedan en regel för villkorlig åtkomst som kräver multifaktorautentisering för åtkomst till Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="73bb6-101">In the previous exercises, we created a directory, created a user and group, and then created a conditional access rule that requires Azure Multi-Factor Authentication when accessing the Azure portal.</span></span> <span data-ttu-id="73bb6-102">Nu ska vi testa om vi kan komma åt våra resurser.</span><span class="sxs-lookup"><span data-stu-id="73bb6-102">Now, we'll test if we can access our resources.</span></span>
+
+## <a name="test-access-to-resources"></a><span data-ttu-id="73bb6-103">Testa åtkomsten till resurser</span><span class="sxs-lookup"><span data-stu-id="73bb6-103">Test access to resources</span></span>
+
+<span data-ttu-id="73bb6-104">Eftersom du vet att användarna kommer att logga in och komma åt alla sina SaaS-program via MyApps-portalen så väljer vi att testa just detta.</span><span class="sxs-lookup"><span data-stu-id="73bb6-104">You know that your users will sign in and access all their SaaS applications using the MyApps portal, so this is what we'll test.</span></span>
+
+1. <span data-ttu-id="73bb6-105">Öppna ett InPrivate-webbläsarfönster.</span><span class="sxs-lookup"><span data-stu-id="73bb6-105">Open an InPrivate browser window.</span></span>
+
+1. <span data-ttu-id="73bb6-106">Gå till https://myapps.microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="73bb6-106">Browse to https://myapps.microsoft.com.</span></span>
+
+1. <span data-ttu-id="73bb6-107">Logga in som användaren som vi skapade i del 3.</span><span class="sxs-lookup"><span data-stu-id="73bb6-107">Sign in as the user that we created in Unit 3.</span></span>
+
+   * <span data-ttu-id="73bb6-108">Observera att du loggas in på portalen utan att utföra multifaktorautentisering.</span><span class="sxs-lookup"><span data-stu-id="73bb6-108">Notice that you're signed in to the portal without requiring Multi-Factor Authentication.</span></span>
+
+1. <span data-ttu-id="73bb6-109">Gå till https://portal.azure.com i samma webbläsarfönster.</span><span class="sxs-lookup"><span data-stu-id="73bb6-109">In the same browser window, browse to https://portal.azure.com.</span></span>
+
+   * <span data-ttu-id="73bb6-110">Nu uppmanas du att ange mer information för att skydda ditt konto.</span><span class="sxs-lookup"><span data-stu-id="73bb6-110">Notice that you're now required to provide more information to keep your account secure.</span></span> <span data-ttu-id="73bb6-111">Det här avbrottet är i själva verket Azure Multi-Factor Authentication som aktiveras via principen för villkorlig åtkomst som vi skapade.</span><span class="sxs-lookup"><span data-stu-id="73bb6-111">This interrupt is Azure Multi-Factor Authentication kicking in because of the conditional access policy we created.</span></span> <span data-ttu-id="73bb6-112">Du kan avbryta här och stänga webbläsarfönstret.</span><span class="sxs-lookup"><span data-stu-id="73bb6-112">You can stop at this point and close the browser window.</span></span>

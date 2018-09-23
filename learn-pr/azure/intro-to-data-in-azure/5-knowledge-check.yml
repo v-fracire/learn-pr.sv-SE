@@ -1,0 +1,43 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-data-in-azure.5-knowledge-check
+metadata:
+  title: <span data-ttu-id="cb575-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="cb575-101">Knowledge check</span></span>
+  description: <span data-ttu-id="cb575-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="cb575-102">Knowledge check</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: e0cdcd2cc0ea3995d0c3d6eb90d920b61e498ab2
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360871"
+title: <span data-ttu-id="cb575-103">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="cb575-103">Knowledge check</span></span>
+durationInMinutes: 5
+quiz:
+  title: <span data-ttu-id="cb575-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="cb575-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="cb575-105">Anta att du arbetar på ett nystartat företag med begränsad budget.</span><span class="sxs-lookup"><span data-stu-id="cb575-105">Suppose you work at a startup with limited funding.</span></span> <span data-ttu-id="cb575-106">Varför kan du föredra Azure-datalagring framför en lokal lösning?</span><span class="sxs-lookup"><span data-stu-id="cb575-106">Why might you prefer Azure data storage over an on-premises solution?</span></span>
+    choices:
+    - content: <span data-ttu-id="cb575-107">För att säkerställa att du kör maskinvara av ett visst märke som gör att du kan samarbeta med den maskinvaruleverantören i marknadsföringssyfte.</span><span class="sxs-lookup"><span data-stu-id="cb575-107">To ensure you run on a specific brand of hardware which will let you to form a marketing partnership with that hardware vendor.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="cb575-108">Med Azure finns det inga stora, direkta kapitalutgifter (CapEx).</span><span class="sxs-lookup"><span data-stu-id="cb575-108">There are no large, up-front capital expenditures (CapEx) with Azure.</span></span> <span data-ttu-id="cb575-109">Du betalar månatligt för endast de tjänster du använder (OpEx).</span><span class="sxs-lookup"><span data-stu-id="cb575-109">You pay monthly for only the services you use (OpEx).</span></span>
+    - content: <span data-ttu-id="cb575-110">Tack vare faktureringsmodellen med betala per användning i Azure behöver du inte köpa dyr maskinvara.</span><span class="sxs-lookup"><span data-stu-id="cb575-110">The Azure pay-as-you-go billing model lets you avoid buying expensive hardware.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="cb575-111">Med Azure finns det inga stora, direkta kapitalutgifter (CapEx).</span><span class="sxs-lookup"><span data-stu-id="cb575-111">There are no large, up-front capital expenditures (CapEx) with Azure.</span></span> <span data-ttu-id="cb575-112">Du betalar månatligt för endast de tjänster du använder (OpEx).</span><span class="sxs-lookup"><span data-stu-id="cb575-112">You pay monthly for only the services you use (OpEx).</span></span>
+    - content: <span data-ttu-id="cb575-113">För att få fullständig kontroll över platsen för ditt datalager.</span><span class="sxs-lookup"><span data-stu-id="cb575-113">To get exact control over the location of your data store.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="cb575-114">Med Azure finns det inga stora, direkta kapitalutgifter (CapEx).</span><span class="sxs-lookup"><span data-stu-id="cb575-114">There are no large, up-front capital expenditures (CapEx) with Azure.</span></span> <span data-ttu-id="cb575-115">Du betalar månatligt för endast de tjänster du använder (OpEx).</span><span class="sxs-lookup"><span data-stu-id="cb575-115">You pay monthly for only the services you use (OpEx).</span></span>
+  - content: <span data-ttu-id="cb575-116">Vilken av följande situationer skulle ge de största fördelarna med att flytta ett lokalt datalager till Azure?</span><span class="sxs-lookup"><span data-stu-id="cb575-116">Which of the following situations would yield the most benefits from relocating an on-premise data store to Azure?</span></span>
+    choices:
+    - content: <span data-ttu-id="cb575-117">Oförutsägbar efterfrågan på lagring som ökar och minskar flera gånger under året.</span><span class="sxs-lookup"><span data-stu-id="cb575-117">Unpredictable storage demand that increases and decreases multiple times throughout the year.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="cb575-118">Azure-datalagring är flexibelt.</span><span class="sxs-lookup"><span data-stu-id="cb575-118">Azure data storage is flexible.</span></span> <span data-ttu-id="cb575-119">Du kan snabbt och enkelt lägga till och ta bort kapacitet.</span><span class="sxs-lookup"><span data-stu-id="cb575-119">You can quickly and easily add or remove capacity.</span></span> <span data-ttu-id="cb575-120">Du kan öka prestanda för att hantera toppar i belastningen eller minska prestanda och därmed kostnaderna.</span><span class="sxs-lookup"><span data-stu-id="cb575-120">You can increase performance to handle spikes in load or decrease performance to reduce costs.</span></span> <span data-ttu-id="cb575-121">I samtliga fall betalar du bara för det du använder.</span><span class="sxs-lookup"><span data-stu-id="cb575-121">In all cases, you pay for only what you use.</span></span>
+    - content: <span data-ttu-id="cb575-122">Långsiktig och stadig ökning av lagringskrav.</span><span class="sxs-lookup"><span data-stu-id="cb575-122">Long-term, steady growth in storage demand.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="cb575-123">Azure Data Storage är flexibelt.</span><span class="sxs-lookup"><span data-stu-id="cb575-123">Azure data storage is flexible.</span></span> <span data-ttu-id="cb575-124">Du kan snabbt och enkelt lägga till och ta bort kapacitet.</span><span class="sxs-lookup"><span data-stu-id="cb575-124">You can quickly and easily add or remove capacity.</span></span> <span data-ttu-id="cb575-125">Du kan öka prestanda för att hantera toppar i belastningen eller minska prestanda och därmed kostnaderna.</span><span class="sxs-lookup"><span data-stu-id="cb575-125">You can increase performance to handle spikes in load or decrease performance to reduce costs.</span></span> <span data-ttu-id="cb575-126">I samtliga fall betalar du bara för det du använder.</span><span class="sxs-lookup"><span data-stu-id="cb575-126">In all cases, you pay for only what you use.</span></span>
+    - content: <span data-ttu-id="cb575-127">Konsekvent och oföränderligt lagringskrav.</span><span class="sxs-lookup"><span data-stu-id="cb575-127">Consistent, unchanging storage demand.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="cb575-128">Azure Data Storage är flexibelt.</span><span class="sxs-lookup"><span data-stu-id="cb575-128">Azure data storage is flexible.</span></span> <span data-ttu-id="cb575-129">Du kan snabbt och enkelt lägga till och ta bort kapacitet.</span><span class="sxs-lookup"><span data-stu-id="cb575-129">You can quickly and easily add or remove capacity.</span></span> <span data-ttu-id="cb575-130">Du kan öka prestanda för att hantera toppar i belastningen eller minska prestanda och därmed kostnaderna.</span><span class="sxs-lookup"><span data-stu-id="cb575-130">You can increase performance to handle spikes in load or decrease performance to reduce costs.</span></span> <span data-ttu-id="cb575-131">I samtliga fall betalar du bara för det du använder.</span><span class="sxs-lookup"><span data-stu-id="cb575-131">In all cases, you pay for only what you use.</span></span>
