@@ -1,0 +1,62 @@
+### YamlMime:ModuleUnit
+uid: learn.top-5-security-items-to-consider.3-inputs-and-outputs
+title: Indata och utdata
+metadata:
+  title: Indata och utdata
+  description: Indata och utdata
+  author: lnyswonger
+  ms.date: 09/24/2018
+  ms.author: luken
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 6549bf1ac4fb034b3d0e8a4720364725c36d1f12
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356671"
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-inputs-and-outputs.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilka av följande datakällor behöver valideras?
+    choices:
+    - content: Data från ett tredjeparts-API
+      isCorrect: false
+      incorrectExplanation: Det här är bara en av flera olika källor som behöver verifieras.
+    - content: Data från URL-parametern
+      isCorrect: false
+      incorrectExplanation: Det här är bara en av flera olika källor som behöver verifieras
+    - content: Data som samlas in från användaren via ett inmatningsfält
+      isCorrect: false
+      incorrectExplanation: Det här är bara en av flera olika källor som behöver verifieras.
+    - content: Alla alternativ ovan
+      isCorrect: true
+      correctExplanation: Alla dessa datakällor måste verifieras. Lita aldrig på data som kan ha ändrats.
+  - content: 'Parametriserade frågor (lagrade procedurer i SQL) är en säker metod för att kommunicera med databasen eftersom:'
+    choices:
+    - content: De är mer organiserad än infogade databaskommandon och därför mindre förvirrande för användaren.
+      isCorrect: false
+      incorrectExplanation: Organisation av koden är inte orsaken till att parameteriserade frågor är säkrare än infogad SQL.
+    - content: Det finns en tydlig beskrivning av skriptet i den lagrade proceduren, vilket ger bättre insyn.
+      isCorrect: false
+      incorrectExplanation: En tydlig beskrivning av skriptet är inte orsaken till att parameteriserade frågor är säkrare än infogad SQL.
+    - content: Parametriserade frågor ersätter variabler innan frågor körs, vilket förhindrar att koden skickas som en variabel.
+      isCorrect: true
+  - content: Vilka av följande data behöver kodas för utdata?
+    choices:
+    - content: Data som sparas i databasen
+      isCorrect: false
+      incorrectExplanation: Även om data som sparas till databasen måste verifieras för att säkerställa att de är bra så behöver vi inte koda de för utdata.
+    - content: Data att matas ut till skärmen
+      isCorrect: true
+      correctExplanation: Data som skickas ut till skärmen måste alltid vara utdatakodad så att de aldrig tolkas som kod.
+    - content: Data som skickas till ett tredjeparts-API
+      isCorrect: false
+      incorrectExplanation: Även om data som skickas till ett tredjeparts-API måste verifieras för att säkerställa att de är bra så behöver vi inte koda de för utdata.
+    - content: Data i URL-parametrarna
+      isCorrect: false
+      incorrectExplanation: Även om data från URL-parametrar måste verifieras innan den används i vårt program så behöver vi inte koda det för utdata.
+      correctExplanation: Parameterfält som används i parameterfrågor behandlas som data, inte kod, vilket skyddar mot inmatningssårbarheter. Mer information om hur du implementerar parameteriserade frågor finns i [OWASP frågeparameteriseringsfacit]( https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet).

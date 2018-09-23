@@ -1,0 +1,43 @@
+### YamlMime:ModuleUnit
+uid: learn.introduction-to-azure-virtual-machines.7-knowledge-check
+title: Kunskapskontroll
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: c3d74041711d08f746273cbeb87da9f272ca4453
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46360495"
+durationInMinutes: 1
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Anta att du vill köra en nätverksenhet på en virtuell dator. Vilket arbetsbelastningsalternativ väljer du?
+    choices:
+    - content: Generell användning
+      isCorrect: false
+      incorrectExplanation: Beräkningsoptimerade virtuella datorer är avsedda att ha ett högt förhållande mellan CPU-till-minne. De lämpar sig för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.
+    - content: Beräkningsoptimerad
+      isCorrect: true
+      correctExplanation: Beräkningsoptimerade virtuella datorer är avsedda att ha ett högt förhållande mellan CPU-till-minne. De lämpar sig för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.
+    - content: Minnesoptimerad
+      isCorrect: false
+      incorrectExplanation: Beräkningsoptimerade virtuella datorer är avsedda att ha ett högt förhållande mellan CPU-till-minne. De lämpar sig för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.
+    - content: Lagringsoptimerad
+      isCorrect: false
+      incorrectExplanation: Beräkningsoptimerade virtuella datorer är avsedda att ha ett högt förhållande mellan CPU-till-minne. De lämpar sig för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.
+  - content: 'Sant eller falskt: Resource Manager-mallar är JSON-filer?'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. Mallen kan sedan användas för att enkelt skapa flera versioner av din infrastruktur, till exempel mellanlagring och produktion.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. Du kan sedan använda mallen för att enkelt skapa flera versioner av din infrastruktur, t.ex. mellanlagring och produktion.

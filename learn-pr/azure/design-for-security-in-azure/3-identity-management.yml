@@ -1,0 +1,37 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.3-identity-management
+title: Identitetshantering
+metadata:
+  title: Identitetshantering
+  description: I den här enheten diskuterar vi hur du kan skydda dina identiteter
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 6a814459cd2e9ebd92f3b49c7552143a1d5bb2e6
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355879"
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-identity-management.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande är inte en fördel med enkel inloggning?
+    choices:
+    - content: Ökad komplexitet vid tilldelning av behörigheter till användare
+      isCorrect: true
+      correctExplanation: Enkel inloggning kan minska komplexiteten som behövs för att tilldela behörigheter till användare eftersom det finns färre identiteter att hantera.
+    - content: Färre ID:n och lösenord som användare behöver komma ihåg
+      isCorrect: false
+      incorrectExplanation: Enkel inloggning kan minska den komplexitet som krävs för att tilldela användare behörigheter eftersom det finns färre identiteter att hantera.
+    - content: Mindre administration krävs när användare byter roller eller lämnar en organisation
+      isCorrect: false
+      incorrectExplanation: Enkel inloggning kan minska den komplexitet som krävs för att tilldela användare behörigheter eftersom det finns färre identiteter att hantera.
+    - content: Säkerställer en konsekvent lösenordsprincip mellan program
+      isCorrect: false
+      incorrectExplanation: Enkel inloggning kan minska den komplexitet som krävs för att tilldela användare behörigheter eftersom det finns färre identiteter att hantera.

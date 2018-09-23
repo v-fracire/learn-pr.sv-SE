@@ -1,0 +1,39 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.2-defense-in-depth
+title: Skydd på djupet
+metadata:
+  title: Skydd på djupet
+  description: I den här enheten diskuterar vi hur skydd på djupet går till
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 23e9c8c1afa4a2872c1131864cc228ad386dc57b
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46355911"
+durationInMinutes: 10
+content: >
+  [!include[](includes/2-defense-in-depth.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'SANT eller FALSKT: *skydd på djupet* är en strategi som syftar till att skydda dig mot attacker som försöker få åtkomst till information?'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: '*Skydd på djupet* är ett system i lager som ger skydd mot obehörig åtkomst. Om ett lager penetreras, finns det ytterligare ett lager på plats för att förhindra ytterligare exponering.'
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: '*Skydd på djupet* är ett system som ger ett nivåindelat skydd mot obehörig åtkomst. Om en nivå penetreras, finns det ytterligare en nivå på plats som förhindrar ytterligare exponering.'
+  - content: 'Sant eller falskt: om jag går över till molnet blir min arkitektur helt skyddad och jag kan lämna över allt säkerhetsansvar till min molnleverantör?'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Att flytta till molnet flyttar några ansvarsområden till molnprovidern, men en modell för delat ansvar gäller fortfarande.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: Att flytta till molnet flyttar några ansvarsområden till molnprovidern, men en modell för delat ansvar gäller fortfarande.

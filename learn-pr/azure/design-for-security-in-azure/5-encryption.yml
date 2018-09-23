@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.5-encryption
+title: Kryptering
+metadata:
+  title: Kryptering
+  description: I det här avsnittet kommer vi att diskutera hur du använder kryptering för att skydda din arkitektur
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 41ffa78955aa8c93dfb26a840bcdc01c0c8d8b17
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356959"
+durationInMinutes: 10
+content: >
+  [!include[](includes/5-encryption.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Sant eller falskt: det är bara virtuella Windows-datorer som kan använda Azure Disk Encryption'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Azure Disk Encryption är tillgängligt för både virtuella Windows-datorer och virtuella Linux-datorer.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: Azure Disk Encryption är tillgängligt för både virtuella Windows-datorer och virtuella Linux-datorer.
+  - content: Vad av följande är en viktig faktor när du klassificerar data?
+    choices:
+    - content: Risknivå för kunder om de exponeras
+      isCorrect: true
+      correctExplanation: Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.
+    - content: Metod för dataöverföring
+      isCorrect: false
+      incorrectExplanation: Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.
+    - content: Huruvida data lagras på virtuella datorer eller i en databas
+      isCorrect: false
+      incorrectExplanation: Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.
+    - content: Mängden data som lagras
+      isCorrect: false
+      incorrectExplanation: Att klassificera data som ska krypteras baseras ofta på den påverkan de kan ha för kunder om de exponeras.

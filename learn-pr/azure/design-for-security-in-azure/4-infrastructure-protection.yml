@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.design-for-security.4-infrastructure-protection
+title: Infrastrukturskydd
+metadata:
+  title: Infrastrukturskydd
+  description: I den här enheten tittar vi närmare på hur du kan skydda åtkomst till din infrastruktur
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 0a765eaf5c91cc055266d283760bf94f6ba1efa7
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356999"
+durationInMinutes: 10
+content: >
+  [!include[](includes/4-infrastructure-protection.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Azure rollbaserad åtkomstkontroll kan användas på alla förutom vilka av följande omfång?
+    choices:
+    - content: Prenumeration
+      isCorrect: false
+      incorrectExplanation: Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.
+    - content: Resursgrupp
+      isCorrect: false
+      incorrectExplanation: Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.
+    - content: Linux-filsystem
+      isCorrect: true
+      correctExplanation: Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.
+    - content: Resurs
+      isCorrect: false
+      incorrectExplanation: Rollbaserad åtkomstkontroll kan endast tillämpas på Azure-resurser.
+  - content: 'Sant eller falskt: en hanterad identitet för Azure-resurser kan tilldelas till en virtuell dator för att ge den behörighet att starta och stoppa andra virtuella datorer.'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Hanterade identiteter för Azure-resurser är en metod för att tilldela identiteter till tjänster. Med den här typen av tilldelning kan rollbaserad åtkomstkontroll beviljas för hantering av Azure-tjänster, t.ex. för att starta och stoppa virtuella datorer?
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Hanterade identiteter för Azure-resurser är en metod för att tilldela identiteter till tjänster. Med den här typen av tilldelning kan rollbaserad åtkomstkontroll beviljas för hantering av Azure-tjänster, t.ex. för att starta och stoppa virtuella datorer?

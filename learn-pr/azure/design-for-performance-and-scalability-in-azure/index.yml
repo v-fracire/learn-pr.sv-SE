@@ -1,0 +1,43 @@
+### YamlMime:Module
+uid: learn.design-for-performance-and-scalability
+metadata:
+  title: Utforma för prestanda och skalbarhet i Azure
+  description: För att säkerställa att användarna får en så bra användarupplevelse som möjligt kan du bland annat skala ditt system för att hantera belastningen, identifiera nätverksflaskhalsar och optimera lagringsprestanda. I den här modulen går vi igenom hur du får ditt program att prestera på bästa möjliga sätt.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 695f7f5ea4b568a2234ea5ec282d689dfc07f51c
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356924"
+title: Utforma för prestanda och skalbarhet i Azure
+summary: Du kan säkerställa att användarna får en så bra användarupplevelse som möjligt bl.a. genom att skala ditt system för att hantera belastningen, identifiera nätverksflaskhalsar och optimera lagringsprestanda. Läs om hur du får ditt program att prestera på bästa möjliga sätt.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Justera din kapacitet baserat på arbetsbelastning genom att skala upp och skala ut
+
+  - Optimera nätverksprestanda
+
+  - Optimera lagrings- och databasprestanda
+prerequisites: Ingen
+iconUrl: /learn/achievements/design-for-performance-and-scalability-in-azure.svg
+levels:
+- intermediate
+roles:
+- solution-architect
+products:
+- azure
+- azure-cdn
+units:
+- learn.design-for-performance-and-scalability.1-introduction
+- learn.design-for-performance-and-scalability.2-scaling-up-and-scaling-out
+- learn.design-for-performance-and-scalability.3-optimize-network-performance
+- learn.design-for-performance-and-scalability.4-optimize-storage-performance
+- learn.design-for-performance-and-scalability.5-identify-performance-bottlenecks-in-your-application
+- learn.design-for-performance-and-scalability.6-summary
+achievement: learn.design-for-performance-and-scalability.badge

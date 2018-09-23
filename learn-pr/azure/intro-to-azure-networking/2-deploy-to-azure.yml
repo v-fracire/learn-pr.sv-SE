@@ -1,0 +1,45 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-azure-networking.2-deploy-to-azure
+title: Distribuera din webbplats till Azure
+metadata:
+  title: Distribuera din webbplats till Azure
+  description: Se hur ett grundläggande program med tre nivåer kan se ut på Azure.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 3227e19468766eb256fcffb540b78e59dfc554ae
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46359487"
+durationInMinutes: 12
+content: >
+  [!include[](includes/2-deploy-to-azure.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vad är en Azure-_region_?
+    choices:
+    - content: Ett Azure-datacenter inom en viss geografisk plats.
+      isCorrect: true
+      correctExplanation: Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare. USA, västra och Europa, norra är exempel.
+    - content: Ett sätt att dela upp nätverk i mindre nätverk.
+      isCorrect: false
+      incorrectExplanation: 'Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare. Exempel: USA, västra och Europa, norra.'
+    - content: Brandväggsregler som definierar trafikflödet in och ut ur Azure.
+      isCorrect: false
+      incorrectExplanation: 'Azure-regioner hjälper dig att leverera dina appar och tjänster som är närmast dina användare. Exempel: USA, västra och Europa, norra.'
+  - content: Vilket av följande är sant om virtuella nätverk?
+    choices:
+    - content: Du konfigurerar virtuella nätverk via programvara.
+      isCorrect: true
+      correctExplanation: Programvara gör att du kan hantera ett virtuellt nätverk precis som ditt eget nätverk. Azure underhåller den fysiska maskinvaran åt dig.
+    - content: Ett virtuellt nätverk accepterar nätverkstrafik på alla portar. Du konfigurerar brandväggen via virtuella datorer.
+      isCorrect: false
+      incorrectExplanation: Med programvara kan du hantera ett virtuellt nätverk precis som ditt eget nätverk. Azure underhåller den fysiska maskinvaran åt dig.
+    - content: Du kan alltid nå virtuella nätverk från Internet.
+      isCorrect: false
+      incorrectExplanation: Med programvara kan du hantera ett virtuellt nätverk precis som ditt eget nätverk. Azure underhåller den fysiska maskinvaran åt dig.

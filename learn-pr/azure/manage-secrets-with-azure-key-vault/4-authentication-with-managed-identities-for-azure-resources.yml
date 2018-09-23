@@ -1,0 +1,48 @@
+### YamlMime:ModuleUnit
+uid: learn.manage-secrets-with-azure-key-vault.4-authentication-with-managed-identities-for-azure-resources
+title: Valvautentisering med hanterade identiteter för Azure-resurser
+metadata:
+  title: Valvautentisering med hanterade identiteter för Azure-resurser
+  description: Valvautentisering med hanterade identiteter för Azure-resurser
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 1b51584d19c9a0caeac0aa28e994ef32c91a9cfd
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46356663"
+durationInMinutes: 4
+content: >
+  [!include[](includes/4-authentication-with-managed-identities-for-azure-resources.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Hur ändrar användningen av hanterade identiteter för Azure-resurser hur en app autentiserar till Azure Key Vault?
+    choices:
+    - content: Appen använder ett certifikat för att autentisera i stället för en hemlighet.
+      isCorrect: false
+      incorrectExplanation: När du aktiverar hanterad identitet på din webbapp aktiverar Azure en separat REST-tokenbeviljande tjänst som ska användas specifikt av din app. Din appen kommer att begära token från den här tjänsten istället för Azure Active Directory.
+    - content: Varje användare måste ange ett lösenord.
+      isCorrect: false
+      incorrectExplanation: När du aktiverar hanterad identitet på din webbapp aktiverar Azure en separat REST-tokenbeviljande tjänst som ska användas specifikt av din app. Din appen kommer att begära token från den här tjänsten istället för Azure Active Directory.
+    - content: Appen hämtar token från en tokentjänst istället för Azure Active Directory.
+      isCorrect: true
+      correctExplanation: När du aktiverar hanterad identitet på din webbapp aktiverar Azure en separat tokenbeviljande REST-tjänst som ska användas specifikt av din app. Din appen kommer att begära token från den här tjänsten istället för Azure Active Directory.
+    - content: Hanterade identiteter identifieras automatiskt av Azure Key Vault och autentiseras automatiskt.
+      isCorrect: false
+      incorrectExplanation: När du aktiverar hanterad identitet på din webbapp aktiverar Azure en separat REST-tokenbeviljande tjänst som ska användas specifikt av din app. Din appen kommer att begära token från den här tjänsten istället för Azure Active Directory.
+  - content: Vilket av följande påståenden beskriver en viktig fördel med att använda hanterade identiteter för Azure-resurser vid autentisering av en app för Key Vault?
+    choices:
+    - content: Användning av hanterade identiteter förbättrar programmets prestanda.
+      isCorrect: false
+      incorrectExplanation: Din app autentiserar till tokentjänsten för hanterade identiteter med en hemlighet som matas in i dess miljövariabler vid körning. Detta eliminerar behovet av att lagra hemligheter under konfigurationen.
+    - content: Om du använder hanterade identiteter så elimineras behovet av att hantera hemligheter i konfigurationen.
+      isCorrect: true
+      correctExplanation: Din app autentiserar till tokentjänsten för hanterade identiteter med en hemlighet som matas in i dess miljövariabler vid körning. Detta eliminerar behovet av att lagra hemligheter under konfigurationen.
+    - content: Hanterade identiteter kan automatiskt bevilja Azure Key Vault-behörigheter.
+      isCorrect: false
+      incorrectExplanation: Din app autentiserar till tokentjänsten för hanterade identiteter med en hemlighet som matas in i dess miljövariabler vid körning. Detta eliminerar behovet av att lagra hemligheter under konfigurationen.

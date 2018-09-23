@@ -1,0 +1,34 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-azure-networking.3-scale-load-balancer
+title: Skala med Azure Load Balancer
+metadata:
+  title: Skala med Azure Load Balancer
+  description: Lär dig hur Azure Load Balancer hjälper dig att uppnå skalbarhet och återhämtningsförmåga inom en geografisk region.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 749fae4e396cf551df9b15c3a7434e5bcbfdf640
+  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2018
+  ms.locfileid: "46361351"
+durationInMinutes: 7
+content: >
+  [!include[](includes/3-scale-load-balancer.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande är sant för Azure Load Balancer?
+    choices:
+    - content: Du måste använda Azure Load Balancer om du vill distribuera trafik mellan dina virtuella datorer som körs i Azure.
+      isCorrect: false
+      incorrectExplanation: Om ett system inte är tillgängligt slutar Azure Load Balancer att skicka trafik till det. Sedan dirigerar den trafik till en av de tillgängliga servrarna.
+    - content: Azure Load Balancer fungerar endast med Internetriktad trafik.
+      isCorrect: false
+      incorrectExplanation: Om ett system inte är tillgängligt slutar Azure Load Balancer att skicka trafik till det. Sedan dirigerar den trafik till en av de tillgängliga servrarna.
+    - content: Azure Load Balancer distribuerar trafiken mellan liknande system, vilket gör dina tjänster mer tillgängliga.
+      isCorrect: true
+      correctExplanation: Om ett system inte är tillgängligt slutar Azure Load Balancer att skicka trafik till det. Sedan dirigerar den trafik till en av de tillgängliga servrarna.
