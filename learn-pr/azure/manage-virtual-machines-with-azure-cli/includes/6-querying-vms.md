@@ -41,7 +41,7 @@ SampleVM          168.61.54.62         10.0.0.4
 Vi kan få mer detaljerad information om en specifik virtuell dator baserat på namn eller ID med hjälp av kommandot `vm show`.
 
 ```azurecli
-az vm show --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM
+az vm show --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM
 ```
 
 Detta returnerar ett ganska stort JSON-block med många olika typer av information om den virtuella datorn, inklusive anslutna lagringsenheter, nätverksgränssnitt och alla objekt-ID:n för resurser som den virtuella datorn är ansluten till. Även nu kan vi ändra till ett tabellformat, men om vi gör det utelämnas nästan alla intressanta data. I stället kan vi använda ett inbyggt frågespråk för JSON kallat [JMESPath](http://jmespath.org/).
@@ -115,19 +115,19 @@ JMESQuery har flera andra intressanta frågefunktioner. När du har tid rekommen
 När vi har en grundläggande förståelse för hur JMES-frågor fungerar kan vi lägga till filter till de data som returneras av frågor som till exempel `vm show`-kommandot. Vi kan till exempel hämta administratörens användarnamn:
 
 ```azurecli
-az vm show --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --query "osProfile.adminUsername"
+az vm show --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM --query "osProfile.adminUsername"
 ```
 
 Vi kan hämta storleken som tilldelats till vår virtuella dator:
 
 ```azurecli
-az vm show --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --query hardwareProfile.vmSize
+az vm show --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM --query hardwareProfile.vmSize
 ```
 
 Och om du vill hämta alla ID:n för dina nätverksgränssnitt kan du använda frågan:
 
 ```azurecli
-az vm show --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --query "networkProfile.networkInterfaces[].id"
+az vm show --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM --query "networkProfile.networkInterfaces[].id"
 ```
 
 Den här frågetekniken fungerar med alla Azure CLI-kommandon och kan användas för att hämta specifika delar av data till kommandoraden. Tekniken kan även användas för skript – du kan till exempel hämta ett värde från ditt Azure-konto och lagra det i en miljö- eller skriptvariabel. Om du vill använda den på det här sättet är `--output tsv`-parametern en användbar flagga som du kan lägga till (som kan förkortas till `-o tsv`). När du gör det returneras resultaten som tabbavgränsade värden som endast innehåller själva datavärdena med tabbavgränsare.
@@ -135,7 +135,7 @@ Den här frågetekniken fungerar med alla Azure CLI-kommandon och kan användas 
 Exempelvis returnerar
 
 ```azurecli
-az vm show --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --query "networkProfile.networkInterfaces[].id" -o tsv
+az vm show --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM --query "networkProfile.networkInterfaces[].id" -o tsv
 ```
 
 texten: `/subscriptions/20f4b944-fc7a-4d38-b02c-900c8223c3a0/resourceGroups/2568d0d0-efe3-4d04-a08f-df7f009f822a/providers/Microsoft.Network/networkInterfaces/SampleVMVMNic`

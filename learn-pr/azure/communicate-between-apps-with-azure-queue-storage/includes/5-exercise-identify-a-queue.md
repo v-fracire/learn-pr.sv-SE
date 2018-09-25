@@ -30,7 +30,7 @@ Du kan se din anslutningssträng i avsnittet **Inställningar -> Åtkomstnycklar
 Du kan också hämta den via verktyg för Azure CLI eller PowerShell. Nu ska vi använda Azure CLI-kommandot. Kom ihåg att byta ut `<name>` mot namnet på lagringskontot du skapade. Du kan använda `az storage account list` om du behöver en påminnelse.
 
 ```azurecli
-az storage account show-connection-string --name <name> --resource-group <rgn>[Sandbox resource group name]</rgn>
+az storage account show-connection-string --name <name> --resource-group <rgn>[sandbox resource group name]</rgn>
 ```
 
 Det här kommandot returnerar ett JSON-block med anslutningssträngen. Du ser namnet på lagringskontot och åtkomstnyckeln:

@@ -14,7 +14,7 @@ Du måste också inaktivera alternativet **Framtvinga SSL-anslutning**.
 
 ### <a name="create-a-firewall-rule"></a>Skapa en brandväggsregel
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön. 
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön.
 
 1. Gå till serverresursen du vill skapa en brandväggsregel för.
 
@@ -48,8 +48,8 @@ Eller så kan du lägga till en brandväggsregel för att tillåta åtkomst till
     ```bash
     psql --host=<server-name>.postgres.database.azure.com --username=<admin-user>@<server-name> --dbname=postgres
     ```
-    
-    Använd de värden som du valde för `server-name` och `admin-user`. 
+
+    Använd de värden som du valde för `server-name` och `admin-user`.
 
 1. **postgres** är standarddatabasen för hantering som varje PostgreSQL-server skapas med. Du blir uppmanad att ange lösenordet som du angav när du skapade servern.
 

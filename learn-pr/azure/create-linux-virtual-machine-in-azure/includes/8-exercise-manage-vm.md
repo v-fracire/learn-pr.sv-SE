@@ -4,7 +4,7 @@ Nu ska vi tillämpa en nätverkssäkerhetsgrupp på nätverket så att vi bara t
 
 Azure bör ha skapat en säkerhetsgrupp åt oss eftersom vi angav att vi ville ha SSH-åtkomst. Men vi ska ändå skapa en ny säkerhetsgrupp så att du ser hur processen ser ut. Detta är särskilt viktigt om du bestämmer dig för att skapa det virtuella nätverket _innan_ de virtuella datorerna. Som vi nämnt tidigare är säkerhetsgrupper _valfria_ och skapas inte nödvändigtvis med nätverket.
 
-1. Skapa en ny resurs genom att klicka på knappen **Skapa en resurs** i den vänstra sidopanelen i [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true).
+1. Skapa en ny resurs genom att klicka på knappen **Skapa en resurs** i den vänstra sidopanelen i [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
 1. Skriv **Nätverkssäkerhetsgrupp** i filterrutan och välj det matchande objektet i listan.
 
@@ -30,14 +30,14 @@ Distributionen bör slutföras snabbt. När den är klar kan vi lägga till nya 
 
     - All inkommande trafik från ett virtuellt nätverk till ett annat tillåts. På så sätt kan resurser i det virtuella nätverket prata med varandra.
     - Azure Load Balancer **avsöker** begäranden för att kontrollera att den virtuella datorn är aktiv.
-    - All annan inkommande trafik nekas.  
+    - All annan inkommande trafik nekas.
 
-    På sidan för utgående trafik:  
+    På sidan för utgående trafik:
     - All inkommande nätverkstrafik i det virtuella nätverket tillåts.
     - All utgående trafik till Internet tillåts.
     - All annan utgående trafik nekas.
 
-    > [!NOTE]  
+    > [!NOTE]
     > Dessa standardregler har höga prioritetsvärden, vilket innebär att de utvärderas _sist_. De kan inte ändras eller tas bort, men du kan _åsidosätta_ dem genom att skapa mer specifika regler som matchar din trafik med ett lägre prioritetsvärde.
 
 1. Klicka på avsnittet **Inkommande säkerhetsregler** på panelen **Inställningar** för säkerhetsgruppen.
@@ -126,5 +126,5 @@ Nu ska vi bekräfta ändringen:
 
 Det kan vara knepigt att få till säkerhetsreglerna så att de blir rätt. Vi gjorde ett misstag när vi tillämpade den här nya säkerhetsgruppen – vi förlorar vår SSH-åtkomst! För att åtgärda det här problemet kan du lägga till en annan regel till säkerhetsgruppen som gäller för undernätet för att tillåta SSH-åtkomst. Se till att begränsa de inkommande TCP/IP-adresserna för regeln till de som du äger.
 
-> [!WARNING]  
+> [!WARNING]
 > Var alltid noga med att låsa portar som används för administrativ åtkomst. En ännu bättre metod är att skapa ett VPN för att länka det virtuella nätverket till ditt privata nätverk och endast tillåta RDP- eller SSH-begäranden från det adressintervallet. Du kan också ändra den port som används av SSH till något annat än standardvärdet. Kom ihåg att det inte är tillräckligt att ändra portarna för att stoppa attacker. De blir bara lite svårare att upptäcka.

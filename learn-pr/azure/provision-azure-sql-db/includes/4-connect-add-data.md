@@ -33,7 +33,7 @@ Här kan du använda `az`-verktyget för att visa en lista över dina databaser 
     Ersätt `<server-name>` med namnet på den logiska Azure SQL-servern. Observera att beroende på det blad du är på i portalen så kan det här visas som ett fullständigt domännamn (servername.database.windows.net), men du behöver bara det logiska namnet utan suffixet .database.windows.net.
 
     ```azurecli
-    az configure --defaults group=<rgn>[Sandbox resource group name]</rgn> sql-server=<server-name>
+    az configure --defaults group=<rgn>[sandbox resource group name]</rgn> sql-server=<server-name>
     ```
 
 1. Kör `az sql db list` för att lista alla databaser på den logiska Azure SQL-servern.

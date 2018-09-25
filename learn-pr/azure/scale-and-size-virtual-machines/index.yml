@@ -1,0 +1,51 @@
+### YamlMime:Module
+uid: learn.scale-and-size-virtual-machines
+metadata:
+  title: Skala och storleksändra virtuella datorer
+  description: Du kan ändra resurser för CPU och minne för dina virtuella datorer efter behov för att hantera kostnader för efterfrågan och kontroll. Manuell justering fungerar när efterfrågan är förutsägbar och sällan ändras. En automatiserad lösning är bättre när din arbetsbelastning ändras oförutsägbart eller ofta. Här visas hur du styr kraften i dina virtuella datorer genom att ändra storleken på enskilda servrar eller ändra antalet tillgängliga datorer. Vi går igenom hur du gör detta både manuellt och med skalningsuppsättningar och automatisk skalning.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 97b9c3862727b4f1ba360c0d881f0b84b557a62d
+  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/21/2018
+  ms.locfileid: "46514332"
+title: Skala och storleksändra virtuella datorer
+summary: Justera den virtuella datorns beräknings- och lagringskraft manuellt eller med autoskalning.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Skala virtuella datorer vertikalt genom att ändra storlek
+
+  - Skala virtuella datorer horisontellt med skalningsuppsättningar
+
+  - Konfigurera autoskalning
+prerequisites: >
+  - Erfarenhet av ett kommandoradsgränssnitt, till exempel PowerShell eller Bash
+
+  - Kunskaper om grundläggande Azure-begrepp, som resursgrupper och virtuella datorer
+
+  - Erfarenhet av att administrera Azure-resurser med hjälp av Azure-portalen
+iconUrl: /learn/achievements/scale-and-size-virtual-machines.svg
+levels:
+- intermediate
+roles:
+- developer
+products:
+- azure
+- azure-virtual-machines
+- azure-portal
+- azure-clis
+units:
+- learn.scale-and-size-virtual-machines.1-introduction
+- learn.scale-and-size-virtual-machines.2-size-and-resize-virtual-machines-in-azure
+- learn.scale-and-size-virtual-machines.3-exercise-resize-a-virtual-machine
+- learn.scale-and-size-virtual-machines.4-horizontal-scaling-using-scale-sets
+- learn.scale-and-size-virtual-machines.5-exercise-create-a-scale-set-and-configure-autoscaling
+- learn.scale-and-size-virtual-machines.6-knowledge-check
+- learn.scale-and-size-virtual-machines.7-summary
+achievement: learn.scale-and-size-virtual-machines.badge

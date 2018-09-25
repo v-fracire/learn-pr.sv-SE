@@ -11,13 +11,13 @@ Kör följande i Azure Cloud Shell:
 ```azurecli
 az appservice plan create \
     --name keyvault-exercise-plan \
-    --resource-group <rgn>[Sandbox resource group name]</rgn>
+    --resource-group <rgn>[sandbox resource group name]</rgn>
     --location eastus
 
 az webapp create \
     --name <your-unique-app-name> \
     --plan keyvault-exercise-plan \
-    --resource-group <rgn>[Sandbox resource group name]</rgn>
+    --resource-group <rgn>[sandbox resource group name]</rgn>
 ```
 
 ## <a name="add-configuration-to-the-app"></a>Lägga till konfigurationen i appen
@@ -27,7 +27,7 @@ När vi distribuerar till Azure följer vi rekommenderade metoder för App Servi
 ```azurecli
 az webapp config appsettings set \
     --name <your-unique-app-name> \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --settings VaultName=<your-unique-vault-name>
 ```
 
@@ -38,7 +38,7 @@ Att aktivera hanterade identiteter på en app tar en kodrad &mdash; kör det hä
 ```azurecli
 az webapp identity assign \
     --name <your-unique-app-name> \
-    --resource-group <rgn>[Sandbox resource group name]</rgn>
+    --resource-group <rgn>[sandbox resource group name]</rgn>
 ```
 
 Kopiera värdet **principalId** från de JSON-utdata du får. PrincipalId är det unika ID:t för appens nya identitet i Azure Active Directory och vi ska använda det i nästa steg.
@@ -68,7 +68,7 @@ zip -j site.zip pub/*
 az webapp deployment source config-zip \
     --src site.zip \
     --name <your-unique-app-name> \
-    --resource-group <rgn>[Sandbox resource group name]</rgn>
+    --resource-group <rgn>[sandbox resource group name]</rgn>
 ```
 
 När du har fått ett resultat som visar att webbplatsen har distribuerats, öppnar du `https://<your-unique-app-name>.azurewebsites.net/api/SecretTest` i en webbläsare. Du bör nu se det hemliga värdet **reindeer_flotilla**.

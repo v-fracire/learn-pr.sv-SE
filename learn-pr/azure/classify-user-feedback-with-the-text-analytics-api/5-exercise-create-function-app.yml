@@ -1,0 +1,20 @@
+### YamlMime:ModuleUnit
+uid: learn.classify-user-feedback-with-the-text-analytics-api.5-exercise-create-function-app
+metadata:
+  title: Övning – Skapa en funktionsapp från portalen som ska vara värd för vår affärslogik
+  description: I den här praktiska labbövningen förbereder vi vår feedbacksorteringslösning genom att skapa en funktionsapp och en funktion för som värd för vår logik.
+  ms.date: 09/24/2018
+  author: AndrewJByrne
+  ms.author: anbyrne
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: d329415777ba305a83bb22dcba994a75712d1e0d
+  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/21/2018
+  ms.locfileid: "46514279"
+title: Övning – Skapa en funktionsapp från portalen som ska vara värd för vår affärslogik
+azureSandbox: true
+durationInMinutes: 7
+content: '[!include[](includes/5-exercise-create-function-app.md)]'

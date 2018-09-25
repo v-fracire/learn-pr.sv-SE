@@ -36,7 +36,7 @@ Båda dessa värden kan hämtas från Azure Portal i form av en fullständig ans
 
     ```azurecli
     az servicebus namespace authorization-rule keys list \
-        --resource-group <rgn>[Sandbox resource group name]</rgn> \
+        --resource-group <rgn>[sandbox resource group name]</rgn> \
         --namespace-name <namespace-name> \
         --name RootManageSharedAccessKey \
         --query primaryConnectionString \
@@ -131,7 +131,7 @@ När det är klart kör du följande kommando för att se hur många meddelanden
 
 ```azurecli
 az servicebus queue show \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --namespace-name <namespace-name> \
     --name salesmessages \
     --query messageCount
@@ -213,7 +213,7 @@ När du ser att meddelandet har tagits emot och visas i konsolen trycker du på 
 
 ```azurecli
 az servicebus queue show \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --namespace-name <namespace-name> \
     --name salesmessages \
     --query messageCount

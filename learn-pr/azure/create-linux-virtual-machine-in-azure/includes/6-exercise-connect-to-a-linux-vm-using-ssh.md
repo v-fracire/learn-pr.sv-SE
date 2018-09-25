@@ -9,7 +9,7 @@ Om du vill ansluta till en virtuell Azure-dator med en SSH-klient behöver du:
 
 ### <a name="get-the-public-ip-address"></a>Hämta den offentliga IP-adressen
 
-1. Se till att [översiktspanelen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) för den virtuella dator du skapade tidigare är öppen i **Azure Portal**. Du hittar den virtuella datorn under **Alla resurser** om du behöver öppna den. Översiktspanelen har mycket information om den virtuella datorn.
+1. Se till att [översiktspanelen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) för den virtuella dator du skapade tidigare är öppen i **Azure Portal**. Du hittar den virtuella datorn under **Alla resurser** om du behöver öppna den. Översiktspanelen har mycket information om den virtuella datorn.
 
     - Du kan se om den virtuella datorn körs
     - Stoppa eller starta om den
@@ -82,7 +82,7 @@ Apache är tillgänglig i Ubuntus standardlagringsplatser för programvara, så 
     ```bash
     sudo apt-get update
     ```
-    
+
 1. Installera sedan Apache:
 
     ```bash
@@ -116,7 +116,7 @@ Apache är tillgänglig i Ubuntus standardlagringsplatser för programvara, så 
     ```
     > [!NOTE]
     > Det är enkelt att köra den här typen av kommandon, men det är en manuell process. Om vissa program alltid behöver installeras kan du automatisera processen med hjälp av skript.
-    
+
 1. Slutligen kan vi försöka hämta standardsidan via den offentliga IP-adressen. Men även om servern körs på den virtuella datorn, får du inte en giltig anslutning eller ett svar. Vet du varför?
 
 Vi måste utföra ytterligare ett steg för att kunna interagera med webbservern. Våra virtuella nätverk blockerar inkommande begäranden – det är standardbeteendet. Vi kan ändra det i konfigurationen. Låt oss titta på det härnäst.

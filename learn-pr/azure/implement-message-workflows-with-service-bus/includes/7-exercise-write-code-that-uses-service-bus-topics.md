@@ -89,7 +89,7 @@ När det är klart kör du följande kommando för att se hur många meddelanden
 
 ```azurecli
 az servicebus topic subscription show \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --namespace-name <namespace-name> \
     --topic-name salesperformancemessages \
     --name Americas \
@@ -176,7 +176,7 @@ När programmet slutar skriva ut aviseringar om att det tar emot meddelanden try
 
 ```azurecli
 az servicebus topic subscription show \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --namespace-name <namespace-name> \
     --topic-name salesperformancemessages \
     --name Americas \

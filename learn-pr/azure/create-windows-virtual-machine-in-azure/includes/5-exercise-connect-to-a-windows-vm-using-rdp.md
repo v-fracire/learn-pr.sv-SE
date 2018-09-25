@@ -21,7 +21,7 @@ Du kan ange den här informationen i RDP-klienten eller hämta en förkonfigurer
 
 ### <a name="download-the-rdp-file"></a>Ladda ned RDP-filen
 
-1. Kontrollera att panelen [Översikt](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) för den virtuella datorn som du skapade tidigare är öppen på **Azure Portal**. Du hittar den virtuella datorn under **Alla resurser** om du behöver öppna den. Översiktspanelen innehåller mycket information om den virtuella datorn.
+1. Kontrollera att panelen [Översikt](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) för den virtuella datorn som du skapade tidigare är öppen på **Azure Portal**. Du hittar den virtuella datorn under **Alla resurser** om du behöver öppna den. Översiktspanelen innehåller mycket information om den virtuella datorn.
 
     - Du kan se om den virtuella datorn körs.
     - Stoppa eller starta om den.

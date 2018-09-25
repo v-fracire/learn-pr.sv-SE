@@ -16,7 +16,7 @@ Genom att ge olika parametrar till API:t kan du generera den miniatyr du behöve
 
 ## <a name="generate-a-thumbnail"></a>Skapa en miniatyrbild
 
-Vi använder följande bild i det här exemplet, men du kan testa samma kommando med URL:er till andra bilder. 
+Vi använder följande bild i det här exemplet, men du kan testa samma kommando med URL:er till andra bilder.
 
 ![Bild av en gullig vit hund som sitter på grönt gräs.](../media/4-dog.png)
 
@@ -37,7 +37,7 @@ I det här exemplet ber vi tjänsten att skapa en miniatyrbild som är 100 x 100
 
 ## <a name="view-the-generated-thumbnail"></a>Visa den skapade miniatyrbilden
 
-Du hittar den genererade miniatyren i ditt Azure Cloud Shell-lagringskonto. Vi gav filen namnet **thumbnail.jpg**. 
+Du hittar den genererade miniatyren i ditt Azure Cloud Shell-lagringskonto. Vi gav filen namnet **thumbnail.jpg**.
 
 Cloud Shell i Microsoft Learn har inte möjlighet att hämta filer, men du kan hämta miniatyrbilden via Azure Portal med hjälp av följande anvisningar.
 
@@ -48,15 +48,15 @@ Cloud Shell i Microsoft Learn har inte möjlighet att hämta filer, men du kan h
     ls -l
     ```
 
-    
+
 
 1. Flytta `thumbnail.jpg` till clouddrive-mappen med följande kommando.
 
     ```azurecli
     mv ~/thumbnail.jpg ~/clouddrive
     ```
-1. Logga in på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
-1. Välj det lagringskonto som börjar med `cloudshell` på panelen **Alla resurser** på portalens instrumentpanel. 
+1. Logga in på [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Välj det lagringskonto som börjar med `cloudshell` på panelen **Alla resurser** på portalens instrumentpanel.
 1. Välj **Storage Explorer** på Storage-kontopanelen, sedan **FILRESURSER** och därefter filresursen i samlingen med det namn som börjar ned ** cloudshellfiles***.
 1. Välj den *thunbnail.jpg* fil och sedan **hämta** på den översta menyn för att se avbildningen.
 

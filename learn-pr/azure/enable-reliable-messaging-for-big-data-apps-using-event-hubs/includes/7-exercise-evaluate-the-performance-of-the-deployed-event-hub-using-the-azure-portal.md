@@ -2,7 +2,7 @@ I den här delen använder du Azure-portalen för att kontrollera att din hände
 
 ## <a name="view-event-hub-activity"></a>Visa aktivitet på händelsehubb
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Leta upp din händelsehubb med hjälp av sökfältet och öppna den.
 

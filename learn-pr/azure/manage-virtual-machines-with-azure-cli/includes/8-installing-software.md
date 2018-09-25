@@ -31,7 +31,7 @@ Detta kommer att misslyckas eftersom den virtuella Linux-datorn inte visar port 
 1. Skriv följande i Cloud Shell för att öppna port 80:
 
 ```azurecli
-az vm open-port --port 80 --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM
+az vm open-port --port 80 --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM
 ```
 
 Det tar en stund att lägga till nätverksregeln och öppna porten genom brandväggen. Prova `curl` igen. Den här gången bör den returnera data. Du kan se sidan i en webbläsare också.

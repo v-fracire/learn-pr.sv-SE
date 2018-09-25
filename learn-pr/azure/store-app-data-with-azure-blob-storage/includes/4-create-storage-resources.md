@@ -33,7 +33,7 @@ Vi använder oss av Azure Cloud Shell med Azure CLI för att skapa ett lagringsk
 Kör följande kommando för att skapa lagringskontot. 
 
 ```azurecli
-az storage account create --name <your-unique-storage-account-name> --resource-group <rgn>[Sandbox resource group name]</rgn> --location eastus --kind StorageV2
+az storage account create --name <your-unique-storage-account-name> --resource-group <rgn>[sandbox resource group name]</rgn> --location eastus --kind StorageV2
 ```
 
 > [!NOTE]

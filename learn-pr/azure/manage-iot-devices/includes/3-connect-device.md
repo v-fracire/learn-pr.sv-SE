@@ -9,7 +9,7 @@ Azure IoT Hub innehåller funktionerna och en modell för utökningsbarhet som g
 
 För att börja samla in data från Raspberry Pi-simulatorn så måste du först skapa en IoT-hubb.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 2. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -18,7 +18,7 @@ För att börja samla in data från Raspberry Pi-simulatorn så måste du först
 ![Skärmbild av navigering i Azure-portal till IoT Hub](../media/fa40d1bc51bc4490f657e3c1a8371b5b.png)
 
 4. I fönsterrutan **IoT-hubb** anger du följande information för IoT-hubben:
-   
+
    - **Prenumeration**: använd standard-prenumerationen för det här exemplet.
    - **Resursgrupp**: använd den befintliga resursgruppen. Genom att lägga relaterade resurser i samma grupp så kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort.
    - **Namn**: Skapa ett unikt namn för din IoT-hubb. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
@@ -28,7 +28,7 @@ För att börja samla in data från Raspberry Pi-simulatorn så måste du först
 
     > [!IMPORTANT]
     > IoT-hubben kommer att kunna identifieras offentligt som en DNS-slutpunkt, så se till att undvika känslig information när du namnger det.
-    
+
     ![Fönster med grundläggande info om IoT Hub](./../media/dbb7319388673b8ee0e0b407536156c0.png)
 
 1. Välj **Nästa: Storlek och skalning** för att fortsätta att skapa IoT-hubben.
@@ -61,7 +61,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta.
 
     > [!IMPORTANT]
     > Enhets-ID visas kanske i de loggar som samlas in för support och felsökning, så se till att undvika känslig information när du namnger det.
-    
+
 3. Klicka på **Spara**.
 4. När enheten har skapats öppnar du enheten från listan i fönsterrutan **IoT-enheter**.
 5. Kopiera **Anslutningssträng – primärnyckel** eftersom du behöver den senare.
@@ -73,7 +73,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta.
 1. Öppna [Raspberry Pi Azure IoT-simulatorn](https://azure-samples.github.io/raspberry-pi-web-simulator?azure-portal=true).
 1. Ersätt platshållaren på rad 15 med den anslutningssträng för Azure IoT Hub-enheten du just kopierade.
 1. Klicka på `Run`-knappen eller skriv in `npm start` i konsolfönstret för att köra programmet.
-   
+
     ![Ersätt enhetens anslutningssträng](../media/Line15.png)
 
 1. Du bör se följande utdata som visar de sensordata och de meddelanden som skickas till din IoT-hubb.
@@ -82,7 +82,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läs telemetrin från din hubb
 Så vad är det som händer? IoT-hubben tar emot enhet-till-moln-meddelanden som skickas från den simulerade enheten. Om du vill se det, tar vi en titt på hur Azure IoT Hub bearbetar inkommande data. I din IoT Hub under **övervakning**, väljer du **mått**. Ge det ett par minuter som du vill vänta tills data kommer in i bilden.
-   
+
 ![IoT Hub-mått](../media/HubMetrics.png)
 
 

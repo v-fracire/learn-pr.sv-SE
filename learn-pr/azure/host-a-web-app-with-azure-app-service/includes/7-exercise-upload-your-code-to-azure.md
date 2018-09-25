@@ -2,7 +2,7 @@ I den här delen överför du ditt ASP.NET Core-program till Azure App Service.
 
 ## <a name="create-a-staging-deployment-slot"></a>Skapa ett distributionsfack för mellanlagring
 
-1. Växla tillbaka till [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true).
+1. Växla tillbaka till [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
 1. Öppna den apptjänsteresurs (webbappen) som du skapade tidigare. Du kan hitta den igen genom att söka efter appen i **Alla resurser** eller den innehållande resursgruppen i **Resursgrupper**.
 

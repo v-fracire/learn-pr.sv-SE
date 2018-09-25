@@ -17,7 +17,7 @@ Precis som Azure Functions har stöd för indatabindningar för integrering av o
 
 ## <a name="create-an-http-triggered-function"></a>Skapa en HTTP-utlöst funktion
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 2. Navigera till den funktionsapp som du skapade i föregående avsnitt i portalen.
 
@@ -37,17 +37,17 @@ Precis som Azure Functions har stöd för indatabindningar för integrering av o
     |Språk     | **JavaScript**        |
     |Namn     |   [!INCLUDE [func-name-add](./func-name-add.md)]     |
     | Auktoriseringsnivå | **Funktion** |
-    
-6. Välj **Skapa** för att skapa den nya funktionen. Detta öppnar filen **index.js** i kodredigeraren och en standardimplementering av den HTTP-utlösta funktionen visas.
+
+6. Skapa den nya funktionen genom att välja **Skapa**. Detta öppnar filen **index.js** i kodredigeraren och en standardimplementering av den HTTP-utlösta funktionen visas.
 
     > [!NOTE]
     > I den här övningen snabbar vi upp saker och ting genom att använda *koden* och *konfigurationen* från den föregående delen som en utgångspunkt.
 
-7. Ersätt all kod i **index.js** med koden från följande kodavsnitt och klicka på **Spara** så att ändringen sparas: 
+7. Ersätt all kod i **index.js** med koden från följande kodavsnitt och klicka på **Spara** så att ändringen sparas:
 
    [!code-javascript[](../code/find-bookmark-single.js)]
 
-   Om den här koden ser bekant ut beror det på att den utgör implementeringen av vår [!INCLUDE [func-name-find](./func-name-find.md)]-funktion. Som förväntat fungerar inte funktionen förrän vi definierar samma bindningar.  
+   Om den här koden ser bekant ut beror det på att den utgör implementeringen av vår [!INCLUDE [func-name-find](./func-name-find.md)]-funktion. Som förväntat fungerar inte funktionen förrän vi definierar samma bindningar.
 
 1. Öppna filen **function.json** från funktionen [!INCLUDE [func-name-add](./func-name-add.md)].
 
@@ -95,7 +95,7 @@ Så, var befinner vi oss? Dessutom har hittills egentligen bara replikerat det s
 
 ## <a name="define-azure-cosmos-db-output-binding"></a>Definiera Cosmos-DB-utdatabindning
 
-I stället för att definiera en ny utdatabindning genom att gå via användargränssnittet, ska du skapa den här bindningen genom att uppdatera konfigurationsfilen *function.json*, manuellt. 
+I stället för att definiera en ny utdatabindning genom att gå via användargränssnittet, ska du skapa den här bindningen genom att uppdatera konfigurationsfilen *function.json*, manuellt.
 
 1. Kontrollera att filen *function.json* för [!INCLUDE [func-name-add](./func-name-add.md)] är öppen i redigeraren.
 
@@ -134,16 +134,16 @@ Här ser vi att den nya funktionen, [!INCLUDE [func-name-add](./func-name-add.md
 
 1. Välj **Integrera** i funktionsmenyn till vänster och öppna integrationsfliken.
 
-2. Välj **Nya utdata** i kolumnen **Utdata**.  
+2. Välj **Nya utdata** i kolumnen **Utdata**.
     En lista över alla typer av möjliga utdatabindningar visas.
 
-3. Välj **Azure Queue Storage** i listan och välj sedan **Välj**.  
+3. Välj **Azure Queue Storage** i listan och välj sedan **Välj**.
     Den här åtgärden öppnar konfigurationssidan för Azure Queue Storage-utdata.
 
    Nu ska vi konfigurera en anslutning till ett lagringskonto. Här kommer vår kö att finnas.
 
-4. Välj **nya** till höger om fältet **lagringskontoanslutning**.  
-   Markeringsfönstret **Lagringskonto** öppnas. 
+4. Välj **nya** till höger om fältet **lagringskontoanslutning**.
+   Markeringsfönstret **Lagringskonto** öppnas.
 
 5. När vi satte igång den här modulen och skapade vår funktionsapp, skapades även ett lagringskonto vid samma tillfälle. Det visas i det här fösntret så du kan välja det. Fältet **Lagringskontoanslutning** fylls i med namnet på en anslutning. Om du vill visa anslutningssträngens värde väljer du **Visa värde**.
 
@@ -186,7 +186,7 @@ Nu när vi har flera utdatabindningar blir testen lite svårare. Medan vi i tidi
 
 1. Med vår funktion, [!INCLUDE [func-name-add](./func-name-add.md)], vald i portalen Funktionsappar väljer du menyalternativet Test längst till vänster så att det expanderas.
 
-2. Välj menyalternativet **Testa** och se till att testpanelen är öppen. Det bör se ut ungefär som på följande skärmbild: 
+2. Välj menyalternativet **Testa** och se till att testpanelen är öppen. Det bör se ut ungefär som på följande skärmbild:
 
     ![Skärmbild som visar funktionen Testpanel expanderad.](../media/7-test-panel-open-small.png)
 
@@ -202,13 +202,13 @@ Nu när vi har flera utdatabindningar blir testen lite svårare. Medan vi i tidi
     }
     ```
 
-4. Välj **Kör** längst ned på testpanelen. 
+4. Välj **Kör** längst ned på testpanelen.
 
-5. Kontrollera att meddelandet ”Bokmärket har lagts till” visas i fönstret **Utdata** som du ser i följande diagram: 
+5. Kontrollera att meddelandet ”Bokmärket har lagts till” visas i fönstret **Utdata** som du ser i följande diagram:
 
     ![En skärmbild som visar testpanelen och resultatet av ett misslyckat test.](../media/7-test-exists-small.png)
 
-6. Ersätt nu begärandetexten med följande nyttolast: 
+6. Ersätt nu begärandetexten med följande nyttolast:
 
     ```json
     {
@@ -226,27 +226,27 @@ Grattis! [!INCLUDE [func-name-add](./func-name-add.md)] fungerar som avsett, men
 
 ### <a name="verify-that-a-message-is-written-to-the-queue"></a>Kontrollera att ett meddelande skrivs till vår kö
 
-Azure Queue Storage-köer finns på ett lagringskonto. Du har valt lagringskontot i den här övningen redan när du skapar utdatabindningen. 
+Azure Queue Storage-köer finns på ett lagringskonto. Du har valt lagringskontot i den här övningen redan när du skapar utdatabindningen.
 
-1. Gå till huvudsökrutan i Azure-portalen och skriv **lagringskonton**. Välj **Lagringskonton** bland sökresultaten under kategorin **Tjänster**. 
+1. Gå till huvudsökrutan i Azure-portalen och skriv **lagringskonton**. Välj **Lagringskonton** bland sökresultaten under kategorin **Tjänster**.
 
       ![Skärmbild som visar sökresultatet för lagringskontot i den huvudsakliga sökrutan.](../media/7-search-for-sa-small.png)
 
-2. I listan över konton som ska returneras väljer du det lagringskonto som du använde för att skapa utdatabindningen **newmessage**.  
+2. I listan över konton som ska returneras väljer du det lagringskonto som du använde för att skapa utdatabindningen **newmessage**.
    Inställningarna för lagringskontot visas i huvudfönstret i portalen.
 
-3. Välj alternativet **Köer** från listan över **tjänster**.  
+3. Välj alternativet **Köer** från listan över **tjänster**.
    Då visas en lista över köer som värdhanteras av det här lagringskontot. Kontrollera att kön **bookmarks-post-process** finns, enligt följande skärmbild:
 
       ![Skärmbild som visar vår kö i listan över köer som värdhanteras av det här lagringskontot](../media/7-q-in-list-small.png)
 
-4. Öppna kön genom att välja **bookmarks-post-process**.  
-   De meddelanden som finns i kön visas i en lista. Om allt gått enligt planen innehåller kön meddelandet som du har skapade när du skickade ett bokmärke till databasen. Det ska se ut som i följande exempel: 
+4. Öppna kön genom att välja **bookmarks-post-process**.
+   De meddelanden som finns i kön visas i en lista. Om allt gått enligt planen innehåller kön meddelandet som du har skapade när du skickade ett bokmärke till databasen. Det ska se ut som i följande exempel:
 
-    ![Skärmbild som visar vårt meddelande i kön](../media/7-message-in-q-small.png)    
+    ![Skärmbild som visar vårt meddelande i kön](../media/7-message-in-q-small.png)
 
    I det här exemplet ser du att meddelandet har fått ett unikt ID och fältet **MEDDELANDETEXT** visar vårt bokmärke i JSON-strängformat.
 
-5. Du kan testa funktionen ytterligare genom att ändra begärandetexten i panelen Test med nya ID-/url-datauppsättningar och köra funktionen. Titta på den här kön för att se fler meddelanden tas emot. Du kan även leta i databasen för att kontrollera att nya poster har lagts till. 
+5. Du kan testa funktionen ytterligare genom att ändra begärandetexten i panelen Test med nya ID-/url-datauppsättningar och köra funktionen. Titta på den här kön för att se fler meddelanden tas emot. Du kan även leta i databasen för att kontrollera att nya poster har lagts till.
 
 I den här övningen har vi utökat dina kunskaper om bindningar till utdatabindningar genom att skriva data till din Azure Cosmos DB. Vi har gått vidare och lagt till ännu en utgående bindning för att skicka meddelanden till en Azure-kö. Detta visar den verkliga kraften i bindningar för att hjälpa dig att forma och flytta data från inkommande källor till en mängd olika mål. Vi har inte skrivit någon databaskod eller varit tvungna att hantera anslutningssträngar själva. I stället vi har konfigurerat bindningar deklarativt och låtit plattformen ta hand om säkra anslutningar, skala vår funktion och skala våra anslutningar.

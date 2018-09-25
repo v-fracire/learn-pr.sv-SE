@@ -1,0 +1,3 @@
+Här har du lärt dig att använda en lastbalanserare som en del av en lösning för att leverera hög tillgänglighet för virtuella datorer i Azure. Det här ingår i själva lastbalanseraren, de associerade virtuella nätverken, regler för att kontrollera balansalgoritmen och hälsotillståndsavsökningar som identifierar vilka virtuella datorer som körs korrekt.
+
+[!include[](../../../includes/azure-sandbox-cleanup.md)]
