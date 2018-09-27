@@ -1,4 +1,5 @@
-::: zone pivot="csharp" Vi ska nu lägga till kod för att hämta anslutningssträngen för Azure Storage-kontot från konfigurationen och använda den för att ansluta till Azure Storage-kontot.
+::: zone pivot="csharp"
+Vi ska nu lägga till kod för att hämta anslutningssträngen för Azure Storage-kontot från konfigurationen och använda den för att ansluta till Azure Storage-kontot.
 
 ## <a name="retrieve-the-connection-string"></a>Hämta anslutningssträngen
 
@@ -139,7 +140,8 @@ Stöd för `async` och `await` i `Main`-metoderna har lagts till i C# 7.1. Detta
 
 ::: zone-end
 
-::: zone pivot="javascript" Nu ska vi lägga till kod för att ansluta till Azure-lagringskontot med hjälp av vår lagrade anslutningssträng. Azure-klientbiblioteket använder automatiskt miljövariabeln **AZURE_STORAGE_CONNECTION_STRING** till att hämta anslutningssträngen.
+::: zone pivot="javascript"
+Nu ska vi lägga till kod för att ansluta till Azure-lagringskontot med hjälp av vår lagrade anslutningssträng. Azure-klientbiblioteket använder automatiskt miljövariabeln **AZURE_STORAGE_CONNECTION_STRING** till att hämta anslutningssträngen.
 
 ## <a name="create-a-blob-client"></a>Skapa en blobbklient
 
