@@ -1,0 +1,44 @@
+### YamlMime:Module
+uid: learn.intro-to-containers
+metadata:
+  title: Introduktion till containrar
+  description: Lär dig mer om att skapa och använda Dockercontainrar.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 03b59331fb27812cd4f54e14b8ac5124a221995b
+  ms.sourcegitcommit: 8a009788ee73c5d7caa6cd4f1105260c5cc9b846
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2018
+  ms.locfileid: "46570540"
+title: Introduktion till containrar
+summary: Lär dig mer om att skapa och använda Dockercontainrar.
+abstract: >
+  I den här modulen ska du:
+
+  - Ha en webbserver som körs på en Dockercontainer
+
+  - Tillämpa vanliga sätt att köra, visa och ta bort containrar
+
+  - Skapa en egen containeravbildning och publicera avbildningen till Docker Hub
+prerequisites: Ingen
+iconUrl: /learn/achievements/intro-to-containers.svg
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+- azure-container-instances
+- azure-container-registry
+units:
+- learn.intro-to-containers.1-introduction
+- learn.intro-to-containers.2-create-a-container
+- learn.intro-to-containers.3-basic-operations
+- learn.intro-to-containers.4-container-images
+- learn.intro-to-containers.5-knowledge-check
+- learn.intro-to-containers.6-summary
+achievement: learn.intro-to-containers.badge
