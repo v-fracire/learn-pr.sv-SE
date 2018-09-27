@@ -2,21 +2,21 @@
 uid: learn.work-with-nosql-data-in-azure-cosmos-db
 metadata:
   title: Arbeta med NoSQL-data i Azure Cosmos DB
-  description: 'NoSQL-data är ett effektivt sätt att lagra information som inte mappas till kraven i en SQL-relationsdatabas.<br><br>Databaser för NoSQL-data ger ökad flexibilitet med förenklade utskalningstekniker och möjligheter att finjustera tillgänglighet och krav på datakonsekvens. Azure Cosmos DB erbjuder alla dessa fördelar och mer därtill genom att tillhandahålla verktyg och SDK: er för att arbeta med dina NoSQL-data.<br><br>Lär dig hur du använder Azure Portal, Azure Cosmos DB-tillägget för Visual Studio Code och Azure Cosmos DB .NET Core SDK för att arbeta med dina NoSQL-data där du vill och ge användarna hög tillgänglighet, oavsett var de befinner sig i världen.'
+  description: NoSQL-data är ett effektivt sätt att lagra information som inte mappas till kraven i en SQL-relationsdatabas.<br><br>Databaser för NoSQL-data ger ökad flexibilitet med förenklade utskalningstekniker och möjligheter att finjustera tillgänglighet och krav på datakonsekvens. Azure Cosmos DB erbjuder alla dessa fördelar och mer därtill genom att tillhandahålla verktyg och SDK:er för att arbeta med dina NoSQL-data.<br><br>Lär dig hur du använder Azure Portal, Azure Cosmos DB-tillägget för Visual Studio Code och Azure Cosmos DB .NET Core SDK för att arbeta med dina NoSQL-data var du vill och ge användarna hög tillgänglighet, oavsett var de befinner sig i världen.
   brand: azure
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: ea68e439f14baac1b274c1f235c5c2d317227a09
-  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.openlocfilehash: a8301134448063a316cce153377b039b557f1a81
+  ms.sourcegitcommit: 8a009788ee73c5d7caa6cd4f1105260c5cc9b846
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/20/2018
-  ms.locfileid: "46483174"
+  ms.lasthandoff: 09/22/2018
+  ms.locfileid: "46567389"
 title: Arbeta med NoSQL-data i Azure Cosmos DB
-summary: NoSQL-data är ett effektivt sätt att lagra information som inte mappas till kraven i en SQL-relationsdatabas. Lär dig hur du använder Azure Portal, Azure Cosmos DB-tillägget för Visual Studio Code och Azure Cosmos DB .NET Core SDK för att arbeta med dina NoSQL-data där du vill och ge användarna hög tillgänglighet, oavsett var de befinner sig i världen.
+summary: NoSQL-data är ett effektivt sätt att lagra information som inte mappas till kraven i en SQL-relationsdatabas. Lär dig hur du använder Azure Portal, Azure Cosmos DB-tillägget för Visual Studio Code och Azure Cosmos DB .NET Core SDK för att arbeta med dina NoSQL-data var du vill och ge användarna hög tillgänglighet, oavsett var de befinner sig i världen.
 prerequisites: >
   - Kunskaper om lagringsalternativ i Azure.
 iconUrl: /learn/achievements/work-with-nosql-data-in-azure-cosmos-db.svg

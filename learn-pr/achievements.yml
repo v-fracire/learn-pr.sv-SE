@@ -1,434 +1,429 @@
 ### YamlMime:Achievements
 achievements:
-- uid: learn.build-a-serverless-web-app.badge
-  type: badge
-  title: <span data-ttu-id="27932-101">Skapa en serverlös webbapp</span><span class="sxs-lookup"><span data-stu-id="27932-101">Build a serverless web app</span></span>
-  summary: <span data-ttu-id="27932-102">Märke för modulen Skapa en serverlös webbapp.</span><span class="sxs-lookup"><span data-stu-id="27932-102">Badge for the 'Build a serverless web app' module.</span></span>
-  iconUrl: /learn/achievements/build-a-serverless-web-app.svg
 - uid: learn.connect-app-to-azure-storage.badge
   type: badge
-  title: <span data-ttu-id="27932-103">Anslut en app till Azure Storage</span><span class="sxs-lookup"><span data-stu-id="27932-103">Connect an app to Azure Storage</span></span>
-  summary: <span data-ttu-id="27932-104">Anslut en app till Azure Storage</span><span class="sxs-lookup"><span data-stu-id="27932-104">Connect an app to Azure Storage</span></span>
+  title: <span data-ttu-id="a7924-101">Anslut en app till Azure Storage</span><span class="sxs-lookup"><span data-stu-id="a7924-101">Connect an app to Azure Storage</span></span>
+  summary: <span data-ttu-id="a7924-102">Anslut en app till Azure Storage</span><span class="sxs-lookup"><span data-stu-id="a7924-102">Connect an app to Azure Storage</span></span>
   iconUrl: /learn/achievements/connect-an-app-to-azure-storage.svg
 - uid: learn.create-azure-storage-account.badge
   type: badge
-  title: <span data-ttu-id="27932-105">Skapa ett Azure Storage-konto</span><span class="sxs-lookup"><span data-stu-id="27932-105">Create an Azure Storage account</span></span>
-  summary: <span data-ttu-id="27932-106">Skapa ett märke för Azure Storage-konto</span><span class="sxs-lookup"><span data-stu-id="27932-106">Create an Azure storage account Badge</span></span>
+  title: <span data-ttu-id="a7924-103">Skapa ett Azure Storage-konto</span><span class="sxs-lookup"><span data-stu-id="a7924-103">Create an Azure Storage account</span></span>
+  summary: <span data-ttu-id="a7924-104">Skapa ett märke för Azure Storage-konto</span><span class="sxs-lookup"><span data-stu-id="a7924-104">Create an Azure storage account Badge</span></span>
   iconUrl: /learn/achievements/create-azure-storage-account.svg
 - uid: learn.create-serverless-logic-with-functions.badge
   type: badge
-  title: <span data-ttu-id="27932-107">Skapa serverlös logik med Azure Functions</span><span class="sxs-lookup"><span data-stu-id="27932-107">Create serverless logic with Azure Functions</span></span>
-  summary: <span data-ttu-id="27932-108">Skapa serverlös logik med Azure Functions</span><span class="sxs-lookup"><span data-stu-id="27932-108">Create serverless logic with Azure Functions</span></span>
+  title: <span data-ttu-id="a7924-105">Skapa serverlös logik med Azure Functions</span><span class="sxs-lookup"><span data-stu-id="a7924-105">Create serverless logic with Azure Functions</span></span>
+  summary: <span data-ttu-id="a7924-106">Skapa serverlös logik med Azure Functions</span><span class="sxs-lookup"><span data-stu-id="a7924-106">Create serverless logic with Azure Functions</span></span>
   iconUrl: /learn/achievements/create-serverless-logic-with-azure-functions.svg
 - uid: learn.host-a-web-application-with-azure-web-apps.badge
   type: badge
-  title: <span data-ttu-id="27932-109">Var värd för ett webbprogram med Azure App-tjänsten</span><span class="sxs-lookup"><span data-stu-id="27932-109">Host a web application with Azure App service</span></span>
-  summary: <span data-ttu-id="27932-110">Var värd för ett webbprogram med Azure Web Apps-märket</span><span class="sxs-lookup"><span data-stu-id="27932-110">Host a web application with Azure Web Apps Badge</span></span>
+  title: <span data-ttu-id="a7924-107">Var värd för ett webbprogram med Azure App-tjänsten</span><span class="sxs-lookup"><span data-stu-id="a7924-107">Host a web application with Azure App service</span></span>
+  summary: <span data-ttu-id="a7924-108">Var värd för ett webbprogram med Azure Web Apps-märket</span><span class="sxs-lookup"><span data-stu-id="a7924-108">Host a web application with Azure Web Apps Badge</span></span>
   iconUrl: /learn/achievements/host-a-web-app-with-azure-app-service.svg
 - uid: learn.publish-azure-web-app-with-visual-studio.badge
   type: badge
-  title: <span data-ttu-id="27932-111">Publicera en Azure-webbapp med Visual Studio för Windows eller Mac</span><span class="sxs-lookup"><span data-stu-id="27932-111">Publish an Azure Web App with Visual Studio for Windows or Mac</span></span>
-  summary: <span data-ttu-id="27932-112">Publicera en Azure-webbapp med Visual Studio för Windows eller Mac</span><span class="sxs-lookup"><span data-stu-id="27932-112">Publish an Azure Web App with Visual Studio for Windows or Mac</span></span>
+  title: <span data-ttu-id="a7924-109">Publicera en Azure-webbapp med Visual Studio för Windows eller Mac</span><span class="sxs-lookup"><span data-stu-id="a7924-109">Publish an Azure Web App with Visual Studio for Windows or Mac</span></span>
+  summary: <span data-ttu-id="a7924-110">Publicera en Azure-webbapp med Visual Studio för Windows eller Mac</span><span class="sxs-lookup"><span data-stu-id="a7924-110">Publish an Azure Web App with Visual Studio for Windows or Mac</span></span>
   iconUrl: /learn/achievements/publish-azure-web-app-with-visual-studio.svg
 - uid: learn.administer-containers-in-azure.trophy
   type: trophy
-  title: <span data-ttu-id="27932-113">Pokal för Administrera containrar i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-113">Administer containers in Azure Trophy</span></span>
-  summary: <span data-ttu-id="27932-114">Pokal för utbildningsvägen Administrera containrar i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-114">Trophy for the 'Administer containers in Azure' learning path</span></span>
+  title: <span data-ttu-id="a7924-111">Pokal för Administrera containrar i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-111">Administer containers in Azure Trophy</span></span>
+  summary: <span data-ttu-id="a7924-112">Pokal för utbildningsvägen Administrera containrar i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-112">Trophy for the 'Administer containers in Azure' learning path</span></span>
   iconUrl: /learn/achievements/administer-containers-in-azure.svg
 - uid: learn.create-serverless-applications.trophy
   type: trophy
-  title: <span data-ttu-id="27932-115">Pokal för Skapa serverlösa program</span><span class="sxs-lookup"><span data-stu-id="27932-115">Create serverless applications Trophy</span></span>
-  summary: <span data-ttu-id="27932-116">Pokal för utbildningsvägen Skapa serverlösa program</span><span class="sxs-lookup"><span data-stu-id="27932-116">Trophy for the 'Create serverless applications' learning path</span></span>
+  title: <span data-ttu-id="a7924-113">Pokal för Skapa serverlösa program</span><span class="sxs-lookup"><span data-stu-id="a7924-113">Create serverless applications Trophy</span></span>
+  summary: <span data-ttu-id="a7924-114">Pokal för utbildningsvägen Skapa serverlösa program</span><span class="sxs-lookup"><span data-stu-id="a7924-114">Trophy for the 'Create serverless applications' learning path</span></span>
   iconUrl: /learn/achievements/create-serverless-applications.svg
 - uid: learn.administer-infrastructure-resources-in-azure.trophy
   type: trophy
-  title: <span data-ttu-id="27932-117">Pokal för Administrera infrastrukturresurser i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-117">Administer infrastructure resources in Azure Trophy</span></span>
-  summary: <span data-ttu-id="27932-118">Pokal för utbildningsvägen Administrera infrastrukturresurser i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-118">Trophy for the 'Administer infrastructure resources in Azure' learning path</span></span>
+  title: <span data-ttu-id="a7924-115">Pokal för Administrera infrastrukturresurser i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-115">Administer infrastructure resources in Azure Trophy</span></span>
+  summary: <span data-ttu-id="a7924-116">Pokal för utbildningsvägen Administrera infrastrukturresurser i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-116">Trophy for the 'Administer infrastructure resources in Azure' learning path</span></span>
   iconUrl: /learn/achievements/administer-infrastructure-resources-in-azure.svg
 - uid: learn.cloud-foundations.trophy
   type: trophy
-  title: <span data-ttu-id="27932-119">Pokal för Grunderna om molnet</span><span class="sxs-lookup"><span data-stu-id="27932-119">Cloud Foundations Trophy</span></span>
-  summary: <span data-ttu-id="27932-120">Pokal för utbildningsvägen Grunderna om molnet.</span><span class="sxs-lookup"><span data-stu-id="27932-120">Trophy for the 'Cloud Foundations' learning path.</span></span>
-  iconUrl: /learn/achievements/cloud-foundations.svg
+  title: <span data-ttu-id="a7924-117">Pokal för Grunderna för Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-117">Azure fundamentals Trophy</span></span>
+  summary: <span data-ttu-id="a7924-118">Pokal för utbildningsvägen Grunderna för Azure.</span><span class="sxs-lookup"><span data-stu-id="a7924-118">Trophy for the 'Azure fundamentals' learning path.</span></span>
+  iconUrl: /learn/achievements/azure-fundamentals.svg
 - uid: learn.connect-your-services-together.trophy
   type: trophy
-  title: <span data-ttu-id="27932-121">Pokal för Koppla samman dina tjänster</span><span class="sxs-lookup"><span data-stu-id="27932-121">Connect your services together Trophy</span></span>
-  summary: <span data-ttu-id="27932-122">Pokal för utbildningsvägen Koppla samman dina tjänster.</span><span class="sxs-lookup"><span data-stu-id="27932-122">Trophy for the 'Connect your services together' learning path.</span></span>
+  title: <span data-ttu-id="a7924-119">Pokal för Koppla samman dina tjänster</span><span class="sxs-lookup"><span data-stu-id="a7924-119">Connect your services together Trophy</span></span>
+  summary: <span data-ttu-id="a7924-120">Pokal för utbildningsvägen Koppla samman dina tjänster.</span><span class="sxs-lookup"><span data-stu-id="a7924-120">Trophy for the 'Connect your services together' learning path.</span></span>
   iconUrl: /learn/achievements/connect-your-services-together.svg
 - uid: learn.architect-great-solutions-in-azure.trophy
   type: trophy
-  title: <span data-ttu-id="27932-123">Pokal för Skapa fantastiska lösningar i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-123">Architect great solutions in Azure Trophy</span></span>
-  summary: <span data-ttu-id="27932-124">Pokal för utbildningsvägen Skapa fantastiska lösningar i Azure.</span><span class="sxs-lookup"><span data-stu-id="27932-124">Trophy for the 'Architect great solutions in Azure' learning path.</span></span>
+  title: <span data-ttu-id="a7924-121">Pokal för Skapa fantastiska lösningar i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-121">Architect great solutions in Azure Trophy</span></span>
+  summary: <span data-ttu-id="a7924-122">Pokal för utbildningsvägen Skapa fantastiska lösningar i Azure.</span><span class="sxs-lookup"><span data-stu-id="a7924-122">Trophy for the 'Architect great solutions in Azure' learning path.</span></span>
   iconUrl: /learn/achievements/architect-great-solutions-in-azure.svg
 - uid: learn.deploy-a-website-with-azure-app-service.trophy
   type: trophy
-  title: <span data-ttu-id="27932-125">Pokal för Distribuera en webbplats med Azure App Service</span><span class="sxs-lookup"><span data-stu-id="27932-125">Deploy a website with Azure App Service Trophy</span></span>
-  summary: <span data-ttu-id="27932-126">Pokal för utbildningsvägen Distribuera en webbplats med Azure App Service.</span><span class="sxs-lookup"><span data-stu-id="27932-126">Trophy for the 'Deploy a website with Azure App Service' learning path.</span></span>
+  title: <span data-ttu-id="a7924-123">Pokal för Distribuera en webbplats med Azure App Service</span><span class="sxs-lookup"><span data-stu-id="a7924-123">Deploy a website with Azure App Service Trophy</span></span>
+  summary: <span data-ttu-id="a7924-124">Pokal för utbildningsvägen Distribuera en webbplats med Azure App Service.</span><span class="sxs-lookup"><span data-stu-id="a7924-124">Trophy for the 'Deploy a website with Azure App Service' learning path.</span></span>
   iconUrl: /learn/achievements/deploy-a-website-with-azure-app-service.svg
 - uid: learn.work-with-nosql-data-in-azure-cosmos-db.trophy
   type: trophy
-  title: <span data-ttu-id="27932-127">Pokal för Arbeta med NoSQL-data i Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="27932-127">Work with NoSQL data in Azure Cosmos DB Trophy</span></span>
-  summary: <span data-ttu-id="27932-128">Pokal för utbildningsvägen Arbeta med NoSQL-data i Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="27932-128">Trophy for 'Work with NoSQL data in Azure Cosmos DB' learning path.</span></span>
+  title: <span data-ttu-id="a7924-125">Pokal för Arbeta med NoSQL-data i Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="a7924-125">Work with NoSQL data in Azure Cosmos DB Trophy</span></span>
+  summary: <span data-ttu-id="a7924-126">Pokal för utbildningsvägen Arbeta med NoSQL-data i Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="a7924-126">Trophy for 'Work with NoSQL data in Azure Cosmos DB' learning path.</span></span>
   iconUrl: /learn/achievements/work-with-nosql-data-in-azure-cosmos-db.svg
 - uid: learn.work-with-relational-data-in-azure.trophy
   type: trophy
-  title: <span data-ttu-id="27932-129">Pokal för Arbeta med relationsdata i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-129">Work with relational data in Azure Trophy</span></span>
-  summary: <span data-ttu-id="27932-130">Pokal för utbildningsvägen Arbeta med relationsdata i Azure.</span><span class="sxs-lookup"><span data-stu-id="27932-130">Trophy for the 'Working with relational data in Azure' learning path.</span></span>
+  title: <span data-ttu-id="a7924-127">Pokal för Arbeta med relationsdata i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-127">Work with relational data in Azure Trophy</span></span>
+  summary: <span data-ttu-id="a7924-128">Pokal för utbildningsvägen Arbeta med relationsdata i Azure.</span><span class="sxs-lookup"><span data-stu-id="a7924-128">Trophy for the 'Working with relational data in Azure' learning path.</span></span>
   iconUrl: /learn/achievements/work-with-relational-data-in-azure.svg
 - uid: learn.secure-your-cloud-data.trophy
   type: trophy
-  title: <span data-ttu-id="27932-131">Pokal för Skydda dina molndata</span><span class="sxs-lookup"><span data-stu-id="27932-131">Secure your cloud data Trophy</span></span>
-  summary: <span data-ttu-id="27932-132">Pokal för utbildningsvägen Skydda dina molndata.</span><span class="sxs-lookup"><span data-stu-id="27932-132">Trophy for the 'Secure your cloud data' learning path.</span></span>
+  title: <span data-ttu-id="a7924-129">Pokal för Skydda dina molndata</span><span class="sxs-lookup"><span data-stu-id="a7924-129">Secure your cloud data Trophy</span></span>
+  summary: <span data-ttu-id="a7924-130">Pokal för utbildningsvägen Skydda dina molndata.</span><span class="sxs-lookup"><span data-stu-id="a7924-130">Trophy for the 'Secure your cloud data' learning path.</span></span>
   iconUrl: /learn/achievements/secure-your-cloud-data.svg
 - uid: learn.store-data-in-azure.trophy
   type: trophy
-  title: <span data-ttu-id="27932-133">Pokal för Lagra data i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-133">Store data in Azure Trophy</span></span>
-  summary: <span data-ttu-id="27932-134">Pokal för utbildningsvägen Lagra data i Azure.</span><span class="sxs-lookup"><span data-stu-id="27932-134">Trophy for the 'Store data in Azure' learning path.</span></span>
+  title: <span data-ttu-id="a7924-131">Pokal för Lagra data i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-131">Store data in Azure Trophy</span></span>
+  summary: <span data-ttu-id="a7924-132">Pokal för utbildningsvägen Lagra data i Azure.</span><span class="sxs-lookup"><span data-stu-id="a7924-132">Trophy for the 'Store data in Azure' learning path.</span></span>
   iconUrl: /learn/achievements/store-data-in-azure.svg
 - uid: learn.automate-azure-tasks-with-powershell.badge
   type: badge
-  title: <span data-ttu-id="27932-135">Märke för Automatisera Azure-åtgärder med hjälp av PowerShell-skript</span><span class="sxs-lookup"><span data-stu-id="27932-135">Automate Azure tasks using scripts with PowerShell Badge</span></span>
-  summary: <span data-ttu-id="27932-136">Översikt över Automatisera Azure-åtgärder med hjälp av PowerShell-skript</span><span class="sxs-lookup"><span data-stu-id="27932-136">Automate Azure tasks using scripts with PowerShell Summary</span></span>
+  title: <span data-ttu-id="a7924-133">Märke för Automatisera Azure-åtgärder med hjälp av PowerShell-skript</span><span class="sxs-lookup"><span data-stu-id="a7924-133">Automate Azure tasks using scripts with PowerShell Badge</span></span>
+  summary: <span data-ttu-id="a7924-134">Översikt över Automatisera Azure-åtgärder med hjälp av PowerShell-skript</span><span class="sxs-lookup"><span data-stu-id="a7924-134">Automate Azure tasks using scripts with PowerShell Summary</span></span>
   iconUrl: /learn/achievements/automate-azure-tasks-with-powershell.svg
 - uid: learn.create-azure-db-for-postgresql.badge
   type: badge
-  title: <span data-ttu-id="27932-137">Märke för Skapa en PostgreSQL DB-server via Azure CLI</span><span class="sxs-lookup"><span data-stu-id="27932-137">Create a PostgreSQL DB server via the Azure CLI Badge</span></span>
-  summary: <span data-ttu-id="27932-138">Översikt över Skapa en PostgreSQL DB-server via Azure CLI</span><span class="sxs-lookup"><span data-stu-id="27932-138">Create a PostgreSQL DB server via the Azure CLI Summary</span></span>
+  title: <span data-ttu-id="a7924-135">Märke för Skapa en PostgreSQL DB-server via Azure CLI</span><span class="sxs-lookup"><span data-stu-id="a7924-135">Create a PostgreSQL DB server via the Azure CLI Badge</span></span>
+  summary: <span data-ttu-id="a7924-136">Översikt över Skapa en PostgreSQL DB-server via Azure CLI</span><span class="sxs-lookup"><span data-stu-id="a7924-136">Create a PostgreSQL DB server via the Azure CLI Summary</span></span>
   iconUrl: /learn/achievements/create-azure-db-for-postgresql-server.svg
 - uid: learn.create-linux-vm-in-azure.badge
   type: badge
-  title: <span data-ttu-id="27932-139">Märke för Skapa en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-139">Create a Linux virtual machine in Azure Badge</span></span>
-  summary: <span data-ttu-id="27932-140">Översikt över Skapa en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-140">Create a Linux virtual machine in Azure Summary</span></span>
+  title: <span data-ttu-id="a7924-137">Märke för Skapa en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-137">Create a Linux virtual machine in Azure Badge</span></span>
+  summary: <span data-ttu-id="a7924-138">Översikt över Skapa en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-138">Create a Linux virtual machine in Azure Summary</span></span>
   iconUrl: /learn/achievements/create-linux-virtual-machine-in-azure.svg
 - uid: learn.choose-messaging-model.badge
   type: badge
-  title: <span data-ttu-id="27932-141">Märke för Välja meddelandemodell</span><span class="sxs-lookup"><span data-stu-id="27932-141">Choose messaging model Badge</span></span>
-  summary: <span data-ttu-id="27932-142">Översikt över märket för Välja meddelandemodell</span><span class="sxs-lookup"><span data-stu-id="27932-142">Choose messaging model Badge Summary</span></span>
+  title: <span data-ttu-id="a7924-139">Märke för Välja meddelandemodell</span><span class="sxs-lookup"><span data-stu-id="a7924-139">Choose messaging model Badge</span></span>
+  summary: <span data-ttu-id="a7924-140">Översikt över märket för Välja meddelandemodell</span><span class="sxs-lookup"><span data-stu-id="a7924-140">Choose messaging model Badge Summary</span></span>
   iconUrl: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
 - uid: learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.badge
   type: badge
-  title: <span data-ttu-id="27932-143">Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-143">Build and run a web application with the MEAN stack on an Azure Linux Virtual Machine</span></span>
-  summary: <span data-ttu-id="27932-144">Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-144">Build and run a web application with the MEAN stack on an Azure Linux Virtual Machine</span></span>
+  title: <span data-ttu-id="a7924-141">Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-141">Build and run a web application with the MEAN stack on an Azure Linux Virtual Machine</span></span>
+  summary: <span data-ttu-id="a7924-142">Skapa och köra en webbapp med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-142">Build and run a web application with the MEAN stack on an Azure Linux Virtual Machine</span></span>
   iconUrl: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
 - uid: learn.prepare-azure-dev-environment.badge
   type: badge
-  title: <span data-ttu-id="27932-145">Märke för Förbereda utvecklingsmiljön i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-145">Prepare Azure development environment Badge</span></span>
-  summary: <span data-ttu-id="27932-146">Översikt över märket för Förbereda utvecklingsmiljön i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-146">Prepare Azure development environment Badge Summary</span></span>
+  title: <span data-ttu-id="a7924-143">Märke för Förbereda utvecklingsmiljön i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-143">Prepare Azure development environment Badge</span></span>
+  summary: <span data-ttu-id="a7924-144">Översikt över märket för Förbereda utvecklingsmiljön i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-144">Prepare Azure development environment Badge Summary</span></span>
   iconUrl: /learn/achievements/prepare-your-dev-environment-for-azure-development.svg
 - uid: learn.manage-resources-with-azure-portal.badge
   type: badge
-  title: <span data-ttu-id="27932-147">Märke för Hantera resurser med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="27932-147">Manage resources with Azure portal Badge</span></span>
-  summary: <span data-ttu-id="27932-148">Översikt över märket för Hantera resurser med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="27932-148">Manage resources with Azure portal Badge Summary</span></span>
+  title: <span data-ttu-id="a7924-145">Märke för Hantera resurser med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="a7924-145">Manage resources with Azure portal Badge</span></span>
+  summary: <span data-ttu-id="a7924-146">Översikt över märket för Hantera resurser med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="a7924-146">Manage resources with Azure portal Badge Summary</span></span>
   iconUrl: /learn/achievements/manage-resources-with-azure-portal.svg
 - uid: learn.control-azure-services-with-cli.badge
   type: badge
-  title: <span data-ttu-id="27932-149">Märke för Styr Azure-tjänster med CLI</span><span class="sxs-lookup"><span data-stu-id="27932-149">Control Azure services with the CLI Badge</span></span>
-  summary: <span data-ttu-id="27932-150">Översikt över märket för Styr Azure-tjänster med CLI</span><span class="sxs-lookup"><span data-stu-id="27932-150">Control Azure services with the CLI Badge Summary</span></span>
+  title: <span data-ttu-id="a7924-147">Märke för Styr Azure-tjänster med CLI</span><span class="sxs-lookup"><span data-stu-id="a7924-147">Control Azure services with the CLI Badge</span></span>
+  summary: <span data-ttu-id="a7924-148">Översikt över märket för Styr Azure-tjänster med CLI</span><span class="sxs-lookup"><span data-stu-id="a7924-148">Control Azure services with the CLI Badge Summary</span></span>
   iconUrl: /learn/achievements/control-azure-services-with-cli.svg
 - uid: learn.azure-services-features.badge
   type: badge
-  title: <span data-ttu-id="27932-151">Märke för Introduktion till tjänster och funktioner i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-151">Tour Azure services and features Badge</span></span>
-  summary: <span data-ttu-id="27932-152">Översikt över Introduktion till tjänster och funktioner i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-152">Tour Azure services and features Summary</span></span>
+  title: <span data-ttu-id="a7924-149">Märke för Introduktion till tjänster och funktioner i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-149">Tour Azure services and features Badge</span></span>
+  summary: <span data-ttu-id="a7924-150">Översikt över Introduktion till tjänster och funktioner i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-150">Tour Azure services and features Summary</span></span>
   iconUrl: /learn/achievements/tour-azure-services-and-features.svg
 - uid: learn.migrate-sql-server-relational-data.badge
   type: badge
-  title: <span data-ttu-id="27932-153">Migrera dina relationsdata i SQL Server till Azure SQL</span><span class="sxs-lookup"><span data-stu-id="27932-153">Migrate your SQL server relational data to Azure SQL</span></span>
-  summary: <span data-ttu-id="27932-154">Migrera dina relationsdata i SQL Server till Azure SQL</span><span class="sxs-lookup"><span data-stu-id="27932-154">Migrate your SQL server relational data to Azure SQL</span></span>
+  title: <span data-ttu-id="a7924-151">Migrera dina relationsdata i SQL Server till Azure SQL</span><span class="sxs-lookup"><span data-stu-id="a7924-151">Migrate your SQL server relational data to Azure SQL</span></span>
+  summary: <span data-ttu-id="a7924-152">Migrera dina relationsdata i SQL Server till Azure SQL</span><span class="sxs-lookup"><span data-stu-id="a7924-152">Migrate your SQL server relational data to Azure SQL</span></span>
   iconUrl: /learn/achievements/migrate-sql-server-to-azure-sql.svg
 - uid: learn.communicate-between-applications-with-azure-queue-storage.badge
   type: badge
-  title: <span data-ttu-id="27932-155">Kommunicera mellan program med Azure Queue Storage</span><span class="sxs-lookup"><span data-stu-id="27932-155">Communicate between applications with Azure queue storage</span></span>
-  summary: <span data-ttu-id="27932-156">Kommunicera mellan program med Azure Queue Storage</span><span class="sxs-lookup"><span data-stu-id="27932-156">Communicate between applications with an Azure queue storage</span></span>
+  title: <span data-ttu-id="a7924-153">Kommunicera mellan program med Azure Queue Storage</span><span class="sxs-lookup"><span data-stu-id="a7924-153">Communicate between applications with Azure queue storage</span></span>
+  summary: <span data-ttu-id="a7924-154">Kommunicera mellan program med Azure Queue Storage</span><span class="sxs-lookup"><span data-stu-id="a7924-154">Communicate between applications with an Azure queue storage</span></span>
   iconUrl: /learn/achievements/communicate-between-apps-with-storage-queues.svg
 - uid: learn.caching-and-performance-azure-storage-and-disks.badge
   type: badge
-  title: <span data-ttu-id="27932-157">Cachelagring och prestanda i Azure Storage och diskar</span><span class="sxs-lookup"><span data-stu-id="27932-157">Caching and performance in Azure Storage and disks</span></span>
-  summary: <span data-ttu-id="27932-158">Cachelagring och prestanda i Azure Storage och diskar</span><span class="sxs-lookup"><span data-stu-id="27932-158">Caching and performance in Azure Storage and disks</span></span>
+  title: <span data-ttu-id="a7924-155">Cachelagring och prestanda i Azure Storage och diskar</span><span class="sxs-lookup"><span data-stu-id="a7924-155">Caching and performance in Azure Storage and disks</span></span>
+  summary: <span data-ttu-id="a7924-156">Cachelagring och prestanda i Azure Storage och diskar</span><span class="sxs-lookup"><span data-stu-id="a7924-156">Caching and performance in Azure Storage and disks</span></span>
   iconUrl: /learn/achievements/caching-and-performance-azure-storage-and-disks.svg
 - uid: learn.create-a-windows-vm-in-azure.badge
   type: badge
-  title: <span data-ttu-id="27932-159">Skapa en virtuell Windows-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-159">Create a Windows virtual machine in Azure</span></span>
-  summary: <span data-ttu-id="27932-160">Skapa en virtuell Windows-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-160">Create a Windows virtual machine in Azure</span></span>
+  title: <span data-ttu-id="a7924-157">Skapa en virtuell Windows-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-157">Create a Windows virtual machine in Azure</span></span>
+  summary: <span data-ttu-id="a7924-158">Skapa en virtuell Windows-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-158">Create a Windows virtual machine in Azure</span></span>
   iconUrl: /learn/achievements/create-windows-virtual-machine-in-azure.svg
 - uid: learn.web-app-with-mean-on-linux-vm.badge
   type: badge
-  title: <span data-ttu-id="27932-161">Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-161">Build and run a web application with the MEAN stack on an Azure Linux virtual machine</span></span>
-  summary: <span data-ttu-id="27932-162">Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-162">Build and run a web application with the MEAN stack on an Azure Linux virtual machine</span></span>
+  title: <span data-ttu-id="a7924-159">Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-159">Build and run a web application with the MEAN stack on an Azure Linux virtual machine</span></span>
+  summary: <span data-ttu-id="a7924-160">Skapa och köra ett webbprogram med MEAN-stacken på en virtuell Linux-dator i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-160">Build and run a web application with the MEAN stack on an Azure Linux virtual machine</span></span>
   iconUrl: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
 - uid: learn.optimize-web-app-with-redis.badge
   type: badge
-  title: <span data-ttu-id="27932-163">Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis</span><span class="sxs-lookup"><span data-stu-id="27932-163">Optimize your web applications by caching read-only data with Redis</span></span>
-  summary: <span data-ttu-id="27932-164">Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis</span><span class="sxs-lookup"><span data-stu-id="27932-164">Optimize your web applications by caching read-only data with Redis</span></span>
+  title: <span data-ttu-id="a7924-161">Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis</span><span class="sxs-lookup"><span data-stu-id="a7924-161">Optimize your web applications by caching read-only data with Redis</span></span>
+  summary: <span data-ttu-id="a7924-162">Optimera dina webbprogram genom att cachelagra skrivskyddade data med Redis</span><span class="sxs-lookup"><span data-stu-id="a7924-162">Optimize your web applications by caching read-only data with Redis</span></span>
   iconUrl: /learn/achievements/optimize-web-apps-with-redis.svg
 - uid: learn.manage-secrets-with-azure-key-vault.badge
   type: badge
-  title: <span data-ttu-id="27932-165">Hantera hemligheter i dina webbappar med Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="27932-165">Manage secrets in your web apps with Azure Key Vault</span></span>
-  summary: <span data-ttu-id="27932-166">Hantera hemligheter i dina webbappar med Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="27932-166">Manage secrets in your web apps with Azure Key Vault</span></span>
+  title: <span data-ttu-id="a7924-163">Hantera hemligheter i dina webbappar med Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="a7924-163">Manage secrets in your web apps with Azure Key Vault</span></span>
+  summary: <span data-ttu-id="a7924-164">Hantera hemligheter i dina webbappar med Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="a7924-164">Manage secrets in your web apps with Azure Key Vault</span></span>
   iconUrl: /learn/achievements/manage-secrets-with-azure-key-vault.svg
 - uid: learn.secure-azure-resources-with-rbac.badge
   type: badge
-  title: <span data-ttu-id="27932-167">Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)</span><span class="sxs-lookup"><span data-stu-id="27932-167">Secure your Azure resources with role-based access control (RBAC)</span></span>
-  summary: <span data-ttu-id="27932-168">Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)</span><span class="sxs-lookup"><span data-stu-id="27932-168">Secure your Azure resources with role-based access control (RBAC)</span></span>
+  title: <span data-ttu-id="a7924-165">Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)</span><span class="sxs-lookup"><span data-stu-id="a7924-165">Secure your Azure resources with role-based access control (RBAC)</span></span>
+  summary: <span data-ttu-id="a7924-166">Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)</span><span class="sxs-lookup"><span data-stu-id="a7924-166">Secure your Azure resources with role-based access control (RBAC)</span></span>
   iconUrl: /learn/achievements/secure-azure-resources-with-rbac.svg
 - uid: learn.secure-access-azure-ad-multi-factor-authentication.badge
   type: badge
-  title: <span data-ttu-id="27932-169">Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication</span><span class="sxs-lookup"><span data-stu-id="27932-169">Secure access to resources using Azure AD, conditional access, and Azure Multi-Factor Authentication</span></span>
-  summary: <span data-ttu-id="27932-170">Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication</span><span class="sxs-lookup"><span data-stu-id="27932-170">Secure access to resources using Azure AD, conditional access, and Azure Multi-Factor Authentication</span></span>
+  title: <span data-ttu-id="a7924-167">Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication</span><span class="sxs-lookup"><span data-stu-id="a7924-167">Secure access to resources using Azure AD, conditional access, and Azure Multi-Factor Authentication</span></span>
+  summary: <span data-ttu-id="a7924-168">Säker åtkomst till resurser med hjälp av Azure AD, villkorsstyrd åtkomst och Azure Multi-Factor Authentication</span><span class="sxs-lookup"><span data-stu-id="a7924-168">Secure access to resources using Azure AD, conditional access, and Azure Multi-Factor Authentication</span></span>
   iconUrl: /learn/achievements/secure-azure-resources-with-conditional-access.svg
 - uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.badge
   type: badge
-  title: <span data-ttu-id="27932-171">Dela din plats som ett SMS-meddelande med Azure Functions och Twilio</span><span class="sxs-lookup"><span data-stu-id="27932-171">Share your location as a text message using Azure Functions and Twilio</span></span>
-  summary: <span data-ttu-id="27932-172">Dela din plats som ett SMS-meddelande med Azure Functions och Twilio</span><span class="sxs-lookup"><span data-stu-id="27932-172">Share your location as a text message using Azure Functions and Twilio</span></span>
+  title: <span data-ttu-id="a7924-169">Dela din plats som ett SMS-meddelande med Azure Functions och Twilio</span><span class="sxs-lookup"><span data-stu-id="a7924-169">Share your location as a text message using Azure Functions and Twilio</span></span>
+  summary: <span data-ttu-id="a7924-170">Dela din plats som ett SMS-meddelande med Azure Functions och Twilio</span><span class="sxs-lookup"><span data-stu-id="a7924-170">Share your location as a text message using Azure Functions and Twilio</span></span>
   iconUrl: /learn/achievements/send-location-over-sms-from-mobile-using-azure-functions-twilio.svg
 - uid: learn.manage-vms-with-azure-cli-data.badge
   type: badge
-  title: <span data-ttu-id="27932-173">Hantera virtuella datorer med Azure CLI</span><span class="sxs-lookup"><span data-stu-id="27932-173">Manage virtual machines with the Azure CLI</span></span>
-  summary: <span data-ttu-id="27932-174">Hantera virtuella datorer med Azure CLI</span><span class="sxs-lookup"><span data-stu-id="27932-174">Manage virtual machines with the Azure CLI</span></span>
+  title: <span data-ttu-id="a7924-171">Hantera virtuella datorer med Azure CLI</span><span class="sxs-lookup"><span data-stu-id="a7924-171">Manage virtual machines with the Azure CLI</span></span>
+  summary: <span data-ttu-id="a7924-172">Hantera virtuella datorer med Azure CLI</span><span class="sxs-lookup"><span data-stu-id="a7924-172">Manage virtual machines with the Azure CLI</span></span>
   iconUrl: /learn/achievements/manage-vms-with-azure-cli.svg
 - uid: learn.deploy-a-website-with-azure-virtual-machines.trophy
   type: trophy
-  title: <span data-ttu-id="27932-175">Pokal för Distribuera en webbplats med Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="27932-175">Deploy a website with Azure Virtual Machines Trophy</span></span>
-  summary: <span data-ttu-id="27932-176">Pokal för utbildningsvägen Distribuera en webbplats med Azure Virtual Machines.</span><span class="sxs-lookup"><span data-stu-id="27932-176">Trophy for the 'Deploy a website with Azure Virtual Machines' learning path.</span></span>
+  title: <span data-ttu-id="a7924-173">Pokal för Distribuera en webbplats med Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="a7924-173">Deploy a website with Azure Virtual Machines Trophy</span></span>
+  summary: <span data-ttu-id="a7924-174">Pokal för utbildningsvägen Distribuera en webbplats med Azure Virtual Machines.</span><span class="sxs-lookup"><span data-stu-id="a7924-174">Trophy for the 'Deploy a website with Azure Virtual Machines' learning path.</span></span>
   iconUrl: /learn/achievements/deploy-a-website-with-azure-virtual-machines.svg
 - uid: learn.store-app-data-with-azure-blob-storage.badge
   type: badge
-  title: <span data-ttu-id="27932-177">Lagra data för webbappar med Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="27932-177">Store web application data with Azure Blob Storage</span></span>
-  summary: <span data-ttu-id="27932-178">Lagra data för webbappar med Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="27932-178">Store web application data with Azure Blob Storage</span></span>
+  title: <span data-ttu-id="a7924-175">Lagra data för webbappar med Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="a7924-175">Store web application data with Azure Blob Storage</span></span>
+  summary: <span data-ttu-id="a7924-176">Lagra data för webbappar med Azure Blob Storage</span><span class="sxs-lookup"><span data-stu-id="a7924-176">Store web application data with Azure Blob Storage</span></span>
   iconUrl: /learn/achievements/store-app-data-with-azure-blob-storage.svg
 - uid: learn.enable-reliable-messaging-for-big-data-applications-using-azure-event-hubs.badge
   type: badge
-  title: <span data-ttu-id="27932-179">Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs</span><span class="sxs-lookup"><span data-stu-id="27932-179">Enable reliable messaging for Big Data Applications using Azure Event Hubs</span></span>
-  summary: <span data-ttu-id="27932-180">Modulen Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs</span><span class="sxs-lookup"><span data-stu-id="27932-180">Enable reliable messaging for Big Data Applications using Azure Event Hubs module</span></span>
+  title: <span data-ttu-id="a7924-177">Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs</span><span class="sxs-lookup"><span data-stu-id="a7924-177">Enable reliable messaging for Big Data Applications using Azure Event Hubs</span></span>
+  summary: <span data-ttu-id="a7924-178">Modulen Aktivera tillförlitlig meddelandehantering för Big Data-appar med Azure Event Hubs</span><span class="sxs-lookup"><span data-stu-id="a7924-178">Enable reliable messaging for Big Data Applications using Azure Event Hubs module</span></span>
   iconUrl: /learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
 - uid: learn.secure-your-azure-sql-database.badge
   type: badge
-  title: <span data-ttu-id="27932-181">Skydda en Azure SQL Server-databas</span><span class="sxs-lookup"><span data-stu-id="27932-181">Secure an Azure SQL Server Database</span></span>
-  summary: <span data-ttu-id="27932-182">Skydda en Azure SQL Server-databas</span><span class="sxs-lookup"><span data-stu-id="27932-182">Secure an Azure SQL Server Database</span></span>
+  title: <span data-ttu-id="a7924-179">Skydda en Azure SQL Server-databas</span><span class="sxs-lookup"><span data-stu-id="a7924-179">Secure an Azure SQL Server Database</span></span>
+  summary: <span data-ttu-id="a7924-180">Skydda en Azure SQL Server-databas</span><span class="sxs-lookup"><span data-stu-id="a7924-180">Secure an Azure SQL Server Database</span></span>
   iconUrl: /learn/achievements/secure-your-azure-sql-database.svg
 - uid: learn.intro-to-compute.badge
   type: badge
-  title: <span data-ttu-id="27932-183">Märke för Introduktion till databehandling</span><span class="sxs-lookup"><span data-stu-id="27932-183">Introduction to Compute Badge</span></span>
-  summary: <span data-ttu-id="27932-184">Märke för modulen Introduktion till databehandling.</span><span class="sxs-lookup"><span data-stu-id="27932-184">Badge for 'Introduction to Compute' module.</span></span>
+  title: <span data-ttu-id="a7924-181">Märke för Introduktion till databehandling</span><span class="sxs-lookup"><span data-stu-id="a7924-181">Introduction to Compute Badge</span></span>
+  summary: <span data-ttu-id="a7924-182">Märke för modulen Introduktion till databehandling.</span><span class="sxs-lookup"><span data-stu-id="a7924-182">Badge for 'Introduction to Compute' module.</span></span>
   iconUrl: /learn/achievements/intro-to-azure-compute.svg
 - uid: learn.intro-to-data-in-azure.badge
   type: badge
-  title: <span data-ttu-id="27932-185">Märke för Introduktion till data i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-185">Introduction to data in Azure Badge</span></span>
-  summary: <span data-ttu-id="27932-186">Märke för modulen Introduktion till data i Azure.</span><span class="sxs-lookup"><span data-stu-id="27932-186">Badge for 'Introduction to data in Azure' module.</span></span>
+  title: <span data-ttu-id="a7924-183">Märke för Introduktion till data i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-183">Introduction to data in Azure Badge</span></span>
+  summary: <span data-ttu-id="a7924-184">Märke för modulen Introduktion till data i Azure.</span><span class="sxs-lookup"><span data-stu-id="a7924-184">Badge for 'Introduction to data in Azure' module.</span></span>
   iconUrl: /learn/achievements/intro-to-azure-networking.svg
 - uid: learn.introduction-to-azure-virtual-machines.badge
   type: badge
-  title: <span data-ttu-id="27932-187">Introduktion till Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="27932-187">Introduction to Azure Virtual Machines</span></span>
-  summary: <span data-ttu-id="27932-188">Introduktion till Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="27932-188">Introduction to Azure Virtual Machines</span></span>
+  title: <span data-ttu-id="a7924-185">Introduktion till Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="a7924-185">Introduction to Azure Virtual Machines</span></span>
+  summary: <span data-ttu-id="a7924-186">Introduktion till Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="a7924-186">Introduction to Azure Virtual Machines</span></span>
   iconUrl: /learn/achievements/intro-to-azure-virtual-machines.svg
 - uid: learn.cosmos-db-app-with-vscode.badge
   type: badge
-  title: <span data-ttu-id="27932-189">Skapa en Azure Cosmos DB-app i Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="27932-189">Build an Azure Cosmos DB app in Visual Studio Code</span></span>
-  summary: <span data-ttu-id="27932-190">Märke för modulen Skapa en Azure Cosmos DB-app i Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="27932-190">Badge for 'Build an Azure Cosmos DB app in Visual Studio Code' module.</span></span>
+  title: <span data-ttu-id="a7924-187">Skapa en Azure Cosmos DB-app i Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="a7924-187">Build an Azure Cosmos DB app in Visual Studio Code</span></span>
+  summary: <span data-ttu-id="a7924-188">Märke för modulen Skapa en Azure Cosmos DB-app i Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="a7924-188">Badge for 'Build an Azure Cosmos DB app in Visual Studio Code' module.</span></span>
   iconUrl: /learn/achievements/build-cosmos-db-app-with-vscode.svg
 - uid: learn.create-cosmos-db-for-scale.badge
   type: badge
-  title: <span data-ttu-id="27932-191">Skapa en Azure Cosmos DB-databas som kan skalas</span><span class="sxs-lookup"><span data-stu-id="27932-191">Create an Azure Cosmos DB database built to scale</span></span>
-  summary: <span data-ttu-id="27932-192">Märke för modulen Skapa en Azure Cosmos DB-databas som kan skalas.</span><span class="sxs-lookup"><span data-stu-id="27932-192">Badge for 'Create an Azure Cosmos DB database built to scale' module.</span></span>
+  title: <span data-ttu-id="a7924-189">Skapa en Azure Cosmos DB-databas som kan skalas</span><span class="sxs-lookup"><span data-stu-id="a7924-189">Create an Azure Cosmos DB database built to scale</span></span>
+  summary: <span data-ttu-id="a7924-190">Märke för modulen Skapa en Azure Cosmos DB-databas som kan skalas.</span><span class="sxs-lookup"><span data-stu-id="a7924-190">Badge for 'Create an Azure Cosmos DB database built to scale' module.</span></span>
   iconUrl: /learn/achievements/create-cosmos-db-for-scale.svg
 - uid: learn.manage-resources-in-azure.trophy
   type: trophy
-  title: <span data-ttu-id="27932-193">Pokal för Hantera resurser i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-193">Manage resources in Azure trophy</span></span>
-  summary: <span data-ttu-id="27932-194">Pokal för utbildningsvägen Hantera resurser i Azure.</span><span class="sxs-lookup"><span data-stu-id="27932-194">Trophy for the 'Manage resources in Azure' learning path.</span></span>
+  title: <span data-ttu-id="a7924-191">Pokal för Hantera resurser i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-191">Manage resources in Azure trophy</span></span>
+  summary: <span data-ttu-id="a7924-192">Pokal för utbildningsvägen Hantera resurser i Azure.</span><span class="sxs-lookup"><span data-stu-id="a7924-192">Trophy for the 'Manage resources in Azure' learning path.</span></span>
   iconUrl: /learn/achievements/manage-resources-with-azure-portal.svg
 - uid: learn.ci-cd-pipelines-azure-devops.badge
   type: badge
-  title: <span data-ttu-id="27932-195">Skapa pipelines för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps</span><span class="sxs-lookup"><span data-stu-id="27932-195">Build Continuous Integration/Continuous Deployment pipelines using Azure DevOps badge</span></span>
-  summary: <span data-ttu-id="27932-196">Märke för modulen Skapa pipelines för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps.</span><span class="sxs-lookup"><span data-stu-id="27932-196">Badge for 'Build Continuous Integration/Continuous Deployment pipelines using Azure DevOps' module.</span></span>
+  title: <span data-ttu-id="a7924-193">Skapa pipelines för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps</span><span class="sxs-lookup"><span data-stu-id="a7924-193">Build Continuous Integration/Continuous Deployment pipelines using Azure DevOps badge</span></span>
+  summary: <span data-ttu-id="a7924-194">Märke för modulen Skapa pipelines för kontinuerlig integrering/kontinuerlig distribution med Azure DevOps.</span><span class="sxs-lookup"><span data-stu-id="a7924-194">Badge for 'Build Continuous Integration/Continuous Deployment pipelines using Azure DevOps' module.</span></span>
   iconUrl: /learn/achievements/build-ci-cd-pipelines-using-azure-devops.svg
 - uid: learn.top-5-security-items-to-consider.badge
   type: badge
-  title: <span data-ttu-id="27932-197">De 5 främsta säkerhetsposterna att tänka på innan du skickar till produktion</span><span class="sxs-lookup"><span data-stu-id="27932-197">Top 5 Security Items To Consider Before Pushing To Production</span></span>
-  summary: <span data-ttu-id="27932-198">De 5 främsta säkerhetsposterna att tänka på innan du skickar till produktion</span><span class="sxs-lookup"><span data-stu-id="27932-198">Top 5 Security Items To Consider Before Pushing To Production</span></span>
+  title: <span data-ttu-id="a7924-195">De 5 främsta säkerhetsposterna att tänka på innan du skickar till produktion</span><span class="sxs-lookup"><span data-stu-id="a7924-195">Top 5 Security Items To Consider Before Pushing To Production</span></span>
+  summary: <span data-ttu-id="a7924-196">De 5 främsta säkerhetsposterna att tänka på innan du skickar till produktion</span><span class="sxs-lookup"><span data-stu-id="a7924-196">Top 5 Security Items To Consider Before Pushing To Production</span></span>
   iconUrl: /learn/achievements/top-5-security-items-to-consider.svg
 - uid: learn.interactive-deep-learning.badge
   type: badge
-  title: <span data-ttu-id="27932-199">Interaktiv djupinlärning med Jupyter, Docker och PyTorch på Data Science Virtual Machine</span><span class="sxs-lookup"><span data-stu-id="27932-199">Interactive deep learning with Jupyter, Docker and PyTorch on the Data Science Virtual Machine</span></span>
-  summary: <span data-ttu-id="27932-200">Interaktiv djupinlärning med Jupyter, Docker och PyTorch på Data Science Virtual Machine.</span><span class="sxs-lookup"><span data-stu-id="27932-200">Interactive deep learning with Jupyter, Docker and PyTorch on the Data Science Virtual Machine.</span></span>
+  title: <span data-ttu-id="a7924-197">Interaktiv djupinlärning med Jupyter, Docker och PyTorch på Data Science Virtual Machine</span><span class="sxs-lookup"><span data-stu-id="a7924-197">Interactive deep learning with Jupyter, Docker and PyTorch on the Data Science Virtual Machine</span></span>
+  summary: <span data-ttu-id="a7924-198">Interaktiv djupinlärning med Jupyter, Docker och PyTorch på Data Science Virtual Machine.</span><span class="sxs-lookup"><span data-stu-id="a7924-198">Interactive deep learning with Jupyter, Docker and PyTorch on the Data Science Virtual Machine.</span></span>
   iconUrl: /learn/achievements/interactive-deep-learning.svg
 - uid: learn.create-computer-vision-service.badge
   type: badge
-  title: <span data-ttu-id="27932-201">Behandla bilder med tjänsten Visuellt innehåll</span><span class="sxs-lookup"><span data-stu-id="27932-201">Process images with the computer vision service</span></span>
-  summary: <span data-ttu-id="27932-202">Märke för modulen Behandla bilder med tjänsten Visuellt innehåll.</span><span class="sxs-lookup"><span data-stu-id="27932-202">Badge for 'Process images with the computer vision service' module.</span></span>
+  title: <span data-ttu-id="a7924-199">Behandla bilder med tjänsten Visuellt innehåll</span><span class="sxs-lookup"><span data-stu-id="a7924-199">Process images with the computer vision service</span></span>
+  summary: <span data-ttu-id="a7924-200">Märke för modulen Behandla bilder med tjänsten Visuellt innehåll.</span><span class="sxs-lookup"><span data-stu-id="a7924-200">Badge for 'Process images with the computer vision service' module.</span></span>
   iconUrl: /learn/achievements/create-computer-vision-service-to-classify-images.svg
 - uid: learn.monitor-manage-device-with-iotcentral.badge
   type: badge
-  title: <span data-ttu-id="27932-203">Märke för Övervaka och hantera din kaffebryggare med Azure IoT Central</span><span class="sxs-lookup"><span data-stu-id="27932-203">Monitor and manage your coffee machine with Azure IoT Central Badge</span></span>
-  summary: <span data-ttu-id="27932-204">Märke för modulen ”Övervaka och hantera en kaffebryggare med Azure IoT Central”.</span><span class="sxs-lookup"><span data-stu-id="27932-204">Badge for the 'Monitor and manage your coffee machine with Azure IoT Central' module.</span></span>
+  title: <span data-ttu-id="a7924-201">Märke för Övervaka och hantera din kaffebryggare med Azure IoT Central</span><span class="sxs-lookup"><span data-stu-id="a7924-201">Monitor and manage your coffee machine with Azure IoT Central Badge</span></span>
+  summary: <span data-ttu-id="a7924-202">Märke för modulen ”Övervaka och hantera en kaffebryggare med Azure IoT Central”.</span><span class="sxs-lookup"><span data-stu-id="a7924-202">Badge for the 'Monitor and manage your coffee machine with Azure IoT Central' module.</span></span>
   iconUrl: /learn/achievements/monitor-and-manage-device-with-iot-central.svg
 - uid: learn.align-requirements-in-azure.badge
   type: badge
-  title: <span data-ttu-id="27932-205">Märke för Hitta rätt molntyper och tjänstmodeller i Azure för olika behov</span><span class="sxs-lookup"><span data-stu-id="27932-205">Align requirements with cloud types and service models in Azure badge</span></span>
-  summary: <span data-ttu-id="27932-206">Märke för modulen Hitta rätt molntyper och tjänstmodeller i Azure för olika behov.</span><span class="sxs-lookup"><span data-stu-id="27932-206">Badge for the 'Align requirements with cloud types and service models in Azure' module.</span></span>
+  title: <span data-ttu-id="a7924-203">Märke för Hitta rätt molntyper och tjänstmodeller i Azure för olika behov</span><span class="sxs-lookup"><span data-stu-id="a7924-203">Align requirements with cloud types and service models in Azure badge</span></span>
+  summary: <span data-ttu-id="a7924-204">Märke för modulen Hitta rätt molntyper och tjänstmodeller i Azure för olika behov.</span><span class="sxs-lookup"><span data-stu-id="a7924-204">Badge for the 'Align requirements with cloud types and service models in Azure' module.</span></span>
   iconUrl: /learn/achievements/align-requirements-in-azure.svg
 - uid: learn.choose-storage-approach-in-azure.badge
   type: badge
-  title: <span data-ttu-id="27932-207">Märke för Välja metod för lagring i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-207">Choose storage approach in Azure badge</span></span>
-  summary: <span data-ttu-id="27932-208">Märke för modulen ”Välja metod för lagring i Azure”.</span><span class="sxs-lookup"><span data-stu-id="27932-208">Badge for the 'Choose storage approach in Azure' module.</span></span>
+  title: <span data-ttu-id="a7924-205">Märke för Välja metod för lagring i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-205">Choose storage approach in Azure badge</span></span>
+  summary: <span data-ttu-id="a7924-206">Märke för modulen ”Välja metod för lagring i Azure”.</span><span class="sxs-lookup"><span data-stu-id="a7924-206">Badge for the 'Choose storage approach in Azure' module.</span></span>
   iconUrl: /learn/achievements/choose-storage-approach-in-azure.svg
 - uid: learn.azure-container-registry.badge
   type: badge
-  title: <span data-ttu-id="27932-209">Märke för Skapa och lagra containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="27932-209">Build and store container images with Azure Container Registry badge</span></span>
-  summary: <span data-ttu-id="27932-210">Märke för modulen ”Skapa och lagra containeravbildningar med Azure Container Registry”.</span><span class="sxs-lookup"><span data-stu-id="27932-210">Badge for the 'Build and store container images with Azure Container Registry' module.</span></span>
+  title: <span data-ttu-id="a7924-207">Märke för Skapa och lagra containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="a7924-207">Build and store container images with Azure Container Registry badge</span></span>
+  summary: <span data-ttu-id="a7924-208">Märke för modulen ”Skapa och lagra containeravbildningar med Azure Container Registry”.</span><span class="sxs-lookup"><span data-stu-id="a7924-208">Badge for the 'Build and store container images with Azure Container Registry' module.</span></span>
   iconUrl: /learn/achievements/build-and-store-container-images.svg
 - uid: learn.build-azure-bot-services-bot.badge
   type: badge
-  title: <span data-ttu-id="27932-211">Märke för Skapa en chattrobot med Azure Bot Service</span><span class="sxs-lookup"><span data-stu-id="27932-211">Build a chat bot with the Azure Bot Service badge</span></span>
-  summary: <span data-ttu-id="27932-212">Märke för modulen ”Skapa en chattrobot med Azure Bot Service”.</span><span class="sxs-lookup"><span data-stu-id="27932-212">Badge for the 'Build a chat bot with the Azure Bot Service' module.</span></span>
+  title: <span data-ttu-id="a7924-209">Märke för Skapa en chattrobot med Azure Bot Service</span><span class="sxs-lookup"><span data-stu-id="a7924-209">Build a chat bot with the Azure Bot Service badge</span></span>
+  summary: <span data-ttu-id="a7924-210">Märke för modulen ”Skapa en chattrobot med Azure Bot Service”.</span><span class="sxs-lookup"><span data-stu-id="a7924-210">Badge for the 'Build a chat bot with the Azure Bot Service' module.</span></span>
   iconUrl: /learn/achievements/build-chat-bot-with-azure-bot-service.svg
 - uid: learn.classify-images-with-custom-vision-services.badge
   type: badge
-  title: <span data-ttu-id="27932-213">Märke för Klassificera bilder med Microsoft Custom Vision Service</span><span class="sxs-lookup"><span data-stu-id="27932-213">Classify images with the Microsoft Custom Vision Service badge</span></span>
-  summary: <span data-ttu-id="27932-214">Märke för modulen ”Klassificera bilder med Microsoft Custom Vision Service”.</span><span class="sxs-lookup"><span data-stu-id="27932-214">Badge for the 'Classify images with the Microsoft Custom Vision Service' module.</span></span>
+  title: <span data-ttu-id="a7924-211">Märke för Klassificera bilder med Microsoft Custom Vision Service</span><span class="sxs-lookup"><span data-stu-id="a7924-211">Classify images with the Microsoft Custom Vision Service badge</span></span>
+  summary: <span data-ttu-id="a7924-212">Märke för modulen ”Klassificera bilder med Microsoft Custom Vision Service”.</span><span class="sxs-lookup"><span data-stu-id="a7924-212">Badge for the 'Classify images with the Microsoft Custom Vision Service' module.</span></span>
   iconUrl: /learn/achievements/classify-images-with-custom-vision-service.svg
 - uid: learn.create-neural-network-with-dsvm.badge
   type: badge
-  title: <span data-ttu-id="27932-215">Märke för Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine</span><span class="sxs-lookup"><span data-stu-id="27932-215">Building Neural Networks with TensorFlow and the Azure Data Science Virtual Machine badge</span></span>
-  summary: <span data-ttu-id="27932-216">Märke för modulen ”Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine”.</span><span class="sxs-lookup"><span data-stu-id="27932-216">Badge for the 'Building Neural Networks with TensorFlow and the Azure Data Science Virtual Machine' module.</span></span>
+  title: <span data-ttu-id="a7924-213">Märke för Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine</span><span class="sxs-lookup"><span data-stu-id="a7924-213">Building Neural Networks with TensorFlow and the Azure Data Science Virtual Machine badge</span></span>
+  summary: <span data-ttu-id="a7924-214">Märke för modulen ”Skapa neurala nätverk med TensorFlow och Azure Data Science Virtual Machine”.</span><span class="sxs-lookup"><span data-stu-id="a7924-214">Badge for the 'Building Neural Networks with TensorFlow and the Azure Data Science Virtual Machine' module.</span></span>
   iconUrl: /learn/achievements/create-neural-network-with-dsvm.svg
 - uid: learn.design-for-efficiency-and-operations.badge
   type: badge
-  title: <span data-ttu-id="27932-217">Märke för Designa för effektivitet och drift</span><span class="sxs-lookup"><span data-stu-id="27932-217">Design for efficiency and operations badge</span></span>
-  summary: <span data-ttu-id="27932-218">Märke för modulen ”Designa för effektivitet och drift”.</span><span class="sxs-lookup"><span data-stu-id="27932-218">Badge for the 'Design for efficiency and operations' module.</span></span>
+  title: <span data-ttu-id="a7924-215">Märke för Designa för effektivitet och drift</span><span class="sxs-lookup"><span data-stu-id="a7924-215">Design for efficiency and operations badge</span></span>
+  summary: <span data-ttu-id="a7924-216">Märke för modulen ”Designa för effektivitet och drift”.</span><span class="sxs-lookup"><span data-stu-id="a7924-216">Badge for the 'Design for efficiency and operations' module.</span></span>
   iconUrl: /learn/achievements/design-for-efficiency-and-operations-in-azure.svg
 - uid: learn.design-for-performance-and-scalability.badge
   type: badge
-  title: <span data-ttu-id="27932-219">Märke för Designa för prestanda och skalbarhet</span><span class="sxs-lookup"><span data-stu-id="27932-219">Design for performance and scalability badge</span></span>
-  summary: <span data-ttu-id="27932-220">Märke för modulen ”Designa för prestanda och skalbarhet”.</span><span class="sxs-lookup"><span data-stu-id="27932-220">Badge for the 'Design for performance and scalability' module.</span></span>
+  title: <span data-ttu-id="a7924-217">Märke för Designa för prestanda och skalbarhet</span><span class="sxs-lookup"><span data-stu-id="a7924-217">Design for performance and scalability badge</span></span>
+  summary: <span data-ttu-id="a7924-218">Märke för modulen ”Designa för prestanda och skalbarhet”.</span><span class="sxs-lookup"><span data-stu-id="a7924-218">Badge for the 'Design for performance and scalability' module.</span></span>
   iconUrl: /learn/achievements/design-for-performance-and-scalability-in-azure.svg
 - uid: learn.design-for-security.badge
   type: badge
-  title: <span data-ttu-id="27932-221">Märke för Designa för säkerhet</span><span class="sxs-lookup"><span data-stu-id="27932-221">Design for security badge</span></span>
-  summary: <span data-ttu-id="27932-222">Märke för modulen ”Designa för säkerhet”.</span><span class="sxs-lookup"><span data-stu-id="27932-222">Badge for the 'Design for security' module.</span></span>
+  title: <span data-ttu-id="a7924-219">Märke för Designa för säkerhet</span><span class="sxs-lookup"><span data-stu-id="a7924-219">Design for security badge</span></span>
+  summary: <span data-ttu-id="a7924-220">Märke för modulen ”Designa för säkerhet”.</span><span class="sxs-lookup"><span data-stu-id="a7924-220">Badge for the 'Design for security' module.</span></span>
   iconUrl: /learn/achievements/design-for-security-in-azure.svg
 - uid: learn.execute-azure-function-with-triggers.badge
   type: badge
-  title: <span data-ttu-id="27932-223">Märke för Köra en Azure-funktion med utlösare</span><span class="sxs-lookup"><span data-stu-id="27932-223">Execute an Azure Function with triggers badge</span></span>
-  summary: <span data-ttu-id="27932-224">Märke för modulen ”Köra en Azure-funktion med utlösare”.</span><span class="sxs-lookup"><span data-stu-id="27932-224">Badge for the 'Execute an Azure Function with triggers' module.</span></span>
+  title: <span data-ttu-id="a7924-221">Märke för Köra en Azure-funktion med utlösare</span><span class="sxs-lookup"><span data-stu-id="a7924-221">Execute an Azure Function with triggers badge</span></span>
+  summary: <span data-ttu-id="a7924-222">Märke för modulen ”Köra en Azure-funktion med utlösare”.</span><span class="sxs-lookup"><span data-stu-id="a7924-222">Badge for the 'Execute an Azure Function with triggers' module.</span></span>
   iconUrl: /learn/achievements/execute-azure-function-with-triggers.svg
 - uid: learn.intro-to-containers.badge
   type: badge
-  title: <span data-ttu-id="27932-225">Märke för Introduktion till containrar</span><span class="sxs-lookup"><span data-stu-id="27932-225">Introduction to Containers badge</span></span>
-  summary: <span data-ttu-id="27932-226">Märke för modulen ”Introduktion till containrar”.</span><span class="sxs-lookup"><span data-stu-id="27932-226">Badge for the 'Introduction to Containers' module.</span></span>
+  title: <span data-ttu-id="a7924-223">Märke för Introduktion till containrar</span><span class="sxs-lookup"><span data-stu-id="a7924-223">Introduction to Containers badge</span></span>
+  summary: <span data-ttu-id="a7924-224">Märke för modulen ”Introduktion till containrar”.</span><span class="sxs-lookup"><span data-stu-id="a7924-224">Badge for the 'Introduction to Containers' module.</span></span>
   iconUrl: /learn/achievements/intro-to-containers.svg
 - uid: learn.predict-costs-and-optimize-spending.badge
   type: badge
-  title: <span data-ttu-id="27932-227">Märke för Förutse kostnader och optimera utgifter för Azure</span><span class="sxs-lookup"><span data-stu-id="27932-227">Predict costs and optimize spending for Azure badge</span></span>
-  summary: <span data-ttu-id="27932-228">Märke för modulen ”Förutse kostnader och optimera utgifter för Azure”.</span><span class="sxs-lookup"><span data-stu-id="27932-228">Badge for the 'Predict costs and optimize spending for Azure' module.</span></span>
+  title: <span data-ttu-id="a7924-225">Märke för Förutse kostnader och optimera utgifter för Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-225">Predict costs and optimize spending for Azure badge</span></span>
+  summary: <span data-ttu-id="a7924-226">Märke för modulen ”Förutse kostnader och optimera utgifter för Azure”.</span><span class="sxs-lookup"><span data-stu-id="a7924-226">Badge for the 'Predict costs and optimize spending for Azure' module.</span></span>
   iconUrl: /learn/achievements/predict-costs-optimize-spending-on-azure.svg
 - uid: learn.principles-cloud-computing.badge
   type: badge
-  title: <span data-ttu-id="27932-229">Märke för Principerna bakom molntjänster</span><span class="sxs-lookup"><span data-stu-id="27932-229">Principles of Cloud Computing badge</span></span>
-  summary: <span data-ttu-id="27932-230">Märke för modulen ”Principerna bakom molntjänster”.</span><span class="sxs-lookup"><span data-stu-id="27932-230">Badge for the 'Principles of Cloud Computing' module.</span></span>
+  title: <span data-ttu-id="a7924-227">Märke för Principerna bakom molntjänster</span><span class="sxs-lookup"><span data-stu-id="a7924-227">Principles of Cloud Computing badge</span></span>
+  summary: <span data-ttu-id="a7924-228">Märke för modulen ”Principerna bakom molntjänster”.</span><span class="sxs-lookup"><span data-stu-id="a7924-228">Badge for the 'Principles of Cloud Computing' module.</span></span>
   iconUrl: /learn/achievements/principles-cloud-computing.svg
 - uid: learn.provision-azure-sql-db.badge
   type: badge
-  title: <span data-ttu-id="27932-231">Märke för Tillhandahålla en Azure SQL-databas för att lagra appdata</span><span class="sxs-lookup"><span data-stu-id="27932-231">Provision an Azure SQL database to store application data badge</span></span>
-  summary: <span data-ttu-id="27932-232">Märke för modulen ”Tillhandahålla en Azure SQL-databas för att lagra appdata”.</span><span class="sxs-lookup"><span data-stu-id="27932-232">Badge for the 'Provision an Azure SQL database to store application data' module.</span></span>
+  title: <span data-ttu-id="a7924-229">Märke för Tillhandahålla en Azure SQL-databas för att lagra appdata</span><span class="sxs-lookup"><span data-stu-id="a7924-229">Provision an Azure SQL database to store application data badge</span></span>
+  summary: <span data-ttu-id="a7924-230">Märke för modulen ”Tillhandahålla en Azure SQL-databas för att lagra appdata”.</span><span class="sxs-lookup"><span data-stu-id="a7924-230">Badge for the 'Provision an Azure SQL database to store application data' module.</span></span>
   iconUrl: /learn/achievements/provision-azure-sql-db.svg
 - uid: learn.run-docker-containers-aci.badge
   type: badge
-  title: <span data-ttu-id="27932-233">Märke för Köra Docker-containrar med Azure Container Instances (ACI)</span><span class="sxs-lookup"><span data-stu-id="27932-233">Run Docker containers with Azure Container Instances (ACI) badge</span></span>
-  summary: <span data-ttu-id="27932-234">Märke för modulen ”Köra Docker-containrar med Azure Container Instances (ACI)”.</span><span class="sxs-lookup"><span data-stu-id="27932-234">Badge for the 'Run Docker containers with Azure Container Instances (ACI)' module.</span></span>
+  title: <span data-ttu-id="a7924-231">Märke för Köra Docker-containrar med Azure Container Instances (ACI)</span><span class="sxs-lookup"><span data-stu-id="a7924-231">Run Docker containers with Azure Container Instances (ACI) badge</span></span>
+  summary: <span data-ttu-id="a7924-232">Märke för modulen ”Köra Docker-containrar med Azure Container Instances (ACI)”.</span><span class="sxs-lookup"><span data-stu-id="a7924-232">Badge for the 'Run Docker containers with Azure Container Instances (ACI)' module.</span></span>
   iconUrl: /learn/achievements/run-docker-with-azure-container-instances.svg
 - uid: learn.access-data-with-cosmos-db-and-sql-api.badge
   type: badge
-  title: <span data-ttu-id="27932-235">Märke för Lagra och komma åt data med Cosmos DB och SQL API</span><span class="sxs-lookup"><span data-stu-id="27932-235">Store and access data with Cosmos DB and the SQL API Badge</span></span>
-  summary: <span data-ttu-id="27932-236">Märke för modulen ”Lagra och komma åt data med Cosmos DB och SQL API”.</span><span class="sxs-lookup"><span data-stu-id="27932-236">Badge for 'Store and access data with Cosmos DB and the SQL API' module.</span></span>
+  title: <span data-ttu-id="a7924-233">Märke för Lagra och komma åt data med Cosmos DB och SQL API</span><span class="sxs-lookup"><span data-stu-id="a7924-233">Store and access data with Cosmos DB and the SQL API Badge</span></span>
+  summary: <span data-ttu-id="a7924-234">Märke för modulen ”Lagra och komma åt data med Cosmos DB och SQL API”.</span><span class="sxs-lookup"><span data-stu-id="a7924-234">Badge for 'Store and access data with Cosmos DB and the SQL API' module.</span></span>
   iconUrl: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
 - uid: learn.configure-the-network-for-your-virtual-machines.badge
   type: badge
-  title: <span data-ttu-id="27932-237">Konfigurera nätverket för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="27932-237">Configure the network for your virtual machines</span></span>
-  summary: <span data-ttu-id="27932-238">Konfigurera nätverket för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="27932-238">Configure the network for your virtual machines</span></span>
+  title: <span data-ttu-id="a7924-235">Konfigurera nätverket för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="a7924-235">Configure the network for your virtual machines</span></span>
+  summary: <span data-ttu-id="a7924-236">Konfigurera nätverket för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="a7924-236">Configure the network for your virtual machines</span></span>
   iconUrl: /learn/achievements/configure-network-for-azure-virtual-machines.svg
 - uid: learn.introduction-to-security.badge
   type: badge
-  title: <span data-ttu-id="27932-239">Introduktion till säkerhet i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-239">Introduction to Azure security</span></span>
-  summary: <span data-ttu-id="27932-240">Introduktion till säkerhet i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-240">Introduction to Azure security</span></span>
+  title: <span data-ttu-id="a7924-237">Introduktion till säkerhet i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-237">Introduction to Azure security</span></span>
+  summary: <span data-ttu-id="a7924-238">Introduktion till säkerhet i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-238">Introduction to Azure security</span></span>
   iconUrl: /learn/achievements/intro-to-security-in-azure.svg
 - uid: learn.secure-your-azure-virtual-machine-disks.badge
   type: badge
-  title: <span data-ttu-id="27932-241">Skydda dina virtuella Azure-datordiskar</span><span class="sxs-lookup"><span data-stu-id="27932-241">Secure your Azure virtual machine disks</span></span>
-  summary: <span data-ttu-id="27932-242">Skydda dina virtuella Azure-datordiskar</span><span class="sxs-lookup"><span data-stu-id="27932-242">Secure your Azure virtual machine disks</span></span>
+  title: <span data-ttu-id="a7924-239">Skydda dina virtuella Azure-datordiskar</span><span class="sxs-lookup"><span data-stu-id="a7924-239">Secure your Azure virtual machine disks</span></span>
+  summary: <span data-ttu-id="a7924-240">Skydda dina virtuella Azure-datordiskar</span><span class="sxs-lookup"><span data-stu-id="a7924-240">Secure your Azure virtual machine disks</span></span>
   iconUrl: /learn/achievements/secure-your-azure-virtual-machine-disks.svg
 - uid: learn.make-your-virtual-machines-highly-available.badge
   type: badge
-  title: <span data-ttu-id="27932-243">Skapa hög tillgänglighet för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="27932-243">Make your virtual machines highly available</span></span>
-  summary: <span data-ttu-id="27932-244">Skapa hög tillgänglighet för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="27932-244">Make your virtual machines highly available</span></span>
+  title: <span data-ttu-id="a7924-241">Skapa hög tillgänglighet för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="a7924-241">Make your virtual machines highly available</span></span>
+  summary: <span data-ttu-id="a7924-242">Skapa hög tillgänglighet för dina virtuella datorer</span><span class="sxs-lookup"><span data-stu-id="a7924-242">Make your virtual machines highly available</span></span>
   iconUrl: /learn/achievements/make-your-virtual-machines-highly-available.svg
 - uid: learn.implement-message-workflows-with-service-bus.badge
   type: badge
-  title: <span data-ttu-id="27932-245">Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus</span><span class="sxs-lookup"><span data-stu-id="27932-245">Implement message-based communication workflows with Azure Service Bus</span></span>
-  summary: <span data-ttu-id="27932-246">Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus</span><span class="sxs-lookup"><span data-stu-id="27932-246">Implement message-based communication workflows with Azure Service Bus</span></span>
+  title: <span data-ttu-id="a7924-243">Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus</span><span class="sxs-lookup"><span data-stu-id="a7924-243">Implement message-based communication workflows with Azure Service Bus</span></span>
+  summary: <span data-ttu-id="a7924-244">Implementera meddelandebaserade kommunikationsarbetsflöden med Azure Service Bus</span><span class="sxs-lookup"><span data-stu-id="a7924-244">Implement message-based communication workflows with Azure Service Bus</span></span>
   iconUrl: /learn/achievements/implement-message-workflows-with-service-bus.svg
 - uid: learn.intro-to-azure-networking.badge
   type: badge
-  title: <span data-ttu-id="27932-247">Märke för Introduktion till Azure-nätverk</span><span class="sxs-lookup"><span data-stu-id="27932-247">Introduction to Azure networking badge</span></span>
-  summary: <span data-ttu-id="27932-248">Introduktion till Azure-nätverk</span><span class="sxs-lookup"><span data-stu-id="27932-248">Introduction to Azure networking</span></span>
+  title: <span data-ttu-id="a7924-245">Märke för Introduktion till Azure-nätverk</span><span class="sxs-lookup"><span data-stu-id="a7924-245">Introduction to Azure networking badge</span></span>
+  summary: <span data-ttu-id="a7924-246">Introduktion till Azure-nätverk</span><span class="sxs-lookup"><span data-stu-id="a7924-246">Introduction to Azure networking</span></span>
   iconUrl: /learn/achievements/intro-to-azure-networking.svg
 - uid: learn.pillars-of-a-great-azure-architecture.badge
   type: badge
-  title: <span data-ttu-id="27932-249">Märket Grundpelare för en bra Azure-arkitektur</span><span class="sxs-lookup"><span data-stu-id="27932-249">Pillars of a great Azure architecture badge</span></span>
-  summary: <span data-ttu-id="27932-250">Märket Grundpelare för en bra Azure-arkitektur</span><span class="sxs-lookup"><span data-stu-id="27932-250">Pillars of a great Azure architecture badge</span></span>
+  title: <span data-ttu-id="a7924-247">Märket Grundpelare för en bra Azure-arkitektur</span><span class="sxs-lookup"><span data-stu-id="a7924-247">Pillars of a great Azure architecture badge</span></span>
+  summary: <span data-ttu-id="a7924-248">Märket Grundpelare för en bra Azure-arkitektur</span><span class="sxs-lookup"><span data-stu-id="a7924-248">Pillars of a great Azure architecture badge</span></span>
   iconUrl: /learn/achievements/pillars-of-a-great-azure-architecture.svg
 - uid: learn.add-and-size-disks-in-azure-virtual-machines.badge
   type: badge
-  title: <span data-ttu-id="27932-251">Lägg till och ändra storlek på diskar i Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="27932-251">Add and size disks in Azure Virtual Machines</span></span>
-  summary: <span data-ttu-id="27932-252">Lägg till och ändra storlek på diskar i Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="27932-252">Add and size disks in Azure Virtual Machines</span></span>
+  title: <span data-ttu-id="a7924-249">Lägg till och ändra storlek på diskar i Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="a7924-249">Add and size disks in Azure Virtual Machines</span></span>
+  summary: <span data-ttu-id="a7924-250">Lägg till och ändra storlek på diskar i Azure Virtual Machines</span><span class="sxs-lookup"><span data-stu-id="a7924-250">Add and size disks in Azure Virtual Machines</span></span>
   iconUrl: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
 - uid: learn.scale-and-size-virtual-machines.badge
   type: badge
-  title: <span data-ttu-id="27932-253">Skala och storleksändra virtuella datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-253">Scale and size Virtual Machines in Azure</span></span>
-  summary: <span data-ttu-id="27932-254">Skala och storleksändra virtuella datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-254">Scale and size Virtual Machines in Azure</span></span>
+  title: <span data-ttu-id="a7924-251">Skala och storleksändra virtuella datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-251">Scale and size Virtual Machines in Azure</span></span>
+  summary: <span data-ttu-id="a7924-252">Skala och storleksändra virtuella datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-252">Scale and size Virtual Machines in Azure</span></span>
   iconUrl: /learn/achievements/scale-and-size-virtual-machines.svg
 - uid: learn.manage-iot-devices.badge
   type: badge
-  title: <span data-ttu-id="27932-255">Lär dig att hantera IoT-enheter som IT-administratör</span><span class="sxs-lookup"><span data-stu-id="27932-255">Learn how to manage IoT devices as an IT Admin</span></span>
-  summary: <span data-ttu-id="27932-256">Märke för modulen Lär dig att hantera IoT-enheter som IT-administratör</span><span class="sxs-lookup"><span data-stu-id="27932-256">Badge for 'Learn how to manage IoT devices as an IT Admin' module</span></span>
+  title: <span data-ttu-id="a7924-253">Lär dig att hantera IoT-enheter som IT-administratör</span><span class="sxs-lookup"><span data-stu-id="a7924-253">Learn how to manage IoT devices as an IT Admin</span></span>
+  summary: <span data-ttu-id="a7924-254">Märke för modulen Lär dig att hantera IoT-enheter som IT-administratör</span><span class="sxs-lookup"><span data-stu-id="a7924-254">Badge for 'Learn how to manage IoT devices as an IT Admin' module</span></span>
   iconUrl: /learn/achievements/manage-your-iot-devices.svg
 - uid: learn.the-mojifier.badge
   type: badge
-  title: <span data-ttu-id="27932-257">Skapa ett Slack-kommando som ersätter folks ansikten med emojis</span><span class="sxs-lookup"><span data-stu-id="27932-257">Create a Slack Command that replaces peoples faces with emojis</span></span>
-  summary: <span data-ttu-id="27932-258">Skapa ett Slack-kommando som ersätter folks ansikten med emojis</span><span class="sxs-lookup"><span data-stu-id="27932-258">Create a Slack Command that replaces peoples faces with emojis</span></span>
+  title: <span data-ttu-id="a7924-255">Skapa ett Slack-kommando som ersätter folks ansikten med emojis</span><span class="sxs-lookup"><span data-stu-id="a7924-255">Create a Slack Command that replaces peoples faces with emojis</span></span>
+  summary: <span data-ttu-id="a7924-256">Skapa ett Slack-kommando som ersätter folks ansikten med emojis</span><span class="sxs-lookup"><span data-stu-id="a7924-256">Create a Slack Command that replaces peoples faces with emojis</span></span>
   iconUrl: /learn/achievements/replace-faces-with-emojis-matching-emotion.svg
 - uid: learn.work-with-mutable-and-partial-data-in-a-redis-cache.badge
   type: badge
-  title: <span data-ttu-id="27932-259">Arbeta med föränderliga och partiella data i en Redis-cache</span><span class="sxs-lookup"><span data-stu-id="27932-259">Work with mutable and partial data in a Redis cache</span></span>
-  summary: <span data-ttu-id="27932-260">Arbeta med föränderliga och partiella data i en Redis-cache</span><span class="sxs-lookup"><span data-stu-id="27932-260">Work with mutable and partial data in a Redis cache</span></span>
+  title: <span data-ttu-id="a7924-257">Arbeta med föränderliga och partiella data i en Redis-cache</span><span class="sxs-lookup"><span data-stu-id="a7924-257">Work with mutable and partial data in a Redis cache</span></span>
+  summary: <span data-ttu-id="a7924-258">Arbeta med föränderliga och partiella data i en Redis-cache</span><span class="sxs-lookup"><span data-stu-id="a7924-258">Work with mutable and partial data in a Redis cache</span></span>
   iconUrl: /learn/achievements/work-with-mutable-and-partial-data-in-a-redis-cache.svg
 - uid: learn.chain-azure-functions-data-using-input-output-bindings.badge
   type: badge
-  title: <span data-ttu-id="27932-261">Länka Azure Functions-data med hjälp av i/o-bindningar</span><span class="sxs-lookup"><span data-stu-id="27932-261">Chain Azure Functions data using I/O bindings</span></span>
-  summary: <span data-ttu-id="27932-262">Länka Azure Functions-data med hjälp av i/o-bindningar</span><span class="sxs-lookup"><span data-stu-id="27932-262">Chain Azure Functions data using I/O bindings</span></span>
+  title: <span data-ttu-id="a7924-259">Länka Azure Functions-data med hjälp av i/o-bindningar</span><span class="sxs-lookup"><span data-stu-id="a7924-259">Chain Azure Functions data using I/O bindings</span></span>
+  summary: <span data-ttu-id="a7924-260">Länka Azure Functions-data med hjälp av i/o-bindningar</span><span class="sxs-lookup"><span data-stu-id="a7924-260">Chain Azure Functions data using I/O bindings</span></span>
   iconUrl: /learn/achievements/chain-azure-functions-data-using-bindings.svg
 - uid: learn.design-for-availability-and-recoverability.badge
   type: badge
-  title: <span data-ttu-id="27932-263">Designa för tillgänglighet och återställning i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-263">Design for availability and recoverability in Azure</span></span>
-  summary: <span data-ttu-id="27932-264">Designa för tillgänglighet och återställning i Azure</span><span class="sxs-lookup"><span data-stu-id="27932-264">Design for availability and recoverability in Azure</span></span>
+  title: <span data-ttu-id="a7924-261">Designa för tillgänglighet och återställning i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-261">Design for availability and recoverability in Azure</span></span>
+  summary: <span data-ttu-id="a7924-262">Designa för tillgänglighet och återställning i Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-262">Design for availability and recoverability in Azure</span></span>
   iconUrl: /learn/achievements/design-for-availability-and-recoverability-in-azure.svg
 - uid: learn.welcome-to-azure.badge
   type: badge
-  title: <span data-ttu-id="27932-265">Välkommen till Azure</span><span class="sxs-lookup"><span data-stu-id="27932-265">Welcome to Azure</span></span>
-  summary: <span data-ttu-id="27932-266">Välkommen till Azure</span><span class="sxs-lookup"><span data-stu-id="27932-266">Welcome to Azure</span></span>
+  title: <span data-ttu-id="a7924-263">Välkommen till Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-263">Welcome to Azure</span></span>
+  summary: <span data-ttu-id="a7924-264">Välkommen till Azure</span><span class="sxs-lookup"><span data-stu-id="a7924-264">Welcome to Azure</span></span>
   iconUrl: /learn/achievements/welcome-to-azure.svg
 - uid: learn.classify-user-feedback-with-the-text-analytics-api.badge
   type: badge
-  title: <span data-ttu-id="27932-267">Klassificera bilder med Microsoft Custom Vision Service</span><span class="sxs-lookup"><span data-stu-id="27932-267">Classify images using the Microsoft Custom Vision Service</span></span>
-  summary: <span data-ttu-id="27932-268">Märke för modulen Klassificera bilder med Microsoft Custom Vision Service</span><span class="sxs-lookup"><span data-stu-id="27932-268">Badge for 'Classify images using the Microsoft Custom Vision Service' module</span></span>
+  title: <span data-ttu-id="a7924-265">Klassificera bilder med Microsoft Custom Vision Service</span><span class="sxs-lookup"><span data-stu-id="a7924-265">Classify images using the Microsoft Custom Vision Service</span></span>
+  summary: <span data-ttu-id="a7924-266">Märke för modulen Klassificera bilder med Microsoft Custom Vision Service</span><span class="sxs-lookup"><span data-stu-id="a7924-266">Badge for 'Classify images using the Microsoft Custom Vision Service' module</span></span>
   iconUrl: /learn/achievements/classify-user-feedback-with-the-text-analytics-api.svg
 - uid: learn.distribute-data-globally-with-cosmos-db.badge
   type: badge
-  title: <span data-ttu-id="27932-269">Distribuera dina data globalt med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="27932-269">Distribute your data globally with Azure Cosmos DB</span></span>
-  summary: <span data-ttu-id="27932-270">Distribuera dina data globalt med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="27932-270">Distribute your data globally with Azure Cosmos DB</span></span>
+  title: <span data-ttu-id="a7924-267">Distribuera dina data globalt med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="a7924-267">Distribute your data globally with Azure Cosmos DB</span></span>
+  summary: <span data-ttu-id="a7924-268">Distribuera dina data globalt med Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="a7924-268">Distribute your data globally with Azure Cosmos DB</span></span>
   iconUrl: /learn/achievements/work-with-nosql-data-in-azure-cosmos-db.svg
 metadata:
-  ms.openlocfilehash: 7f1cf4e965ca83bb470aabaaa5cf5c2a8a7d38a3
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 681898238a6a8d4de8e91fba7c248831a01978a8
+  ms.sourcegitcommit: afe81bb2dc99ca5f6e2828779d8fca2a43a0e002
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46354515"
+  ms.lasthandoff: 09/24/2018
+  ms.locfileid: "46711796"

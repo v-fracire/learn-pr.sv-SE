@@ -1,0 +1,53 @@
+### YamlMime:ModuleUnit
+uid: learn.monitor-manage-device-with-iotcentral.6-knowledge-check
+metadata:
+  title: <span data-ttu-id="c2ef0-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="c2ef0-101">Knowledge check</span></span>
+  description: <span data-ttu-id="c2ef0-102">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="c2ef0-102">Knowledge check</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 52f6c98fc185520a51d13dc2b059f4ce17b05c35
+  ms.sourcegitcommit: 8a009788ee73c5d7caa6cd4f1105260c5cc9b846
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2018
+  ms.locfileid: "46570764"
+title: <span data-ttu-id="c2ef0-103">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="c2ef0-103">Check your knowledge</span></span>
+durationInMinutes: 11
+content: >
+  [!include[](includes/6-knowledge-check.md)]
+quiz:
+  title: <span data-ttu-id="c2ef0-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="c2ef0-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="c2ef0-105">Vilket uttalande beskriver bäst informationen i en enhetsmall?</span><span class="sxs-lookup"><span data-stu-id="c2ef0-105">Which statement best describes the information in a device template?</span></span>
+    choices:
+    - content: <span data-ttu-id="c2ef0-106">Maskinvaruspecifikationen för en enhet som är ansluten till ditt program.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-106">The hardware specification of a device connected to your application.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c2ef0-107">Information om maskinvara samlas inte in av en enhetsmall.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-107">Hardware details are not captured by a device template.</span></span>
+    - content: <span data-ttu-id="c2ef0-108">Data och kommandon som en enhet kan utbyta med ditt program.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-108">The data and commands a device can exchange with your application.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="c2ef0-109">Mallen är en specifikation som samlar in all potentiell information och kommandon som kan utväxlas mellan din kod och den fysiska enheten.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-109">The template is a specification that captures all the potential information and commands that can be exchanged between your code and the physical device.</span></span>
+    - content: <span data-ttu-id="c2ef0-110">Det protokoll som via kabel används för att kommunicera med en enhet.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-110">The over-the-wire protocol used to communicate with a device.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c2ef0-111">Kommunikationsprotokollet är inte en del av en enhetsmall.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-111">The communication protocol is not part of a device template.</span></span>
+  - content: '<span data-ttu-id="c2ef0-112">Sant eller falskt: du måste ha en fysisk enhet för att kunna testa IoT Central-programmet.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-112">True or false: you must have a physical device to test your IoT Central application.</span></span>'
+    choices:
+    - content: <span data-ttu-id="c2ef0-113">Sant</span><span class="sxs-lookup"><span data-stu-id="c2ef0-113">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c2ef0-114">Du kan använda simulerade enheter för testning.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-114">You can use simulated devices for testing.</span></span>
+    - content: <span data-ttu-id="c2ef0-115">Falskt</span><span class="sxs-lookup"><span data-stu-id="c2ef0-115">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="c2ef0-116">IoT Central skapar automatiskt en simulerad enhet åt dig när du skapar en enhetsmall.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-116">IoT Central automatically creates a simulated device for you when you create a device template.</span></span> <span data-ttu-id="c2ef0-117">Du kan även koda anpassade programvarusimuleringar.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-117">You can also code custom software simulations.</span></span> <span data-ttu-id="c2ef0-118">Med dessa alternativ kan du noggrant testa ditt program innan du ansluter en fysisk enhet.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-118">These options let you thoroughly test your application before connecting a physical device.</span></span>
+  - content: <span data-ttu-id="c2ef0-119">Anta att du har fem fysiska enheter som kommunicerar med IoT Central.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-119">Suppose you have five physical devices communicating with IoT Central.</span></span> <span data-ttu-id="c2ef0-120">Hur många anslutningssträngar har du?</span><span class="sxs-lookup"><span data-stu-id="c2ef0-120">How many connection strings would you have?</span></span>
+    choices:
+    - content: '<span data-ttu-id="c2ef0-121">En: anslutningssträngen delas av alla anslutna enheter.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-121">One: the connection string is shared by all connected devices.</span></span>'
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c2ef0-122">Med delade anslutningssträngar skulle inte IoT Central kunna använda unik identifiering av varje enhet.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-122">Shared connection strings would not allow IoT Central to uniquely identify each device.</span></span>
+    - content: '<span data-ttu-id="c2ef0-123">Två: en som används aktivt och en i reserv ifall den primära komprometteras.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-123">Two: one in active use and one backup in case the primary is compromised.</span></span>'
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="c2ef0-124">Med delade anslutningssträngar skulle inte IoT Central kunna använda unik identifiering av varje enhet.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-124">Shared connection strings would not allow IoT Central to uniquely identify each device.</span></span>
+    - content: '<span data-ttu-id="c2ef0-125">Fem: varje enhet behöver en unik anslutningssträng.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-125">Five: every device needs a unique connection string.</span></span>'
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="c2ef0-126">Anslutningssträngen identifierar enheten för IoT Central, så varje enhet behöver en egen.</span><span class="sxs-lookup"><span data-stu-id="c2ef0-126">The connection string identifies the device to IoT Central, so each device needs its own.</span></span>

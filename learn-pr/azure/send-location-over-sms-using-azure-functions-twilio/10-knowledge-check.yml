@@ -1,0 +1,52 @@
+### YamlMime:ModuleUnit
+uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.10-knowledge-check
+title: <span data-ttu-id="50807-101">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="50807-101">Knowledge Check</span></span>
+metadata:
+  title: <span data-ttu-id="50807-102">Sammanfattning och rensning</span><span class="sxs-lookup"><span data-stu-id="50807-102">Summary and clean-up</span></span>
+  description: <span data-ttu-id="50807-103">Kunskapskontroll</span><span class="sxs-lookup"><span data-stu-id="50807-103">Knowledge Check</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: fb8021f1b3e30929c1ed44ed71123eb31d660d90
+  ms.sourcegitcommit: a8799fdd6ae2096cef12e66b142b138db8aba56d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/23/2018
+  ms.locfileid: "46704877"
+durationInMinutes: 2
+content: >
+  [!include[](includes/10-knowledge-check.md)]
+quiz:
+  title: <span data-ttu-id="50807-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="50807-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="50807-105">Vilken typ av Azure Functions-utlösare gör att en funktion kan anropas av en HTTP-begäran?</span><span class="sxs-lookup"><span data-stu-id="50807-105">What type of Azure Functions trigger allows your function to be invoked by an HTTP request?</span></span>
+    choices:
+    - content: <span data-ttu-id="50807-106">HTTP-utlösare</span><span class="sxs-lookup"><span data-stu-id="50807-106">HTTP Trigger</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="50807-107">HTTP-utlösare används för att anropa funktioner från HTTP-begäranden.</span><span class="sxs-lookup"><span data-stu-id="50807-107">HTTP triggers are used to invoke functions from HTTP requests.</span></span>
+    - content: <span data-ttu-id="50807-108">Händelsehubbutlösare</span><span class="sxs-lookup"><span data-stu-id="50807-108">Event Hub Trigger</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="50807-109">HTTP-utlösare används för att anropa funktioner från HTTP-begäranden.</span><span class="sxs-lookup"><span data-stu-id="50807-109">HTTP triggers are used to invoke functions from HTTP requests.</span></span>
+    - content: <span data-ttu-id="50807-110">Köutlösare</span><span class="sxs-lookup"><span data-stu-id="50807-110">Queue Trigger</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="50807-111">HTTP-utlösare används för att anropa funktioner från HTTP-begäranden.</span><span class="sxs-lookup"><span data-stu-id="50807-111">HTTP triggers are used to invoke functions from HTTP requests.</span></span>
+  - content: <span data-ttu-id="50807-112">Hur binder man en funktion till Twilio för att skicka SMS?</span><span class="sxs-lookup"><span data-stu-id="50807-112">How do you bind your function to Twilio to send SMS messages?</span></span>
+    choices:
+    - content: <span data-ttu-id="50807-113">Genom att returnera SMS som funktionens returvärde</span><span class="sxs-lookup"><span data-stu-id="50807-113">By returning the SMS messages as the return value of the Function</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="50807-114">En funktionsparameter</span><span class="sxs-lookup"><span data-stu-id="50807-114">A function parameter</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="50807-115">SMS läggs till i en samling som skickas till funktionen som en parameter dekorerad med `[TwilioSms]`-attributet.</span><span class="sxs-lookup"><span data-stu-id="50807-115">SMS messages are added to a collection passed to the function as a parameter decorated with the `[TwilioSms]` attribute.</span></span> <span data-ttu-id="50807-116">Funktionens körning skickar dessa SMS till Twilio när funktionen returnerar.</span><span class="sxs-lookup"><span data-stu-id="50807-116">The Function's runtime will send these messages to Twilio once the function returns.</span></span>
+    - content: <span data-ttu-id="50807-117">Direktanrop till Twilio-API:et</span><span class="sxs-lookup"><span data-stu-id="50807-117">Direct call to the Twilio API</span></span>
+      isCorrect: false
+  - content: <span data-ttu-id="50807-118">Var definierar man säkerhets-ID och autentiseringstoken till sitt Twilio-konto när man kör funktionen lokalt?</span><span class="sxs-lookup"><span data-stu-id="50807-118">Where do you define your Twilio Account SID and Auth token when running your function locally?</span></span>
+    choices:
+    - content: <span data-ttu-id="50807-119">I `local.settings.json` filen.</span><span class="sxs-lookup"><span data-stu-id="50807-119">In the `local.settings.json` file.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="50807-120">Filen `local.settings.json` används för att lagra lokala inställningar som endast används vid lokal körning, inte vid publicering till Azure.</span><span class="sxs-lookup"><span data-stu-id="50807-120">The `local.settings.json` file is used to store local settings that are only used when running locally, not when published to Azure.</span></span> <span data-ttu-id="50807-121">Var noga med att inte använda källkodskontroll om den innehåller privata nycklar och ditt lagringsplats är offentlig.</span><span class="sxs-lookup"><span data-stu-id="50807-121">Be careful to not check this into source code control if it contains private keys and your repo is public.</span></span>
+    - content: <span data-ttu-id="50807-122">I `[TwilioSms]` attributet</span><span class="sxs-lookup"><span data-stu-id="50807-122">In the `[TwilioSms]` attribute</span></span>
+      isCorrect: false
+    - content: <span data-ttu-id="50807-123">Programinställningar som publicerats till Azure</span><span class="sxs-lookup"><span data-stu-id="50807-123">Application settings published to Azure</span></span>
+      isCorrect: false
