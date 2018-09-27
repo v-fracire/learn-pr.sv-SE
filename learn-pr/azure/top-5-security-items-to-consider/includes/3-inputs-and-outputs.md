@@ -51,7 +51,7 @@ Med den här metoden kan du anropa proceduren från din kod på ett säkert sät
 
 Alla utdata som du presenterar antingen visuellt eller inom ett dokument ska alltid kodas och undantas. Detta kan skydda dig om något förbises i saneringsomgången eller om koden av misstag genererar något som kan användas i skadligt syfte. På så sätt ser du till att allt visas som _utdata_ och inte oavsiktligt tolkas som något som ska köras. Det här är en annan mycket vanlig angreppsmetod som kallas ”skriptkörning över flera webbplatser” (XSS, Cross-Site Scripting).
 
-Eftersom det här är ett vanligt krav utgör det här ytterligare ett område där ASP.NET gör arbetet åt dig. Som standard [är alla utdata redan kodade](https://docs.microsoft.com/aspnet/core/security/cross-site-scripting?view=aspnetcore-2.1). Om du använder ett annat webbramverk kan du kontrollera dina alternativ för utdatakodning på webbplatser med [OWASP:s översiktsblad om XSS-skydd](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet).
+Eftersom det här är ett vanligt krav utgör det här ytterligare ett område där ASP.NET gör arbetet åt dig. Som standard är alla utdata redan kodade. Om du använder ett annat webbramverk kan du kontrollera dina alternativ för utdatakodning på webbplatser med [OWASP:s översiktsblad om XSS-skydd](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet).
 
 ## <a name="summary"></a>Sammanfattning
 

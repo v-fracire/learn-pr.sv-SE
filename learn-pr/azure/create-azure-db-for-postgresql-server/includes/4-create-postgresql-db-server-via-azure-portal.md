@@ -2,7 +2,7 @@ Med Azure Portal kan du hantera och skala PostgreSQL-databasservrar. Du bestämm
 
 [!include[](../../../includes/azure-sandbox-activate.md)]
 
-Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön. 
+Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön.
 
 Till vänster ser du menyn för att skapa och hantera Azure-resurser. Instrumentpanelen tar upp resten av skärmen.
 

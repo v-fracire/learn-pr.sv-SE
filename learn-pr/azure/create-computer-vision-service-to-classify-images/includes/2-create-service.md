@@ -91,7 +91,7 @@ Vi behöver en API-åtkomstnyckel för att göra anrop till API för visuellt in
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| `resource-group` | Den resursgrupp som ska äga Cognitive Services-kontot. I den här interaktiva sandbox-miljön använder du <rgn>[Sandbox-resursgruppens namn]</rgn> |
+| `resource-group` | Den resursgrupp som ska äga Cognitive Services-kontot. I den här interaktiva sandbox-miljön använder du <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn> |
 | `kind` | API-namnet på Cognitive Services-kontot. |
 | `name` | Cognitive service-kontonamnet. |
 | `sku` | SKU för Cognitive Services-kontot.|
@@ -106,14 +106,14 @@ az cognitiveservices account create \
 --kind ComputerVision \
 --name ComputerVisionService \
 --sku S1 \
---resource-group <rgn>[Sandbox resource group name]</rgn> \
+--resource-group <rgn>[sandbox resource group name]</rgn> \
 --location [location]
 ```
 
 > [!NOTE]
 > Kom ihåg den plats du har valt. Du ska göra alla anrop till API:et från den regionen.
 
-Vi har skapat ett Cognitive Services-konto för API för **ComputerVision**. Vi har valt *S1* SKU och har döpt vår konto till **ComputerVisionService**. Vårt konto ägs av resursgruppen **<rgn>[Sandbox-resursgruppens namn]</rgn>** och vi anropar API:et från den plats som vi angav i parametern `--location`. 
+Vi har skapat ett Cognitive Services-konto för API för **ComputerVision**. Vi har valt *S1* SKU och har döpt vårt konto till **ComputerVisionService**. Vårt konto ägs av resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>** och vi anropar API:et från den plats som vi angav i parametern `--location`. 
 
 När kommandot har slutfört skapandet av Cognitive Services-kontot, får du ett JSON-svar som innehåller egenskapen **provisioningState** inställd till **Lyckades**.
 
@@ -126,7 +126,7 @@ När kontot har skapats kan vi hämta prenumerationsnycklar eller åtkomstnyckla
     ```azurecli
     az cognitiveservices account keys list \
     --name ComputerVisionService \
-    --resource-group <rgn>[Sandbox resource group name]</rgn>
+    --resource-group <rgn>[sandbox resource group name]</rgn>
     ```
     
     Ovanstående kommando returnerar de nycklar som är associerade med Cognitive Services-kontot som kallas **ComputerVisionService** och ägs av den givna resursgruppen. Den returnerar två nycklar – en är en reservnyckel. Nycklarna är svåra att komma ihåg, så vi ska spara den första nyckeln i en variabel som vi använder för alla anrop till API:et.
@@ -136,7 +136,7 @@ När kontot har skapats kan vi hämta prenumerationsnycklar eller åtkomstnyckla
     ```azurecli
     key=$(az cognitiveservices account keys list \
     --name ComputerVisionService \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --query key1 -o tsv)
     ```
     

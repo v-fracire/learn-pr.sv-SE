@@ -114,7 +114,7 @@ Nu ska vi sätta igång din virtuella Windows-dator.
     ```azurecli
     az vm create \
       --name myVM \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --image Win2016Datacenter \
       --size Standard_DS2_v2 \
       --location eastus \
@@ -130,7 +130,7 @@ Nu ska vi sätta igång din virtuella Windows-dator.
 Medan du väntar går vi igenom kommandot du precis har kört.
 
 * Den virtuella datorn heter **myVM**. Namnet identifierar den virtuella datorn i Azure. Det blir även den virtuella datorns interna värdnamn, eller datornamn.
-* Resursgruppen, eller den virtuella datorns logiska container, heter **<rgn>[Namn för Sandbox-resursgruppen]</rgn>**.
+* Resursgruppen, eller den virtuella datorns logiska container, heter **<rgn>[resursgruppnamn för sandbox]</rgn>**.
 * **Win2016Datacenter** Anger den virtuella Windows Server 2016-datorns avbildning.
 * **Standard_DS2_v2** anger storleken på den virtuella datorn. Den här storleken har två processorer och 7 GB minne.
 * Med användarnamn och lösenord kan du ansluta till den virtuella datorn senare. Du kan till exempel ansluta via fjärrskrivbordet eller WinRM för att arbeta med och konfigurera systemet.
@@ -172,7 +172,7 @@ Nu ska vi sätta igång din virtuella Linux-dator.
     ```azurecli
     az vm create \
       --name myVM \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --image UbuntuLTS \
       --location eastus \
       --size Standard_DS2_v2 \
@@ -186,7 +186,7 @@ Nu ska vi sätta igång din virtuella Linux-dator.
 Medan du väntar går vi igenom kommandot du precis har kört.
 
 * Den virtuella datorn heter **myVM**. Namnet identifierar den virtuella datorn i Azure. Det blir även den virtuella datorns interna värdnamn, eller datornamn.
-* Resursgruppen, eller den virtuella datorns logiska container, heter **<rgn>[Namn för Sandbox-resursgruppen]</rgn>**.
+* Resursgruppen, eller den virtuella datorns logiska container, heter **<rgn>[resursgruppnamn för sandbox]</rgn>**.
 * **UbuntuLTS** anger den virtuella Ubuntu 16.04 LTS-datorns avbildning.
 * **Standard_DS2_v2** anger storleken på den virtuella datorn. Den här storleken har två processorer och 7 GB minne.
 * Alternativet `--generate-ssh-keys` skapar ett SSH-nyckelpar så att du kan logga in på den virtuella datorn.

@@ -1,14 +1,14 @@
 Anta att ditt företag använder sig av containeravbildningar för att hantera beräkningsbelastningar. Du kan använda de lokala Docker-verktygen till att bygga dina containeravbildningar.
 
-Nu kan du skapa dina containrar med Azure Container Registry Build. I Container Registry Build kan du även integrera DevOps-processer med automatiserad kompilering när källkod checkas in.
+Nu kan du använda Azure Container Registry Tasks för att skapa dessa containrar. I Container Registry Tasks kan du även integrera DevOps-processer med automatiserat skapande vid källkodsincheckning.
 
-Låt oss automatisera skapandet av en containeravbildning med Azure Container Registry Build.
+Låt oss automatisera skapandet av en containeravbildning med Azure Container Registry Tasks.
 
-## <a name="create-a-container-image-with-azure-container-registry-build"></a>Skapa en containeravbildning med Azure Container Registry Build
+## <a name="create-a-container-image-with-azure-container-registry-tasks"></a>Skapa en containeravbildning med Azure Container Registry Tasks
 
-En Docker-standardfil ger kompileringsinstruktioner. I Azure Container Registry Build kan du återanvända valfri Docker-fil som finns i din miljö, inklusive kompileringar i flera steg.
+En Docker-standardfil ger kompileringsinstruktioner. I Azure Container Registry Tasks kan du återanvända valfri Docker-fil som finns i din miljö, inklusive kompileringar i flera steg.
 
-Vi använder en ny Docker-fil i vårt exempel. 
+Vi använder en ny Docker-fil i vårt exempel.
 
 <!-- Activate the sandbox -->
 [!include[](../../../includes/azure-sandbox-activate.md)]
@@ -19,7 +19,7 @@ Det första steget är att skapa en ny fil med namnet `Dockerfile`. Du kan redig
 code
 ```
 
-Kopiera följande innehåll till din nya Docker-fil. Var noga med att spara filen. 
+Kopiera följande innehåll till din nya Docker-fil. Var noga med att spara filen.
 
 ```bash
 FROM    node:9-alpine
@@ -37,7 +37,7 @@ Den här konfigurationen lägger till ett Node.js-program i `node:9-alpine`-avbi
 Skapa nu containeravbildningen från Docker-filen genom att köra Azure CLI-kommandot `az acr build`.
 
 ```azurecli
-az acr build --registry <acrName> --image helloacrbuild:v1 .
+az acr build --registry <acrName> --image helloacrtasks:v1 .
 ```
 
 När det här kommandot körs ser du att avbildningen skapas och push-överförs till ditt containerregister.
@@ -55,7 +55,7 @@ Utdata bör se ut ungefär så här:
 ```console
 Result
 -------------
-helloacrbuild
+helloacrtasks
 ```
 
 Avbildningen `helloacrbuild` är nu redo att användas.

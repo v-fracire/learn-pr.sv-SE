@@ -264,7 +264,7 @@ New-AzureRmResourceGroup -Name <name> -Location <location>
 ```
 
 > [!NOTE]
-> Kom ihåg att vi kommer att arbeta i den Azure-sandbox-miljö som skapar en resursgrupp åt dig. Kommandot ovan skulle användas om du arbetar i din egen prenumeration.
+> Kom ihåg att vi kommer att arbeta i den sandbox-miljön i Azure som skapar en resursgrupp åt dig. Kommandot ovan skulle användas om du arbetade i din egen prenumeration.
 
 ### <a name="verify-the-resources"></a>Verifiera resurserna
 `Get-AzureRmResource` visar en lista över dina Azure-resurser. Det här är användbart när du ska kontrollera att resursgruppen har skapats.

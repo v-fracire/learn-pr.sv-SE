@@ -1,0 +1,1 @@
+I den här modulen förberedde du din utvecklingsmiljö för att skapa appar i Azure. Du har installerat lämplig IDE för ditt operativsystem och utvecklingskraven. Du har också lagt till integrering med Azure för att effektivisera publicering av innehåll direkt till Azure-tjänster.

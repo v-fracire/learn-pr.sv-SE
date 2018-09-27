@@ -18,10 +18,10 @@ I det här steget skapar vi en virtuell dator med följande egenskaper:
 |-----------------|---------|
 | Avbildning           | **Windows Server 2016 Datacenter** |
 | Namn            | **fotoshareVM** |
-| Resursgrupp  |   **<rgn>[Sandbox-resursgruppnamn]</rgn>** |
+| Resursgrupp  |   **<rgn>[resursgruppsnamn för sandbox]</rgn>** |
 | Plats        | Se nedan. |
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du har aktiverat sandbox-miljön med.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du har aktiverat sandbox-miljön med.
 
 1. Välj **Skapa en resurs** i sidofältet till vänster.
 
@@ -31,9 +31,9 @@ I det här steget skapar vi en virtuell dator med följande egenskaper:
 
 1. Kontrollera att vald **Prenumeration** i panelen **Grunder** är _Concierge-prenumeration_.
 
-1. Välj **Använd befintlig** under **Resursgrupp** och välj _<rgn>[Sandbox-resursgruppnamn]</rgn>_.
+1. Under **Resursgrupp**, välj **Använd befintlig** och välj _<rgn>[resursgruppnamn för sandbox]</rgn>_.
 
-1. Skriv _fotoshareVM_ rutan **Namn på virtuell dator**.
+1. Skriv _fotoshareVM_ i rutan **Namn på virtuell dator**.
 
 1. Välj regionen som ligger närmast dig i listrutan **Plats** från följande lista.
 
@@ -83,7 +83,7 @@ Vi går vidare till konfigurationen av cachelagring för datadisk. För att konf
 
 1. I fönsterrutan **Skapa hanterad disk** går du till rutan **Namn** och skriver **fotosharesVM-data**.
 
-1. Under **Resursgrupp** väljer du **Använd befintlig** och väljer _<rgn>[Sandbox-resursgruppnamn]</rgn>_.
+1. Under **Resursgrupp** väljer du **Använd befintlig** och väljer _<rgn>[resursgruppnamn för sandbox]</rgn>_.
 
 1. Observera standardinställningarna för återstående fält:
     - Premium SSD
@@ -92,7 +92,7 @@ Vi går vidare till konfigurationen av cachelagring för datadisk. För att konf
     - IOPS-gräns –5 000
     - Dataflödesgräns (MB/s) – 200
 
-1. Välj **Skapa** längst ned på skärmen. 
+1. Välj **Skapa** längst ned på skärmen.
 
     Vänta tills disken har skapats innan du fortsätter.
 

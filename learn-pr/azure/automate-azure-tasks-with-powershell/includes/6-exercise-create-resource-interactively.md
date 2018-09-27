@@ -7,13 +7,13 @@ Nu ska vi prova de kommandon som du använder för att skapa en virtuell dator.
 
 ## <a name="create-a-linux-vm-with-azure-powershell"></a>Skapa en virtuell Linux-dator med Azure PowerShell
 
-Eftersom vi använder sandbox-miljön för Azure kan behöver du inte skapa en resursgrupp. Välj istället **resursgruppen<rgn> </rgn>[Resursgruppsnamn för sandbox-miljö]**. Dessutom bör du vara medveten om platsbegränsningar.
+Eftersom vi använder sandbox-miljön för Azure behöver du inte skapa en resursgrupp. Välj istället **resursgruppen<rgn> </rgn>[resursgruppnamn för sandbox]**. Dessutom bör du vara medveten om platsbegränsningar.
 
 Nu ska vi skapa en ny virtuell Azure-dator med PowerShell.
 
 1. Använd cmdlet:en `New-AzureRmVm` för att skapa en virtuell dator.
-    - Använd den resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**.
-    - Namnge den virtuella datorn – vanligtvis du vill använda ett mer beskrivande namn som identifierar den virtuella datorns syfte, plats, och antal instanser (om det finns fler än en). Vi använder ”testvm-eus-01” för ”virtuell testdator East US instans 1”. Använd ditt eget namn baserat på var den virtuella datorn finns.
+    - Använd resursgruppen **<rgn>[resursgruppnamn för sandbox]</rgn>**.
+    - Namnge den virtuella datorn – vanligtvis vill du använda ett mer beskrivande namn som identifierar den virtuella datorns syfte, plats, och antal instanser (om det finns fler än en). Vi använder ”testvm-eus-01” för ”virtuell testdator East US instans 1”. Använd ditt eget namn baserat på var den virtuella datorn finns.
     - Välj en plats nära dig i följande lista som är tillgänglig i Azure-sandbox-miljön. Ändra värdet i nedanstående exempelkommando om du använder kopiera och klistra in.
 
         [!include[](../../../includes/azure-sandbox-regions-note.md)]
@@ -23,7 +23,7 @@ Nu ska vi skapa en ny virtuell Azure-dator med PowerShell.
     - Lägg till parametern `-OpenPorts` och ”22” som port – vi kan nu logga in med SSH på datorn.
  
     ```powershell
-    New-AzureRmVm -ResourceGroupName <rgn>[Sandbox resource group name]</rgn> -Name "testvm-eus-01" -Credential (Get-Credential) -Location "East US" -Image UbuntuLTS -OpenPorts 22
+    New-AzureRmVm -ResourceGroupName <rgn>[sandbox resource group name]</rgn> -Name "testvm-eus-01" -Credential (Get-Credential) -Location "East US" -Image UbuntuLTS -OpenPorts 22
     ```
 
     [!include[](../../../includes/azure-cloudshell-copy-paste-tip.md)]
@@ -31,7 +31,7 @@ Nu ska vi skapa en ny virtuell Azure-dator med PowerShell.
 1. Det här kan ta några minuter. När detta sker kan du fråga och tilldela objektet från den virtuella datorn till en variabel (`$vm`).
 
     ```powershell
-    $vm = Get-AzureRmVM -Name "testvm-eus-01" -ResourceGroupName <rgn>[Sandbox resource group name]</rgn>
+    $vm = Get-AzureRmVM -Name "testvm-eus-01" -ResourceGroupName <rgn>[sandbox resource group name]</rgn>
     ```
     
 1. Hämta sedan värdet för att dumpa information om den virtuella datorn:
@@ -43,8 +43,8 @@ Nu ska vi skapa en ny virtuell Azure-dator med PowerShell.
     Du bör se något liknande följande:
 
     ```output
-    ResourceGroupName : <rgn>[Sandbox resource group name]</rgn>
-    Id                : /subscriptions/xxxxxxxx-xxxx-aaaa-bbbb-cccccccccccc/resourceGroups/<rgn>[Sandbox resource group name]</rgn>/providers/Microsoft.Compute/virtualMachines/testvm-eus-01
+    ResourceGroupName : <rgn>[sandbox resource group name]</rgn>
+    Id                : /subscriptions/xxxxxxxx-xxxx-aaaa-bbbb-cccccccccccc/resourceGroups/<rgn>[sandbox resource group name]</rgn>/providers/Microsoft.Compute/virtualMachines/testvm-eus-01
     VmId              : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     Name              : testvm-eus-01
     Type              : Microsoft.Compute/virtualMachines
@@ -75,11 +75,14 @@ Nu ska vi skapa en ny virtuell Azure-dator med PowerShell.
     $vm | Get-AzureRmPublicIpAddress
     ```
 
-1. Med IP-adressen kan du ansluta till den virtuella datorn med SSH. Till exempel om du använde användarnamnet ”bob”, och IP-adressen är ”205.22.16.5” ansluter kommandot till Linux-datorn:
+1. Med IP-adressen kan du ansluta till den virtuella datorn med SSH. Om du till exempel använde användarnamnet ”bob”, och IP-adressen är ”205.22.16.5” ansluter kommandot till Linux-datorn:
 
-```powershell
-ssh bob@205.22.16.5
-```
+    ```powershell
+    ssh bob@205.22.16.5
+    ```
+
+    Gå vidare och logga ut genom att skriva `exit`.
+
 
 ## <a name="delete-a-vm"></a>Ta bort en virtuell dator
 

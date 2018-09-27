@@ -10,7 +10,7 @@ Vi skapar en funktion som startar när den får en HTTP-begäran och svarar på 
 
 Vi ska skapa en funktionsapp som vi sedan använder genom hela modulen. I en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du har aktiverat sandbox-miljön med.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du har aktiverat sandbox-miljön med.
 
 1. Välj knappen **Skapa en resurs** längst upp till vänster i Azure Portal och sedan **Compute** > **Funktionsapp**.
 
@@ -18,14 +18,14 @@ Vi ska skapa en funktionsapp som vi sedan använder genom hela modulen. I en fun
 
     | Egenskap     | Föreslaget värde  | Beskrivning  |
     |--------------|------------------|--------------|
-    | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
-    | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
-    | **Resursgrupp**|  Välj **Använd befintlig** och därefter _<rgn>[Sandbox-resursgruppnamn]</rgn>_ | Namnet på resursgruppen som funktionsappen ska skapas i. | 
+    | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  |
+    | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. |
+    | **Resursgrupp**|  Välj **Använd befintlig** och därefter _<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>_ | Namnet på resursgruppen som funktionsappen ska skapas i. |
     | **Operativsystem** | Windows | Det operativsystem som är värd för funktionsappen.  |
     | **Värd** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standardinställningen **Förbrukningsplan** läggs resurser till dynamiskt när de krävs av funktionerna. För den här typen av serverlösa värdtjänster betalar du bara för den tid som dina funktioner körs.   |
     | **Lagringskonto** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Den här dialogrutan fyller i fältet med ett unikt namn som härleds från namnet du gav appen. Du kan använda ett annat namn eller ett befintligt konto om du vill. |
     | **Plats** | Välj från listan | Välj en av de närmaste tillgängliga platserna som anges ovan. |
-    
+
     [!include[](../../../includes/azure-sandbox-regions-first-mention-note-friendly.md)]
 
 1. Välj **Skapa** för att etablera och distribuera funktionsappen.
@@ -42,7 +42,7 @@ Vi ska skapa en funktionsapp som vi sedan använder genom hela modulen. I en fun
 
     >[!TIP]
     >Om du har problem med att hitta dina funktionsappar i portalen kan du få reda på hur du [lägger till funktionsappar till dina favoriter i portalen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#favorite).
-    
+
 ## <a name="create-a-function"></a>Skapa en funktion
 
 Nu när vi har en funktionsapp är det dags att skapa en funktion. En funktion aktiveras via en utlösare. Vi använder en HTTP-utlösare i den här modulen.
@@ -63,7 +63,7 @@ Nu när vi har en funktionsapp är det dags att skapa en funktion. En funktion a
 
 1. Klistra in den funktions-URL som du kopierade i adressfältet på den nya fliken i din webbläsare.
 
-1. Lägg till frågesträngsvärdet `&name=Azure` i slutet av den här webbadressen och tryck på Retur på tangentbordet för att utföra begäran. Du bör se ett svar som liknar följande svar returnerat av funktionen som visas i webbläsaren.  
+1. Lägg till frågesträngsvärdet `&name=Azure` i slutet av den här webbadressen och tryck på Retur på tangentbordet för att utföra begäran. Du bör se ett svar som liknar följande svar returnerat av funktionen som visas i webbläsaren.
 
     ```output
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Hello Azure</string>
@@ -97,7 +97,7 @@ All denna kod finns i **index.js**-filen i den här funktionens mapp. Nu ska vi 
 Som du ser har funktionen en bindning med namnet **req** av typen `httpTrigger` och en utdatabindning med namnet **res** av typen `HTTP`. I föregående kod för vår funktion såg vi hur vi fick åtkomst till nyttolasten för den inkommande HTTP-begäran genom parametern **req**. Och på samma sätt skickade vi ett HTTP-svar bara genom att ange parametern **res**. Bindningar tar verkligen hand om en del tidskrävande jobb åt oss.
 
 >[!TIP]
->Du kan se **index.js** och **function.json** genom att expandera menyn **Visa filer** till höger på funktionspanelen i Azure Portal.  
+>Du kan se **index.js** och **function.json** genom att expandera menyn **Visa filer** till höger på funktionspanelen i Azure Portal.
 
 ### <a name="explore-binding-types"></a>Utforska bindningstyper
 

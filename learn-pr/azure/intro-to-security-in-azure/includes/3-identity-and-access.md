@@ -82,9 +82,8 @@ Roller är uppsättningar med behörigheter, t.ex. ”Skrivskyddad” eller ”D
 
 Identiteter mappas till roller direkt eller via gruppmedlemskap. Genom att säkerhetsobjekt, åtkomstbehörigheter och resurser hålls åtskilda, blir det enklare att hantera och kontrollera åtkomsten. Administratörer kan se till att de minsta nödvändiga behörigheterna har beviljats.
 
-Roller kan tilldelas på nivån för en enskild tjänstinstans eller spridas nedåt i Azure Resource Manager-hierarkin. Roller som har tilldelats för ett högre område, t.ex. en hel prenumeration, ärvs av underordnade områden, t.ex. tjänstinstanser. 
+Roller kan tilldelas på nivån för en enskild tjänstinstans eller spridas nedåt i Azure Resource Manager-hierarkin. Roller som har tilldelats i en högre omfattning, t.ex. en hel prenumeration, ärvs av underordnade områden, t.ex. tjänstinstanser. 
 
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![Hanteringsgrupper](../media/3-role-assignment-scope.png)
 
 :::row:::
@@ -93,9 +92,8 @@ Roller kan tilldelas på nivån för en enskild tjänstinstans eller spridas ned
   :::column-end:::
     :::column span="3"::: **Privileged Identity Management**
 
-Förutom att hantera Azure-resursåtkomst med rollbaserad åtkomstkontroll (RBAC), bör en heltäckande säkerhetsstrategi för infrastrukturen omfatta regelbunden granskning av rollmedlemmar allt eftersom organisationen förändras och utvecklas. Betaltjänsten Azure AD Privileged Identity Management (PIM) hjälper dig att övervaka rolltilldelningar, självbetjäning och JIT-rollaktivering (Just-In-Time) och innehåller även funktioner för att granska åtkomsten till Azure AD-resurser.
+Förutom att hantera Azure-resursåtkomst med rollbaserad åtkomstkontroll (RBAC), bör en heltäckande säkerhetsstrategi för infrastrukturen omfatta regelbunden granskning av rollmedlemmar allt eftersom organisationen förändras och utvecklas. Betaltjänsten Azure AD Privileged Identity Management (PIM) hjälper dig att övervaka rolltilldelningar, självbetjäning och JIT-rollaktivering (Just-In-Time). Den innehåller även funktioner för att granska åtkomsten till Azure AD-resurser.
 
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![Privileged Identity Management](../media/PIM_Dashboard.png)
 
   :::column-end:::

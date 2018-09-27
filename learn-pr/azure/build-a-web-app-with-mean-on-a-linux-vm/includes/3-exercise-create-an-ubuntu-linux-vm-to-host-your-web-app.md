@@ -1,6 +1,6 @@
 MEAN-komponentstacken kräver en server. Det kan vara en Linux-dator eller en virtuell dator som du kör i ditt eget serverrum, eller som du konfigurerar på en molnbaserad virtuell dator. I den här modulen konfigurerar vi stacken som ska köras på en virtuell Ubuntu Linux-dator i Azure.
 
-I den här kursdelen skapar du en ny virtuell Ubuntu Linux-dator i Azure. Du kan också installera komponenterna i MEAN-stacken på en befintlig virtuell dator eller på en fysisk värddator. Genom att skapa en ny virtuell dator i den här övningen kan du koppla samman alla komponenter i en Azure-resursgrupp för enklare hantering och borttagning när du har slutfört övningarna.
+I den här kursdelen skapar du en ny virtuell Ubuntu Linux-dator i Azure. Du kan också installera komponenterna i MEAN-stacken på en befintlig virtuell dator eller på en fysisk värddator. Genom att skapa en ny virtuell dator i den här övningen kan du koppla samman alla komponenter i en Azure-resursgrupp för enklare hantering och rensning när du har slutfört övningarna.
 
 ## <a name="provision-an-ubuntu-linux-vm"></a>Etablera en virtuell Ubuntu Linux-dator
 
@@ -8,20 +8,20 @@ I den här kursdelen skapar du en ny virtuell Ubuntu Linux-dator i Azure. Du kan
 
 ### <a name="creating-a-resource-group"></a>Skapa resursgruppen
 
-Normalt sett är det första du ska göra när du skapar en ny uppsättning resurser är att skapa en _resursgrupp_ som alla ingår i. Det här är ett onödiga steg i Azure sandbox-miljön, men när du arbetar med din egen prenumeration ska du använda följande kommando för att skapa en resursgrupp på en plats nära dig.
+Normalt sett är det första du gör när du skapar en ny uppsättning resurser att skapa en _resursgrupp_ som alla ingår i. Det här är ett onödigt steg i sandbox-miljön i Azure, men när du arbetar med din egen prenumeration ska du använda följande kommando för att skapa en resursgrupp på en plats nära dig.
 
 ```azurecli
 az group create --name <resource-group-name> --location <resource-group-location>
 ```
 
 > [!IMPORTANT]
-> Du behöver inte skapa en resursgrupp med Azure sandbox-miljön. Välj istället resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>** som har skapats på förhand.
+> Du behöver inte skapa en resursgrupp med sandbox-miljön i Azure. Använd i stället resursgruppen **<rgn>[resursgrupp för sandbox-miljö]</rgn>** som har skapats i förväg.
 
-1. Kör följande kommando till höger i Cloud Shell för att skapa en ny virtuell Ubuntu Linux-dator. Ange ett administratörsanvändarnamn och administratörslösenord för `<vm-admin-username>` och `<vm-admin-password>`.
+1. Skapa en ny virtuell Ubuntu Linux-dator genom att ange följande kommando till höger i Cloud Shell. Ange ett administratörsanvändarnamn och administratörslösenord för `<vm-admin-username>` och `<vm-admin-password>`.
 
     ```azurecli
     az vm create \
-        --resource-group <rgn>[Sandbox resource group name]</rgn> \
+        --resource-group <rgn>[sandbox resource group name]</rgn> \
         --name MeanDemo \
         --image UbuntuLTS \
         --admin-username <vm-admin-username> \
@@ -42,7 +42,7 @@ az group create --name <resource-group-name> --location <resource-group-location
         "powerState": "VM running",
         "privateIpAddress": "10.0.0.4",
         "publicIpAddress": "<the public IP address of the newly created machine>",
-        "resourceGroup": "<rgn>[Sandbox resource group name]</rgn>",
+        "resourceGroup": "<rgn>[sandbox resource group name]</rgn>",
         "zones": ""
     }
     ```
@@ -63,8 +63,8 @@ az group create --name <resource-group-name> --location <resource-group-location
 
 1. Öppna port 80 på den virtuella datorn för att tillåta inkommande HTTP-trafik till det nya webbprogrammet som du kommer att skapa.
 
-    ``` bash
-    az vm open-port --port 80 --resource-group <rgn>[Sandbox resource group name]</rgn> --name MeanDemo
+    ```azurecli
+    az vm open-port --port 80 --resource-group <rgn>[sandbox resource group name]</rgn> --name MeanDemo
     ```
 
     Det här kommandot öppnar HTTP-porten på den virtuella datorn, som fick namnet ”MeanDemo” när den skapades.

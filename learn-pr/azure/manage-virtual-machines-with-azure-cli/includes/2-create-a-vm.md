@@ -5,7 +5,7 @@ Vi börjar med den mest uppenbara uppgiften: skapa en virtuell Azure-dator.
 
 ## <a name="logins-subscriptions-and-resource-groups"></a>Inloggningar, prenumerationer och resursgrupper
 
-Du får arbeta i Azure Cloud Shell till höger. När du har aktiverat sandbox-miljön loggas du in på Azure med en kostnadsfri prenumeration som hanteras av Microsoft Learn. Du behöver inte logga in på Azure på egen hand eller välja en prenumeration – det görs åt dig. Dessutom skulle du normalt skapa en _resursgrupp_ för nya resurser. I den här modulen skapar Azure-sandbox-miljön en resursgrupp åt dig som används för att köra alla kommandon.
+Du får arbeta i Azure Cloud Shell till höger. När du har aktiverat sandbox-miljön loggas du in på Azure med en kostnadsfri prenumeration som hanteras av Microsoft Learn. Du behöver inte logga in på Azure på egen hand eller välja en prenumeration – det görs åt dig. Dessutom skulle du normalt skapa en _resursgrupp_ för lagring av nya resurser. I den här modulen skapar Azures sandbox-miljö en resursgrupp åt dig som används för att köra alla kommandon.
 
 ## <a name="create-a-linux-vm-with-the-azure-cli"></a>Skapa en virtuell Linux-dator med hjälp av Azure CLI
 
@@ -32,7 +32,7 @@ Låt oss börja med det första: `az vm create`. Det här kommandot används fö
 > [!div class="mx-tableFixed"]
 > | Parameter | Beskrivning |
 > |-----------|-------------|
-> | `resource-group` | Den resursgrupp som ska äga den virtuella datorn använder **<rgn>[sandbox-resursgrupp]</rgn>**. |
+> | `resource-group` | Den resursgrupp som ska äga den virtuella datorn använder **<rgn>[resursgrupp för sandbox-miljö]</rgn>**. |
 > | `name` | Namnet på den virtuella datorn – måste vara unikt inom resursgruppen. |
 > | `image` | Avbildningen av operativsystemet som ska användas för att skapa den virtuella datorn. |
 > | `location` | Regionen som den virtuella datorn ska placeras i. Vanligtvis är det nära konsumenten av den virtuella datorn. I den här övningen ska du välja en plats i närheten i listan nedan. |
@@ -47,7 +47,7 @@ Dessutom är det bra att lägga till flaggan `--verbose` så att du kan följa f
 Nu ska vi skapa en ny virtuell Linux-dator. Utför följande kommando i Azure Cloud Shell för att skapa en Debian Linux-dator på platsen ”USA, västra”. Ändra plats om det inte är i närheten.
 
 ```azurecli
-az vm create --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --image Debian --admin-username aldis --generate-ssh-keys --location westus --verbose 
+az vm create --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM --image Debian --admin-username aldis --generate-ssh-keys --location westus --verbose 
 ```
 
 [!include[](../../../includes/azure-cloudshell-copy-paste-tip.md)]

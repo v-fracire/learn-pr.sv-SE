@@ -31,11 +31,11 @@ I den här enheten ska du installera Azure Cosmos DB-tillägget för Visual Stud
 
 1. Ange ett unikt namn för ditt Azure Cosmos DB-konto i textrutan längst upp på skärmen och tryck sedan på Retur. Kontonamnet får bara innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 31 tecken.
 
-1. Välj sedan **SQL (DocumentDB)** > **<rgn>[Sandbox-resursgruppens namn]</rgn>** och välj sedan en plats.
+1. Välj sedan **SQL (DocumentDB)** > **<rgn>[resursgruppnamn för sandbox]</rgn>** och välj sedan en plats.
 
     [!include[](../../../includes/azure-sandbox-regions-first-mention-note-friendly.md)]
 
-    Fliken utdata i Visual Studio Code visar förloppet för att skapa konto. Det tar några minuter att slutföra det.
+    Fliken utdata i Visual Studio Code visar förloppet för att skapa kontot. Det tar några minuter att slutföra det.
 
 1. När kontot har skapats kan du expandera din Azure-prenumeration i fönstret **Azure: Cosmos DB**. Tillägget visas det nya Azure Cosmos DB-kontot. I följande bild heter det nya kontot **inlärningsmoduler**.
 

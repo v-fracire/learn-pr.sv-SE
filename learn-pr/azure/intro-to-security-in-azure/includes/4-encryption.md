@@ -22,7 +22,6 @@ Du kan också ställa in en säker kanal som ett virtuellt privat nätverk (VPN)
 
 Kryptering av data under överföring skyddar data från utomstående observatörer och tillhandahåller en mekanism för överföring av data samtidigt som risken för exponering minskar. 
 
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![Kryptering under överföring](../media/encryption-in-transit.png)
 
 
@@ -32,7 +31,6 @@ Vilande data är data som har lagrats på ett fysiskt medium. Detta kan vara dat
 
 Vilka data som krypteras, vad de används för och hur viktiga de är för organisationen kan variera. Det kan röra sig om finansiell information som är viktig för företaget, immateriell egendom som har utvecklats av företaget, personliga data som företaget lagrar om kunder eller anställda eller de nycklar och hemligheter som används för själva datakrypteringen.
 
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![Kryptering i vila](../media/encryption-at-rest.png)
 
 ## <a name="encryption-on-azure"></a>Kryptering i Azure

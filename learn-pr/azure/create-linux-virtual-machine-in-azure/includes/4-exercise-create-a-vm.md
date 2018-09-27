@@ -4,7 +4,7 @@ Vårt mål är alltså att flytta en befintlig Linux-server som kör Apache till
 
 Vi kan skapa en virtuell Linux-dator via Microsoft Azure-portalen, Azure CLI eller Azure PowerShell. Den enklaste metoden när du börjar med Azure är att använda portalen, eftersom den går igenom den information som krävs samt visar tips och användbara meddelanden medan du skapar den virtuella datorn:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -26,7 +26,7 @@ Vi börjar med avsnittet **Grundläggande inställningar**.
 
 1. För **Prenumeration** bör den valda sandbox-prenumerationen väljas åt dig som standard.
 
-1. Som **Resursgrupp** bör resursgruppen med namnet **<rgn>[Namn på Sandbox-resursgrupp]</rgn>** väljas åt dig som standard.
+1. Som **Resursgrupp** bör resursgruppen med namnet **<rgn>[resursgruppnamn för sandbox]</rgn>** väljas åt dig som standard.
 
 1. I avsnittet **INSTANSINFORMATION** anger du ett namn på den virtuella webbserverdatorn, till exempel **test-web-eus-vm1**. Detta anger miljön (**test**), rollen (**web**), platsen (**East US**), tjänsten (**vm**) och instansnumret (**1**).
     - Det är bästa praxis att standardisera resursnamnen så att du snabbt kan identifiera deras syfte. Namn på virtuella Linux-datorer måste vara mellan 1 och 64 tecken långa, och måste bestå av siffror, bokstäver och bindestreck.

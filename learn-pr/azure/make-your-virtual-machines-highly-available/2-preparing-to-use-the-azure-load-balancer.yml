@@ -1,0 +1,49 @@
+### YamlMime:ModuleUnit
+uid: learn.make-your-virtual-machines-highly-available.2-preparing-to-use-the-azure-load-balancer
+title: Förberedelse för att använda Azure Load Balancer
+metadata:
+  title: Förberedelse för att använda Azure Load Balancer
+  description: Förberedelse för att använda Azure Load Balancer
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: d7aca1982234b34ec8ab8f293d5c15fb15e9c8d0
+  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/21/2018
+  ms.locfileid: "46514819"
+durationInMinutes: 5
+content: >
+  [!include[](includes/2-preparing-to-use-the-azure-load-balancer.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Sant eller falskt. Azure Load Balancer säkerställer att alla paket från en klient skickas till samma VM-instans på serversidan.
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Azure Load Balancer använder en hash för att identifiera klienten utifrån källans och målets IP-adress och port.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Azure Load Balancer använder en hash för att identifiera klienten utifrån källans och målets IP-adress och port.
+  - content: 'En orsak att välja Standard-SKU framför Basic SKU är:'
+    choices:
+    - content: Standard-SKU kan dirigera trafik till en VM-tillgänglighetsuppsättning, medan Basic inte kan det.
+      isCorrect: false
+      incorrectExplanation: 'Både Basic- och Standard-SKU:er har stöd för dirigering av trafik till en tillgänglighetsuppsättning – men Standard-SKU: er kan använda fler än en.'
+    - content: Standard-SKU har stöd för säker trafik (HTTPS).
+      isCorrect: true
+      correctExplanation: Basic-SKU kan bara skydda TCP- och HTTP-trafik. Standard-SKU har även stöd för HTTPS.
+    - content: Standard-SKU har stöd för övervakning med hälsoavsökning av virtuella datorer på serversidan, medan Basic inte har det.
+      isCorrect: false
+      incorrectExplanation: Hälsoavsökningar används i båda SKU:erna och är ett krav för att konfigurera Azure Load Balancer.
+  - content: Sant eller falskt. Azure Load Balancer kan användas för offentliga tjänster, eller för interna Azure-tjänster som du använder via en VPN-anslutning.
+    choices:
+    - content: Sant
+      isCorrect: true
+      incorrectExplanation: Azure Load Balancer har stöd för både offentliga och interna konfigurationer.
+    - content: Falskt
+      isCorrect: false

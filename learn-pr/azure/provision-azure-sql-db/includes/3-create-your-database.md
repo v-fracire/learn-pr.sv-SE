@@ -65,7 +65,7 @@ Här får du konfigurera en egen databas, vilket även innefattar att skapa den 
 
 Om du över tid inser att du behöver ytterligare beräkningskraft för att hålla jämna steg med efterfrågan kan du justera prestandaalternativen eller växla mellan prestandamodellerna DTU och vCore.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen. Välj **Databaser** och välj sedan **SQL Database**.
 
@@ -90,7 +90,7 @@ Om du över tid inser att du behöver ytterligare beräkningskraft för att hål
     | ------------ | ----- |
     | **Databasnamn** | **Logistik** |
     | **Prenumeration** | Din prenumeration |
-    | **Resursgrupp** |  Använd den befintliga gruppen <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn> |
+    | **Resursgrupp** |  Använd den befintliga gruppen <rgn>[resursgruppsnamn för sandbox-miljö]</rgn> |
     | **Välj källa** | **Tom databas** |
     | **Vill du använda elastisk SQL-pool?** | **Inte nu** |
     | **Sortering** | **SQL_Latin1_General_CP1_CI_AS** |

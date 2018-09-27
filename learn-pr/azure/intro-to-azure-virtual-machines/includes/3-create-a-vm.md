@@ -21,7 +21,7 @@ När du har loggat in ser du två huvudområden. Det första är en meny med alt
 
 Anta att du vill skapa en virtuell dator som kör en WordPress-webbplats. Det är inte svårt att konfigurera en plats, men det finns några saker som du måste tänka på. Du måste installera och konfigurera ett operativsystem, konfigurera en webbplats, installera en databas och tänka igenom hur du ska installera och konfigurera brandväggar. I de kommande modulerna beskriver vi mer i detalj hur du skapar virtuella datorer, men låt oss skapa en redan nu så att du ser hur enkelt det är. Vi går inte igenom alla alternativ här. Om du vill ha fullständig information om respektive alternativ rekommenderar vi modulerna i serien **Skapa en virtuell dator**.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön. 
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Till vänster ser du menyn som du kan använda för att skapa och hantera Azure-resurser. Instrumentpanelen tar upp resten av skärmen.
 
@@ -49,8 +49,8 @@ Vi måste konfigurera de grundläggande parametrarna för vår virtuella WordPre
 
 1. Använd följande värden på fliken **Grunder**.
     - Prenumerationen ska vara inställd på _Concierge-prenumeration_.
-    - Välj **Använd befintlig** för region och välj sedan <rgn>[Sandbox resursgruppens namn]</rgn> från listrutan.
-    - Ange ett **Namn** för aviseringen. Använd _test-wp1-eus-vm_.
+    - Välj **Använd befintlig** för region och välj sedan <rgn>[resursgruppnamn för sandbox-miljö]</rgn> från listrutan.
+    - Ange ett **Namn** för den virtuella datorn. Använd _test-wp1-eus-vm_.
     - Välj en **Region** nära till dig från följande lista.
         [!include[](../../../includes/azure-sandbox-regions-note-friendly.md)]
     - Välj _Inga_ som **Tillgänglighetsalternativ**. Det här är för hög tillgänglighet.

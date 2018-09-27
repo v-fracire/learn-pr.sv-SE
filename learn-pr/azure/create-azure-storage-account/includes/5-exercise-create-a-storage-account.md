@@ -12,7 +12,7 @@ För att uppfylla dessa, kan du välja att buffra uppladdat innehåll i en Azure
 
 ## <a name="use-the-azure-portal-to-create-a-storage-account"></a>Använd Azure Portal för att skapa ett lagringskonto
 
-1. Logga in på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du har aktiverat sandbox-miljön med.
+1. Logga in på [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du har aktiverat sandbox-miljön med.
 
 1. Välj **Skapa en resurs** uppe till vänster i Azure Portal.
 
@@ -31,7 +31,7 @@ Under **PROJEKTINFORMATION**:
 
 1. Välj lämplig **prenumeration**.
 
-1. Välj den befintliga resursgruppen (”**<rgn>[Resursgruppsnamn för sandbox-miljö]”</rgn>**) från listrutan.
+1. Välj den befintliga resursgruppen (”**<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**”) från listrutan.
 
     > [!NOTE]
     > Den här kostnadsfria resursgruppen har angetts av Microsoft som en del av inlärningsupplevelsen. När du skapar ett konto för ett riktigt program, kommer du att skapa en ny resursgrupp i din prenumeration för att lagra alla resurser för appen.
@@ -41,7 +41,7 @@ Under **INSTANSINFORMATION**:
 
 1. Ange ett **namn på lagringskontot**. Namnet används för att generera den offentliga webbadress som används för att få åtkomst till data på kontot. Namnet måste vara unikt för alla befintliga lagringskontonamn i Azure. Namnen måste vara 3 till 24 tecken långt och får bara innehålla gemena bokstäver och siffror.
 
-1. Välj en **plats** nära dig från listan ovan. 
+1. Välj en **plats** nära dig från listan ovan.
 
 1. Lämna **distributionsmodellen** som _resurshanterare_. Det här är den föredragna modellen för alla resursdistributioner i Azure och gör att du kan gruppera relaterade resurser för din app i en _resursgrupp_ för enklare hantering.
 
@@ -61,7 +61,7 @@ Följande skärmbild visar slutförda inställningar för fliken **Grundläggand
 
 1. Klicka på knappen **Nästa: Avancerat >** för att flytta till fliken **Avancerat** eller välj fliken **Avancerat** högst upp på skärmen.
 
-1. Ställ in **Säker överföring krävs** till _Aktiverat_. Inställningen **Säker överföring krävs** kontrollerar om **HTTP** kan användas för REST API:er som används för att komma åt data i lagringskontot. Att ställa in det här alternativet till _Aktiverat_ tvingar alla klienter att använda SSL (**HTTPS**). I de flesta fall vill du ställa in detta till _Aktiverat_ eftersom användning av HTTPS över nätverket anses vara bästa praxis. 
+1. Ställ in **Säker överföring krävs** till _Aktiverat_. Inställningen **Säker överföring krävs** kontrollerar om **HTTP** kan användas för REST API:er som används för att komma åt data i lagringskontot. Att ställa in det här alternativet till _Aktiverat_ tvingar alla klienter att använda SSL (**HTTPS**). I de flesta fall vill du ställa in detta till _Aktiverat_ eftersom användning av HTTPS över nätverket anses vara bästa praxis.
 
     > [!WARNING]
     > Om det här alternativet aktiveras framtvingar det vissa ytterligare begränsningar. Azure-filtjänstanslutningar utan kryptering misslyckas, inklusive scenarier med hjälp av SMB 2.1 eller 3.0 på Linux. Eftersom Azure Storage inte stöder SSL för anpassade domännamn, kan det här alternativet inte användas med ett anpassat domännamn.

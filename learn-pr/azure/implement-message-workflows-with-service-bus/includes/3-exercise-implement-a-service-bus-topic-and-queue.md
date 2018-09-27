@@ -17,7 +17,7 @@ Varje namnområde har också primära och sekundära krypteringsnycklar för sig
 
 Om du vill skapa en Service Bus-namnrymd med hjälp av Azure Portal gör du så här:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true).
+1. Logga in på [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
 1. I det vänstra navigeringsfönstret klickar du på **Alla tjänster**.
 
@@ -33,7 +33,7 @@ Om du vill skapa en Service Bus-namnrymd med hjälp av Azure Portal gör du så 
 
 1. I listrutan **Prenumeration** väljer du din prenumeration (”Concierge-prenumeration”).
 
-1. Välj **Använd befintlig** under **Resursgrupp** och välj ”<rgn>[Sandbox-resursgruppnamn]</rgn>”.
+1. Under **Resursgrupp** väljer du **Använd befintlig** och sedan ”<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>”.
 
 1. I listrutan **Plats** väljer du en plats nära dig från listan nedan.
 

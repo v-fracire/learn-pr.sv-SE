@@ -5,15 +5,15 @@ Datautforskaren i Azure Cosmos DB är ett verktyg som ingår i Azure-portalen so
 
 ## <a name="add-data-using-the-data-explorer"></a>Lägga till data med Datautforskaren
 
-1. Logga in på [Azure Portal för Sandbox](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön med.
+1. Logga in på [Azure Portal för Sandbox](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön med.
 
     > [!IMPORTANT]
     > Logga in på Azure Portal och sandbox-miljön med samma konto.
-    > 
+    >
     > Logga in på Azure Portal med länken ovan för att se till att du är ansluten till sandbox-miljön som ger åtkomst till en Concierge-prenumeration.
 
 1. Klicka på **Alla tjänster** > **Databaser** > **Azure Cosmos DB**. Välj ditt konto, klicka på **Datautforskaren** och klicka sedan på **Öppna i helskärmsläge**.
- 
+
    ![Skapa nya dokument i Datautforskaren i Azure Portal](../media/3-azure-cosmosdb-data-explorer-full-screen.png)
 
 2. I rutan **Öppna i helskärmsläge** klickar du på **Öppna**.
@@ -74,4 +74,4 @@ Datautforskaren i Azure Cosmos DB är ett verktyg som ingår i Azure-portalen so
 
     Datautforskaren visar de två dokumenten på fliken **Dokument**.
 
-I den här enheten har du med hjälp av Datautforskaren lagt till två dokument i databasen, som vart och ett representerar en produkt i din produktkatalog. Datautforskaren är ett bra sätt att skapa dokument, ändra dokument och komma igång med Azure Cosmos DB.  
+I den här enheten har du med hjälp av Datautforskaren lagt till två dokument i databasen, som vart och ett representerar en produkt i din produktkatalog. Datautforskaren är ett bra sätt att skapa dokument, ändra dokument och komma igång med Azure Cosmos DB.

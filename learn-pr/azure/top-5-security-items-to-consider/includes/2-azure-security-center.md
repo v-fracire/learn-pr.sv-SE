@@ -17,10 +17,10 @@ ASC är en del av rekommendationerna från [Center for Internet Security](https:
 
 Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar och erbjuds i två nivåer: kostnadsfri och standard. Den kostnadsfria nivån innehåller säkerhetsprinciper, utvärderingar och rekommendationer, medan Standard-nivån ger en robust uppsättning funktioner, inklusive hotintelligens.
 
-Tack vare fördelarna med ASC har säkerhetsteamet på företaget beslutat att det ska aktiveras för alla prenumerationer på din arbetsplats. Du fick ett e-postmeddelande i morse om att aktivera det för dina program – därför går vi igenom hur du gör.
+Tack vare fördelarna med ASC har säkerhetsteamet på företaget beslutat att det ska aktiveras för alla prenumerationer på din arbetsplats. Du fick ett e-postmeddelande i morse om att aktivera det för dina program – därför går vi nu igenom hur du gör.
 
 > [!IMPORTANT]
-> Azure Security Center stöds inte i den kostnadsfria Azure sandbox-miljön. Du kan utföra dessa steg i din egen prenumeration eller lära dig hur du aktiverar ASC helt enkelt genom att följa instruktionerna.
+> Azure Security Center stöds inte i Azures kostnadsfria sandbox-miljö. Du kan utföra dessa steg i din egen prenumeration eller lära dig hur du aktiverar ASC helt enkelt genom att följa instruktionerna.
 
 1. Öppna [Azure Portal](https://portal.azure.com?azure-portal=true) och välj **Azure Security Center** på den vänstra menyn. Om det inte syns där kan du välja **Alla tjänster** och söka efter **Security Center** i säkerhetsavsnittet så som visas nedan.
 

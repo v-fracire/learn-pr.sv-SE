@@ -20,7 +20,7 @@ När du skapar en funktionsapp måste den kopplas till ett lagringskonto. Du kan
 
 Nu ska vi skapa en funktionsapp i Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Välj knappen **Skapa en resurs** längst upp till vänster på Azure Portal och sedan **Kom igång > Serverlös funktionsapp** för att öppna bladet Funktionsapp *Skapa*. Du kan också använda alternativet **Compute > Funktionsapp** då samma blad öppnas.
 
@@ -53,10 +53,10 @@ Nu ska vi skapa en funktionsapp i Azure Portal.
 
 1. Välj **Resursgrupper** i den vänstra menyn i Azure-portalen. Du bör då se en resursgrupp med namnet **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>** i listan över tillgängliga grupper.
 
-  ![Skärmbild av Azure Portal som visar bladet Resursgrupper med menyalternativet Resursgrupper och listobjektet <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn> markerat.](../media/3-resource-group.png)
+  ![Skärmbild av Azure-portalen som visar bladet Resursgrupper med menyalternativet Resursgrupper och listobjektet <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn> markerat.](../media/3-resource-group.png)
 
-1. Välj den resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**. Du bör se en lista över resurser som liknar följande lista.
+1. Välj resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**. Du bör se en lista över resurser som liknar följande lista.
 
-  ![Skärmbild av Azure Portal som visar alla resurser i gruppen <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>, inklusive poster för en App Service-plan, ett lagringskonto, en Application Insights-resurs och en App Service.](../media/3-resource-list.png)
+  ![Skärmbild av Azure-portalen som visar alla resurser i gruppen <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>, inklusive poster för en App Service-plan, ett lagringskonto, en Application Insights-resurs och en App Service.](../media/3-resource-list.png)
 
 Objektet med blixtikonen, som visas som en App Service, är din nya funktionsapp. Du kan klicka på den för att öppna information om den nya funktionen – den har tilldelats en offentlig URL, om du öppnar den i en webbläsare bör du få en standardsida som visar att din funktionsapp körs.

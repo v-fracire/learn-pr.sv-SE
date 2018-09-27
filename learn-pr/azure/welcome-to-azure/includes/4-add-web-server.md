@@ -38,7 +38,7 @@ När använder du tillägget för anpassat skript till att fjärrkonfigurera IIS
 
     ```azurecli
     az vm extension set \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --vm-name myVM \
       --name CustomScriptExtension \
       --publisher Microsoft.Compute \
@@ -46,7 +46,7 @@ När använder du tillägget för anpassat skript till att fjärrkonfigurera IIS
       --protected-settings '{"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File configure-iis.ps1"}'
     ```
 
-    Processen för att konfigurera Nginx, ange innehållet för startsidan och starta tjänsten tar ett par minuter att slutföra.
+    Processen för att konfigurera IIS, ange innehållet för startsidan och starta tjänsten tar ett par minuter att slutföra.
 
     Under tiden kan du [undersöka PowerShell-skriptet](https://gist.githubusercontent.com/tpetchel/26f9dab2628a80bf87a33caeed1b6ded/raw/69e5d9250b9dcd7e7eece4b0ea3c3a8cd1b4fcd7/configure-iis.ps1?azure-portal=true) på en separat webbläsarflik om du vill. Skriptet installerar IIS och konfigurerar startsidan att visa ett välkomstmeddelande tillsammans med datornamnet för den virtuell datorn, myVM.
 
@@ -55,7 +55,7 @@ När använder du tillägget för anpassat skript till att fjärrkonfigurera IIS
     ```azurecli
     az vm open-port \
       --name myVM \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --port 80
     ```
 
@@ -68,7 +68,7 @@ Nu när IIS har konfigurerats ska vi verifiera att den körs.
     ```azurecli
     az vm list-ip-addresses \
       --name myVM \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" \
       --output tsv
     ```
@@ -110,7 +110,7 @@ När använder du tillägget för anpassat skript till att fjärrkonfigurera Ngi
 
     ```azurecli
     az vm extension set \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --vm-name myVM \
       --name customScript \
       --publisher Microsoft.Azure.Extensions \
@@ -118,7 +118,7 @@ När använder du tillägget för anpassat skript till att fjärrkonfigurera Ngi
       --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
     ```
 
-    Processen för att konfigurera IIS, ange innehållet för startsidan och starta tjänsten tar ett par minuter att slutföra.
+    Processen för att konfigurera Nginx, ange innehållet för startsidan och starta tjänsten tar ett par minuter att slutföra.
 
     Under tiden kan du [undersöka Bash-skriptet](https://gist.githubusercontent.com/tpetchel/26f9dab2628a80bf87a33caeed1b6ded/raw/69e5d9250b9dcd7e7eece4b0ea3c3a8cd1b4fcd7/configure-nginx.sh?azure-portal=true) på en separat webbläsarflik om du vill. Skriptet installerar Nginx och konfigurerar startsidan att visa ett välkomstmeddelande tillsammans med datornamnet för den virtuell datorn, myVM.
 
@@ -127,7 +127,7 @@ När använder du tillägget för anpassat skript till att fjärrkonfigurera Ngi
     ```azurecli
     az vm open-port \
       --name myVM \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --port 80
     ```
 
@@ -140,7 +140,7 @@ Nu när Nginx har konfigurerats ska vi verifiera att den körs.
     ```azurecli
     az vm list-ip-addresses \
       --name myVM \
-      --resource-group <rgn>[Sandbox resource group name]</rgn> \
+      --resource-group <rgn>[sandbox resource group name]</rgn> \
       --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" \
       --output tsv
     ```

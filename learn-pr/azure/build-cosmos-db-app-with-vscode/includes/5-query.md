@@ -53,7 +53,7 @@ Hur LINQ-frågor översätts till SQL visas i följande tabell.
     }
     ```
 
-1. Kopiera och klistra in nedanstående kod i metoden **BasicOperations** före raden `await this.DeleteUserDocument("Users", "WebCustomers", "1");`.
+1. Kopiera och klistra in nedanstående kod i metoden **BasicOperations** före raden `await this.DeleteUserDocument("Users", "WebCustomers", yanhe);`.
 
     ```csharp
     this.ExecuteSimpleQuery("Users", "WebCustomers");

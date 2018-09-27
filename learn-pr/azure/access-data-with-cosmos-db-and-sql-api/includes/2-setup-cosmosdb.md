@@ -8,7 +8,7 @@ Det första vi måste göra är att skapa en tom Azure Cosmos DB-databas och en 
 
 Om du har använt Azure ett tag kan du ha flera tillgängliga prenumerationer. Så är det ofta för utvecklare, som kan ha en prenumeration för Visual Studio och en annan för företagets resurser.
 
-Azure Sandbox har redan valt Concierge-prenumerationen för dig i Cloud Shell. Du kan bekräfta prenumerationsinställningen med hjälp av de här anvisningarna. När du arbetar med din egen prenumeration kan du också byta prenumeration med Azure CLI med hjälp av följande anvisningar.
+Azure Sandbox har redan valt Concierge-prenumerationen åt dig i Cloud Shell. Du kan bekräfta prenumerationsinställningen med hjälp av de här anvisningarna. När du arbetar med din egen prenumeration kan du också byta prenumeration med Azure CLI med hjälp av följande anvisningar.
 
 1. Börja med att visa en lista över tillgängliga prenumerationer.
 
@@ -40,7 +40,7 @@ Azure Sandbox har redan valt Concierge-prenumerationen för dig i Cloud Shell. D
 1. Ange resursgrupp för att använda den befintliga resursgruppen för sandbox-miljön.
 
     ```azurecli
-    export RESOURCE_GROUP="<rgn>[Sandbox resource group name]</rgn>"
+    export RESOURCE_GROUP="<rgn>[sandbox resource group name]</rgn>"
     ```
 
 1. Välj regionen som är närmast dig och ställ in miljövariabeln, till exempel `export LOCATION="EastUS"`.
@@ -62,7 +62,7 @@ Azure Sandbox har redan valt Concierge-prenumerationen för dig i Cloud Shell. D
 När du skapar en Cosmos DB i din egen prenumeration bör du skapa en ny resursgrupp som rymmer alla relaterade resurser.
 
 > [!IMPORTANT]
-> Om du använder Azure Sandbox som tillhandahålls via Microsoft Learn behöver du inte utföra det här steget. Kontrollera i stället att variabeln `RESOURCE_GROUP` ovan har angetts för **<rgn>[Resursgruppnamn för sandbox-miljö</rgn>**.
+> Om du använder Azure Sandbox som tillhandahålls via Microsoft Learn behöver du inte utföra det här steget. Kontrollera i stället att variabeln `RESOURCE_GROUP` ovan har angetts till **<rgn>[Resursgruppnamn för sandbox-miljö</rgn>**.
 
 I din egen prenumeration använder du följande kommando för att skapa resursgruppen. 
 

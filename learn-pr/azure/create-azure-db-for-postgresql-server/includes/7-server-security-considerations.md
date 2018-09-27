@@ -20,8 +20,6 @@ Anta att du kör en webbapp som ansluter till en databas. Du använder undernät
 
 När du ska konfigurera undernäten skapar du ett virtuellt nätverk och delar sedan in nätverket i undernät. Webbappen körs i ett undernät och databasen i ett annat. Varje undernät har sina egna regler för kommunikation till och från det andra nätverket. De här reglerna gör att du kan begränsa åtkomsten från databasen till webbappen.
 
-Att skapa ett virtuellt nätverk ligger utanför den här modulens omfattning. Om du behöver mer information kan du utforska andra inlärningsmoduler som relaterar till virtuella nätverk.
-
 ### <a name="what-is-a-firewall"></a>Vad är en brandvägg?
 
 En brandvägg är en tjänst som ger serveråtkomst baserat på vilken IP-adress som varje begäran kommer från. Du skapar brandväggsregler som anger intervall med IP-adresser. Det är bara klienter från dessa beviljade IP-adresser som har åtkomst till servern. Brandväggsregler inkluderar även i allmänhet specifika nätverksprotokoll och portinformation. En PostgreSQL-server lyssnar till exempel som standard till TCP-begäranden på port 5432.
@@ -34,13 +32,13 @@ Azure Database for PostgreSQL-serverbrandvägg en förhindrar brandväggar all �
 
 ### <a name="azure-database-for-postgresql-server-ssl-connections"></a>SSL-anslutningar till Azure Database for PostgreSQL-server
 
-Azure Database for PostgreSQL föredrar att dina klientprogram ansluts till PostgreSQL-tjänsten med Secure Sockets Layer (SSL). Användning av SSL-anslutningar mellan databasservern och klientprogrammen skyddar mot ”man in the middle”-attacker och liknande attacker genom att kryptera datan mellan servern och klienten. För att aktivera SSL krävs utbyte av nycklar och strikt autentisering mellan klienten och servern för att anslutningen ska fungera. Information om att använda SSL ligger utanför den här modulens omfattning. Om du behöver mer information kan du utforska andra inlärningsmoduler som relaterar till SSL.
+Azure Database for PostgreSQL föredrar att dina klientprogram ansluts till PostgreSQL-tjänsten med Secure Sockets Layer (SSL). Användning av SSL-anslutningar mellan databasservern och klientprogrammen skyddar mot ”man in the middle”-attacker och liknande attacker genom att kryptera datan mellan servern och klienten. För att aktivera SSL krävs utbyte av nycklar och strikt autentisering mellan klienten och servern för att anslutningen ska fungera. Information om att använda SSL ligger utanför den här modulens omfattning.
 
 ## <a name="configure-connection-security"></a>Konfigurera anslutningssäkerhet
 
 Låt oss ta en titt på de beslut och steg som du tar för att konfigurera en Azure Database for PostgreSQL-serverbrandvägg. Du kommer också se hur du ansluter till servern som du skapade tidigare.
 
-Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön. Gå till serverresursen som du vill skapa en brandväggsregel för.
+Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du aktiverade sandbox-miljön. Gå till serverresursen som du vill skapa en brandväggsregel för.
 
 Välj sedan alternativet **Anslutningssäkerhet** för att öppna bladet Anslutningssäkerhet till höger.
 
@@ -92,7 +90,7 @@ Du kan använda Azure CLI för att lägga till brandväggsregler till servern me
 
 ```azurecli
 az postgres server firewall-rule create \
-  --resource-group <rgn>[Sandbox resource group name]</rgn> \
+  --resource-group <rgn>[sandbox resource group name]</rgn> \
   --server <server-name> \
   --name AllowAll \
   --start-ip-address 0.0.0.0 \
@@ -104,7 +102,7 @@ Du tar bort brandväggsregler från servern med kommandot `az postgres server fi
 ```azurecli
 az postgres server firewall-rule delete \
   --name AllowAll \
-  --resource-group <rgn>[Sandbox resource group name]</rgn> \
+  --resource-group <rgn>[sandbox resource group name]</rgn> \
   --server-name <server-name>
 ```
 
@@ -129,7 +127,7 @@ Här är det fullständiga kommandot:
 
 ```bash
 psql --host=<server-name>.postgres.database.azure.com
-      --username=<admin-user>@<server-name> 
+      --username=<admin-user>@<server-name>
       --dbname=<database>
 ```
 

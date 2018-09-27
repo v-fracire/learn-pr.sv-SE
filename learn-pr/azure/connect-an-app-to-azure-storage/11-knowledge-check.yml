@@ -1,0 +1,63 @@
+### YamlMime:ModuleUnit
+uid: learn.connect-app-to-azure-storage.11-knowledge-check
+title: Kunskapskontroll
+metadata:
+  title: Kunskapskontroll
+  description: Kunskapskontroll
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 02ccb3234d9a6b89ac6ddbc34f3e4e23b1d1d514
+  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/21/2018
+  ms.locfileid: "46514324"
+durationInMinutes: 3
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Hur många åtkomstnycklar behöver du för att komma åt ditt Azure-lagringskonto?
+    choices:
+    - content: "1"
+      isCorrect: false
+      incorrectExplanation: Varje lagringskonto har två åtkomstnycklar. Då kan du följa riktlinjerna för bästa praxis att med jämna mellanrum ersätta nyckeln som används av dina program utan driftavbrott.
+    - content: "2"
+      isCorrect: true
+      correctExplanation: Varje lagringskonto har två åtkomstnycklar. Då kan du följa riktlinjerna för bästa praxis att med jämna mellanrum ersätta nyckeln som används av dina program utan driftavbrott.
+    - content: "3"
+      isCorrect: false
+      incorrectExplanation: Varje lagringskonto har två åtkomstnycklar. Då kan du följa riktlinjerna för bästa praxis att med jämna mellanrum ersätta nyckeln som används av dina program utan driftavbrott.
+    - content: "4"
+      isCorrect: false
+      incorrectExplanation: Varje lagringskonto har två åtkomstnycklar. Då kan du följa riktlinjerna för bästa praxis att med jämna mellanrum ersätta nyckeln som används av dina program utan driftavbrott.
+  - content: Du kan använda REST API eller Azure-klientbiblioteket för att programmatiskt få åtkomst till ett lagringskonto. Vad är den största fördelen med att använda ett klientbibliotek?
+    choices:
+    - content: Kostnad
+      isCorrect: false
+      incorrectExplanation: Kod som använder klientbiblioteket är allmänt mycket kortare och enklare än kod som använder REST API. Klientbiblioteket hanterar monteringsbegäranden och parsar svar åt dig.
+    - content: Tillgänglighet
+      isCorrect: false
+      incorrectExplanation: Kod som använder klientbiblioteket är allmänt mycket kortare och enklare än kod som använder REST API. Klientbiblioteket hanterar monteringsbegäranden och parsar svar åt dig.
+    - content: Lokalisering
+      isCorrect: false
+      incorrectExplanation: Kod som använder klientbiblioteket är allmänt mycket kortare och enklare än kod som använder REST API. Klientbiblioteket hanterar monteringsbegäranden och parsar svar åt dig.
+    - content: Praktiskt
+      isCorrect: true
+      correctExplanation: Kod som använder klientbiblioteket är allmänt mycket kortare och enklare än kod som använder REST API. Klientbiblioteket hanterar monteringsbegäranden och parsar svar åt dig.
+  - content: Vilken av följande är en bra liknelse för åtkomstnyckeln för ett lagringskonto?
+    choices:
+    - content: IP-adress
+      isCorrect: false
+      incorrectExplanation: En åtkomstnyckel identifierar kontot och ger dig åtkomst. Det är mycket likt inloggningsuppgifter som användarnamn och lösenord.
+    - content: REST-slutpunkt
+      isCorrect: false
+      incorrectExplanation: En åtkomstnyckel identifierar kontot och ger dig åtkomst. Det är mycket likt inloggningsuppgifter som användarnamn och lösenord.
+    - content: Användarnamn och lösenord
+      isCorrect: true
+      correctExplanation: En åtkomstnyckel identifierar kontot och ger dig åtkomst. Det är mycket likt inloggningsuppgifter som användarnamn och lösenord.
+    - content: Krypteringsalgoritm
+      isCorrect: false
+      incorrectExplanation: En åtkomstnyckel identifierar kontot och ger dig åtkomst. Det är mycket likt inloggningsuppgifter som användarnamn och lösenord.

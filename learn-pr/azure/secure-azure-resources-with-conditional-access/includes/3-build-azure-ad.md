@@ -1,10 +1,11 @@
 Du bestämmer dig för att distribuera Azure AD och använda principer för villkorsstyrd åtkomst som gör att Azure kräver multifaktorautentisering när någon använder Azure-portalen. Du behöver skapa en katalog och använda tillfälliga licenser.
 
-## <a name="launch-lab-and-sign-in-to-the-azure-portal"></a>Logga först in till Azure-portalen
+## <a name="launch-lab-and-sign-in-to-the-azure-portal"></a>Starta labbuppgiften och logga in i Azure-portalen
 
-1. Klicka på länken **starta VM-läge** ovan för att starta labbuppgiften.
+1. Klicka på länken **Launch Lab** (Starta labbuppgift) ovan, så startas labbuppgiften.
 
-1. Logga in på Azure-portalen som LabAdmin-<XXXXXXX>@triplecrownlabsoutlook.onmicrosoft.com. Du hittar användarnamn och lösenord på fliken Resurser högst upp i instruktionsfönstret.
+> [!NOTE]
+> Efter att du har startat labbuppgiften finns användarnamnet och lösenordet som du måste logga in med på fliken **Resurser** bredvid instruktionerna.
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
@@ -12,14 +13,14 @@ Vi skapar en ny katalog för First Up Consultants, där vi kan testa utan att de
 
 1. Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true).
 
-1. I det vänstra navigeringsfönstret klickar du på **Skapa en resurs** > **Identitet** > **Azure Active Directory**.
+2. I det vänstra navigeringsfönstret klickar du på **Skapa en resurs** > **Identitet** > **Azure Active Directory**.
 
-1. På bladet **Skapa katalog** anger du följande värden för **Organisationsnamn** och **Ursprungligt domännamn**:
+3. På bladet **Skapa katalog** anger du följande värden för **Organisationsnamn** och **Ursprungligt domännamn**:
 
    1. Organisationsnamn: `First Up Consultants`.
-   1. Inledande domännamn: `firstupconsultants<XXXXXXX>` där <XXXXXXX> är antalet efter användarnamnet på fliken **resurser** högst upp i fönstret instruktioner.
+   2. Inledande domännamn: `firstupconsultants<XXXXXXX>` där <XXXXXXX> är antalet efter användarnamnet på fliken **resurser** högst upp i fönstret instruktioner.
 
-1. Vänta tills katalogen skapas. Klicka på länken för att växla till den nya katalogen eller klicka på **Katalog- och prenumerationsfilter** längst upp i fönstret och välj sedan den nya katalogen.
+4. Vänta tills katalogen skapas. Klicka på länken för att växla till den nya katalogen eller klicka på **Katalog- och prenumerationsfilter** längst upp i fönstret och välj sedan den nya katalogen.
 
 ## <a name="get-trial-licenses"></a>Skaffa utvärderingslicenser
 

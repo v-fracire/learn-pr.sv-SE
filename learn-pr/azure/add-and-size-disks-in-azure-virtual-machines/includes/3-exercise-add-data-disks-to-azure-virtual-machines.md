@@ -11,7 +11,7 @@ Målet med den här övningen är att skapa en virtuell Linux-dator (VM) och ans
 
 Nu ska vi skapa en virtuell Linux-dator som värd för vår webbserver med Azure CLI.
 
-1. Börja med att ställa in vissa standardvärden för den här sessionen. Det första du måste bestämma är _platsen_ där du vill placera den virtuella datorn. Detta bör vara nära dina klienter. Välj i så fall den närmaste regionen från platserna som är tillgängliga i Azure-sandboxmiljön.
+1. Börja med att ställa in vissa standardvärden för den här sessionen. Det första du måste bestämma är _platsen_ där du vill placera den virtuella datorn. Detta bör vara nära dina klienter. Välj i så fall den närmaste regionen från platserna som är tillgängliga i Azure-sandbox-miljön.
 
     [!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]
 
@@ -23,10 +23,10 @@ Nu ska vi skapa en virtuell Linux-dator som värd för vår webbserver med Azure
 
     [!include[](../../../includes/azure-cloudshell-copy-paste-tip.md)]
 
-1. Ange standardvärdet för resursgruppen till den förkonfigurerade resursgruppen som skapats för sandbox-miljön för Azure:  **<rgn>[Sandbox-resursgrupp]</rgn>**
+1. Ange standardvärdet för resursgruppen till den förkonfigurerade resursgruppen som skapats för sandbox-miljön för Azure: **<rgn>[Resursgrupp för sandbox-miljö]</rgn>**
 
     ```azurecli
-    az configure --defaults group="<rgn>[Sandbox Resource Group]</rgn>"
+    az configure --defaults group="<rgn>[sandbox Resource Group]</rgn>"
     ```
 
 1. Använd sedan kommandot `vm create` för att skapa en ny virtuell Ubuntu Linux-dator.
@@ -51,13 +51,13 @@ Nu ska vi skapa en virtuell Linux-dator som värd för vår webbserver med Azure
     ```json
     {
         "fqdns": "",
-        "id": "/subscriptions/xxx/resourceGroups/<rgn>[Sandbox resource group]</rgn>/providers/Microsoft.Compute/virtualMachines/support-web-vm01",
+        "id": "/subscriptions/xxx/resourceGroups/<rgn>[sandbox resource group]</rgn>/providers/Microsoft.Compute/virtualMachines/support-web-vm01",
         "location": "eastus",
         "macAddress": "00-0D-3A-18-DE-B4",
         "powerState": "VM running",
         "privateIpAddress": "10.0.0.4",
         "publicIpAddress": "40.76.193.249",
-        "resourceGroup": "<rgn>[Sandbox resource group]</rgn>",
+        "resourceGroup": "<rgn>[sandbox resource group]</rgn>",
         "zones": ""
     }
     ```

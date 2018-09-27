@@ -7,7 +7,7 @@ Azure bör ha skapat en säkerhetsgrupp åt oss eftersom vi angav att vi ville h
 > [!NOTE]
 > Eftersom detta är vår _andra_ virtuella dator bör vi redan ha en säkerhetsgrupp som vi kan använda för vårt nätverk. Men låt oss anta att vi inte har någon säkerhetsgrupp eller att vi vill tillämpa andra regler för den här virtuella datorn.
 
-1. Skapa en ny resurs genom att klicka på knappen **Skapa en resurs** på den vänstra sidopanelen på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true).
+1. Skapa en ny resurs genom att klicka på knappen **Skapa en resurs** på den vänstra sidopanelen på [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
 1. Skriv ”Nätverkssäkerhetsgrupp” i filterrutan och välj det matchande objektet i listan.
 
@@ -15,7 +15,7 @@ Azure bör ha skapat en säkerhetsgrupp åt oss eftersom vi angav att vi ville h
 
 1. Ange ett **namn** för säkerhetsgruppen. Även här är det bra att följa namngivningskonventioner. I vårt exempel använder vi ”test-vp-nsg2” för ”Test Video Processor Network Security Group #2”.
 
-1. Välj rätt **prenumeration** och använd din befintliga **resursgrupp**, ”<rgn>[Namn på Sandbox-resursgrupp]</rgn>”.
+1. Välj rätt **prenumeration** och använd din befintliga **resursgrupp**, ”<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>”.
 
 1. Placera den sedan på samma **plats** som den virtuella datorn/det virtuella nätverket. Obs! Du kan inte använda den här resursen om den finns på en annan plats.
 
@@ -34,7 +34,7 @@ Distributionen bör slutföras snabbt.
     - All inkommande trafik från ett virtuellt nätverk till ett annat tillåts. På så sätt kan resurser i det virtuella nätverket prata med varandra.
     - Azure Load Balancer ”avsöker” begäranden för att bekräfta att den virtuella datorn är aktiv
     - All annan inkommande trafik nekas.
-    
+
     På sidan för utgående trafik:
     - All nätverkstrafik i det virtuella nätverket tillåts.
     - All utgående trafik till Internet tillåts.

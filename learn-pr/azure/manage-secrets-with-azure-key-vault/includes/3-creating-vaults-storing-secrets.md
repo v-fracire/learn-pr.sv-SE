@@ -40,14 +40,14 @@ Kör följande kommando i Cloud Shell för att skapa valvet. Du kan ersätta vä
 ```azurecli
 az keyvault create \
     --name <your-unique-vault-name> \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --location eastus
 ```
 
 När det är klart visas JSON-utdata med en beskrivning av det nya valvet.
 
 > [!TIP]
-> Kommandot använde resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>** som har skapats på förhand. När du arbetar med din egen prenumeration skulle antingen skapa en ny resursgrupp eller använda en befintlig som du har skapat tidigare.
+> Kommandot använde resursgruppen **<rgn>[resursgruppsnamn för sandbox]</rgn>** som har skapats på förhand. När du arbetar med din egen prenumeration skulle du antingen skapa en ny resursgrupp eller använda en befintlig som du har skapat tidigare.
 
 ### <a name="add-the-secret"></a>Lägga till en hemlighet
 

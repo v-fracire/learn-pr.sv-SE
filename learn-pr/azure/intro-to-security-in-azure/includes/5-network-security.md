@@ -22,7 +22,6 @@ Det finns flera sätt att ge inkommande skydd i perimetern:
 
 För resurser som är exponerade mot Internet finns det risk för överbelastningsattacker. Dessa typer av attacker försöker överbelasta en nätverksresurs genom att skicka så många begäranden att resursen blir långsam eller slutar svara. För att förhindra dessa attacker ger Azure DDoS-skydd ett grundläggande skydd för alla Azure-tjänster och förbättrat skydd vid ytterligare anpassning för dina resurser. Azure DDoS-skydd blockerar attackerande trafik och vidarebefordrar återstående trafik till dess avsedda destination. Inom några minuter efter att ett angrepp har identifierats meddelas du via Azure Monitor.
 
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![DDoS](../media/ddos.png)
 
  :::column-end:::

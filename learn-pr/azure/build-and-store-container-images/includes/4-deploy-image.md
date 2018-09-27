@@ -2,12 +2,12 @@ Du kan hämta containeravbildningar från Azure Container Registry med hjälp av
 
 Du bör använda ett huvudnamn för Azure-tjänsten till autentisering i Container Registry. Du bör dessutom skydda autentiseringsuppgifterna för Azure-tjänstens huvudnamn i Azure Key Vault. I den här enheten följer vi den rekommenderade metoden.
 
-I vår övning använder vi dock det inbyggda administratörskonto som kan aktiveras i alla Azure Container-register. Administratörskontot fungerar med kostnadsfria sandbox-resurser.
+I vår övning använder vi dock det inbyggda administratörskonto som kan aktiveras i alla Azure Container-register. Administratörskontot fungerar med de kostnadsfria sandbox-resurserna.
 
 <!-- Activate the sandbox -->
 [!include[](../../../includes/azure-sandbox-activate.md)]
 
-Skapa en variabel med containerregistrets namn med små bokstäver (t.ex. ”minbehållare” istället för ”Minbehållare”). Den här variabeln används i hela utbildningsenheten.
+Skapa en variabel med containerregistrets namn med små bokstäver (t.ex. ”mincontainer” istället för ”MinContainer”). Den här variabeln används i hela utbildningsenheten.
 
 ```azurecli
 ACR_NAME=<acrName>
@@ -72,7 +72,7 @@ Dina utdata ser ut ungefär som nedan. Notera `username` och `value` tillsammans
 1. Skapa ett Azure Key Vault med kommandot `az keyvault create`.
 
     ```azurecli
-    az keyvault create --resource-group <rgn>[Sandbox resource group name]</rgn> --name $ACR_NAME-keyvault
+    az keyvault create --resource-group <rgn>[sandbox resource group name]</rgn> --name $ACR_NAME-keyvault
     ```
 
 1. Spara ACR-användarnamnet i valvet genom att använda kommandot `az keyvault secret set`. Om du använder tjänstens huvudnamn använder du app-ID:t för det här värdet. Eftersom vi använder administratörskontot kan vi spara användarnamnet från frågan ovan. Ange kommandot nedan, och glöm inte att ersätta `<username>`.
@@ -102,9 +102,9 @@ Kör kommandot `az container create` för att distribuera en containerinstans. I
 
 ```azurecli
 az container create \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
-    --name acr-build \
-    --image $ACR_NAME.azurecr.io/helloacrbuild:v1 \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
+    --name acr-tasks \
+    --image $ACR_NAME.azurecr.io/helloacrtasks:v1 \
     --registry-login-server $ACR_NAME.azurecr.io \
     --ip-address Public \
     --location eastus \
@@ -115,7 +115,7 @@ az container create \
 Hämta Azure-containerinstansens IP-adress.
 
 ```azurecli
-az container show --resource-group  <rgn>[Sandbox resource group name]</rgn> --name acr-build --query ipAddress.ip --output table
+az container show --resource-group  <rgn>[sandbox resource group name]</rgn> --name acr-tasks --query ipAddress.ip --output table
 ```
 
 Öppna en webbläsare och navigera till containerns IP-adress. Om allt är konfigurerat på rätt sätt bör du se följande resultat:

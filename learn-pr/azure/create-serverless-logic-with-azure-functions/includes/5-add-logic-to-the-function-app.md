@@ -12,9 +12,9 @@ Först måste vi definiera vissa krav för vår logik:
 
 Som du såg i föregående kursdel innehåller Azure mallar som hjälper dig att komma igång med att skapa funktioner. I den här övningen använder vi mallen `HttpTrigger` för att implementera temperaturtjänsten.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true).
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
-1. Välj resursgruppen från den första övningen genom att välja **Alla resurser** på menyn till vänster och sedan välja ”**<rgn>[Namn på Sandbox-resursgrupp]</rgn>**”.
+1. Välj resursgruppen från den första övningen genom att välja **Alla resurser** på menyn till vänster och sedan välja ”**<rgn>[resursgruppnamn för sandbox]</rgn>**”.
 
 1. Gruppens resurser visas. Klicka på namnet på den funktionsapp som du skapade i föregående övning genom att välja objektet **escalator-functions-xxxxxxx** (visas med funktionsikonen med en blixt).
 
@@ -84,7 +84,7 @@ Konfigurationen fastställer att funktionen körs när den får en HTTP-begäran
 ## <a name="test-the-function"></a>Testa funktionen
 
 > [!TIP]
-> **cURL** är ett kommandoradsverktyg som kan användas för att skicka och ta emot filer. Det ingår i Linux, macOS och Windows 10 och kan laddas ned för de flesta andra operativsystem. cURL har stöd för en rad protokoll, till exempel HTTP, HTTPS, FTP, FTPS, SFTP, LDAP, TELNET, SMTP och POP3. Du kan läsa mer genom att följa länkarna nedan:
+> **cURL** är ett kommandoradsverktyg som kan användas för att skicka och ta emot filer. Det ingår i Linux, macOS och Windows 10 och kan laddas ned för de flesta andra operativsystem. cURL har stöd för en rad protokoll, till exempel HTTP, HTTPS, FTP, FTPS, SFTP, LDAP, TELNET, SMTP och POP3. Mer information finns i länkarna nedan:
 >
 >- <https://en.wikipedia.org/wiki/CURL>
 >- <https://curl.haxx.se/docs/>

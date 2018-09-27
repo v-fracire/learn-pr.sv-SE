@@ -7,7 +7,7 @@ Som du kanske minns sysslar vårt företag med bearbetning av videoinnehåll på
 
 Vi kan skapa en virtuell Windows-dator med Azure Portal, Azure CLI eller Azure PowerShell. Den enklaste metoden är portalen eftersom den går igenom den information som krävs samt visar tips och användbara meddelanden när vi skapar den virtuella datorn.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Klicka på **Skapa en resurs** uppe till vänster i Azure Portal.
 
@@ -27,12 +27,12 @@ Vi börjar med avsnittet **Grundläggande inställningar**.
 
 ### <a name="configure-basic-vm-settings"></a>Konfigurera grundläggande inställningar för en virtuell dator
 
-> [!NOTE]  
+> [!NOTE]
 > När du ändrar inställningar och flyttar från fritextfälten verifieras värdena automatiskt av Azure, och en grön bock visas bredvid dem om de är giltiga. Du kan hålla muspekaren över felindikatorerna om du vill visa mer information om upptäckta problem.
 
 1. Välj den **prenumeration** som den virtuella datorns körningstimmar ska debiteras mot.
 
-1. Använd ”**<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**” som **resursgrupp**.
+1. För **Resursgrupp** väljer du ”**<rgn>[resursgruppsnamn för sandbox-miljö]</rgn>**”.
 
 1. I avsnittet **INSTANSINFORMATION** anger du ett namn på den virtuella datorn, till exempel **test-vp-vm2** (för Test Video Processor VM #2).
     - Det är bästa praxis att standardisera resursnamnen så att du enkelt kan identifiera deras syfte. Det finns vissa begränsningar för namn på virtuella Windows-datorer: de måste vara mellan 1 och 15 tecken långa, får inte innehålla tecken som inte är ASCII eller specialtecken och de måste vara unika för den aktuella resursgruppen.

@@ -6,7 +6,7 @@ Den viktigaste faktorn avseende säkerhet när du väljer ett ramverk är hur v�
 
 Ofta är ”bra stöd” synonymt med ”modernt”. Äldre ramverk tenderar att antingen ersättas eller gradvis bli mindre populära. Även om du har betydande erfarenhet eller många appar som skrivits i ett äldre ramverk är det bättre att välja ett modernt bibliotek som har de funktioner du behöver. Moderna ramverk brukar bygga på erfarenheter av tidigare iterationer, vilket gör att de minskar attackytan när de används för nya appar. Du får en mindre app att oroa dig för om en säkerhetsrisk identifieras i det äldre ramverket som dina äldre program är skrivna i.
 
-Mer information om säker design och att minska angreppsytan finns i [Design för säkerhet i Azure](../../design-for-security-in-azure/index.yml).
+Mer information om säker design och minskning av attackytan finns i [Design för säkerhet i Azure](../../design-for-security-in-azure/index.yml).
 
 ## <a name="keep-your-framework-updated"></a>Håll ditt ramverk uppdaterat
 

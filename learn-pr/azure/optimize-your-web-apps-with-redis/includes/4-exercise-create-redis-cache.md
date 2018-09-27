@@ -5,7 +5,7 @@ Nu skapar vi en Azure Redis Cache för att lagra och returnera värden som anvä
 
 ## <a name="create-a-redis-cache-in-azure"></a>Skapa en Redis-cache på Azure
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Klicka på **Skapa en resurs**, klicka på **Databaser** och klicka på **Redis Cache**.
 
@@ -21,13 +21,13 @@ Använd följande inställningar för cachen.
 
 1. **Prenumeration:** välj Concierge-prenumerationen.
 
-1. **Resursgrupp**: välj <rgn>[Namn på Sandbox-resursgrupp]</rgn> för resursgruppen.
+1. **Resursgrupp**: välj <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn> för resursgruppen.
 
-1. **Plats:** normalt väljer du en plats nära dina kunder – i det här fallet östkusten. Azure Sandbox tillåter dock bara att specifika regioner väljs för resurser. Välj en av följande platser.
-    
+1. **Plats:** normalt väljer du en plats nära dina kunder – i det här fallet östkusten.
+
     [!include[](../../../includes/azure-sandbox-regions-note-friendly.md)]
-        
-5. **Prisnivå:** Välj **Basic C0**. Det här är den lägsta nivån som du kan använda. Produktionsappar vill förmodligen lagra mer data och använda vissa Premium-funktioner, till exempel klustring, vilket kräver val av en högre nivå.
+
+5. **Prisnivå:** välj **Basic C0**. Det här är den lägsta nivån som du kan använda. Produktionsappar vill förmodligen lagra mer data och använda vissa Premium-funktioner, till exempel klustring, vilket kräver val av en högre nivå.
 
 1. Klicka på **Skapa**. Azure skapar och distribuerar Redis Cache-instansen åt dig.
 
@@ -49,32 +49,32 @@ Du kan använda **konsol**-funktion i Azure-portalen för att utfärda kommandon
     ```console
     ping
     ```
-    
+
     ```output
     PONG
     ```
-    
+
     ```console
     set test one
     ```
-    
+
     ```output
     OK
     ```
-    
+
     ```console
     get test
     ```
-    
+
     ```output
     "one"
     ```
-    
+
 Gå tillbaka till den **Översikt**-panelen genom navigeringsfältet längst upp eller använda rullningslisten för att dra tillbaka vyn till vänster.
 
 ## <a name="retrieve-the-access-keys-and-host-name"></a>Hämta åtkomstnycklarna och värdnamnet
 
-1. Välj **Inställningar** > **Åtkomstnycklar**. 
+1. Välj **Inställningar** > **Åtkomstnycklar**.
 
 1. Kopiera den **Primära anslutningssträngen (StackExchange.Redis)** till en säker plats. Du behöver den i nästa övning.
 

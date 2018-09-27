@@ -11,7 +11,7 @@ Låt oss börja med att tillhandahålla några standardvärden för Azure CLI i 
 Sedan anger du följande kommando i Azure CLI, se till att ersätta platsen med en nära dig.
 
 ```azurecli
-az configure --defaults group=<rgn>[Sandbox Resource Group]</rgn> location=westus2
+az configure --defaults group=<rgn>[sandbox Resource Group]</rgn> location=westus2
 ```
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa en Event Hubs-namnrymd
@@ -24,7 +24,7 @@ Följ stegen nedan för att skapa ett Event Hubs-namnområde med hjälp av Bash-
     > |Parameter      |Beskrivning|
     > |---------------|-----------|
     > |--name (krävs)      |Ange ett unikt namn för Event Hubs-namnområdet på mellan 6 och 50 tecken. Namnet får endast innehålla bokstäver, siffror och bindestreck. Det måste börja med en bokstav och sluta med en bokstav eller siffra.|
-    > |--resource-group (krävs) | Det här är den färdiga Azure Sandbox-resursgruppen från standardvärdena. |
+    > |--resource-group (krävs) | Det här är den färdiga resursgruppen för sandbox-miljön i Azure från standardvärdena. |
     > |--l (valfritt)     |Ange platsen för ditt närmaste datacenter för Azure, det använder din standard.|
     > |--sku (valfritt) | Prisnivån för namnområdet [Basic | Standard], blir som standard _Standard_. Detta avgör anslutningar och konsumenttröskelvärden. |
 
@@ -40,20 +40,20 @@ Följ stegen nedan för att skapa ett Event Hubs-namnområde med hjälp av Bash-
     az eventhubs namespace create --name $NS_NAME
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > Azure är mycket noga namnet och CLI returnerar **Felaktig begäran** om namnet finns eller är ogiltig. Prova ett annat namn genom att ändra miljövariabeln och utfärda kommandot igen.
 
 
 1. Hämta anslutningssträngen för Event Hubs-namnområdet med hjälp av följande kommando. Du behöver den för att konfigurera program att skicka och ta emot meddelanden med hjälp av din händelsehubb.
 
     ```azurecli
-    az eventhubs namespace authorization-rule keys list --name RootManageSharedAccessKey --namespace-name $NS_NAME 
+    az eventhubs namespace authorization-rule keys list --name RootManageSharedAccessKey --namespace-name $NS_NAME
     ```
 
     > [!div class="mx-tableFixed"]
     > |Parameter      |Beskrivning|
     > |---------------|-----------|
-    > |--resource-group (krävs)  | Det här är den färdiga Azure Sandbox-resursgruppen från standardvärdena. |
+    > |--resource-group (krävs)  | Det här är den färdiga resursgruppen för sandbox-miljön i Azure från standardvärdena. |
     > |--namespace-name (krävs)  | Ange namn på namnområdet som du skapade. |
 
     Det här kommandot returnerar ett JSON-block med anslutningssträngen för Event Hubs-namnområdet som du ska använda senare för att konfigurera dina program för utgivare och konsumenter. Spara värdet för följande nycklar för användning senare.
@@ -99,9 +99,9 @@ Följ stegen nedan för att skapa din nya händelsehubb:
 
 ## <a name="view-the-event-hub-in-the-azure-portal"></a>Visa händelsehubben på Azure Portal
 
-Nu ska vi se hur det ser ut i Azure Portal. 
+Nu ska vi se hur det ser ut i Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Leta upp Event Hubs-namnområdet med hjälp av sökfältet överst på portalen.
 

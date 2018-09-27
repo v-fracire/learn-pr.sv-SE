@@ -13,7 +13,7 @@ Nu övar vi på dessa åtgärder med hjälp av Azure PowerShell.
 Vi använder den virtuella dator som vi skapade i den föregående övningen. Åtgärderna i den här labben förutsätter att:
 
 - Vår virtuella dator finns och heter **fotoshareVM**
-- Vår virtuella dator finns i en resursgrupp som heter **<rgn>[Sandbox-resursgruppnamn]</rgn>**
+- Vår virtuella dator finns i en resursgrupp som heter **<rgn>[resursgruppnamn för sandbox]</rgn>**
 
 Om du har använt andra namn ersätter du de här värdena med dina.
 
@@ -33,7 +33,7 @@ Först ska vi lagra vissa resursnamn så att vi kan använda dem senare.
     > Växla Cloud Shell-sessionen till **PowerShell** innan du testar kommandona, om du inte har gjort det redan.
     
     ```powershell
-    $myRgName = "<rgn>[Sandbox resource group name]</rgn>"
+    $myRgName = "<rgn>[sandbox resource group name]</rgn>"
     $myVMName = "fotoshareVM"
     ```
     
@@ -59,7 +59,7 @@ Först ska vi lagra vissa resursnamn så att vi kan använda dem senare.
     ```output
     ResourceGroupName Name        Type                              Location
     ----------------- ----        ----                              --------
-    <rgn>[Sandbox resource group name]</rgn> fotoshareVM Microsoft.Compute/virtualMachines eastus
+    <rgn>[sandbox resource group name]</rgn> fotoshareVM Microsoft.Compute/virtualMachines eastus
     ```
     
 ### <a name="view-os-disk-cache-status"></a>Visa status för OS-diskcache
@@ -148,7 +148,7 @@ Vi har endast en datadisk för tillfället. Fältet `Lun` är viktigt. Det är d
 
     ```output
     ResourceGroupName  : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
-    Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxx-xxxxxxx/resourceGroups/<rgn>[Sandbox resource group name]</rgn>/providers/Microsoft.Compute/virtualMachines/fotoshareVM
+    Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxx-xxxxxxx/resourceGroups/<rgn>[sandbox resource group name]</rgn>/providers/Microsoft.Compute/virtualMachines/fotoshareVM
     VmId               : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
     Name               : fotoshareVM
     Type               : Microsoft.Compute/virtualMachines

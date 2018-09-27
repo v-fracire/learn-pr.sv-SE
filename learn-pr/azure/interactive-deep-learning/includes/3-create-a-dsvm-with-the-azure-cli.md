@@ -63,7 +63,7 @@ Vi skapar vår virtuella dator med hjälp av en Azure Resource Manager-mall. Mal
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp 
 
 > [!IMPORTANT]
-> Normalt skulle du skapa en resursgrupp i en valfri region. Dock tillhandahålls en resursgrupp som du kan använda av den sandbox-session som du är i för närvarande. Din resursgrupp för den här sessionen är **<rgn>[Namn på Sandbox-resursgrupp]</rgn>**.
+> Normalt skulle du skapa en resursgrupp i en valfri region. Dock tillhandahålls en resursgrupp som du kan använda av den sandbox-session som du är i för närvarande. Din resursgrupp för den här sessionen är **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**.
 
 ## <a name="deploy-the-dsvm-to-your-resource-group"></a>Distribuera DSVM till resursgruppen
 
@@ -73,7 +73,7 @@ Vi nu har en resursgrupp och har definierat parametrar för DSVM Resource Manage
 
     ```azurecli
     az group deployment create \
-    --resource-group  <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group  <rgn>[sandbox resource group name]</rgn> \
     --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json \
     --parameters parameter_file.json
     ```
@@ -90,7 +90,7 @@ Vi nu har en resursgrupp och har definierat parametrar för DSVM Resource Manage
     ```azurecli
     az vm get-instance-view \
     --name <HOSTNAME> \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --query instanceView.statuses[1] \
     --output table
     ```
@@ -107,7 +107,7 @@ Som standard har vår virtuella dator inte några portar öppna. Vårt mål är 
 
     ```azurecli
     az vm open-port \
-    -g <rgn>[Sandbox resource group name]</rgn> \
+    -g <rgn>[sandbox resource group name]</rgn> \
     -n <HOSTNAME> \
     --port 22 \
     --priority 900
@@ -123,7 +123,7 @@ Som tidigare nämnts levereras DSVM-avbildningen med programvara, verktyg och ex
 
     ```azurecli
     az vm open-port \
-    -g <rgn>[Sandbox resource group name]</rgn> \
+    -g <rgn>[sandbox resource group name]</rgn> \
     -n <HOSTNAME> \
     --port 8888 \
     --priority 901
@@ -137,7 +137,7 @@ Kommandot kan återigen ta upp till en minut att slutföra. När kommandot är k
 
     ```azurecli
     az vm list-ip-addresses \
-    -g <rgn>[Sandbox resource group name]</rgn> \
+    -g <rgn>[sandbox resource group name]</rgn> \
     -n <HOSTNAME> \
     --output table
     ```

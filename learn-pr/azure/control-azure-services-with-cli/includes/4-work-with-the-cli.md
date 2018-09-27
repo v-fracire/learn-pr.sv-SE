@@ -49,7 +49,7 @@ az group create --name <name> --location <location>
 ```
 
 > [!IMPORTANT]
-> Du behöver inte skapa en resursgrupp när du använder den kostnadsfria Azure sandbox-miljön. I stället använder du en resursgrupp som skapats i förväg.
+> Du behöver inte skapa en resursgrupp när du använder den kostnadsfria sandbox-miljön i Azure. I stället använder du en resursgrupp som har skapats i förväg.
 
 ### <a name="verify"></a>Verifiera
 
