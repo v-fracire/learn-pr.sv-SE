@@ -32,7 +32,7 @@ quiz:
     - content: Den cachelagrar innehåll, på ungefär samma sätt som nätverk för innehållsleverans fungerar.
       isCorrect: false
       incorrectExplanation: Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.
-  - content: Anta att du bor i England, men din DNS-server finns i Italien. Hur dirigerar Traffic Manager trafik?
+  - content: Anta att du bor i Storbritannien, men din DNS-server finns i Italien. Hur dirigerar Traffic Manager trafik?
     choices:
     - content: Den väljer den tjänst som är närmast Storbritannien.
       isCorrect: false
