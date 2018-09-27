@@ -53,7 +53,7 @@ Här är ett förkortat svar för `eastus`:
 Vi angav ingen storlek när vi skapade vår virtuella dator – så Azure valde en allmän standardstorlek på `Standard_DS1_v2`. Men vi kan ange storleken som en del av kommandot `vm create` med parametern `--size`. Du kan exempelvis använda följande kommando för att skapa en 16-kärnig virtuell dator:
 
 ```azurecli
-az vm create --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM2 \
+az vm create --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM2 \
   --image Debian --admin-username aldis --generate-ssh-keys --verbose \
   --size "Standard_DS5_v2"
 ```
@@ -65,10 +65,10 @@ az vm create --resource-group <rgn>[Sandbox resource group name]</rgn> --name Sa
 Vi kan även ändra storlek för en befintlig virtuell dator om arbetsbelastningen ändras, eller om det blev fel storlek när den skapades. Innan en storleksändring begärs måste vi kontrollera om den önskade storleken är tillgänglig i klustret som vår virtuella dator ingår i. Det kan vi göra med kommandot `vm list-vm-resize-options`:
 
 ```azurecli
-az vm list-vm-resize-options --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --output table
+az vm list-vm-resize-options --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM --output table
 ```
 
-Det returnerar en lista över alla möjliga storlekskonfigurationer i resursgruppen. Om storleken vi vill ha inte är tillgängliga i vårt kluster, men _är_ tillgängliga i regionen, kan vi [frigöra den virtuella datorn](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate). Det här kommandot stoppar den virtuella datorn som körs och tar bort den från det aktuella klustret utan att förlora några resurser. Därefter kan vi ändra storlek, vilket återskapar den virtuella datorn i ett nytt kluster där storlekskonfigurationen är tillgänglig.
+Det returnerar en lista över alla möjliga storlekskonfigurationer i resursgruppen. Om storleken vi vill ha inte är tillgängliga i vårt kluster, men _är_ tillgängliga i regionen, kan vi [frigöra den virtuella datorn](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate). Det här kommandot stoppar den virtuella datorn som körs och tar bort den från det aktuella klustret utan att förlora några resurser. Därefter kan vi ändra storlek på den, vilket återskapar den virtuella datorn i ett nytt kluster där storlekskonfigurationen är tillgänglig.
 
 > [!NOTE]
 > Azure-sandbox-miljön är begränsad till ett mindre antal storlekar på virtuella datorer. De flesta av möjligheterna är inte tillåtna i den kostnadsfria Microsoft Learn-prenumerationen.
@@ -76,7 +76,7 @@ Det returnerar en lista över alla möjliga storlekskonfigurationer i resursgrup
 När vi ska ändra storleken på en virtuella dator använder vi kommandot `vm resize`. Till exempel upptäcker vi kanske att den virtuella datorn inte har tillräckligt med prestanda för den uppgift som vi vill utföra. Vi skulle kunna öka den med några nivåer till en DS3_v2-nivå med 4 virtuella kärnor och 14 G minne. Ange följande kommando i Cloud Shell:
 
 ```azurecli
-az vm resize --resource-group <rgn>[Sandbox resource group name]</rgn> --name SampleVM --size Standard_DS3_v2
+az vm resize --resource-group <rgn>[sandbox resource group name]</rgn> --name SampleVM --size Standard_DS3_v2
 ```
 
 Det tar några minuter för det här kommandot att minska den virtuella datorns resurser, och när det är gjort returneras en ny JSON-konfiguration.

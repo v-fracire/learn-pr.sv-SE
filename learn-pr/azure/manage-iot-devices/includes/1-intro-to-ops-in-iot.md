@@ -10,8 +10,8 @@ Sakernas Internet har skapat praktiskt taget obegränsade möjligheter i alla br
 
  Resten av den här modulen tar den här grundläggande kunskapen om IoT och tillämpar det på ett verkligt scenario. Du kommer att interagera med en Raspberry Pi-onlinesimulatorn för att samla in simulerade väderdata via Azure IoT Hub.
 
- ##<a name="learning-objectives"></a>Utbildningsmål
- I den här modulen kommer du att:
+ ## <a name="learning-objectives"></a>Utbildningsmål
+ I den här modulen ska du:
   - En introduktion till IoT
   - Interagera med en Raspberry Pi-simulator
   - Konfigurera Azure IoT Hub för att samla in data

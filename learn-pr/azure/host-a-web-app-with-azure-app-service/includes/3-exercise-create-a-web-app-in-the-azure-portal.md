@@ -4,7 +4,7 @@ I det här avsnittet kommer du att använda Azure Portal för att skapa en webba
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Logga in på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+Logga in på [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Klicka på länken **Skapa en resurs** överst i det vänstra navigeringsfönstret. Allt som du skapar i Azure är en resurs.
 
@@ -24,7 +24,7 @@ Logga in på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft
 
 ## <a name="use-the-sandbox-resource-group"></a>Använd resursgrupp för sandbox-miljö
 
-En Azure-webbapp måste vara en del av en resursgrupp. Välj **Använd befintlig** och därefter <rgn>[Sandbox-resursgruppnamn]</rgn>.
+En Azure-webbapp måste vara en del av en resursgrupp. Välj **Använd befintlig** och därefter <rgn>[sandbox-resursgruppnamn]</rgn>.
 
 ## <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 

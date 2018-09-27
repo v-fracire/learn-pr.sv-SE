@@ -1,0 +1,36 @@
+### YamlMime:Module
+uid: learn.classify-images-with-custom-vision-services
+metadata:
+  title: Klassificera bilder med Microsoft Custom Vision Service
+  description: Skapa, träna och testa en modell för anpassad bildklassificering med hjälp av Custom Vision Service för att korrekt identifiera konstverk från berömda konstnärer.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: e18c910278d54d4c63d1eebc2c4da2bac5af869e
+  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/21/2018
+  ms.locfileid: "46514984"
+title: Klassificera bilder med Microsoft Custom Vision Service
+summary: Skapa, träna och testa en modell för anpassad bildklassificering med hjälp av Custom Vision Service för att korrekt identifiera konstverk från berömda konstnärer.
+abstract: "I den här modulen ska du:\n- Skapa ett Custom Vision Service-projekt\n- träna upp en Custom Vision Service-modell med taggade bilder\n- Testa en Custom Vision Service-modell\n- Anropa modellens förutsägelseslutpunkt via HTTP \n"
+prerequisites: Ingen
+iconUrl: /learn/achievements/classify-images-with-custom-vision-service.svg
+levels:
+- beginner
+roles:
+- developer
+products:
+- azure
+units:
+- learn.classify-images-with-custom-vision-services.0-introduction
+- learn.classify-images-with-custom-vision-services.1-create-custom-vision-service-project
+- learn.classify-images-with-custom-vision-services.2-upload-tagged-images
+- learn.classify-images-with-custom-vision-services.3-train-model
+- learn.classify-images-with-custom-vision-services.4-test-model
+- learn.classify-images-with-custom-vision-services.5-call-the-prediction-endpoint-curl
+- learn.classify-images-with-custom-vision-services.6-summary-and-knowledge-check
+achievement: learn.classify-images-with-custom-vision-services.badge

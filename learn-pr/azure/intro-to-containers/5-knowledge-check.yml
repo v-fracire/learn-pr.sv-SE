@@ -1,0 +1,53 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-containers.5-knowledge-check
+title: Kunskapskontroll
+metadata:
+  title: Kunskapskontroll
+  description: Introduktion till kunskapskontroll om containrar.
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 74497f66a4e10fa17f5b6eee5e8fdb31e6bf806b
+  ms.sourcegitcommit: 8a009788ee73c5d7caa6cd4f1105260c5cc9b846
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2018
+  ms.locfileid: "46570653"
+durationInMinutes: 2
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande är inte någon fördel vid införandet av containrar?
+    choices:
+    - content: Snabba starttider.
+      isCorrect: false
+      incorrectExplanation: Containrar kan starta betydligt snabbare än virtuella eller fysiska system.
+    - content: Effektiv användning av värdresurser.
+      isCorrect: false
+      incorrectExplanation: På grund av en delad avbildningsarkitektur kan flera containrar köras på en enda värddator, vilket innebär att du utnyttjar värdresurserna effektivt.
+    - content: Inbyggd haveriberedskap.
+      isCorrect: true
+      correctExplanation: Containrar ändrar inte procedurerna för haveriberedskap automatiskt.
+    - content: Möjliggör molnbaserad programarkitektur.
+      isCorrect: false
+      incorrectExplanation: Containrar kan bidra till att utveckla program med en modern eller molnbaserad arkitektur.
+  - content: Vilket kommando visar alla containerinstanser (både stoppade och de som körs)?
+    choices:
+    - content: docker ps
+      isCorrect: false
+      incorrectExplanation: Det här kommandot visar endast containrar som körs.
+    - content: docker images
+      isCorrect: false
+      incorrectExplanation: Det här kommandot visar en lista med containeravbildningar.
+    - content: docker ps -a
+      isCorrect: true
+      correctExplanation: Det här kommandot visar en lista med alla containrar som körs och har stoppats.
+  - content: 'Sant eller falskt: I produktionsmiljöer bör skapandet av containeravbildningar automatiseras med en Dockerfile.'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Automatisering är snabbare, enkelt att upprepa och mindre felbenäget än att skapa avbildningar manuellt. Bästa praxis rekommenderar att du använder automatisering i produktionsmiljöer för containrar.
+    - content: Falskt
+      isCorrect: false

@@ -16,16 +16,14 @@ När du flyttar till PaaS (plattform som en tjänst) slipper du en mängd olika 
 
 Med SaaS (programvara som en tjänst) outsourcar du nästan allt. SaaS är programvara som körs med en Internetinfrastruktur. Koden styrs av leverantören men konfigureras för användning av kunden. Precis som många andra företag så använder Contoso Shipping Office 365 och det är ett utmärkt exempel på SaaS!
 
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![shared_responsibility.png](../media/shared_responsibilities.png)
 
 ## <a name="a-layered-approach-to-security"></a>Säkerhet på flera nivåer
 
 *Skydd på djupet* är en strategi som använder en serie mekanismer till att fördröja en attack som syftar till att få obehörig åtkomst till information. Varje nivå ger skydd, så om intrång sker på en nivå finns det ytterligare nivåer som förhindrar exponering. Microsoft använder säkerhet på flera nivåer både i fysiska datacenter och mellan olika Azure-tjänster. Målet med ett djupgående skydd är att skydda och förhindra att information blir stulen av personer som inte har behörighet till den.
 
-Djupgående skydd kan visualiseras som en uppsättning koncentriska ringar, där de data som ska skyddas ligger i mitten. Varje ring är en extra säkerhetsnivå kring datan. Den här metoden innebär att man inte behöver förlita sig på en enda skyddsnivå. Den fördröjer angrepp och aviserar med telemetri som kan åtgärdas, antingen automatiskt eller manuellt. Låt oss ta en titt på var och en av nivåerna.
+Djupgående skydd kan visualiseras som en uppsättning koncentriska ringar, där de data som ska skyddas ligger i mitten. Varje ring är en extra säkerhetsnivå kring datan. Den här metoden innebär att man inte behöver förlita sig på en enda skyddsnivå. Den fördröjer angrepp och aviserar med telemetri som kan åtgärdas, antingen automatiskt eller manuellt. Låt oss ta en titt på var och en av dessa nivåer.
 
-<!--TODO: replace with final media which was submitted for Design-for-security-in-azure -->
 ![Skydd på djupet](../media/defense_in_depth_layers_small.PNG)
 
 :::row:::

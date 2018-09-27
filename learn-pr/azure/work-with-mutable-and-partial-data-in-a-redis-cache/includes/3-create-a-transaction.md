@@ -12,7 +12,7 @@ Vi använder kommandot `az redis create` till att skapa en ny Azure Redis Cache.
 > [!div class="mx-tableFixed"]
 > | Parameter | Beskrivning |
 > |-----------|-------------|
-> | `--name`    | Namnet på cachen – det här måste vara globalt unik och bestå av bokstäver, siffror och bindestreck. |
+> | `--name`    | Namnet på cachen – detta måste vara globalt unikt och bestå av bokstäver, siffror och bindestreck. |
 > | `--resource-group` | Använd den färdiga resursgruppen **<rgn>[namn på sandbox-resursgrupp]</rgn>** som är en del av Azure-sandboxmiljön. |
 > | `--location` | Ange den plats där cacheminnet ska finnas. Normalt väljer du en plats nära datakonsumenterna. I det här fallet begränsas du till de platser som är tillgängliga i Azure-sandboxmiljön. Välj den som är närmast dig. |
 > | `--size` | Storleken på Azure Redis Cache. Giltiga värden är [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4]. |
@@ -33,7 +33,7 @@ Vi använder kommandot `az redis create` till att skapa en ny Azure Redis Cache.
 
     az redis create \
         --name "$REDIS_NAME" \
-        --resource-group <rgn>[Sandbox resource group name]</rgn> \
+        --resource-group <rgn>[sandbox resource group name]</rgn> \
         --location eastus \
         --vm-size C0 \
         --sku Basic \
@@ -85,7 +85,7 @@ Hämta åtkomstnycklarna med kommandot `az redis list-keys`. Kör dessa kommando
 ```azurecli
 REDIS_KEY=$(az redis list-keys \
     --name "$REDIS_NAME" \
-    --resource-group <rgn>[Sandbox resource group name]</rgn> \
+    --resource-group <rgn>[sandbox resource group name]</rgn> \
     --query primaryKey \
     --output tsv)
 
@@ -164,7 +164,7 @@ Slutligen ska vi lägga till data i Azure Redis Cache.
     ```azcli
     az redis show \
         --name "$REDIS_NAME" \
-        --resource-group <rgn>[Sandbox resource group name]</rgn> \
+        --resource-group <rgn>[sandbox resource group name]</rgn> \
         --query provisioningState
     ```
 
@@ -180,7 +180,7 @@ Slutligen ska vi lägga till data i Azure Redis Cache.
 
 Vi slutför genom att verifiera att data vi har lagt till finns i Redis Cache.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Leta reda på Azure Redis Cache genom att välja **Alla resurser** i sidofältet till vänster och med hjälp av filterfältet till vänster för att välja Azure Redis Cache-instanser. Du kan alternativt använda sökrutan högst upp och skriva namnet på cacheminnet.
 

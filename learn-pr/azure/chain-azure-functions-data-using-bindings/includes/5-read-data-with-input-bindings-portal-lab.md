@@ -6,7 +6,7 @@ När användare skickar dig en begäran med lite text försöker du hitta en pos
 
 Du måste lagra data någonstans. I det här flödesschemat visas datalagret som en Azure Cosmos DB-instans. Men hur ansluter du till databasen från en funktion och läser in data? I en värld av funktioner konfigurerar du en *indatabindning* för jobbet.  Det är enkelt att konfigurera en bindning via Azure Portal. Som du snart kommer att se behöver du inte skriva kod för sådana uppgifter som att öppna en lagringsanslutning. Azure Functions-körningen och bindningar tar hand om de här aktiviteterna åt dig.
 
-## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto 
+## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
 > [!NOTE]
 > Den här enheten är inte avsedd att vara en självstudiekurs om Azure Cosmos DB. Det finns en fullständig utbildningsväg på Cosmos DB om du vill veta mer efter det att du har slutfört den här modulen.
@@ -15,7 +15,7 @@ Du måste lagra data någonstans. I det här flödesschemat visas datalagret som
 
 Ett databaskonto är en container för hantering av en eller flera databaser. Innan vi kan skapa en databas behöver vi skapa ett databaskonto.
 
-1. Kontrollera att du är inloggad på [Azure Portal](https://portal.azure.com/triplecrownlabs.onmicrosoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Kontrollera att du är inloggad på [Azure Portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Välj knappen **Skapa en resurs** längst upp till vänster i Azure-portalen och välj sedan **Databaser** > **Azure Cosmos DB**.
 
@@ -26,9 +26,9 @@ Ett databaskonto är en container för hantering av en eller flera databaser. In
     | ID |*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom `documents.azure.com` läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken. |
     | API |SQL|API:et avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er för ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure-tabell och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Välj **SQL**. För närvarande fungerar Azure Cosmos DB-utlösaren, indatabindningar och utdatabindningar endast med SQL API- och Graph API-konton. |
     | Prenumeration | Concierge-prenumeration | Välj den Azure-prenumeration som ska användas för det här Azure Cosmos DB-kontot. |
-    Resursgrupp|Använd befintlig<br><br>Välj sedan **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**. | Vi väljer **Använd befintlig**, eftersom vi vill gruppera alla resurser som har skapats för den här modulen under den kostnadsfria sandbox-resursgruppen. |
+    Resursgrupp|Använd befintlig<br><br>Välj sedan **<rgn>[resursgruppsnamn för sandbox-miljö]</rgn>**. | Vi väljer **Använd befintlig**, eftersom vi vill gruppera alla resurser som har skapats för den här modulen under den kostnadsfria sandbox-resursgruppen. |
     | Plats | Fylls i automatiskt när **Använd befintlig** har angetts. | Välj den geografiska plats som ska vara värd för ditt Azure Cosmos DB-konto. Använd den plats som finns närmast dina användare så att de får så snabb åtkomst till data som möjligt. I den här övningen bestäms platsen i förväg för oss som platsen för den befintliga resursgruppen.|
-    
+
     Lämna andra fält på bladet **Nytt konto** på standardnivåvärdena eftersom vi använder dem i den här modulen.  Detta omfattar **Aktivera georedundans**, **Aktivera multimaster**, **Virtuella nätverk**.
 
 1. Välj **Skapa** för att etablera och distribuera databaskontot.
@@ -58,17 +58,17 @@ Låt oss skapa en databas och en samling med hjälp av Datautforskaren i Azure P
     |Samlings-ID|[!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)]|Ange [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)] som namnet på din nya samling. Samma teckenkrav gäller för samlings-ID:n som för databasnamn.|
     |Lagringskapacitet| Fast (10 GB)|Använd standardvärdet **Fast (10 GB)**. Det här värdet är databasens lagringskapacitet.|
     |Dataflöde|1 000 RU|Ändra genomflödet till 1 000 begäransenheter per sekund (RU/s). Lagringskapaciteten måste anges till **Fast (10 GB)** för att det ska gå att ställa in dataflöde på 400 RU/s. Du kan skala upp prestanda senare om du vill minska svarstiden.|
-        
+
 3. Klicka på **OK**. Datautforskaren visar den nya databasen och samlingen. Så, nu har vi en databas. Vi har definierat en samling inne i databasen. Därefter lägger vi till vissa data, även kallat dokument.
 
 ### <a name="add-test-data"></a>Lägga till testdata
 
-Vi har definierat en samling i databasen som kallas [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)]. Vi vill lagra en URL och ett ID i varje dokument, t.ex. en lista över webbsidesbokmärken. 
+Vi har definierat en samling i databasen som kallas [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)]. Vi vill lagra en URL och ett ID i varje dokument, t.ex. en lista över webbsidesbokmärken.
 
 Du lägger nu till data i din nya samling med hjälp av Datautforskaren.
 
 1. Den nya databasen visas på panelen Samlingar i Datautforskaren. Expandera databasen [!INCLUDE [cosmos-db-name](./cosmos-db-name.md)], expandera samlingen [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)], välj **Dokument** och sedan **Nytt dokument**.
-  
+
 2. Ersätt standardinnehållet i det nya dokumentet med följande JSON.
 
      ```json
@@ -89,7 +89,7 @@ Du lägger nu till data i din nya samling med hjälp av Datautforskaren.
     | `_etag`     |   Krävs för optimistisk samtidighetskontroll.     |
     | `_attachments`     |  Den adresserbara sökvägen till resursen för bifogade filer.       |
     | `_ts`     |    Tidsstämpeln för den senaste uppdateringen av den här resursen.    |
-     
+
 4. Nu ska vi lägga till några fler dokument i samlingen. Skapa ytterligare fyra dokument med följande innehåll. Kom ihåg att spara ditt arbete.
 
     ```json
@@ -98,45 +98,45 @@ Du lägger nu till data i din nya samling med hjälp av Datautforskaren.
         "URL": "https://portal.azure.com"
     }
     ```
-    
+
     ```json
     {
         "id": "learn",
         "URL": "https://docs.microsoft.com/learn"
     }
     ```
-    
+
     ```json
     {
         "id": "marketplace",
         "URL": "https://azuremarketplace.microsoft.com/marketplace/apps"
     }
     ```
-    
+
     ```json
     {
         "id": "blog",
         "URL": "https://azure.microsoft.com/blog"
     }
     ```
-    
+
 1. När du är klar bör samlingen se ut som följande:
 
     ![SQL API-användargränssnittet i portalen visar en lista över poster som du har lagt till i din bokmärkessamling](../media/5-db-bookmark-coll.PNG)
-    
+
 Nu har du ett antal poster i din bokmärkessamling. Så här fungerar vårt scenario. Om en begäran tas emot med, t.ex. ”id = docs”, söker du upp detta ID i din bokmärkessamling och returnerar URL:en `https://docs.microsoft.com/azure`. Vi ska skapa en Azure-funktion som söker upp värden i den här samlingen.
 
 ## <a name="create-your-function"></a>Skapa din funktion
 
 1. Gå till den funktionsapp som du skapade i föregående enhet.
 
-1. Expandera funktionsappen, hovra sedan över samlingen med funktioner och välj sedan knappen **Lägg till** (**+**) bredvid **Funktioner**.  
+1. Expandera funktionsappen, hovra sedan över samlingen med funktioner och välj sedan knappen **Lägg till** (**+**) bredvid **Funktioner**.
    Den här åtgärden startar funktionsskapandeprocessen. Följande animering illustrerar åtgärden:
 
    ![Animering av det plustecken som visas när du hovrar över funktionsmenyalternativet](../media/3-func-app-plus-hover-small.gif)
 
-   På sidan visas en fullständig uppsättning med utlösare som stöds. 
-   
+   På sidan visas en fullständig uppsättning med utlösare som stöds.
+
 1. Välj **HTTP-utlösare**, vilket är den första posten i följande skärmbild:
 
     ![Skärmbild som visar en del av utlösarmallens valgränssnitt, där TTP-utlösaren visas först, i den övre vänstra delen av bilden.](../media/5-trigger-templates-small.png)
@@ -148,8 +148,8 @@ Nu har du ett antal poster i din bokmärkessamling. Så här fungerar vårt scen
     | Språk | **JavaScript** |
     | Namn     | [!INCLUDE [func-name-find](./func-name-find.md)] |
     | Auktoriseringsnivå | **Funktion** |
-    
-1. Skapa den nya funktionen genom att välja **Skapa**.  
+
+1. Skapa den nya funktionen genom att välja **Skapa**.
     Detta öppnar filen *index.js* i kodredigeraren och en standardimplementering av den HTTP-utlösta funktionen visas.
 
 ### <a name="verify-the-function"></a>Verifiera funktionen
@@ -158,7 +158,7 @@ Du kan verifiera vad vi har gjort hittills genom att testa vår nya funktion enl
 
 1. Klicka på **Hämta funktionswebbadress** längst upp till höger i den nya funktionen och välj **Standard (funktionsnyckel)**. Klicka sedan på **Kopiera**.
 
-1. Klistra in den funktions-URL som du kopierade i adressfältet till din webbläsare. Lägg till frågesträngsvärdet `&name=<yourname>` i slutet av den här webbadressen och kör begäran genom att trycka på **Retur**. Du bör få ett svar från Azure-funktionen direkt i webbläsaren.  
+1. Klistra in den funktions-URL som du kopierade i adressfältet till din webbläsare. Lägg till frågesträngsvärdet `&name=<yourname>` i slutet av den här webbadressen och kör begäran genom att trycka på **Retur**. Du bör få ett svar från Azure-funktionen direkt i webbläsaren.
 
 Nu när vår grundfunktion fungerar ska vi koncentrera oss på att läsa data från vår Azure Cosmos DB eller, i vårt scenario, vår [!INCLUDE [cosmos-coll-name](./cosmos-coll-name.md)]-samling.
 
@@ -166,16 +166,15 @@ Nu när vår grundfunktion fungerar ska vi koncentrera oss på att läsa data fr
 
 Du måste definiera en indatabindning om du vill kuna läsa data från databasen. Som du ser kan du konfigurera en bindning som kan kommunicera med din databas i bara några få steg.
 
-1. Öppna integrationsfliken genom att välja **Integrera** i rutan till vänster.  
-   Den mall som du använde skapade en HTTP-utlösare och en HTTP-utdatabindning. Lägg nu till din nya Azure Cosmos DB-indatabindning. 
+1. Öppna integrationsfliken genom att välja **Integrera** i rutan till vänster. Den mall som du använde skapade en HTTP-utlösare och en HTTP-utdatabindning. Lägg nu till din nya Azure Cosmos DB-indatabindning.
 
-2. Välj **Nya indata** i kolumnen **Indata**.  
+2. Välj **Nya indata** i kolumnen **Indata**.
    En lista över alla möjliga indatabindningstyper visas.
 
-3. Välj **Azure Cosmos DB** i listan och välj sedan **Välj**.  
+3. Välj **Azure Cosmos DB** i listan och välj sedan **Välj**.
    Den här åtgärden öppnar konfigurationssidan för Azure Cosmos DB-indata. Nu ska du konfigurera en anslutning till databasen.
 
-4. Välj **Ny** bredvid rutan **Azure Cosmos DB-kontoanslutning**.  
+4. Välj **Ny** bredvid rutan **Azure Cosmos DB-kontoanslutning**.
    Den här åtgärden öppnar fönstret **Anslutning**, som redan innehåller **Azure Cosmos DB-kontot** och din Azure-prenumeration har valts. Det enda som återstår är att välja ett databaskonto-ID.
 
 5. I avsnittet Skapa ett databaskonto var du tvungen att ange ett ID-värde. Leta upp det här värdet i listrutan **Databaskonto** och klicka sedan på **Välj**.
@@ -195,8 +194,8 @@ Du vill leta upp ett bokmärke med ett specifikt ID, så låt oss koppla det ID 
     |Samlingsnamn     |  [!INCLUDE [cosmos-db-name](./cosmos-coll-name.md)]        | Den samling som vi ska läsa data från. Den här inställningen definierades tidigare i lektionen. |
     |SQL-fråga (valfritt)    |   lämna tomt       |   Vi hämtar endast ett dokument i taget baserat på ID:t. Filtrering efter fältet dokument-ID är alltså bättre än att använda en SQL-fråga i den här instansen. Vi kan skapa en SQL-fråga för att returnera en post (`SELECT * from b where b.ID = {id}`). Frågan skulle verkligen returnera ett dokument, men den skulle returnera det i en dokumentsamling. Vår kod skulle behöva ändra en samling i onödan. Använda SQL-frågemetoden när du vill hämta flera dokument.   |
     |Partitionsnyckel (valfritt)     |   lämna tomt      |  Vi kan acceptera standardvärdena här.       |
-    
-9. Välj **Spara** så att alla ändringar i den här bindningskonfigurationen sparas. 
+
+9. Välj **Spara** så att alla ändringar i den här bindningskonfigurationen sparas.
 
 Nu när du har definierat din bindning är det dags att använda den i din funktion.
 
@@ -222,7 +221,7 @@ En inkommande HTTP-begäran utlöser funktionen, och en `id`-frågeparameter ski
 
     >[!TIP]
     >Du kan även testa funktionen med hjälp av fliken **Testa** i funktionsportalens användargränssnitt. Du kan lägga till en frågeparameter eller ange en brödtext i begäran och få samma resultat som beskrivs i föregående steg.
-    
-I den här enheten skapade vi vår första indatabindning manuellt för att kunna läsa från en Azure Cosmos DB-databas. Den mängd kod som vi skriver för att söka i vår databas och läsa data var minimal, tack vare bindningar. Vi gjorde det mesta av vårt arbete med att konfigurera bindningen deklarativt och plattformen tog hand om resten.  
+
+I den här enheten skapade vi vår första indatabindning manuellt för att kunna läsa från en Azure Cosmos DB-databas. Den mängd kod som vi skriver för att söka i vår databas och läsa data var minimal, tack vare bindningar. Vi gjorde det mesta av vårt arbete med att konfigurera bindningen deklarativt och plattformen tog hand om resten.
 
 I nästa enhet lägger vi till flera data i vår bokmärkessamling via en Azure Cosmos DB-utdatabindning.
