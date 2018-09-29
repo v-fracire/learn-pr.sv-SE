@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.manage-vms-with-azure-cli-data.6-querying-vms
-title: <span data-ttu-id="38326-101">Ställa frågor om systemet och körningsmiljön för den virtuella datorn</span><span class="sxs-lookup"><span data-stu-id="38326-101">Query system and runtime information about the VM</span></span>
+title: <span data-ttu-id="3a170-101">Ställa frågor om systemet och körningsmiljön för den virtuella datorn</span><span class="sxs-lookup"><span data-stu-id="3a170-101">Query system and runtime information about the VM</span></span>
 metadata:
-  title: <span data-ttu-id="38326-102">Ställa frågor om systemet och körningsmiljön för den virtuella datorn</span><span class="sxs-lookup"><span data-stu-id="38326-102">Query system and runtime information about the VM</span></span>
-  description: <span data-ttu-id="38326-103">Lär dig hur du använder Azure CLI för att visa information om din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="38326-103">Learn how to use the Azure CLI to query information about your virtual machine</span></span>
+  title: <span data-ttu-id="3a170-102">Ställa frågor om systemet och körningsmiljön för den virtuella datorn</span><span class="sxs-lookup"><span data-stu-id="3a170-102">Query system and runtime information about the VM</span></span>
+  description: <span data-ttu-id="3a170-103">Lär dig hur du använder Azure CLI för att visa information om din virtuella dator</span><span class="sxs-lookup"><span data-stu-id="3a170-103">Learn how to use the Azure CLI to query information about your virtual machine</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 9ba177cfd3356d6950a6ced971c831f8a8549e1a
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360092"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47148354"
 interactive: bash
 azureSandbox: true
 durationInMinutes: 10

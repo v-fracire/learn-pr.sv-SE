@@ -1,54 +1,54 @@
 ### YamlMime:ModuleUnit
 uid: learn.interactive-deep-learning.4q-benefits-of-running-deep-learning-experiments-in-docker
-title: <span data-ttu-id="ba368-101">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="ba368-101">Check your knowledge</span></span>
+title: <span data-ttu-id="3fc38-101">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="3fc38-101">Check your knowledge</span></span>
 metadata:
-  title: <span data-ttu-id="ba368-102">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="ba368-102">Check your knowledge</span></span>
-  description: <span data-ttu-id="ba368-103">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="ba368-103">Check your knowledge</span></span>
+  title: <span data-ttu-id="3fc38-102">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="3fc38-102">Check your knowledge</span></span>
+  description: <span data-ttu-id="3fc38-103">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="3fc38-103">Check your knowledge</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: fab76bfb0f9de183a37f1d8aba022b434294ce85
-  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/20/2018
-  ms.locfileid: "46484321"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47150397"
 durationInMinutes: 2
 quiz:
-  title: <span data-ttu-id="ba368-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="ba368-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="3fc38-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="3fc38-104">Check your knowledge</span></span>
   questions:
-  - content: <span data-ttu-id="ba368-105">Vilket av följande beskriver CUDA?</span><span class="sxs-lookup"><span data-stu-id="ba368-105">Which of the following describes CUDA?</span></span>
+  - content: <span data-ttu-id="3fc38-105">Vilket av följande beskriver CUDA?</span><span class="sxs-lookup"><span data-stu-id="3fc38-105">Which of the following describes CUDA?</span></span>
     choices:
-    - content: <span data-ttu-id="ba368-106">Det är en parallell databehandlingsplattform och ett API.</span><span class="sxs-lookup"><span data-stu-id="ba368-106">It's a parallel computing platform and API.</span></span>
+    - content: <span data-ttu-id="3fc38-106">Det är en parallell databehandlingsplattform och ett API.</span><span class="sxs-lookup"><span data-stu-id="3fc38-106">It's a parallel computing platform and API.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="ba368-107">CUDA är en parallell databehandlingsplattform och en API-modell skapad av NVIDIA.</span><span class="sxs-lookup"><span data-stu-id="ba368-107">CUDA is a parallel computing platform and application programming interface (API) model created by NVIDIA.</span></span> <span data-ttu-id="ba368-108">CUDA-plattformen är ett programvarulager som ger direktåtkomst till GPU:ns virtuella instruktionsuppsättning och parallella databehandlingselement, för körning av beräkningskernels.</span><span class="sxs-lookup"><span data-stu-id="ba368-108">The CUDA platform is a software layer that gives direct access to the GPU's virtual instruction set and parallel computational elements, for the execution of compute kernels.</span></span>
-    - content: <span data-ttu-id="ba368-109">Det är en mycket kraftfull processor.</span><span class="sxs-lookup"><span data-stu-id="ba368-109">It's a super powerful CPU.</span></span>
+      correctExplanation: <span data-ttu-id="3fc38-107">CUDA är en parallell databehandlingsplattform och en API-modell skapad av NVIDIA.</span><span class="sxs-lookup"><span data-stu-id="3fc38-107">CUDA is a parallel computing platform and application programming interface (API) model created by NVIDIA.</span></span> <span data-ttu-id="3fc38-108">CUDA-plattformen är ett programvarulager som ger direktåtkomst till GPU:ns virtuella instruktionsuppsättning och parallella databehandlingselement, för körning av beräkningskernels.</span><span class="sxs-lookup"><span data-stu-id="3fc38-108">The CUDA platform is a software layer that gives direct access to the GPU's virtual instruction set and parallel computational elements, for the execution of compute kernels.</span></span>
+    - content: <span data-ttu-id="3fc38-109">Det är en mycket kraftfull processor.</span><span class="sxs-lookup"><span data-stu-id="3fc38-109">It's a super powerful CPU.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="ba368-110">CUDA är ett programvarulager och har utformats för GPU:er.</span><span class="sxs-lookup"><span data-stu-id="ba368-110">CUDA is a software layer and is designed for GPUs.</span></span>
-    - content: <span data-ttu-id="ba368-111">Det är en djupinlärningsmodell som används för bildklassificering.</span><span class="sxs-lookup"><span data-stu-id="ba368-111">It's a deep learning model used for image classification.</span></span>
+      incorrectExplanation: <span data-ttu-id="3fc38-110">CUDA är ett programvarulager och har utformats för GPU:er.</span><span class="sxs-lookup"><span data-stu-id="3fc38-110">CUDA is a software layer and is designed for GPUs.</span></span>
+    - content: <span data-ttu-id="3fc38-111">Det är en djupinlärningsmodell som används för bildklassificering.</span><span class="sxs-lookup"><span data-stu-id="3fc38-111">It's a deep learning model used for image classification.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="ba368-112">CUDA-aktiverade GPU:er kan ge betydligt bättre beräkningsprestanda vid träning av neurala nätverk, men det här är bara ett av dess användningsområden.</span><span class="sxs-lookup"><span data-stu-id="ba368-112">CUDA-enabled GPUs can greatly improve compute performacne when training neural networks, but that is only one of its uses.</span></span>
-  - content: <span data-ttu-id="ba368-113">Vilket av följande beskriver Docker?</span><span class="sxs-lookup"><span data-stu-id="ba368-113">Which of the following describes Docker?</span></span>
+      incorrectExplanation: <span data-ttu-id="3fc38-112">CUDA-aktiverade GPU:er kan ge betydligt bättre beräkningsprestanda vid träning av neurala nätverk, men det här är bara ett av dess användningsområden.</span><span class="sxs-lookup"><span data-stu-id="3fc38-112">CUDA-enabled GPUs can greatly improve compute performacne when training neural networks, but that is only one of its uses.</span></span>
+  - content: <span data-ttu-id="3fc38-113">Vilket av följande beskriver Docker?</span><span class="sxs-lookup"><span data-stu-id="3fc38-113">Which of the following describes Docker?</span></span>
     choices:
-    - content: <span data-ttu-id="ba368-114">Docker är en specialmaskinvara för träning av neurala nätverk.</span><span class="sxs-lookup"><span data-stu-id="ba368-114">Docker is a specialized piece of hardware for training neural networks.</span></span>
+    - content: <span data-ttu-id="3fc38-114">Docker är en specialmaskinvara för träning av neurala nätverk.</span><span class="sxs-lookup"><span data-stu-id="3fc38-114">Docker is a specialized piece of hardware for training neural networks.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="ba368-115">Docker är faktiskt programvara som utför virtualisering på systemnivå, så kallad containerisering.</span><span class="sxs-lookup"><span data-stu-id="ba368-115">Docker is actually software that performs operating-system-level virtualization, also known as "containerization".</span></span>
-    - content: <span data-ttu-id="ba368-116">Docker är en öppen plattform för distribuerade program.</span><span class="sxs-lookup"><span data-stu-id="ba368-116">Docker is an open platform for distributed applications.</span></span>
+      incorrectExplanation: <span data-ttu-id="3fc38-115">Docker är faktiskt programvara som utför virtualisering på systemnivå, så kallad containerisering.</span><span class="sxs-lookup"><span data-stu-id="3fc38-115">Docker is actually software that performs operating-system-level virtualization, also known as "containerization".</span></span>
+    - content: <span data-ttu-id="3fc38-116">Docker är en öppen plattform för distribuerade program.</span><span class="sxs-lookup"><span data-stu-id="3fc38-116">Docker is an open platform for distributed applications.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="ba368-117">Docker är en öppen plattform för utvecklare och systemadministratörer där de kan skapa, leverera och köra distribuerade program på bärbara datorer, virtuella datorer i datacenter eller i molnet.</span><span class="sxs-lookup"><span data-stu-id="ba368-117">Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.</span></span> <span data-ttu-id="ba368-118">Det är ett datorprogram som utför virtualisering på systemnivå, så kallad containerisering.</span><span class="sxs-lookup"><span data-stu-id="ba368-118">It's a computer program that performs operating-system-level virtualization, also known as "containerization".</span></span>
-    - content: <span data-ttu-id="ba368-119">Docker är ett bibliotek för webbappar.</span><span class="sxs-lookup"><span data-stu-id="ba368-119">Docker is a library for web apps.</span></span>
+      correctExplanation: <span data-ttu-id="3fc38-117">Docker är en öppen plattform för utvecklare och systemadministratörer där de kan skapa, leverera och köra distribuerade program på bärbara datorer, virtuella datorer i datacenter eller i molnet.</span><span class="sxs-lookup"><span data-stu-id="3fc38-117">Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.</span></span> <span data-ttu-id="3fc38-118">Det är ett datorprogram som utför virtualisering på systemnivå, så kallad containerisering.</span><span class="sxs-lookup"><span data-stu-id="3fc38-118">It's a computer program that performs operating-system-level virtualization, also known as "containerization".</span></span>
+    - content: <span data-ttu-id="3fc38-119">Docker är ett bibliotek för webbappar.</span><span class="sxs-lookup"><span data-stu-id="3fc38-119">Docker is a library for web apps.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="ba368-120">Docker är en programvaruplattform men inte ett bibliotek för att hjälpa dig att skapa webbappar.</span><span class="sxs-lookup"><span data-stu-id="ba368-120">Docker is a software platform, but it's not a library for helping you to create web apps.</span></span>
-  - content: <span data-ttu-id="ba368-121">Vad är huvudfördelen med att använda NVIDIA Docker?</span><span class="sxs-lookup"><span data-stu-id="ba368-121">What's the main benefit of using NVIDIA Docker?</span></span>
+      incorrectExplanation: <span data-ttu-id="3fc38-120">Docker är en programvaruplattform men inte ett bibliotek för att hjälpa dig att skapa webbappar.</span><span class="sxs-lookup"><span data-stu-id="3fc38-120">Docker is a software platform, but it's not a library for helping you to create web apps.</span></span>
+  - content: <span data-ttu-id="3fc38-121">Vad är huvudfördelen med att använda NVIDIA Docker?</span><span class="sxs-lookup"><span data-stu-id="3fc38-121">What's the main benefit of using NVIDIA Docker?</span></span>
     choices:
-    - content: <span data-ttu-id="ba368-122">Du kan köra och skapa Docker-containrar i Windows.</span><span class="sxs-lookup"><span data-stu-id="ba368-122">It allows you to build and run Docker containers on Windows.</span></span>
+    - content: <span data-ttu-id="3fc38-122">Du kan köra och skapa Docker-containrar i Windows.</span><span class="sxs-lookup"><span data-stu-id="3fc38-122">It allows you to build and run Docker containers on Windows.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="ba368-123">NVIDIA Docker kan bara köras i Linux.</span><span class="sxs-lookup"><span data-stu-id="ba368-123">NVIDIA Docker only runs on Linux.</span></span>
-    - content: <span data-ttu-id="ba368-124">Du kan skapa och köra Docker-containrar som utnyttjar NVIDIA-GPU:er.</span><span class="sxs-lookup"><span data-stu-id="ba368-124">It allows you to build and run Docker containers that leverage NVIDIA GPUs.</span></span>
+      incorrectExplanation: <span data-ttu-id="3fc38-123">NVIDIA Docker kan bara köras i Linux.</span><span class="sxs-lookup"><span data-stu-id="3fc38-123">NVIDIA Docker only runs on Linux.</span></span>
+    - content: <span data-ttu-id="3fc38-124">Du kan skapa och köra Docker-containrar som utnyttjar NVIDIA-GPU:er.</span><span class="sxs-lookup"><span data-stu-id="3fc38-124">It allows you to build and run Docker containers that leverage NVIDIA GPUs.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="ba368-125">NVIDIA utvecklade nvidia-docker som ett projekt med öppen källkod för att stödja drivrutinsagonstisk CUDA-avbildning och som en wrapper som vet hur rätt GPU-komponenter ska monteras i containern vid start.</span><span class="sxs-lookup"><span data-stu-id="ba368-125">NVIDIA developer nvidia-docker as an open-source project to support driver-agnostice CUDA image and as a wrapper around the Docker command-line wrapper that knows how to mount the right GPU components into the container at launch.</span></span>
-    - content: <span data-ttu-id="ba368-126">Du kan containerisera CPU-accelererade program.</span><span class="sxs-lookup"><span data-stu-id="ba368-126">It allows you to containerize CPU-accelerated applications.</span></span>
+      correctExplanation: <span data-ttu-id="3fc38-125">NVIDIA utvecklade nvidia-docker som ett projekt med öppen källkod för att stödja drivrutinsagonstisk CUDA-avbildning och som en wrapper som vet hur rätt GPU-komponenter ska monteras i containern vid start.</span><span class="sxs-lookup"><span data-stu-id="3fc38-125">NVIDIA developer nvidia-docker as an open-source project to support driver-agnostice CUDA image and as a wrapper around the Docker command-line wrapper that knows how to mount the right GPU components into the container at launch.</span></span>
+    - content: <span data-ttu-id="3fc38-126">Du kan containerisera CPU-accelererade program.</span><span class="sxs-lookup"><span data-stu-id="3fc38-126">It allows you to containerize CPU-accelerated applications.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="ba368-127">Med NVIDIA Docker kan du containerisera dina GPU-accelererade appar.</span><span class="sxs-lookup"><span data-stu-id="ba368-127">NVIDIA Docker allows you to containerize your GPU-accelerated apps.</span></span>
+      incorrectExplanation: <span data-ttu-id="3fc38-127">Med NVIDIA Docker kan du containerisera dina GPU-accelererade appar.</span><span class="sxs-lookup"><span data-stu-id="3fc38-127">NVIDIA Docker allows you to containerize your GPU-accelerated apps.</span></span>

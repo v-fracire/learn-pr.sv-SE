@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.provision-azure-sql-db.4-connect-add-data
-title: <span data-ttu-id="5b77e-101">Ansluta till databasen och lägga till exempeldata</span><span class="sxs-lookup"><span data-stu-id="5b77e-101">Connect to your database and add sample data</span></span>
+title: <span data-ttu-id="fbd27-101">Ansluta till databasen och lägga till exempeldata</span><span class="sxs-lookup"><span data-stu-id="fbd27-101">Connect to your database and add sample data</span></span>
 metadata:
-  title: <span data-ttu-id="5b77e-102">Ansluta till databasen och lägga till exempeldata</span><span class="sxs-lookup"><span data-stu-id="5b77e-102">Connect to your database and add sample data</span></span>
-  description: <span data-ttu-id="5b77e-103">Ansluta till databasen och lägga till exempeldata</span><span class="sxs-lookup"><span data-stu-id="5b77e-103">Connect to your database and add sample data</span></span>
+  title: <span data-ttu-id="fbd27-102">Ansluta till databasen och lägga till exempeldata</span><span class="sxs-lookup"><span data-stu-id="fbd27-102">Connect to your database and add sample data</span></span>
+  description: <span data-ttu-id="fbd27-103">Ansluta till databasen och lägga till exempeldata</span><span class="sxs-lookup"><span data-stu-id="fbd27-103">Connect to your database and add sample data</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: edb2e2f0c5e0a479b794039a4a4340b159fc1f13
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46355023"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47148084"
 interactive: bash
 azureSandbox: true
 durationInMinutes: 15

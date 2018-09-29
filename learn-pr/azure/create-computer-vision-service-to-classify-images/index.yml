@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 764c30034b5ff2f01c2c0650efc984204e2711c6
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46354719"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47148261"
 title: Behandla bilder med tjänsten Visuellt innehåll
 summary: Du kan använda API för visuellt innehåll för att analysera bilder för insikter, extrahera text från bilder och generera miniatyrbilder av hög kvalitet.
 abstract: >

@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: b0b4a1951f2dbcfa12ffd0c726e9e8930b44259f
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46354608"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47148102"
 title: Hitta rätt molntyper och tjänstmodeller i Azure för olika behov
 summary: Azure har stöd för tre sätt att distribuera molnresurser – offentliga, privata och hybrida moln. Vilket sätt du väljer påverkar flera faktorer för de tjänster du flyttar till Azure, bland annat kostnad, underhållsbehov och säkerhet. I den här modulen ska vi titta på alla tre typerna och hjälpa dig att fatta ett välgrundat beslut om vilken som passar för dina tjänster. Vi ska också snabbt titta på de tjänstmodeller som stöds av Azure och som kan hjälpa dig att avgöra vilka tjänster du ska börja med när du planerar en Azure-distribution.
 abstract: >

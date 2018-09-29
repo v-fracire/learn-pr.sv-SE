@@ -1,1 +1,1 @@
-<span data-ttu-id="91b64-101">**Bokmärken**</span><span class="sxs-lookup"><span data-stu-id="91b64-101">**Bookmarks**</span></span>
+<span data-ttu-id="b91aa-101">**Bokmärken**</span><span class="sxs-lookup"><span data-stu-id="b91aa-101">**Bookmarks**</span></span>

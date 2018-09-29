@@ -10,11 +10,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: b6d50140ba18e22cf8d522e2236fb1e4a5c9752d
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46509547"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47150352"
 title: Lagra data i Azure
 summary: 'Azure erbjuder en mängd olika sätt att lagra data: ostrukturerat, arkivering, relationellt och mer. Lär dig grunderna för lagringshantering i Azure, hur du skapar ett lagringskonto och hur du väljer rätt modell för de data du vill lagra i molnet.'
 prerequisites: Ingen

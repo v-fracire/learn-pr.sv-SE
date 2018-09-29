@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.run-docker-containers-aci.3-restart-policy
 metadata:
-  title: <span data-ttu-id="eaaee-101">Styra omstartsbeteendet för Azure Container Instances</span><span class="sxs-lookup"><span data-stu-id="eaaee-101">Control Azure Container Instances restart behavior</span></span>
-  description: <span data-ttu-id="eaaee-102">Styra hur containerinstanser startas om.</span><span class="sxs-lookup"><span data-stu-id="eaaee-102">Control Container Instances restart behavior.</span></span>
+  title: <span data-ttu-id="f61de-101">Styra omstartsbeteendet för Azure Container Instances</span><span class="sxs-lookup"><span data-stu-id="f61de-101">Control Azure Container Instances restart behavior</span></span>
+  description: <span data-ttu-id="f61de-102">Styra hur containerinstanser startas om.</span><span class="sxs-lookup"><span data-stu-id="f61de-102">Control Container Instances restart behavior.</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 321f474fe2a2b7cf92c360f8ffac06110870765d
-  ms.sourcegitcommit: 8a009788ee73c5d7caa6cd4f1105260c5cc9b846
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/22/2018
-  ms.locfileid: "46570588"
-title: <span data-ttu-id="eaaee-103">Styra omstartsbeteendet</span><span class="sxs-lookup"><span data-stu-id="eaaee-103">Control restart behavior</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47148849"
+title: <span data-ttu-id="f61de-103">Styra omstartsbeteendet</span><span class="sxs-lookup"><span data-stu-id="f61de-103">Control restart behavior</span></span>
 interactive: bash
 azureSandbox: true
 durationInMinutes: 6

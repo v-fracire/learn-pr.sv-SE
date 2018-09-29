@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.control-azure-services-with-cli.5-exercise-create-website-using-the-cli
-title: <span data-ttu-id="7791c-101">Skapa en Azure-webbplats med hjälp av CLI</span><span class="sxs-lookup"><span data-stu-id="7791c-101">Create an Azure website using the CLI</span></span>
+title: <span data-ttu-id="798d8-101">Skapa en Azure-webbplats med hjälp av CLI</span><span class="sxs-lookup"><span data-stu-id="798d8-101">Create an Azure website using the CLI</span></span>
 metadata:
-  title: <span data-ttu-id="7791c-102">Skapa en Azure-webbplats med hjälp av CLI</span><span class="sxs-lookup"><span data-stu-id="7791c-102">Create an Azure website using the CLI</span></span>
-  description: <span data-ttu-id="7791c-103">Arbeta med Azure CLI för att skapa en ny PHP-webbplats</span><span class="sxs-lookup"><span data-stu-id="7791c-103">Work with the Azure CLI to create a new PHP website</span></span>
+  title: <span data-ttu-id="798d8-102">Skapa en Azure-webbplats med hjälp av CLI</span><span class="sxs-lookup"><span data-stu-id="798d8-102">Create an Azure website using the CLI</span></span>
+  description: <span data-ttu-id="798d8-103">Arbeta med Azure CLI för att skapa en ny PHP-webbplats</span><span class="sxs-lookup"><span data-stu-id="798d8-103">Work with the Azure CLI to create a new PHP website</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: bc07336d55a425150bb7f4007a6f2c1749fec68b
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358476"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47148912"
 durationInMinutes: 10
 interactive: bash
 azureSandbox: true

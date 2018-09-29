@@ -1,11 +1,11 @@
-- <span data-ttu-id="d297a-101">USA, västra 2</span><span class="sxs-lookup"><span data-stu-id="d297a-101">West US 2</span></span>
-- <span data-ttu-id="d297a-102">USA, västra centrala</span><span class="sxs-lookup"><span data-stu-id="d297a-102">West Central US</span></span>
-- <span data-ttu-id="d297a-103">USA, södra centrala</span><span class="sxs-lookup"><span data-stu-id="d297a-103">South Central US</span></span>
-- <span data-ttu-id="d297a-104">USA, centrala</span><span class="sxs-lookup"><span data-stu-id="d297a-104">Central US</span></span>
-- <span data-ttu-id="d297a-105">USA, östra</span><span class="sxs-lookup"><span data-stu-id="d297a-105">East US</span></span>
-- <span data-ttu-id="d297a-106">Europa, västra</span><span class="sxs-lookup"><span data-stu-id="d297a-106">West Europe</span></span>
-- <span data-ttu-id="d297a-107">Asien, sydöstra</span><span class="sxs-lookup"><span data-stu-id="d297a-107">Southeast Asia</span></span>
-- <span data-ttu-id="d297a-108">Japan, östra</span><span class="sxs-lookup"><span data-stu-id="d297a-108">Japan East</span></span>
-- <span data-ttu-id="d297a-109">Brasilien, södra</span><span class="sxs-lookup"><span data-stu-id="d297a-109">Brazil South</span></span>
-- <span data-ttu-id="d297a-110">Australien, sydöstra</span><span class="sxs-lookup"><span data-stu-id="d297a-110">Australia Southeast</span></span>
-- <span data-ttu-id="d297a-111">Indien, centrala</span><span class="sxs-lookup"><span data-stu-id="d297a-111">Central India</span></span>
+- <span data-ttu-id="852a3-101">USA, västra 2</span><span class="sxs-lookup"><span data-stu-id="852a3-101">West US 2</span></span>
+- <span data-ttu-id="852a3-102">USA, västra centrala</span><span class="sxs-lookup"><span data-stu-id="852a3-102">West Central US</span></span>
+- <span data-ttu-id="852a3-103">USA, södra centrala</span><span class="sxs-lookup"><span data-stu-id="852a3-103">South Central US</span></span>
+- <span data-ttu-id="852a3-104">USA, centrala</span><span class="sxs-lookup"><span data-stu-id="852a3-104">Central US</span></span>
+- <span data-ttu-id="852a3-105">USA, östra</span><span class="sxs-lookup"><span data-stu-id="852a3-105">East US</span></span>
+- <span data-ttu-id="852a3-106">Europa, västra</span><span class="sxs-lookup"><span data-stu-id="852a3-106">West Europe</span></span>
+- <span data-ttu-id="852a3-107">Asien, sydöstra</span><span class="sxs-lookup"><span data-stu-id="852a3-107">Southeast Asia</span></span>
+- <span data-ttu-id="852a3-108">Japan, östra</span><span class="sxs-lookup"><span data-stu-id="852a3-108">Japan East</span></span>
+- <span data-ttu-id="852a3-109">Brasilien, södra</span><span class="sxs-lookup"><span data-stu-id="852a3-109">Brazil South</span></span>
+- <span data-ttu-id="852a3-110">Australien, sydöstra</span><span class="sxs-lookup"><span data-stu-id="852a3-110">Australia Southeast</span></span>
+- <span data-ttu-id="852a3-111">Indien, centrala</span><span class="sxs-lookup"><span data-stu-id="852a3-111">Central India</span></span>
