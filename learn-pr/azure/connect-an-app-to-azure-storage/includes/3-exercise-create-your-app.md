@@ -4,7 +4,7 @@ Du kommer kanske ihåg att vi arbetar med ett bilddelningsprogram som använder 
 
 ::: zone pivot="csharp"
 
-För att förenkla vårt scenario så att vi kan fokusera på Storage-API:erna, skapar vi ett nytt .NET Core-konsolprogram. Vi förutsätter också att det alltid är anslutet till nätverket. Du bör dock alltid förstärka din app för att säkerställa att nätverksfel inte påverkar användarupplevelsen, eller leder till fel i programmet.
+För att förenkla vårt scenario så att vi kan fokusera på Storage-API:erna, skapar vi ett nytt .NET Core-konsolprogram. Vi förutsätter också det alltid är anslutet till nätverket. Du bör dock alltid förstärka din app för att säkerställa att nätverksfel inte påverkar användarupplevelsen, eller leder till fel i programmet.
 
 ## <a name="create-a-net-core-application"></a>Skapa ett .NET Core-program
 
@@ -39,7 +39,7 @@ Node.js är ett populärt ramverk för att köra JavaScript-appar. Det används 
     mkdir PhotoSharingApp
     ```
 
-1. Ändra till den nya mappen och använd `npm` för att initiera en ny Node.js-app. Detta skapar en **package.json**-fil med metadata som beskriver appen.
+1. Ändra till den nya mappen och använd `npm` för att initiera en ny Node.js-app. Detta skapar en **package.json**-fil som innehåller metadata som beskriver appen.
 
     ```bash
     cd PhotoSharingApp

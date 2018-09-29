@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 833fbb8a52a3daf35a64e95d077d070687f39a16
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46359068"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47153911"
 title: Lär dig att hantera IoT-enheter som IT-administratör
 summary: Lär dig vilka verktyg Microsoft erbjuder som hjälp med att distribuera, hantera och skydda dina enheter när IoT bara fortsätter att växa.
 abstract: >

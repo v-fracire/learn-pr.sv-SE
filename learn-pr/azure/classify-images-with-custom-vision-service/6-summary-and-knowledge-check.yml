@@ -10,11 +10,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: f731756c3af095f12e9787a73f1b4237e967a7a8
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46515369"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152130"
 content: >
   [!include[](includes/6-summary.md)]
 durationInMinutes: 10
@@ -37,20 +37,20 @@ quiz:
     - content: Så att du enklare kan organisera bilderna i projektet
       isCorrect: false
       incorrectExplanation: Även om taggar gör det enklare att organisera dina bilder är det inte allt de används till.
-    - content: Så att du kan kategorisera träningsbilderna
+    - content: Så att du kan kategorisera inlärningsbilderna
       isCorrect: true
       correctExplanation: Taggarna talar om för klassificeraren vilka egenskaper som gäller för en bild. Om bildklassificeringen ska fungera måste du lägga till minst en tagg.
     - content: Så här skapar du ett ordmoln efter inlärningen
       isCorrect: false
       incorrectExplanation: Custom Vision Service skapar inte ordmoln.
-  - content: Vilka två värden behöver du känna till för att göra ett anrop till förutsägelse-API:n från klientkod?
+  - content: Vilka två värden behöver du veta för att göra ett anrop till förutsägelse-API:n från klientkod?
     choices:
     - content: Förutsägelse-URL och förutsägelsenyckel
       isCorrect: true
       correctExplanation: URL:en identifierar slutpunkten för anslutningen och förutsägelsenyckeln auktoriserar din app för att komma åt tjänsten.
     - content: Servicenamn och autentiseringstoken
       isCorrect: false
-      incorrectExplanation: Inget av dessa värden är relaterade till förutsägelse-API:et.
+      incorrectExplanation: Inget av dessa värden är relaterade till förutsägelse-API:n.
     - content: Klienthemlighet och omdirigerings-URI
       isCorrect: false
-      incorrectExplanation: Inget av dessa värden är relaterade till förutsägelse-API:et.
+      incorrectExplanation: Inget av dessa värden är relaterade till förutsägelse-API:n.

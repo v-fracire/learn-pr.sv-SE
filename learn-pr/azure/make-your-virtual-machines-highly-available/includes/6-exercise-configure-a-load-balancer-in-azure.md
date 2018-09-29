@@ -17,7 +17,7 @@ Vi börjar genom att definiera vår serverdelspool i lastbalanseraren. Detta avg
 1. Lägg till följande information på **Lägg till serverdelspool**-bladet:
     - Ge den namnet _woodgrove BEP_.
     - Associerade poolen till en **Tillgänglighetsuppsättning**.
-    - Välj _woodgrove-AS_ för tillgänglighetsuppsättningen.
+    - För Tillgänglighetsuppsättningen, välj _woodgrove-AS_.
 
 1. Klicka på **Lägg till en IP-konfiguration för målnätverk**.
 
@@ -25,7 +25,7 @@ Vi börjar genom att definiera vår serverdelspool i lastbalanseraren. Detta avg
 
 1. I listan **Nätverkets IP-konfiguration** väljer du den virtuella datorns IP-adresspool.
 
-1. Upprepa dessa steg för att lägga till _woodgrove-VM2_ och _woodgrove-VM3_ i serverdelspoolen.
+1. Upprepa dessa steg för att lägga till _woodgrove-VM2_ och _woodgrove-VM3_ till serverdelspoolen.
 
     ![Skärmbilden visar bladet Lägg till serverdelspool med alla tre virtuella datorer som valts.](../media/6-add-backend-pool.png)
 
@@ -81,7 +81,7 @@ Vänta tills belastningsutjämningskonfigurationen har uppdaterats innan du fort
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
-1. Gå tillbaka till sidan **Översikt** i lastbalanseraren och klicka på länken **Offentlig IP-adress** för att komma till den tilldelade IP-adressen. Alternativt kan du använda **Alla resurser** och sedan välja **woodgrove-LB-ip** i resurslistan.
+1. Gå tillbaka till sidan **Översikt** i lastbalanseraren och klickar på länken **Offentliga IP-adress** för att komma till den tilldelade IP-adressen. Alternativt kan du använda **Alla resurser** och sedan välja **woodgrove-LB-ip** i resurslistan.
 
 1. Välj **IP-adress** på bladet **Översikt** och klicka sedan på knappen **Kopiera**. Det här är den _offentliga_ IP-adressen för lastbalanseraren.
 

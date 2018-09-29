@@ -13,7 +13,7 @@ Nu övar vi på dessa åtgärder med hjälp av Azure PowerShell.
 Vi använder den virtuella dator som vi skapade i den föregående övningen. Åtgärderna i den här labben förutsätter att:
 
 - Vår virtuella dator finns och heter **fotoshareVM**
-- Vår virtuella dator finns i en resursgrupp som heter **<rgn>[resursgruppnamn för sandbox]</rgn>**
+- Vår virtuella dator finns i en resursgrupp som heter **<rgn>[Sandbox-resursgruppnamn]</rgn>**
 
 Om du har använt andra namn ersätter du de här värdena med dina.
 

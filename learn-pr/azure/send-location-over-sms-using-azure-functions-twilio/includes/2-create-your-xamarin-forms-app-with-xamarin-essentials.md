@@ -28,14 +28,14 @@ I Visual Studio skapas två projekt åt dig – en UWP-app med namnet `ImHere.UW
 
 ## <a name="adding-xamarinessentials"></a>Lägga till Xamarin.Essentials
 
-Plattformarna UWP, Android och iOS har ett stort antal liknande funktioner där operativsystem och maskinvara används. Trots dessa likheter är API:erna mycket olika. Om du vill använda de här API:erna från plattformsoberoende kod måste du skriva plattformsspecifik kod i dina approjekt som du exponerar för dina .NET-standardbibliotek. [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/?azure-portal=true) är ett NuGet-paket som innehåller en plattformsoberoende abstraktion över ett antal av dessa API:er så att du inte behöver skriva plattformsspecifik kod. Detta inkluderar geografisk plats-API:er som du använder i din app för att hämta användarens plats.
+Plattformarna UWP, Android och iOS har ett stort antal liknande funktioner där operativsystem och maskinvara används. Trots dessa likheter är API:erna mycket olika. Om du vill använda de här API:erna i plattformsoberoende måste du skriva plattformsspecifik kod i dina approjekt som du exponerar för dina .NET-standardbibliotek. [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/?azure-portal=true) är ett NuGet-paket som innehåller en plattformsoberoende abstraktion över ett antal av dessa API:er så att du inte behöver skriva plattformsspecifik kod. Detta inkluderar geografisk plats-API:er som du använder i din app för att hämta användarens plats.
 
 1. Högerklicka på lösningen `ImHere` (den översta nivålösningen, inte `ImHere` .NET- standardprojektet) i lösningsutforskaren i Visual Studio och välj *Hantera NuGet-paket för Lösningen...*.
 
 1. Välj fliken **Bläddra** och sök efter ”Xamarin.Essentials”. Det här paketet är för närvarande tillgängligt som förhandsversion av NuGet-paketet, så se till att kryssrutan *Inkludera förhandsversioner* är markerad.
 
     > [!TIP]
-    > Kontrollera att *“inklude prelease”* är markerat om du inte ser Xamarin.Essentials NuGet-paketet. 
+    > Om du inte ser Xamarin.Essentials NuGet-paketet, kontrollera att *“include prelease”* är markerat. 
 
 1. Välj NuGet-paketet **Xamarin.Essentials**.
 

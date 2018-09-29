@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 31c039ebaec8ca3b61fb9f8b71af794527645530
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357460"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155354"
 title: Introduktion till Azure-nätverk
 summary: För att köra din app eller tjänst i molnet behöver du ett snabbt och säkert nätverk. Lär dig mer om grunderna i Azure-nätverk samt hur Azure-nätverk hjälper till att förbättra återhämtningsförmågan och att minska svarstiden.
 abstract: >

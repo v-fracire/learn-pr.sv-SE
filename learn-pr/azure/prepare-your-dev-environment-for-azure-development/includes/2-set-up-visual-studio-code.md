@@ -1,4 +1,4 @@
-Visual Studio Code är ett populärt alternativ för att utveckla program för Azure. Det tar endast upp megabyte av lagringsutrymmet och fungerar på Windows, Linux och macOS.
+Visual Studio Code är ett populärt alternativ för att utveckla program för Azure. Det tar endast upp megabytes av lagringsutrymmet och fungerar på Windows, Linux och macOS.
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -18,4 +18,4 @@ Många av tilläggen riktar sig till Azure-funktioner och produkter. Dessa inklu
 
 ## <a name="install-visual-studio-code-and-prepare-for-azure-development"></a>Installera Visual Studio Code och förbered dig för Azure-utveckling
 
-Visual Studio Code stöder Windows, Linux och macOS. Gå till https://code.visualstudio.com/ om du vill installera Visual Studio Code.
+Visual Studio Code stöder Windows, Linux och macOS. Om du vill installera Visual Studio Code, gå till https://code.visualstudio.com/.

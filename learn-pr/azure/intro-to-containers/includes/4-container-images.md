@@ -320,13 +320,13 @@ När du ska publicera en avbildning till Docker Hub behöver du ett konto. Här 
     1. Med det här exemplet hämtas den senaste avbildningen från Docker Hub.
 
         ```bash
-        docker pull my_docker_account/python-dockerfile
+        docker pull $docker_account/python-dockerfile
         ```
 
     1. Med det här exemplet körs containern.
 
         ```bash
-        docker run my_docker_account/python-dockerfile
+        docker run $docker_account/python-dockerfile
         ```
 
 1. Testa din container.

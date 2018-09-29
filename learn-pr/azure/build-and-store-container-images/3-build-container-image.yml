@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: d007363430bd3cde3c42026079020dc2e98bb58c
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360348"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47153154"
 title: Skapa containeravbildningar med Azure Container Registry
 interactive: bash
 azureSandbox: true

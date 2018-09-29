@@ -1,0 +1,54 @@
+### YamlMime:ModuleUnit
+uid: learn.build-azure-bot-services-bot.8-knowledge-check
+title: Testa dina kunskaper
+metadata:
+  title: Testa dina kunskaper
+  description: Kunskapstest för ”Skapa en chattrobot med Azure Bot Service”
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 5b206ed0afc79f1f42efb0445f45bf7d8cbf9fa7
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439366"
+durationInMinutes: 5
+quiz:
+  title: Kunskapstest för ”Skapa en chattrobot med Azure Bot Service”
+  questions:
+  - content: 'Sant eller falskt: Mallen *Robot för webbapp* skapar en *webbapp* och en *robot*.'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Mallen skapar en robot och en Azure-webbapp som värd för roboten. Den konfigurerar också roboten att använda en QnA Maker-kunskapsbas. Du måste skapa kunskapsbasen själv och ansluta den till roboten.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Mallnamnet är beskrivande, den skapar en webbapp och en robot.
+  - content: Vad skapar man med hjälp av QnA Maker?
+    choices:
+    - content: En kunskapsbas som kan användas av en robot.
+      isCorrect: true
+      correctExplanation: QnA Maker tar in frågor och svar och bearbetar dem till ett format som en robot kan använda till att besvara frågor.
+    - content: Undersökningar som du kan bädda in i roboten för att få feedback från användare.
+      isCorrect: false
+      incorrectExplanation: QnA Maker är inte en undersökningstjänst. Den hjälper dig att ge användare information men den försöker inte extrahera data från dem.
+    - content: En robot
+      isCorrect: false
+      incorrectExplanation: QnA Maker kan associeras med en robot men skapar inga egna robotar.
+  - content: Hur matar du in dina data i QnA Maker?
+    choices:
+    - content: Manuellt.
+      isCorrect: false
+      incorrectExplanation: Du kan fylla på kunskapsbasen manuellt men det finns andra metoder.
+    - content: Ladda upp en textfil.
+      isCorrect: false
+      incorrectExplanation: QnA Maker stöder textfiler i många olika format, till exempel tabbavgränsade värden och Excel-kalkylblad. Men det är inte den enda metoden du kan använda för att fylla på kunskapsbasen.
+    - content: Ange URL:en för en sida med vanliga frågor och svar.
+      isCorrect: false
+      incorrectExplanation: QnA Maker kan extrahera frågor från många olika format för sidor med vanliga frågor och svar. Men en URL är inte den enda metoden du kan använda för att fylla på kunskapsbasen.
+    - content: Alla alternativ ovan.
+      isCorrect: true
+      correctExplanation: 'QnA Maker är tillräckligt flexibel för att hantera dina indata i flera av de vanligaste formaten: textfiler, sidor med vanliga frågor och svar och även produkthandböcker. Målet är att göra det enkelt för dig att importera dina data utan omformatering.'

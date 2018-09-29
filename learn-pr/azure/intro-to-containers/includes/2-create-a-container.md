@@ -8,9 +8,9 @@ I den här delen får du lära dig att:
 
 ## <a name="what-are-containers"></a>Vad är containrar?
 
-Containrar är en virtualiseringsmiljö, men till skillnad från virtuella datorer har de inget operativsystem. I stället refererar de till operativsystemet i den värdmiljö som kör containern. Om till exempel fem containrar körs på en server med en specifik Linux-kärna så körs alla fem containrarna på samma kärna.
+Containrar är en virtualiseringsmiljö, men till skillnad från virtuella datorer har de inget operativsystem. I stället refererar de till operativsystemet i den värdmiljö som kör containern. Till exempel om fem containrar körs på en server med en specifik Linux-kärna så körs alla fem containrarna på samma kärna.
 
-Med containrar kan du paketera ditt program och allt som det kräver för att köras in på något som kallas en _containeravbildning_. Containrar är isolerade vilket innebär att de inte stör andra containrar som körs på samma system. Containeravbildningar är också portabla. Du kan ladda upp dina avbildningar till ett containerregister, till exempel Docker Hub eller Azure Container Registry. Du kan då köra dina containrar i molnet och de fungerar på exakt samma sätt som i din utvecklingsmiljö.
+Med containrar kan du paketera ditt program och allt som det kräver för att köras in på något som kallas en _containeravbildning_. Containrar är isolerade vilket innebär att de inte stör andra containrar som körs på samma system. Containeravbildningar är också portabla. Du kan ladda upp dina avbildningar till ett containerregister, till exempel Docker Hub eller Azure Container Registry. Du kan då köra dina containrar i molnet och de fungera på exakt samma sätt som i din utvecklingsmiljö.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yMhY]
 
@@ -24,7 +24,7 @@ Från Cloud Shell skapar du en virtuell Linux-dator som innehåller Docker. Du a
 
 Betrakta den virtuella Linux-datorn som din utvecklingsmiljö och en plats att lära dig om containrar. I praktiken skulle du installera Docker på den dator som du använder för att utveckla dina appar. Docker körs på Windows, macOS och Linux.
 
-I slutet av den här modulen tillhandahåller vi resurser där du kan lära dig mer om att köra Docker i din lokala utvecklingsmiljö.
+Vi tillhandahåller resurser där du kan lära dig mer om att köra Docker i din lokala utvecklingsmiljö i slutet av den här modulen.
 
 ## <a name="what-is-nginx"></a>Vad är Nginx?
 
@@ -42,7 +42,7 @@ En Docker-container körs i ett lokalt nätverk på containerns värdsystem. I d
 
 Du vet att webbförfrågningar normalt körs över port 80 (HTTP). Containern är inte tillgänglig för omvärlden eftersom den körs i ett lokalt nätverk i den virtuella datorn.
 
-Med Docker kan du publicera eller exponera en port så att den blir tillgänglig utanför den virtuella datorn. Här ska du konfigurera din container så att trafik till port 8080 på den virtuella datorn kommer att vidarebefordras till port 80 på containern.
+Med Docker kan du publicera eller exponera en port så att den blir tillgänglig utanför den virtuella datorn. Här ska du konfigurerar din container så att trafik till port 8080 på den virtuella datorn kommer att vidarebefordras till port 80 på containern.
 
 ## <a name="create-a-virtual-machine-to-host-docker"></a>Skapa en virtuell dator som värd för Docker
 
@@ -104,7 +104,7 @@ Med Docker kan du publicera eller exponera en port så att den blir tillgänglig
 ### <a name="create-the-vm"></a>Skapa den virtuella datorn
 
 > [!IMPORTANT]
-> Normalt sett skulle du skapa en resursgrupp för alla dina relaterade Azure-resurser med kommandot `az group create`, men för de här övningarna har en resursgrupp redan skapats åt dig. Använd ”**<rgn>[resursgruppnamn för sandbox]</rgn>**” som din resursgrupp i alla steg.
+> Normalt sett skulle du skapa en resursgrupp för alla dina relaterade Azure-resurser med kommandot `az group create`, men för de här övningarna har en resursgrupp redan skapats åt dig. Använd ”**<rgn>[resursgruppsnamn för sandbox-miljö]</rgn>**” som din resursgrupp i alla steg.
 
 1. Kör kommandot `az vm create` för att skapa din virtuella Linux-dator.
 
@@ -148,7 +148,7 @@ Här ska du skapa en SSH-anslutning till den virtuella datorn så att du kan kon
     ```
 
     > [!NOTE]
-    > Om kommandot misslyckas eller om du ser ett felmeddelande om att ansluta till Docker-daemon-socket betyder det att cloud-init-skriptet inte har slutförts ännu. Även om det finns olika sätt att vänta på att skriptet ska slutföras ska du tills vidare köra `exit` för att lämna din SSH-session och försöka ansluta igen om en minut eller två.
+    > Om kommandot misslyckas eller om du ser ett felmeddelande om att ansluta till Docker-daemon-socket betyder det att cloud-init-skriptet inte har slutförts ännu. Även fast det finns olika sätt att vänta på att skriptet ska slutföras ska du tills vidare köra `exit` för att lämna din SSH-session och försöka ansluta igen om en minut eller två.
 
 ## <a name="start-nginx"></a>Starta Nginx
 
@@ -182,7 +182,7 @@ Här ska du starta en Docker-container som kör Nginx.
 
 Kom ihåg att du konfigurerade din behållare så att trafik på port 8080 vidarekopplas till port 80 på containern.
 
-Om du vill se portmappning i praktiken ska du öppna port 8080 till den virtuella datorn via Azure-brandväggen. Öppna sedan din webbserver från en webbläsare.
+Om du vill se portmappning i arbete ska du här öppna port 8080 till den virtuella datorn via Azure-brandväggen. Öppna sedan din webbserver från en webbläsare.
 
 1. Kör det här `az vm open-port`-kommandot för att öppna port 8080 på din virtuella dator via brandväggen.
 

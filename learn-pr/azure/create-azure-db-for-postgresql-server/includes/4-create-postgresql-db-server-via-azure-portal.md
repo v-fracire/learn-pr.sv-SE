@@ -29,7 +29,7 @@ Nu ser du bladet för att skapa PostgreSQL-servern, som liknar följande bild.
 
 1. Välj en prenumeration. Kontrollera att fältet är inställt på den prenumeration som du vill använda.
 
-1. Nu kan du skapa eller återanvända en befintlig resursgrupp. Välj **Använd befintlig** och därefter <rgn>[Resursgruppnamn för sandbox-miljö]</rgn> i listrutan. Du använder den här gruppen i resten av den här modulen.
+1. Nu kan du skapa eller återanvända en befintlig resursgrupp. Välj **Använd befintlig** och därefter “<rgn>[Resursgruppnamn för sandbox-miljö]</rgn>” i listrutan. Du använder den här gruppen i resten av den här modulen.
 
 1. Välj källa för den nya servern. För den här labbuppgiften lämnar du alternativet _tomt_. Kom ihåg att du kan ändra alternativet till _Säkerhetskopiera_ om du vill återställa en befintlig serversäkerhetskopia.
 

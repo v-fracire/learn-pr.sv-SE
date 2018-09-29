@@ -2,7 +2,7 @@ Vi har en lastbalanserare för att ta emot inkommande Internettrafik och diriger
 
 ## <a name="create-a-set-of-vms"></a>Skapa en uppsättning virtuella datorer
 
-Vi ska skapa tre virtuella datorer och gruppera dem i en tillgänglighetsuppsättning med Azure CLI. Man kan använda portalen för den här uppgiften, men eftersom vi ska skapa flera resurser är det mycket enklare att göra detta via ett skriptverktyg.
+Vi ska skapa tre virtuella datorer och gruppera dem i en tillgänglighetsuppsättning med Azure CLI. Man kan använda portalen till den här uppgiften, men eftersom vi ska skapa flera resurser är det mycket enklare att göra detta via ett skriptverktyg.
 
 En alternativ metod om du _verkligen_ föredrar att använda Azure-portalen är att använda en _mall_. Det här är JSON-instruktioner som kan användas för att distribuera resurser. Vi kan definiera en mall för den virtuella datorn och sedan distribuera mallen flera gånger i Azure-portalen.
 
@@ -93,7 +93,7 @@ Valet av OS är baserat på den avbildning som vi väljer, men de andra konfigur
       - nodejs index.js
     ```
 
-1. Spara filen och ge den namnet **cloud-init.txt**. Du kan använda snabbmenyn ”...” i det övre högra hörnet av redigeraren eller använda <kbd>Ctrl+S</kbd> i Windows och Linux, och <kbd>Cmd+S</kbd> på macOS.
+1. Spara filen och ge den namnet **cloud-init.txt**. Du kan använda snabbmenyn ”...” i det övre högra hörnet i redigeraren eller använda <kbd>Ctrl+S</kbd> i Windows och Linux, och <kbd>Cmd+S</kbd> på macOS.
 
 1. Avsluta redigeraren – du kan återigen använda snabbmenyn ”...” eller ett kortkommando (<kbd>Ctrl+Q</kbd>).
 

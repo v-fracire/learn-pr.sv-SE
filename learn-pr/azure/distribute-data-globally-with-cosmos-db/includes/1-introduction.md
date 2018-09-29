@@ -6,6 +6,6 @@ Anta att du arbetar på en webbaserad klädkedja med stora kundgrupper i Los Ang
 
 I den här modulen gör du följande:
 
-* Lär dig mer om fördelarna med att skriva och replikera data till flera regioner över hela världen
+* Lära dig mer om fördelarna med att skriva och replikera data till flera regioner över hela världen
 * Ändra läs- och skrivprioriteringarna för de regioner där dina data finns
 * Ändra inställningen för konsekvens för din databas

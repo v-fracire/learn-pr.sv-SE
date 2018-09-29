@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 27e05266630f205e571db332c8942d7cb215d6c6
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46361468"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47153698"
 title: Introduktion till Azure
 summary: Kom igång med Azure genom att skapa och konfigurera din första virtuella dator i molnet.
 abstract: "I den här modulen kommer du att:\n- Lära dig vad Microsoft Azure är och vilket samband det har med molntjänster.\n- Se hur enkelt det är att starta din första virtuella dator, lägga till en webbserver och skala upp din server när du behöver mer kraft.\n- Börja bygga upp de grundläggande färdigheter du behöver för att förändra världen eller få ditt drömjobb. \n"

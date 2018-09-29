@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: c075adcf2bcbf62ec6d60cfe1b4aacdd4b04523b
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360655"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47151255"
 title: Välja en metod för datalagring i Azure
 summary: Läs varför Azure Storage, Azure SQL Database och Azure Cosmos DB- eller en kombination av dem – är det bästa sättet att få ut det mesta högpresterande lösning för ditt affärsscenario.
 abstract: "I den här modulen kommer du att:\n- Lär dig att klassificera dina data som strukturerade, delvis strukturerade eller ostrukturerade\n- Lär dig att avgöra behovet av åtgärder, kraven på svarstider och om du behöver använda transaktioner eller inte\n- Avgör om du behöver använda transaktioner för dina data \n"

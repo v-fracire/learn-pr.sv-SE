@@ -3,18 +3,18 @@ uid: learn.classify-user-feedback-with-the-text-analytics-api.7-exercise-sort-fe
 title: Övning – Sortera meddelanden till olika köer utifrån sentimentresultat.
 metadata:
   title: Övning – Sortera meddelanden till olika köer utifrån sentimentresultat.
-  description: I den sista delen av labbuppgiften ska vi lägga till kod och bindningar i vår funktion för att sortera våra meddelanden efter sentiment och vidarebefordra dem till utdataköer för vidare bearbetning.
+  description: I den sista delen av labbuppgiften ska vi lägga till kod och bindningar till vår funktion för att sortera våra meddelanden efter sentiment och vidarebefordra dem till utdataköer för vidare bearbetning.
   ms.date: 09/24/2018
   author: AndrewJByrne
   ms.author: anbyrne
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 0718de2c1c188f1320848f639bc7347aaea00b51
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46515059"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152039"
 azureSandbox: true
 durationInMinutes: 8
 content: '[!include[](includes/7-exercise-sort-feedback.md)]'

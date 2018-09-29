@@ -5,11 +5,11 @@ metadata:
   description: Lär dig hur du ändrar läs- och skrivprioriteringar för dina globala regioner.
   displayType: one-column
   ms.openlocfilehash: 945fb5504cabd37641bc8f0a51a919dcf5471b73
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46359815"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47151237"
 title: Ändra globala läs- och skrivprioriteringar
 azureSandbox: true
 durationInMinutes: 5

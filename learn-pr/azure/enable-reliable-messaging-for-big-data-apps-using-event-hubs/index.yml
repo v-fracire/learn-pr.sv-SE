@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 5c86b895b02f8cbbe4cabc69143c4502f890fcca
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46354605"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155192"
 title: Aktivera tillförlitlig meddelandehantering för Big Data-program med Azure Event Hubs
 summary: Anslut sändande och mottagande appar med Event Hubs så att du kan hantera extremt hög belastning utan att förlora data.
 abstract: >

@@ -1,0 +1,68 @@
+### YamlMime:ModuleUnit
+uid: learn.secure-azure-resources-with-rbac.7-knowledge-check-rbac
+metadata:
+  title: Kunskapstest – Använda RBAC
+  description: Kunskapstest – Använda RBAC
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 94bc59b81d0dda1e57c9c8a7fc515a2527a05543
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439911"
+title: Kunskapstest – Använda RBAC
+durationInMinutes: 3
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vad är heter bladet på Azure Portal där du beviljar åtkomst?
+    choices:
+    - content: Azure-resurser
+      isCorrect: false
+      incorrectExplanation: På det här bladet visas vilka roller som har tilldelats dig eller den valda användaren.
+    - content: Azure Active Directory
+      isCorrect: false
+      incorrectExplanation: På det här bladet kommer du åt Azure Active Directory-funktionerna.
+    - content: Alla användare
+      isCorrect: false
+      incorrectExplanation: Det här bladet visar en lista över alla användare för den valda katalogen.
+    - content: Åtkomstkontroll (IAM)
+      isCorrect: true
+      correctExplanation: Du tilldelar roller på bladet Åtkomstkontroll (IAM). Det här bladet visas på flera ställen på portalen.
+  - content: 'Sant eller falskt: Om du vill ge en användare åtkomst till Azure-resurser skapar du en rolltilldelning.'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt i ett visst omfång i syfte att bevilja åtkomst.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: En rolltilldelning innebär att en roll kopplas till ett säkerhetsobjekt för ett visst omfång i syfte att bevilja åtkomst.
+  - content: Vilken roll krävs för att bevilja åtkomst till andra?
+    choices:
+    - content: Virtuell datordeltagare
+      isCorrect: false
+      incorrectExplanation: Med den här rollen kan du hantera virtuella datorer men du kan inte ge andra åtkomst.
+    - content: Administratör för användaråtkomst
+      isCorrect: true
+      correctExplanation: Med den här rollen och rollen Ägare kan du ge andra åtkomst.
+    - content: Deltagare
+      isCorrect: false
+      incorrectExplanation: Med den här rollen kan du hantera alla resurser men du kan inte ge andra åtkomst.
+    - content: Läsare
+      isCorrect: false
+      incorrectExplanation: Med den här rollen kan du läsa alla resurser men du kan inte ge andra åtkomst.
+  - content: Anta att en utvecklare behöver fullständig åtkomst till en resursgrupp. Vilket omfång bör du välja om du följer principen om lägsta behörighet?
+    choices:
+    - content: Resurs
+      isCorrect: false
+      incorrectExplanation: Ett resursomfång är mindre än vad som behövs.
+    - content: Resursgrupp
+      isCorrect: true
+      correctExplanation: Om du följer principen om lägsta behörighet beviljar du den lägsta åtkomst som användaren behöver för att utföra sitt arbete. I det här fallet bör du ange omfånget till resursgruppen.
+    - content: Prenumeration
+      isCorrect: false
+      incorrectExplanation: Ett prenumerationsomfång är större än vad som behövs.
