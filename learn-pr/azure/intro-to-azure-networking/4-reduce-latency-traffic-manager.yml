@@ -1,42 +1,42 @@
 ### YamlMime:ModuleUnit
 uid: learn.intro-to-azure-networking.4-reduce-latency-traffic-manager
-title: <span data-ttu-id="e86ed-101">Minska svarstiderna med Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="e86ed-101">Reduce latency with Azure Traffic Manager</span></span>
+title: <span data-ttu-id="71689-101">Minska svarstiderna med Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="71689-101">Reduce latency with Azure Traffic Manager</span></span>
 metadata:
-  title: <span data-ttu-id="e86ed-102">Minska svarstiderna med Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="e86ed-102">Reduce latency with Azure Traffic Manager</span></span>
-  description: <span data-ttu-id="e86ed-103">Läs om hur Traffic Manager kan minska svarstiden och skapa återhämtning i olika geografiska områden.</span><span class="sxs-lookup"><span data-stu-id="e86ed-103">Learn how Traffic Manager can reduce latency and create resiliency across geographic regions.</span></span>
+  title: <span data-ttu-id="71689-102">Minska svarstiderna med Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="71689-102">Reduce latency with Azure Traffic Manager</span></span>
+  description: <span data-ttu-id="71689-103">Läs om hur Traffic Manager kan minska svarstiden och skapa återhämtning i olika geografiska områden.</span><span class="sxs-lookup"><span data-stu-id="71689-103">Learn how Traffic Manager can reduce latency and create resiliency across geographic regions.</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 613ac9817c513c55153429983ab65b679eea183e
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46361375"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47154594"
 durationInMinutes: 7
 content: >
   [!include[](includes/4-reduce-latency-traffic-manager.md)]
 quiz:
-  title: <span data-ttu-id="e86ed-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="e86ed-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="71689-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="71689-104">Check your knowledge</span></span>
   questions:
-  - content: <span data-ttu-id="e86ed-105">Hur minskar Azure Traffic Manager svarstiden?</span><span class="sxs-lookup"><span data-stu-id="e86ed-105">How does Azure Traffic Manager reduce latency?</span></span>
+  - content: <span data-ttu-id="71689-105">Hur minskar Azure Traffic Manager svarstiden?</span><span class="sxs-lookup"><span data-stu-id="71689-105">How does Azure Traffic Manager reduce latency?</span></span>
     choices:
-    - content: <span data-ttu-id="e86ed-106">Den väljer enbart de snabbaste nätverken mellan slutpunkter.</span><span class="sxs-lookup"><span data-stu-id="e86ed-106">It chooses only the fastest networks between endpoints.</span></span>
+    - content: <span data-ttu-id="71689-106">Den väljer enbart de snabbaste nätverken mellan slutpunkter.</span><span class="sxs-lookup"><span data-stu-id="71689-106">It chooses only the fastest networks between endpoints.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e86ed-107">Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.</span><span class="sxs-lookup"><span data-stu-id="e86ed-107">Choosing the server that's closest to the user is a good way to reduce latency.</span></span>
-    - content: <span data-ttu-id="e86ed-108">Den väljer den slutpunkt som är närmast användarens DNS-server.</span><span class="sxs-lookup"><span data-stu-id="e86ed-108">It chooses the endpoint that's closest to the user's DNS server.</span></span>
+      incorrectExplanation: <span data-ttu-id="71689-107">Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.</span><span class="sxs-lookup"><span data-stu-id="71689-107">Choosing the server that's closest to the user is a good way to reduce latency.</span></span>
+    - content: <span data-ttu-id="71689-108">Den väljer den slutpunkt som är närmast användarens DNS-server.</span><span class="sxs-lookup"><span data-stu-id="71689-108">It chooses the endpoint that's closest to the user's DNS server.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="e86ed-109">Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.</span><span class="sxs-lookup"><span data-stu-id="e86ed-109">Choosing the server that's closest to the user is a good way to reduce latency.</span></span>
-    - content: <span data-ttu-id="e86ed-110">Den cachelagrar innehåll, på ungefär samma sätt som nätverk för innehållsleverans fungerar.</span><span class="sxs-lookup"><span data-stu-id="e86ed-110">It caches content, similar to how content delivery networks work.</span></span>
+      correctExplanation: <span data-ttu-id="71689-109">Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.</span><span class="sxs-lookup"><span data-stu-id="71689-109">Choosing the server that's closest to the user is a good way to reduce latency.</span></span>
+    - content: <span data-ttu-id="71689-110">Den cachelagrar innehåll, på ungefär samma sätt som nätverk för innehållsleverans fungerar.</span><span class="sxs-lookup"><span data-stu-id="71689-110">It caches content, similar to how content delivery networks work.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e86ed-111">Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.</span><span class="sxs-lookup"><span data-stu-id="e86ed-111">Choosing the server that's closest to the user is a good way to reduce latency.</span></span>
-  - content: <span data-ttu-id="e86ed-112">Anta att du bor i Storbritannien, men din DNS-server finns i Italien.</span><span class="sxs-lookup"><span data-stu-id="e86ed-112">Suppose you live in England, but your DNS server is in Italy.</span></span> <span data-ttu-id="e86ed-113">Hur dirigerar Traffic Manager trafik?</span><span class="sxs-lookup"><span data-stu-id="e86ed-113">How does Traffic Manager direct traffic?</span></span>
+      incorrectExplanation: <span data-ttu-id="71689-111">Att välja den server som är närmast användaren är ett bra sätt att minska svarstiden.</span><span class="sxs-lookup"><span data-stu-id="71689-111">Choosing the server that's closest to the user is a good way to reduce latency.</span></span>
+  - content: <span data-ttu-id="71689-112">Anta att du bor i Storbritannien, men din DNS-server finns i Italien.</span><span class="sxs-lookup"><span data-stu-id="71689-112">Suppose you live in England, but your DNS server is in Italy.</span></span> <span data-ttu-id="71689-113">Hur dirigerar Traffic Manager trafik?</span><span class="sxs-lookup"><span data-stu-id="71689-113">How does Traffic Manager direct traffic?</span></span>
     choices:
-    - content: <span data-ttu-id="e86ed-114">Den väljer den tjänst som är närmast Storbritannien.</span><span class="sxs-lookup"><span data-stu-id="e86ed-114">It chooses the service that's closest to England.</span></span>
+    - content: <span data-ttu-id="71689-114">Den väljer den tjänst som är närmast Storbritannien.</span><span class="sxs-lookup"><span data-stu-id="71689-114">It chooses the service that's closest to England.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e86ed-115">Traffic Manager använder den _DNS-server_ som är närmast användaren för att dirigera trafik.</span><span class="sxs-lookup"><span data-stu-id="e86ed-115">Traffic Manager uses the _DNS server_ that's closest to the user, to direct traffic.</span></span>
-    - content: <span data-ttu-id="e86ed-116">Den väljer den tjänst som är närmast Italien.</span><span class="sxs-lookup"><span data-stu-id="e86ed-116">It chooses the service that's closest to Italy.</span></span>
+      incorrectExplanation: <span data-ttu-id="71689-115">Traffic Manager använder den _DNS-server_ som är närmast användaren för att dirigera trafik.</span><span class="sxs-lookup"><span data-stu-id="71689-115">Traffic Manager uses the _DNS server_ that's closest to the user, to direct traffic.</span></span>
+    - content: <span data-ttu-id="71689-116">Den väljer den tjänst som är närmast Italien.</span><span class="sxs-lookup"><span data-stu-id="71689-116">It chooses the service that's closest to Italy.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="e86ed-117">Traffic Manager använder den _DNS-server_ som är närmast användaren för att dirigera trafik.</span><span class="sxs-lookup"><span data-stu-id="e86ed-117">Traffic Manager uses the _DNS server_ that's closest to the user, to direct traffic.</span></span>
+      correctExplanation: <span data-ttu-id="71689-117">Traffic Manager använder den _DNS-server_ som är närmast användaren för att dirigera trafik.</span><span class="sxs-lookup"><span data-stu-id="71689-117">Traffic Manager uses the _DNS server_ that's closest to the user, to direct traffic.</span></span>

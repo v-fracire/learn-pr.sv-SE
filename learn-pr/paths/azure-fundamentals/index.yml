@@ -10,11 +10,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 1582682c81c83811a475b8e9849f7606c36182b5
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357135"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47154026"
 title: Grunderna för Azure
 summary: Är du intresserad av molnet, men vet inte riktigt hur det skulle passa dig? Den här utbildningen är rätt ställe att börja på. Läs om fördelarna med molntjänster, funktioner i Azure som sparar tid och pengar, grundläggande strategier för övergången till molnet och mycket mer.
 prerequisites: Ingen

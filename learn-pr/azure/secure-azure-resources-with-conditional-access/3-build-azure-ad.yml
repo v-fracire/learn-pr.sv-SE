@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.secure-access-azure-ad-multi-factor-authentication.3-build-azure-ad
 metadata:
-  title: <span data-ttu-id="e5ee9-101">Skapa din katalog</span><span class="sxs-lookup"><span data-stu-id="e5ee9-101">Build your directory</span></span>
-  description: <span data-ttu-id="e5ee9-102">Lär dig hur du skapar en katalog och använder tillfälliga licenser.</span><span class="sxs-lookup"><span data-stu-id="e5ee9-102">Learn how to to create a directory and get temporary licenses in place.</span></span>
+  title: <span data-ttu-id="59efa-101">Skapa din katalog</span><span class="sxs-lookup"><span data-stu-id="59efa-101">Build your directory</span></span>
+  description: <span data-ttu-id="59efa-102">Lär dig hur du skapar en katalog och använder tillfälliga licenser.</span><span class="sxs-lookup"><span data-stu-id="59efa-102">Learn how to to create a directory and get temporary licenses in place.</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 45854a3242fb78875a81815bcb5e955ebda9c4ca
-  ms.sourcegitcommit: f302dc1ca9a7e4a4e92c25e012d4bf7e55f71b00
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/24/2018
-  ms.locfileid: "47024013"
-title: <span data-ttu-id="e5ee9-103">Skapa din katalog</span><span class="sxs-lookup"><span data-stu-id="e5ee9-103">Build your directory</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155507"
+title: <span data-ttu-id="59efa-103">Skapa din katalog</span><span class="sxs-lookup"><span data-stu-id="59efa-103">Build your directory</span></span>
 labId: 46467
 labModal: true
 durationInMinutes: 5

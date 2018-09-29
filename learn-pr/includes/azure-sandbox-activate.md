@@ -1,2 +1,2 @@
 > [!NOTE]
-> <span data-ttu-id="be9b0-101">Kontrollera att du har aktiverat sandbox-miljön innan du fortsätter med de här instruktionerna.</span><span class="sxs-lookup"><span data-stu-id="be9b0-101">Make sure you have activated the sandbox before proceeding with these instructions.</span></span>
+> <span data-ttu-id="a497f-101">Kontrollera att du har aktiverat sandbox-miljön innan du fortsätter med de här instruktionerna.</span><span class="sxs-lookup"><span data-stu-id="a497f-101">Make sure you have activated the sandbox before proceeding with these instructions.</span></span>

@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.align-requirements-in-azure.5-paas
-title: <span data-ttu-id="a458b-101">Plattform som en tjänst</span><span class="sxs-lookup"><span data-stu-id="a458b-101">Platform as a service</span></span>
+title: <span data-ttu-id="20e5c-101">Plattform som en tjänst</span><span class="sxs-lookup"><span data-stu-id="20e5c-101">Platform as a service</span></span>
 metadata:
-  title: <span data-ttu-id="a458b-102">PaaS</span><span class="sxs-lookup"><span data-stu-id="a458b-102">PaaS</span></span>
-  description: <span data-ttu-id="a458b-103">Lär dig mer om plattform som en tjänst och om det är rätt val för ditt program</span><span class="sxs-lookup"><span data-stu-id="a458b-103">Learn about platform as a service and if it might be the right choice for your application</span></span>
+  title: <span data-ttu-id="20e5c-102">PaaS</span><span class="sxs-lookup"><span data-stu-id="20e5c-102">PaaS</span></span>
+  description: <span data-ttu-id="20e5c-103">Lär dig mer om plattform som en tjänst och om det är rätt val för ditt program</span><span class="sxs-lookup"><span data-stu-id="20e5c-103">Learn about platform as a service and if it might be the right choice for your application</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: b7cba0c6ac6bc3cc0b81183e8564dc60d99fb414
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360463"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47150961"
 durationInMinutes: 4
 content: '[!include[](includes/5-paas.md)]'

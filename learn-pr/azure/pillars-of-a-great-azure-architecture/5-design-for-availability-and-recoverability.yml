@@ -1,48 +1,48 @@
 ### YamlMime:ModuleUnit
 uid: learn.pillars-of-a-great-azure-architecture.5-design-for-availability-and-recoverability
-title: <span data-ttu-id="e2745-101">Design för tillgänglighet och återställning</span><span class="sxs-lookup"><span data-stu-id="e2745-101">Design for availability and recoverability</span></span>
+title: <span data-ttu-id="c9a7e-101">Design för tillgänglighet och återställning</span><span class="sxs-lookup"><span data-stu-id="c9a7e-101">Design for availability and recoverability</span></span>
 metadata:
-  title: <span data-ttu-id="e2745-102">Design för tillgänglighet och återställning</span><span class="sxs-lookup"><span data-stu-id="e2745-102">Design for availability and recoverability</span></span>
-  description: <span data-ttu-id="e2745-103">Design för tillgänglighet och återställning</span><span class="sxs-lookup"><span data-stu-id="e2745-103">Design for availability and recoverability</span></span>
+  title: <span data-ttu-id="c9a7e-102">Design för tillgänglighet och återställning</span><span class="sxs-lookup"><span data-stu-id="c9a7e-102">Design for availability and recoverability</span></span>
+  description: <span data-ttu-id="c9a7e-103">Design för tillgänglighet och återställning</span><span class="sxs-lookup"><span data-stu-id="c9a7e-103">Design for availability and recoverability</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: ce3457feab12a45bbc103e154affbcd13f4a3923
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46356271"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47150004"
 durationInMinutes: 10
 content: >
   [!include[](includes/5-design-for-availability-and-recoverability.md)]
 quiz:
-  title: <span data-ttu-id="e2745-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="e2745-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="c9a7e-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="c9a7e-104">Check your knowledge</span></span>
   questions:
-  - content: <span data-ttu-id="e2745-105">Anta att du vill öka tillgängligheten för ditt system för att kunna ge ett bättre servicenivåavtal (SLA) åt dina kunder.</span><span class="sxs-lookup"><span data-stu-id="e2745-105">Suppose you would like to increase the availability of your system to provide a better service-level agreement (SLA) to your customers.</span></span> <span data-ttu-id="e2745-106">Vilket av följande är en vägledande princip som du kan använda?</span><span class="sxs-lookup"><span data-stu-id="e2745-106">Which of the following is a guiding principle you can use?</span></span>
+  - content: <span data-ttu-id="c9a7e-105">Anta att du vill öka tillgängligheten för ditt system för att kunna ge ett bättre servicenivåavtal (SLA) åt dina kunder.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-105">Suppose you would like to increase the availability of your system to provide a better service-level agreement (SLA) to your customers.</span></span> <span data-ttu-id="c9a7e-106">Vilket av följande är en vägledande princip som du kan använda?</span><span class="sxs-lookup"><span data-stu-id="c9a7e-106">Which of the following is a guiding principle you can use?</span></span>
     choices:
-    - content: <span data-ttu-id="e2745-107">Minska ditt mål för maximal varaktighet av acceptabel dataförlust.</span><span class="sxs-lookup"><span data-stu-id="e2745-107">Reduce your target for maximum duration of acceptable data loss.</span></span>
+    - content: <span data-ttu-id="c9a7e-107">Minska ditt mål för maximal varaktighet av acceptabel dataförlust.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-107">Reduce your target for maximum duration of acceptable data loss.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e2745-108">Det kan öka återställning, inte tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="e2745-108">This can increase recoverability, not availability.</span></span>
-    - content: <span data-ttu-id="e2745-109">Kryptera alla data i vila</span><span class="sxs-lookup"><span data-stu-id="e2745-109">Encrypt all data at rest</span></span>
+      incorrectExplanation: <span data-ttu-id="c9a7e-108">Det kan öka återställning, inte tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-108">This can increase recoverability, not availability.</span></span>
+    - content: <span data-ttu-id="c9a7e-109">Kryptera alla data i vila</span><span class="sxs-lookup"><span data-stu-id="c9a7e-109">Encrypt all data at rest</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e2745-110">Det kan öka säkerhet, inte tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="e2745-110">This can increase security, not availability.</span></span>
-    - content: <span data-ttu-id="e2745-111">Eliminera felkritiska systemdelar</span><span class="sxs-lookup"><span data-stu-id="e2745-111">Eliminate single point of failure</span></span>
+      incorrectExplanation: <span data-ttu-id="c9a7e-110">Det kan öka säkerhet, inte tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-110">This can increase security, not availability.</span></span>
+    - content: <span data-ttu-id="c9a7e-111">Eliminera felkritiska systemdelar</span><span class="sxs-lookup"><span data-stu-id="c9a7e-111">Eliminate single point of failure</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="e2745-112">Designa för tillgänglighet fokuserar på att upprätthålla tjänstens trots tillfälliga förhållanden och lokaliserade fel.</span><span class="sxs-lookup"><span data-stu-id="e2745-112">Designing for availability focuses on maintaining service despite temporary conditions and localized failures.</span></span> <span data-ttu-id="e2745-113">Att lägga till redundans för att eliminera felkritiska systemdelar är en viktig strategi för att förbättra tillgängligheten.</span><span class="sxs-lookup"><span data-stu-id="e2745-113">Adding redundancy to eliminate single points of failure is a core strategy for improving availability.</span></span>
-  - content: <span data-ttu-id="e2745-114">Vilket av följande skulle påverkas av ditt definierade återställningspunktmål (RPO)?</span><span class="sxs-lookup"><span data-stu-id="e2745-114">Which of the following would be impacted by your defined Recovery Point Objective (RPO)?</span></span>
+      correctExplanation: <span data-ttu-id="c9a7e-112">Designa för tillgänglighet fokuserar på att upprätthålla tjänstens trots tillfälliga förhållanden och lokaliserade fel.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-112">Designing for availability focuses on maintaining service despite temporary conditions and localized failures.</span></span> <span data-ttu-id="c9a7e-113">Att lägga till redundans för att eliminera felkritiska systemdelar är en viktig strategi för att förbättra tillgängligheten.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-113">Adding redundancy to eliminate single points of failure is a core strategy for improving availability.</span></span>
+  - content: <span data-ttu-id="c9a7e-114">Vilket av följande skulle påverkas av ditt definierade återställningspunktmål (RPO)?</span><span class="sxs-lookup"><span data-stu-id="c9a7e-114">Which of the following would be impacted by your defined Recovery Point Objective (RPO)?</span></span>
     choices:
-    - content: <span data-ttu-id="e2745-115">Frekvensen för säkerhetskopior av databasen</span><span class="sxs-lookup"><span data-stu-id="e2745-115">The frequency of database backups</span></span>
+    - content: <span data-ttu-id="c9a7e-115">Frekvensen för säkerhetskopior av databasen</span><span class="sxs-lookup"><span data-stu-id="c9a7e-115">The frequency of database backups</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="e2745-116">Eftersom målet för återställningspunkten handlar om den mängd dataförlust som är acceptabel, så måste säkerhetskopieringsfrekvensen vara inom den tidsperioden och påverkas direkt av din definierade RPO.</span><span class="sxs-lookup"><span data-stu-id="e2745-116">Since the recovery point objective is concerned with the amount of data loss that is tolerable, the frequency of backups needs to be within this time window and is directly impacted by your defined RPO.</span></span>
-    - content: <span data-ttu-id="e2745-117">Antalet regioner som data replikeras till</span><span class="sxs-lookup"><span data-stu-id="e2745-117">The number of regions that data is replicated to</span></span>
+      correctExplanation: <span data-ttu-id="c9a7e-116">Eftersom målet för återställningspunkten handlar om den mängd dataförlust som är acceptabel, så måste säkerhetskopieringsfrekvensen vara inom den tidsperioden och påverkas direkt av din definierade RPO.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-116">Since the recovery point objective is concerned with the amount of data loss that is tolerable, the frequency of backups needs to be within this time window and is directly impacted by your defined RPO.</span></span>
+    - content: <span data-ttu-id="c9a7e-117">Antalet regioner som data replikeras till</span><span class="sxs-lookup"><span data-stu-id="c9a7e-117">The number of regions that data is replicated to</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e2745-118">Antalet regioner som data replikeras till är ett viktigt övervägande, men påverkas inte av din definierade RPO.</span><span class="sxs-lookup"><span data-stu-id="e2745-118">The number of regions that data is replicated to is an important consideration, but is not impacted by your defined RPO.</span></span>
-    - content: <span data-ttu-id="e2745-119">Antalet instanser i ett databaskluster</span><span class="sxs-lookup"><span data-stu-id="e2745-119">The number of instances in a database cluster</span></span>
+      incorrectExplanation: <span data-ttu-id="c9a7e-118">Antalet regioner som data replikeras till är ett viktigt övervägande, men påverkas inte av din definierade RPO.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-118">The number of regions that data is replicated to is an important consideration, but is not impacted by your defined RPO.</span></span>
+    - content: <span data-ttu-id="c9a7e-119">Antalet instanser i ett databaskluster</span><span class="sxs-lookup"><span data-stu-id="c9a7e-119">The number of instances in a database cluster</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e2745-120">Antalet instanser i ett databaskluster kan vara ett viktigt beslut, men påverkas inte av din definierade RPO.</span><span class="sxs-lookup"><span data-stu-id="e2745-120">The number of instances in a database cluster can be an important decision, but is not impacted by your defined RPO.</span></span>
-    - content: <span data-ttu-id="e2745-121">Den typ av lastbalanseringsteknik som används i ditt program</span><span class="sxs-lookup"><span data-stu-id="e2745-121">The type of load-balancing technology used in your application</span></span>
+      incorrectExplanation: <span data-ttu-id="c9a7e-120">Antalet instanser i ett databaskluster kan vara ett viktigt beslut, men påverkas inte av din definierade RPO.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-120">The number of instances in a database cluster can be an important decision, but is not impacted by your defined RPO.</span></span>
+    - content: <span data-ttu-id="c9a7e-121">Den typ av lastbalanseringsteknik som används i ditt program</span><span class="sxs-lookup"><span data-stu-id="c9a7e-121">The type of load-balancing technology used in your application</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="e2745-122">Typen av lastbalanseringsteknik som används i ditt program kan vara ett viktigt beslut, men påverkas inte av ditt definierade mål för återställningspunkten.</span><span class="sxs-lookup"><span data-stu-id="e2745-122">The type of load-balancing technology used in your application can be an important decision, but is not impacted by your defined RPO.</span></span>
+      incorrectExplanation: <span data-ttu-id="c9a7e-122">Typen av lastbalanseringsteknik som används i ditt program kan vara ett viktigt beslut, men påverkas inte av ditt definierade mål för återställningspunkten.</span><span class="sxs-lookup"><span data-stu-id="c9a7e-122">The type of load-balancing technology used in your application can be an important decision, but is not impacted by your defined RPO.</span></span>

@@ -1,49 +1,49 @@
 ### YamlMime:ModuleUnit
 uid: learn.manage-iot-devices.4-summary
 metadata:
-  title: <span data-ttu-id="9e239-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="9e239-101">Summary</span></span>
-  description: <span data-ttu-id="9e239-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="9e239-102">Summary</span></span>
+  title: <span data-ttu-id="944cf-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="944cf-101">Summary</span></span>
+  description: <span data-ttu-id="944cf-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="944cf-102">Summary</span></span>
   author: lnyswonger
   ms.date: 09/24/2018
   ms.author: luken
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 266c371394a46c9fc98e164e2a8700ae830e2ea7
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358887"
-title: <span data-ttu-id="9e239-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="9e239-103">Summary</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47150010"
+title: <span data-ttu-id="944cf-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="944cf-103">Summary</span></span>
 durationInMinutes: 7
 content: >
   [!include[](includes/4-summary.md)]
 quiz:
-  title: <span data-ttu-id="9e239-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="9e239-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="944cf-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="944cf-104">Check your knowledge</span></span>
   questions:
-  - content: <span data-ttu-id="9e239-105">IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter till molnet för lagring eller bearbetning.</span><span class="sxs-lookup"><span data-stu-id="9e239-105">IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing.</span></span>
+  - content: <span data-ttu-id="944cf-105">IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter till molnet för lagring eller bearbetning.</span><span class="sxs-lookup"><span data-stu-id="944cf-105">IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing.</span></span>
     choices:
-    - content: <span data-ttu-id="9e239-106">Sant</span><span class="sxs-lookup"><span data-stu-id="9e239-106">True</span></span>
+    - content: <span data-ttu-id="944cf-106">Sant</span><span class="sxs-lookup"><span data-stu-id="944cf-106">True</span></span>
       isCorrect: true
-    - content: <span data-ttu-id="9e239-107">Falskt</span><span class="sxs-lookup"><span data-stu-id="9e239-107">False</span></span>
+    - content: <span data-ttu-id="944cf-107">Falskt</span><span class="sxs-lookup"><span data-stu-id="944cf-107">False</span></span>
       isCorrect: false
-  - content: '<span data-ttu-id="9e239-108">Du kan använda nivån F1: Kostnadsfri för att konfigurera IoT Hub, men det rekommenderas endast för testning.</span><span class="sxs-lookup"><span data-stu-id="9e239-108">You can use the F1: Free Tier to setup IoT Hub, however it is only recommended for testing.</span></span>'
+  - content: '<span data-ttu-id="944cf-108">Du kan använda nivån F1: Kostnadsfri för att konfigurera IoT Hub, men det rekommenderas endast för testning.</span><span class="sxs-lookup"><span data-stu-id="944cf-108">You can use the F1: Free Tier to setup IoT Hub, however it is only recommended for testing.</span></span>'
     choices:
-    - content: <span data-ttu-id="9e239-109">Sant</span><span class="sxs-lookup"><span data-stu-id="9e239-109">True</span></span>
+    - content: <span data-ttu-id="944cf-109">Sant</span><span class="sxs-lookup"><span data-stu-id="944cf-109">True</span></span>
       isCorrect: true
-    - content: <span data-ttu-id="9e239-110">Falskt</span><span class="sxs-lookup"><span data-stu-id="9e239-110">False</span></span>
+    - content: <span data-ttu-id="944cf-110">Falskt</span><span class="sxs-lookup"><span data-stu-id="944cf-110">False</span></span>
       isCorrect: false
-  - content: <span data-ttu-id="9e239-111">Vilken av följande principer för delad åtkomst skapas inte som standard?</span><span class="sxs-lookup"><span data-stu-id="9e239-111">Which one of the shared access policies is not created by default?</span></span>
+  - content: <span data-ttu-id="944cf-111">Vilken av följande principer för delad åtkomst skapas inte som standard?</span><span class="sxs-lookup"><span data-stu-id="944cf-111">Which one of the shared access policies is not created by default?</span></span>
     choices:
-    - content: <span data-ttu-id="9e239-112">iothubowner</span><span class="sxs-lookup"><span data-stu-id="9e239-112">iothubowner</span></span>
+    - content: <span data-ttu-id="944cf-112">iothubowner</span><span class="sxs-lookup"><span data-stu-id="944cf-112">iothubowner</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="9e239-113">Den här principen skapas som standard.</span><span class="sxs-lookup"><span data-stu-id="9e239-113">This policy is created by default.</span></span>
-    - content: <span data-ttu-id="9e239-114">service</span><span class="sxs-lookup"><span data-stu-id="9e239-114">service</span></span>
+      incorrectExplanation: <span data-ttu-id="944cf-113">Den här principen skapas som standard.</span><span class="sxs-lookup"><span data-stu-id="944cf-113">This policy is created by default.</span></span>
+    - content: <span data-ttu-id="944cf-114">service</span><span class="sxs-lookup"><span data-stu-id="944cf-114">service</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="9e239-115">Den här principen skapas som standard.</span><span class="sxs-lookup"><span data-stu-id="9e239-115">This policy is created by default.</span></span>
-    - content: <span data-ttu-id="9e239-116">device</span><span class="sxs-lookup"><span data-stu-id="9e239-116">device</span></span>
+      incorrectExplanation: <span data-ttu-id="944cf-115">Den här principen skapas som standard.</span><span class="sxs-lookup"><span data-stu-id="944cf-115">This policy is created by default.</span></span>
+    - content: <span data-ttu-id="944cf-116">device</span><span class="sxs-lookup"><span data-stu-id="944cf-116">device</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="9e239-117">Den här principen skapas som standard.</span><span class="sxs-lookup"><span data-stu-id="9e239-117">This policy is created by default.</span></span>
-    - content: <span data-ttu-id="9e239-118">registryWrite</span><span class="sxs-lookup"><span data-stu-id="9e239-118">registryWrite</span></span>
+      incorrectExplanation: <span data-ttu-id="944cf-117">Den här principen skapas som standard.</span><span class="sxs-lookup"><span data-stu-id="944cf-117">This policy is created by default.</span></span>
+    - content: <span data-ttu-id="944cf-118">registryWrite</span><span class="sxs-lookup"><span data-stu-id="944cf-118">registryWrite</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="9e239-119">Det finns ingen princip som heter registryWrite.</span><span class="sxs-lookup"><span data-stu-id="9e239-119">There is no such policy as registryWrite.</span></span>
+      correctExplanation: <span data-ttu-id="944cf-119">Det finns ingen princip som heter registryWrite.</span><span class="sxs-lookup"><span data-stu-id="944cf-119">There is no such policy as registryWrite.</span></span>

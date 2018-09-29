@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-azure-storage-account.3-choose-your-account-settings
-title: <span data-ttu-id="94629-101">Välj kontoinställningar</span><span class="sxs-lookup"><span data-stu-id="94629-101">Choose your account settings</span></span>
+title: <span data-ttu-id="dfbe0-101">Välj kontoinställningar</span><span class="sxs-lookup"><span data-stu-id="dfbe0-101">Choose your account settings</span></span>
 metadata:
-  title: <span data-ttu-id="94629-102">Välj kontoinställningar</span><span class="sxs-lookup"><span data-stu-id="94629-102">Choose your account settings</span></span>
-  description: <span data-ttu-id="94629-103">Välj kontoinställningar</span><span class="sxs-lookup"><span data-stu-id="94629-103">Choose your account settings</span></span>
+  title: <span data-ttu-id="dfbe0-102">Välj kontoinställningar</span><span class="sxs-lookup"><span data-stu-id="dfbe0-102">Choose your account settings</span></span>
+  description: <span data-ttu-id="dfbe0-103">Välj kontoinställningar</span><span class="sxs-lookup"><span data-stu-id="dfbe0-103">Choose your account settings</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 86463780f25a2aa164342d6539d35ec5586984af
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46361407"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47151141"
 durationInMinutes: 5
 content: '[!include[](includes/3-choose-your-account-settings.md)]'

@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-a-windows-vm-in-azure.2-create-a-windows-virtual-machine
-title: <span data-ttu-id="d6f98-101">Virtuella Windows-datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="d6f98-101">Windows virtual machines in Azure</span></span>
+title: <span data-ttu-id="f5709-101">Virtuella Windows-datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="f5709-101">Windows virtual machines in Azure</span></span>
 metadata:
-  title: <span data-ttu-id="d6f98-102">Virtuella Windows-datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="d6f98-102">Windows virtual machines in Azure</span></span>
-  description: <span data-ttu-id="d6f98-103">Virtuella Windows-datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="d6f98-103">Windows virtual machines in Azure</span></span>
+  title: <span data-ttu-id="f5709-102">Virtuella Windows-datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="f5709-102">Windows virtual machines in Azure</span></span>
+  description: <span data-ttu-id="f5709-103">Virtuella Windows-datorer i Azure</span><span class="sxs-lookup"><span data-stu-id="f5709-103">Windows virtual machines in Azure</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 3d97d747f0ac23c328448b84a19518e80770ef80
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357244"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47151096"
 durationInMinutes: 5
 content: '[!include[](includes/2-create-a-windows-virtual-machine.md)]'
