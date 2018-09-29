@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.azure-services-features.4-exercise-create-an-azure-account
-title: <span data-ttu-id="1c670-101">Övning – Skapa ett Azure-konto</span><span class="sxs-lookup"><span data-stu-id="1c670-101">Exercise - Create an Azure account</span></span>
+title: <span data-ttu-id="3942a-101">Övning – Skapa ett Azure-konto</span><span class="sxs-lookup"><span data-stu-id="3942a-101">Exercise - Create an Azure account</span></span>
 metadata:
-  title: <span data-ttu-id="1c670-102">Övning – Skapa ett Azure-konto</span><span class="sxs-lookup"><span data-stu-id="1c670-102">Exercise - Create an Azure account</span></span>
-  description: <span data-ttu-id="1c670-103">Skapa ett Azure-konto</span><span class="sxs-lookup"><span data-stu-id="1c670-103">Create an Azure account</span></span>
+  title: <span data-ttu-id="3942a-102">Övning – Skapa ett Azure-konto</span><span class="sxs-lookup"><span data-stu-id="3942a-102">Exercise - Create an Azure account</span></span>
+  description: <span data-ttu-id="3942a-103">Skapa ett Azure-konto</span><span class="sxs-lookup"><span data-stu-id="3942a-103">Create an Azure account</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 0e8fc9e0eda1efb71bdebd0946a8e2434d805033
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358172"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47150757"
 durationInMinutes: 10
 content: '[!include[](includes/4-exercise-create-an-azure-account.md)]'

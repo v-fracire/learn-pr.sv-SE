@@ -1,51 +1,51 @@
 ### YamlMime:ModuleUnit
 uid: learn.design-for-availability-and-recoverability.2-high-availability
-title: <span data-ttu-id="36828-101">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="36828-101">Build a highly available architecture</span></span>
+title: <span data-ttu-id="c4681-101">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="c4681-101">Build a highly available architecture</span></span>
 metadata:
-  title: <span data-ttu-id="36828-102">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="36828-102">Build a highly available architecture</span></span>
-  description: <span data-ttu-id="36828-103">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="36828-103">Build a highly available architecture</span></span>
+  title: <span data-ttu-id="c4681-102">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="c4681-102">Build a highly available architecture</span></span>
+  description: <span data-ttu-id="c4681-103">Skapa en arkitektur med hög tillgänglighet</span><span class="sxs-lookup"><span data-stu-id="c4681-103">Build a highly available architecture</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: b0cd30d8b1c28165b125a42b06656b76d354a41c
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46359135"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155027"
 durationInMinutes: 20
 content: >
   [!include[](includes/2-high-availability.md)]
 quiz:
-  title: <span data-ttu-id="36828-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="36828-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="c4681-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="c4681-104">Check your knowledge</span></span>
   questions:
-  - content: <span data-ttu-id="36828-105">Ett serviceavtal är viktigt att definiera för tjänsten eftersom:</span><span class="sxs-lookup"><span data-stu-id="36828-105">An SLA is important to define for your service because:</span></span>
+  - content: <span data-ttu-id="c4681-105">Ett serviceavtal är viktigt att definiera för tjänsten eftersom:</span><span class="sxs-lookup"><span data-stu-id="c4681-105">An SLA is important to define for your service because:</span></span>
     choices:
-    - content: <span data-ttu-id="36828-106">Det hjälper dig att fastställa krav för kvarhållning av säkerhetskopior.</span><span class="sxs-lookup"><span data-stu-id="36828-106">It helps you determine your backup retention requirements.</span></span>
+    - content: <span data-ttu-id="c4681-106">Det hjälper dig att fastställa krav för kvarhållning av säkerhetskopior.</span><span class="sxs-lookup"><span data-stu-id="c4681-106">It helps you determine your backup retention requirements.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="36828-107">Det är viktigt att definiera kvarhållning av säkerhetskopior, men det styrs inte av serviceavtalet.</span><span class="sxs-lookup"><span data-stu-id="36828-107">Backup retention is important to define, but it is not driven by SLA.</span></span>
-    - content: <span data-ttu-id="36828-108">Det hjälper dig att fastställa tillgängligheten för tjänsten som du erbjuder dina kunder.</span><span class="sxs-lookup"><span data-stu-id="36828-108">It helps you determine the availability of your service that you will commit to for your customers.</span></span>
+      incorrectExplanation: <span data-ttu-id="c4681-107">Det är viktigt att definiera kvarhållning av säkerhetskopior, men det styrs inte av serviceavtalet.</span><span class="sxs-lookup"><span data-stu-id="c4681-107">Backup retention is important to define, but it is not driven by SLA.</span></span>
+    - content: <span data-ttu-id="c4681-108">Det hjälper dig att fastställa tillgängligheten för tjänsten som du erbjuder dina kunder.</span><span class="sxs-lookup"><span data-stu-id="c4681-108">It helps you determine the availability of your service that you will commit to for your customers.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="36828-109">Serviceavtal är ett åtagande som du gör till dina kunder om tjänstens tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="36828-109">Service level agreement is a commitment you are making to your customers for the availability of your service.</span></span>
-    - content: <span data-ttu-id="36828-110">Du kan använda det för att övertyga din chef att automatisera skapandet av virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="36828-110">You can use it to convince your manager to automate virtual-machine creation.</span></span>
+      correctExplanation: <span data-ttu-id="c4681-109">Serviceavtal är ett åtagande som du gör till dina kunder om tjänstens tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="c4681-109">Service level agreement is a commitment you are making to your customers for the availability of your service.</span></span>
+    - content: <span data-ttu-id="c4681-110">Du kan använda det för att övertyga din chef att automatisera skapandet av virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="c4681-110">You can use it to convince your manager to automate virtual-machine creation.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="36828-111">Samtidigt som det är bra att ha den diskussionen är det inte sannolikt att serviceavtalet påverkar resultatet.</span><span class="sxs-lookup"><span data-stu-id="36828-111">While this is a good discussion to have, your SLA will likely not have any impact on the outcome.</span></span>
-    - content: <span data-ttu-id="36828-112">Du kan använda det för att definiera åtkomstkontrollinställningarna för dina resurser.</span><span class="sxs-lookup"><span data-stu-id="36828-112">You use it to define the access control settings for your resources.</span></span>
+      incorrectExplanation: <span data-ttu-id="c4681-111">Samtidigt som det är bra att ha den diskussionen är det inte sannolikt att serviceavtalet påverkar resultatet.</span><span class="sxs-lookup"><span data-stu-id="c4681-111">While this is a good discussion to have, your SLA will likely not have any impact on the outcome.</span></span>
+    - content: <span data-ttu-id="c4681-112">Du kan använda det för att definiera åtkomstkontrollinställningarna för dina resurser.</span><span class="sxs-lookup"><span data-stu-id="c4681-112">You use it to define the access control settings for your resources.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="36828-113">Åtkomstkontrollinställningar är viktiga, men de relaterar inte till programmets serviceavtal.</span><span class="sxs-lookup"><span data-stu-id="36828-113">Access control settings are important, but they are not related to the SLA of your application.</span></span>
-  - content: <span data-ttu-id="36828-114">Vilket av följande används inte i en arkitektur med hög tillgänglighet?</span><span class="sxs-lookup"><span data-stu-id="36828-114">Which of the following is not used in a highly available architecture?</span></span>
+      incorrectExplanation: <span data-ttu-id="c4681-113">Åtkomstkontrollinställningar är viktiga, men de relaterar inte till programmets serviceavtal.</span><span class="sxs-lookup"><span data-stu-id="c4681-113">Access control settings are important, but they are not related to the SLA of your application.</span></span>
+  - content: <span data-ttu-id="c4681-114">Vilket av följande används inte i en arkitektur med hög tillgänglighet?</span><span class="sxs-lookup"><span data-stu-id="c4681-114">Which of the following is not used in a highly available architecture?</span></span>
     choices:
-    - content: <span data-ttu-id="36828-115">Belastningsutjämning</span><span class="sxs-lookup"><span data-stu-id="36828-115">Load balancing</span></span>
+    - content: <span data-ttu-id="c4681-115">Belastningsutjämning</span><span class="sxs-lookup"><span data-stu-id="c4681-115">Load balancing</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="36828-116">Belastningsutjämning används vanligen i en arkitektur med hög tillgänglighet för att distribuera belastning på tillgängliga system och ta bort misslyckade system från belastningen.</span><span class="sxs-lookup"><span data-stu-id="36828-116">Load balancing is typically used in a highly available architecture to distribute load to available systems and remove failed systems from load.</span></span>
-    - content: <span data-ttu-id="36828-117">Tillgänglighetszoner</span><span class="sxs-lookup"><span data-stu-id="36828-117">Availability zones</span></span>
+      incorrectExplanation: <span data-ttu-id="c4681-116">Belastningsutjämning används vanligen i en arkitektur med hög tillgänglighet för att distribuera belastning på tillgängliga system och ta bort misslyckade system från belastningen.</span><span class="sxs-lookup"><span data-stu-id="c4681-116">Load balancing is typically used in a highly available architecture to distribute load to available systems and remove failed systems from load.</span></span>
+    - content: <span data-ttu-id="c4681-117">Tillgänglighetszoner</span><span class="sxs-lookup"><span data-stu-id="c4681-117">Availability zones</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="36828-118">Tillgänglighetszoner används i en arkitektur med hög tillgänglighet för att distribuera system till flera datacenter inom en region.</span><span class="sxs-lookup"><span data-stu-id="36828-118">Availability zones are used in a highly available architecture to distribute systems across multiple datacenters within a region.</span></span>
-    - content: <span data-ttu-id="36828-119">Tillgänglighetsuppsättningar</span><span class="sxs-lookup"><span data-stu-id="36828-119">Availability sets</span></span>
+      incorrectExplanation: <span data-ttu-id="c4681-118">Tillgänglighetszoner används i en arkitektur med hög tillgänglighet för att distribuera system till flera datacenter inom en region.</span><span class="sxs-lookup"><span data-stu-id="c4681-118">Availability zones are used in a highly available architecture to distribute systems across multiple datacenters within a region.</span></span>
+    - content: <span data-ttu-id="c4681-119">Tillgänglighetsuppsättningar</span><span class="sxs-lookup"><span data-stu-id="c4681-119">Availability sets</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="36828-120">Tillgänglighetsuppsättningar används i en arkitektur med hög tillgänglighet för att minimera påverkan från lokaliserade fel och underhållshändelser.</span><span class="sxs-lookup"><span data-stu-id="36828-120">Availability sets are used in a highly available architecture to minimize the impact from localized failures and maintenance events.</span></span>
-    - content: <span data-ttu-id="36828-121">Ett Recovery Service-valv</span><span class="sxs-lookup"><span data-stu-id="36828-121">A recovery service vault</span></span>
+      incorrectExplanation: <span data-ttu-id="c4681-120">Tillgänglighetsuppsättningar används i en arkitektur med hög tillgänglighet för att minimera påverkan från lokaliserade fel och underhållshändelser.</span><span class="sxs-lookup"><span data-stu-id="c4681-120">Availability sets are used in a highly available architecture to minimize the impact from localized failures and maintenance events.</span></span>
+    - content: <span data-ttu-id="c4681-121">Ett Recovery Service-valv</span><span class="sxs-lookup"><span data-stu-id="c4681-121">A recovery service vault</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="36828-122">Recovery Service-valv tillhandahåller ett mål för säkerhetskopior, men är inte en del av en arkitektur med hög tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="36828-122">Recovery service vaults provide a destination for backups, but they are not part of a highly available architecture.</span></span>
+      correctExplanation: <span data-ttu-id="c4681-122">Recovery Service-valv tillhandahåller ett mål för säkerhetskopior, men är inte en del av en arkitektur med hög tillgänglighet.</span><span class="sxs-lookup"><span data-stu-id="c4681-122">Recovery service vaults provide a destination for backups, but they are not part of a highly available architecture.</span></span>

@@ -1,0 +1,54 @@
+### YamlMime:ModuleUnit
+uid: learn.build-azure-bot-services-bot.8-knowledge-check
+title: <span data-ttu-id="5bd6b-101">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="5bd6b-101">Check your knowledge</span></span>
+metadata:
+  title: <span data-ttu-id="5bd6b-102">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="5bd6b-102">Check your knowledge</span></span>
+  description: <span data-ttu-id="5bd6b-103">Kunskapstest för ”Skapa en chattrobot med Azure Bot Service”</span><span class="sxs-lookup"><span data-stu-id="5bd6b-103">Knowledge check for "Build a chat bot with the Azure Bot Service"</span></span>
+  ms.date: 09/24/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 5b206ed0afc79f1f42efb0445f45bf7d8cbf9fa7
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439366"
+durationInMinutes: 5
+quiz:
+  title: <span data-ttu-id="5bd6b-104">Kunskapstest för ”Skapa en chattrobot med Azure Bot Service”</span><span class="sxs-lookup"><span data-stu-id="5bd6b-104">Knowledge check for "Build a chat bot with the Azure Bot Service"</span></span>
+  questions:
+  - content: '<span data-ttu-id="5bd6b-105">Sant eller falskt: Mallen *Robot för webbapp* skapar en *webbapp* och en *robot*.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-105">True or false: The *Web App Bot* template creates a *Web App* and a *Bot*.</span></span>'
+    choices:
+    - content: <span data-ttu-id="5bd6b-106">Sant</span><span class="sxs-lookup"><span data-stu-id="5bd6b-106">True</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="5bd6b-107">Mallen skapar en robot och en Azure-webbapp som värd för roboten.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-107">The template creates a Bot and an Azure Web App to host the Bot.</span></span> <span data-ttu-id="5bd6b-108">Den konfigurerar också roboten att använda en QnA Maker-kunskapsbas.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-108">It also configures the Bot to use a QnA Maker knowledge base.</span></span> <span data-ttu-id="5bd6b-109">Du måste skapa kunskapsbasen själv och ansluta den till roboten.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-109">You will need to create the knowledge base yourself and connect it to the Bot.</span></span>
+    - content: <span data-ttu-id="5bd6b-110">Falskt</span><span class="sxs-lookup"><span data-stu-id="5bd6b-110">False</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="5bd6b-111">Mallnamnet är beskrivande, den skapar en webbapp och en robot.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-111">The template name is descriptive, it does create a Web App and a Bot.</span></span>
+  - content: <span data-ttu-id="5bd6b-112">Vad skapar man med hjälp av QnA Maker?</span><span class="sxs-lookup"><span data-stu-id="5bd6b-112">What is QnA Maker used to create?</span></span>
+    choices:
+    - content: <span data-ttu-id="5bd6b-113">En kunskapsbas som kan användas av en robot.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-113">A knowledge base that can be used by a bot.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="5bd6b-114">QnA Maker tar in frågor och svar och bearbetar dem till ett format som en robot kan använda till att besvara frågor.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-114">QnA Maker takes in questions and answers and processes them into a format a bot can use to answer questions.</span></span>
+    - content: <span data-ttu-id="5bd6b-115">Undersökningar som du kan bädda in i roboten för att få feedback från användare.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-115">Surveys you can embed in your bot to get user feedback.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="5bd6b-116">QnA Maker är inte en undersökningstjänst.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-116">QnA Maker is not a survey service.</span></span> <span data-ttu-id="5bd6b-117">Den hjälper dig att ge användare information men den försöker inte extrahera data från dem.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-117">It helps provide information to users, it does not try to extract data from them.</span></span>
+    - content: <span data-ttu-id="5bd6b-118">En robot</span><span class="sxs-lookup"><span data-stu-id="5bd6b-118">A bot</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="5bd6b-119">QnA Maker kan associeras med en robot men skapar inga egna robotar.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-119">QnA Maker can be associated with a bot, but it doesn't create one.</span></span>
+  - content: <span data-ttu-id="5bd6b-120">Hur matar du in dina data i QnA Maker?</span><span class="sxs-lookup"><span data-stu-id="5bd6b-120">How can you input your data into QnA Maker?</span></span>
+    choices:
+    - content: <span data-ttu-id="5bd6b-121">Manuellt.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-121">Manually.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="5bd6b-122">Du kan fylla på kunskapsbasen manuellt men det finns andra metoder.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-122">You can manually populate the knowledge base, but there are other ways.</span></span>
+    - content: <span data-ttu-id="5bd6b-123">Ladda upp en textfil.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-123">Upload a text file.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="5bd6b-124">QnA Maker stöder textfiler i många olika format, till exempel tabbavgränsade värden och Excel-kalkylblad.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-124">QnA Maker supports text files in many different formats such as tab-separated-values and Excel spreadsheet.</span></span> <span data-ttu-id="5bd6b-125">Men det är inte den enda metoden du kan använda för att fylla på kunskapsbasen.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-125">However, this is not the only way to populate the knowledge base.</span></span>
+    - content: <span data-ttu-id="5bd6b-126">Ange URL:en för en sida med vanliga frågor och svar.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-126">Provide the URL of a FAQ page.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="5bd6b-127">QnA Maker kan extrahera frågor från många olika format för sidor med vanliga frågor och svar.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-127">QnA Maker can extract questions and answers from many different FAQ-page formats.</span></span> <span data-ttu-id="5bd6b-128">Men en URL är inte den enda metoden du kan använda för att fylla på kunskapsbasen.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-128">However, a FAQ URL isn't the only way to populate the knowledge base.</span></span>
+    - content: <span data-ttu-id="5bd6b-129">Alla alternativ ovan.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-129">All of the above.</span></span>
+      isCorrect: true
+      correctExplanation: '<span data-ttu-id="5bd6b-130">QnA Maker är tillräckligt flexibel för att hantera dina indata i flera av de vanligaste formaten: textfiler, sidor med vanliga frågor och svar och även produkthandböcker.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-130">QnA Maker is flexible enough to handle your input data in several of the most common formats: text files, FAQ pages, and even product manuals.</span></span> <span data-ttu-id="5bd6b-131">Målet är att göra det enkelt för dig att importera dina data utan omformatering.</span><span class="sxs-lookup"><span data-stu-id="5bd6b-131">The goal is to make it convenient for you to import your data without reformatting.</span></span>'

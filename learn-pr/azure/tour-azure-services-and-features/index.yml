@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 070902844ea24a0a53c9a47990022b5bbda398ac
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360956"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47153471"
 title: Introduktion till Azure-tjänster och funktioner
 summary: Skapa ett Azure-konto, utforska tillgängliga tjänster och anpassa portalen.
 abstract: >

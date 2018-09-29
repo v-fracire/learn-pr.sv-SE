@@ -9,13 +9,13 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: c5d576a8c05fb3522f516dae1779e5418b2e6d6e
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46514829"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47154519"
 title: Kör en Azure-funktion med utlösare
-summary: En utlösare ansvarar för att köra en Azure-funktion och det finns många utlösare att välja mellan. Den här modulen kommer att visa några av de vanligaste typerna av utlösare och hur du kan konfigurera dem för att köra logik.
+summary: En utlösare ansvarar för att köra en Azure-funktion och det finns många utlösare kan välja bland. Den här modulen kommer att visa några av de vanligaste typerna av utlösare och hur du kan konfigurera dem för att köra logik.
 abstract: >
   I den här modulen kommer du att göra följande:
 

@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.classify-user-feedback-with-the-text-analytics-api.3-exercise-call-the-text-analytics-api-using-the-api-testing-console
 metadata:
-  title: <span data-ttu-id="99278-101">Övning – Anropa API för textanalys från testkonsolen online</span><span class="sxs-lookup"><span data-stu-id="99278-101">Exercise - Call the Text Analytics API from the online testing console</span></span>
-  description: <span data-ttu-id="99278-102">I den här kursdelen kommer vi att göra verkliga anrop till attitydslutpunkten i API för textanalys utan att behöva skriva en enda rad med kod, tack vare API testkonsolen online.</span><span class="sxs-lookup"><span data-stu-id="99278-102">In this unit, we'll make real calls to the sentiment endpoint of the Text Analytics API without writing a line of code, thanks to the online API testing console.</span></span>
+  title: <span data-ttu-id="31bb3-101">Övning – Anropa API för textanalys från testkonsolen online</span><span class="sxs-lookup"><span data-stu-id="31bb3-101">Exercise - Call the Text Analytics API from the online testing console</span></span>
+  description: <span data-ttu-id="31bb3-102">I den här kursdelen kommer vi att göra verkliga anrop till attitydslutpunkten i API för textanalys utan att behöva skriva en enda rad med kod, tack vare API testkonsolen online.</span><span class="sxs-lookup"><span data-stu-id="31bb3-102">In this unit, we'll make real calls to the sentiment endpoint of the Text Analytics API without writing a line of code, thanks to the online API testing console.</span></span>
   ms.date: 09/24/2018
   author: AndrewJByrne
   ms.author: anbyrne
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 33d03b80bc6bc5a4f39041ce543e425f00773584
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46514215"
-title: <span data-ttu-id="99278-103">Övning – Anropa API för textanalys från testkonsolen online</span><span class="sxs-lookup"><span data-stu-id="99278-103">Exercise - Call the Text Analytics API from the online testing console</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152007"
+title: <span data-ttu-id="31bb3-103">Övning – Anropa API för textanalys från testkonsolen online</span><span class="sxs-lookup"><span data-stu-id="31bb3-103">Exercise - Call the Text Analytics API from the online testing console</span></span>
 azureSandbox: true
 durationInMinutes: 10
 content: '[!include[](includes/3-exercise-call-the-text-analytics-api-using-the-api-testing-console.md)]'

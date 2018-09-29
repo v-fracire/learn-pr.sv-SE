@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.introduction-to-security.2-shared-responsibility
-title: <span data-ttu-id="933b9-101">Molnsäkerhet är ett delat ansvar</span><span class="sxs-lookup"><span data-stu-id="933b9-101">Cloud security is a shared responsibility</span></span>
+title: <span data-ttu-id="21630-101">Molnsäkerhet är ett delat ansvar</span><span class="sxs-lookup"><span data-stu-id="21630-101">Cloud security is a shared responsibility</span></span>
 metadata:
-  title: <span data-ttu-id="933b9-102">Molnsäkerhet är ett delat ansvar</span><span class="sxs-lookup"><span data-stu-id="933b9-102">Cloud security is a shared responsibility</span></span>
-  description: <span data-ttu-id="933b9-103">Molnsäkerhet är ett delat ansvar</span><span class="sxs-lookup"><span data-stu-id="933b9-103">Cloud security is a shared responsibility</span></span>
+  title: <span data-ttu-id="21630-102">Molnsäkerhet är ett delat ansvar</span><span class="sxs-lookup"><span data-stu-id="21630-102">Cloud security is a shared responsibility</span></span>
+  description: <span data-ttu-id="21630-103">Molnsäkerhet är ett delat ansvar</span><span class="sxs-lookup"><span data-stu-id="21630-103">Cloud security is a shared responsibility</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 08e3175781a0d73c5b83b5434bcbfce876847dee
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46356071"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155696"
 durationInMinutes: 11
 content: '[!include[](includes/2-shared-responsibility.md)]'

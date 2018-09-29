@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-azure-db-for-postgresql.create-postgresql-db-server-via-azure-portal
-title: <span data-ttu-id="d374d-101">Övning – Skapa en Azure Database for PostgreSQL-server med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="d374d-101">Exercise - Create an Azure Database for PostgreSQL server using the Azure portal</span></span>
+title: <span data-ttu-id="f5b82-101">Övning – Skapa en Azure Database for PostgreSQL-server med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="f5b82-101">Exercise - Create an Azure Database for PostgreSQL server using the Azure portal</span></span>
 metadata:
-  title: <span data-ttu-id="d374d-102">Övning – Skapa en Azure Database for PostgreSQL-server med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="d374d-102">Exercise - Create an Azure Database for PostgreSQL server using the Azure portal</span></span>
-  description: <span data-ttu-id="d374d-103">I den här labbuppgiften kommer du att använda Azure Portal till att skapa en Azure Database for PostgreSQL-server.</span><span class="sxs-lookup"><span data-stu-id="d374d-103">In this lab, you will use the Azure portal to create an Azure Database for PostgreSQL server.</span></span>
+  title: <span data-ttu-id="f5b82-102">Övning – Skapa en Azure Database for PostgreSQL-server med Azure Portal</span><span class="sxs-lookup"><span data-stu-id="f5b82-102">Exercise - Create an Azure Database for PostgreSQL server using the Azure portal</span></span>
+  description: <span data-ttu-id="f5b82-103">I den här labbuppgiften kommer du att använda Azure Portal till att skapa en Azure Database for PostgreSQL-server.</span><span class="sxs-lookup"><span data-stu-id="f5b82-103">In this lab, you will use the Azure portal to create an Azure Database for PostgreSQL server.</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 4c90f88915bdc44948bb6720111365b3440c6e94
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46356631"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152407"
 azureSandbox: true
 durationInMinutes: 10
 content: '[!include[](includes/4-create-postgresql-db-server-via-azure-portal.md)]'

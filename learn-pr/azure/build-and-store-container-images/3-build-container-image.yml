@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.azure-container-registry.build-image
 metadata:
-  title: <span data-ttu-id="9fc92-101">Skapa containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="9fc92-101">Build container images with Azure Container Registry</span></span>
-  description: <span data-ttu-id="9fc92-102">Skapa containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="9fc92-102">Build container images with Azure Container Registry</span></span>
+  title: <span data-ttu-id="46bd8-101">Skapa containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="46bd8-101">Build container images with Azure Container Registry</span></span>
+  description: <span data-ttu-id="46bd8-102">Skapa containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="46bd8-102">Build container images with Azure Container Registry</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: d007363430bd3cde3c42026079020dc2e98bb58c
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360348"
-title: <span data-ttu-id="9fc92-103">Skapa containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="9fc92-103">Build container images with Azure Container Registry</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47153154"
+title: <span data-ttu-id="46bd8-103">Skapa containeravbildningar med Azure Container Registry</span><span class="sxs-lookup"><span data-stu-id="46bd8-103">Build container images with Azure Container Registry</span></span>
 interactive: bash
 azureSandbox: true
 durationInMinutes: 15

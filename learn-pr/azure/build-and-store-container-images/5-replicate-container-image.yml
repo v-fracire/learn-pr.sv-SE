@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.azure-container-registry.image-replication
 metadata:
-  title: <span data-ttu-id="554e8-101">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="554e8-101">Replicate a container image to different Azure regions</span></span>
-  description: <span data-ttu-id="554e8-102">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="554e8-102">Replicate a container image to different Azure regions</span></span>
+  title: <span data-ttu-id="41e8d-101">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="41e8d-101">Replicate a container image to different Azure regions</span></span>
+  description: <span data-ttu-id="41e8d-102">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="41e8d-102">Replicate a container image to different Azure regions</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 4b220d2a6229518ae4e2d30689e91080cc59c235
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357068"
-title: <span data-ttu-id="554e8-103">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="554e8-103">Replicate a container image to different Azure regions</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47154855"
+title: <span data-ttu-id="41e8d-103">Replikera en containeravbildning till olika Azure-regioner</span><span class="sxs-lookup"><span data-stu-id="41e8d-103">Replicate a container image to different Azure regions</span></span>
 interactive: bash
 azureSandbox: true
 durationInMinutes: 5

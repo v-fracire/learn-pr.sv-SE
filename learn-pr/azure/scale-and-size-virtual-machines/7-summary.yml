@@ -1,14 +1,14 @@
 ### YamlMime:ModuleUnit
 uid: learn.scale-and-size-virtual-machines.7-summary
-title: <span data-ttu-id="21041-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="21041-101">Summary</span></span>
+title: <span data-ttu-id="4d682-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="4d682-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="21041-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="21041-102">Summary</span></span>
-  description: <span data-ttu-id="21041-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="21041-103">Summary</span></span>
+  title: <span data-ttu-id="4d682-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="4d682-102">Summary</span></span>
+  description: <span data-ttu-id="4d682-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="4d682-103">Summary</span></span>
   ms.openlocfilehash: 483ceba463a47bd5cd0bc4212d0a52c24fa3bc2c
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46514735"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152071"
 durationInMinutes: 3
 content: '[!include[](includes/7-summary.md)]'

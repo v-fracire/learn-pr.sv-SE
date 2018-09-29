@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-azure-db-for-postgresql.connecting-to-postgresql-db-server
-title: <span data-ttu-id="bebb5-101">Övning – Ansluta till en Azure Database for PostgreSQL-server</span><span class="sxs-lookup"><span data-stu-id="bebb5-101">Exercise - Connect to an Azure Database for PostgreSQL server</span></span>
+title: <span data-ttu-id="7b718-101">Övning – Ansluta till en Azure Database for PostgreSQL-server</span><span class="sxs-lookup"><span data-stu-id="7b718-101">Exercise - Connect to an Azure Database for PostgreSQL server</span></span>
 metadata:
-  title: <span data-ttu-id="bebb5-102">Övning – Ansluta till en Azure Database for PostgreSQL-server</span><span class="sxs-lookup"><span data-stu-id="bebb5-102">Exercise - Connect to an Azure Database for PostgreSQL server</span></span>
-  description: <span data-ttu-id="bebb5-103">I den här labbuppgiften ansluter du till en Azure Database for PostgreSQL-server med kommandot `psql`.</span><span class="sxs-lookup"><span data-stu-id="bebb5-103">In this lab, you'll connect to an Azure Database for PostgreSQL server using the `psql` command.</span></span>
+  title: <span data-ttu-id="7b718-102">Övning – Ansluta till en Azure Database for PostgreSQL-server</span><span class="sxs-lookup"><span data-stu-id="7b718-102">Exercise - Connect to an Azure Database for PostgreSQL server</span></span>
+  description: <span data-ttu-id="7b718-103">I den här labbuppgiften ansluter du till en Azure Database for PostgreSQL-server med kommandot `psql`.</span><span class="sxs-lookup"><span data-stu-id="7b718-103">In this lab, you'll connect to an Azure Database for PostgreSQL server using the `psql` command.</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 1a201e90fb1fa7c558c17f0274742897d95fe4b1
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357132"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47153119"
 interactive: bash
 azureSandbox: true
 durationInMinutes: 5

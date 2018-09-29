@@ -1,45 +1,45 @@
 ### YamlMime:ModuleUnit
 uid: learn.interactive-deep-learning.7-summary-and-knowledge-check
-title: <span data-ttu-id="5eb91-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="5eb91-101">Summary</span></span>
+title: <span data-ttu-id="e5682-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e5682-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="5eb91-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="5eb91-102">Summary</span></span>
-  description: <span data-ttu-id="5eb91-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="5eb91-103">Summary</span></span>
+  title: <span data-ttu-id="e5682-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e5682-102">Summary</span></span>
+  description: <span data-ttu-id="e5682-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e5682-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 2a6f770fc032421778d9b8865ddc2324b1b481e7
-  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/20/2018
-  ms.locfileid: "46484422"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152754"
 durationInMinutes: 1
 content: >
   [!include[](includes/7-summary-and-knowledge-check.md)]
 quiz:
-  title: <span data-ttu-id="5eb91-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="5eb91-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="e5682-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="e5682-104">Check your knowledge</span></span>
   questions:
-  - content: <span data-ttu-id="5eb91-105">Vilket av följande beskriver bäst utmaningarna med beroenden när du använder DSVM för djupinlärning?</span><span class="sxs-lookup"><span data-stu-id="5eb91-105">Which of the following best describes the dependency challenges faced when using the DSVM for deep learning?</span></span>
+  - content: <span data-ttu-id="e5682-105">Vilket av följande beskriver bäst utmaningarna med beroenden när du använder DSVM för djupinlärning?</span><span class="sxs-lookup"><span data-stu-id="e5682-105">Which of the following best describes the dependency challenges faced when using the DSVM for deep learning?</span></span>
     choices:
-    - content: <span data-ttu-id="5eb91-106">DSVM är i en sandbox-miljö och tillhandahåller inte direkt stöd för installation av nya paket.</span><span class="sxs-lookup"><span data-stu-id="5eb91-106">The DSVM is sandboxed and doesn't provide direct support for installing new packages.</span></span>
+    - content: <span data-ttu-id="e5682-106">DSVM är i en sandbox-miljö och tillhandahåller inte direkt stöd för installation av nya paket.</span><span class="sxs-lookup"><span data-stu-id="e5682-106">The DSVM is sandboxed and doesn't provide direct support for installing new packages.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="5eb91-107">DSVM är en virtuell dator.</span><span class="sxs-lookup"><span data-stu-id="5eb91-107">The DSVM is a virtual machine.</span></span> <span data-ttu-id="5eb91-108">Den levereras med många förinstallerade program för att hjälpa dig med datavetenskaps- och AI-projekt, men du kan installera vad du vill.</span><span class="sxs-lookup"><span data-stu-id="5eb91-108">It comes with lots of pre-installed software to help with data science and AI project, but you are free to install whatever you want.</span></span>
-    - content: <span data-ttu-id="5eb91-109">DSVM stöder endast CNTK och Cognitive Service-beroenden.</span><span class="sxs-lookup"><span data-stu-id="5eb91-109">The DSVM only supports CNTK and Cognitive Service dependencies.</span></span>
-      incorrectExplanation: <span data-ttu-id="5eb91-110">DSVM tillhandahåller stöd som är tillgängligt direkt för många populära ramverk som PyTorch, Chainer och Tensorflow.</span><span class="sxs-lookup"><span data-stu-id="5eb91-110">DSVMs provide out of the box support for many popular frameworks such as PyTorch, Chainer, and Tensorflow.</span></span>
+      incorrectExplanation: <span data-ttu-id="e5682-107">DSVM är en virtuell dator.</span><span class="sxs-lookup"><span data-stu-id="e5682-107">The DSVM is a virtual machine.</span></span> <span data-ttu-id="e5682-108">Den levereras med många förinstallerade program för att hjälpa dig med datavetenskaps- och AI-projekt, men du kan installera vad du vill.</span><span class="sxs-lookup"><span data-stu-id="e5682-108">It comes with lots of pre-installed software to help with data science and AI project, but you are free to install whatever you want.</span></span>
+    - content: <span data-ttu-id="e5682-109">DSVM stöder endast CNTK och Cognitive Service-beroenden.</span><span class="sxs-lookup"><span data-stu-id="e5682-109">The DSVM only supports CNTK and Cognitive Service dependencies.</span></span>
+      incorrectExplanation: <span data-ttu-id="e5682-110">DSVM tillhandahåller stöd som är tillgängligt direkt för många populära ramverk som PyTorch, Chainer och Tensorflow.</span><span class="sxs-lookup"><span data-stu-id="e5682-110">DSVMs provide out of the box support for many popular frameworks such as PyTorch, Chainer, and Tensorflow.</span></span>
       isCorrect: false
-    - content: <span data-ttu-id="5eb91-111">Vissa ramverk och paket för djupinlärning kräver olika miljöer, GPU-drivrutiner och binära paket</span><span class="sxs-lookup"><span data-stu-id="5eb91-111">Certain deep learning frameworks and packages require different enviorments, GPU drivers and binary packages</span></span>
+    - content: <span data-ttu-id="e5682-111">Vissa ramverk och paket för djupinlärning kräver olika miljöer, GPU-drivrutiner och binära paket</span><span class="sxs-lookup"><span data-stu-id="e5682-111">Certain deep learning frameworks and packages require different enviorments, GPU drivers and binary packages</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="5eb91-112">Att hantera beroenden mellan alla ramverk du använder för djupinlärning kan vara en utmaning.</span><span class="sxs-lookup"><span data-stu-id="5eb91-112">Managing the dependencies between all the frameworks you are using for deep learning can be a challenge.</span></span> <span data-ttu-id="5eb91-113">Om du kör en Docker-container för att gruppera och isolera dessa beroenden kan det hjälpa dig med den här utmaningen.</span><span class="sxs-lookup"><span data-stu-id="5eb91-113">Running a Docker container to group and isolate these dependencies can help with this challenge.</span></span>
-  - content: <span data-ttu-id="5eb91-114">Anta att du har experimenterat med djupinlärning i en Docker-container.</span><span class="sxs-lookup"><span data-stu-id="5eb91-114">Suppose you've been experimenting with deep learning in a Docker container.</span></span> <span data-ttu-id="5eb91-115">Din DSVM körs på en virtuell Linux-dator som också har GPU:er.</span><span class="sxs-lookup"><span data-stu-id="5eb91-115">Your DSVM is running on a Linux virtual machine that also has GPUs.</span></span> <span data-ttu-id="5eb91-116">Vilket av följande kommandon kör du för att etablera en container med nödvändiga komponenter för att köra kod på GPU:n?</span><span class="sxs-lookup"><span data-stu-id="5eb91-116">Which of the followign commands to you run to provision a container with the necessary components to execute code on the GPU.</span></span>
+      correctExplanation: <span data-ttu-id="e5682-112">Att hantera beroenden mellan alla ramverk du använder för djupinlärning kan vara en utmaning.</span><span class="sxs-lookup"><span data-stu-id="e5682-112">Managing the dependencies between all the frameworks you are using for deep learning can be a challenge.</span></span> <span data-ttu-id="e5682-113">Om du kör en Docker-container för att gruppera och isolera dessa beroenden kan det hjälpa dig med den här utmaningen.</span><span class="sxs-lookup"><span data-stu-id="e5682-113">Running a Docker container to group and isolate these dependencies can help with this challenge.</span></span>
+  - content: <span data-ttu-id="e5682-114">Anta att du har experimenterat med djupinlärning i en Docker-container.</span><span class="sxs-lookup"><span data-stu-id="e5682-114">Suppose you've been experimenting with deep learning in a Docker container.</span></span> <span data-ttu-id="e5682-115">Din DSVM körs på en virtuell Linux-dator som också har GPU:er.</span><span class="sxs-lookup"><span data-stu-id="e5682-115">Your DSVM is running on a Linux virtual machine that also has GPUs.</span></span> <span data-ttu-id="e5682-116">Vilket av följande kommandon kör du för att etablera en container med nödvändiga komponenter för att köra kod på GPU:n?</span><span class="sxs-lookup"><span data-stu-id="e5682-116">Which of the followign commands to you run to provision a container with the necessary components to execute code on the GPU.</span></span>
     choices:
-    - content: <span data-ttu-id="5eb91-117">docker run --useGPU</span><span class="sxs-lookup"><span data-stu-id="5eb91-117">docker run --useGPU</span></span>
+    - content: <span data-ttu-id="e5682-117">docker run --useGPU</span><span class="sxs-lookup"><span data-stu-id="e5682-117">docker run --useGPU</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="5eb91-118">Kommandot docker run har ingen parameter med namnet --useGPU</span><span class="sxs-lookup"><span data-stu-id="5eb91-118">The docker run command does not have a parameter called --useGPU</span></span>
-    - content: <span data-ttu-id="5eb91-119">nvidia-docker run</span><span class="sxs-lookup"><span data-stu-id="5eb91-119">nvidia-docker run</span></span>
+      incorrectExplanation: <span data-ttu-id="e5682-118">Kommandot docker run har ingen parameter med namnet --useGPU</span><span class="sxs-lookup"><span data-stu-id="e5682-118">The docker run command does not have a parameter called --useGPU</span></span>
+    - content: <span data-ttu-id="e5682-119">nvidia-docker run</span><span class="sxs-lookup"><span data-stu-id="e5682-119">nvidia-docker run</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="5eb91-120">Det här kommandot kan används till att köra en container som använder GPU:er.</span><span class="sxs-lookup"><span data-stu-id="5eb91-120">This command can be used to execute a container that uses GPUs.</span></span>
-    - content: <span data-ttu-id="5eb91-121">docker-nvidia run</span><span class="sxs-lookup"><span data-stu-id="5eb91-121">docker-nvidia run</span></span>
+      correctExplanation: <span data-ttu-id="e5682-120">Det här kommandot kan används till att köra en container som använder GPU:er.</span><span class="sxs-lookup"><span data-stu-id="e5682-120">This command can be used to execute a container that uses GPUs.</span></span>
+    - content: <span data-ttu-id="e5682-121">docker-nvidia run</span><span class="sxs-lookup"><span data-stu-id="e5682-121">docker-nvidia run</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="5eb91-122">Det här kommandot finns inte.</span><span class="sxs-lookup"><span data-stu-id="5eb91-122">This command doesn't exist.</span></span>
+      incorrectExplanation: <span data-ttu-id="e5682-122">Det här kommandot finns inte.</span><span class="sxs-lookup"><span data-stu-id="e5682-122">This command doesn't exist.</span></span>

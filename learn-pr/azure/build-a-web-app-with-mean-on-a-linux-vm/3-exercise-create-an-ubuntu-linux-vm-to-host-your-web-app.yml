@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.3-exercise-create-an-ubuntu-linux-vm-to-host-your-web-app
-title: <span data-ttu-id="7bda9-101">Övning – Skapa en virtuell Ubuntu Linux-dator som värd för ditt webbprogram</span><span class="sxs-lookup"><span data-stu-id="7bda9-101">Exercise - Create an Ubuntu Linux VM to host your web application</span></span>
+title: <span data-ttu-id="5c413-101">Övning – Skapa en virtuell Ubuntu Linux-dator som värd för ditt webbprogram</span><span class="sxs-lookup"><span data-stu-id="5c413-101">Exercise - Create an Ubuntu Linux VM to host your web application</span></span>
 metadata:
-  title: <span data-ttu-id="7bda9-102">Övning – Skapa en virtuell Ubuntu Linux-dator som värd för ditt webbprogram</span><span class="sxs-lookup"><span data-stu-id="7bda9-102">Exercise - Create an Ubuntu Linux VM to host your web application</span></span>
-  description: <span data-ttu-id="7bda9-103">Övning – Skapa en virtuell Ubuntu Linux-dator som värd för ditt webbprogram</span><span class="sxs-lookup"><span data-stu-id="7bda9-103">Exercise - Create an Ubuntu Linux VM to host your web application</span></span>
+  title: <span data-ttu-id="5c413-102">Övning – Skapa en virtuell Ubuntu Linux-dator som värd för ditt webbprogram</span><span class="sxs-lookup"><span data-stu-id="5c413-102">Exercise - Create an Ubuntu Linux VM to host your web application</span></span>
+  description: <span data-ttu-id="5c413-103">Övning – Skapa en virtuell Ubuntu Linux-dator som värd för ditt webbprogram</span><span class="sxs-lookup"><span data-stu-id="5c413-103">Exercise - Create an Ubuntu Linux VM to host your web application</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 4c5b312566d3c8cbe17fae46022e78dc01fcbfdf
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360071"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47154898"
 interactive: bash
 azureSandbox: true
 durationInMinutes: 10

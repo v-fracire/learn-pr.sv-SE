@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.send-location-over-sms-from-mobile-using-azure-functions-twilio.1-create-twilio-account-launch-vs
-title: <span data-ttu-id="43941-101">Skapa ett Twilio-konto och starta Visual Studio</span><span class="sxs-lookup"><span data-stu-id="43941-101">Create a Twilio account and launch Visual Studio</span></span>
+title: <span data-ttu-id="d54c2-101">Skapa ett Twilio-konto och starta Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d54c2-101">Create a Twilio account and launch Visual Studio</span></span>
 metadata:
-  title: <span data-ttu-id="43941-102">Skapa ett Twilio-konto och starta Visual Studio</span><span class="sxs-lookup"><span data-stu-id="43941-102">Create a Twilio account and launch Visual Studio</span></span>
-  description: <span data-ttu-id="43941-103">Skapa ett Twilio-konto och starta Visual Studio</span><span class="sxs-lookup"><span data-stu-id="43941-103">Create a Twilio account and launch Visual Studio</span></span>
+  title: <span data-ttu-id="d54c2-102">Skapa ett Twilio-konto och starta Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d54c2-102">Create a Twilio account and launch Visual Studio</span></span>
+  description: <span data-ttu-id="d54c2-103">Skapa ett Twilio-konto och starta Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d54c2-103">Create a Twilio account and launch Visual Studio</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 390b1cda1ec82ef1f32fc1c61b7ca86b2ce69f6f
-  ms.sourcegitcommit: a8799fdd6ae2096cef12e66b142b138db8aba56d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/23/2018
-  ms.locfileid: "46704944"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47153890"
 labId: 46464
 durationInMinutes: 5
 content: '[!include[](includes/1-create-twilio-account-launch-vs.md)]'

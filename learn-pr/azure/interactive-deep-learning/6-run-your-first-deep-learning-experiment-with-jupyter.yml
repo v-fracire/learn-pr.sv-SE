@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.interactive-deep-learning.6-run-your-first-deep-learning-experiment-with-jupyter
-title: <span data-ttu-id="c1392-101">Övning – Köra ditt första djupinlärningsexperiment med Jupyter</span><span class="sxs-lookup"><span data-stu-id="c1392-101">Exercise - Run your first deep learning experiment with Jupyter</span></span>
+title: <span data-ttu-id="013dd-101">Övning – Köra ditt första djupinlärningsexperiment med Jupyter</span><span class="sxs-lookup"><span data-stu-id="013dd-101">Exercise - Run your first deep learning experiment with Jupyter</span></span>
 metadata:
-  title: <span data-ttu-id="c1392-102">Övning – Köra ditt första djupinlärningsexperiment med Jupyter</span><span class="sxs-lookup"><span data-stu-id="c1392-102">Exercise - Run your first deep learning experiment with Jupyter</span></span>
-  description: <span data-ttu-id="c1392-103">Övning – Köra ditt första djupinlärningsexperiment med Jupyter</span><span class="sxs-lookup"><span data-stu-id="c1392-103">Exercise - Run your first deep learning experiment with Jupyter</span></span>
+  title: <span data-ttu-id="013dd-102">Övning – Köra ditt första djupinlärningsexperiment med Jupyter</span><span class="sxs-lookup"><span data-stu-id="013dd-102">Exercise - Run your first deep learning experiment with Jupyter</span></span>
+  description: <span data-ttu-id="013dd-103">Övning – Köra ditt första djupinlärningsexperiment med Jupyter</span><span class="sxs-lookup"><span data-stu-id="013dd-103">Exercise - Run your first deep learning experiment with Jupyter</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 5d71b2584510dd4375ea7daf71e33deae4ccedf7
-  ms.sourcegitcommit: 13f3e790ebb0807e6f2c670bbfffd87ab6dbabdb
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/20/2018
-  ms.locfileid: "46484353"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155714"
 interactive: bash
 azureSandbox: true
 durationInMinutes: 30

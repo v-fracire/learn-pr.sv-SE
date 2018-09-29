@@ -1,31 +1,31 @@
 ### YamlMime:ModuleUnit
 uid: learn.choose-messaging-model.2-choose-whether-to-use-message-queues-or-events
-title: <span data-ttu-id="240e9-101">Välj om du vill använda meddelanden eller händelser</span><span class="sxs-lookup"><span data-stu-id="240e9-101">Choose whether to use messages or events</span></span>
+title: <span data-ttu-id="e1301-101">Välj om du vill använda meddelanden eller händelser</span><span class="sxs-lookup"><span data-stu-id="e1301-101">Choose whether to use messages or events</span></span>
 metadata:
-  title: <span data-ttu-id="240e9-102">Välj om du vill använda meddelanden eller händelser</span><span class="sxs-lookup"><span data-stu-id="240e9-102">Choose whether to use messages or events</span></span>
-  description: <span data-ttu-id="240e9-103">Välj om du vill använda meddelanden eller händelser</span><span class="sxs-lookup"><span data-stu-id="240e9-103">Choose whether to use messages or events</span></span>
+  title: <span data-ttu-id="e1301-102">Välj om du vill använda meddelanden eller händelser</span><span class="sxs-lookup"><span data-stu-id="e1301-102">Choose whether to use messages or events</span></span>
+  description: <span data-ttu-id="e1301-103">Välj om du vill använda meddelanden eller händelser</span><span class="sxs-lookup"><span data-stu-id="e1301-103">Choose whether to use messages or events</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 048a3ce0646b3adf5d5124911c1c8093de2180d1
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357756"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152194"
 durationInMinutes: 10
 content: >
   [!include[](includes/2-choose-whether-to-use-message-queues-or-events.md)]
 quiz:
-  title: <span data-ttu-id="240e9-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="240e9-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="e1301-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="e1301-104">Check your knowledge</span></span>
   questions:
-  - content: '<span data-ttu-id="240e9-105">Anta att du har ett distribuerat program med en webbtjänst som autentiserar användare.</span><span class="sxs-lookup"><span data-stu-id="240e9-105">Suppose you have a distributed application with a web service that authenticates users.</span></span> <span data-ttu-id="240e9-106">När en användare loggar in kommunicerar webbtjänsten med alla klientprogram för att visa statusen ”Online”.</span><span class="sxs-lookup"><span data-stu-id="240e9-106">When a user logs on, the web service communicates with all of the client applications to display the status of "Online".</span></span> <span data-ttu-id="240e9-107">Sant eller falskt: det här är ett exempel på ett meddelande i ett distribuerat program.</span><span class="sxs-lookup"><span data-stu-id="240e9-107">True or false: This is an example of a message in a distributed application.</span></span>'
+  - content: '<span data-ttu-id="e1301-105">Anta att du har ett distribuerat program med en webbtjänst som autentiserar användare.</span><span class="sxs-lookup"><span data-stu-id="e1301-105">Suppose you have a distributed application with a web service that authenticates users.</span></span> <span data-ttu-id="e1301-106">När en användare loggar in kommunicerar webbtjänsten med alla klientprogram för att visa statusen ”Online”.</span><span class="sxs-lookup"><span data-stu-id="e1301-106">When a user logs on, the web service communicates with all of the client applications to display the status of "Online".</span></span> <span data-ttu-id="e1301-107">Sant eller falskt: det här är ett exempel på ett meddelande i ett distribuerat program.</span><span class="sxs-lookup"><span data-stu-id="e1301-107">True or false: This is an example of a message in a distributed application.</span></span>'
     choices:
-    - content: <span data-ttu-id="240e9-108">Sant</span><span class="sxs-lookup"><span data-stu-id="240e9-108">True</span></span>
+    - content: <span data-ttu-id="e1301-108">Sant</span><span class="sxs-lookup"><span data-stu-id="e1301-108">True</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="240e9-109">Meddelanden innehåller normalt själva rådata, till exempel en mediefil.</span><span class="sxs-lookup"><span data-stu-id="240e9-109">Messages typically contain the raw data itself, for example, a media file.</span></span> <span data-ttu-id="240e9-110">I den här situationen skickar vi enkla data som representerar en användares status.</span><span class="sxs-lookup"><span data-stu-id="240e9-110">In this situation, we're sending a simple piece of data that represents the status of a user.</span></span> <span data-ttu-id="240e9-111">Vi skickar data som svar på en åtgärd, vilket passar perfekt för att använda en händelse.</span><span class="sxs-lookup"><span data-stu-id="240e9-111">Also, we're sending the data in response to an action, which is a perfect case for using an event.</span></span>
-    - content: <span data-ttu-id="240e9-112">Falskt</span><span class="sxs-lookup"><span data-stu-id="240e9-112">False</span></span>
-      correctExplanation: <span data-ttu-id="240e9-113">Meddelanden innehåller normalt själva rådata, till exempel en mediefil.</span><span class="sxs-lookup"><span data-stu-id="240e9-113">Messages typically contain the raw data itself, for example, a media file.</span></span> <span data-ttu-id="240e9-114">I den här situationen skickar vi enkla data som representerar en användares status.</span><span class="sxs-lookup"><span data-stu-id="240e9-114">In this situation, we're sending a simple piece of data that represents the status of a user.</span></span> <span data-ttu-id="240e9-115">Vi skickar data som svar på en åtgärd, vilket passar perfekt för att använda en händelse.</span><span class="sxs-lookup"><span data-stu-id="240e9-115">Also, we're sending the data in response to an action, which is a perfect case for using an event.</span></span>
+      incorrectExplanation: <span data-ttu-id="e1301-109">Meddelanden innehåller normalt själva rådata, till exempel en mediefil.</span><span class="sxs-lookup"><span data-stu-id="e1301-109">Messages typically contain the raw data itself, for example, a media file.</span></span> <span data-ttu-id="e1301-110">I den här situationen skickar vi enkla data som representerar en användares status.</span><span class="sxs-lookup"><span data-stu-id="e1301-110">In this situation, we're sending a simple piece of data that represents the status of a user.</span></span> <span data-ttu-id="e1301-111">Vi skickar data som svar på en åtgärd, vilket passar perfekt för att använda en händelse.</span><span class="sxs-lookup"><span data-stu-id="e1301-111">Also, we're sending the data in response to an action, which is a perfect case for using an event.</span></span>
+    - content: <span data-ttu-id="e1301-112">Falskt</span><span class="sxs-lookup"><span data-stu-id="e1301-112">False</span></span>
+      correctExplanation: <span data-ttu-id="e1301-113">Meddelanden innehåller normalt själva rådata, till exempel en mediefil.</span><span class="sxs-lookup"><span data-stu-id="e1301-113">Messages typically contain the raw data itself, for example, a media file.</span></span> <span data-ttu-id="e1301-114">I den här situationen skickar vi enkla data som representerar en användares status.</span><span class="sxs-lookup"><span data-stu-id="e1301-114">In this situation, we're sending a simple piece of data that represents the status of a user.</span></span> <span data-ttu-id="e1301-115">Vi skickar data som svar på en åtgärd, vilket passar perfekt för att använda en händelse.</span><span class="sxs-lookup"><span data-stu-id="e1301-115">Also, we're sending the data in response to an action, which is a perfect case for using an event.</span></span>
       isCorrect: true

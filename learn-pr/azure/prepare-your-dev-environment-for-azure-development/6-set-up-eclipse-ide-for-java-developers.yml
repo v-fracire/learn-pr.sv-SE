@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.prepare-azure-dev-environment.6-set-up-eclipse-ide-for-java-developers
-title: <span data-ttu-id="673ae-101">Använd Eclipse med Azure-verktyg</span><span class="sxs-lookup"><span data-stu-id="673ae-101">Using Eclipse with Azure tooling</span></span>
+title: <span data-ttu-id="aea49-101">Använd Eclipse med Azure-verktyg</span><span class="sxs-lookup"><span data-stu-id="aea49-101">Using Eclipse with Azure tooling</span></span>
 metadata:
-  title: <span data-ttu-id="673ae-102">Använd Eclipse med Azure-verktyg</span><span class="sxs-lookup"><span data-stu-id="673ae-102">Using Eclipse with Azure tooling</span></span>
-  description: <span data-ttu-id="673ae-103">Använd Eclipse med Azure-verktyg</span><span class="sxs-lookup"><span data-stu-id="673ae-103">Using Eclipse with Azure tooling</span></span>
+  title: <span data-ttu-id="aea49-102">Använd Eclipse med Azure-verktyg</span><span class="sxs-lookup"><span data-stu-id="aea49-102">Using Eclipse with Azure tooling</span></span>
+  description: <span data-ttu-id="aea49-103">Använd Eclipse med Azure-verktyg</span><span class="sxs-lookup"><span data-stu-id="aea49-103">Using Eclipse with Azure tooling</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 83a5b6c5d3ad0ba37f152dcb5ca128c94a11f236
-  ms.sourcegitcommit: 8a009788ee73c5d7caa6cd4f1105260c5cc9b846
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/22/2018
-  ms.locfileid: "46570636"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155660"
 durationInMinutes: 5
 content: '[!include[](includes/6-set-up-eclipse-ide-for-java-developers.md)]'

@@ -1,65 +1,65 @@
 ### YamlMime:ModuleUnit
 uid: learn.work-with-mutable-and-partial-data-in-a-redis-cache.8-summary
-title: <span data-ttu-id="94054-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="94054-101">Summary</span></span>
+title: <span data-ttu-id="0bc21-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="0bc21-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="94054-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="94054-102">Summary</span></span>
-  description: <span data-ttu-id="94054-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="94054-103">Summary</span></span>
+  title: <span data-ttu-id="0bc21-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="0bc21-102">Summary</span></span>
+  description: <span data-ttu-id="0bc21-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="0bc21-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 38c0ff8600be568ed7a37ff841cecaee2bb70fed
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360159"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47150421"
 durationInMinutes: 3
 content: >
   [!include[](includes/8-summary.md)]
 quiz:
-  title: <span data-ttu-id="94054-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="94054-104">Check your knowledge</span></span>
+  title: <span data-ttu-id="0bc21-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="0bc21-104">Check your knowledge</span></span>
   questions:
-  - content: <span data-ttu-id="94054-105">Vad händer om ett kommando i en Redis-transaktion misslyckas?</span><span class="sxs-lookup"><span data-stu-id="94054-105">What happens if a command in a Redis transaction fails?</span></span>
+  - content: <span data-ttu-id="0bc21-105">Vad händer om ett kommando i en Redis-transaktion misslyckas?</span><span class="sxs-lookup"><span data-stu-id="0bc21-105">What happens if a command in a Redis transaction fails?</span></span>
     choices:
-    - content: <span data-ttu-id="94054-106">Om ett kommando sätts i kö med felaktig syntax, ignoreras transaktionen automatiskt om du försöker köra den.</span><span class="sxs-lookup"><span data-stu-id="94054-106">If a command is queued with incorrect syntax, the transaction will be automatically discarded if you try to execute it.</span></span> <span data-ttu-id="94054-107">Om ett kommando misslyckas under körningen, kommer transaktionen att slutföras som vanligt.</span><span class="sxs-lookup"><span data-stu-id="94054-107">If a command fails during execution, the transaction will complete as normal.</span></span>
+    - content: <span data-ttu-id="0bc21-106">Om ett kommando sätts i kö med felaktig syntax, ignoreras transaktionen automatiskt om du försöker köra den.</span><span class="sxs-lookup"><span data-stu-id="0bc21-106">If a command is queued with incorrect syntax, the transaction will be automatically discarded if you try to execute it.</span></span> <span data-ttu-id="0bc21-107">Om ett kommando misslyckas under körningen, kommer transaktionen att slutföras som vanligt.</span><span class="sxs-lookup"><span data-stu-id="0bc21-107">If a command fails during execution, the transaction will complete as normal.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="94054-108">I Redis stoppar kommandon som misslyckas under körning inte en transaktion.</span><span class="sxs-lookup"><span data-stu-id="94054-108">In Redis, commands that fail during execution do not stop a transaction.</span></span> <span data-ttu-id="94054-109">Kommandon i kö med felaktig syntax kommer att förhindra att transaktionen körs.</span><span class="sxs-lookup"><span data-stu-id="94054-109">Commands queued with incorrect syntax will prevent the transaction from being executed.</span></span>
-    - content: <span data-ttu-id="94054-110">Kommandon innan kommandot som misslyckas kommer fortfarande att köras, men de efter kommandot som misslyckas kommer inte köras.</span><span class="sxs-lookup"><span data-stu-id="94054-110">Commands prior to the failing command will still be executed, but those after the failing command will not be.</span></span>
+      correctExplanation: <span data-ttu-id="0bc21-108">I Redis stoppar kommandon som misslyckas under körning inte en transaktion.</span><span class="sxs-lookup"><span data-stu-id="0bc21-108">In Redis, commands that fail during execution do not stop a transaction.</span></span> <span data-ttu-id="0bc21-109">Kommandon i kö med felaktig syntax kommer att förhindra att transaktionen körs.</span><span class="sxs-lookup"><span data-stu-id="0bc21-109">Commands queued with incorrect syntax will prevent the transaction from being executed.</span></span>
+    - content: <span data-ttu-id="0bc21-110">Kommandon innan kommandot som misslyckas kommer fortfarande att köras, men de efter kommandot som misslyckas kommer inte köras.</span><span class="sxs-lookup"><span data-stu-id="0bc21-110">Commands prior to the failing command will still be executed, but those after the failing command will not be.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-111">En misslyckat kommando i en transaktion kommer inte att förhindra senare kommandon från att köras.</span><span class="sxs-lookup"><span data-stu-id="94054-111">A failing command in a transaction will not prevent later commands from being executed.</span></span>
-    - content: <span data-ttu-id="94054-112">Hela transaktionen kommer att återställs.</span><span class="sxs-lookup"><span data-stu-id="94054-112">The entire transaction will be rolled back.</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-111">En misslyckat kommando i en transaktion kommer inte att förhindra senare kommandon från att köras.</span><span class="sxs-lookup"><span data-stu-id="0bc21-111">A failing command in a transaction will not prevent later commands from being executed.</span></span>
+    - content: <span data-ttu-id="0bc21-112">Hela transaktionen kommer att återställs.</span><span class="sxs-lookup"><span data-stu-id="0bc21-112">The entire transaction will be rolled back.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-113">Redis stöder inte transaktionsåterställningar.</span><span class="sxs-lookup"><span data-stu-id="94054-113">Redis does not support transaction rollbacks.</span></span>
-    - content: <span data-ttu-id="94054-114">Anslutningen kommer att avbrytas.</span><span class="sxs-lookup"><span data-stu-id="94054-114">The connection will be aborted.</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-113">Redis stöder inte transaktionsåterställningar.</span><span class="sxs-lookup"><span data-stu-id="0bc21-113">Redis does not support transaction rollbacks.</span></span>
+    - content: <span data-ttu-id="0bc21-114">Anslutningen kommer att avbrytas.</span><span class="sxs-lookup"><span data-stu-id="0bc21-114">The connection will be aborted.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-115">Misslyckade kommandon gör inte att en Redis-anslutning avbryts.</span><span class="sxs-lookup"><span data-stu-id="94054-115">Failed commands do not cause a Redis connection to be aborted.</span></span>
-  - content: <span data-ttu-id="94054-116">Vilket av följande är ett Redis-kommando för att hantera förfallotid för data?</span><span class="sxs-lookup"><span data-stu-id="94054-116">Which of the following is a Redis command for managing data expiration?</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-115">Misslyckade kommandon gör inte att en Redis-anslutning avbryts.</span><span class="sxs-lookup"><span data-stu-id="0bc21-115">Failed commands do not cause a Redis connection to be aborted.</span></span>
+  - content: <span data-ttu-id="0bc21-116">Vilket av följande är ett Redis-kommando för att hantera förfallotid för data?</span><span class="sxs-lookup"><span data-stu-id="0bc21-116">Which of the following is a Redis command for managing data expiration?</span></span>
     choices:
-    - content: <span data-ttu-id="94054-117">DEL</span><span class="sxs-lookup"><span data-stu-id="94054-117">DEL</span></span>
+    - content: <span data-ttu-id="0bc21-117">DEL</span><span class="sxs-lookup"><span data-stu-id="0bc21-117">DEL</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-118">DEL används för att ta bort nycklar.</span><span class="sxs-lookup"><span data-stu-id="94054-118">DEL is used to delete keys.</span></span>
-    - content: <span data-ttu-id="94054-119">DISCARD</span><span class="sxs-lookup"><span data-stu-id="94054-119">DISCARD</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-118">DEL används för att ta bort nycklar.</span><span class="sxs-lookup"><span data-stu-id="0bc21-118">DEL is used to delete keys.</span></span>
+    - content: <span data-ttu-id="0bc21-119">DISCARD</span><span class="sxs-lookup"><span data-stu-id="0bc21-119">DISCARD</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-120">DISCARD används för att avbryta en transaktion innan den körs.</span><span class="sxs-lookup"><span data-stu-id="94054-120">DISCARD is used to cancel a transaction prior to its execution.</span></span>
-    - content: <span data-ttu-id="94054-121">TIMEOUT</span><span class="sxs-lookup"><span data-stu-id="94054-121">TIMEOUT</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-120">DISCARD används för att avbryta en transaktion innan den körs.</span><span class="sxs-lookup"><span data-stu-id="0bc21-120">DISCARD is used to cancel a transaction prior to its execution.</span></span>
+    - content: <span data-ttu-id="0bc21-121">TIMEOUT</span><span class="sxs-lookup"><span data-stu-id="0bc21-121">TIMEOUT</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-122">TIMEOUT är inte ett giltigt Redis-kommando.</span><span class="sxs-lookup"><span data-stu-id="94054-122">TIMEOUT is not a valid Redis command.</span></span>
-    - content: <span data-ttu-id="94054-123">EXPIRE</span><span class="sxs-lookup"><span data-stu-id="94054-123">EXPIRE</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-122">TIMEOUT är inte ett giltigt Redis-kommando.</span><span class="sxs-lookup"><span data-stu-id="0bc21-122">TIMEOUT is not a valid Redis command.</span></span>
+    - content: <span data-ttu-id="0bc21-123">EXPIRE</span><span class="sxs-lookup"><span data-stu-id="0bc21-123">EXPIRE</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="94054-124">EXPIRE används för att ange förfallotiden för en nyckel i sekunder.</span><span class="sxs-lookup"><span data-stu-id="94054-124">EXPIRE is used to set the expiration timeout of a key in seconds.</span></span>
-  - content: <span data-ttu-id="94054-125">Din Redis-cache har konfigurerats med avlägsningsprincipen **volative-ttl**.</span><span class="sxs-lookup"><span data-stu-id="94054-125">Your Redis cache is configured with the **volatile-ttl** evicition policy.</span></span> <span data-ttu-id="94054-126">Om den får slut på minne och du försöker infoga en ny nyckel, vilken befintlig nyckel tas bort?</span><span class="sxs-lookup"><span data-stu-id="94054-126">If it runs out of memory and you try to insert a new key, which existing key is removed?</span></span>
+      correctExplanation: <span data-ttu-id="0bc21-124">EXPIRE används för att ange förfallotiden för en nyckel i sekunder.</span><span class="sxs-lookup"><span data-stu-id="0bc21-124">EXPIRE is used to set the expiration timeout of a key in seconds.</span></span>
+  - content: <span data-ttu-id="0bc21-125">Din Redis-cache har konfigurerats med avlägsningsprincipen **volative-ttl**.</span><span class="sxs-lookup"><span data-stu-id="0bc21-125">Your Redis cache is configured with the **volatile-ttl** evicition policy.</span></span> <span data-ttu-id="0bc21-126">Om den får slut på minne och du försöker infoga en ny nyckel, vilken befintlig nyckel tas bort?</span><span class="sxs-lookup"><span data-stu-id="0bc21-126">If it runs out of memory and you try to insert a new key, which existing key is removed?</span></span>
     choices:
-    - content: <span data-ttu-id="94054-127">Den minst nyligen använda nyckeln.</span><span class="sxs-lookup"><span data-stu-id="94054-127">The least recently used key.</span></span>
+    - content: <span data-ttu-id="0bc21-127">Den minst nyligen använda nyckeln.</span><span class="sxs-lookup"><span data-stu-id="0bc21-127">The least recently used key.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-128">Det här är beteendet för avlägsningsprincipen **allkeys-lru**.</span><span class="sxs-lookup"><span data-stu-id="94054-128">This is the behavior of the **allkeys-lru** eviction policy.</span></span>
-    - content: <span data-ttu-id="94054-129">En slumpmässig nyckel.</span><span class="sxs-lookup"><span data-stu-id="94054-129">A random key.</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-128">Det här är beteendet för avlägsningsprincipen **allkeys-lru**.</span><span class="sxs-lookup"><span data-stu-id="0bc21-128">This is the behavior of the **allkeys-lru** eviction policy.</span></span>
+    - content: <span data-ttu-id="0bc21-129">En slumpmässig nyckel.</span><span class="sxs-lookup"><span data-stu-id="0bc21-129">A random key.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-130">Det här är beteendet för principen **alkeys-random**.</span><span class="sxs-lookup"><span data-stu-id="94054-130">This is the behavior of the **alkeys-random** policy.</span></span>
-    - content: <span data-ttu-id="94054-131">Den nyckel som skulle upphöra att gälla senaste.</span><span class="sxs-lookup"><span data-stu-id="94054-131">The key that would next expire.</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-130">Det här är beteendet för principen **alkeys-random**.</span><span class="sxs-lookup"><span data-stu-id="0bc21-130">This is the behavior of the **alkeys-random** policy.</span></span>
+    - content: <span data-ttu-id="0bc21-131">Den nyckel som skulle upphöra att gälla senaste.</span><span class="sxs-lookup"><span data-stu-id="0bc21-131">The key that would next expire.</span></span>
       isCorrect: true
-      correctExplanation: <span data-ttu-id="94054-132">**volatile-ttl** tar bort den nyckel med kortaste livslängd.</span><span class="sxs-lookup"><span data-stu-id="94054-132">**volatile-ttl** removes the key with the shortest time-to-live.</span></span>
-    - content: <span data-ttu-id="94054-133">En slumpmässig nyckel vald från nycklarna som har konfigurerats att gå ut.</span><span class="sxs-lookup"><span data-stu-id="94054-133">A random key, selected from keys that have been configured to expire.</span></span>
+      correctExplanation: <span data-ttu-id="0bc21-132">**volatile-ttl** tar bort den nyckel med kortaste livslängd.</span><span class="sxs-lookup"><span data-stu-id="0bc21-132">**volatile-ttl** removes the key with the shortest time-to-live.</span></span>
+    - content: <span data-ttu-id="0bc21-133">En slumpmässig nyckel vald från nycklarna som har konfigurerats att gå ut.</span><span class="sxs-lookup"><span data-stu-id="0bc21-133">A random key, selected from keys that have been configured to expire.</span></span>
       isCorrect: false
-      incorrectExplanation: <span data-ttu-id="94054-134">Det här är beteendet för principen **volatile-random**.</span><span class="sxs-lookup"><span data-stu-id="94054-134">This is the behavior of the **volatile-random** policy.</span></span>
+      incorrectExplanation: <span data-ttu-id="0bc21-134">Det här är beteendet för principen **volatile-random**.</span><span class="sxs-lookup"><span data-stu-id="0bc21-134">This is the behavior of the **volatile-random** policy.</span></span>

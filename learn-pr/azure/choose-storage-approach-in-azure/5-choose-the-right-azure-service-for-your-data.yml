@@ -1,19 +1,19 @@
 ### YamlMime:ModuleUnit
 uid: learn.choose-storage-approach-in-azure.5-choose-the-right-azure-service-for-your-data
 metadata:
-  title: <span data-ttu-id="11f8e-101">Välja en lagringslösning för Azure</span><span class="sxs-lookup"><span data-stu-id="11f8e-101">Choose a storage solution on Azure</span></span>
-  description: <span data-ttu-id="11f8e-102">Välja en lagringslösning för Azure</span><span class="sxs-lookup"><span data-stu-id="11f8e-102">Choose a storage solution on Azure</span></span>
+  title: <span data-ttu-id="8b71b-101">Välja en lagringslösning för Azure</span><span class="sxs-lookup"><span data-stu-id="8b71b-101">Choose a storage solution on Azure</span></span>
+  description: <span data-ttu-id="8b71b-102">Välja en lagringslösning för Azure</span><span class="sxs-lookup"><span data-stu-id="8b71b-102">Choose a storage solution on Azure</span></span>
   ms.date: 09/24/2018
   author: mimig1
   ms.author: mimig
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 876fd01b6b8bae7be183b10ba667c229884282eb
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358807"
-title: <span data-ttu-id="11f8e-103">Välja en lagringslösning för Azure</span><span class="sxs-lookup"><span data-stu-id="11f8e-103">Choose a storage solution on Azure</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47151231"
+title: <span data-ttu-id="8b71b-103">Välja en lagringslösning för Azure</span><span class="sxs-lookup"><span data-stu-id="8b71b-103">Choose a storage solution on Azure</span></span>
 durationInMinutes: 7
 content: '[!include[](includes/5-choose-the-right-azure-service-for-your-data.md)]'

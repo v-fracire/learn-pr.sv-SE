@@ -1,20 +1,20 @@
 ### YamlMime:ModuleUnit
 uid: learn.classify-user-feedback-with-the-text-analytics-api.5-exercise-create-function-app
 metadata:
-  title: <span data-ttu-id="084cb-101">Övning – Skapa en funktionsapp från portalen som ska vara värd för vår affärslogik</span><span class="sxs-lookup"><span data-stu-id="084cb-101">Exercise - Create a function app from the portal to host our business logic</span></span>
-  description: <span data-ttu-id="084cb-102">I den här praktiska labbövningen förbereder vi vår feedbacksorteringslösning genom att skapa en funktionsapp och en funktion för som värd för vår logik.</span><span class="sxs-lookup"><span data-stu-id="084cb-102">In this hands-on lab, we'll prepare our feedback sorter solution by creating a function app and a function to host our logic.</span></span>
+  title: <span data-ttu-id="a71d2-101">Övning – Skapa en funktionsapp från portalen som ska vara värd för vår affärslogik</span><span class="sxs-lookup"><span data-stu-id="a71d2-101">Exercise - Create a function app from the portal to host our business logic</span></span>
+  description: <span data-ttu-id="a71d2-102">I den här praktiska labbövningen förbereder vi vår feedbacksorteringslösning genom att skapa en funktionsapp och en funktion för som värd för vår logik.</span><span class="sxs-lookup"><span data-stu-id="a71d2-102">In this hands-on lab, we'll prepare our feedback sorter solution by creating a function app and a function to host our logic.</span></span>
   ms.date: 09/24/2018
   author: AndrewJByrne
   ms.author: anbyrne
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: d329415777ba305a83bb22dcba994a75712d1e0d
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46514279"
-title: <span data-ttu-id="084cb-103">Övning – Skapa en funktionsapp från portalen som ska vara värd för vår affärslogik</span><span class="sxs-lookup"><span data-stu-id="084cb-103">Exercise - Create a function app from the portal to host our business logic</span></span>
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47154607"
+title: <span data-ttu-id="a71d2-103">Övning – Skapa en funktionsapp från portalen som ska vara värd för vår affärslogik</span><span class="sxs-lookup"><span data-stu-id="a71d2-103">Exercise - Create a function app from the portal to host our business logic</span></span>
 azureSandbox: true
 durationInMinutes: 7
 content: '[!include[](includes/5-exercise-create-function-app.md)]'
