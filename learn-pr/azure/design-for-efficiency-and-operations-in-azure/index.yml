@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 21c66977bd96e0c7d4674ed2144ee53b6f44db31
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358588"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47155537"
 title: Designa för effektivitet och drift i Azure
 summary: Läs hur du designar en Azure-arkitektur som är kostnads- och drifteffektiv, som minimerar förluster och ger dig full insyn i vad som händer i din miljö.
 abstract: >

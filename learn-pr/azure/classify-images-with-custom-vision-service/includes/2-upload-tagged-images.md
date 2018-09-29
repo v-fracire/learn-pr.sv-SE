@@ -14,11 +14,11 @@ I den här kursdelen får du lägga till bilder av berömda tavlor av Picasso, P
 
 1. Ladda ned [cvs-resources.zip](https://github.com/MicrosoftDocs/mslearn-classify-images-with-the-custom-vision-service/raw/master/cvs-resources.zip) som innehåller bildresurser för den här modulen och packa upp den till den lokala datorn. 
 
-1. Välj **Add images** (Lägg till bilder) i portalen för att lägga till bilder i projektet.
+1. I portalen, välj **Add images** (Lägg till bilder) för att lägga till bilder i projektet.
 
     ![Lägga till bilder i Artworks-projektet](../media/2-portal-click-add-images.png)
 
-1. Navigera till mappen ”Artists\Picasso” i mappen **cvs-resurser** som du laddade ned lokalt i steg 4.
+1. I mappen **cvs-resurser** som du laddade ned lokalt i steg 4, navigera till mappen ”Artists\Picasso”.
 
 1. Markera alla filer i ”Artists\Picasso” och välj sedan **Öppna**.
 

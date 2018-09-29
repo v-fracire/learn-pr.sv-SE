@@ -11,11 +11,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: a557f46b09baeda7f1cc0b544b07a82be3aff4d2
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46514564"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47152154"
 quiz:
   title: Testa dina kunskaper
   questions:
@@ -42,7 +42,7 @@ quiz:
     choices:
     - content: En virtuell dator
       isCorrect: false
-      incorrectExplanation: En konfiguration med flera virtuella datorer är lämpligt eftersom det ger redundans. Om någon av de virtuella datorerna kraschar kan den andra fortsätta att hantera tjänstbegäranden.
+      incorrectExplanation: En konfiguration med flera virtuella datorer är lämpligt eftersom det ger redundans. Om någon av de virtuella datorerna kraschar, kan den andra fortsätta att hantera tjänstbegäranden.
     - content: Två virtuella datorer och lastbalanserare
       isCorrect: true
       correctExplanation: En konfiguration med flera virtuella datorer är lämpligt eftersom det ger redundans. Om någon av de virtuella datorerna kraschar, kan den andra fortsätta att hantera tjänstbegäranden.

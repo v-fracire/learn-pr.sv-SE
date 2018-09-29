@@ -1,4 +1,4 @@
-Om du vill använda Visual Studio Code för Azure-utveckling måste du installera Visual Studio Code lokalt och ett eller flera Azure-tillägg. I den här övningen lägger vi till tillägget **Azure App Service**.
+Om du vill använda Visual Studio Code för Azure-utveckling måste du installera Visual Studio Code lokalt och en eller flera Azure-tillägg. I den här övningen lägger vi till tillägget **Azure App Service**.
 
 ## <a name="install-visual-studio-code"></a>Installera Visual Studio Code
 
@@ -10,7 +10,7 @@ Om du vill använda Visual Studio Code för Azure-utveckling måste du installer
 
 1. Kör installationsprogrammet.
 
-1. Öppna Visual Studio Code genom att trycka på Windows-tangenten eller genom att klicka på Windows-ikonen i aktivitetsfältet. Skriv ”Visual Studio Code” och klicka på resultatet **Visual Studio Code**.
+1. Öppna Visual Studio Code genom att trycka på Windows-tangenten eller genom att klicka på Windows-ikonen i aktivitetsfältet och skriv ”Visual Studio Code” och klicka på resultatet **Visual Studio Code**.
 
 ::: zone-end
 
@@ -24,7 +24,7 @@ Om du vill använda Visual Studio Code för Azure-utveckling måste du installer
 
 1. Dra Visual Studio-Code.app till mappen Program.
 
-1. Öppna Visual Studio Code genom att klicka på ikonen för App-avsnittet eller genom att söka efter Visual Studio Code i Spotlight.
+1. Öppna Visual Studio Code genom att klicka på ikonen för App-delen eller genom att söka efter Visual Studio Code i Spotlight.
 
 ::: zone-end
 

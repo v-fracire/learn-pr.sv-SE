@@ -1,5 +1,4 @@
-::: zone pivot="csharp"
-Nu ska vi integrera Azure Storage-klientbiblioteket i ditt .NET Core-konsolprogram.
+::: zone pivot="csharp" Nu ska vi integrera Azure Storage-klientbiblioteket i ditt .NET Core-konsolprogram.
 
 Azure Storages klientbibliotek för .NET distribueras med NuGet. Du kan lägga till **WindowsAzure.Storage**-paketet till dina .NET- eller .NET Core-program.
 

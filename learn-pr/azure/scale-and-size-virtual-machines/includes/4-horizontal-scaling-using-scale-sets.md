@@ -82,6 +82,6 @@ Du kan skapa en VM-skalningsuppsättning med `New-AzureRmVmss` PowerShell cmdlet
 * Skapa en lastbalanserare
 * Skapa regler för lastbalanserare för portarna 3389 och 5985 för Windows samt port 22 för Linux
 
-`New-AzureRmVmss` skapar inte en hälsoavsökning för lastbalanseraren. Bästa praxis är att skapa denna med hjälp av `Add-AzureRmLoadBalancerProbeConfig` efter att du har skapat skalningsuppsättningen.
+`New-AzureRmVmss` skapar inte en hälsoavsökning för lastbalanseraren. Bästa praxis är att skapa denna med hjälp av `Add-AzureRmLoadBalancerProbeConfig` efter du har skapat skalningsuppsättningen.
 
 Med horisontell skalning med skalningsuppsättningar får du flera servrar för att köra programmet. Genom att använda flera servrar kan du hantera hög belastning och säkerställa att dina tjänster hålls tillgängliga även om en server kraschar. Du kan lägga till autoskalning till dina skalningsuppsättningar så att systemet automatiskt anpassar sig till oväntade förändringar av efterfrågan.

@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: e2c7f3f112c4cde8b9d4081a90a25a89ed69810d
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357140"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47154106"
 title: Cachelagring och prestanda i Azure Storage-diskar
 summary: Det är bra för affärerna att flytta data så snabbt som möjligt. Läs mer om diskprestanda i Azure, hur cachelagring kan hjälpa dig att optimera läs- och skrivåtkomst till lagring, och hur du aktiverar cachelagring för att optimera de virtuella Azure-datordiskarnas prestanda.
 abstract: >

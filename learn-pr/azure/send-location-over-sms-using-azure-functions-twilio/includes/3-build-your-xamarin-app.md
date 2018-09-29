@@ -65,9 +65,9 @@ namespace ImHere
 
 `MainPage` har en textinmatningskontroll för telefonnummer och en etikett för att visa ett meddelande. De här kontrollerna binds till egenskaper för en ViewModel.
 
-1. Skapa en klass med namnet `MainViewModel` i .NET-standardprojektet `ImHere`.
+1. Skapa en klassen med namnet `MainViewModel` i .NET-standardprojektet `ImHere`.
 
-1. Gör den här klassen publik och härled från `BaseViewModel`.
+1. Gör den här klassen public och härled från `BaseViewModel`.
 
 1. Lägg till två `string`-egenskaper, `PhoneNumbers` och `Message`, och låt dem ha var sitt stödfält. I set-metoden för egenskaperna använder du basklassens `Set`-metod till att uppdatera värdet och generera händelsen `PropertyChanged`.
 
@@ -93,7 +93,7 @@ namespace ImHere
     public ICommand SendLocationCommand { get; }
     ```
 
-1. Lägg till en konstruktor i klassen och initiera `SendLocationCommand` som en ny Xamarin.Forms `Command` i denna konstruktor. Du måste lägga till ett användningsdirektiv för namnområdet `Xamarin.Forms`. Konstruktorn för kommandot tar en `Action` som ska köras när kommandot anropas, så skapa en `async`-metod med namnet `SendLocation` och skicka en lambdafunktion med `await`-kod för anropet till konstruktorn. Innehållet i metoden `SendLocation` implementeras i senare övningar i den här modulen. Du måste lägga till ett användningsdirektiv för namnområdet `System.Threading.Tasks` så att du kan returnera en `Task`.
+1. Lägg till en konstruktor i klassen och initiera `SendLocationCommand` som en ny Xamarin.Forms `Command` i denna konstruktor. Du måste lägga till ett användningsdirektiv för namnområdet `Xamarin.Forms`. Konstruktorn för kommandot tar som indata en `Action` som ska köras när kommandot anropas, så skapa en `async`-metod med namnet `SendLocation` och skicka en lambdafunktion med `await`-kod för anropet till konstruktorn. Innehållet i metoden `SendLocation` implementeras i senare övningar i den här modulen. Du måste lägga till ett användningsdirektiv för namnområdet `System.Threading.Tasks` så att du kan returnera en `Task`.
 
     ```cs
     public MainViewModel()
@@ -219,7 +219,7 @@ Du kan skapa Xamarin.Forms-gränssnitt med XAML.
 1. Kör appen så att du ser det nya användargränssnittet. Om du vill kontrollera bindningarna kan du göra det genom att lägga till brytpunkter i egenskaperna eller i metoden `SendLocation`.
 
     > [!NOTE]
-    > När du kompilerar den här appen visas en varning om att `SendLocation` saknar `await` modifierare. Du kan ignorera den här varningen eftersom detta kommer att lösas när mer kod läggs till för den här metoden i nästa enhet.
+    > När du kompilerar den här appen visas en varning om att `SendLocation` saknar `await` modifierare. Du kan ignorera den här varningen eftersom detta kommer att lösas när mer kod som har lagts till i den här metoden i nästa enhet.
     
     
     ![Appens nya gränssnitt](../media/3-new-ui.png)

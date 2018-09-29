@@ -10,5 +10,5 @@ I den här modulen ska du:
 
 - Skapa ett Azure Cosmos DB-konto
 - Ange inledande dataflödesvolym för din databas med enheter för programbegäran
-- Välja en partitionsnyckel
+- Välj en partitionsnyckel
 - Skapa en databas och en samling för NoSQL-data i Azure Cosmos DB
