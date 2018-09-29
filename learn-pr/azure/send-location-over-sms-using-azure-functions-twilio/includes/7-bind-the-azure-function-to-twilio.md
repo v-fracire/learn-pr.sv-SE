@@ -10,9 +10,9 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
 
 1. Stoppa den lokala körningen av Azure Functions om det fortfarande körs sedan den föregående enheten.
 
-1. Lägg till NuGet-paketet v.3.0.0-rc1 Microsoft.Azure.WebJobs.Extensions.Twilio i projektet `ImHere.Functions`. **Använd version 3.0.0-rc1, inte 3.0.0 på grund av ett fel i den säkra versionen med Twilio-bindningar**. Det här NuGet-paketet innehåller de klasser som behövs för bindningen.
+2. Lägg till NuGet-paketet Microsoft.Azure.WebJobs.Extensions.Twilio i projektet `ImHere.Functions`. Det här NuGet-paketet innehåller de klasser som behövs för bindningen.
 
-1. Lägg till en ny parameter i den statiska metoden `Run` i den statiska klassen `SendLocation` med namnet `messages`. Den här parametern ska ha typen `ICollector<CreateMessageOptions>`. Du måste lägga till ett `using`-direktiv för `Twilio.Rest.Api.V2010.Account`-namnområdet.
+3. Lägg till en ny parameter i den statiska metoden `Run` i den statiska klassen `SendLocation` med namnet `messages`. Den här parametern ska ha typen `ICollector<CreateMessageOptions>`. Du måste lägga till ett `using`-direktiv för `Twilio.Rest.Api.V2010.Account`-namnområdet.
 
     ```cs
     [FunctionName("SendLocation")]
@@ -21,7 +21,7 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
                                                 ILogger log)
     ```
 
-1. Utöka den nya parametern `messages` med attributet `TwilioSms` enligt följande: 
+4. Utöka den nya parametern `messages` med attributet `TwilioSms` enligt följande: 
 
       ```cs
     [TwilioSms(AccountSidSetting = "TwilioAccountSid",AuthTokenSetting = "TwilioAuthToken", From = "+1xxxxxxxxx")]ICollector<CreateMessageOptions> messages,
@@ -43,8 +43,7 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
     > [!IMPORTANT]
     > Se till att ta bort alla blanksteg från telefonnumret.
 
-
-1. Du kan konfigurera inställningarna för Functions-appen lokalt i filen `local.settings.json`. Lägg till SID och autentiseringstoken för ditt Twilio-konto i den här JSON-filen och använd inställningsnamnen som skickades till attributet `TwilioSMS`.
+5. Du kan konfigurera inställningarna för Functions-appen lokalt i filen `local.settings.json`. Lägg till SID och autentiseringstoken för ditt Twilio-konto i den här JSON-filen och använd inställningsnamnen som skickades till attributet `TwilioSMS`.
 
     ```json
     {
@@ -63,9 +62,8 @@ När du ska skicka SMS via Twilio behöver du en utdatabindning som är konfigur
     > [!NOTE]
     > De här lokala inställningarna används bara vid lokal körning. I en produktionsapp skulle dessa värden vara autentiseringsuppgifterna för det lokala utvecklings- eller testkontot. När Azure-funktionen har distribuerats till Azure kan du konfigurera värden för produktionsmiljön.
 
-     > [!NOTE]
+    > [!NOTE]
     > Om du checkar in koden i källkontrollen checkas de här lokala inställningsvärdena också in, så var försiktig så att du inte checkar in faktiska värden om koden är öppen källkod eller på annat sätt offentlig.
-    
 
 ## <a name="create-the-sms-messages"></a>Skapa SMS
 
