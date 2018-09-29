@@ -2,7 +2,7 @@ För att lastbalanseraren ska fungera korrekt måste du konfigurera inställning
 
 ## <a name="steps-for-configuring-a-basic-public-load-balancer"></a>Steg för att konfigurera en grundläggande offentlig lastbalanserare
 
-Följande är en översikt över de huvudsakliga konfigurationsstegen för en grundläggande offentlig lastbalanserare. Stegen för en standard lastbalanserare och för en intern lastbalanserare kommer att vara liknande. Det finns i huvudsak fyra saker som vi måste installera:
+Följande är en översikt över de huvudsakliga konfigurationsstegen för en grundläggande offentlig lastbalanserare. Stegen för en standard lastbalanserare och för en intern lastbalanserare kommer att vara liknande. Det finns i huvudsak fyra saker vi måste installera:
 
 - Backend-servrar för att bearbeta begäranden
 - Offentlig IP-adress

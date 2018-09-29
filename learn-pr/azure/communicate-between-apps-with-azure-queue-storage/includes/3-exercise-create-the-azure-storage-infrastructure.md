@@ -20,7 +20,7 @@ Kommandot kräver flera parametrar:
 | `-g`        | Tillhandahåller **resursgruppen** och använder _<rgn>[resursgruppnamn för sandbox]</rgn>_ som värde. |
 | `--kind`    | Anger **typ av lagringskonto** – använd _StorageV2_ för att skapa ett allmänt V2-konto. |
 | `--sku`     | Ställer in **replikerings- och lagringstyp**, vilket har standardinställningen _Standard_RAGRS_. Vi använder _Standard_LRS_, vilket innebär att kontot bara är lokalt redundant i datacentret. |
-| `-l`        | Anger **platsen** oberoende av resursgruppens ägare. Det här är valfritt, men du kan använda det om du vill placera kön i en annan region än resursgruppen. Välj en plats nära dig från nedanstående lista över tillgängliga regioner i sandbox-miljön. |
+| `-l`        | Anger **platsen** oberoende av resursgruppens ägare. Det här är valfritt, men du kan använda det om du vill placera i kön i en annan region än resursgruppen. Välj en plats nära dig från nedanstående lista över tillgängliga regioner i sandbox-miljön. |
 
 <!-- Resource selection -->
 [!include[](../../../includes/azure-sandbox-regions-first-mention-note.md)]

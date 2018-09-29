@@ -8,7 +8,7 @@ När du ska skapa en modell för bildklassificering med Custom Vision Service b�
 
     ![Skapa ett Custom Vision Service-projekt](../media/1-portal-click-new-project.png)
 
-1. I dialogrutan **Skapa nytt projekt** ger du projektet namnet *Artworks* och ser till att **Almänt** är markerat i listan **Domäner**. Du kan behålla standardinställningarna för **Projekttyper** och **Klassificeringstyper**. Välj **Skapa projekt** för att skapa projektet.
+1. I dialogrutan **Create new project** (Skapa nytt projekt) ger du projektet namnet *Artworks* och ser till att **General** (Allmänt) är markerat i listan **Domains** (Domäner). Du kan behålla standardinställningarna för **Projekttyper** och **Klassificeringstyper**. Välj **Skapa projekt** för att skapa projektet.
 
     > Med hjälp av domäner kan du optimera modellen för en viss typ av bilder. Om du till exempel vill klassificera matbilder efter vilka typer av maträtter eller vilket kök som visas kan det vara bra att välja domänen Food (Mat). Domänen General (Allmänt) väljer du i de fall där det inte finns någon passande domän eller om du känner dig osäker på vad du ska välja.
 

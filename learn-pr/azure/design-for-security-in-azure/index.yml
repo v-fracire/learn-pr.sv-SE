@@ -9,11 +9,11 @@ metadata:
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   ms.openlocfilehash: 4adcea550809e51006a4eee0bd570afc8a7b1e91
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.sourcegitcommit: c02f803ad02769c7185b7f20e04d64fee38d9931
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360743"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47147922"
 title: Designa för säkerhet i Azure
 summary: Lär dig att bygga in säkerhet i din utformning av arkitekturen och identifiera de verktyg som Azure tillhandahåller för att hjälpa dig att skapa en säker miljö via alla lager i din arkitektur.
 abstract: >

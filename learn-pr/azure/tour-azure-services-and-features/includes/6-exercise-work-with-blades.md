@@ -1,4 +1,4 @@
-I den här kursdelen får du lära dig hur du arbetar med blad i användargränssnittet i Azure Portal. Du kan använda ditt eget konto (om du har ett eller har skapat ett) eller använda kostnadsfria Azure Sandbox.
+I den här kursdelen får du lära dig hur du arbetar med blad i användargränssnittet i Azure Portal. Du kan använda ditt eget konto (om du har, eller har skapat, ett) eller använda kostnadsfria Azure Sandbox.
 
 Om du har ett konto (eller har skapat ett) loggar du sedan in på [Azure Portal](https://portal.azure.com?azure-portal=true) med ditt kontos autentiseringsuppgifter
 

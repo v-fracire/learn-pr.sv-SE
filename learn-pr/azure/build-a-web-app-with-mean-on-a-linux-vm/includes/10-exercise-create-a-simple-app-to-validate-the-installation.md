@@ -290,7 +290,7 @@ Först ska vi skapa kod, skript och HTML-filer för vårt program. Vi ska göra 
 
 1. Testa programmets funktionalitet.
 
-    Öppna valfri webbläsare och navigera till den offentliga IP-adressen för din virtuella Azure-dator som webbadressen ([http://X.X.X.X](http://X.X.X.X)).
+    Öppna valfri webbläsare och navigera till den offentliga IP-adressen för din virtuella Azure-dator som URL:en ([http://X.X.X.X](http://X.X.X.X)).
 
     Om allt är som det ska bör du se en skärm som ser ut ungefär så här:
 

@@ -8,15 +8,15 @@ Vi använder kommandot `az storage account create` för att skapa det nya lagrin
 > | Alternativ | Beskrivning |
 > |--------|-------------|
 > | `--name` | Ett **namn på lagringskontot**. Namnet används för att generera den offentliga webbadress som används för att få åtkomst till data på kontot. Det måste vara unikt för alla befintliga lagringskontonamn i Azure. Det måste vara 3 till 24 tecken långt och får bara innehålla gemena bokstäver och siffror. |
-> | `--resource-group` | Använd **<rgn>[resursgruppnamn för sandbox]</rgn>** för att placera lagringskontot i den kostnadsfria sandbox-miljön. |
+> | `--resource-group` | Använd **<rgn>[sandbox-resursgruppnamn]</rgn>** för att placera lagringskontot i den kostnadsfria sandbox-miljön. |
 > | `--location` | Välj en plats nära dig (se nedan). |
 > | `--kind` | Det bestämmer lagringskontots _typ_. Alternativen inkluderar `BlobStorage`, `Storage` och `StorageV2`. |
 > | `--sku` | Detta avgör lagringskontots prestanda och replikeringsmodell. Alternativ inkluderar `Premium_LRS`, `Standard_GRS`, `Standard_LRS`, `Standard_RAGRS` och `Standard_ZRS`. |
 > | `--access-tier` | **Åtkomstnivån** används endast för bloblagring och de tillgängliga alternativen är [`Cool` \| `Hot`]. **Frekvent åtkomstnivå** passar perfekt för data som används ofta, och **Lågfrekvent åtkomstnivå** passar bättre för data som inte används ofta. Lägg märke till att detta endast ställer in _standardvärdet_&mdash; – när du skapar en blob kan du ställa in ett annat datavärde. |
     
-Använd tabellen ovan och skapa en kommandorad i Cloud Shell till höger för att skapa kontot.
+Använd tabellen ovan för att skapa en kommandorad i Cloud Shell till höger för att skapa kontot.
 - Använd ett unikt namn. Som ett unikt namn rekommenderar vi något i stil med ”fotolagring” med dina initialer och ett slumpmässigt tal. Du får ett felmeddelande om det inte är unikt.
-- Vanligtvis skulle du skapa en ny resursgrupp för dina appresurser, men i det här fallet använder du sandbox-resursgruppen "**<rgn>[resursgruppnamn för sandbox]</rgn>**".
+- Vanligtvis skulle du skapa en ny resursgrupp för dina appresurser, men i det här fallet, använd sandbox-resursgruppen "**<rgn>[sandbox-resursgruppnamn]</rgn>**".
 - Använd ”Standard_LRS” för **sku**. Då används standardlagringen med lokal replikering vilket fungerar för det här exemplet.
 - Använd ”Lågfrekvent” som **Åtkomstnivå**.
 

@@ -10,7 +10,7 @@ Innan du kan kryptera dina virtuella datordiskar behöver du göra följande:
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-De krypteringsnycklar som används av ADE kan lagras i ett Azure Key Vault. Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett säkert sätt. En hemlighet är något som du vill begränsa åtkomst till, till exempel API-nycklar, lösenord eller certifikat. Det ger högst tillgänglig, skalbar och säker lagring enligt definition i  Federal Information Processing Standards (FIPS) 140-2 nivå 2-verifierade Maskinvarusäkerhetsmoduler (HSM). Med Key Vault kan du behålla fullständig kontroll över de nycklar som används för att kryptera dina data, och även hantera och granska din nyckelanvändning. 
+De krypteringsnycklar som används av ADE kan lagras i ett Azure Key Vault. Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett säkert sätt. En hemlighet är något som du vill begränsa åtkomst till, till exempel API-nycklar, lösenord eller certifikat. Det ger högst tillgänglig, skalbar och säker lagring såsom definieras i  Federal Information Processing Standards (FIPS) 140-2 nivå 2-verifierade Maskinvarusäkerhetsmoduler (HSM). Med Key Vault kan du behålla fullständig kontroll över de nycklar som används för att kryptera dina data, och även hantera och granska din nyckelanvändning. 
 
 > [!NOTE]
 > Azure Disk Encryption kräver att ditt nyckelvalv och dina virtuella datorer finns i samma Azure-region. Det säkerställer att krypteringshemligheter inte korsar regionala gränser.
@@ -44,7 +44,7 @@ Ett Azure-nyckelvalv är en resurs som kan skapas i Azure-portalen med den norma
 
 1. Sök efter ”Key vault” (nyckelvalv). Klicka på **Skapa** i informationsfönstret.
 
-    ![Skärmbild som visar nyckelvalv i Azure Marketplace](../media/3-create-keyvault.png)
+    ![Skärmbild visar nyckelvalv i Azure Marketplace](../media/3-create-keyvault.png)
 
 1. Ange uppgifterna för det nya nyckelvalvet:
     - Ange ett **Namn** för nyckelvalvet
@@ -60,7 +60,7 @@ Ett Azure-nyckelvalv är en resurs som kan skapas i Azure-portalen med den norma
     - Du kan ta bort ditt konto om du vill. Det behövs inte om du endast planerar att använda nyckelvalvet för diskkryptering.
     - Spara ändringarna genom att klicka på **OK**.
 
-    ![Skärmbild som visar avancerade egenskaper för nyckelvalv med alternativet Azure Disk Encryption markerat](../media/3-configure-access-policy.png)
+    ![Skärmbild som visar avancerade egenskaper för nyckelvalv med alternativet Azure Disk Encryption kontrollerat och markerat](../media/3-configure-access-policy.png)
 
 1. Klicka på **Skapa** för att skapa det nya nyckelvalvet.
 
@@ -84,12 +84,12 @@ az keyvault update --name <keyvault-name> --resource-group <resource-group> --en
 
 ## <a name="encrypting-an-existing-vm-disk"></a>Kryptera en befintlig virtuell datordisk
 
-När du har konfigurerat nyckelvalvet kan du kryptera den virtuella datorn med antingen Azure CLI eller Azure PowerShell. Första gången du krypterar en virtuell dator i Windows kan du välja att kryptera alla diskar eller endast OS-disken. På vissa Linux-distributioner går det endast att kryptera datadiskarna. Om dina Windows-diskar ska vara kvalificerade för kryptering måste de formateras som NTFS-volymer.
+När du har konfigurerat nyckelvalvet kan du kryptera den virtuella datorn med antingen Azure CLI eller Azure PowerShell. Första gången du krypterar en virtuell dator i Windows kan du välja att kryptera alla diskar eller endast OS-disken. På vissa Linux-distributioner går det endast att kryptera datadiskarna. För att vara kvalificerade för kryptering måste dina Windows-diskar formateras som NTFS-volymer.
 
 > [!WARNING]
 > Du måste ta en ögonblicksbild eller en säkerhetskopia av de hanterade diskarna innan du kan aktivera kryptering. Flaggan `SkipVmBackup` som anges nedan berättar för verktyget att säkerhetskopieringen har slutförts på hanterade diskar. Utan säkerhetskopieringen kan du inte återställa den virtuella datorn om krypteringen av någon anledning misslyckas.
 
-Med PowerShell används `Set-AzureRmVmDiskEncryptionExtension`-cmdlet för att aktivera kryptering.
+Med PowerShell används `Set-AzureRmVmDiskEncryptionExtension` cmdlet för att aktivera kryptering.
 
 ```powershell
 
@@ -102,7 +102,7 @@ Set-AzureRmVmDiskEncryptionExtension `
      -SkipVmBackup
 ```
 
-För Azure CLI används `az vm encryption enable`-kommandot för att aktivera kryptering.
+För Azure CLI används `az vm encryption enable` kommandot för att aktivera kryptering.
 
 ```azurecli
 az vm encryption enable \
@@ -135,7 +135,7 @@ Du kan upphäva krypteringen med hjälp av PowerShell `Disable-AzureRmVMDiskEncr
 Disable-AzureRmVMDiskEncryption -ResourceGroupName <resource-group> -VMName <vm-name>
 ```
 
-För Azure CLI används `vm encryption disable`-kommandot.
+För Azure CLI används `vm encryption disable` kommandot.
 
 ```azurecli
 az vm encryption disable --resource-group <resource-group> --name <vm-name>

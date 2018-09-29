@@ -1,5 +1,4 @@
-::: zone pivot="csharp"
-Nu ska vi lägga till stöd i vår .NET Core-app för att hämta en anslutningssträng från en konfigurationsfil. Vi börjar med att lägga till de delar som behövs för att hantera konfigurationen i en JSON-fil.
+::: zone pivot="csharp" Nu ska vi lägga till stöd i vår .NET Core-app för att hämta en anslutningssträng från en konfigurationsfil. Vi börjar med att lägga till de delar som behövs för att hantera konfigurationen i en JSON-fil.
 
 ## <a name="create-a-json-configuration-file"></a>Skapa en JSON-konfigurationsfil
 

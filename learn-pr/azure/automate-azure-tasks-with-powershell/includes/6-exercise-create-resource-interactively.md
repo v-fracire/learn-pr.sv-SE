@@ -7,13 +7,13 @@ Nu ska vi prova de kommandon som du använder för att skapa en virtuell dator.
 
 ## <a name="create-a-linux-vm-with-azure-powershell"></a>Skapa en virtuell Linux-dator med Azure PowerShell
 
-Eftersom vi använder sandbox-miljön för Azure behöver du inte skapa en resursgrupp. Välj istället **resursgruppen<rgn> </rgn>[resursgruppnamn för sandbox]**. Dessutom bör du vara medveten om platsbegränsningar.
+Eftersom vi använder sandbox-miljön för Azure kan behöver du inte skapa en resursgrupp. Välj istället **resursgruppen<rgn> </rgn>[Resursgruppsnamn för sandbox-miljö]**. Dessutom bör du vara medveten om platsbegränsningar.
 
 Nu ska vi skapa en ny virtuell Azure-dator med PowerShell.
 
 1. Använd cmdlet:en `New-AzureRmVm` för att skapa en virtuell dator.
-    - Använd resursgruppen **<rgn>[resursgruppnamn för sandbox]</rgn>**.
-    - Namnge den virtuella datorn – vanligtvis vill du använda ett mer beskrivande namn som identifierar den virtuella datorns syfte, plats, och antal instanser (om det finns fler än en). Vi använder ”testvm-eus-01” för ”virtuell testdator East US instans 1”. Använd ditt eget namn baserat på var den virtuella datorn finns.
+    - Använd den resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**.
+    - Namnge den virtuella datorn – vanligtvis du vill använda ett mer beskrivande namn som identifierar den virtuella datorns syfte, plats, och antal instanser (om det finns fler än en). Vi använder ”testvm-eus-01” för ”virtuell testdator East US instans 1”. Använd ditt eget namn baserat på var den virtuella datorn finns.
     - Välj en plats nära dig i följande lista som är tillgänglig i Azure-sandbox-miljön. Ändra värdet i nedanstående exempelkommando om du använder kopiera och klistra in.
 
         [!include[](../../../includes/azure-sandbox-regions-note.md)]
@@ -75,7 +75,7 @@ Nu ska vi skapa en ny virtuell Azure-dator med PowerShell.
     $vm | Get-AzureRmPublicIpAddress
     ```
 
-1. Med IP-adressen kan du ansluta till den virtuella datorn med SSH. Om du till exempel använde användarnamnet ”bob”, och IP-adressen är ”205.22.16.5” ansluter kommandot till Linux-datorn:
+1. Med IP-adressen kan du ansluta till den virtuella datorn med SSH. Till exempel om du använde användarnamnet ”bob”, och IP-adressen är ”205.22.16.5” ansluter kommandot till Linux-datorn:
 
     ```powershell
     ssh bob@205.22.16.5
