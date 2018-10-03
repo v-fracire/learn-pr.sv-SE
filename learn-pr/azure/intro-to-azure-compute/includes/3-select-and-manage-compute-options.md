@@ -6,7 +6,8 @@ Nu när du har sett vilka Azure-beräkningstjänster som finns tillgängliga ska
   :::column:::
     ![Bild som representerar en virtuell Azure-dator](../media/3-azure-vms.png)
   :::column-end:::
-  :::column span="3"::: Virtuella datorer är ett perfekt val när du behöver fullständig kontroll över operativsystemet och miljön. Du kan anpassa all programvara som körs på den virtuella datorn, precis som i en fysisk dator. Detta är särskilt användbart när du kör anpassad programvara eller anpassade värdkonfigurationer.
+  :::column span="3":::
+Virtuella datorer är ett perfekt val när du behöver fullständig kontroll över operativsystemet och miljön. Du kan anpassa all programvara som körs på den virtuella datorn, precis som i en fysisk dator. Detta är särskilt användbart när du kör anpassad programvara eller anpassade värdkonfigurationer.
   :::column-end:::
 :::row-end:::
 
@@ -30,19 +31,16 @@ Det finns även avancerade tjänster för virtuella datorer i Azure:
   :::column:::
     ![Bild som representerar Azure-containrar](../media/3-azure-containers.png)
   :::column-end:::
-  :::column span="3"::: Om du vill köra flera instanser av ett program på en enda virtuell dator är containrar ett utmärkt val. Containerns initierare kan starta, stoppa och skala ut programinstanser vid behov.
+  :::column span="3":::
+Om du vill köra flera instanser av ett program på en enda virtuell dator är containrar ett utmärkt val. Containerns initierare kan starta, stoppa och skala ut programinstanser vid behov.
   :::column-end:::
 :::row-end:::
-
-#### <a name="what-are-containers"></a>Vad är containrar?
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yMhY]
 
 #### <a name="vms-versus-containers"></a>Virtuella datorer jämfört med containrar
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2yuaq]
 
-Containrar används dock ofta till att skapa lösningar med hjälp av en mikrotjänstarkitektur. Containrar används ofta för att skapa lösningar med hjälp av en mikrotjänstarkitektur, eftersom de ofta används till dela in lösningar i mindre delar. Du kan till exempel dela upp en webbplats i en container som är värd för din klientdel, en annan som är värd för din serverdel och en tredje för lagring. Detta innebär att du kan avgränsa delar av din app i logiska delar som kan underhållas, skalas eller uppdateras oberoende av varandra.
+Containrar används ofta för att skapa lösningar med hjälp av en mikrotjänstarkitektur, eftersom de ofta används för att dela in lösningar i mindre delar. Du kan till exempel dela upp en webbplats i en container som är värd för din klientdel, en annan som är värd för din serverdel och en tredje för lagring. Detta innebär att du kan avgränsa delar av din app i logiska delar som kan underhållas, skalas eller uppdateras oberoende av varandra.
 
 #### <a name="what-is-a-microservice"></a>Vad är en mikrotjänst?
 
@@ -62,7 +60,8 @@ Om ditt team föredrar att använda Kubernetes-containerorkestrering kan du anv�
   :::column:::
     ![Bild som representerar Azure Functions](../media/3-azure-functions.png)
   :::column-end:::
-  :::column span="3"::: Azure Functions är perfekta när du endast bryr dig om den kod som kör din tjänst, och inte den underliggande plattformen eller infrastrukturen. De används ofta när du behöver utföra arbete som svar på en händelse, ofta via en REST-begäran, timer eller ett meddelande från en annan Azure-tjänst, och när arbetet kan slutföras snabbt (inom några sekunder eller ännu mindre).
+  :::column span="3":::
+Azure Functions är perfekt när du bara bryr dig om koden som kör din tjänst, och inte den underliggande plattformen eller infrastrukturen. De används ofta när du behöver utföra arbete som svar på en händelse, ofta via en REST-begäran, timer eller ett meddelande från en annan Azure-tjänst, och när arbetet kan slutföras snabbt (inom några sekunder eller ännu mindre).
   :::column-end:::
 :::row-end:::
 

@@ -51,9 +51,16 @@ När Jupyter Notebook körs i containern visas ett meddelande som liknar följan
 
 > *Kopiera och klistra in URL:en i webbläsaren när du ansluter för första gången för att logga in med en token: http://(5b8783e7911d or 127.0.0.1):8888/?token={sometoken}*
 
-1. Ersätt **http://(5b8783e7911d or 127.0.0.1)** av URL:en med `<HOSTNAME>.<REGION>.cloudapp.azure.com` eller IP-adressen för den virtuella datorn och gå till adressen i en ny en flik i webbläsaren.
+1. Ersätt **http://(5b8783e7911d or 127.0.0.1)** i URL:en med det fullständigt kvalificerade domännamnet (FQDN) eller IP-adressen för den virtuella datorn och gå till adressen på en ny en flik i webbläsaren.
 
     ![Skärmbild som visar instrumentpanelen för Jupyter Notebooks. ](../media/notebook-in-docker.png)
+
+    > [!TIP]
+    > Du kan hämta FQDN och IP-adressen för den virtuella datorn med följande kommando:
+    > 
+    > `az vm show -d --name <HOSTNAME> --resource-group <rgn>[sandbox resource group name]</rgn> --output table`
+    >
+    > Glöm inte att ersätta `<HOSTNAME>` med namnet som du gav den virtuella datorn. 
     
     Den här gången ser vi bara en enskild notebook. Det beror på vi är i en container och endast kopierade den här notebook. I nästa övning experimenterar vi med den här notebook. 
     

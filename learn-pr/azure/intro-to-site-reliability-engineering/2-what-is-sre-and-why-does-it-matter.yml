@@ -1,0 +1,48 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-site-reliability-engineering.2-what-is-sre-and-why-does-it-matter
+title: Vad är SRE och varför spelar det någon roll?
+metadata:
+  title: Vad är SRE och varför spelar det någon roll?
+  description: Vad är SRE och varför spelar det någon roll?
+  ms.date: 09/26/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 1e19e3256f43ac642814968c9b547e760aa09a64
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439120"
+durationInMinutes: 10
+content: >
+  [!include[](includes/2-what-is-sre-and-why-does-it-matter.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilken egenskap hos en tjänst, ett system eller en produkt fokuserar SRE på?
+    choices:
+    - content: Säkerhet
+      isCorrect: false
+      incorrectExplanation: Säkerheten är definitivt viktig i SRE, men tillförlitligheten har huvudfokus inom det här tekniska området.
+    - content: Driftkostnad
+      isCorrect: false
+      incorrectExplanation: Utgifter och resursanvändning är definitivt viktiga i SRE, men tillförlitligheten har huvudfokus inom det här tekniska området.
+    - content: Tillförlitlighet
+      isCorrect: true
+      correctExplanation: Precis, tillförlitligheten har huvudfokus inom SRE.
+    - content: Underhåll
+      isCorrect: false
+      incorrectExplanation: Det är absolut viktigt inom SRE att skapa tjänster, system och produkter som är lätta att underhålla, men tillförlitligheten har huvudfokus inom det här tekniska området.
+  - content: Vilken nivå av tillförlitlighet strävar SRE efter för nästan alla tjänster, system och produkter?
+    choices:
+    - content: 100 % är målet
+      isCorrect: false
+      incorrectExplanation: 100 % tillförlitlighet är sällan möjligt. Även om det vore det skulle det bli för dyrt och kräva för mycket resurser (och medföra spill).
+    - content: Tillförlitligheten bör vara så hög som möjligt
+      isCorrect: false
+      incorrectExplanation: Det är viktigt att identifiera lämplig nivå av tillförlitlighet för ett mål eftersom arbete och resurser utöver detta är slöseri. Dessutom är ”som möjligt” för vagt för att vara ett användbart mått.
+    - content: En specifik nivå som identifierats som lämplig av de viktigaste intressenterna
+      isCorrect: true
+      correctExplanation: Arbetet med att definiera ett mål för en tjänst sker i samarbete mellan SRE, utvecklingsresurser och företagets beslutsfattare.

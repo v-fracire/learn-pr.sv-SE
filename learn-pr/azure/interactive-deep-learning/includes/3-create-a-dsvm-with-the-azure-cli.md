@@ -26,10 +26,10 @@ Vi skapar vår virtuella dator med hjälp av en Azure Resource Manager-mall. Mal
 
 1. Kör följande kommando i Azure Cloud Shell till höger om den här enheten:
 
-    ```bash
-    code parameter_file.json
+    ```azurecli
+    code .
     ```
-    <!-- TODO add a link to official doc that explains the built-in editor when it becomes available --> Det här kommandot öppnar en tom fil som heter `parameter_file.json` i den inbyggda redigeraren. 
+    <!-- TODO add a link to official doc that explains the built-in editor when it becomes available --> Det här kommandot öppnar en tom fil i den inbyggda redigeraren. 
 
 1. Klistra in följande JSON-kodavsnitt i den tomma filen i kodredigeraren.
 
@@ -46,7 +46,7 @@ Vi skapar vår virtuella dator med hjälp av en Azure Resource Manager-mall. Mal
     }
     ```
 
-1. Uppdatera följande parametrar i det JSON som du klistrade in i redigeraren:
+1. Uppdatera följande parametrar i JSON-koden som du klistrade in i redigeraren:
 
     |Parameter  |Aktuellt värde  |Ditt värde  |
     |---------|---------|---------|
@@ -55,7 +55,7 @@ Vi skapar vår virtuella dator med hjälp av en Azure Resource Manager-mall. Mal
     |vmName     |   `<HOSTNAME>`      |  Välj ett namn för den nya virtuella datorn. Namnet måste börja med en bokstav och får bara innehålla gemener och siffror. Prova ett unikt namn, till exempel ett som innehåller dina initialer och ditt födelseår. |
     |vmSize     |  Standard_DS2_v2       |  Den här VM-storleken fungerar bra för den här övningen, men du kan ändra den om du vill. En lista över tillgängliga VM-storlekar finns i avsnittet om [storlekar för Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?azure-portal=true)       |
 
-1. Spara dina ändringar i `parameter_file.json` och stäng textredigeraren.
+1. Välj de tre ellipserna (**...** ) längst uppe till höger i redigeraren och välj sedan **Spara** från menyn för att spara filen som `parameter_file.json` och stäng textredigeraren.
 
     > [!IMPORTANT]
     > Kom ihåg de värden som du valde för adminUsername, adminPassword och vmName. Vi använder dem igen senare i den här övningen.
@@ -78,6 +78,8 @@ Vi nu har en resursgrupp och har definierat parametrar för DSVM Resource Manage
     --parameters parameter_file.json
     ```
 
+    [!include[](../../../includes/azure-cloudshell-copy-paste-tip.md)]
+
     Kommandot använder Resource Manager-mallen och våra parametrar för att skapa den virtuella datorn i vår resursgrupp. 
 
 2. Det tar några minuter att distribuera den virtuella datorn. Konsolen visar ` - Running ..` och inte mycket annat förrän åtgärden har slutförts. När åtgärden har slutförts matas ett JSON-svar ut till skärmen. Rulla ned till slutet av JSON och kontrollera att fältet **"provisioningState"** har värdet *Succeeded* (Lyckades).
@@ -88,22 +90,21 @@ Vi nu har en resursgrupp och har definierat parametrar för DSVM Resource Manage
 3. Kör följande kommando för att få information om den virtuella datorn. Ersätt `<HOSTNAME>` med det värdnamn som du har definierat för den virtuella datorn.
 
     ```azurecli
-    az vm get-instance-view \
+    az vm show -d \
     --name <HOSTNAME> \
     --resource-group <rgn>[sandbox resource group name]</rgn> \
-    --query instanceView.statuses[1] \
     --output table
     ```
 
-    Det här kommandot visar status för den virtuella datorn. Det ska stå *VM running* (Den virtuella dator körs).
+    Det här kommandot visar den virtuella datorns status. Fältet **PowerState** bör visa *Virtuell dator körs*. Senare i den här övningen ska vi ansluta till den virtuella datorn med IP-adressen i fältet **PublicIps**. Vi kan också ansluta med hjälp av det fullständigt kvalificerade domännamnet (FQDN) som visas här i fältet **FQDN**.
 
 Grattis! Du har skapat och distribuerat en virtuell Linux-dator baserat på DSVM-avbildningen.
 
 ## <a name="open-the-vm-to-ssh-traffic-on-port-22"></a>Öppna den virtuella datorn för att SSH trafik på port 22
 
-Som standard har vår virtuella dator inte några portar öppna. Vårt mål är att fjärransluta, starta en Jupyter Notebook-server och köra andra lokala kommandon på datorn. För att kunna fjärransluta till den virtuella datorn med SSH-protokollet (Secure Shell) behöver vi öppna en port. Post 22 är standardporten för SSH.  
+Som standard har vår virtuella dator inte några portar öppna. Vårt mål är att fjärransluta, starta en Jupyter Notebook-server och köra andra lokala kommandon på datorn. För att kunna fjärransluta till den virtuella datorn med SSH-protokollet (Secure Shell) behöver vi öppna en port. Port 22 är standardporten för SSH.  
 
-1. Kör följande kommando i Azure Cloud Shell. Ersätt `<HOSTNAME>` med det namn som du gav den virtuella DSV-datorn under konfigurationen. 
+1. Kör följande kommando i Azure Cloud Shell. Ersätt `<HOSTNAME>` med det namn som du gav den virtuella datorn under konfigurationen. 
 
     ```azurecli
     az vm open-port \
@@ -205,7 +206,7 @@ När ovanstående kommando körs på den virtuella datorn startas notebook-serve
 
     ![Skärmbild som visar instrumentpanelen för Jupyter Notebooks. ](../media/jupyter-in-browser.png)
 
-1. Gå till **notebooks/IntroToJupyterPython.ipynb** och välj den. Prova den här notebook för att kontroller att allt fungerar korrekt.
+1. Gå till **notebooks/IntroToJupyterPython.ipynb** och välj den. Prova denna notebook för att kontroller att allt fungerar korrekt.
 
     Grattis! Du har nu en DSVM-baserad virtuell dator som körs och kan arbeta fjärranslutet med Jupyter. I den här övningen kör vi den programvara som installerades på den virtuella datorn. I nästa övning isolerar vi programvaran i en container på den virtuella datorn så att vi tryggt kan experimentera.
 

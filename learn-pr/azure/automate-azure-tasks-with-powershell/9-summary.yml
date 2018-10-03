@@ -9,11 +9,45 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 4d91629775838b773937b42f3eb560a386276bb0
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: ba3042f85d59e09955c715f241f1620ceb22cfa5
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46356687"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437450"
 durationInMinutes: 3
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Sant eller falskt: Eftersom Azure-portalen, Azure CLI och Azure PowerShell erbjuder helt olika tjänster är det inte troligt att alla tre stöder den åtgärd som du behöver.'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: De tre verktygen erbjuder nästan exakt samma uppsättning tjänster.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: De tre verktygen erbjuder nästan samma uppsättning tjänster. Detta är vanligtvis inte en faktor när du avgör vilket verktyg som passar bra för dina uppgifter.
+  - content: Anta att du skapar ett videoredigeringsprogram som ska erbjuda onlinelagring för användargenererat videoinnehåll. Du ska lagra videoklippen i Azure Blobs och måste därför skapa ett Azure Storage-konto som ska innehålla blobarna. När lagringskontot har skapats är det inte troligt att du kommer att ta bort och återskapa det eftersom det skulle innebära att alla användarvideor tas bort. Med vilket verktyg kan du snabbast och enklast skapa lagringskontot?
+    choices:
+    - content: Azure-portalen
+      isCorrect: true
+      correctExplanation: Portalen är ett bra val för engångsåtgärder som att skapa ett lagringskonto för långtidsanvändning. Portalen har ett grafiskt användargränssnitt där du hittar alla egenskaper för lagringskontot samt verktygstips som hjälper dig att välja rätt alternativ för just dina behov.
+    - content: Azure CLI
+      isCorrect: false
+      incorrectExplanation: Om du vill använda CLI måste du ta reda på vilket kommando som används för att skapa ett lagringskonto. Du måste dessutom installera CLI lokalt eller logga in i molngränssnittet. När du ska utföra en engångsåtgärd, t.ex. skapa ett lagringskonto, tar detta sannolikt längre tid än att använda Azure-portalen.
+    - content: Azure PowerShell
+      isCorrect: false
+      incorrectExplanation: Om du vill använda Azure PowerShell måste du ta reda på vilket kommando som används för att skapa ett lagringskonto. Du måste också installera PowerShell och Azure PowerShell lokalt eller logga in i molngränssnittet. När du ska utföra en engångsåtgärd, t.ex. skapa ett lagringskonto, tar detta sannolikt längre tid än att använda Azure-portalen.
+  - content: Vad måste vara installerat på datorn för att du ska kunna köra Azure PowerShell-cmdlets lokalt?
+    choices:
+    - content: Azure Cloud Shell
+      isCorrect: false
+      incorrectExplanation: Molngränssnittet gör att du kan köra Azure-cmdlets, men du använder det i en webbläsare, och kör alltså inte kommandona på den lokala datorn.
+    - content: PowerShell-basprodukten och AzureRM-modulen
+      isCorrect: true
+      correctExplanation: Du behöver både PowerShell-basprodukten och AzureRM-modulen. Basprodukten ger dig tillgång till själva gränssnittet, några grundläggande kommandon samt programmeringskonstruktioner som slingor, variabler osv. AzureRM-modulerna lägger till de cmdletar som du behöver för att arbeta med Azure-resurser.
+    - content: Azure CLI och Azure PowerShell
+      isCorrect: false
+      incorrectExplanation: Azure CLI är ett alternativt kommandorads- och skriptverktyg. Det behövs inte om du tänker använda Azure PowerShell.

@@ -1,0 +1,65 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-site-reliability-engineering.3-sre-in-context
+title: SRE i kontext
+metadata:
+  title: SRE i kontext
+  description: SRE i kontext
+  ms.date: 09/26/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: a2f23a77d0cc6b9cd6028ec5fbbfb781319afa42
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439431"
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-sre-in-context.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket område har haft störst inflytande på SRE, med tanke på dess ursprung?
+    choices:
+    - content: Kundtjänst
+      isCorrect: false
+      incorrectExplanation: Även om kunden står i centrum inom SRE, härstammar det inte från kundserviceområdet.
+    - content: Stordatorhantering
+      isCorrect: false
+      incorrectExplanation: Även om vi kan lära oss en hel del från den här typen av lösningar, finns ursprunget till SRE någon annanstans.
+    - content: Programvaruutvecklingsteknik
+      isCorrect: true
+      correctExplanation: SRE bygger på programvaruutvecklingsstrategier.
+    - content: Arkitektur
+      isCorrect: false
+      incorrectExplanation: Arkitektur (särskilt programvaruarkitektur) är definitivt en komponent inom SRE, men är inte en del av dess ursprung.
+  - content: Vad kom först, DevOps eller SRE?
+    choices:
+    - content: DevOps
+      isCorrect: false
+      incorrectExplanation: De utvecklades i princip parallellt.
+    - content: SRE
+      isCorrect: false
+      incorrectExplanation: De utvecklades i princip parallellt.
+    - content: De utvecklades mer eller mindre parallellt med varandra.
+      isCorrect: true
+  - content: Är SRE nästa utvecklingssteg vidare från DevOps?
+    choices:
+    - content: Ja, SRE är framtidens DevOps. DevOps-personal bör sträva efter att bli SRE-experter
+      isCorrect: false
+      incorrectExplanation: DevOps och SRE är separata strategier som försöker hantera liknande utmaningar.
+    - content: Nej, SRE och DevOps är separata strategier
+      isCorrect: true
+      correctExplanation: DevOps och SRE är separata strategier även om de försöker ta sig an liknande utmaningar.
+  - content: Det finns två typer av bästa praxis som är centrala för både DevOps och SRE?
+    choices:
+    - content: Automatisering och övervakning
+      isCorrect: true
+    - content: Kodning och biljettsystem
+      isCorrect: false
+      incorrectExplanation: Även om kodning är viktigt (framför allt inom SRE), är biljettsystem inte centrala i SRE.
+    - content: Supportautomatisering och buggspårning
+      isCorrect: false
+      correctExplanation: Även om det är användbart är supportautomatisering inte centralt i dessa bästa praxis.

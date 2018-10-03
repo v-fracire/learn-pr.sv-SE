@@ -9,37 +9,48 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 8a56219bb221c4a1969598fb0a8e8836ae37d168
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 95702ee9d30aead8db2074f0d12528edc3ae59fe
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357476"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437892"
 durationInMinutes: 2
 content: >
   [!include[](includes/4-knowledge-check.md)]
 quiz:
   title: Testa dina kunskaper
   questions:
-  - content: Astronomiteamet har ett antal program för bildbearbetning som kräver mycket beräkningskraft och minne för att köras. Du vill snabbt migrera dessa program till Azure. Vilket av följande alternativ ska du välja?
+  - content: Anta att du har ett befintligt program som körs lokalt på din egen server. Du behöver ytterligare kapacitet men vill flytta till Azure i stället för att köpa uppgraderad lokal maskinvara. Vilket beräkningsalternativ väljer du för att snabbast komma igång med ditt program i Azure?
     choices:
-    - content: Azure Kubernetes Service (AKS)
+    - content: Serverfri databehandling
       isCorrect: false
-      incorrectExplanation: App Service är fullständigt hanterad och skalas automatiskt. Detta gör att ditt team kan fokusera på det de är bra på, att skriva kod.
-    - content: Service Fabric
+      incorrectExplanation: Konvertering till en serverlös databehandlingsmodell kräver sannolikt att du strukturerar om ditt program till en händelsebaserad arkitektur.
+    - content: Containrar
       isCorrect: false
-      incorrectExplanation: App Service är fullständigt hanterad och skalas automatiskt. Detta gör att ditt team kan fokusera på det de är bra på, att skriva kod.
-    - content: App Service
+      incorrectExplanation: Konvertering till containrar kräver att du paketerar om ditt program. Detta behöver inte vara särskilt svårt beroende på din befintliga arkitektur, men det skulle ändå ta tid och kräver viss kunskap om containrar.
+    - content: Virtuella datorer
       isCorrect: true
-      correctExplanation: App Service är fullständigt hanterad och skalas automatiskt. Detta gör att ditt team kan fokusera på det de är bra på, att skriva kod.
-  - content: Tänkt dig att ditt astronomiteam har kommit fram till vissa astronomiska beräkningar som tar timmar och till och med dagar att slutföra. Parallellkörning verkar inte vara till stor hjälp. Vilket av följande alternativ ska du välja?
+      correctExplanation: Du har fullständig kontroll över konfigurationen av den virtuella datorn och kan konfigurera den så att den matchar den lokala servern. Detta gör att ditt befintliga program kan köras på den virtuella Azure-datorn med liten eller inga ändringar.
+  - content: Anta att du arbetar med ett fotodelningsprogram som körs på flera miljoner mobila enheter. Efterfrågan är oförutsägbar eftersom du ser en topp i användningen när en lokalt eller nationellt betydande händelse inträffar. Vilken Azure-beräkningsresurs är den bästa matchningen för den här arbetsbelastningen?
     choices:
-    - content: Cloud Services
-      isCorrect: false
-      incorrectExplanation: I Azure Batch finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer.
-    - content: Azure Batch
+    - content: Serverfri databehandling
       isCorrect: true
-      correctExplanation: I Azure Batch finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer.
-    - content: Container Instances
+      correctExplanation: Fotodelningsappen är händelsedriven och måste hantera oförutsägbara behov. Serverlös databearbetning är ett bra alternativ för detta eftersom den är händelsestyrd och kan skalas direkt för att ta hand om trafiktoppar. Det bör också vara ett kostnadseffektivt alternativ eftersom du endast betalar för beräkningstid när användardata bearbetas.
+    - content: Containrar
       isCorrect: false
-      incorrectExplanation: I Azure Batch finns schemaläggning av jobb i molnskala och datorhantering med möjlighet att skala till tiotals, hundratals eller tusentals virtuella datorer.
+      incorrectExplanation: Starttiden för en containerinstans är vanligtvis några sekunder. Detta kanske inte ger tillräckligt snabb skalning för att svara på en kraftig ökning i efterfrågan.
+    - content: Virtuella datorer
+      isCorrect: false
+      incorrectExplanation: Det kan ta några minuter att starta en virtuell dator. Detta kanske inte ger tillräckligt snabb skalning för att svara på en kraftig ökning i efterfrågan.
+  - content: Beräkningsalternativen tillhandahåller olika nivåer av kontroll över konfigurationen av miljön som ditt program körs i. Vilket av följande visar listan över databearbetningsalternativ i ordning från ”mest kontroll” till ”minst kontroll”?
+    choices:
+    - content: Serverlös databehandling, containrar, virtuella datorer
+      isCorrect: false
+      incorrectExplanation: Serverlös databehandling ger dig minst kontroll och abstraherar helt den underliggande värdmiljön.
+    - content: Containrar, serverlös databehandling, virtuella datorer
+      isCorrect: false
+      incorrectExplanation: Containrar ger dig begränsad kontroll över miljön och du kan exempelvis välja det underliggande operativsystemet.
+    - content: Virtuella datorer, containrar, serverlös databehandling
+      isCorrect: true
+      correctExplanation: Virtuella datorer ger dig fullständig kontroll över miljön. Containrar ger dig begränsad kontroll. Serverlös databehandling ger dig inte möjlighet att konfigurera infrastrukturen på något sätt.

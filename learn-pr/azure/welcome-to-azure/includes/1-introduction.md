@@ -1,4 +1,4 @@
-Du har hört slagorden om molnets &mdash; _skala_, _elasticitet_, _mikrotjänster_. Du kanske har sett andra företag som blivit framgångsrika i molnet och undrat hur det kan hjälpa dig uppfylla dina företagsbehov eller till och med hjälpa din karriär. Visste du att 90 % av Fortune 500-företag använder Azure?
+Du har hört slagorden om molnets &mdash; _skala_, _elasticitet_, _mikrotjänster_. Du kanske har sett andra företag som blivit framgångsrika i molnet och undrat hur molnet kan hjälpa dig att uppfylla dina företagsbehov eller till och med hjälpa din karriär. Visste du att över 90 % av företagen på Fortune 500-listan kör Microsoft Cloud?
 
 ![Azure-logotypen som representerar början av din utbildningsresa](../media/1-heading.png)
 

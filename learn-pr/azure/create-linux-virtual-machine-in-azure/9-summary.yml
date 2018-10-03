@@ -9,12 +9,46 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: cf143961dad057732128d694543f4890f1bbefee
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 7e8f4e11d5652bcb4cf4ea95df8141eedbe8abea
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360639"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437110"
 azureSandbox: true
 durationInMinutes: 3
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Sant eller falskt: Av säkerhetsskäl måste du använda en avbildning från officiella Azure Marketplace när du skapar en ny virtuell dator.'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Med Azure kan du konfigurera dina virtuella datorer så att de uppfyller dina behov. Detta innebär bland annat att du kan använda egna VM-avbildningar.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: Med Azure kan du konfigurera dina virtuella datorer så att de uppfyller dina behov. Detta innebär bland annat att du kan använda egna VM-avbildningar.
+  - content: Hur påverkar säkerhetsinställningarna för standardnätverk en ny virtuell dator?
+    choices:
+    - content: Varken utgående eller inkommande begäranden tillåts.
+      isCorrect: false
+      incorrectExplanation: Utgående begäranden betraktas ha låg risk, och tillåts därför som standard.
+    - content: Utgående begäranden tillåts. Inkommande trafik tillåts endast från det virtuella nätverket.
+      isCorrect: true
+      correctExplanation: Utgående begäranden betraktas ha låg risk, och tillåts därför som standard. Inkommande trafik inifrån det virtuella nätverket tillåts. Genom att placera en virtuell dator i ett virtuellt nätverk väljer VM-ägaren implicit att tillåta kommunikation mellan resurserna i det virtuella nätverket.
+    - content: 'Det finns inga begränsningar: alla utgående och inkommande begäranden tillåts.'
+      isCorrect: false
+      incorrectExplanation: Obegränsad inkommande trafik är för riskfyllt för standardbeteendet.
+  - content: Anta att du har flera virtuella Linux-datorer i Azure. Du ska administrera dessa virtuella datorer via en fjärranslutning över SSH från tre dedikerade datorer på företagets huvudkontor. Vilken av följande autentiseringsmetoder betraktas vanligtvis som bästa praxis i den här situationen?
+    choices:
+    - content: Användarnamn och lösenord
+      isCorrect: false
+      incorrectExplanation: Lösenord är sårbara för brute force-attacker. Den här metoden rekommenderas endast om du behöver fjärråtkomst från olika platser.
+    - content: Privat nyckel
+      isCorrect: false
+      incorrectExplanation: Åtkomst via en privat nyckel är säkrare än ett lösenord och är ett bra alternativ när du behöver åtkomst från ett begränsat antal platser. Men om angripare får tag i din privata nyckel kan de använda den för att få åtkomst till dina virtuella datorer.
+    - content: Privat nyckel med lösenfras
+      isCorrect: true
+      correctExplanation: Åtkomst via en privata nyckel med en lösenfras är det säkraste alternativet. Även om angripare får tag i din privata nyckel kan de inte använda den utan lösenfrasen.

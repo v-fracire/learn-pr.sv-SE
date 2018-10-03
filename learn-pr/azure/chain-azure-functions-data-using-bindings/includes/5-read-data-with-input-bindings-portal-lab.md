@@ -130,22 +130,15 @@ Nu har du ett antal poster i din bokmärkessamling. Så här fungerar vårt scen
 
 1. Gå till den funktionsapp som du skapade i föregående enhet.
 
-1. Expandera funktionsappen, hovra sedan över samlingen med funktioner och välj sedan knappen **Lägg till** (**+**) bredvid **Funktioner**.
-   Den här åtgärden startar funktionsskapandeprocessen. Följande animering illustrerar åtgärden:
-
-   ![Animering av det plustecken som visas när du hovrar över funktionsmenyalternativet](../media/3-func-app-plus-hover-small.gif)
-
+1. Välj knappen **Lägg till** (**+**) bredvid **Funktioner** för att börja skapa funktioner. 
    På sidan visas en fullständig uppsättning med utlösare som stöds.
 
-1. Välj **HTTP-utlösare**, vilket är den första posten i följande skärmbild:
-
-    ![Skärmbild som visar en del av utlösarmallens valgränssnitt, där TTP-utlösaren visas först, i den övre vänstra delen av bilden.](../media/5-trigger-templates-small.png)
+1. Välj **HTTP-utlösare**
 
 1. Fyll i dialogrutan **Ny funktion** som visas till höger med följande värden.
 
     | Fält | Värde |
     |----------|--------|
-    | Språk | **JavaScript** |
     | Namn     | [!INCLUDE [func-name-find](./func-name-find.md)] |
     | Auktoriseringsnivå | **Funktion** |
 

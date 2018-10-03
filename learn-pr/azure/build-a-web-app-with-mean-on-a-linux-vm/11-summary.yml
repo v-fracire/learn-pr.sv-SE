@@ -9,11 +9,48 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 284d0a687dc09aa1fc36a74e31b27738b90b8188
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 49a23603aa990e203720d71cdb4b6be0ad2d0d9f
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357916"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437229"
 durationInMinutes: 3
-content: '[!include[](includes/11-summary.md)]'
+content: >
+  [!include[](includes/11-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket är ett bra skäl att välja MEAN för din utvecklingsstack?
+    choices:
+    - content: Du arbetar med mycket strukturerade, relationella data.
+      isCorrect: false
+      incorrectExplanation: MongoDB, ”M” i MEAN-stacken är en NoSQL-databas. En NoSQL-databas är icke-relationell, vilket innebär att data inte måste vara strukturerade som SQL Server eller andra relationsdatabaser.
+    - content: MEAN-appar körs snabbare än de som skapas med andra utvecklingsstackar.
+      isCorrect: false
+      incorrectExplanation: Det finns många olika utvecklingsstackar. Ingen är nödvändigtvis snabbare eller bättre än andra. Var och en har skapats med en viss typ av app- och utvecklingskunskaper i åtanke.
+    - content: Alla i utvecklingsteamet är experter på JavaScript.
+      isCorrect: true
+      correctExplanation: MEAN-stacken är mycket beroende av JavaScript. JavaScript finns på både klientsidan och serversidan i webbappen.
+  - content: Vad är en NoSQL-databas?
+    choices:
+    - content: Det är en term som används för att beskriva kostnadsfri databasprogramvara med öppen källkod.
+      isCorrect: false
+      incorrectExplanation: Många databaser är kostnadsfria och har öppen källkod, men NoSQL beskriver hur data är strukturerade.
+    - content: Det är en databas som inte kräver att data är strukturerade på ett fördefinierat sätt.
+      isCorrect: true
+      correctExplanation: Exempelvis lagrar MongoDB data i JSON-liknande dokument som inte kräver de fasta datastrukturer som krävs av MySQL eller andra relationsdatabaser.
+    - content: Det är en typ av relationsdatabas, men använder inte SQL-språket för att komma åt och hantera data.
+      isCorrect: false
+      incorrectExplanation: NoSQL-databaser är icke-relationella, vilket innebär att data inte måste vara strukturerade på ett fördefinierat sätt.
+  - content: Vilken roll har AngularJS i MEAN-stacken?
+    choices:
+    - content: AngularJS implementerar databindningen för HTML och JavaScript. Du kan till exempel använda AngularJS för att hämta objekt från en databas och visa dessa objekt i användargränssnittet.
+      isCorrect: true
+      correctExplanation: Databindningen hjälper till att minimera och hålla HTML-koden ren. AngularJS visar uppdateringar direkt till användaren när underliggande data ändras.
+    - content: Det är ett plugin-program i webbläsare som installeras på användarens dator.
+      isCorrect: false
+      incorrectExplanation: Tekniskt sett installerar du inte AngularJS &mdash; det är bara JavaScript-kod som du refererar till från en skripttagg på HTML-sidan.
+    - content: Den hjälper dig att köra webbprogrammet från serversidan.
+      isCorrect: false
+      incorrectExplanation: Node.js, inte AngularJS, fungerar som värd för en MEAN-webbapp från serversidan.

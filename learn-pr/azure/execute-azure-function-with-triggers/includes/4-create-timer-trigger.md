@@ -26,29 +26,42 @@ Vi börjar med att skapa en Azure-funktionsapp på portalen.
 
 1. Välj **Förbrukningsplan** som **värdplan**. Du debiteras för varje körning av funktionen. Resurser tilldelas automatiskt baserat på programmets arbetsbelastning.
 
-1. Välj en **Plats** i listan nedan.
+1. Välj en **plats** i listan nedan.
 
     [!include[](../../../includes/azure-sandbox-regions-first-mention-note-friendly.md)]
+
+1. För **Körningsstack** lämnar du som standard *.NET*, som är det språk som vi implementerar funktionsexemplen i den här övningen i.
 
 1. Skapa ett nytt **lagringskonto**. Du kan ändra namnet om du vill – standardnamnet är en variant av appnamnet.
 
 1. Välj **Skapa**. När funktionsappen har distribuerats går du till **Alla resurser** i portalen. Appen visas i listan med typen **Apptjänst** och har det namn du gav den.
+ 
+<!-- Start temporary fix for issue #2498. -->
+> [!IMPORTANT]
+> Övningarna i den här modulen fungerar för närvarande med Azure Functions V1. Följ dessa steg noggrant för att bekräfta att appen använder V1-körningsversionen. 
+
+1. När funktionsappen har skapats väljer du **Alla resurser** i det vänstra navigeringsfönstret.
+
+1. Välj funktionsappen i listan **Funktionsappar**.
+1. Välj **Plattformsfunktioner**.
+1. På skärmen **Plattformsfunktioner** väljer du **Funktionsappinställningar** under **Allmänna inställningar**.
+1. Välj *~1* i **Körningsversion** .
+1. Stäng **Funktionsappinställningar**.
+
+Vår funktionsapp har nu konfigurerats att använda Azure Functions V1-körningsversionen. Nu kan vi fortsätta att skapa vår första funktion.
+<!-- End temporary fix for issue #2498. --> 
 
 ## <a name="create-a-timer-trigger"></a>Skapa en timerutlösare
 
 Nu ska vi skapa en timerutlösare i vår funktion.
 
-1. När funktionen har skapats väljer du **Alla resurser** i det vänstra navigeringsfönstret.
 
-1. Hitta din funktionsapp i listan och välj den.
 
 1. På det nya bladet pekar du på **Funktioner** och väljer plustecknet (+).
 
     ![Skärmbild av Azure Portal som visar ett funktionsappblad med knappen Lägg till (+) för undermenyn Funktioner markerad.](../media/4-hover-function.png)
 
 1. Välj **Timer**.
-
-1. Välj **CSharp** som språk.
 
 1. Välj **Skapa den här funktionen**.
 
