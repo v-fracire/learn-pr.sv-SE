@@ -33,14 +33,13 @@ Om du vill kan du konfigurera virtuella nätverk och georedundans när kontot sk
 
     Inställning|Värde|Beskrivning
     ---|---|---
-    Prenumeration|*Concierge-prenumeration*|Välj Concierge-prenumerationen. Om du inte ser Concierge-prenumerationen har du flera klienter aktiverade på din prenumeration och du måste ändra klienter. Logga in igen med följande portallänk: [Azure Portal för sandbox](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) för att göra detta.
+    Prenumeration|*Concierge-prenumeration*|Välj Concierge-prenumerationen. Om du inte ser Concierge-prenumerationen har du flera klienter aktiverade på din prenumeration och du måste ändra klienter. Logga in igen med följande portallänk: [Azure-portalen för sandbox-miljö](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) för att göra detta.
     Resursgrupp|Använd befintlig<br><br>**<rgn>[resursgruppsnamn för sandbox-miljö]</rgn>**|Här skapar du sedan en ny resursgrupp eller väljer en befintlig i din prenumeration.
-    Kontonamn|*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom *documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
+    Kontonamn|*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom *documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck (-) och det måste innehålla mellan 3 och 31 tecken.
     API|SQL|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er för ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure-tabell och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Välj **SQL** eftersom du i den här modulen ska skapa en dokumentdatabas som stöder frågekörning med SDL-syntax och som kan nås med SQL-API:et.|
     Plats|*Välj den region som är närmast från ovanstående lista*|Välj den plats där databasen ska finnas.
     Geo-replikering| Inaktivera | Den här inställningen skapar en replikerad version av databasen i en andra (parad) region. Lämna detta som inaktiverat tills vidare, eftersom databasen kan replikeras senare.
-    Flera original | Inaktivera | Den här inställningen låter dig skriva till flera regioner samtidigt. Inställningen kan bara konfigureras när kontot skapas. Lämna detta som inaktiverat för den här enheten för tillfället.
-    Virtual Network|Lämna tomt|Lämna virtuella nätverk tomt för tillfället. Detta kan konfigureras senare.
+    Skrivåtgärder för flera regioner | Aktivera | Den här inställningen låter dig skriva till flera regioner samtidigt.
 
 1. Klicka på **Granska + Skapa**.
 

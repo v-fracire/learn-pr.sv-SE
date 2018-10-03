@@ -1,0 +1,58 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-site-reliability-engineering.5-key-principles-2-human-side-of-sre
+title: 'Viktiga principer och metoder: den mänskliga sidan av SRE'
+metadata:
+  title: 'Viktiga principer och metoder: den mänskliga sidan av SRE'
+  description: 'Viktiga principer och metoder: den mänskliga sidan av SRE'
+  ms.date: 09/26/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 18fe4f197d8a58ad6e6f2fc27e9e5a5a8b86db96
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439258"
+durationInMinutes: 10
+content: >
+  [!include[](includes/5-key-principles-2-human-side-of-sre.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Vilka av dessa saker är *inte* en egenskap för enahanda arbete (i kontexten SRE)? '
+    choices:
+    - content: Arbetet är återkommande
+      isCorrect: false
+      incorrectExplanation: Enahanda arbete är återkommande av sin natur.
+    - content: Arbetet spåras i ett biljettsystem
+      isCorrect: true
+      correctExplanation: Hur arbetet spåras är inte en egenskap för enahanda arbete. Biljettsystem kan användas för att spåra andra, mer produktiva typer av arbete medan enahanda arbete ofta spåras på det här sättet.
+    - content: Arbetet innehåller inga bestående värden
+      isCorrect: false
+      incorrectExplanation: Enahanda arbete har inget varaktig värde.
+    - content: Arbetet är i stort sett manuellt av sin natur och inte automatiserat
+      isCorrect: false
+      incorrectExplanation: Toil är nästan alltid manuellt arbete som kan automatiseras.
+  - content: Vad har en SRE för relation till enahanda arbete?
+    choices:
+    - content: SRE:er arbetar främst för att eliminera enahanda arbete.
+      isCorrect: false
+      incorrectExplanation: När det är möjligt eliminerar SRE:er enahanda arbete, men ibland har annat arbete högre prioritet.
+    - content: SRE:er försöker hantera enahanda arbete på bästa sätt.
+      isCorrect: false
+      incorrectExplanation: SRE:er föredrar att eliminera enahanda arbete om möjligt. Välhanterat enahanda arbete är ändå enahanda.
+    - content: SRE:er syftar till att eliminera enahanda arbete var och när det är lämpligt
+      isCorrect: true
+  - content: Vad föreslås som arbetsstruktur för en SRE?
+    choices:
+    - content: 80 % reaktivt driftsarbete/20 % projektarbete
+      isCorrect: false
+      incorrectExplanation: En SRE behöver sammanhängande tid att arbeta med att förbättra tillförlitligheten för ett system, och inte bara uppmärksamma dess aktuella behov.
+    - content: 10 % reaktivt driftsarbete/90 % projektarbete
+      isCorrect: false
+      incorrectExplanation: Ibland får vi inte välja hur mycket driftsbelastning ett system kräver. Även om vissa system har en låg driftsbelastning är det troligen inte en bra förväntan att ha.
+    - content: 50 % reaktivt driftsarbete/50 % projektarbete
+      isCorrect: true
+      correctExplanation: Detta är den vanliga balansen som SRE:er strävar efter (50 % anses vara en övre gräns på driftsbelastning – mindre är att föredra).

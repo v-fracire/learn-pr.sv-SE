@@ -4,15 +4,13 @@ I den här övningen ska vi skapa en Azure-funktion som visar namnet och storlek
 
 Vi ska fortsätta att använda vårt befintliga Azure Functions-program och lägger till en blobutlösare.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Kontrollera att du är inloggad på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Navigera till skärmen **Alla resurser** och välj din funktionsapp.
 
 1. Peka på **Funktioner** och välj plustecknet (+).
 
 1. Välj **Blob-utlösare**.
-
-1. Välj **#C** som språk.
 
 1. Lämna standardvärdet för **Namn**.
 

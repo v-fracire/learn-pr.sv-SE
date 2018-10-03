@@ -1,0 +1,5 @@
+Både stora och små organisationer har börjat upptäcka hur viktigt systemens och programmens tillförlitlighet är för deras verksamhet. De har också lärt sig hur svårt är det att behålla tillförlitligheten vid iterering i den hastighet som krävs av marknaden. 
+
+SRE (Site Reliability Engineering ) är en beprövad metod för denna utmaning. I den här modulen får du en introduktion till principer och metoder för SRE. Om du tidigare har varit involverad i operativa verksamheter (som systemadministratör, IT-expert, DevOps-tekniker eller liknande), eller om du är intresserad av det, kommer du säkert att tycka att SRE är ett mycket fascinerande område.
+
+I slutet av den här modulen får du en god förståelse av vad SRE är och varför det är viktigt. Du kommer att kunna prata med andra personer om var det kommer ifrån och hur det fungerar i förhållande till andra operativa metoder, som DevOps. Längs vägen kommer du också att förstå huvudprinciperna och några av de metoder som hjälper dig att implementera dessa principer. Vi avslutar med några förslag på hur du kan komma igång med den här värdefulla operativa metoden.

@@ -76,11 +76,7 @@ Nu när IIS har konfigurerats ska vi verifiera att den körs.
     > [!NOTE]
     > Detta `--query`-argument gör det här kommandot lite komplext. Men du kommer att bli ett proffs på det här när du utforskar Azure djupare.
 
-    Du ser den virtuella datorns offentliga IP-adress. Här är ett exempel.
-
-    ```output
-    104.211.9.245
-    ```
+    Du kan se din virtuella dators offentliga IP-adress, till exempel 104.211.9.245.
 
 1. Öppna en ny webbläsarflik och navigera till den virtuella datorns IP-adress. Du ser ett välkomstmeddelande och namnet på den virtuella datorn.
 
@@ -148,11 +144,7 @@ Nu när Nginx har konfigurerats ska vi verifiera att den körs.
     > [!NOTE]
     > Detta `--query`-argument gör det här kommandot lite komplext. Men du kommer att bli ett proffs på det här när du utforskar Azure djupare.
 
-    Du ser den virtuella datorns offentliga IP-adress. Här är ett exempel.
-
-    ```output
-    137.135.110.210
-    ```
+    Du kan se din virtuella dators offentliga IP-adress, till exempel 104.211.9.245.
 
 1. Öppna en ny webbläsarflik och navigera till den virtuella datorns IP-adress. Du ser ett välkomstmeddelande och namnet på den virtuella datorn.
 

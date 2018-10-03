@@ -40,12 +40,11 @@ Nu ska vi skapa en funktionsapp i Azure Portal.
 
     [!include[](../../../includes/azure-sandbox-regions-first-mention-note-friendly.md)]
 
+1. För **Körningsstack** väljer du JavaScript i listrutan, som är det språk som vi implementerar funktionsexemplen i den här övningen i.
+
 1. Skapa ett nytt lagringskonto. Azure ger det ett namn baserat på appnamnet. Du kan ändra det om du vill, men det måste också vara unikt.
 
 1. Se till att Azure Application Insights är **På** och välj den region som är närmast dig (eller dina kunder).
-  När du är klar bör konfigurationen se ut som på följande skärmbild.
-
-  ![Skärmbild av Azure Portal som visar funktionsappens Skapa-blad med alla fält konfigurerade enligt anvisningarna ovan.](../media/3-create-function-app-settings.png)
 
 1. Välj **Skapa**. Distributionen kan ta några minuter. Du får ett meddelande när den är klar.
 
@@ -53,10 +52,10 @@ Nu ska vi skapa en funktionsapp i Azure Portal.
 
 1. Välj **Resursgrupper** i den vänstra menyn i Azure-portalen. Du bör då se en resursgrupp med namnet **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>** i listan över tillgängliga grupper.
 
-  ![Skärmbild av Azure-portalen som visar bladet Resursgrupper med menyalternativet Resursgrupper och listobjektet <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn> markerat.](../media/3-resource-group.png)
+    ![Skärmbild av Azure-portalen som visar bladet Resursgrupper med menyalternativet Resursgrupper och listobjektet <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn> markerat.](../media/3-resource-group.png)
 
 1. Välj resursgruppen **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>**. Du bör se en lista över resurser som liknar följande lista.
 
-  ![Skärmbild av Azure-portalen som visar alla resurser i gruppen <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>, inklusive poster för en App Service-plan, ett lagringskonto, en Application Insights-resurs och en App Service.](../media/3-resource-list.png)
+    ![Skärmbild av Azure-portalen som visar alla resurser i gruppen <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>, inklusive poster för en App Service-plan, ett lagringskonto, en Application Insights-resurs och en App Service.](../media/3-resource-list.png)
 
 Objektet med blixtikonen, som visas som en App Service, är din nya funktionsapp. Du kan klicka på den för att öppna information om den nya funktionen – den har tilldelats en offentlig URL, om du öppnar den i en webbläsare bör du få en standardsida som visar att din funktionsapp körs.

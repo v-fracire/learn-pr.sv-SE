@@ -18,9 +18,9 @@ Den här plattformen som en tjänst (PaaS) tillhandahålls av Microsoft Azure, s
 
 När det är dags att hantera din egen app går du till Azure Portal och skapar en ny **Webbapp**. Genom att skapa en **Webapp**på Azure-portalen skapar du i själva verket en uppsättning med hanteringsresurser i App Service som du kan använda som värd för alla webbaserade program som stöds av Azure, oavsett om det är ASP.NET Core, Node.js, PHP osv. Bilden nedan visar hur enkelt det är att konfigurera det ramverk/språk som används av appen.
 
-![Inställningar för webbappen](../media/2-web-app-settings.png)
+![Skärmbild av programinställningarna för att konfigurera webbprogrammet](../media/2-web-app-settings.png)
 
-Azure Portal innehåller en mall för att skapa en webbapp. Mallen måste innehålla följande fält:
+Azure-portalen innehåller en mall för att skapa en webbapp. Mallen måste innehålla följande fält:
 
 - **Appnamn**: namnet på webbappen.
 - **Prenumeration**: en giltig och aktiv prenumeration.
@@ -33,15 +33,15 @@ Med Azure Portal får du många kraftfulla verktyg för att hantera, övervaka o
 
 ### <a name="deployment-slots"></a>Distributionsfack
 
-Med hjälp av Azure Portal kan du enkelt lägga till **distributionsfack** i en App Service-webbapp. Du kan till exempel skapa ett distributionsfack för **mellanlagring** som du kan skicka koden till för att testa den i Azure. När du är nöjd med koden kan du enkelt **växla** distributionsfacket för mellanlagring med produktionsplatsen. Det här gör du med några enkla musklick i Azure Portal.
+Med hjälp av Azure Portal kan du enkelt lägga till **distributionsfack** i en App Service-webbapp. Du kan till exempel skapa ett distributionsfack för **mellanlagring** som du kan skicka koden till för att testa den i Azure. När du är nöjd med koden kan du enkelt **växla** distributionsfacket för mellanlagring med produktionsplatsen. Det här gör du med några enkla musklick i Azure-portalen.
 
-![Distributionsfack](../media/2-deployment-slots.png)
+![Skärmbild av mellanlagringsplatsen för att testa distributionen](../media/2-deployment-slots.png)
 
 ### <a name="continuous-integrationdeployment-support"></a>Stöd för kontinuerlig integrering/distribution
 
 Azure-portalen har stöd för direkt och kontinuerlig integrering och distribution med Visual Studio Team Services, GitHub, Bitbucket, Dropbox, OneDrive eller en lokal Git-lagringsplats i en utvecklingsdator. Om du ansluter din webbapp till någon av ovanstående källor så gör App Service resten genom att automatiskt synkronisera koden och eventuella ändringar till webbappen. Med Visual Studio Team Services definierar du dessutom din egen bygg- och lanseringsprocess som avslutas med att din källkod kompileras, testerna körs, en version skapas och slutligen att versionen skickas till en webbapp varje gång du checkar in koden. Allt detta händer implicit utan att du behöver göra någonting.
 
-![Konfigurera kontinuerlig integrering](../media/2-continuous-integration.PNG)
+![Skärmbild för att konfigurera distributionsalternativ och välja källa för distributionskällkoden](../media/2-continuous-integration.PNG)
 
 ### <a name="integrated-visual-studio-publishing-and-ftp-publishing"></a>Integrerad Visual Studio-publicering och FTP-publicering
 

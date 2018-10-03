@@ -38,7 +38,7 @@ En inställning som du bör titta på är **Sökväg**. **Sökvägen** informera
 
 > samples-workitems/{name}
 
-Vi kan dela upp det här begreppet i två delar: *samples-workitems* och *{name}*. Den första delen, *samples-workitems*, representerar den blobcontainer som utlösaren övervakar. Den andra delen *{name}, innebär att alla filtyper får utlösaren att anropa funktionen. Funktionen anropas eftersom det inte finns något filter. Jag skulle till exempel kunna göra så att utlösaren endast anropar funktionen när en PNG-fil läggs till med hjälp av en syntax som:
+Vi kan dela upp det här begreppet i två delar: *samples-workitems* och *{name}*. Den första delen, *samples-workitems*, representerar den blobcontainer som utlösaren övervakar. Den andra delen, *{name}*, innebär att alla filtyper får utlösaren att anropa funktionen. Funktionen anropas eftersom det inte finns något filter. Jag skulle till exempel kunna göra så att utlösaren endast anropar funktionen när en PNG-fil läggs till med hjälp av en syntax som:
 
 > samples-workitems/{name}.png
 

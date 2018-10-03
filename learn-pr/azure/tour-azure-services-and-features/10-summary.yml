@@ -9,11 +9,48 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: d996ad10fbba1b00bad0fe7551077528683672a5
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 44ad01166d54f18352430f3be5994e2eaf1f7513
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46359607"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437025"
 durationInMinutes: 3
-content: '[!include[](includes/10-summary.md)]'
+content: >
+  [!include[](includes/10-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vilket av följande är ett exempel på Azure-beräkningstjänsten?
+    choices:
+    - content: Virtuell Azure-dator
+      isCorrect: true
+      correctExplanation: Azure Virtual Machines tillhandahåller beräkningskraft och stöd för både Windows- och Linux-operativsystem.
+    - content: Azure Load Balancer
+      isCorrect: false
+      incorrectExplanation: Azure Virtual Machines tillhandahåller beräkningskraft och stöd för både Windows- och Linux-operativsystem.
+    - content: Azure Table Storage
+      isCorrect: false
+      incorrectExplanation: Azure Virtual Machines tillhandahåller beräkningskraft och stöd för både Windows- och Linux-operativsystem.
+    - content: Azure Redis Cache
+      isCorrect: false
+      incorrectExplanation: Azure Virtual Machines tillhandahåller beräkningskraft och stöd för både Windows- och Linux-operativsystem.
+  - content: Som vilken typ av fil lagras en Azure-instrumentpanel?
+    choices:
+    - content: XML
+      isCorrect: false
+      incorrectExplanation: Azure-instrumentpaneler lagras som JSON-filer där de kan laddas upp och ned om du vill dela med andra medlemmar i Azure-katalogen.
+    - content: JSON
+      isCorrect: true
+      correctExplanation: Azure-instrumentpaneler lagras som JSON-filer där de kan laddas upp och ned om du vill dela med andra medlemmar i Azure-katalogen.
+    - content: PNG
+      isCorrect: false
+      incorrectExplanation: Azure-instrumentpaneler lagras som JSON-filer där de kan laddas upp och ned om du vill dela med andra medlemmar i Azure-katalogen.
+  - content: 'Sant eller falskt: Azure Cloud Shell är ett interaktivt, webbläsartillgängligt skal för att hantera Azure-resurser?'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Azure Cloud Shell är ett interaktivt skal för att hantera Azure-resurser. Du kan styra och administrera alla dina Azure-resurser i den aktuella prenumerationen via ett kommandoradsgränssnitt som är inbyggt i portalen.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Azure Cloud Shell är ett interaktivt skal för att hantera Azure-resurser. Du kan styra och administrera alla dina Azure-resurser i den aktuella prenumerationen via ett kommandoradsgränssnitt som är inbyggt i portalen.

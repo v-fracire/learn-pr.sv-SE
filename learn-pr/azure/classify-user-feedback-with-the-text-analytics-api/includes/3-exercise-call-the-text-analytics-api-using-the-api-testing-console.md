@@ -20,14 +20,17 @@ För varje anrop till API för textanalys krävs en prenumerationsnyckel. Det ka
     |---------|---------|---------|
     |Namn     |    MyTextAnalyticsAPIAccount     |  Namnet på Cognitive Services-kontot. Vi rekommenderar att du använder ett beskrivande namn. Giltiga tecken är `a-z`, `0-9` och `-`.    |
     |Prenumeration     |  Concierge-prenumeration    |   Prenumerationen där det här nya Cognitive Services API-kontot med **API för textanalys** skapas.      |
-    |Plats     |  *Välj en region i listrutan*       |  Välj en region nära dig i listan nedan. |
+    |Plats     |  *välj en region i listrutan*       |  Eftersom du använder den kostnadsfria Sandbox-miljön väljer du en plats i listrutan som **också** finns i listan för sandbox-regionen som visas nedan.  |
     |Prisnivå     | **F0 kostnadsfritt**     |   Kostnaden för ditt Cognitive Services-konto beror på den faktiska användningen och de alternativ som du väljer. Vi rekommenderar att du väljer den kostnadsfria nivån för våra syften här.      |
     |Resursgrupp     |  Välj **Använd befintlig** och därefter <rgn>[sandbox-resursgruppnamn]</rgn>       |  Namnet på den nya resursgruppen där du vill skapa ett Cognitive Services-konto för API för textanalys.       |
 
+    ### <a name="sandbox-region-list"></a>Lista över sandbox-regioner
     [!include[](../../../includes/azure-sandbox-regions-first-mention-note-friendly.md)]
 
+    > [!TIP]
+    > Kom ihåg den plats du valde när du skapar Cognitive Services-kontot för textanalys. Du kommer snart att använda den för att göra API-anrop. 
 
-1. Välj **Skapa** längst ned på sidan för att starta processen att skapa kontot. Vänta på ett meddelande om att distributionen pågår. Du får sedan ett meddelande om att kontot har distribuerats till resursgruppen.
+1. Välj **Skapa** längst ned på sidan för att starta processen med att skapa kontot. Vänta på ett meddelande om att distributionen pågår. Du får sedan ett meddelande om att kontot har distribuerats till resursgruppen.
 
     ![Meddelandet om att distributionen är klar med knapparna Gå till resurs och Fäst på instrumentpanelen.](../media/deploy-resource-group-success.PNG)
 
@@ -52,49 +55,54 @@ Nu när vi har vårt Cognitive Services-konto kan vi leta reda på åtkomstnycke
 
 Nu när vi har vår nyckel kan vi gå vidare till testkonsolen och börja använda API:n.
 
-1. Gå till referensdokumentationen för [API för textanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7?azure-portal=true) i webbläsaren.
+1. Navigera till följande URL i webbläsaren. Ersätt `[location]` med den plats du valde när du skapade Cognitive Services-kontot för textanalys tidigare i den här delen. Om du till exempel skapade kontot i *eastus* ersätter du `[location]` med `eastus` i URL:en.
+
+    ```bash
+    https://[location].dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0
+    ```
 
     På startsidan visas en meny till vänster och innehåll till höger. I menyn visas de POST-metoder som du kan anropa i API för textanalys. De här slutpunkterna är **Identifiera språk**, **Entiteter**, **Nyckelfraser** och **Attityd**. Vi behöver göra några saker för att kunna anropa en av dessa åtgärder.
 
     - Välja den metod som vi vill anropa.
-    - Välja en testkonsol som matchar regionen eller platsen som vi valde tidigare i den här lektionen.
     - Lägga till den åtkomstnyckel som vi sparade tidigare i lektionen i varje anrop.
 
-1. Välj **Attityd** i den vänstra menyn. Det här alternativet öppnar attityddokumentationen till höger. Så som visas i dokumentationen kommer vi att göra ett REST-anrop i följande format:
+1. Välj **Attityd** i den vänstra menyn. Det här alternativet öppnar sentimentdokumentationen till höger. Så som visas i dokumentationen kommer vi att göra ett REST-anrop i följande format.  
 
     `https://[location].api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
+     `[location]` ersätts med den plats som du valde när du skapade kontot för textanalys.  
 Vi ska skicka in vår prenumerationsnyckel eller åtkomstnyckel i rubriken **ocp-Apim-Subscription-Key**.
 
 ## <a name="make-some-api-calls"></a>Göra vissa API-anrop
 
-1. Välj en region i listan på den här sidan som matchar den plats som vi valde när vi skapade vårt Cognitive Services-konto tidigare i den här lektionen. Om vi exempelvis valde *USA, västra* tidigare när vi skapade kontot, väljer du det här på följande sätt.
-    ![Skärmbild av en referensplats för API för textanalys med menyalternativet Attityd valt, följt av USA, västra.](../media/select-testing-console-region.png)
+1. Klicka på knappen för att **öppna konsolen för API-testning** för att öppna den interaktiva API-livekonsolen.
 
-1. Nästa sida som öppnas är en interaktiv API-konsol. Klistra in den åtkomstnyckel som du sparade tidigare i fältet på sidan med etiketten **Ocp-Apim-Subscription-Key**. Observera att nyckeln skrivs automatiskt till fönstret HTTP-begäran som ett värde för rubriken.
+1. Klistra in åtkomstnyckeln som du sparade tidigare i fältet med etiketten **Ocp-Apim-Subscription-Key**. Observera att nyckeln skrivs automatiskt till fönstret HTTP-begäran som ett värde för rubriken.
 
-1. Bläddra längst ned på sidan och klicka på **Skicka**. Låt oss se vad som händer genom att titta på den här skärmen i detalj.
+1. Bläddra längst ned på sidan och klicka på **Skicka**.
 
-I avsnittet Rubriker i användargränssnittet anger vi åtkomst eller prenumeration samt nyckel i rubriken för begäran.
+    Låt oss nu undersöka avsnitten på den här skärmen mer ingående.
 
-![Skärmbild av rubrikavsnittet.](../media/2-marker.PNG)
+    I avsnittet Rubriker i användargränssnittet anger vi åtkomst- eller prenumerationsnyckeln i rubriken för begäran.
 
-Därefter har vi avsnittet med begärandetext som innehåller en **dokument**matris. Alla dokument i matrisen har tre egenskaper. Egenskaperna är *”language”*, *”id”* och *”text”*. Egenskapen *”id”* är ett tal i det här exemplet, men kan vara allt du vill så länge det är unikt i dokumentmatrisen. I det här exemplet använder vi också dokument som skrivits på tre olika språk. Över 15 språk stöds i attitydfunktionen i API för textanalys. Mer information finns i [Språk som stöds i API för textanalys](https://docs.microsoft.com//azure/cognitive-services/text-analytics/text-analytics-supported-languages). Den maximala storleken för ett enskilt dokument är 5 000 tecken och en begäran kan innehålla upp till 1 000 dokument.
+    ![Skärmbild av rubrikavsnittet.](../media/2-marker.PNG)
 
-![Skärmbild av avsnittet Begärandetext](../media/3-marker.PNG)
+    Därefter har vi avsnittet med begärandetext som innehåller en **dokument**matris. Alla dokument i matrisen har tre egenskaper. Egenskaperna är *”language”*, *”id”* och *”text”*. Egenskapen *”id”* är ett tal i det här exemplet, men kan vara allt du vill så länge det är unikt i dokumentmatrisen. I det här exemplet använder vi också dokument som skrivits på tre olika språk. Över 15 språk stöds i attitydfunktionen i API för textanalys. Mer information finns i [Språk som stöds i API för textanalys](https://docs.microsoft.com//azure/cognitive-services/text-analytics/text-analytics-supported-languages). Den maximala storleken för ett enskilt dokument är 5 000 tecken och en begäran kan innehålla upp till 1 000 dokument.
 
-En fullständig begäran, inklusive rubriker och begärans-URL visas i nästa avsnitt. I det här exemplet ser du att begäranden dirigeras till en URL som börjar med `westus`. URL:en ser olika ut beroende på vilken region som du har valt.
+    ![Skärmbild av avsnittet Begärandetext](../media/3-marker.PNG)
 
-![Avsnitt nummer fyra.](../media/4-marker.PNG)
-![Avsnitt nummer fem.](../media/5-marker.PNG)
+    En fullständig begäran, inklusive rubriker och begärans-URL visas i nästa avsnitt. I det här exemplet kan du se att begäranden dirigeras till en URL som börjar med `westus`. URL:en skiljer sig beroende på vilken plats du valde när du skapade ditt konto för textanalys.
 
-Därefter har vi information om svaret. I det här exemplet ser vi att begäran lyckades och att koden `200` returnerades. Vi kan också se att processen tog 38 msek.
+    ![Avsnitt nummer fyra.](../media/4-marker.PNG)
+    ![Avsnitt nummer fem.](../media/5-marker.PNG)
 
-![Avsnitt nummer fem.](../media/6-marker.PNG)
+    Därefter har vi information om svaret. I det här exemplet ser vi att begäran lyckades och att koden `200` returnerades. Vi kan också se att processen tog 38 msek.
 
-Slutligen kan se vi svaret på vår begäran. Svaret innehåller den insikt som API för textanalys hade om våra dokument. En matris med dokument returneras till oss, utan den ursprungliga texten. Vi får tillbaka ett *”id”* och en *”poäng”* för varje dokument. API:n returnerar en numerisk poäng mellan 0 och 1. Poäng nära 1 visar en positiv attityd, medan en poäng nära 0 indikerar en negativ attityd. Ett resultat på 0,5 anger en brist på attityd, dvs. ett neutralt uttryck. I det här exemplet har vi två ganska positiva dokument och ett negativt dokument.
+    ![Avsnitt nummer fem.](../media/6-marker.PNG)
 
-![Avsnitt nummer fem.](../media/7-marker.PNG)
+    Slutligen kan se vi svaret på vår begäran. Svaret innehåller den insikt som API för textanalys hade om våra dokument. En matris med dokument returneras till oss, utan den ursprungliga texten. Vi får tillbaka ett *”id”* och en *”poäng”* för varje dokument. API:n returnerar en numerisk poäng mellan 0 och 1. Poäng nära 1 visar en positiv attityd, medan en poäng nära 0 indikerar en negativ attityd. Ett resultat på 0,5 anger en brist på attityd, dvs. ett neutralt uttryck. I det här exemplet har vi två ganska positiva dokument och ett negativt dokument.
+
+    ![Avsnitt nummer fem.](../media/7-marker.PNG)
 
 Grattis! Du har gjort ditt första anrop till API för textanalys utan att behöva skriva en enda rad med kod. Passa på att stanna kvar i konsolen och prova fler anrop. Här följer några förslag:
 

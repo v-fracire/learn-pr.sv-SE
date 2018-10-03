@@ -4,15 +4,13 @@ I den här övningen ska vi skapa en Azure-funktion som tar emot en HTTP-begära
 
 Vi ska fortsätta att använda vår befintliga Azure Functions-app och lägga till en HTTP-utlösare.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Kontrollera att du är inloggad på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 1. Navigera till skärmen **Alla resurser** och välj din funktionsapp.
 
 1. Peka på **Funktioner** och välj plustecknet (+).
 
 1. Välj **HTTP-utlösare**.
-
-1. Välj **C#** som språk.
 
 1. Lämna standardvärdet för **Namn**.
 
@@ -42,4 +40,4 @@ Nu har vi kopierat funktionens webbadress till Urklipp. Vi ska skicka en GET-beg
 
 1. Lägg till en frågesträngsparameter med namnet *name* med ditt eget namn, till exempel `.../api/HttpTriggerCSharp1?name=Jesse`
 
-1. Skicka begäran genom att trycka på <kbd>ENTER</kbd>.
+1. Tryck på <kbd>ENTER</kbd> att skicka begäran.

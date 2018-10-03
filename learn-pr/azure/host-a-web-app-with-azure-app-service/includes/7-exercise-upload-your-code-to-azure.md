@@ -35,9 +35,9 @@ I den här delen överför du ditt ASP.NET Core-program till Azure App Service.
 
 1. Azure-portalen navigerar till **Översikt**-sidan för det nyligen skapade distributionsfacket.
 
-    ![Distributionsfack för mellanlagring](../media/7-deployment-slot-staging.png)
+    ![Skärmbild av distributionsfacket för mellanlagring](../media/7-deployment-slot-staging.png)
 
-    Observera **URL** för distributionsfacket för mellanlagring. Det är en annan URL än den du såg tidigare, med facknamnet sist.
+    Observera **URL:en** för distributionsfacket för mellanlagring. Det är en annan URL än den du såg tidigare, med facknamnet sist.
 
     Ett distributionsfack behandlas som en fullvärdig App Service-app i Azure. Det är dock en särskild typ som är underordnad den ursprungliga appen och kan växlas med den ursprungliga appen.
 

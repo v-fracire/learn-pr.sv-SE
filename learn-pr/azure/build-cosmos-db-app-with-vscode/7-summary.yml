@@ -8,12 +8,49 @@ metadata:
   ms.author: mimig
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 656c5dad59bcf4ae8b969b140d54fa08e0e4115a
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: c68a68b3429b73a6831781a74c150d226d5bd659
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46356620"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437807"
 title: Sammanfattning
 durationInMinutes: 3
-content: '[!include[](includes/7-summary.md)]'
+content: >
+  [!include[](includes/7-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Anta att du använder Visual Studio Code för att utveckla ett .NET Core-program som har åtkomst till Azure Cosmos DB. Du måste ta med anslutningssträngen för din databas i konfigurationen av programmet. Vad är det enklaste sättet att få den här informationen till ditt projekt?
+    choices:
+    - content: Direkt från Visual Studio Code
+      isCorrect: true
+      correctExplanation: Med Azure Cosmos DB-tillägget kan du administrera och skapa Azure Cosmos DB-konton och -databaser från Visual Studio Code.
+    - content: Från Azure-portalen
+      isCorrect: false
+      incorrectExplanation: Azure-portalen tillhandahåller den här informationen, men om du redan är i Visual Studio Code är det troligtvis inte det enklaste alternativet att gå till portalen.
+    - content: Använda Azure CLI
+      isCorrect: false
+      incorrectExplanation: Detta är ett bra val, särskilt eftersom Visual Studio Code har en inbyggd terminal, men det krävs kunskap om nödvändiga kommandon. Det kanske inte är lika enkelt som Visual Studio Code-tillägget.
+  - content: Vilka av Azure Cosmos DB:s SQL-API:er kan användas för att utföra CRUD-åtgärder?
+    choices:
+    - content: LINQ
+      isCorrect: true
+      correctExplanation: LINQ och SQL är två av de giltiga metoderna för att fråga SQL-API:et.
+    - content: Klientbibliotek för Apache Cassandra
+      isCorrect: false
+      incorrectExplanation: Apache Cassandra-bibliotek kan fungera med Azure Cosmos DB:s Cassandra-API men inte med SQL-API:et.
+    - content: Azure Table Storage-bibliotek
+      isCorrect: false
+      incorrectExplanation: Azure Table Storage-bibliotek kan fungera med Azure Cosmos DB:s tabell-API men inte med SQL-API:et.
+  - content: När du arbetar med i Azure Cosmos DB-klient-SDK:ns DocumentClient-klass kan du använda en NOSQL-modell. Hur ska du använda den här klassen för att ändra fältet FirstName för en persons dokument från ”Ann” till ”Fran”?
+    choices:
+    - content: Anropa UpdateDocumentAsync med FirstName=Fran
+      isCorrect: false
+      incorrectExplanation: DocumentClient-klassen har ingen UpdateDocumentAsync-metod. Uppdatering av ett fält är inte konsekvent med NOSQL-metoden i dokumentformat.
+    - content: Anropa UpsertDocumentAsync med ett uppdaterat personobjekt
+      isCorrect: false
+      incorrectExplanation: Även om det skulle fungera är det inte den minsta nödvändiga åtkomsten för att uppfylla våra krav. Upsertåtgärder ersätter ett dokument om dess nyckel redan finns eller lägger till ett nytt dokument om den inte finns. Vi vill inte lägga till en ny, men den här metoden riskerar att introducera diskreta buggar som är svåra att spåra.
+    - content: Anropa ReplaceDocumentAsync med ett uppdaterat personobjekt
+      isCorrect: true
+      correctExplanation: ReplaceDocumentAsync ersätter det befintliga dokumentet med det nya. I det här fallet skulle vi vilja att det gamla och nya skulle vara samma, förutom när det gäller FirstName.

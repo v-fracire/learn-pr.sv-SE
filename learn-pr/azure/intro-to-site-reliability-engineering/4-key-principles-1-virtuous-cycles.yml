@@ -1,0 +1,82 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-site-reliability-engineering.4-key-principles-1-virtuous-cycles
+title: 'Viktiga principer och metoder för SRE: positiva cykler'
+metadata:
+  title: 'Viktiga principer och metoder för SRE: positiva cykler'
+  description: 'Viktiga principer och metoder för SRE: positiva cykler'
+  ms.date: 09/26/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 632ab6aeec2ad4c2cff90470b13008470de7ca99
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439415"
+durationInMinutes: 10
+content: >
+  [!include[](includes/4-key-principles-1-virtuous-cycles.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vad SLI står för (i en SRE-kontext)?
+    choices:
+    - content: 'Standard Level Indicator (standardnivåindikator) '
+      isCorrect: false
+      incorrectExplanation: SLI står för Service Level Indicator (servicenivåindikator).
+    - content: Servicenivåindikator
+      isCorrect: true
+    - content: Säker lastindikator
+      isCorrect: false
+      incorrectExplanation: SLO står för Service Level Indicator (servicenivåindikator).
+    - content: Servicenivågränssnitt
+      isCorrect: false
+      incorrectExplanation: SLO står för Service Level Indicator (servicenivåindikator).
+  - content: Vad står SLO för (i en SRE-kontext)?
+    choices:
+    - content: Servicenivåresultat
+      isCorrect: false
+      incorrectExplanation: SLO står för Service Level Objective (servicenivåmål).
+    - content: Standardradsåtgärder
+      isCorrect: false
+      incorrectExplanation: SLO står för Service Level Objective (servicenivåmål).
+    - content: Servicelastmål
+      isCorrect: false
+      incorrectExplanation: SLO står för Service Level Objective (servicenivåmål).
+    - content: Servicenivåmål
+      isCorrect: true
+  - content: Vad bör du göra om du har använt hela din felbudget för en tjänst?
+    choices:
+    - content: Starta om den berörda tjänsten omedelbart så att den kan följa planen igen
+      isCorrect: false
+      incorrectExplanation: En felbudget är ett sätt att spåra en tjänsts samlade tillförlitlighet över tid eftersom den relaterar till dina mål. Det är viktigt att använda denna i kombination med en delad förståelse för hur organisationen kommer att reagera om mängden acceptabel otillförlitlighet överskrids. Det finns många möjliga svar, och du behöver välja och hålla dig till de svar som passar bäst i just din kontext. Det finns inte en enda reaktion som är rätt för alla användare och situationer.
+    - content: Pausa senare versioner av den programvaran tills tjänsten har uppnått den överenskomna tillförlitlighetsnivån igen
+      isCorrect: false
+      incorrectExplanation: En felbudget är ett sätt att spåra en tjänsts samlade tillförlitlighet över tid eftersom den relaterar till dina mål. Det är viktigt att använda denna i kombination med en delad förståelse för hur organisationen kommer att reagera om mängden acceptabel otillförlitlighet överskrids. Det finns många möjliga svar, och du behöver välja och hålla dig till de svar som passar bäst i just din kontext. Det finns inte en enda reaktion som är rätt för alla användare och situationer.
+    - content: Omdirigera omedelbart tekniska resurser som är associerade med den här tjänsten från att utveckla programvaran till att åtgärda tillförlitlighetsproblemet
+      isCorrect: false
+      incorrectExplanation: En felbudget är ett sätt att spåra en tjänsts samlade tillförlitlighet över tid eftersom den relaterar till dina mål. Det är viktigt att använda denna i kombination med en delad förståelse för hur organisationen kommer att reagera om mängden acceptabel otillförlitlighet överskrids. Det finns många möjliga svar, och du behöver välja och hålla dig till de svar som passar bäst i just din kontext. Det finns inte en enda reaktion som är rätt för alla användare och situationer.
+    - content: Reagera på det sätt som bestämts i förväg för tjänsten eller organisationen när felbudgeten skapades
+      isCorrect: true
+      correctExplanation: När du konfigurerar en felbudget för en tjänst är det viktigt att bestämma (och dokumentera) hur organisationen ska agera om den förbrukas. Det finns många möjliga svar, och du behöver välja och hålla dig till de svar som passar bäst i just din kontext. En felbudget är ett sätt att spåra en tjänsts samlade tillförlitlighet över tid. Det är viktigt att använda denna i kombination med en delad förståelse för hur organisationen kommer att reagera om mängden acceptabel otillförlitlighet överskrids. Det finns många möjliga svar, och du behöver välja och hålla dig till de svar som passar bäst i just din kontext. Det finns inte en enda reaktion som är rätt för alla användare och situationer.
+  - content: Vad bör du göra om du har överskridit din felbudget för en tjänst?
+    choices:
+    - content: Snabba på lanseringstakten för nya versioner av tjänsten
+      isCorrect: false
+      incorrectExplanation: Det här är nästan rätt svar, men det utelämnar en viktig komponent. Om tillförlitligheten för tjänsten är på önskad nivå, men du skulle göra något som potentiellt kan sänka den, skulle det vara korrekt att ”förbruka” det utrymmet genom att öka lanseringstakten för nya versioner. Men det är bara ett möjligt svar. Det som är rätt beror på just dina omständigheter.
+    - content: Fokusera mer på att utveckla funktioner för den tjänsten och att ta dem i drift snabbare
+      isCorrect: false
+      incorrectExplanation: Det här är nästan rätt svar, men det utelämnar en viktig komponent. Om tillförlitligheten för tjänsten är på önskad nivå, men du skulle göra något som potentiellt kan sänka den, skulle det vara korrekt att ”förbruka” det utrymmet genom att öka lanseringstakten för nya funktioner. Men det är bara ett möjligt svar. Det som är rätt beror på just dina omständigheter.
+    - content: Det beror på
+      isCorrect: true
+      correctExplanation: Det finns många sätt att ”spendera” en överdrivet hög felbudget. Att öka lanseringstakten för funktioner, ta fler betafunktioner i drift och utföra fler tester med avbrott och så vidare. Det går också bra (även om detta resulterar i helt andra problem) att inte göra någonting och bara köra med en högre tillförlitlighetsnivå. Alla dessa svar är situationsspecifika och bör fattas efter din specifika kontext.
+  - content: När ett driftstopp eller annan incident inträffar, bör du omedelbart säga upp involverade personer?
+    choices:
+    - content: Ja, den eller de som begått misstaget bör alltid ta ansvar för sina handlingar och stå för konsekvenserna
+      isCorrect: false
+      incorrectExplanation: Det går inte att nå tillförlitlighet genom avsked. Om kulturen fokuserar på skuld i sådana situationer förlorar organisationen möjligheten att lära sig från incidenter och förbättra processerna och tekniken som orsakade det från början. Utan den här feedbackslingan tvingas organisationen att alltid reagera på incidenter, i stället för att eliminera dem.
+    - content: Nej, förutom under vissa mycket sällsynta och extraordinära omständigheter
+      isCorrect: true
+      correctExplanation: Feedbackslingor, som utredningar som inte pekar ut ansvariga, efteråt är avgörande för kontinuerlig förbättring. Om en organisation lär sig av en incident i stället för att avskeda involverade personer (personer som bäst förstår vad som hände), kan den arbeta direkt med tillförlitligheten hos dess tjänster, system och produkter.

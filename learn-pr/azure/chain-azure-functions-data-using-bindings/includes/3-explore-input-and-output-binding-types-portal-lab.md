@@ -22,10 +22,12 @@ Vi ska skapa en funktionsapp som vi sedan använder genom hela modulen. I en fun
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. |
     | **Resursgrupp**|  Välj **Använd befintlig** och därefter _<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>_ | Namnet på resursgruppen som funktionsappen ska skapas i. |
     | **Operativsystem** | Windows | Det operativsystem som är värd för funktionsappen.  |
-    | **Värd** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standardinställningen **Förbrukningsplan** läggs resurser till dynamiskt när de krävs av funktionerna. För den här typen av serverlösa värdtjänster betalar du bara för den tid som dina funktioner körs.   |
-    | **Lagringskonto** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Den här dialogrutan fyller i fältet med ett unikt namn som härleds från namnet du gav appen. Du kan använda ett annat namn eller ett befintligt konto om du vill. |
-    | **Plats** | Välj från listan | Välj en av de närmaste tillgängliga platserna som anges ovan. |
+    | **Värdplan** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standardinställningen **Förbrukningsplan** läggs resurser till dynamiskt när de krävs av funktionerna. För den här typen av serverlösa värdtjänster betalar du bara för den tid som dina funktioner körs.   |
+    | **Plats** | Välj från listan | Välj den som är närmast dig och som också är en av de tillåtna *Sandbox-regionerna* nedan. |
+    | **Körningsstack** | JavaScript | Exempelkoden i den här modulen är skriven i JavaScript.  |
+    | **Lagring** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Den här dialogrutan fyller i fältet med ett unikt namn som härleds från namnet du gav appen. Du kan använda ett annat namn eller ett befintligt konto om du vill. |
 
+    ### <a name="sandbox-regions"></a>Sandbox-regioner
     [!include[](../../../includes/azure-sandbox-regions-first-mention-note-friendly.md)]
 
 1. Välj **Skapa** för att etablera och distribuera funktionsappen.
@@ -47,15 +49,23 @@ Vi ska skapa en funktionsapp som vi sedan använder genom hela modulen. I en fun
 
 Nu när vi har en funktionsapp är det dags att skapa en funktion. En funktion aktiveras via en utlösare. Vi använder en HTTP-utlösare i den här modulen.
 
-1. Expandera din nya funktionsapp och hovra sedan över samlingen med funktioner och välj knappen Lägg till (**+**) bredvid **Funktioner**. Den här åtgärden startar funktionsskapandeprocessen. Följande animering illustrerar den här åtgärden.
+<!-- Start temporary fix for issue #2498. -->
+> [!IMPORTANT]
+> Övningarna i den här modulen fungerar för närvarande med Azure Functions V1. Följ dessa steg noggrant för att se till att appen använder V1-körningsversionen. 
 
-    ![Animering av plustecknet som visas när användaren för muspekaren över menyalternativet för funktioner.](../media/3-func-app-plus-hover-small.gif)
+1. Välj funktionsappen i listan **Funktionsappar**.
+1. Välj **Plattformsfunktioner**.
+1. På skärmen **Plattformsfunktioner** väljer du **Funktionsappinställningar** under **Allmänna inställningar**.
+1. Välj *~1* i **Körningsversion**.
+1. Stäng **Funktionsappinställningar**.
+
+Vår funktionsapp har nu konfigurerats för att använda Azure Functions V1-körning. Nu kan vi fortsätta att skapa vår första funktion.
+<!-- End temporary fix for issue #2498. --> 
+1. Välj knappen Lägg till (**+**) bredvid **Functions**. Den här åtgärden startar funktionsskapandeprocessen. 
 
 1. På sidan **Kom igång snabbt** väljer du **Anpassad funktion** under avsnittet **Kom igång på egen hand**.
 
-1. Då visas en lista med alla mallar. Hitta mallen **HTTP-utlösare** och välj JavaScript som språk.
-
-    ![Skärmbild av rutan för att skapa HTTP-funktion med länk till JavaScript](../media/3-http-function.png)
+1. En lista över alla mallar visas. Välj mallen **HTTP-utlösare** på listan.
 
 1. På bladet **Ny funktion** kan du ändra namn om du vill, lämna **Auktorisationsnivån** som _Funktion_ och klicka på **Skapa**.
 

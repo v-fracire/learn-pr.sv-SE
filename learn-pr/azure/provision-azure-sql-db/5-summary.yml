@@ -9,11 +9,48 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: e5bd4a690b6c92d6d8c0ef54553db4c523e0f1ab
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 082f2ea2623a2ae161f0cc4ceee965a722a5fae1
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357543"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437280"
 durationInMinutes: 5
-content: '[!include[](includes/5-summary.md)]'
+content: >
+  [!include[](includes/5-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vem ansvarar för att utföra programuppdateringar på dina Azure SQL-databaser och det underliggande operativsystemet?
+    choices:
+    - content: Det är du. Det är upp till dig att logga in och installera de senaste säkerhetsuppdateringarna och uppdateringar med jämna mellanrum.
+      isCorrect: false
+      incorrectExplanation: Azure SQL-databaserna är ett PaaS-erbjudande (Platform-as-a-Service), vilket betyder att du slipper sköta underhållet själv.
+    - content: Microsoft Azure. När du väljer Azure SQL Database tar vi hand om hanteringen av maskinvaran, uppdateringen av programvaran och installationen av korrigeringsfiler för operativsystemet.
+      isCorrect: true
+      correctExplanation: Azure SQL-databaser är ett erbjudande för Platform-as-a-Service (PaaS). När du väljer Azure SQL Database tar vi hand om hanteringen av maskinvaran, uppdateringen av programvaran och installationen av korrigeringsfiler för operativsystemet.
+    - content: Inget. Din databas behåller sitt ursprungliga operativsystem och konfiguration.
+      isCorrect: false
+      incorrectExplanation: Azure SQL-databaser är ett erbjudande för Platform-as-a-Service (PaaS). Molnleverantören hanterar och uppdaterar normalt PaaS-tjänster åt dig.
+  - content: Vad är en _logisk Azure SQL-server_?
+    choices:
+    - content: En administrativ container för dina databaser.
+      isCorrect: true
+      correctExplanation: Med den logiska servern kan du styra över saker som inloggningar, brandväggsregler och säkerhetsprinciper.
+    - content: Ett annat namn på en Azure SQL Database-instans.
+      isCorrect: false
+      incorrectExplanation: Kom ihåg att du kan ha flera databasinstanser. Finns det något sätt att administrera dem tillsammans?
+    - content: En server som definierar de logiska reglerna som sorterar och jämför data.
+      isCorrect: false
+      incorrectExplanation: _Sortering_ syftar här på regler som sorterar och jämför data.
+  - content: Azure SQL Database ger tillräckligt med beräkningskraft och ström. Men du märker att du behöver extra IO-dataflöde. Vilken prestandamodell kan du använda?
+    choices:
+    - content: DTU
+      isCorrect: false
+      incorrectExplanation: DTU eller databastransaktionsenhet är ett enkelt, förkonfigurerat alternativ. För att öka IO-dataflödet skulle du behöva flytta till en högre nivå som även ökar din lagring och beräkningskraft, saker som du inte behöver.
+    - content: V-kärna
+      isCorrect: true
+      correctExplanation: Med virtuell kärna får du mer kontroll över vilka beräknings- och lagringsresurser som du skapar och betalar för. Du kan öka IO-dataflödet men behålla den befintliga mängden beräkning och lagring.
+    - content: Elastisk SQL-pool
+      isCorrect: false
+      incorrectExplanation: Med elastiska SQL-pooler kan du köpa en viss mängd beräknings- och lagringsresurser som delas mellan alla databaser i poolen. Det här alternativet hjälper inte till med IO-prestanda eftersom du endast arbetar med en databas.

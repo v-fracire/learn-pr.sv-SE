@@ -9,11 +9,51 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: dbbed9c336f6aa4063d3c4a3ab22447b8cc97293
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.openlocfilehash: b5705b646b41e63ffe0d2bc45fb3d4417136b10b
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46514543"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47436770"
 durationInMinutes: 2
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Ett CRON-uttryck är en sträng som består av sex fält som motsvarar olika tider. Ordningen på de sex fälten i Azure är: {sekund} {minut} {timme} {dag} {månad} {veckodag}. Anta att du behövde ett CRON-uttryck som betydde ”varje dag”. Vilka specialtecken skulle du placera på positionen {dag i veckan}?'
+    choices:
+    - content: ”/”
+      isCorrect: false
+      incorrectExplanation: Ett snedstreck anger ett inkrement. Till exempel */5 i fältet {sekunder} innebär var femte sekund.
+    - content: ”*”
+      isCorrect: true
+      correctExplanation: En asterisk anger att varje möjligt värde måste väljas. Att ha en asterisk i fältet {veckodag} betyder att varje dag måste väljas.
+    - content: ”,”
+      isCorrect: false
+      incorrectExplanation: Ett kommatecken avgränsar objekt i en lista. Till exempel innebär 1,2,3 i fältet {månad} januari, februari och mars.
+    - content: ”-”
+      isCorrect: false
+      incorrectExplanation: Ett bindestreck anger ett intervall. Till exempel innebär 1–3 i fältet {månad} januari, februari och mars.
+  - content: Anta att din Azure-funktion har en blobutlösare kopplad till sig och du vill endast köra den när avbildningar har laddats upp. Vilket av följande värde för *sökvägen* för blobutlösare ska du använda?
+    choices:
+    - content: samples-workitems/{namn}
+      isCorrect: false
+      incorrectExplanation: Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter. När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.
+    - content: samples-workitems/{name}/png
+      isCorrect: false
+      incorrectExplanation: Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter. När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.
+    - content: samples-workitems/{name}?png
+      isCorrect: false
+      incorrectExplanation: Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter. När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.
+    - content: samples-workitems/{name}.png
+      isCorrect: true
+      correctExplanation: Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter. När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.
+  - content: 'Sant eller falskt: en Azure Function kan ha flera associerade utlösare?'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Varje Azure Function måste ha exakt en utlösare kopplad till den. Om du vill använda flera utlösare måste du skapa flera funktioner.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: Varje Azure Function måste ha exakt en utlösare kopplad till den. Om du vill använda flera utlösare måste du skapa flera funktioner.

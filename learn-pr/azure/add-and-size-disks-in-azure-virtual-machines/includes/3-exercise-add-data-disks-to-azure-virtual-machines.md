@@ -164,7 +164,7 @@ Leta efter disken på 64 GB som vi skapade. Här kan du se att den är **sdc** o
 
 1. Nu måste vi skriva ett filsystem till partitionen med kommandot `mkfs`. Vi måste ange filsystemstypen och enhetsnamnet som vi har fått från `fdisk`-utdatan:
     - Skicka `-t ext4` för att skapa ett _ext4_-filsystem.
-    - Enhetsnamnet är `/dev/sdc`.
+    - Enhetsnamnet är `/dev/sdc1`.
 
     ```bash
     sudo mkfs -t ext4 /dev/sdc1

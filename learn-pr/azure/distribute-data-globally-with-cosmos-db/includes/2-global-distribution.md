@@ -39,14 +39,13 @@ När en databas replikeras så replikeras även dataflöde och lagring. Så om d
 
     Inställning|Värde|Beskrivning
     ---|---|---
-    ID|*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom *documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
-    API|SQL|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er för ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure-tabell och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Välj **SQL** eftersom du i den här modulen ska skapa en dokumentdatabas som stöder frågekörning med SDL-syntax och som kan nås med SQL-API:et.|
     Prenumeration|*Concierge-prenumeration*|Välj din Concierge-prenumeration. Om du inte ser Concierge-prenumerationen har du flera klienter aktiverade på din prenumeration och du måste ändra klienter. Logga in igen med följande portallänk: [Azure-portalen för sandbox-miljö](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) för att göra detta.
     Resursgrupp|Använd befintlig<br><br><rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>|Välj **Använd befintlig** och ange därefter <rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>.
+    Kontonamn|*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom *documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck (-) och det måste innehålla mellan 3 och 31 tecken.
+    API|SQL|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er för ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure-tabell och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Välj **SQL** eftersom du i den här modulen ska skapa en dokumentdatabas som stöder frågekörning med SDL-syntax och som kan nås med SQL-API:et.|
     Plats|*Välj den region som är närmast dig*|Välj den region som är närmast dig i listan över regioner ovan.
     Geo-redundans| Inaktivera | Den här inställningen skapar en replikerad version av databasen i en andra (parad) region. Låt det här vara inaktiverat just nu eftersom du ska replikera databasen senare.
-    Flera original | Aktivera | Den här inställningen låter dig skriva till flera regioner samtidigt. Inställningen kan bara konfigureras när kontot skapas.
-    Virtuellt nätverk|Lämna tomt|Lämna virtuella nätverk tomt för tillfället. Detta kan konfigureras senare.
+    Skrivåtgärder för flera regioner | Aktivera | Den här inställningen låter dig skriva till flera regioner samtidigt. Inställningen kan bara konfigureras när kontot skapas.
 
 1. Klicka på **Granska + Skapa**.
 

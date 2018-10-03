@@ -9,12 +9,49 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 76203955ef10f22d7150561d906e30b12c064321
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 452dcc7255f6522b8ad790700323e9ac5b11bf1a
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358463"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437824"
 durationInMinutes: 3
 azureSandbox: true
-content: '[!include[](includes/8-summary.md)]'
+content: >
+  [!include[](includes/8-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: När du skapar en virtuell Windows-dator i Azure, vilken port öppnar du då med hjälp av REGLER FÖR INKOMMANDE PORTAR för att tillåta fjärrskrivbordsåtkomst?
+    choices:
+    - content: HTTPS
+      isCorrect: false
+      incorrectExplanation: Fjärrskrivbordsanslutningen använder inte HTTPS-protokollet.
+    - content: SSH (22)
+      isCorrect: false
+      incorrectExplanation: Fjärrskrivbordsanslutningen använder inte SSH.
+    - content: RDP (3389)
+      isCorrect: true
+      correctExplanation: Fjärrskrivbordsprotokollet (RDP) använder port 3389 som standard, så det här är standardporten som du skulle öppna om du vill använda en RDP-klient för att administrera dina virtuella Windows-datorer.
+  - content: Anta att du har ett program som körs på en virtuell Windows-dator i Azure. Vad är det bästa sättet att ta reda på var appen ska lagra datafiler?
+    choices:
+    - content: Operativsystemets disk (C:)
+      isCorrect: false
+      incorrectExplanation: Du kan lagra datafiler på operativsystemets disk, men du kanske vill optimera den disken för OS-prestanda genom att välja en Premium SSD-typ, vilket kan vara ett kostsamt sätt att lagra data.
+    - content: Den tillfälliga disken (D:)
+      isCorrect: false
+      incorrectExplanation: Den tillfälliga disken är inte beständig. Du bör inte skriva viktiga data på disken.
+    - content: En ansluten datadisk
+      isCorrect: true
+      correctExplanation: Dedikerade datadiskar anses vanligtvis vara den bästa platsen för att lagra data för programfiler. De kan vara större än OS-diskar och du kan optimera dem för de kostnads- och prestandaegenskaper som bäst passar dina data.
+  - content: Vilken är den sista regeln som används i alla nätverkssäkerhetsgrupper?
+    choices:
+    - content: Tillåt alla
+      isCorrect: false
+      incorrectExplanation: Detta kan ge oönskad trafik åtkomst om dina regler inte har konfigurerats korrekt.
+    - content: Neka alla
+      isCorrect: true
+      correctExplanation: Det här är ett säkert val. Det blockerar all trafik som du inte uttryckligen tillåter.
+    - content: Du konfigurerar den sista regeln efter dina behov
+      isCorrect: false
+      incorrectExplanation: Den sista regeln läggs automatiskt till när säkerhetsgruppen har skapats och du kan inte ändra den.

@@ -17,24 +17,17 @@ Precis som Azure Functions har stöd för indatabindningar för integrering av o
 
 ## <a name="create-an-http-triggered-function"></a>Skapa en HTTP-utlöst funktion
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
+1. Kontrollera att du är inloggad på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) med samma konto som du använde för att aktivera sandbox-miljön.
 
 2. Navigera till den funktionsapp som du skapade i föregående avsnitt i portalen.
 
-3. Expandera funktionsappen, hovra sedan över samlingen med funktioner och välj Lägg till (**+**) bredvid knappen **Funktioner**. Den här åtgärden startar funktionsskapandeprocessen. Följande animering illustrerar den här åtgärden.
-
-    ![Animering av plustecknet som visas när användaren för muspekaren över menyalternativet för funktioner.](../media/3-func-app-plus-hover-small.gif)
-
-4. Sidan visar oss den aktuella uppsättningen med utlösare som stöds. Välj **HTTP-utlösare**, vilket är den första posten i följande skärmbild.
-
-    ![Skärmbild som visar en del av utlösarmallens valgränssnitt, där TTP-utlösaren visas först, i den övre vänstra delen av bilden.](../media/5-trigger-templates-small.PNG)
-
+3. Välj Lägg till (**+**) bredvid knappen **Functions**. Den här åtgärden startar funktionsskapandeprocessen. 
+4. Sidan visar oss den aktuella uppsättningen med utlösare som stöds. Välj **HTTP-utlösare**.
 
 5. I rutan **Ny funktion** som visas till höger anger du nedanstående värden:
 
     |Fält  |Värde  |
     |---------|---------|
-    |Språk     | **JavaScript**        |
     |Namn     |   [!INCLUDE [func-name-add](./func-name-add.md)]     |
     | Auktoriseringsnivå | **Funktion** |
 

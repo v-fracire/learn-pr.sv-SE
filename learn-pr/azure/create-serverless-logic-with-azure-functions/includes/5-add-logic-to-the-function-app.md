@@ -14,72 +14,85 @@ Som du såg i föregående kursdel innehåller Azure mallar som hjälper dig att
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
-1. Välj resursgruppen från den första övningen genom att välja **Alla resurser** på menyn till vänster och sedan välja ”**<rgn>[resursgruppnamn för sandbox]</rgn>**”.
+1. Välj resursgruppen från den första övningen genom att välja **Alla resurser** på menyn till vänster och sedan välja ”**<rgn>[Namn på Sandbox-resursgrupp]</rgn>**”.
 
 1. Gruppens resurser visas. Klicka på namnet på den funktionsapp som du skapade i föregående övning genom att välja objektet **escalator-functions-xxxxxxx** (visas med funktionsikonen med en blixt).
 
-  ![Skärmbild av Azure Portal där bladet Alla resurser har valts, och den escalator-funktionsapp som vi skapade.](../media/5-access-function-app.png)
+    ![Skärmbild av Azure-portalen där bladet Alla resurser har valts, och den escalator-funktionsapp som vi skapade.](../media/5-access-function-app.png)
 
-1. På menyn till vänster visas funktionsappens namn och en undermeny med tre objekt: *Funktioner*, *Proxyservrar* och *Platser*.  Börja skapa vår första funktion genom att välja **Funktioner** och sedan klicka på knappen **Ny funktion** högst upp på den sida som visas.
+<!-- Start temporary fix for issue #2498. -->
+> [!IMPORTANT]
+> Övningarna i den här modulen fungerar för närvarande med Azure Functions V1. Följ dessa steg noggrant för att se till att appen använder V1-körningsversionen. 
 
-  ![Skärmbild av Azure Portal med funktionslistan för vår funktionsapp, med alternativet Funktioner och knappen Ny funktion markerade.](../media/5-function-add-button.png)
+1. Välj funktionsappen i listan **Funktionsappar**.
+1. Välj **Plattformsfunktioner**.
+1. På skärmen **Plattformsfunktioner** väljer du **Funktionsappinställningar** under **Allmänna inställningar**.
+1. Välj *~1* i **Körningsversion**.
+1. Stäng **Funktionsappinställningar**.
+
+Vår funktionsapp har nu konfigurerats för att använda Azure Functions V1-körning. Nu kan vi fortsätta att skapa vår första funktion.
+<!-- End temporary fix for issue #2498. --> 
+
+1. På menyn till vänster visas funktionsappens namn och en undermeny med tre objekt: *Funktioner*, *Proxyservrar* och *Platser*.  
+
+1. Börja skapa vår första funktion genom att välja **Funktioner** och sedan klicka på knappen **Ny funktion** högst upp på den sida som visas.
+
+    ![Skärmbild av Azure Portal med funktionslistan för vår funktionsapp, med alternativet Funktioner och knappen Ny funktion markerade.](../media/5-function-add-button.png)
 
 1. På skärmen Snabbstart väljer du länken **Anpassad funktion** i avsnittet **Kom igång på egen hand**, som du ser i följande skärmbild. Om du inte ser skärmen Snabbstart klickar du på länken **gå till snabbstarten** längst upp på sidan.
 
-  ![Skärmbild av Azure-portalen med bladet Snabbstart, där knappen Anpassad funktion är markerad i avsnittet Komma igång på egen hand.](../media/5-custom-function.png)
+    ![Skärmbild av Azure-portalen med bladet Snabbstart, där knappen Anpassad funktion är markerad i avsnittet Komma igång på egen hand.](../media/5-custom-function.png)
 
-1. Gå till listan med mallar som visas på skärmen och välj **JavaScript**-implementeringen av **HTTP-utlösarmallen**, som du ser i följande skärmbild.
+1. Gå till listan med mallar som visas på skärmen och välj mallen **HTTP-utlösare**, som du ser i följande skärmbild.
 
 1. Ange **DriveGearTemperatureService** i namnfältet i dialogrutan **Ny funktion** som visas. Lämna Auktoriseringsnivå som ”Funktion” och tryck på knappen **Skapa** för att skapa funktionen.
 
-  ![Skärmbild av Azure Portalen med de nya alternativen för HTTP-utlösarfunktionen, med JavaScript inställt i språkfältet och DriveGearTemperatureService angivet för namn.](../media/5-create-httptrigger-form.png)
-
 1. När funktionen har skapats öppnas kodredigeraren med innehållet i kodfilen *index.js*. Standardkoden som mallen har genererat åt oss visas i följande kodavsnitt.
 
-```javascript
-module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    ```javascript
+    module.exports = function (context, req) {
+        context.log('JavaScript HTTP trigger function processed a request.');
+    
+        if (req.query.name || (req.body && req.body.name)) {
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: "Hello " + (req.query.name || req.body.name)
+            };
+        }
+        else {
+            context.res = {
+                status: 400,
+                body: "Please pass a name on the query string or in the request body"
+            };
+        }
+        context.done();
+    };
+    ```
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-    context.done();
-};
-```
+    Funktionen förväntar sig att ett namn skickas i frågesträngen för HTTP-begäran eller som en del av själva begäran. Funktionen svarar genom att returnera meddelandet **Hello, {name}**, med namnet som skickades i begäran.
 
-Funktionen förväntar sig att ett namn skickas i frågesträngen för HTTP-begäran eller som en del av själva begäran. Funktionen svarar genom att returnera meddelandet **Hello, {name}**, med namnet som skickades i begäran.
+    Till höger i källvyn ser du två flikar. Fliken **Visa fil** visar koden och konfigurationsfilen för funktionen.  Välj **function.json** för att visa funktionens konfiguration, som bör se ut så här:
 
-Till höger i källvyn ser du två flikar. Fliken **Visa fil** visar koden och konfigurationsfilen för funktionen.  Välj **function.json** för att visa funktionens konfiguration, som bör se ut så här:
-
-```javascript
-{
-    "disabled": false,
-    "bindings": [
+    ```javascript
     {
-        "authLevel": "function",
-        "type": "httpTrigger",
-        "direction": "in",
-        "name": "req"
-    },
-    {
-        "type": "http",
-        "direction": "out",
-        "name": "res"
+        "disabled": false,
+        "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+        ]
     }
-    ]
-}
-```
+    ```
 
-Konfigurationen fastställer att funktionen körs när den får en HTTP-begäran. Utdatabindningen deklarerar att svaret skickas som ett HTTP-svar.
+    Konfigurationen fastställer att funktionen körs när den får en HTTP-begäran. Utdatabindningen deklarerar att svaret skickas som ett HTTP-svar.    
 
 ## <a name="test-the-function"></a>Testa funktionen
 
@@ -103,7 +116,7 @@ Funktionen och huvudnycklarna visas i avsnittet **Hantera** när funktionen har 
 
 1. Expandera funktionen och välj avsnittet **Hantera**. Visa standardfunktionsnyckeln och kopiera den till Urklipp.
 
-  ![Skärmbild av Azure Portal med funktionen Hantera blad, med funktionsknappen markerad.](../media/5-get-function-key.png)
+    ![Skärmbild av Azure Portal med funktionen Hantera blad, med funktionsknappen markerad.](../media/5-get-function-key.png)
 
 1. Därefter, gå till kommandoraden där du installerade verktyget **cURL**, formatera ett cURL-kommando med URL:en för din funktion och funktionsnyckeln.
 
@@ -117,6 +130,9 @@ Funktionen och huvudnycklarna visas i avsnittet **Hantera** när funktionen har 
     ```
 
 Funktionen svarar med texten `"Hello Azure Function"`.
+
+> [!CAUTION]
+> Om du använder Windows kör du `cURL` från kommandotolken. PowerShell har ett *curl*-kommando, men det är ett alias för Invoke-WebRequest och inte detsamma som `cURL`.
 
 > [!NOTE]
 > Du kan också utföra test från en enskild funktions avsnitt med fliken **Test** vid sidan av den valda funktionen, men du kan inte kontrollera om funktionsnyckelsystemet fungerar, eftersom detta inte krävs här. Lägg till lämpligt sidhuvud och parametervärden i testgränssnittet och klicka på knappen **Kör** för att visa testets utdata.
@@ -222,10 +238,10 @@ I det här fallet ska vi testa funktionen med hjälp av **testfönstret** på po
 
 1. Välj **Kör** och visa svaret i utdatafönstret. Om du vill visa loggmeddelanden öppnar du fliken **Loggar** på den nedre utfällbara menyn på sidan. På följande skärmbild visas ett exempelsvar i utdatafönstret och meddelanden i fönstret **Loggar**.
 
-![Skärmbild av Azure Portal med funktionsredigerarbladet, där flikarna Test och Loggar visas. Ett exempelsvar från funktionen visas i utdatafönstret.](../media/5-portal-testing.png)
+    ![Skärmbild av Azure Portal med funktionsredigerarbladet, där flikarna Test och Loggar visas. Ett exempelsvar från funktionen visas i utdatafönstret.](../media/5-portal-testing.png)
 
-Du kan se i utdatafönstret att vårt statusfält har lagts till i alla avläsningar.
+    Du kan se i utdatafönstret att vårt statusfält har lagts till i alla avläsningar.
 
-Om du navigerar till instrumentpanelen **Övervaka** ser du att begäran har loggats i Application Insights.
+    Om du navigerar till instrumentpanelen **Övervaka** ser du att begäran har loggats i Application Insights.
 
-![Skärmbild av Azure Portal där det tidigare körda testet resulterar i en instrumentpanel för funktionen Övervaka.](../media/5-app-insights.png)
+    ![Skärmbild av Azure Portal där det tidigare körda testet resulterar i en instrumentpanel för funktionen Övervaka.](../media/5-app-insights.png)

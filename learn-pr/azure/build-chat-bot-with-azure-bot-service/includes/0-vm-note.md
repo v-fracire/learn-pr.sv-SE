@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Den här enheten kräver åtkomst till en virtuell dator. Om du redan har anslutit till en virtuell dator från en tidigare enhet i den här modulen är du redo att börja. Om du inte redan är ansluten väljer du alternativet för att **logga in för att välja VM-läge** ovan.

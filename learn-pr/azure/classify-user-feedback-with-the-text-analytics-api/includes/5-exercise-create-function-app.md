@@ -12,11 +12,12 @@
     | ------------ |  ------- | -------------------------------------------------- |
     | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  |
     | **Prenumeration** | **Concierge-prenumeration** | Prenumerationen som den nya funktionsappen skapas under. |
-    | **Resursgrupp**|  **<rgn>[resursgruppsnamn för sandbox]</rgn>** | Namnet på den resursgrupp där du vill skapa funktionsappen.<br/><br/>Se till att välja **Använd befintlig** och använd resursgruppen från föregående övning. På så sätt kommer alla resurser som vi har gjort i den här modulen finnas på samma ställe. |
+    | **Resursgrupp**|  **<rgn>[Resursgruppsnamn för sandbox-miljö]</rgn>** | Namnet på den resursgrupp där du vill skapa funktionsappen.<br/><br/>Se till att välja **Använd befintlig** och använd resursgruppen från föregående övning. På så sätt kommer alla resurser som vi har gjort i den här modulen finnas på samma ställe. |
     | **Operativsystem** | Windows | Det operativsystem som är värd för funktionsappen.  |
-    | **Värd** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standardinställningen **Förbrukningsplan** läggs resurser till dynamiskt när de krävs av funktionerna. För den här typen av [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) värdtjänster betalar du bara för den tid som dina funktioner körs.   |
+    | **Värdplan** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standardinställningen **Förbrukningsplan** läggs resurser till dynamiskt när de krävs av funktionerna. För den här typen av [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) värdtjänster betalar du bara för den tid som dina funktioner körs.   |
     | **Plats** | Välj samma plats som tidigare. | Välj en region nära dig eller nära andra tjänster som kommer att användas i dina funktioner.<br/><br/>Välj samma region som du använde när du skapade kontot i API för textanalys i föregående övning. |
-    | **Lagringskonto** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Den här dialogrutan fyller i fältet med ett unikt namn som härleds från namnet du gav appen. Du kan använda ett annat namn eller ett befintligt konto om du vill. |
+    | **Körningsstack** | JavaScript | Exempelkoden i den här modulen är skriven i JavaScript.  |
+    | **Lagring** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Den här dialogrutan fyller i fältet med ett unikt namn som härleds från namnet du gav appen. Du kan använda ett annat namn eller ett befintligt konto om du vill. |
 
 1. Välj **Skapa** för att etablera och distribuera funktionsappen.
 
@@ -35,19 +36,28 @@
 
 Nu när vi har en funktionsapp är det dags att skapa en funktion. En funktion aktiveras via en utlösare. I den här modulen använder vi en köutlösare. Körningen avsöker en kö och startar den här funktionen för att bearbeta ett nytt meddelande.
 
-1. Expandera den nya funktionsappen och hovra sedan över samlingen **Funktioner**. Välj knappen Lägg till (__+__) när den visas och börja skapa funktionen.
+<!-- Start temporary fix for issue #2498. -->
+> [!IMPORTANT]
+> Övningarna i den här modulen fungerar för närvarande med Azure Functions V1. Följ dessa steg noggrant för att bekräfta att appen använder V1-körningsversionen. 
 
-1. På sidan **Kom igång snabbt** som nu visas väljer du **Anpassad funktion** längst ned på sidan som då läser in listan med tillgängliga funktionsmallar.
+1. Välj funktionsappen i listan **Funktionsappar**.
+1. Välj **Plattformsfunktioner**.
+1. På skärmen **Plattformsfunktioner** väljer du **Funktionsappinställningar** under **Allmänna inställningar**.
+1. Välj *~1* i **Körningsversion** .
+1. Stäng **Funktionsappinställningar**.
 
-1. Välj **JavaScript** i mallistans **Köutlösare**.
+Vår funktionsapp har nu konfigurerats att använda Azure Functions V1-körningsversionen. Nu kan vi fortsätta att skapa vårt första funktion.
+<!-- End temporary fix for issue #2498. -->  
 
-    ![Skärmbild av Azure Functions-mallar med JavaScript valt i posten Köutlösare.](../media/quickstart-select-queue-trigger.png)
+1. Välj knappen Lägg till (__+__) till höger om **Functions**.
+ 1. På sidan **Kom igång snabbt** som nu visas väljer du **Anpassad funktion** längst ned på sidan som då läser in listan med tillgängliga funktionsmallar.
+
+1. Välj **Queue trigger** (Köutlösare) i listan med mallar.
 
 4. I dialogrutan **Ny funktion** som visas anger du nedanstående värden.
 
     |Egenskap  |Värde  |
     |---------|---------|
-    |Språk     |   **JavaScript**      |
     |Namn     |   **discover-sentiment-function**      |
     |Könamn     |   **new-feedback-q**      |
     |Lagringskontoanslutning        |  **AzureWebJobsDashboard**       |

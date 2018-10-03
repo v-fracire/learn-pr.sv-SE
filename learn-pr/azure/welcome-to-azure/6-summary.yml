@@ -9,11 +9,37 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: b0f04ff135762fc48358375b3b2d69b594bc675a
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 11c2f56627006b6987a9a506ce2c6f1265ffc68d
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46354635"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437365"
 durationInMinutes: 1
-content: '[!include[](includes/6-summary.md)]'
+content: >
+  [!include[](includes/6-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: Vad är Azure?
+    choices:
+    - content: Microsofts plattform för molnbaserad databearbetning, som tillhandahåller beräkning, lagring och tjänster via Internet med hjälp av en användningsbaserad prismodell.
+      isCorrect: true
+      correctExplanation: Azure tillhandahåller rå bearbetningskraft och lagring, samt tjänster för att hjälpa dig att utforska nya programvaruparadigm som intelligenta robotar och mixad verklighet.
+    - content: Ett enda datacenter som finns i Redmond, Washington.
+      isCorrect: false
+      incorrectExplanation: Azure består av datacenter över hela världen.
+    - content: En specifik värdmiljö för virtuella datorer
+      isCorrect: false
+      incorrectExplanation: Även om Azure erbjuder rå bearbetningskraft, till exempel virtuella datorer så erbjuder den även många tjänster för att hjälpa dig att utforska nya programvaruparadigm som intelligenta robotar och mixad verklighet.
+  - content: När bör du _skala ut_ distributionen?
+    choices:
+    - content: När ditt program eller din tjänst kräver en kraftfullare processor eller mer minne för att köras snabbare.
+      isCorrect: false
+      incorrectExplanation: I det här fallet kan du _skala upp_ genom att flytta programmet eller tjänsten till kraftfullare maskinvara.
+    - content: När du behöver ytterligare virtuella datorer för att snabba upp ditt program.
+      isCorrect: true
+      correctExplanation: Skala ut innebär att lägga till ytterligare system, t.ex virtuella datorer. Du kan till exempel skapa många virtuella datorer som konfigureras på samma sätt och använda en lastbalanserare för att fördela arbetet på datorerna.
+    - content: När du använder överflödig kapacitet som du inte behöver.
+      isCorrect: false
+      incorrectExplanation: I det här fallet kan du _skala in_ genom att man bryta ner system som du inte behöver för närvarande.

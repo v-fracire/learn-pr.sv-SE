@@ -9,11 +9,42 @@ metadata:
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 9b4e753dd959b77757eee376fa367513e9b62327
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 355fab15880ecc7d0d16f91e51f00a79531bb65d
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358460"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437569"
 durationInMinutes: 3
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: Testa dina kunskaper
+  questions:
+  - content: 'Anta att du arbetar för en myndighet som planerar en långsiktig expansion av motorvägssystemet. Du får trafikdata från tusentals sensorer och analyserar dem för att göra dina rekommendationer. Mängden inkommande data varierar under dagen, till exempel toppar under rusningstiden under morgon och kväll. Sant eller falskt: en arkitektur för serversidan som består av en Azure-kö som är ansluten till en virtuell dator är ett rimligt val för den här arbetsbelastningen?'
+    choices:
+    - content: Sant
+      isCorrect: true
+      correctExplanation: Kön ska hantera trafiktoppar och se till att inga data går förlorade. Om den virtuella datorn inte hänger med i flödet av inkommande meddelanden bearbetas meddelandekön under tider med låg trafik.
+    - content: Falskt
+      isCorrect: false
+      incorrectExplanation: Dessa data används för långsiktig planering, så det finns inget behov av att bearbeta dem i realtid. Det är sannolikt att en kö som är ansluten till en enskild virtuell dator hanterar arbetsbelastningen och är en kostnadseffektiv lösning.
+  - content: Vilken information som identifierar en kö unikt?
+    choices:
+    - content: Könamn
+      isCorrect: false
+      incorrectExplanation: Könamn får endast vara unika inom sitt lagringskonto. De behöver inte vara globalt unika.
+    - content: Kontonyckel
+      isCorrect: false
+      incorrectExplanation: Kontonycklar är associerade med ett lagringskonto, inte en kö.
+    - content: Lagringskontots namn och könamn
+      isCorrect: true
+      correctExplanation: Lagringskontonamn måste vara globalt unika. Könamn måste vara unika inom sitt lagringskonto. Det innebär att kombinationen av namnet på lagringskontot och könamnet ger en unik identifikation av kön.
+  - content: 'Sant eller falskt: när en klient programmässigt hämtar ett meddelande från en kö kan meddelandet automatiskt tas bort från kön?'
+    choices:
+    - content: Sant
+      isCorrect: false
+      incorrectExplanation: Åtgärderna ”hämta meddelande” och ”ta bort meddelande” är separata.
+    - content: Falskt
+      isCorrect: true
+      correctExplanation: Meddelanden tas inte avsiktligt bort automatiskt från en kö när de hämtas för bearbetning. Detta säkerställer att varje meddelande bearbetas klart. Om ett konsumentprogram kraschar under bearbetning finns meddelandet kvar och kan bearbetas av en annan instans av konsumentappen.
