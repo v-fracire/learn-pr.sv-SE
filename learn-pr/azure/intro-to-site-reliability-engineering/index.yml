@@ -1,0 +1,41 @@
+### YamlMime:Module
+uid: learn.intro-to-site-reliability-engineering
+metadata:
+  title: Introduktion till SRE (Site Reliability Engineering)
+  description: Både stora och små organisationer har börjat upptäcka hur viktigt systemens och programmens tillförlitlighet är för deras verksamhet. De har också lärt sig hur svårt är det att behålla tillförlitligheten vid iterering i den hastighet som krävs av marknaden. SRE (Site Reliability Engineering) är en beprövad metod för denna utmaning.
+  ms.date: 09/26/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: d8d65060da1f557776981cc0723f0d191ba1e504
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439686"
+title: Introduktion till SRE (Site Reliability Engineering)
+summary: Både stora och små organisationer har börjat upptäcka hur viktigt systemens och programmens tillförlitlighet är för deras verksamhet. De har också lärt sig hur svårt är det att behålla tillförlitligheten vid iterering i den hastighet som krävs av marknaden. SRE (Site Reliability Engineering) är en beprövad metod för denna utmaning.
+abstract: >
+  I den här modulen kommer du att:
+
+  - Lära dig grunderna om SRE (Site Reliability Engineering)
+
+  - Lära dig hur du kommer igång med den här användbara strategin
+iconUrl: /learn/achievements/intro-to-site-reliability-engineering-sre.svg
+levels:
+- beginner
+roles:
+- administrator
+products:
+- azure
+prerequisites: Ingen
+units:
+- learn.intro-to-site-reliability-engineering.1-introduction
+- learn.intro-to-site-reliability-engineering.2-what-is-sre-and-why-does-it-matter
+- learn.intro-to-site-reliability-engineering.3-sre-in-context
+- learn.intro-to-site-reliability-engineering.4-key-principles-1-virtuous-cycles
+- learn.intro-to-site-reliability-engineering.5-key-principles-2-human-side-of-sre
+- learn.intro-to-site-reliability-engineering.6-getting-started
+- learn.intro-to-site-reliability-engineering.7-summary
+achievement: learn.intro-to-site-reliability-engineering.badge

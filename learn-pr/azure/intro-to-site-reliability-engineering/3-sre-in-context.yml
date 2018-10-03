@@ -1,0 +1,65 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-site-reliability-engineering.3-sre-in-context
+title: <span data-ttu-id="d4db8-101">SRE i kontext</span><span class="sxs-lookup"><span data-stu-id="d4db8-101">SRE in context</span></span>
+metadata:
+  title: <span data-ttu-id="d4db8-102">SRE i kontext</span><span class="sxs-lookup"><span data-stu-id="d4db8-102">SRE in context</span></span>
+  description: <span data-ttu-id="d4db8-103">SRE i kontext</span><span class="sxs-lookup"><span data-stu-id="d4db8-103">SRE in context</span></span>
+  ms.date: 09/26/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: a2f23a77d0cc6b9cd6028ec5fbbfb781319afa42
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439431"
+durationInMinutes: 10
+content: >
+  [!include[](includes/3-sre-in-context.md)]
+quiz:
+  title: <span data-ttu-id="d4db8-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="d4db8-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="d4db8-105">Vilket område har haft störst inflytande på SRE, med tanke på dess ursprung?</span><span class="sxs-lookup"><span data-stu-id="d4db8-105">Given the origin of SRE, which discipline has had the most impact on it?</span></span>
+    choices:
+    - content: <span data-ttu-id="d4db8-106">Kundtjänst</span><span class="sxs-lookup"><span data-stu-id="d4db8-106">Customer service</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d4db8-107">Även om kunden står i centrum inom SRE, härstammar det inte från kundserviceområdet.</span><span class="sxs-lookup"><span data-stu-id="d4db8-107">Approaching the work with a customer-centric mindset is crucial to SRE, but customer service was not part of its origin.</span></span>
+    - content: <span data-ttu-id="d4db8-108">Stordatorhantering</span><span class="sxs-lookup"><span data-stu-id="d4db8-108">Mainframe operations</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d4db8-109">Även om vi kan lära oss en hel del från den här typen av lösningar, finns ursprunget till SRE någon annanstans.</span><span class="sxs-lookup"><span data-stu-id="d4db8-109">Though we can learn from other operations specialties, SRE did not start with this one.</span></span>
+    - content: <span data-ttu-id="d4db8-110">Programvaruutvecklingsteknik</span><span class="sxs-lookup"><span data-stu-id="d4db8-110">Software engineering</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d4db8-111">SRE bygger på programvaruutvecklingsstrategier.</span><span class="sxs-lookup"><span data-stu-id="d4db8-111">SRE was started with software engineering mindset.</span></span>
+    - content: <span data-ttu-id="d4db8-112">Arkitektur</span><span class="sxs-lookup"><span data-stu-id="d4db8-112">Architecture</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d4db8-113">Arkitektur (särskilt programvaruarkitektur) är definitivt en komponent inom SRE, men är inte en del av dess ursprung.</span><span class="sxs-lookup"><span data-stu-id="d4db8-113">Architecture (especially software architecture) is definitely a component of SRE work, but it was not part of its origin.</span></span>
+  - content: <span data-ttu-id="d4db8-114">Vad kom först, DevOps eller SRE?</span><span class="sxs-lookup"><span data-stu-id="d4db8-114">Which came first, DevOps or SRE?</span></span>
+    choices:
+    - content: <span data-ttu-id="d4db8-115">DevOps</span><span class="sxs-lookup"><span data-stu-id="d4db8-115">DevOps</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d4db8-116">De utvecklades i princip parallellt.</span><span class="sxs-lookup"><span data-stu-id="d4db8-116">They developed roughly in parallel.</span></span>
+    - content: <span data-ttu-id="d4db8-117">SRE</span><span class="sxs-lookup"><span data-stu-id="d4db8-117">SRE</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d4db8-118">De utvecklades i princip parallellt.</span><span class="sxs-lookup"><span data-stu-id="d4db8-118">They developed roughly in parallel.</span></span>
+    - content: <span data-ttu-id="d4db8-119">De utvecklades mer eller mindre parallellt med varandra.</span><span class="sxs-lookup"><span data-stu-id="d4db8-119">Neither, they developed roughly in parallel.</span></span>
+      isCorrect: true
+  - content: <span data-ttu-id="d4db8-120">Är SRE nästa utvecklingssteg vidare från DevOps?</span><span class="sxs-lookup"><span data-stu-id="d4db8-120">Is SRE the next evolutionary step from DevOps?</span></span>
+    choices:
+    - content: <span data-ttu-id="d4db8-121">Ja, SRE är framtidens DevOps.</span><span class="sxs-lookup"><span data-stu-id="d4db8-121">Yes, SRE is the future of DevOps.</span></span> <span data-ttu-id="d4db8-122">DevOps-personal bör sträva efter att bli SRE-experter</span><span class="sxs-lookup"><span data-stu-id="d4db8-122">DevOps personnel should strive to become SREs</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d4db8-123">DevOps och SRE är separata strategier som försöker hantera liknande utmaningar.</span><span class="sxs-lookup"><span data-stu-id="d4db8-123">DevOps and SRE are separate operations practices that attempt to address similar challenges.</span></span>
+    - content: <span data-ttu-id="d4db8-124">Nej, SRE och DevOps är separata strategier</span><span class="sxs-lookup"><span data-stu-id="d4db8-124">No, SRE and DevOps are separate operations practices</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="d4db8-125">DevOps och SRE är separata strategier även om de försöker ta sig an liknande utmaningar.</span><span class="sxs-lookup"><span data-stu-id="d4db8-125">DevOps and SRE are indeed separate even though they attempt to address similar challenges.</span></span>
+  - content: <span data-ttu-id="d4db8-126">Det finns två typer av bästa praxis som är centrala för både DevOps och SRE?</span><span class="sxs-lookup"><span data-stu-id="d4db8-126">What are two best practices that are central to both DevOps and SRE?</span></span>
+    choices:
+    - content: <span data-ttu-id="d4db8-127">Automatisering och övervakning</span><span class="sxs-lookup"><span data-stu-id="d4db8-127">Automation and monitoring/observability</span></span>
+      isCorrect: true
+    - content: <span data-ttu-id="d4db8-128">Kodning och biljettsystem</span><span class="sxs-lookup"><span data-stu-id="d4db8-128">Coding and ticket systems</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="d4db8-129">Även om kodning är viktigt (framför allt inom SRE), är biljettsystem inte centrala i SRE.</span><span class="sxs-lookup"><span data-stu-id="d4db8-129">While coding is important (more so in SRE), ticket systems are not central to SRE.</span></span>
+    - content: <span data-ttu-id="d4db8-130">Supportautomatisering och buggspårning</span><span class="sxs-lookup"><span data-stu-id="d4db8-130">Help desk automation and bug tracking</span></span>
+      isCorrect: false
+      correctExplanation: <span data-ttu-id="d4db8-131">Även om det är användbart är supportautomatisering inte centralt i dessa bästa praxis.</span><span class="sxs-lookup"><span data-stu-id="d4db8-131">Though useful, help desk automation is not core to either operations practice.</span></span>

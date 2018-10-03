@@ -1,19 +1,56 @@
 ### YamlMime:ModuleUnit
 uid: learn.build-and-run-a-web-application-with-the-mean-stack-on-an-azure-linux-vm.11-summary
-title: <span data-ttu-id="4a4e4-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="4a4e4-101">Summary</span></span>
+title: <span data-ttu-id="f524a-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f524a-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="4a4e4-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="4a4e4-102">Summary</span></span>
-  description: <span data-ttu-id="4a4e4-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="4a4e4-103">Summary</span></span>
+  title: <span data-ttu-id="f524a-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f524a-102">Summary</span></span>
+  description: <span data-ttu-id="f524a-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f524a-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 284d0a687dc09aa1fc36a74e31b27738b90b8188
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 49a23603aa990e203720d71cdb4b6be0ad2d0d9f
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357916"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437229"
 durationInMinutes: 3
-content: '[!include[](includes/11-summary.md)]'
+content: >
+  [!include[](includes/11-summary.md)]
+quiz:
+  title: <span data-ttu-id="f524a-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="f524a-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="f524a-105">Vilket är ett bra skäl att välja MEAN för din utvecklingsstack?</span><span class="sxs-lookup"><span data-stu-id="f524a-105">Which is a good reason to pick MEAN for your development stack?</span></span>
+    choices:
+    - content: <span data-ttu-id="f524a-106">Du arbetar med mycket strukturerade, relationella data.</span><span class="sxs-lookup"><span data-stu-id="f524a-106">You're working with highly structured, relational data.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f524a-107">MongoDB, ”M” i MEAN-stacken är en NoSQL-databas.</span><span class="sxs-lookup"><span data-stu-id="f524a-107">MongoDB, the "M" in the MEAN stack, is a NoSQL database.</span></span> <span data-ttu-id="f524a-108">En NoSQL-databas är icke-relationell, vilket innebär att data inte måste vara strukturerade som SQL Server eller andra relationsdatabaser.</span><span class="sxs-lookup"><span data-stu-id="f524a-108">A NoSQL database is non-relational, which means it doesn't require data to be structured like SQL Server or other relational databases.</span></span>
+    - content: <span data-ttu-id="f524a-109">MEAN-appar körs snabbare än de som skapas med andra utvecklingsstackar.</span><span class="sxs-lookup"><span data-stu-id="f524a-109">MEAN apps run faster than ones created with other development stacks.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f524a-110">Det finns många olika utvecklingsstackar.</span><span class="sxs-lookup"><span data-stu-id="f524a-110">There are many development stacks out there.</span></span> <span data-ttu-id="f524a-111">Ingen är nödvändigtvis snabbare eller bättre än andra.</span><span class="sxs-lookup"><span data-stu-id="f524a-111">No one is necessarily faster or better than others.</span></span> <span data-ttu-id="f524a-112">Var och en har skapats med en viss typ av app- och utvecklingskunskaper i åtanke.</span><span class="sxs-lookup"><span data-stu-id="f524a-112">Each was created with a certain kind of app and developer skill set in mind.</span></span>
+    - content: <span data-ttu-id="f524a-113">Alla i utvecklingsteamet är experter på JavaScript.</span><span class="sxs-lookup"><span data-stu-id="f524a-113">Everyone on your development team is an expert with JavaScript.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f524a-114">MEAN-stacken är mycket beroende av JavaScript.</span><span class="sxs-lookup"><span data-stu-id="f524a-114">The MEAN stack greatly relies on JavaScript.</span></span> <span data-ttu-id="f524a-115">JavaScript finns på både klientsidan och serversidan i webbappen.</span><span class="sxs-lookup"><span data-stu-id="f524a-115">JavaScript appears in both the client side and the server side of your web app.</span></span>
+  - content: <span data-ttu-id="f524a-116">Vad är en NoSQL-databas?</span><span class="sxs-lookup"><span data-stu-id="f524a-116">What's a NoSQL database?</span></span>
+    choices:
+    - content: <span data-ttu-id="f524a-117">Det är en term som används för att beskriva kostnadsfri databasprogramvara med öppen källkod.</span><span class="sxs-lookup"><span data-stu-id="f524a-117">It's a term used to describe any free, open-source database software.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f524a-118">Många databaser är kostnadsfria och har öppen källkod, men NoSQL beskriver hur data är strukturerade.</span><span class="sxs-lookup"><span data-stu-id="f524a-118">While many databases are free and open source, NoSQL describes how data is structured.</span></span>
+    - content: <span data-ttu-id="f524a-119">Det är en databas som inte kräver att data är strukturerade på ett fördefinierat sätt.</span><span class="sxs-lookup"><span data-stu-id="f524a-119">It's a database that doesn't require data to be structured in a pre-defined way.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f524a-120">Exempelvis lagrar MongoDB data i JSON-liknande dokument som inte kräver de fasta datastrukturer som krävs av MySQL eller andra relationsdatabaser.</span><span class="sxs-lookup"><span data-stu-id="f524a-120">MongoDB, for example, stores its data in JSON-like documents that don't require the rigid data structures required by MySQL or other relational databases.</span></span>
+    - content: <span data-ttu-id="f524a-121">Det är en typ av relationsdatabas, men använder inte SQL-språket för att komma åt och hantera data.</span><span class="sxs-lookup"><span data-stu-id="f524a-121">It's a kind of relational database, but doesn't use the SQL language to access and manipulate data.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f524a-122">NoSQL-databaser är icke-relationella, vilket innebär att data inte måste vara strukturerade på ett fördefinierat sätt.</span><span class="sxs-lookup"><span data-stu-id="f524a-122">NoSQL databases are non-relational, which means that it doesn't require data to be structured in a pre-defined way.</span></span>
+  - content: <span data-ttu-id="f524a-123">Vilken roll har AngularJS i MEAN-stacken?</span><span class="sxs-lookup"><span data-stu-id="f524a-123">What's the role of AngularJS in the MEAN stack?</span></span>
+    choices:
+    - content: <span data-ttu-id="f524a-124">AngularJS implementerar databindningen för HTML och JavaScript.</span><span class="sxs-lookup"><span data-stu-id="f524a-124">AngularJS implements data binding for HTML and JavaScript.</span></span> <span data-ttu-id="f524a-125">Du kan till exempel använda AngularJS för att hämta objekt från en databas och visa dessa objekt i användargränssnittet.</span><span class="sxs-lookup"><span data-stu-id="f524a-125">For example, you can use AngularJS to retrieve items from a database and display those items in the UI.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f524a-126">Databindningen hjälper till att minimera och hålla HTML-koden ren.</span><span class="sxs-lookup"><span data-stu-id="f524a-126">Data binding helps keep your HTML clean and minimal.</span></span> <span data-ttu-id="f524a-127">AngularJS visar uppdateringar direkt till användaren när underliggande data ändras.</span><span class="sxs-lookup"><span data-stu-id="f524a-127">AngularJS displays updates immediately to the user when the underlying data changes.</span></span>
+    - content: <span data-ttu-id="f524a-128">Det är ett plugin-program i webbläsare som installeras på användarens dator.</span><span class="sxs-lookup"><span data-stu-id="f524a-128">It's a browser plugin that gets installed on your user's computer.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f524a-129">Tekniskt sett installerar du inte AngularJS &mdash; det är bara JavaScript-kod som du refererar till från en skripttagg på HTML-sidan.</span><span class="sxs-lookup"><span data-stu-id="f524a-129">You don't technically install AngularJS &mdash; it's simply JavaScript code that you reference from a script tag in your HTML page.</span></span>
+    - content: <span data-ttu-id="f524a-130">Den hjälper dig att köra webbprogrammet från serversidan.</span><span class="sxs-lookup"><span data-stu-id="f524a-130">It helps run the web application from the server side.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f524a-131">Node.js, inte AngularJS, fungerar som värd för en MEAN-webbapp från serversidan.</span><span class="sxs-lookup"><span data-stu-id="f524a-131">Node.js, not AngularJS, is what hosts a MEAN web app from the server side.</span></span>

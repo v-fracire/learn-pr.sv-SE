@@ -1,20 +1,54 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-linux-vm-in-azure.9-summary
-title: <span data-ttu-id="d995d-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d995d-101">Summary</span></span>
+title: <span data-ttu-id="083e0-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="083e0-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="d995d-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d995d-102">Summary</span></span>
-  description: <span data-ttu-id="d995d-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d995d-103">Summary</span></span>
+  title: <span data-ttu-id="083e0-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="083e0-102">Summary</span></span>
+  description: <span data-ttu-id="083e0-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="083e0-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: cf143961dad057732128d694543f4890f1bbefee
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 7e8f4e11d5652bcb4cf4ea95df8141eedbe8abea
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46360639"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437110"
 azureSandbox: true
 durationInMinutes: 3
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: <span data-ttu-id="083e0-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="083e0-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="083e0-105">Sant eller falskt: Av säkerhetsskäl måste du använda en avbildning från officiella Azure Marketplace när du skapar en ny virtuell dator.</span><span class="sxs-lookup"><span data-stu-id="083e0-105">True or false: for security reasons, you must use an image from the official Azure Marketplace when creating a new virtual machine.</span></span>'
+    choices:
+    - content: <span data-ttu-id="083e0-106">Sant</span><span class="sxs-lookup"><span data-stu-id="083e0-106">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="083e0-107">Med Azure kan du konfigurera dina virtuella datorer så att de uppfyller dina behov.</span><span class="sxs-lookup"><span data-stu-id="083e0-107">Azure lets you configure your virtual machines to meet your needs.</span></span> <span data-ttu-id="083e0-108">Detta innebär bland annat att du kan använda egna VM-avbildningar.</span><span class="sxs-lookup"><span data-stu-id="083e0-108">This includes support for using your own VM images.</span></span>
+    - content: <span data-ttu-id="083e0-109">Falskt</span><span class="sxs-lookup"><span data-stu-id="083e0-109">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="083e0-110">Med Azure kan du konfigurera dina virtuella datorer så att de uppfyller dina behov.</span><span class="sxs-lookup"><span data-stu-id="083e0-110">Azure lets you configure your virtual machines to meet your needs.</span></span> <span data-ttu-id="083e0-111">Detta innebär bland annat att du kan använda egna VM-avbildningar.</span><span class="sxs-lookup"><span data-stu-id="083e0-111">This includes support for using your own VM images.</span></span>
+  - content: <span data-ttu-id="083e0-112">Hur påverkar säkerhetsinställningarna för standardnätverk en ny virtuell dator?</span><span class="sxs-lookup"><span data-stu-id="083e0-112">What is the effect of the default network security settings for a new virtual machine?</span></span>
+    choices:
+    - content: <span data-ttu-id="083e0-113">Varken utgående eller inkommande begäranden tillåts.</span><span class="sxs-lookup"><span data-stu-id="083e0-113">Neither outbound nor inbound requests are allowed.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="083e0-114">Utgående begäranden betraktas ha låg risk, och tillåts därför som standard.</span><span class="sxs-lookup"><span data-stu-id="083e0-114">Outbound requests are considered low risk, so they are allowed by default.</span></span>
+    - content: <span data-ttu-id="083e0-115">Utgående begäranden tillåts.</span><span class="sxs-lookup"><span data-stu-id="083e0-115">Outbound request are allowed.</span></span> <span data-ttu-id="083e0-116">Inkommande trafik tillåts endast från det virtuella nätverket.</span><span class="sxs-lookup"><span data-stu-id="083e0-116">Inbound traffic is only allowed from within the virtual network.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="083e0-117">Utgående begäranden betraktas ha låg risk, och tillåts därför som standard.</span><span class="sxs-lookup"><span data-stu-id="083e0-117">Outbound requests are considered low risk, so they are allowed by default.</span></span> <span data-ttu-id="083e0-118">Inkommande trafik inifrån det virtuella nätverket tillåts.</span><span class="sxs-lookup"><span data-stu-id="083e0-118">Inbound traffic from within the virtual network is allowed.</span></span> <span data-ttu-id="083e0-119">Genom att placera en virtuell dator i ett virtuellt nätverk väljer VM-ägaren implicit att tillåta kommunikation mellan resurserna i det virtuella nätverket.</span><span class="sxs-lookup"><span data-stu-id="083e0-119">By placing a VM in a virtual network, the VM owner is implicitly opting-in to communication among the resources in the virtual network.</span></span>
+    - content: '<span data-ttu-id="083e0-120">Det finns inga begränsningar: alla utgående och inkommande begäranden tillåts.</span><span class="sxs-lookup"><span data-stu-id="083e0-120">There are no restrictions: all outbound and inbound requests are allowed.</span></span>'
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="083e0-121">Obegränsad inkommande trafik är för riskfyllt för standardbeteendet.</span><span class="sxs-lookup"><span data-stu-id="083e0-121">Unrestricted inbound traffic is too risky for the default behavior.</span></span>
+  - content: <span data-ttu-id="083e0-122">Anta att du har flera virtuella Linux-datorer i Azure.</span><span class="sxs-lookup"><span data-stu-id="083e0-122">Suppose you have several Linux virtual machines hosted in Azure.</span></span> <span data-ttu-id="083e0-123">Du ska administrera dessa virtuella datorer via en fjärranslutning över SSH från tre dedikerade datorer på företagets huvudkontor.</span><span class="sxs-lookup"><span data-stu-id="083e0-123">You will administer these VMs remotely over SSH from three dedicated machines in your corporate headquarters.</span></span> <span data-ttu-id="083e0-124">Vilken av följande autentiseringsmetoder betraktas vanligtvis som bästa praxis i den här situationen?</span><span class="sxs-lookup"><span data-stu-id="083e0-124">Which of the following authentication methods would typically be considered best-practice for this situation?</span></span>
+    choices:
+    - content: <span data-ttu-id="083e0-125">Användarnamn och lösenord</span><span class="sxs-lookup"><span data-stu-id="083e0-125">Username and password</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="083e0-126">Lösenord är sårbara för brute force-attacker.</span><span class="sxs-lookup"><span data-stu-id="083e0-126">Passwords are vulnerable to brute-force attacks.</span></span> <span data-ttu-id="083e0-127">Den här metoden rekommenderas endast om du behöver fjärråtkomst från olika platser.</span><span class="sxs-lookup"><span data-stu-id="083e0-127">This method is only recommended if you require remote access from a variety of locations.</span></span>
+    - content: <span data-ttu-id="083e0-128">Privat nyckel</span><span class="sxs-lookup"><span data-stu-id="083e0-128">Private key</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="083e0-129">Åtkomst via en privat nyckel är säkrare än ett lösenord och är ett bra alternativ när du behöver åtkomst från ett begränsat antal platser.</span><span class="sxs-lookup"><span data-stu-id="083e0-129">Private-key access is more secure than a password and is a good option when you require access from a limited number of locations.</span></span> <span data-ttu-id="083e0-130">Men om angripare får tag i din privata nyckel kan de använda den för att få åtkomst till dina virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="083e0-130">However, if an attacker acquires your private key, they can use it to access your VMs.</span></span>
+    - content: <span data-ttu-id="083e0-131">Privat nyckel med lösenfras</span><span class="sxs-lookup"><span data-stu-id="083e0-131">Private key with passphrase</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="083e0-132">Åtkomst via en privata nyckel med en lösenfras är det säkraste alternativet.</span><span class="sxs-lookup"><span data-stu-id="083e0-132">Private key access with a passphrase is the most secure option.</span></span> <span data-ttu-id="083e0-133">Även om angripare får tag i din privata nyckel kan de inte använda den utan lösenfrasen.</span><span class="sxs-lookup"><span data-stu-id="083e0-133">Even if an attacker acquires your private key, they will be unable to use it without the passphrase.</span></span>

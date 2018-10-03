@@ -1,48 +1,34 @@
 ### YamlMime:ModuleUnit
 uid: learn.welcome-to-azure.5-scale-up
-title: <span data-ttu-id="695e2-101">Skala upp</span><span class="sxs-lookup"><span data-stu-id="695e2-101">Scale up</span></span>
+title: <span data-ttu-id="789ee-101">Skala upp</span><span class="sxs-lookup"><span data-stu-id="789ee-101">Scale up</span></span>
 metadata:
-  title: <span data-ttu-id="695e2-102">Skala upp</span><span class="sxs-lookup"><span data-stu-id="695e2-102">Scale up</span></span>
-  description: <span data-ttu-id="695e2-103">Skala upp din virtuella dator så att den får mer datorkraft och minne.</span><span class="sxs-lookup"><span data-stu-id="695e2-103">Scale up your virtual machine to give it more compute power and memory.</span></span>
+  title: <span data-ttu-id="789ee-102">Skala upp</span><span class="sxs-lookup"><span data-stu-id="789ee-102">Scale up</span></span>
+  description: <span data-ttu-id="789ee-103">Skala upp din virtuella dator så att den får mer datorkraft och minne.</span><span class="sxs-lookup"><span data-stu-id="789ee-103">Scale up your virtual machine to give it more compute power and memory.</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
   zone_pivot_groups: platform-cloud
-  ms.openlocfilehash: 9f6ec458cb233fe0d035d73d99d46a5de91ce569
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 0eecdb25b1f7b3db879cf53658ef1ce5339d4e76
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46356695"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437314"
 interactive: bash
 azureSandbox: true
 durationInMinutes: 4
 content: >
   [!include[](includes/5-scale-up.md)]
-quiz:
-  title: <span data-ttu-id="695e2-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="695e2-104">Check your knowledge</span></span>
-  questions:
-  - content: <span data-ttu-id="695e2-105">Azure är:</span><span class="sxs-lookup"><span data-stu-id="695e2-105">Azure is:</span></span>
-    choices:
-    - content: <span data-ttu-id="695e2-106">Microsofts plattform för molnbaserad databearbetning, som tillhandahåller beräkning, lagring och tjänster via Internet med hjälp av en användningsbaserad prismodell.</span><span class="sxs-lookup"><span data-stu-id="695e2-106">Microsoft's cloud computing platform, which provides compute power, storage, and services over the Internet using a pay-as-you-go pricing model.</span></span>
-      isCorrect: true
-      correctExplanation: <span data-ttu-id="695e2-107">Med Azure får tillgång du till rå bearbetningskraft och lagring, samt tjänster för att hjälpa dig att utforska nya programvaruparadigmer som intelligenta robotar och mixad verklighet.</span><span class="sxs-lookup"><span data-stu-id="695e2-107">With Azure, you get access to raw compute power and storage, as well as services to help you explore new software paradigms such as intelligent bots and mixed reality.</span></span>
-    - content: <span data-ttu-id="695e2-108">Ett enda datacenter som finns i Redmond, Washington.</span><span class="sxs-lookup"><span data-stu-id="695e2-108">A single data center located in Redmond, Washington.</span></span>
-      isCorrect: false
-      incorrectExplanation: <span data-ttu-id="695e2-109">Azure består av datacenter över hela världen.</span><span class="sxs-lookup"><span data-stu-id="695e2-109">Azure is made up of data centers distributed throughout the world.</span></span>
-    - content: <span data-ttu-id="695e2-110">Bara en annan plats att köra dina virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="695e2-110">Just "a different place to run your virtual machines".</span></span>
-      isCorrect: false
-      incorrectExplanation: <span data-ttu-id="695e2-111">Även om Azure erbjuder rå bearbetningskraft, till exempel virtuella datorer så erbjuder den även många tjänster för att hjälpa dig att utforska nya programvaruparadigmer som intelligenta robotar och mixad verklighet.</span><span class="sxs-lookup"><span data-stu-id="695e2-111">While Azure provides raw compute power, such as virtual machines, it also provides many services to help you explore new software paradigms such as intelligent bots and mixed reality.</span></span>
-  - content: <span data-ttu-id="695e2-112">När kan du _skala ut_ distributionen?</span><span class="sxs-lookup"><span data-stu-id="695e2-112">When might you _scale out_ your deployment?</span></span>
-    choices:
-    - content: <span data-ttu-id="695e2-113">När ditt program eller din tjänst kräver en kraftfullare processor eller mer minne för att köras snabbare.</span><span class="sxs-lookup"><span data-stu-id="695e2-113">When your application or service requires a more powerful CPU or more memory to run faster.</span></span>
-      isCorrect: false
-      incorrectExplanation: <span data-ttu-id="695e2-114">I det här fallet kan du _skala upp_ genom att flytta programmet eller tjänsten till kraftfullare maskinvara.</span><span class="sxs-lookup"><span data-stu-id="695e2-114">In this case, you might _scale up_ by moving your application or service to more powerful hardware.</span></span>
-    - content: <span data-ttu-id="695e2-115">När du lägger till ytterligare virtuella datorer för att snabba upp ditt program.</span><span class="sxs-lookup"><span data-stu-id="695e2-115">When you can add additional virtual machines to speed up your application.</span></span>
-      isCorrect: true
-      correctExplanation: <span data-ttu-id="695e2-116">Skala ut innebär att lägga till ytterligare system, t.ex virtuella datorer.</span><span class="sxs-lookup"><span data-stu-id="695e2-116">Scaling out means adding additional systems, such as virtual machines.</span></span> <span data-ttu-id="695e2-117">Du kan till exempel skapa många virtuella datorer som konfigureras på exakt samma sätt och använda en belastningsutjämnare för att fördela arbetet på datorerna.</span><span class="sxs-lookup"><span data-stu-id="695e2-117">For example, you might create many virtual machines configured in exactly the same way and use a load balancer to distribute work across them.</span></span>
-    - content: <span data-ttu-id="695e2-118">När du använder överflödig kapacitet som du inte behöver.</span><span class="sxs-lookup"><span data-stu-id="695e2-118">When you're using excess capacity that you don't need.</span></span>
-      isCorrect: false
-      incorrectExplanation: <span data-ttu-id="695e2-119">I det här fallet kan du _skala in_ genom att man bryta ner system som du inte behöver för närvarande.</span><span class="sxs-lookup"><span data-stu-id="695e2-119">In this case, you might _scale in_ by tearing down systems you don't currently need.</span></span>
+tasks:
+- action: exists
+  environment: azure
+  azure:
+    resource:
+      type: Microsoft.Compute/virtualMachines
+      name: myVM
+      properties:
+        hardwareProfile:
+          vmSize: Standard_DS3_v2
+  hint: <span data-ttu-id="789ee-104">Kör kommandot `az vm resize` som det visas för att ändra storlek på din virtuella dator.</span><span class="sxs-lookup"><span data-stu-id="789ee-104">Run the `az vm resize` command as shown to resize your virtual machine.</span></span>

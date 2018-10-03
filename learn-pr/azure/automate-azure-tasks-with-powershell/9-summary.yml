@@ -1,19 +1,53 @@
 ### YamlMime:ModuleUnit
 uid: learn.automate-azure-tasks-with-powershell.9-summary
-title: <span data-ttu-id="f58d3-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f58d3-101">Summary</span></span>
+title: <span data-ttu-id="57666-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="57666-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="f58d3-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f58d3-102">Summary</span></span>
-  description: <span data-ttu-id="f58d3-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f58d3-103">Summary</span></span>
+  title: <span data-ttu-id="57666-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="57666-102">Summary</span></span>
+  description: <span data-ttu-id="57666-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="57666-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 4d91629775838b773937b42f3eb560a386276bb0
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: ba3042f85d59e09955c715f241f1620ceb22cfa5
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46356687"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437450"
 durationInMinutes: 3
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: <span data-ttu-id="57666-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="57666-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="57666-105">Sant eller falskt: Eftersom Azure-portalen, Azure CLI och Azure PowerShell erbjuder helt olika tjänster är det inte troligt att alla tre stöder den åtgärd som du behöver.</span><span class="sxs-lookup"><span data-stu-id="57666-105">True or false: The Azure portal, the Azure CLI, and Azure PowerShell offer significantly different services, so it is unlikely that all three will support the operation you need.</span></span>'
+    choices:
+    - content: <span data-ttu-id="57666-106">Sant</span><span class="sxs-lookup"><span data-stu-id="57666-106">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="57666-107">De tre verktygen erbjuder nästan exakt samma uppsättning tjänster.</span><span class="sxs-lookup"><span data-stu-id="57666-107">The three tools offer almost exactly the same set of services.</span></span>
+    - content: <span data-ttu-id="57666-108">Falskt</span><span class="sxs-lookup"><span data-stu-id="57666-108">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="57666-109">De tre verktygen erbjuder nästan samma uppsättning tjänster.</span><span class="sxs-lookup"><span data-stu-id="57666-109">The three tools offer almost the same set of services.</span></span> <span data-ttu-id="57666-110">Detta är vanligtvis inte en faktor när du avgör vilket verktyg som passar bra för dina uppgifter.</span><span class="sxs-lookup"><span data-stu-id="57666-110">Generally, this is not a factor in deciding which tool is best for your tasks.</span></span>
+  - content: <span data-ttu-id="57666-111">Anta att du skapar ett videoredigeringsprogram som ska erbjuda onlinelagring för användargenererat videoinnehåll.</span><span class="sxs-lookup"><span data-stu-id="57666-111">Suppose you are building a video-editing application that will offer online storage for user-generated video content.</span></span> <span data-ttu-id="57666-112">Du ska lagra videoklippen i Azure Blobs och måste därför skapa ett Azure Storage-konto som ska innehålla blobarna.</span><span class="sxs-lookup"><span data-stu-id="57666-112">You will store the videos in Azure Blobs, so you need to create an Azure storage account to contain the blobs.</span></span> <span data-ttu-id="57666-113">När lagringskontot har skapats är det inte troligt att du kommer att ta bort och återskapa det eftersom det skulle innebära att alla användarvideor tas bort.</span><span class="sxs-lookup"><span data-stu-id="57666-113">Once the storage account is in place, it is unlikely you would remove and recreate it because this would delete all the user videos.</span></span> <span data-ttu-id="57666-114">Med vilket verktyg kan du snabbast och enklast skapa lagringskontot?</span><span class="sxs-lookup"><span data-stu-id="57666-114">Which tool is likely to offer the quickest and easiest way to create the storage account?</span></span>
+    choices:
+    - content: <span data-ttu-id="57666-115">Azure-portalen</span><span class="sxs-lookup"><span data-stu-id="57666-115">Azure portal</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="57666-116">Portalen är ett bra val för engångsåtgärder som att skapa ett lagringskonto för långtidsanvändning.</span><span class="sxs-lookup"><span data-stu-id="57666-116">The portal is a good choice for one-off operations like creating a long-lived storage account.</span></span> <span data-ttu-id="57666-117">Portalen har ett grafiskt användargränssnitt där du hittar alla egenskaper för lagringskontot samt verktygstips som hjälper dig att välja rätt alternativ för just dina behov.</span><span class="sxs-lookup"><span data-stu-id="57666-117">The portal gives you a GUI containing all the storage-account properties and provides tool tips to help you select the right options for your needs.</span></span>
+    - content: <span data-ttu-id="57666-118">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="57666-118">Azure CLI</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="57666-119">Om du vill använda CLI måste du ta reda på vilket kommando som används för att skapa ett lagringskonto.</span><span class="sxs-lookup"><span data-stu-id="57666-119">To use the CLI, you would need to research the command used to create a storage account.</span></span> <span data-ttu-id="57666-120">Du måste dessutom installera CLI lokalt eller logga in i molngränssnittet.</span><span class="sxs-lookup"><span data-stu-id="57666-120">You would also need to either install the CLI locally or login to the cloud shell.</span></span> <span data-ttu-id="57666-121">När du ska utföra en engångsåtgärd, t.ex. skapa ett lagringskonto, tar detta sannolikt längre tid än att använda Azure-portalen.</span><span class="sxs-lookup"><span data-stu-id="57666-121">For a one-off operation like creating a storage account, this is likely to take longer than using the Azure portal.</span></span>
+    - content: <span data-ttu-id="57666-122">Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="57666-122">Azure PowerShell</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="57666-123">Om du vill använda Azure PowerShell måste du ta reda på vilket kommando som används för att skapa ett lagringskonto.</span><span class="sxs-lookup"><span data-stu-id="57666-123">To use Azure PowerShell, you would need to research the command used to create a storage account.</span></span> <span data-ttu-id="57666-124">Du måste också installera PowerShell och Azure PowerShell lokalt eller logga in i molngränssnittet.</span><span class="sxs-lookup"><span data-stu-id="57666-124">You would also need to either install PowerShell and Azure PowerShell locally or login to the cloud shell.</span></span> <span data-ttu-id="57666-125">När du ska utföra en engångsåtgärd, t.ex. skapa ett lagringskonto, tar detta sannolikt längre tid än att använda Azure-portalen.</span><span class="sxs-lookup"><span data-stu-id="57666-125">For a one-off operation like creating a storage account, this is likely to take longer than using the Azure portal.</span></span>
+  - content: <span data-ttu-id="57666-126">Vad måste vara installerat på datorn för att du ska kunna köra Azure PowerShell-cmdlets lokalt?</span><span class="sxs-lookup"><span data-stu-id="57666-126">What needs to be installed on your machine to let you execute Azure PowerShell cmdlets locally?</span></span>
+    choices:
+    - content: <span data-ttu-id="57666-127">Azure Cloud Shell</span><span class="sxs-lookup"><span data-stu-id="57666-127">The Azure cloud shell</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="57666-128">Molngränssnittet gör att du kan köra Azure-cmdlets, men du använder det i en webbläsare, och kör alltså inte kommandona på den lokala datorn.</span><span class="sxs-lookup"><span data-stu-id="57666-128">The cloud shell does let you execute Azure cmdlets; however, you use it in a browser, so you are not running the commands on your local machine.</span></span>
+    - content: <span data-ttu-id="57666-129">PowerShell-basprodukten och AzureRM-modulen</span><span class="sxs-lookup"><span data-stu-id="57666-129">The base PowerShell product and the AzureRM module</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="57666-130">Du behöver både PowerShell-basprodukten och AzureRM-modulen.</span><span class="sxs-lookup"><span data-stu-id="57666-130">You need both the base PowerShell product and the AzureRM module.</span></span> <span data-ttu-id="57666-131">Basprodukten ger dig tillgång till själva gränssnittet, några grundläggande kommandon samt programmeringskonstruktioner som slingor, variabler osv. AzureRM-modulerna lägger till de cmdletar som du behöver för att arbeta med Azure-resurser.</span><span class="sxs-lookup"><span data-stu-id="57666-131">The base product gives you the shell itself, a few core commands, and programming constructs like loops, variables, etc. The AzureRM modules adds the cmdlets you need to work with Azure resources.</span></span>
+    - content: <span data-ttu-id="57666-132">Azure CLI och Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="57666-132">The Azure CLI and Azure PowerShell</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="57666-133">Azure CLI är ett alternativt kommandorads- och skriptverktyg.</span><span class="sxs-lookup"><span data-stu-id="57666-133">The Azure CLI is an alternate command-line and scripting tool.</span></span> <span data-ttu-id="57666-134">Det behövs inte om du tänker använda Azure PowerShell.</span><span class="sxs-lookup"><span data-stu-id="57666-134">It is not needed if you are going to use Azure PowerShell.</span></span>
