@@ -1,19 +1,56 @@
 ### YamlMime:ModuleUnit
 uid: learn.provision-azure-sql-db.5-summary
-title: <span data-ttu-id="ce065-101">Sammanfattning och rensning</span><span class="sxs-lookup"><span data-stu-id="ce065-101">Summary and cleanup</span></span>
+title: <span data-ttu-id="ac23b-101">Sammanfattning och rensning</span><span class="sxs-lookup"><span data-stu-id="ac23b-101">Summary and cleanup</span></span>
 metadata:
-  title: <span data-ttu-id="ce065-102">Sammanfattning och rensning</span><span class="sxs-lookup"><span data-stu-id="ce065-102">Summary and cleanup</span></span>
-  description: <span data-ttu-id="ce065-103">Sammanfattning och rensning</span><span class="sxs-lookup"><span data-stu-id="ce065-103">Summary and cleanup</span></span>
+  title: <span data-ttu-id="ac23b-102">Sammanfattning och rensning</span><span class="sxs-lookup"><span data-stu-id="ac23b-102">Summary and cleanup</span></span>
+  description: <span data-ttu-id="ac23b-103">Sammanfattning och rensning</span><span class="sxs-lookup"><span data-stu-id="ac23b-103">Summary and cleanup</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: e5bd4a690b6c92d6d8c0ef54553db4c523e0f1ab
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 082f2ea2623a2ae161f0cc4ceee965a722a5fae1
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46357543"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437280"
 durationInMinutes: 5
-content: '[!include[](includes/5-summary.md)]'
+content: >
+  [!include[](includes/5-summary.md)]
+quiz:
+  title: <span data-ttu-id="ac23b-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="ac23b-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="ac23b-105">Vem ansvarar för att utföra programuppdateringar på dina Azure SQL-databaser och det underliggande operativsystemet?</span><span class="sxs-lookup"><span data-stu-id="ac23b-105">Who's responsible for performing software updates on your Azure SQL databases and the underlying OS?</span></span>
+    choices:
+    - content: <span data-ttu-id="ac23b-106">Det är du.</span><span class="sxs-lookup"><span data-stu-id="ac23b-106">You are.</span></span> <span data-ttu-id="ac23b-107">Det är upp till dig att logga in och installera de senaste säkerhetsuppdateringarna och uppdateringar med jämna mellanrum.</span><span class="sxs-lookup"><span data-stu-id="ac23b-107">It's up to you to periodically log in and install the latest security patches and updates.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ac23b-108">Azure SQL-databaserna är ett PaaS-erbjudande (Platform-as-a-Service), vilket betyder att du slipper sköta underhållet själv.</span><span class="sxs-lookup"><span data-stu-id="ac23b-108">Azure SQL databases are a Platform-as-a-Service (PaaS) offering, meaning much less maintenance to manage yourself.</span></span>
+    - content: <span data-ttu-id="ac23b-109">Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="ac23b-109">Microsoft Azure.</span></span> <span data-ttu-id="ac23b-110">När du väljer Azure SQL Database tar vi hand om hanteringen av maskinvaran, uppdateringen av programvaran och installationen av korrigeringsfiler för operativsystemet.</span><span class="sxs-lookup"><span data-stu-id="ac23b-110">Azure manages the hardware, software updates, and OS patches for you.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="ac23b-111">Azure SQL-databaser är ett erbjudande för Platform-as-a-Service (PaaS).</span><span class="sxs-lookup"><span data-stu-id="ac23b-111">Azure SQL databases are a Platform-as-a-Service (PaaS) offering.</span></span> <span data-ttu-id="ac23b-112">När du väljer Azure SQL Database tar vi hand om hanteringen av maskinvaran, uppdateringen av programvaran och installationen av korrigeringsfiler för operativsystemet.</span><span class="sxs-lookup"><span data-stu-id="ac23b-112">Azure manages the hardware, software updates, and OS patches for you.</span></span>
+    - content: <span data-ttu-id="ac23b-113">Inget.</span><span class="sxs-lookup"><span data-stu-id="ac23b-113">No one.</span></span> <span data-ttu-id="ac23b-114">Din databas behåller sitt ursprungliga operativsystem och konfiguration.</span><span class="sxs-lookup"><span data-stu-id="ac23b-114">Your database stays with its original OS and software configuration.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ac23b-115">Azure SQL-databaser är ett erbjudande för Platform-as-a-Service (PaaS).</span><span class="sxs-lookup"><span data-stu-id="ac23b-115">Azure SQL databases are a Platform-as-a-Service (PaaS) offering.</span></span> <span data-ttu-id="ac23b-116">Molnleverantören hanterar och uppdaterar normalt PaaS-tjänster åt dig.</span><span class="sxs-lookup"><span data-stu-id="ac23b-116">The cloud provider typically manages and updates PaaS services for you.</span></span>
+  - content: <span data-ttu-id="ac23b-117">Vad är en _logisk Azure SQL-server_?</span><span class="sxs-lookup"><span data-stu-id="ac23b-117">What is an _Azure SQL logical server_?</span></span>
+    choices:
+    - content: <span data-ttu-id="ac23b-118">En administrativ container för dina databaser.</span><span class="sxs-lookup"><span data-stu-id="ac23b-118">An administrative container for your databases.</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="ac23b-119">Med den logiska servern kan du styra över saker som inloggningar, brandväggsregler och säkerhetsprinciper.</span><span class="sxs-lookup"><span data-stu-id="ac23b-119">You can control logins, firewall rules, and security policies through the logical server.</span></span>
+    - content: <span data-ttu-id="ac23b-120">Ett annat namn på en Azure SQL Database-instans.</span><span class="sxs-lookup"><span data-stu-id="ac23b-120">Another name for an Azure SQL database instance.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ac23b-121">Kom ihåg att du kan ha flera databasinstanser.</span><span class="sxs-lookup"><span data-stu-id="ac23b-121">Remember that you can have multiple database instances.</span></span> <span data-ttu-id="ac23b-122">Finns det något sätt att administrera dem tillsammans?</span><span class="sxs-lookup"><span data-stu-id="ac23b-122">Is there a way to administer them collectively?</span></span>
+    - content: <span data-ttu-id="ac23b-123">En server som definierar de logiska reglerna som sorterar och jämför data.</span><span class="sxs-lookup"><span data-stu-id="ac23b-123">A server that defines the logical rules that sort and compare data.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ac23b-124">_Sortering_ syftar här på regler som sorterar och jämför data.</span><span class="sxs-lookup"><span data-stu-id="ac23b-124">_Collation_ refers to the rules that sort and compare data.</span></span>
+  - content: <span data-ttu-id="ac23b-125">Azure SQL Database ger tillräckligt med beräkningskraft och ström.</span><span class="sxs-lookup"><span data-stu-id="ac23b-125">Your Azure SQL database provides adequate storage and compute power.</span></span> <span data-ttu-id="ac23b-126">Men du märker att du behöver extra IO-dataflöde.</span><span class="sxs-lookup"><span data-stu-id="ac23b-126">But you find that you need additional IO throughput.</span></span> <span data-ttu-id="ac23b-127">Vilken prestandamodell kan du använda?</span><span class="sxs-lookup"><span data-stu-id="ac23b-127">Which performance model might you use?</span></span>
+    choices:
+    - content: <span data-ttu-id="ac23b-128">DTU</span><span class="sxs-lookup"><span data-stu-id="ac23b-128">DTU</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ac23b-129">DTU eller databastransaktionsenhet är ett enkelt, förkonfigurerat alternativ.</span><span class="sxs-lookup"><span data-stu-id="ac23b-129">DTU, or Database Transaction Unit, provides a simple, preconfigured purchase option.</span></span> <span data-ttu-id="ac23b-130">För att öka IO-dataflödet skulle du behöva flytta till en högre nivå som även ökar din lagring och beräkningskraft, saker som du inte behöver.</span><span class="sxs-lookup"><span data-stu-id="ac23b-130">To increase IO throughput, you would need to move to a higher tier that also increases your storage and compute power, things you don't need.</span></span>
+    - content: <span data-ttu-id="ac23b-131">V-kärna</span><span class="sxs-lookup"><span data-stu-id="ac23b-131">vCore</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="ac23b-132">Med virtuell kärna får du mer kontroll över vilka beräknings- och lagringsresurser som du skapar och betalar för.</span><span class="sxs-lookup"><span data-stu-id="ac23b-132">vCore gives you greater control over what compute and storage resources you create and pay for.</span></span> <span data-ttu-id="ac23b-133">Du kan öka IO-dataflödet men behålla den befintliga mängden beräkning och lagring.</span><span class="sxs-lookup"><span data-stu-id="ac23b-133">You can increase IO throughput but keep the existing amount of compute and storage.</span></span>
+    - content: <span data-ttu-id="ac23b-134">Elastisk SQL-pool</span><span class="sxs-lookup"><span data-stu-id="ac23b-134">SQL elastic pool</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="ac23b-135">Med elastiska SQL-pooler kan du köpa en viss mängd beräknings- och lagringsresurser som delas mellan alla databaser i poolen.</span><span class="sxs-lookup"><span data-stu-id="ac23b-135">SQL elastic pools enable you to buy a set of compute and storage resources that are shared among all the databases in the pool.</span></span> <span data-ttu-id="ac23b-136">Det här alternativet hjälper inte till med IO-prestanda eftersom du endast arbetar med en databas.</span><span class="sxs-lookup"><span data-stu-id="ac23b-136">This option won't help with IO performance because you're working with just one database.</span></span>

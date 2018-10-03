@@ -1,20 +1,57 @@
 ### YamlMime:ModuleUnit
 uid: learn.create-a-windows-vm-in-azure.8-summary
-title: <span data-ttu-id="29458-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="29458-101">Summary</span></span>
+title: <span data-ttu-id="f3c61-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f3c61-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="29458-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="29458-102">Summary</span></span>
-  description: <span data-ttu-id="29458-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="29458-103">Summary</span></span>
+  title: <span data-ttu-id="f3c61-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f3c61-102">Summary</span></span>
+  description: <span data-ttu-id="f3c61-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="f3c61-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 76203955ef10f22d7150561d906e30b12c064321
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 452dcc7255f6522b8ad790700323e9ac5b11bf1a
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358463"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437824"
 durationInMinutes: 3
 azureSandbox: true
-content: '[!include[](includes/8-summary.md)]'
+content: >
+  [!include[](includes/8-summary.md)]
+quiz:
+  title: <span data-ttu-id="f3c61-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="f3c61-104">Check your knowledge</span></span>
+  questions:
+  - content: <span data-ttu-id="f3c61-105">När du skapar en virtuell Windows-dator i Azure, vilken port öppnar du då med hjälp av REGLER FÖR INKOMMANDE PORTAR för att tillåta fjärrskrivbordsåtkomst?</span><span class="sxs-lookup"><span data-stu-id="f3c61-105">When creating a Windows virtual machine in Azure, which port would you open using the INBOUND PORT RULES in order to allow remote-desktop access?</span></span>
+    choices:
+    - content: <span data-ttu-id="f3c61-106">HTTPS</span><span class="sxs-lookup"><span data-stu-id="f3c61-106">HTTPS</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f3c61-107">Fjärrskrivbordsanslutningen använder inte HTTPS-protokollet.</span><span class="sxs-lookup"><span data-stu-id="f3c61-107">The remote-desktop connection does not use the HTTPS protocol.</span></span>
+    - content: <span data-ttu-id="f3c61-108">SSH (22)</span><span class="sxs-lookup"><span data-stu-id="f3c61-108">SSH (22)</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f3c61-109">Fjärrskrivbordsanslutningen använder inte SSH.</span><span class="sxs-lookup"><span data-stu-id="f3c61-109">The remote-desktop connection does not use SSH.</span></span>
+    - content: <span data-ttu-id="f3c61-110">RDP (3389)</span><span class="sxs-lookup"><span data-stu-id="f3c61-110">RDP (3389)</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f3c61-111">Fjärrskrivbordsprotokollet (RDP) använder port 3389 som standard, så det här är standardporten som du skulle öppna om du vill använda en RDP-klient för att administrera dina virtuella Windows-datorer.</span><span class="sxs-lookup"><span data-stu-id="f3c61-111">The Remote Desktop Protocol (RDP) uses port 3389 by default so this is the standard port you would open if you wanted to use an RDP client to administer your Windows virtual machines.</span></span>
+  - content: <span data-ttu-id="f3c61-112">Anta att du har ett program som körs på en virtuell Windows-dator i Azure.</span><span class="sxs-lookup"><span data-stu-id="f3c61-112">Suppose you have an application running on a Windows virtual machine in Azure.</span></span> <span data-ttu-id="f3c61-113">Vad är det bästa sättet att ta reda på var appen ska lagra datafiler?</span><span class="sxs-lookup"><span data-stu-id="f3c61-113">What is the best-practice guidance on where the app should store data files?</span></span>
+    choices:
+    - content: <span data-ttu-id="f3c61-114">Operativsystemets disk (C:)</span><span class="sxs-lookup"><span data-stu-id="f3c61-114">The OS disk (C:)</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f3c61-115">Du kan lagra datafiler på operativsystemets disk, men du kanske vill optimera den disken för OS-prestanda genom att välja en Premium SSD-typ, vilket kan vara ett kostsamt sätt att lagra data.</span><span class="sxs-lookup"><span data-stu-id="f3c61-115">You can store data files on the OS disk; however, you may want to optimize that disk for OS performance by selecting a Premium SSD type which could be an expensive way to store your data.</span></span>
+    - content: <span data-ttu-id="f3c61-116">Den tillfälliga disken (D:)</span><span class="sxs-lookup"><span data-stu-id="f3c61-116">The Temporary disk (D:)</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f3c61-117">Den tillfälliga disken är inte beständig.</span><span class="sxs-lookup"><span data-stu-id="f3c61-117">The temporary disk is not persistent.</span></span> <span data-ttu-id="f3c61-118">Du bör inte skriva viktiga data på disken.</span><span class="sxs-lookup"><span data-stu-id="f3c61-118">You should not write important data to this disk.</span></span>
+    - content: <span data-ttu-id="f3c61-119">En ansluten datadisk</span><span class="sxs-lookup"><span data-stu-id="f3c61-119">An attached data disk</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f3c61-120">Dedikerade datadiskar anses vanligtvis vara den bästa platsen för att lagra data för programfiler.</span><span class="sxs-lookup"><span data-stu-id="f3c61-120">Dedicated data disks are generally considered the best place to store application data files.</span></span> <span data-ttu-id="f3c61-121">De kan vara större än OS-diskar och du kan optimera dem för de kostnads- och prestandaegenskaper som bäst passar dina data.</span><span class="sxs-lookup"><span data-stu-id="f3c61-121">They can be larger than OS disks and you can optimize them for the cost and performance characteristics appropriate for your data.</span></span>
+  - content: <span data-ttu-id="f3c61-122">Vilken är den sista regeln som används i alla nätverkssäkerhetsgrupper?</span><span class="sxs-lookup"><span data-stu-id="f3c61-122">What is the final rule that is applied in every Network Security Group?</span></span>
+    choices:
+    - content: <span data-ttu-id="f3c61-123">Tillåt alla</span><span class="sxs-lookup"><span data-stu-id="f3c61-123">Allow All</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f3c61-124">Detta kan ge oönskad trafik åtkomst om dina regler inte har konfigurerats korrekt.</span><span class="sxs-lookup"><span data-stu-id="f3c61-124">This could allow unwanted traffic to gain access if your rules are not configured correctly.</span></span>
+    - content: <span data-ttu-id="f3c61-125">Neka alla</span><span class="sxs-lookup"><span data-stu-id="f3c61-125">Deny All</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="f3c61-126">Det här är ett säkert val.</span><span class="sxs-lookup"><span data-stu-id="f3c61-126">This is a safe choice.</span></span> <span data-ttu-id="f3c61-127">Det blockerar all trafik som du inte uttryckligen tillåter.</span><span class="sxs-lookup"><span data-stu-id="f3c61-127">It will block all traffic that you don't specifically allow.</span></span>
+    - content: <span data-ttu-id="f3c61-128">Du konfigurerar den sista regeln efter dina behov</span><span class="sxs-lookup"><span data-stu-id="f3c61-128">You configure the final rule to your needs</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="f3c61-129">Den sista regeln läggs automatiskt till när säkerhetsgruppen har skapats och du kan inte ändra den.</span><span class="sxs-lookup"><span data-stu-id="f3c61-129">The final rule is added automatically when the security group is created, and you cannot change it.</span></span>

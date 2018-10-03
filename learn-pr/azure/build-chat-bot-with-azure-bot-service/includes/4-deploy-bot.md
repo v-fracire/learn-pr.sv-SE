@@ -1,0 +1,56 @@
+[!INCLUDE [0-vm-note](0-vm-note.md)]
+
+<span data-ttu-id="1da4f-101">När du skapade en Azure Web App-robot distribuerades även en Azure Web App som fungerar som värd.</span><span class="sxs-lookup"><span data-stu-id="1da4f-101">When you created an Azure web app bot, an Azure web app was deployed to host it.</span></span> <span data-ttu-id="1da4f-102">Roboten kräver dock lite en del kodning och den måste även distribueras till Azures webbapp.</span><span class="sxs-lookup"><span data-stu-id="1da4f-102">But the bot does require some code, and it still needs to be deployed to the Azure web app.</span></span> <span data-ttu-id="1da4f-103">Som tur är kan har koden redan genererats åt dig av Azure Bot Service.</span><span class="sxs-lookup"><span data-stu-id="1da4f-103">Fortunately, the code was generated for you by the Azure Bot Service.</span></span> <span data-ttu-id="1da4f-104">I den här kursdelen ska du använda Visual Studio Code för att placera koden på en lokal Git-lagringsplats och publicera roboten till Azure genom att skicka ändringarna från den lokala lagringsplatsen till en fjärrlagringsplats som är ansluten till den Azure Web App som är värd för roboten – en process som kallas [kontinuerlig integrering](https://wikipedia.org/wiki/Continuous_integration).</span><span class="sxs-lookup"><span data-stu-id="1da4f-104">In this unit, you will use Visual Studio Code to place the code in a local Git repository and publish the bot to Azure by pushing changes from the local repository to a remote repository connected to the Azure web app that hosts the bot — a process known as [continuous integration](https://wikipedia.org/wiki/Continuous_integration).</span></span>
+
+1. <span data-ttu-id="1da4f-105">Skapa en mapp med namnet ”Factbot” på valfri plats på hårddisken för att rymma robotens källkod.</span><span class="sxs-lookup"><span data-stu-id="1da4f-105">Create a folder named "Factbot" in the location of your choice on your hard disk to hold the bot's source code.</span></span>
+
+1. <span data-ttu-id="1da4f-106">Gå tillbaka till Azure-portalen i VM-webbläsaren och öppna den redan skapade övningsresursgruppen.</span><span class="sxs-lookup"><span data-stu-id="1da4f-106">Return to the Azure portal in the VM browser and open the pre-created exercise resource group.</span></span> <span data-ttu-id="1da4f-107">Klicka sedan på roboten för webbappen som du skapade i den föregående övningen.</span><span class="sxs-lookup"><span data-stu-id="1da4f-107">Then, select the Web App Bot you created in the prior exercise.</span></span>
+
+1. <span data-ttu-id="1da4f-108">Välj **Build** på menyn till vänster och välj sedan alternativet för att **ladda ned robotkällkod** för att förbereda en zip-fil som innehåller robotens källkod.</span><span class="sxs-lookup"><span data-stu-id="1da4f-108">Select **Build** in the menu on the left, then select **Download Bot source code** to prepare a zip file containing the bot's source code.</span></span> <span data-ttu-id="1da4f-109">När ZIP-filen är klar klickar du på knappen för att **ladda ned robotkällkod** för att ladda ned den.</span><span class="sxs-lookup"><span data-stu-id="1da4f-109">Once the zip file is prepared, select the **Download Bot source code** button to download it.</span></span> <span data-ttu-id="1da4f-110">När hämtningen är slutförd kan du extrahera innehållet i zip-filen till mappen ”Factbot” som du skapade tidigare.</span><span class="sxs-lookup"><span data-stu-id="1da4f-110">When the download is complete, extract the contents of the zip file to the "Factbot" folder that you created earlier.</span></span>
+
+1. <span data-ttu-id="1da4f-111">Tillbaka på Web App Bot-bladet Build i Azure-portalen väljer du **Konfigurera kontinuerlig distribution**.</span><span class="sxs-lookup"><span data-stu-id="1da4f-111">Back in the Web App Bot's Build blade in the Azure portal, select **Configure continuous deployment**.</span></span>
+
+1. <span data-ttu-id="1da4f-112">Välj **Konfiguration** högst upp på bladet **Distributioner** och därefter **Välj källa**.</span><span class="sxs-lookup"><span data-stu-id="1da4f-112">Select **Setup** at the top of the **Deployments** blade, followed by **Choose Source**.</span></span>
+
+1. <span data-ttu-id="1da4f-113">Välj sedan **Lokal Git-lagringsplats** som distributionskälla.</span><span class="sxs-lookup"><span data-stu-id="1da4f-113">Then, select **Local Git Repository** as the deployment source.</span></span>
+
+1. <span data-ttu-id="1da4f-114">Välj sedan **Skapa anslutning** och ange ett användarnamn och ett lösenord.</span><span class="sxs-lookup"><span data-stu-id="1da4f-114">Next, select **Setup connection** and enter a username and password.</span></span> <span data-ttu-id="1da4f-115">Du kommer förmodligen att behöva ange ett annat användarnamn än ”FactbotAdministrator” eftersom namnet måste vara unikt i Azure.</span><span class="sxs-lookup"><span data-stu-id="1da4f-115">You will probably have to enter a user name other than "FactbotAdministrator" because the name must be unique within Azure.</span></span> <span data-ttu-id="1da4f-116">Välj **OK** för att återgå till bladet **Distributionsalternativ** och välj sedan **OK** igen för att återgå till bladet **Distributioner**.</span><span class="sxs-lookup"><span data-stu-id="1da4f-116">Then, select **OK** to return to the **Deployment option** blade and **OK** again to return to the **Deployments** blade.</span></span>
+
+    ![Skärmbild av Azure-portalen med den nya robotens App Service-blad som visar skärmen Autentiseringsuppgifter för distribution, med menyalternativet Autentiseringsuppgifter för distribution och knappen Spara markerat.](../media/4-portal-enter-ci-creds.png)
+
+1. <span data-ttu-id="1da4f-118">Medan distributionssystem etableras stänger du bladet **Distributioner** och väljer **Alla App Service-inställningar** på menyn till vänster.</span><span class="sxs-lookup"><span data-stu-id="1da4f-118">While the deployment system is provisioning, close the **Deployments** blade, and select **All App service settings** in the menu on the left.</span></span>
+
+1. <span data-ttu-id="1da4f-119">Starta **Visual Studio Code** och använd kommandot **Arkiv** > **Öppna mapp...** för att öppna mappen ”Factbot” som du kopierade robotens källkod till.</span><span class="sxs-lookup"><span data-stu-id="1da4f-119">Start **Visual Studio Code**, and use the **File** > **Open Folder...** command to open the "Factbot" folder where you copied the bot's source code.</span></span>
+
+1. <span data-ttu-id="1da4f-120">Klicka på knappen **Källkodskontroll** i aktivitetsfältet till vänster i Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="1da4f-120">Select the **Source Control** button in the activity bar on the left side of Visual Studio Code.</span></span>
+
+1. <span data-ttu-id="1da4f-121">Klicka på ikonen **Skapa lagringsplats** längst upp.</span><span class="sxs-lookup"><span data-stu-id="1da4f-121">Select the **Initialize Repository** icon at the top.</span></span>
+
+1. <span data-ttu-id="1da4f-122">Klicka på knappen **Skapa lagringsplats** i dialogrutan.</span><span class="sxs-lookup"><span data-stu-id="1da4f-122">Select the **Initialize Repository** button in the dialog.</span></span>
+
+1. <span data-ttu-id="1da4f-123">Skriv ”First commit.”</span><span class="sxs-lookup"><span data-stu-id="1da4f-123">Type "First commit."</span></span> <span data-ttu-id="1da4f-124">i meddelanderutan.</span><span class="sxs-lookup"><span data-stu-id="1da4f-124">into the message box.</span></span>
+
+1. <span data-ttu-id="1da4f-125">Klicka på bockmarkeringen för att genomföra ändringarna och mellanlagra alla filer när du tillfrågas.</span><span class="sxs-lookup"><span data-stu-id="1da4f-125">Select the check mark to commit your changes, staging all the files when prompted.</span></span>
+
+    > [!NOTE]
+    > <span data-ttu-id="1da4f-126">Om ett Git-fel inträffar om att du inte ställt in din identitet i Git startar du en kommandotolk och kör följande kommandon. Ersätt platshållarvärdena för e-post och namn om du vill.</span><span class="sxs-lookup"><span data-stu-id="1da4f-126">If you get a Git error about not having your identity set in Git, launch a Command Prompt and run the following commands, replacing the placeholder email and name values if you wish.</span></span> <span data-ttu-id="1da4f-127">Klicka sedan på knappen Genomför igen.</span><span class="sxs-lookup"><span data-stu-id="1da4f-127">Then retry the commit button.</span></span>
+    >
+    > ```bash
+    > git config --global user.email "Lab User"
+    > git config --global user.name "LabUser#######@learn"
+    > ```
+
+1. <span data-ttu-id="1da4f-128">Välj **Terminal** på menyn **Visa** i Visual Studio Code för att öppna den integrerade terminalen.</span><span class="sxs-lookup"><span data-stu-id="1da4f-128">Select **Terminal** from Visual Studio Code's **View** menu to open an integrated terminal.</span></span>
+
+1. <span data-ttu-id="1da4f-129">Kör följande kommando i den integrerade terminalen och ersätt BOT_NAME på följande två platser med robotnamnet som du angav i övning 1.</span><span class="sxs-lookup"><span data-stu-id="1da4f-129">Execute the following command in the integrated terminal, replacing BOT_NAME in the following two places with the bot name you entered in Exercise 1.</span></span>
+
+    > [!NOTE]
+    > <span data-ttu-id="1da4f-130">En fullständig fjärransluten Git-URL finns även i App Service-resursen i avsnittet **Översikt** under **URL för Git-klon**.</span><span class="sxs-lookup"><span data-stu-id="1da4f-130">The full Git remote URL can also be found in the App Service resource's **Overview** section under **Git clone url**.</span></span>
+
+    ```bash
+    git remote add qna-factbot https://BOT_NAME.scm.azurewebsites.net:443/BOT_NAME.git
+    ```
+
+1. <span data-ttu-id="1da4f-131">Återgå till panelen **Källkontroll** och klicka på ellipsen (de tre punkterna) längst upp på panelen KÄLLKONTROLL och välj **Publish Branch** (Publicera gren) på menyn för att skicka robotkoden från den lokala lagringsplatsen till Azure.</span><span class="sxs-lookup"><span data-stu-id="1da4f-131">Return to the **Source Control** panel and select the ellipsis (the three dots) at the top of the SOURCE CONTROL panel, and select **Publish Branch** from the menu to push the bot code from the local repository to Azure.</span></span> <span data-ttu-id="1da4f-132">Om du ombeds uppge autentiseringsuppgifter ska du uppge det användarnamn och det lösenord som du angav i steg 9 i den här övningen.</span><span class="sxs-lookup"><span data-stu-id="1da4f-132">If prompted for credentials, enter the username and password you specified in Step 9 of this exercise.</span></span>
+
+<span data-ttu-id="1da4f-133">Din robot har nu publicerats till Azure.</span><span class="sxs-lookup"><span data-stu-id="1da4f-133">Your bot has been published to Azure.</span></span> <span data-ttu-id="1da4f-134">Men innan du testar den ska vi köra den lokalt. Du ska också få lära dig att felsöka roboten i Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="1da4f-134">But before you test it there, let's run it locally and learn how to debug it in Visual Studio Code.</span></span>

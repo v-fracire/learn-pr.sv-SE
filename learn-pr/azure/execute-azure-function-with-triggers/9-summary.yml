@@ -1,19 +1,59 @@
 ### YamlMime:ModuleUnit
 uid: learn.execute-azure-function-with-triggers.9-summary
-title: <span data-ttu-id="d6bf9-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d6bf9-101">Summary</span></span>
+title: <span data-ttu-id="e254b-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e254b-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="d6bf9-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d6bf9-102">Summary</span></span>
-  description: <span data-ttu-id="d6bf9-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="d6bf9-103">Summary</span></span>
+  title: <span data-ttu-id="e254b-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e254b-102">Summary</span></span>
+  description: <span data-ttu-id="e254b-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="e254b-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: dbbed9c336f6aa4063d3c4a3ab22447b8cc97293
-  ms.sourcegitcommit: 58e9d7fbb111af9b27ed819e4b79ba4a4e6e8a9c
+  ms.openlocfilehash: b5705b646b41e63ffe0d2bc45fb3d4417136b10b
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/21/2018
-  ms.locfileid: "46514543"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47436770"
 durationInMinutes: 2
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: <span data-ttu-id="e254b-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="e254b-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="e254b-105">Ett CRON-uttryck är en sträng som består av sex fält som motsvarar olika tider.</span><span class="sxs-lookup"><span data-stu-id="e254b-105">A CRON expression is a string that consists of six fields that represent a set of times.</span></span> <span data-ttu-id="e254b-106">Ordningen på de sex fälten i Azure är: {sekund} {minut} {timme} {dag} {månad} {veckodag}.</span><span class="sxs-lookup"><span data-stu-id="e254b-106">The order of the six fields in Azure is: {second} {minute} {hour} {day} {month} {day of the week}.</span></span> <span data-ttu-id="e254b-107">Anta att du behövde ett CRON-uttryck som betydde ”varje dag”. Vilka specialtecken skulle du placera på positionen {dag i veckan}?</span><span class="sxs-lookup"><span data-stu-id="e254b-107">Suppose you needed a CRON expression that meant "every day", what special character would you put in the {day of the week} position?</span></span>'
+    choices:
+    - content: <span data-ttu-id="e254b-108">”/”</span><span class="sxs-lookup"><span data-stu-id="e254b-108">'/'</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e254b-109">Ett snedstreck anger ett inkrement.</span><span class="sxs-lookup"><span data-stu-id="e254b-109">A slash specifies an increment.</span></span> <span data-ttu-id="e254b-110">Till exempel \*/5 i fältet {sekunder} innebär var femte sekund.</span><span class="sxs-lookup"><span data-stu-id="e254b-110">For example, a \*/5 in the {seconds} field means every five seconds.</span></span>
+    - content: <span data-ttu-id="e254b-111">”\*”</span><span class="sxs-lookup"><span data-stu-id="e254b-111">'\*'</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="e254b-112">En asterisk anger att varje möjligt värde måste väljas.</span><span class="sxs-lookup"><span data-stu-id="e254b-112">An asterisk specifies that every possible value should be selected.</span></span> <span data-ttu-id="e254b-113">Att ha en asterisk i fältet {veckodag} betyder att varje dag måste väljas.</span><span class="sxs-lookup"><span data-stu-id="e254b-113">Having an asterisk in the {day of the week} field means that every day should be selected.</span></span>
+    - content: <span data-ttu-id="e254b-114">”,”</span><span class="sxs-lookup"><span data-stu-id="e254b-114">','</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e254b-115">Ett kommatecken avgränsar objekt i en lista.</span><span class="sxs-lookup"><span data-stu-id="e254b-115">A comma separates items in a list.</span></span> <span data-ttu-id="e254b-116">Till exempel innebär 1,2,3 i fältet {månad} januari, februari och mars.</span><span class="sxs-lookup"><span data-stu-id="e254b-116">For example, a 1,2,3 in the {month} field means select January, February, and March.</span></span>
+    - content: <span data-ttu-id="e254b-117">”-”</span><span class="sxs-lookup"><span data-stu-id="e254b-117">'-'</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e254b-118">Ett bindestreck anger ett intervall.</span><span class="sxs-lookup"><span data-stu-id="e254b-118">A hyphen specifies a range.</span></span> <span data-ttu-id="e254b-119">Till exempel innebär 1–3 i fältet {månad} januari, februari och mars.</span><span class="sxs-lookup"><span data-stu-id="e254b-119">For example, a 1-3 in the {month} field means select January, February, and March.</span></span>
+  - content: <span data-ttu-id="e254b-120">Anta att din Azure-funktion har en blobutlösare kopplad till sig och du vill endast köra den när avbildningar har laddats upp.</span><span class="sxs-lookup"><span data-stu-id="e254b-120">Suppose your Azure Function has a blob trigger associated with it and you want it to execute only when images are uploaded.</span></span> <span data-ttu-id="e254b-121">Vilket av följande värde för *sökvägen* för blobutlösare ska du använda?</span><span class="sxs-lookup"><span data-stu-id="e254b-121">Which of the following blob trigger *Path* values should you use?</span></span>
+    choices:
+    - content: <span data-ttu-id="e254b-122">samples-workitems/{namn}</span><span class="sxs-lookup"><span data-stu-id="e254b-122">samples-workitems/{name}</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e254b-123">Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter.</span><span class="sxs-lookup"><span data-stu-id="e254b-123">The Path tells the blob trigger where it should monitor for changes, and if there are any filters applied.</span></span> <span data-ttu-id="e254b-124">När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.</span><span class="sxs-lookup"><span data-stu-id="e254b-124">Adding a file extension to the Path specifies that uploaded files must have that file extension in order for the trigger to invoke the function.</span></span>
+    - content: <span data-ttu-id="e254b-125">samples-workitems/{name}/png</span><span class="sxs-lookup"><span data-stu-id="e254b-125">samples-workitems/{name}/png</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e254b-126">Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter.</span><span class="sxs-lookup"><span data-stu-id="e254b-126">The Path tells the blob trigger where it should monitor for changes, and if there are any filters applied.</span></span> <span data-ttu-id="e254b-127">När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.</span><span class="sxs-lookup"><span data-stu-id="e254b-127">Adding a file extension to the Path specifies that uploaded files must have that file extension in order for the trigger to invoke the function.</span></span>
+    - content: <span data-ttu-id="e254b-128">samples-workitems/{name}?png</span><span class="sxs-lookup"><span data-stu-id="e254b-128">samples-workitems/{name}?png</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e254b-129">Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter.</span><span class="sxs-lookup"><span data-stu-id="e254b-129">The Path tells the blob trigger where it should monitor for changes, and if there are any filters applied.</span></span> <span data-ttu-id="e254b-130">När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.</span><span class="sxs-lookup"><span data-stu-id="e254b-130">Adding a file extension to the Path specifies that uploaded files must have that file extension in order for the trigger to invoke the function.</span></span>
+    - content: <span data-ttu-id="e254b-131">samples-workitems/{name}.png</span><span class="sxs-lookup"><span data-stu-id="e254b-131">samples-workitems/{name}.png</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="e254b-132">Sökvägen talar om för blobutlösaren var den bör hålla uppsikt efter ändringar, och om det finns några filter.</span><span class="sxs-lookup"><span data-stu-id="e254b-132">The Path tells the blob trigger where it should monitor for changes, and if there are any filters applied.</span></span> <span data-ttu-id="e254b-133">När ett filnamnstillägg läggs till i sökvägen anger det att överförda filer måste ha det filnamnstillägget för att utlösaren ska anropa funktionen.</span><span class="sxs-lookup"><span data-stu-id="e254b-133">Adding a file extension to the Path specifies that uploaded files must have that file extension in order for the trigger to invoke the function.</span></span>
+  - content: '<span data-ttu-id="e254b-134">Sant eller falskt: en Azure Function kan ha flera associerade utlösare?</span><span class="sxs-lookup"><span data-stu-id="e254b-134">True or false: an Azure Function can have multiple triggers associated with it?</span></span>'
+    choices:
+    - content: <span data-ttu-id="e254b-135">Sant</span><span class="sxs-lookup"><span data-stu-id="e254b-135">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="e254b-136">Varje Azure Function måste ha exakt en utlösare kopplad till den.</span><span class="sxs-lookup"><span data-stu-id="e254b-136">Every Azure Function must have exactly one trigger associated with it.</span></span> <span data-ttu-id="e254b-137">Om du vill använda flera utlösare måste du skapa flera funktioner.</span><span class="sxs-lookup"><span data-stu-id="e254b-137">If you want to use multiple triggers, you must create multiple functions.</span></span>
+    - content: <span data-ttu-id="e254b-138">Falskt</span><span class="sxs-lookup"><span data-stu-id="e254b-138">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="e254b-139">Varje Azure Function måste ha exakt en utlösare kopplad till den.</span><span class="sxs-lookup"><span data-stu-id="e254b-139">Every Azure Function must have exactly one trigger associated with it.</span></span> <span data-ttu-id="e254b-140">Om du vill använda flera utlösare måste du skapa flera funktioner.</span><span class="sxs-lookup"><span data-stu-id="e254b-140">If you want to use multiple triggers, you must create multiple functions.</span></span>

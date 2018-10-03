@@ -1,0 +1,58 @@
+### YamlMime:ModuleUnit
+uid: learn.intro-to-site-reliability-engineering.5-key-principles-2-human-side-of-sre
+title: '<span data-ttu-id="08cd8-101">Viktiga principer och metoder: den mänskliga sidan av SRE</span><span class="sxs-lookup"><span data-stu-id="08cd8-101">Key SRE principles and practices: The human side of SRE</span></span>'
+metadata:
+  title: '<span data-ttu-id="08cd8-102">Viktiga principer och metoder: den mänskliga sidan av SRE</span><span class="sxs-lookup"><span data-stu-id="08cd8-102">Key SRE principles and practices: The human side of SRE</span></span>'
+  description: '<span data-ttu-id="08cd8-103">Viktiga principer och metoder: den mänskliga sidan av SRE</span><span class="sxs-lookup"><span data-stu-id="08cd8-103">Key SRE principles and practices: The human side of SRE</span></span>'
+  ms.date: 09/26/2018
+  author: markjulmar
+  ms.author: smmark
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+  ms.openlocfilehash: 18fe4f197d8a58ad6e6f2fc27e9e5a5a8b86db96
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47439258"
+durationInMinutes: 10
+content: >
+  [!include[](includes/5-key-principles-2-human-side-of-sre.md)]
+quiz:
+  title: <span data-ttu-id="08cd8-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="08cd8-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="08cd8-105">Vilka av dessa saker är *inte* en egenskap för enahanda arbete (i kontexten SRE)?</span><span class="sxs-lookup"><span data-stu-id="08cd8-105">Which of these things is *not* a characteristic of toil (in the SRE context)?</span></span> '
+    choices:
+    - content: <span data-ttu-id="08cd8-106">Arbetet är återkommande</span><span class="sxs-lookup"><span data-stu-id="08cd8-106">The work is repetitive</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="08cd8-107">Enahanda arbete är återkommande av sin natur.</span><span class="sxs-lookup"><span data-stu-id="08cd8-107">Toil is repetitive in nature.</span></span>
+    - content: <span data-ttu-id="08cd8-108">Arbetet spåras i ett biljettsystem</span><span class="sxs-lookup"><span data-stu-id="08cd8-108">The work is tracked in a ticket system</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="08cd8-109">Hur arbetet spåras är inte en egenskap för enahanda arbete.</span><span class="sxs-lookup"><span data-stu-id="08cd8-109">How the work is tracked is not a characteristic of toil.</span></span> <span data-ttu-id="08cd8-110">Biljettsystem kan användas för att spåra andra, mer produktiva typer av arbete medan enahanda arbete ofta spåras på det här sättet.</span><span class="sxs-lookup"><span data-stu-id="08cd8-110">While toil is often tracked this way, ticket systems could be used to track other, more productive kinds of work.</span></span>
+    - content: <span data-ttu-id="08cd8-111">Arbetet innehåller inga bestående värden</span><span class="sxs-lookup"><span data-stu-id="08cd8-111">The work provides no lasting value</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="08cd8-112">Enahanda arbete har inget varaktig värde.</span><span class="sxs-lookup"><span data-stu-id="08cd8-112">Work that is toil has no enduring value.</span></span>
+    - content: <span data-ttu-id="08cd8-113">Arbetet är i stort sett manuellt av sin natur och inte automatiserat</span><span class="sxs-lookup"><span data-stu-id="08cd8-113">The work is largely manual in nature and not automated</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="08cd8-114">Toil är nästan alltid manuellt arbete som kan automatiseras.</span><span class="sxs-lookup"><span data-stu-id="08cd8-114">Toil is almost always manual work that could be automated.</span></span>
+  - content: <span data-ttu-id="08cd8-115">Vad har en SRE för relation till enahanda arbete?</span><span class="sxs-lookup"><span data-stu-id="08cd8-115">What's an SRE's relationship to toil?</span></span>
+    choices:
+    - content: <span data-ttu-id="08cd8-116">SRE:er arbetar främst för att eliminera enahanda arbete.</span><span class="sxs-lookup"><span data-stu-id="08cd8-116">SREs work to eliminate toil as their first priority.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="08cd8-117">När det är möjligt eliminerar SRE:er enahanda arbete, men ibland har annat arbete högre prioritet.</span><span class="sxs-lookup"><span data-stu-id="08cd8-117">Whenever possible, SREs work to eliminate toil, but sometimes other work has greater priority.</span></span>
+    - content: <span data-ttu-id="08cd8-118">SRE:er försöker hantera enahanda arbete på bästa sätt.</span><span class="sxs-lookup"><span data-stu-id="08cd8-118">SREs attempt to manage toil the best they can.</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="08cd8-119">SRE:er föredrar att eliminera enahanda arbete om möjligt.</span><span class="sxs-lookup"><span data-stu-id="08cd8-119">SREs prefer to eliminate toil if possible.</span></span> <span data-ttu-id="08cd8-120">Välhanterat enahanda arbete är ändå enahanda.</span><span class="sxs-lookup"><span data-stu-id="08cd8-120">Well-managed toil is still toil.</span></span>
+    - content: <span data-ttu-id="08cd8-121">SRE:er syftar till att eliminera enahanda arbete var och när det är lämpligt</span><span class="sxs-lookup"><span data-stu-id="08cd8-121">SREs work to eliminate toil wherever and whenever it is appropriate</span></span>
+      isCorrect: true
+  - content: <span data-ttu-id="08cd8-122">Vad föreslås som arbetsstruktur för en SRE?</span><span class="sxs-lookup"><span data-stu-id="08cd8-122">What is a suggested breakdown of work for an SRE?</span></span>
+    choices:
+    - content: <span data-ttu-id="08cd8-123">80 % reaktivt driftsarbete/20 % projektarbete</span><span class="sxs-lookup"><span data-stu-id="08cd8-123">80% reactive ops work/20% project work</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="08cd8-124">En SRE behöver sammanhängande tid att arbeta med att förbättra tillförlitligheten för ett system, och inte bara uppmärksamma dess aktuella behov.</span><span class="sxs-lookup"><span data-stu-id="08cd8-124">An SRE needs uninterrupted time to work on improving the reliability of a system, not just tending to its current needs.</span></span>
+    - content: <span data-ttu-id="08cd8-125">10 % reaktivt driftsarbete/90 % projektarbete</span><span class="sxs-lookup"><span data-stu-id="08cd8-125">10% reactive ops work/90% project work</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="08cd8-126">Ibland får vi inte välja hur mycket driftsbelastning ett system kräver.</span><span class="sxs-lookup"><span data-stu-id="08cd8-126">Sometimes we do not get a choice how much operational load a systems requires.</span></span> <span data-ttu-id="08cd8-127">Även om vissa system har en låg driftsbelastning är det troligen inte en bra förväntan att ha.</span><span class="sxs-lookup"><span data-stu-id="08cd8-127">While it may be the case that some systems have this low of an operational load, it is probably not a good expectation to have.</span></span>
+    - content: <span data-ttu-id="08cd8-128">50 % reaktivt driftsarbete/50 % projektarbete</span><span class="sxs-lookup"><span data-stu-id="08cd8-128">50% reactive ops work/50% project work</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="08cd8-129">Detta är den vanliga balansen som SRE:er strävar efter (50 % anses vara en övre gräns på driftsbelastning – mindre är att föredra).</span><span class="sxs-lookup"><span data-stu-id="08cd8-129">This is the usual balance SREs strive for (50% is seen as an upper bound on operational load--smaller would be better).</span></span>

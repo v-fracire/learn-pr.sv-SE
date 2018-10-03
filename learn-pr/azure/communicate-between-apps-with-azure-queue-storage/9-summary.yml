@@ -1,19 +1,50 @@
 ### YamlMime:ModuleUnit
 uid: learn.communicate-between-applications-with-azure-queue-storage.9-summary
-title: <span data-ttu-id="ca5b9-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="ca5b9-101">Summary</span></span>
+title: <span data-ttu-id="84860-101">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="84860-101">Summary</span></span>
 metadata:
-  title: <span data-ttu-id="ca5b9-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="ca5b9-102">Summary</span></span>
-  description: <span data-ttu-id="ca5b9-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="ca5b9-103">Summary</span></span>
+  title: <span data-ttu-id="84860-102">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="84860-102">Summary</span></span>
+  description: <span data-ttu-id="84860-103">Sammanfattning</span><span class="sxs-lookup"><span data-stu-id="84860-103">Summary</span></span>
   ms.date: 09/24/2018
   author: markjulmar
   ms.author: smmark
   ms.topic: interactive-tutorial
   ms.prod: learning-azure
-  ms.openlocfilehash: 9b4e753dd959b77757eee376fa367513e9b62327
-  ms.sourcegitcommit: b21a4b22de591cfa776684ba2eab9ba27248c65d
+  ms.openlocfilehash: 355fab15880ecc7d0d16f91e51f00a79531bb65d
+  ms.sourcegitcommit: 537334e6f8df2da7b9e5ec96a2b54a0e2038bc1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/19/2018
-  ms.locfileid: "46358460"
+  ms.lasthandoff: 09/28/2018
+  ms.locfileid: "47437569"
 durationInMinutes: 3
-content: '[!include[](includes/9-summary.md)]'
+content: >
+  [!include[](includes/9-summary.md)]
+quiz:
+  title: <span data-ttu-id="84860-104">Testa dina kunskaper</span><span class="sxs-lookup"><span data-stu-id="84860-104">Check your knowledge</span></span>
+  questions:
+  - content: '<span data-ttu-id="84860-105">Anta att du arbetar för en myndighet som planerar en långsiktig expansion av motorvägssystemet.</span><span class="sxs-lookup"><span data-stu-id="84860-105">Suppose you work for a government agency that plans the long-term expansion of the highway system.</span></span> <span data-ttu-id="84860-106">Du får trafikdata från tusentals sensorer och analyserar dem för att göra dina rekommendationer.</span><span class="sxs-lookup"><span data-stu-id="84860-106">You receive traffic data from thousands of sensors and analyze it to make your recommendations.</span></span> <span data-ttu-id="84860-107">Mängden inkommande data varierar under dagen, till exempel toppar under rusningstiden under morgon och kväll.</span><span class="sxs-lookup"><span data-stu-id="84860-107">The amount of incoming data varies throughout the day; for example, it spikes during the morning and evening commuting hours.</span></span> <span data-ttu-id="84860-108">Sant eller falskt: en arkitektur för serversidan som består av en Azure-kö som är ansluten till en virtuell dator är ett rimligt val för den här arbetsbelastningen?</span><span class="sxs-lookup"><span data-stu-id="84860-108">True or false: a server-side architecture consisting of an Azure Queue connected to a single virtual machine is a reasonable choice for this workload?</span></span>'
+    choices:
+    - content: <span data-ttu-id="84860-109">Sant</span><span class="sxs-lookup"><span data-stu-id="84860-109">True</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="84860-110">Kön ska hantera trafiktoppar och se till att inga data går förlorade.</span><span class="sxs-lookup"><span data-stu-id="84860-110">The queue will handle spikes in traffic and ensure no data is lost.</span></span> <span data-ttu-id="84860-111">Om den virtuella datorn inte hänger med i flödet av inkommande meddelanden bearbetas meddelandekön under tider med låg trafik.</span><span class="sxs-lookup"><span data-stu-id="84860-111">If the VM cannot keep up with the flow of incoming messages, it will process the message backlog during low-traffic times.</span></span>
+    - content: <span data-ttu-id="84860-112">Falskt</span><span class="sxs-lookup"><span data-stu-id="84860-112">False</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="84860-113">Dessa data används för långsiktig planering, så det finns inget behov av att bearbeta dem i realtid.</span><span class="sxs-lookup"><span data-stu-id="84860-113">This data is used for long-term planning, so there is no need to process it in real time.</span></span> <span data-ttu-id="84860-114">Det är sannolikt att en kö som är ansluten till en enskild virtuell dator hanterar arbetsbelastningen och är en kostnadseffektiv lösning.</span><span class="sxs-lookup"><span data-stu-id="84860-114">A queue connected to a single VM is likely to handle the workload and be a cost-efficient solution.</span></span>
+  - content: <span data-ttu-id="84860-115">Vilken information som identifierar en kö unikt?</span><span class="sxs-lookup"><span data-stu-id="84860-115">What information uniquely identifies a queue?</span></span>
+    choices:
+    - content: <span data-ttu-id="84860-116">Könamn</span><span class="sxs-lookup"><span data-stu-id="84860-116">Queue name</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="84860-117">Könamn får endast vara unika inom sitt lagringskonto. De behöver inte vara globalt unika.</span><span class="sxs-lookup"><span data-stu-id="84860-117">Queue names must only be unique within their containing storage account; they do not need to be globally unique.</span></span>
+    - content: <span data-ttu-id="84860-118">Kontonyckel</span><span class="sxs-lookup"><span data-stu-id="84860-118">Account key</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="84860-119">Kontonycklar är associerade med ett lagringskonto, inte en kö.</span><span class="sxs-lookup"><span data-stu-id="84860-119">Account keys are associated with a storage account, not a queue.</span></span>
+    - content: <span data-ttu-id="84860-120">Lagringskontots namn och könamn</span><span class="sxs-lookup"><span data-stu-id="84860-120">Storage account name and queue name</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="84860-121">Lagringskontonamn måste vara globalt unika.</span><span class="sxs-lookup"><span data-stu-id="84860-121">Storage account names must be globally unique.</span></span> <span data-ttu-id="84860-122">Könamn måste vara unika inom sitt lagringskonto.</span><span class="sxs-lookup"><span data-stu-id="84860-122">Queue names must be unique within their containing storage account.</span></span> <span data-ttu-id="84860-123">Det innebär att kombinationen av namnet på lagringskontot och könamnet ger en unik identifikation av kön.</span><span class="sxs-lookup"><span data-stu-id="84860-123">This means the combination of storage account name and queue name uniquely identifies a queue.</span></span>
+  - content: '<span data-ttu-id="84860-124">Sant eller falskt: när en klient programmässigt hämtar ett meddelande från en kö kan meddelandet automatiskt tas bort från kön?</span><span class="sxs-lookup"><span data-stu-id="84860-124">True or false: when a client programmatically retrieves a message from a queue, the message is automatically deleted from the queue?</span></span>'
+    choices:
+    - content: <span data-ttu-id="84860-125">Sant</span><span class="sxs-lookup"><span data-stu-id="84860-125">True</span></span>
+      isCorrect: false
+      incorrectExplanation: <span data-ttu-id="84860-126">Åtgärderna ”hämta meddelande” och ”ta bort meddelande” är separata.</span><span class="sxs-lookup"><span data-stu-id="84860-126">The operations 'get message' and 'delete message' are separate.</span></span>
+    - content: <span data-ttu-id="84860-127">Falskt</span><span class="sxs-lookup"><span data-stu-id="84860-127">False</span></span>
+      isCorrect: true
+      correctExplanation: <span data-ttu-id="84860-128">Meddelanden tas inte avsiktligt bort automatiskt från en kö när de hämtas för bearbetning.</span><span class="sxs-lookup"><span data-stu-id="84860-128">By design, messages are not automatically deleted from a queue after they are retrieved for processing.</span></span> <span data-ttu-id="84860-129">Detta säkerställer att varje meddelande bearbetas klart.</span><span class="sxs-lookup"><span data-stu-id="84860-129">This helps ensure that every message is processed to completion.</span></span> <span data-ttu-id="84860-130">Om ett konsumentprogram kraschar under bearbetning finns meddelandet kvar och kan bearbetas av en annan instans av konsumentappen.</span><span class="sxs-lookup"><span data-stu-id="84860-130">If a consumer application crashes during processing, the message is still available to be processed by a different instance of the consumer app.</span></span>
